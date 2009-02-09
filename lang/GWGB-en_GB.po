@@ -1,0 +1,351 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gwolle-GB\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-31 14:11+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Wolfgang Timme <info@media-services-hamburg.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: /Users/wolfgangtimme/Sites/heinegym/wordpress/wp-content/plugins/gwolle-gb/\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: gwolle-gb.php:68
+#: admin/welcome.php:8
+msgid "Guestbook"
+msgstr ""
+
+#: gwolle-gb.php:72
+msgid "Entries"
+msgstr ""
+
+#: gwolle-gb.php:75
+msgid "Entry editor"
+msgstr ""
+
+#: gwolle-gb.php:75
+msgid "New entry"
+msgstr ""
+
+#: gwolle-gb.php:78
+#: admin/settings.php:15
+msgid "Settings"
+msgstr ""
+
+#: admin/editor.php:20
+msgid "Edit guestbook entry"
+msgstr ""
+
+#: admin/editor.php:24
+msgid "Entry could not be found."
+msgstr ""
+
+#: admin/editor.php:28
+msgid "New guestbook entry"
+msgstr ""
+
+#: admin/editor.php:39
+msgid "Changes saved."
+msgstr ""
+
+#: admin/editor.php:42
+msgid "An error occurred while saving your changes."
+msgstr ""
+
+#: admin/editor.php:58
+msgid "Save"
+msgstr ""
+
+#: admin/editor.php:63
+msgid "Options"
+msgstr ""
+
+#: admin/editor.php:67
+msgid "This entry is checked."
+msgstr ""
+
+#: admin/editor.php:73
+msgid "You\\'re about to delete this guestbook entry. This can\\'t be undone. Are you still sure you want to continue?"
+msgstr ""
+
+#: admin/editor.php:73
+msgid "Delete"
+msgstr ""
+
+#: admin/editor.php:75
+msgid "Save changes"
+msgstr ""
+
+#: admin/editor.php:87
+#: admin/entries.php:218
+msgid "Details"
+msgstr ""
+
+#: admin/editor.php:93
+#: admin/entries.php:185
+msgid "Author"
+msgstr ""
+
+#: admin/editor.php:93
+#: admin/editor.php:139
+msgid "You"
+msgstr ""
+
+#: admin/editor.php:95
+msgid "E-Mail"
+msgstr ""
+
+#: admin/editor.php:95
+#: admin/editor.php:99
+#: admin/editor.php:101
+msgid "unknown"
+msgstr ""
+
+#: admin/editor.php:97
+#: admin/editor.php:122
+msgid "Written"
+msgstr ""
+
+#: admin/editor.php:97
+msgid "o'clock"
+msgstr ""
+
+#: admin/editor.php:97
+msgid "not yet"
+msgstr ""
+
+#: admin/editor.php:99
+msgid "Author's IP-address"
+msgstr ""
+
+#: admin/editor.php:101
+msgid "Host"
+msgstr ""
+
+#: admin/editor.php:113
+msgid "Log"
+msgstr ""
+
+#: admin/editor.php:124
+msgid "Entry has been locked."
+msgstr ""
+
+#: admin/editor.php:125
+msgid "Entry has been unlocked."
+msgstr ""
+
+#: admin/editor.php:152
+msgid "No entries yet."
+msgstr ""
+
+#: admin/editor.php:171
+msgid "Guestbook entry"
+msgstr ""
+
+#: admin/editor.php:178
+msgid "Homepage"
+msgstr ""
+
+#: admin/editor.php:181
+msgid "Example: <code>http://www.google.com/</code> &#8212; don't forget the <code>http://</code>!"
+msgstr ""
+
+#: admin/editor.php:186
+msgid "Origin"
+msgstr ""
+
+#: admin/entries.php:111
+msgid "Entry successfully deleted."
+msgstr ""
+
+#: admin/entries.php:112
+msgid "An error occured while trying to delete the entry."
+msgstr ""
+
+#: admin/entries.php:122
+msgid "All"
+msgstr ""
+
+#: admin/entries.php:123
+msgid "Unlocked"
+msgstr ""
+
+#: admin/entries.php:124
+msgid "New"
+msgstr ""
+
+#: admin/entries.php:129
+msgid "Showing:"
+msgstr ""
+
+#: admin/entries.php:129
+msgid "of"
+msgstr ""
+
+#: admin/entries.php:182
+msgid "ID"
+msgstr ""
+
+#: admin/entries.php:183
+msgid "Date"
+msgstr ""
+
+#: admin/entries.php:184
+msgid "Entry (excerpt)"
+msgstr ""
+
+#: admin/entries.php:186
+msgid "Action"
+msgstr ""
+
+#: admin/entries.php:230
+msgid "No entries found."
+msgstr ""
+
+#: admin/settings.php:18
+msgid "Changes successfully saved."
+msgstr ""
+
+#: admin/settings.php:26
+msgid "Notification"
+msgstr ""
+
+#: admin/settings.php:43
+msgid "Send me an e-mail when a new entry has been posted."
+msgstr ""
+
+#: admin/settings.php:47
+msgid "The following users have subscribed to this service:"
+msgstr ""
+
+#: admin/settings.php:62
+msgid "no subscriber yet"
+msgstr ""
+
+#: admin/settings.php:83
+msgid "Learn more about Recaptcha..."
+msgstr ""
+
+#: admin/settings.php:83
+msgid "What's that?"
+msgstr ""
+
+#: admin/settings.php:85
+msgid "Use Recaptcha"
+msgstr ""
+
+#: admin/settings.php:88
+msgid "<strong>Public</strong> key of your Recaptcha account"
+msgstr ""
+
+#: admin/settings.php:91
+msgid "<strong>Private</strong> key of your Recaptcha account"
+msgstr ""
+
+#: admin/settings.php:93
+msgid "The keys can be found at your"
+msgstr ""
+
+#: admin/settings.php:93
+msgid "Go to my reCAPTCHA sites..."
+msgstr ""
+
+#: admin/settings.php:93
+msgid "reCAPTCHA sites overview"
+msgstr ""
+
+#: admin/settings.php:101
+msgid "Save settings"
+msgstr ""
+
+#: admin/settings.php:114
+msgid "Uninstall"
+msgstr ""
+
+#: admin/settings.php:117
+msgid "Uninstalling means that all database entries are removed (settings and entries)."
+msgstr ""
+
+#: admin/settings.php:119
+msgid "This can <strong>not</strong> be undone."
+msgstr ""
+
+#: admin/settings.php:121
+msgid "I'm aware of that, continue!"
+msgstr ""
+
+#: admin/welcome.php:11
+msgid "Error"
+msgstr ""
+
+#: admin/welcome.php:11
+msgid "You don't have the privileges to perform this action."
+msgstr ""
+
+#: admin/welcome.php:31
+msgid "Latest updates"
+msgstr ""
+
+#: admin/welcome.php:49
+msgid "Help"
+msgstr ""
+
+#: admin/welcome.php:54
+msgid "This is how the guestbook will be displayed on your page"
+msgstr ""
+
+#: admin/welcome.php:57
+msgid "Create a new article."
+msgstr ""
+
+#: admin/welcome.php:58
+msgid "Choose a heading (doesn't matter) and set &quot;[gwolle-gb]&quot; (without the quotes) as the content."
+msgstr ""
+
+#: admin/welcome.php:87
+msgid "Welcome to the Guestbook!"
+msgstr ""
+
+#: admin/welcome.php:89
+msgid "Overview"
+msgstr ""
+
+#: admin/welcome.php:111
+msgid "entry total"
+msgstr ""
+
+#: admin/welcome.php:114
+msgid "entries total"
+msgstr ""
+
+#: admin/welcome.php:140
+msgid "unlocked entry"
+msgstr ""
+
+#: admin/welcome.php:143
+msgid "unlocked entries"
+msgstr ""
+
+#: admin/welcome.php:169
+msgid "new entry"
+msgstr ""
+
+#: admin/welcome.php:172
+msgid "new entries"
+msgstr ""
+
+#: admin/welcome.php:184
+msgid "Write admin entry"
+msgstr ""
+
+#: admin/welcome.php:185
+msgid "Here you can manage the entries."
+msgstr ""
+
+#: admin/welcome.php:188
+msgid "Only administrators have access to the guestbook backend."
+msgstr ""
+

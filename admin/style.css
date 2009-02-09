@@ -1,0 +1,39 @@
+#adminmenu #toplevel_page_gwolle-gb-gwolle-gb div.wp-menu-image {
+	background-image: url(gfx/icon.png);
+	background-repeat: no-repeat;
+	background-position: 5px 7px;
+}
+
+#adminmenu #toplevel_page_gwolle-gb-gwolle-gb:hover div.wp-menu-image,
+#adminmenu #toplevel_page_gwolle-gb-gwolle-gb.wp-has-current-submenu div.wp-menu-image {
+	background-image: url(gfx/icon-hover.png);
+}
+
+#icon-gwolle-gb {
+	background-image: url(gfx/icon-gross-hover.png);
+	background-repeat: no-repeat;
+	background-position: 0px 4px;
+	float: left;
+	width: 46px;
+	height: 46px;
+}
+
+#page-nav {
+	display: block;
+	clear: both;
+	width: 100%;
+	text-align: right;
+}
+
+.id, .check {
+	width: 12px;
+}
+
+.entry-spam, .entry-checked, .entry-unchecked {
+	background-repeat: no-repeat;
+	background-position: 0px 6px;
+	width: 10px;
+}
+.entry-spam { background-image: url(gfx/entry-spam.jpg); }
+.entry-checked { background-image: url(gfx/entry-checked.jpg); }
+.entry-unchecked { background-image: url(gfx/entry-unchecked.jpg); }

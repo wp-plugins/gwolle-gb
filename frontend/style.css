@@ -1,0 +1,65 @@
+.admin-entry {
+	background-color: #FFF0F5;
+	padding-left: 5px;
+}
+.gb-entry {
+	border-top: 1px dotted #000000;
+	padding-top: 10px;
+	margin-top: 10px;
+}
+#first.gb-entry {
+	border-width: 0px;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+.gb-entry .author-info, .gb-entry .entry-content {
+	display: block;
+}
+.gb-entry .entry-content {
+	padding-left: 10px;
+}
+.gb-entry .author-info .author-name {
+	font-weight: bold;
+}
+
+form#new_entry {
+	margin-top: 20px;
+}
+
+.error {
+	background-color: #FFB6C1;
+}
+#error_msg {
+	border: 2px solid #FF0000;
+	font-weight: bold;
+	padding: 5px;
+}
+
+.label, .input {
+	float: left;
+	vertical-align: top;
+}
+.label {
+	width: 150px;
+}
+.input input, .input textarea {
+	border: 1px solid #000000;
+	width: 300px;
+}
+.input textarea {
+	height: 150px;
+}
+.clearBoth {
+	clear: both;
+}
+
+#page-navigation {
+	width: 100%;
+	text-align: right;
+}
+#page-navigation a, #page-navigation span {
+	padding: 2px;
+	margin: 2px;
+	background-color: #C6C6C6;
+	border: 1px solid #000000;
+}
