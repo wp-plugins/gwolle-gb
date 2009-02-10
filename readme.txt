@@ -3,7 +3,7 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.7
 Tested up to: 2.7
-Stable tag: 0.9.4.2
+Stable tag: 0.9.4.2.1
 
 Gwolle-GB is the Wordpress guestbook you've just been looking for. Beautiful and easy.
 
@@ -31,6 +31,9 @@ in the Wordpress.org forums or send me an email to gwolle (at) wolfgangtimme (do
 use my homepage's comment section. I'd be glad to hear your opinion and/or feature request.
 
 = Changelog =
+
+0.9.4.2.1
+[rem] Removed the version check because of some problems.
 
 0.9.4.2
 [fix] Redirection to reading page after posting entry sometimes failed.

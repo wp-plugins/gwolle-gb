@@ -59,17 +59,6 @@
 	    <div id="dashboard-widgets" class="metabox-holder">
 				<div id="side-info-column" class="inner-sidebar">
 					<div id='right-sortables' class='meta-box-sortables'>
-						<?php if ($newVersion) { ?>
-							<div id="dashboard_primary" class="postbox " >
-								<div class="handlediv" title="Click to toggle"><br /></div>
-								<h3 class='hndle'><span><?php _e('Update available'); ?></span></h3>
-								<div class="inside">
-									<div class="rss-widget">
-	            			<?php echo str_replace('%1',$newVersion,__('A new version (v%1) is available. Grab it at <a href="http://wordpress.org/extend/plugins/gwolle-gb/">the plugin\'s Wordpress site</a>.',$textdomain)); ?>
-	       					</div>
-	       				</div>
-							</div>
-						<?php } ?>
 						<div id="gwolle_manual" class="postbox " >
 							<div class="handlediv" title="Click to toggle"><br /></div>
 							<h3 class='hndle'><span><?php _e('Help',$textdomain); ?></span></h3>

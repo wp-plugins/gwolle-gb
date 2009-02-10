@@ -247,28 +247,7 @@
 					</span>
 				</td>
 			</tr>
-			
-			<tr valign="top">
-				<th scope="row"><label for="autoCheckVersion"><?php _e('Version check',$textdomain); ?></label></th>
-				<td>
-					<?php
-						if (!get_cfg_var('allow_url_fopen')) {
-							//	This PHP configuration does not allow file() to access URLs
-							_e('I\'m sorry, but your PHP configuration has allow_url_fopen disabled. Please enable it to use the automatic version check.',$textdomain);
-						}
-						elseif (!function_exists('file')) {
-							_e('It seems that your PHP configuration has <code>file()</code> disabled. Please enable it to use the version check.',$textdomain);
-						}
-						else { ?>
-							<input type="checkbox" name="autoCheckVersion" id="autoCheckVersion" <?php if (get_option('gwolle_gb-autoCheckVersion')=='true') { echo 'checked="checked"'; } ?>> <?php _e('Automatically check wolfgangtimme.de for the most recent version number.',$textdomain); ?>
-							<br>
-							<span class="setting-description">
-								<?php _e('Can be turned of in case you don\'t want your blog to ping that site.',$textdomain); ?>
-							</span>
-					<?php } ?>
-				</td>
-			</tr>
-			
+						
 			<tr>
 				<td colspan="" style="">&nbsp;</td>
 				<td>

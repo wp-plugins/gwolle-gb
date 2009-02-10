@@ -221,6 +221,14 @@
 			add_option('gwolle_gb-entriesPerPage','20');
 		}
 		
+		if (version_compare($installed_ver,'0.9.4.2.1','<')) {
+			/*
+			**	0.9.4.2->0.9.4.2.1
+			**	Removed the version check because of some problems.
+			*/
+			delete_option('gwolle_gb-autoCheckVersion');
+		}
+		
 		//	Update the plugin version option
 		update_option('gwolle_gb_version', GWOLLE_GB_VER);
 	}
