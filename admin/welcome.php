@@ -1,6 +1,46 @@
 <?php
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
+	
+	//	Calculate the number of entries
+	$checkedEntries_result = mysql_query("
+		SELECT entry_id
+		FROM
+			" . $wpdb->prefix . "gwolle_gb_entries
+		WHERE
+			entry_isChecked = '1'
+			AND
+			entry_isDeleted = '0'
+			AND
+			entry_isSpam != '1'
+	");
+	$count['checked'] = mysql_num_rows($checkedEntries_result);
+	
+	$uncheckedEntries_result = mysql_query("
+		SELECT entry_id
+		FROM
+			" . $wpdb->prefix . "gwolle_gb_entries
+		WHERE
+			entry_isChecked != '1'
+			AND
+			entry_isDeleted = '0'
+			AND
+			entry_isSpam != '1'
+	");
+	$count['unchecked'] = mysql_num_rows($uncheckedEntries_result);
+	
+	$spamEntries_result = mysql_query("
+		SELECT entry_id
+		FROM
+			" . $wpdb->prefix . "gwolle_gb_entries
+		WHERE
+			entry_isSpam = '1'
+			AND
+			entry_isDeleted = '0'
+	");
+	$count['spam'] = mysql_num_rows($spamEntries_result);
+	
+	$count['all'] = $count['checked'] + $count['unchecked'] + $count['spam'];
 ?>
 
 <div class="wrap">
@@ -19,13 +59,13 @@
 	    <div id="dashboard-widgets" class="metabox-holder">
 				<div id="side-info-column" class="inner-sidebar">
 					<div id='right-sortables' class='meta-box-sortables'>
-						<?php if (1==2) { ?>
+						<?php if ($newVersion) { ?>
 							<div id="dashboard_primary" class="postbox " >
 								<div class="handlediv" title="Click to toggle"><br /></div>
-								<h3 class='hndle'><span>Infobox</span></h3>
+								<h3 class='hndle'><span><?php _e('Update available'); ?></span></h3>
 								<div class="inside">
 									<div class="rss-widget">
-	            			<p></p>
+	            			<?php echo str_replace('%1',$newVersion,__('A new version (v%1) is available. Grab it at <a href="http://wordpress.org/extend/plugins/gwolle-gb/">the plugin\'s Wordpress site</a>.',$textdomain)); ?>
 	       					</div>
 	       				</div>
 							</div>
@@ -40,8 +80,9 @@
 	  									<?php _e('This is how the guestbook will be displayed on your page',$textdomain); ?>:
 	  									<br>
 	  									<ul>
-	  										<li><?php _e('Create a new article.',$textdomain); ?></li>
+	  										<li><?php _e('Create a new article or page.',$textdomain); ?></li>
 	  										<li><?php _e("Choose a heading (doesn't matter) and set &quot;[gwolle-gb]&quot; (without the quotes) as the content.", $textdomain); ?></li>
+	  										<li><?php _e("Of course, you should disable comments on that new content; otherwise, your visitors might get a little confused. ;)",$textdomain); ?></li>
 	  									</ul>
 										</div>
 							    </div>
@@ -83,21 +124,11 @@
 												<tr class="first">
 									
 													<td class="first b"><a href="admin.php?page=gwolle-gb/entries.php">
-														<?php
-															$entriesTotal_result = mysql_query("
-																SELECT entry_id
-																FROM
-																	" . $wpdb->prefix . "gwolle_gb_entries
-																WHERE
-																	entry_isDeleted = '0'
-															");
-															$count = mysql_num_rows($entriesTotal_result);
-															echo $count;
-														?>
+														<?php echo $count['all']; ?>
 													</a></td>
 													<td class="t">
 														<?php
-															if ($count==1) {
+															if ($count['all']==1) {
 																_e('entry total',$textdomain);
 															}
 															else {
@@ -110,25 +141,11 @@
 												</tr>
 												<tr>
 													<td class="first b"><a href="admin.php?page=gwolle-gb/entries.php&amp;show=checked">
-														<?php
-															$entriesTotal_result = mysql_query("
-																SELECT entry_id
-																FROM
-																	" . $wpdb->prefix . "gwolle_gb_entries
-																WHERE
-																	entry_isChecked = '1'
-																	AND
-																	entry_isDeleted = '0'
-																	AND
-																	entry_isSpam != '1'
-															");
-															$count = mysql_num_rows($entriesTotal_result);
-															echo $count;
-														?>
+														<?php echo $count['checked']; ?>
 													</a></td>
-													<td class="t">
+													<td class="t" style="color:#008000;">
 														<?php
-															if ($count == 1) {
+															if ($count['checked'] == 1) {
 																_e('unlocked entry',$textdomain);
 															}
 															else {
@@ -141,25 +158,11 @@
 												</tr>
 												<tr>
 													<td class="first b"><a href="admin.php?page=gwolle-gb/entries.php&amp;show=unchecked">
-														<?php
-															$entriesTotal_result = mysql_query("
-																SELECT entry_id
-																FROM
-																	" . $wpdb->prefix . "gwolle_gb_entries
-																WHERE
-																	entry_isChecked != '1'
-																	AND
-																	entry_isDeleted = '0'
-																	AND
-																	entry_isSpam != '1'
-															");
-															$count = mysql_num_rows($entriesTotal_result);
-															echo $count;
-														?>
+														<?php echo $count['unchecked']; ?>
 													</a></td>
-													<td class="t">
+													<td class="t" style="color:#FFA500;">
 														<?php
-															if ($count == 1) {
+															if ($count['unchecked'] == 1) {
 																_e('new entry',$textdomain);
 															}
 															else {
@@ -172,23 +175,11 @@
 												</tr>
 												<tr>
 													<td class="first b"><a href="admin.php?page=gwolle-gb/entries.php&amp;show=spam">
-														<?php
-															$entriesSpam_result = mysql_query("
-																SELECT entry_id
-																FROM
-																	" . $wpdb->prefix . "gwolle_gb_entries
-																WHERE
-																	entry_isSpam = '1'
-																	AND
-																	entry_isDeleted = '0'
-															");
-															$count = mysql_num_rows($entriesSpam_result);
-															echo $count;
-														?>
+														<?php echo $count['spam']; ?>
 													</a></td>
-													<td class="t">
+													<td class="t" style="color:#FF0000;">
 														<?php
-															if ($count == 1) {
+															if ($count['spam'] == 1) {
 																_e('spam entry',$textdomain);
 															}
 															else {
@@ -208,12 +199,12 @@
     								<?php _e('Here you can manage the entries.',$textdomain); ?>
     							</p>
 									<span>
-										<?php _e('Only administrators have access to the guestbook backend.',$textdomain); ?>
+										<?php echo str_replace('%1','<strong>' . $userLevelNames[(int)get_option('gwolle_gb-access-level')] . '</strong>',__('Only users with the role %1 have access to the guestbook backend.',$textdomain)); ?>
 									</span>
 								</div>
 							</div>
 						</div>
-						<div id="gwolle_gb_updates" class="postbox " >
+						<div style="display:none;" id="gwolle_gb_updates" class="postbox " >
 							<div class="handlediv" title="Click to toggle"><br /></div>
 							<h3 class='hndle'><span><?php _e('Latest updates',$textdomain); ?> &#8212; <i>(<?php echo str_replace('%1',GWOLLE_GB_VER,__("v%1 installed",$textdomain)); ?>)</i></span></h3>
 							<div class="inside">

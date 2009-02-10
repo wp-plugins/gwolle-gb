@@ -7,12 +7,13 @@
 	global $wpdb;
 	global $textdomain;
 	
-	//	Get link to the guestbook (using category or page?)
+	//	Get the guestbook link.
+	global $post;
 	if (is_numeric(get_query_var('cat'))) {
 		$gb_link = '?cat=' . get_query_var('cat');
 	}
 	else {
-		$gb_link = '?p=' . get_query_var('p');
+		$gb_link = '?p=' . $post->ID;
 	}
 	
 	if ($_REQUEST['gb_page'] == 'write') {

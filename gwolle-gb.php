@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://wolfgangtimme.de/blog/
 Description: simple guestbook
-Version: 0.9.4.1
+Version: 0.9.4.2
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -32,7 +32,12 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	load_plugin_textdomain($textdomain, false, dirname( plugin_basename(__FILE__) ) . '/lang');
 
 	//	plugin's version
-	define('GWOLLE_GB_VER','0.9.4.1');
+	define('GWOLLE_GB_VER','0.9.4.2');
+	
+	//	Get the latest version number, if this check is not disabled by the user.
+	if ($_REQUEST['page'] == 'gwolle-gb/gwolle-gb.php' && get_option('gwolle_gb-autoCheckVersion') == 'true') {
+		include('admin/versionCheck.php');
+	}
 
 	//	Akismet PHP4 class folder's name
 	define('AKISMET_PHP4_CLASS_DIR','Akismet_PHP4');
@@ -45,7 +50,12 @@ Author URI: http://www.wolfgangtimme.de/blog/
 
 	//	make sure this plugin is compatible to prior versions of Wordpress
 	include('admin/_compatibility.php');
-		
+	
+	//	Set the default mail text.
+	$defaultMailText = __("Hello,\n\nthere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer",$textdomain);
+	
+	//	Set the user level names
+	$userLevelNames = array(0 => 'Subscriber', 1 => 'Contributor', 2 => 'Author', 3 => 'Author', 4 => 'Author', 5 => 'Editor', 6 => 'Editor', 7 => 'Editor', 8 => 'Administrator', 9 => 'Administrator', 10 => 'Administrator');
 	
 	//	Trigger an upgrade function when the plugin is activated.
 	if (!function_exists('gwolle_gb_activation')) {
@@ -118,9 +128,11 @@ Author URI: http://www.wolfgangtimme.de/blog/
 			include('admin/do-spam.php');
 		}
 		elseif ($_REQUEST['gb_page'] == 'write' && $_POST) {
+			global $defaultMailText;
 			include('frontend/do-saveNewEntry.php');
 		}
 		elseif ($_REQUEST['action'] == 'saveSettings') {
+			global $defaultMailText;
 			include('admin/do-saveSettings.php');
 		}
 		elseif ($_REQUEST['page'] == 'gwolle-gb/entries.php') {
@@ -145,14 +157,19 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	function add_gwolle_gb_admin_css() {
 		echo "<link rel='stylesheet' href='" . get_option('siteurl') . "/wp-admin/css/dashboard.css?ver=20081210' type='text/css' media='all' />";
 		echo "<link rel='stylesheet' href='" . WP_PLUGIN_URL . "/gwolle-gb/admin/style.css' type='text/css' media='all' />";
-	}	
+	}
+	
+	//	Function (use this to display the guestbook on a page)
+	function show_gwolle_gb() {
+		include('frontend/index.php');
+	}
 	
 	//	Replace the [gwolle-gb] tag with the guestbook
 	add_filter('the_content', 'output_guestbook');
 	function output_guestbook($content) {
 		if (strpos($content,'[gwolle-gb]') > -1) {
 			//	Display the frontend.
-			include('frontend/index.php');
+			show_gwolle_gb();
 		}
 		else {
 			return $content;
@@ -161,7 +178,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 
 	
 	function page_index() {
-		global $wpdb; global $textdomain;
+		global $wpdb; global $textdomain; global $newVersion; global $userLevelNames;
 		if (!get_option('gwolle_gb_version')) {
 			include('admin/installSplash.php');
 		}
@@ -191,7 +208,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	}
 	
 	function page_settings() {
-		global $wpdb; global $textdomain;
+		global $wpdb; global $textdomain; global $defaultMailText;
 		if (!get_option('gwolle_gb_version')) {
 			include('admin/installSplash.php');
 		}

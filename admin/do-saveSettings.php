@@ -67,7 +67,25 @@
 		else {
 			update_option('gwolle_gb-showEntryIcons','false');
 		}
-			
+		
+		//	Admin mail content
+		if ($_POST['adminMailContent'] != $defaultMailText) {
+			update_option('gwolle_gb-adminMailContent',$_POST['adminMailContent']);
+		}
+		
+		//	Auto version check option
+		if ($_POST['autoCheckVersion'] == 'on') {
+			update_option('gwolle_gb-autoCheckVersion','true');
+		}
+		else {
+			update_option('gwolle_gb-autoCheckVersion','false');
+		}
+		
+		//	Entries per page options
+		if (is_numeric($_POST['entriesPerPage']) && $_POST['entriesPerPage'] > 0) {
+			update_option('gwolle_gb-entriesPerPage',$_POST['entriesPerPage']);
+		}
+		
 		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
 		exit;
 	}

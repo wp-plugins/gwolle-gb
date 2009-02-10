@@ -145,31 +145,33 @@
 					while ($recipient = mysql_fetch_array($recipients_result)) {
 						$userdata = get_userdata(str_replace('gwolle_gb-notifyByMail-','',$recipient['option_name']));
 						if (($isSpam =='1' && get_option('gwolle_gb-notifyAll-' . $userdata->ID) == 'true') || $isSpam == '0') {
-							$emails[] = $userdata->user_email;
+							$subscriber[]['user_email'] = $userdata->user_email;
 						}
 					}
-					//	In the future I'd like to have options for emails, but for now use some default settings.
-					@ini_set('sendmail_from', 'do-not@reply.com');
+					
+					@ini_set('sendmail_from', get_bloginfo('admin_mail'));
 				
-					//	email notification (currently not changeable in the admin panel; do this in future releases!)
-					$mail_body  = "Hello,\n\n";
-					$mail_body .= "there is a new guestbook entry at '" . get_bloginfo('name') . "'.\n";
-					if (get_option('gwolle_gb-moderate-entries') == 'true') {
-						$mail_body .= "This entry has to be reviewed before it is visible in your guestbook. Please log in at " . get_bloginfo('siteurl') . "/wp-admin/\n";
-						$mail_body .= "and review it.\n\n";
-					}
-					elseif ($isChecked) {
-						$mail_body .= "Due your setting to instantly display every posted entry in your guestbook this new entry is now visible at your homepage. (You can change this using the setting panel of Gwolle-GB.)\n\n";
-					}
-					elseif ($isSpam) {
-						$mail_body .= "Akismet identified this entry as spam. Please check this using the Gwolle-GB-Panel.\n\n";
-					}
-					$mail_body .= "Have a nice day!\nYour Gwolle-GB-Mailer";
+					//	Set the mail content
+					$mailTags = array('user_email','entry_management_url','blog_name','blog_url','wp_admin_url');
+					$mail_body = get_option('gwolle_gb-adminMailContent');
+					if (!$mail_body) { $mail_body = $defaultMailText; }
 					
 					$subject = "[" . get_bloginfo('name') . "] New guestbook entry"; //subject
 					$header = "From: Gwolle-Gb-Mailer <" . get_bloginfo('admin_email') . ">\r\n"; //optional headerfields
-					for ($i=0; $i<count($emails); $i++) {
-						mail($emails[$i], $subject, $mail_body, $header);
+					
+					$info['blog_name'] = get_bloginfo('name');
+					$info['blog_url'] = get_bloginfo('url');
+					$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
+					$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=gwolle-gb/editor.php&entry_id=' . mysql_insert_id();
+					//	The last tags are bloginfo-based
+					for ($tagNum=1; $tagNum<count($mailTags); $tagNum++) {
+						$mail_body = str_replace('%' . $mailTags[$tagNum] . '%',$info[$mailTags[$tagNum]],$mail_body);
+					}
+					
+					for ($i=0; $i<count($subscriber); $i++) {
+						$mailBody[$i] = $mail_body;
+						$mailBody[$i] = str_replace('%user_email%',$subscriber[$i]['user_email'],$mailBody[$i]);
+						mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
 					}
 					$msg = 'entry-saved';
 				}

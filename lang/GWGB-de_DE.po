@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-09 18:44+0100\n"
+"POT-Creation-Date: 2009-02-10 16:40+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Wolfgang Timme <info@media-services-hamburg.de>\n"
 "Language-Team: \n"
@@ -13,24 +13,42 @@ msgstr ""
 "X-Poedit-Basepath: /Users/wolfgangtimme/Sites/heinegym/wordpress/wp-content/plugins/gwolle-gb/\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: gwolle-gb.php:79
+#: gwolle-gb.php:55
+msgid ""
+"Hello,\n"
+"\n"
+"there is a new guestbook entry at '%blog_name%'.\n"
+"You can check it at %entry_management_url%.\n"
+"\n"
+"Have a nice day!\n"
+"Your Gwolle-GB-Mailer"
+msgstr ""
+"Hallo,\n"
+"\n"
+"auf '%blog_name% gibt es einen neuen G&auml;stebuch-Eintrag.\n"
+"Du kannst ihn unter %entry_management_url% einsehen und bearbeiten.\n"
+"\n"
+"Viele Gr&uuml;&szlig;e!Dein Gwolle-GB-Mailer"
+
+#: gwolle-gb.php:89
 #: admin/welcome.php:8
 msgid "Guestbook"
 msgstr "G&auml;stebuch"
 
-#: gwolle-gb.php:83
+#: gwolle-gb.php:93
+#: admin/settings.php:217
 msgid "Entries"
 msgstr "Eintr&auml;ge"
 
-#: gwolle-gb.php:86
+#: gwolle-gb.php:96
 msgid "Entry editor"
 msgstr "Eintragseditor"
 
-#: gwolle-gb.php:86
+#: gwolle-gb.php:96
 msgid "New entry"
 msgstr "Neuer Eintrag"
 
-#: gwolle-gb.php:89
+#: gwolle-gb.php:99
 #: admin/settings.php:15
 msgid "Settings"
 msgstr "Einstellungen"
@@ -422,27 +440,67 @@ msgstr "Zeige Icons zu den Eintr&auml;gen"
 msgid "These icons are shown in every entry row, so that you know its entry status (spam, locked or unlocked)."
 msgstr "Diese Icons werden in jeder Reihe angezeigt, damit Du &uuml;ber den Status (Spam, gesperrt oder freigegeben) eines jeden Beitrags informiert bist."
 
-#: admin/settings.php:213
+#: admin/settings.php:210
+msgid "Entries per page"
+msgstr "Eintr&auml;ge pro Seite"
+
+#: admin/settings.php:222
+msgid "Number of entries shown on the frontend in reading mode."
+msgstr "Anzahl der Eintr&auml;ge, die im G&auml;stebuch auf einer Seite zu sehen sind."
+
+#: admin/settings.php:227
+msgid "Admin mail content"
+msgstr "Text der Benachrichtigung"
+
+#: admin/settings.php:242
+msgid "You can set the content of the mail a notification subscriber gets on new entries. The following tags are supported:"
+msgstr "Du kannst den Inhalt der Benachrichtigungs-E-Mail f&uuml;r neue Eintr&auml;ge ver&auml;ndern. Folgende Tags werden unterst&uuml;tzt:"
+
+#: admin/settings.php:252
+msgid "Version check"
+msgstr "Versions-Kontrolle"
+
+#: admin/settings.php:257
+msgid "I'm sorry, but your PHP configuration has allow_url_fopen disabled. Please enable it to use the automatic version check."
+msgstr "Tut mir Leid, aber deine PHP-Konfiguration hat allow_url_fopen ausgeschaltet. Bitte schaltet dies ein, um die automatische Versions-Kontrolle zu nutzen."
+
+#: admin/settings.php:260
+msgid "It seems that your PHP configuration has <code>file()</code> disabled. Please enable it to use the version check."
+msgstr "Es scheint, als w&auml;re <code>file()</code> in deiner PHP-Konfiguration ausgeschaltet. Bitte schaltet dies ein, um den Versions-Check zu nutzen."
+
+#: admin/settings.php:263
+msgid "Automatically check wolfgangtimme.de for the most recent version number."
+msgstr "Frage wolfgangtimme.de automatisch nach der neusten Versionsnummer."
+
+#: admin/settings.php:266
+msgid "Can be turned of in case you don't want your blog to ping that site."
+msgstr "Kann ausgeschaltet werden, wenn Du nicht m&ouml;chtest, dass dein Blog eine Anfrage an diese Seite sendet."
+
+#: admin/settings.php:276
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
-#: admin/settings.php:236
+#: admin/settings.php:299
 msgid "Uninstall"
 msgstr "Deinstallation"
 
-#: admin/settings.php:239
+#: admin/settings.php:302
 msgid "Uninstalling means that all database entries are removed (settings and entries)."
 msgstr "Deinstallation hei&szlig;t, dass alle Datenbank-Eintr&auml;ge (Einstellungen und G&auml;stebuch-Eintr&auml;ge) gel&ouml;scht werden."
 
-#: admin/settings.php:241
+#: admin/settings.php:304
 msgid "This can <strong>not</strong> be undone."
 msgstr "Dies kann <strong>nicht</strong> r&uuml;ckg&auml;ngig gemacht werden."
 
-#: admin/settings.php:244
+#: admin/settings.php:307
 msgid "Also delete reCAPTCHA keys"
 msgstr "reCAPTCHA-Keys ebenfalls l&ouml;schen"
 
-#: admin/settings.php:246
+#: admin/settings.php:309
+msgid "Are you really, really sure you want to do this? You may want to make a backup before deleting all the entries."
+msgstr "Bist Du dir wirklich ganz, ganz sicher, dass Du dies machen m&ouml;chtest? Vielleicht legst Du vorher noch ein Backup der G&auml;stebuch-Eintr&auml;ge an."
+
+#: admin/settings.php:309
 msgid "I'm aware of that, continue!"
 msgstr "Wei&szlig; ich, mach weiter!"
 
@@ -459,6 +517,14 @@ msgstr "Du hast nicht gen&uuml;gend Rechte f&uuml;r diese Aktion."
 msgid "Please check your Akismet configuration."
 msgstr "Bitte &uuml;berpr&uuml;fe deine Akismet-Konfiguration."
 
+#: admin/welcome.php:25
+msgid "Update available"
+msgstr "Neue Version verf&uuml;gbar"
+
+#: admin/welcome.php:28
+msgid "A new version (v%1) is available. Grab it at <a href=\"http://wordpress.org/extend/plugins/gwolle-gb/\">the plugin's Wordpress site</a>."
+msgstr "Eine neue Version (v%1) ist verf&uuml;gbar. Hol sie dir auf der offiziellen <a href=\"http://wordpress.org/extend/plugins/gwolle-gb/\">Wordpress-Seite des Plugins</a>."
+
 #: admin/welcome.php:35
 msgid "Help"
 msgstr "Hilfe"
@@ -468,83 +534,87 @@ msgid "This is how the guestbook will be displayed on your page"
 msgstr "So kannst Du das G&auml;stebuch auf deiner Seite anzeigen lassen"
 
 #: admin/welcome.php:43
-msgid "Create a new article."
-msgstr "Erstelle einen neuen Artikel."
+msgid "Create a new article or page."
+msgstr "Erstelle einen neuen Artikel oder eine neue Seite."
 
 #: admin/welcome.php:44
 msgid "Choose a heading (doesn't matter) and set &quot;[gwolle-gb]&quot; (without the quotes) as the content."
 msgstr "W&auml;hle eine &Uuml;berschrift (egal) und setze &quot;[gwolle-gb]&quot; (ohne Anf&uuml;hrungszeichen) als Inhalt."
 
-#: admin/welcome.php:53
+#: admin/welcome.php:45
+msgid "Of course, you should disable comments on that new content; otherwise, your visitors might get a little confused. ;)"
+msgstr "Nat&uuml;rlich solltest Du noch Kommentare f&uuml;r diesen neuen Inhalt deaktivieren; andernfalls k&ouml;nnten deine Besucher etwas verwirrt werden. ;)"
+
+#: admin/welcome.php:54
 msgid "This plugin uses the following scripts/programs/images:"
 msgstr "Dieses Plugin nutzt die folgenden Scripts/Programme/Bilder:"
 
-#: admin/welcome.php:60
 #: admin/welcome.php:61
+#: admin/welcome.php:62
 msgid "Class by"
 msgstr "Klasse von"
 
-#: admin/welcome.php:62
+#: admin/welcome.php:63
 msgid "Icons by"
 msgstr "Icons von"
 
-#: admin/welcome.php:77
+#: admin/welcome.php:78
 msgid "Welcome to the Guestbook!"
 msgstr "Willkommen im G&auml;stebuch!"
 
-#: admin/welcome.php:79
+#: admin/welcome.php:80
 msgid "Overview"
 msgstr "&Uuml;berblick"
 
-#: admin/welcome.php:101
+#: admin/welcome.php:102
 msgid "entry total"
 msgstr "Eintrag insgesamt"
 
-#: admin/welcome.php:104
+#: admin/welcome.php:105
 msgid "entries total"
 msgstr "Eintr&auml;ge insgesamt"
 
-#: admin/welcome.php:132
+#: admin/welcome.php:133
 msgid "unlocked entry"
 msgstr "freigegebener Eintrag"
 
-#: admin/welcome.php:135
+#: admin/welcome.php:136
 msgid "unlocked entries"
 msgstr "freigegebene Eintr&auml;ge"
 
-#: admin/welcome.php:163
+#: admin/welcome.php:164
 msgid "new entry"
 msgstr "neuer Eintrag"
 
-#: admin/welcome.php:166
+#: admin/welcome.php:167
 msgid "new entries"
 msgstr "neue Eintr&auml;ge"
 
-#: admin/welcome.php:192
+#: admin/welcome.php:193
 msgid "spam entry"
 msgstr "Spam-Eintrag"
 
-#: admin/welcome.php:195
+#: admin/welcome.php:196
 msgid "spam entries"
 msgstr "Spam-Eintr&auml;ge"
 
-#: admin/welcome.php:207
+#: admin/welcome.php:208
 msgid "Write admin entry"
 msgstr "Admin-Beitrag verfassen"
 
-#: admin/welcome.php:208
+#: admin/welcome.php:209
 msgid "Here you can manage the entries."
 msgstr "Hier kannst Du die Eintr&auml;ge verwalten."
 
-#: admin/welcome.php:211
-msgid "Only administrators have access to the guestbook backend."
-msgstr " Nur Administratoren haben Zugriff auf das Gästebuch-Backend."
+#: admin/welcome.php:212
+msgid "Only users with the role %1 have access to the guestbook backend."
+msgstr "Nur Benutzer mit der Rolle %1 haben Zugang zum G&auml;stebuch-Backend."
 
-#: admin/welcome.php:218
+#: admin/welcome.php:219
 msgid "Latest updates"
 msgstr "Letzte &Auml;nderungen"
 
-#: admin/welcome.php:218
+#: admin/welcome.php:219
 msgid "v%1 installed"
 msgstr "v%1 installiert"
 
@@ -564,19 +634,19 @@ msgstr "<br>Wir werden deinen Eintrag sichten und ihn in K&uuml;rze freigeben."
 msgid "Well, there has been an error querying the database.<br>Please try again later, thanks!"
 msgstr "Tja, da gabs wohl einen kleinen Fehler in der Datenbank.<br>Bitte versuche es sp&auml;ter noch einmal, danke!"
 
-#: frontend/read.php:129
+#: frontend/read.php:133
 msgid "(no entries yet)"
 msgstr "(keine Eintr&auml;ge bisher)"
 
-#: frontend/read.php:142
+#: frontend/read.php:146
 msgid "Staff"
 msgstr "Redaktion"
 
-#: frontend/read.php:149
+#: frontend/read.php:153
 msgid "from"
 msgstr "aus"
 
-#: frontend/read.php:151
+#: frontend/read.php:155
 msgid "wrote at"
 msgstr "schrieb am"
 

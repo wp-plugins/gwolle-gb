@@ -61,6 +61,16 @@
 		//	Add icon option
 		add_option('gwolle_gb-showEntryIcons','true');
 		
+		//	Add option for the admin mail content (can then be defined by the user)
+		add_option('gwolle_gb-adminMailContent','');
+		
+		//	Add option to automatically check for the most recent version number via wolfgangtimme.de
+		if (function_exists('file') && get_cfg_var('allow_url_fopen')) { $default = 'true'; } else { $default = 'false'; }
+		add_option('gwolle_gb-autoCheckVersion',$default);
+		
+		//	Add entries per page option
+		add_option('gwolle_gb-entriesPerPage','20');
+		
 		//	Save plugin version to database
 		add_option('gwolle_gb_version', GWOLLE_GB_VER);
 	}
@@ -195,6 +205,20 @@
 			*/
 			add_option('gwolle_gb-wordpress-api-key',get_option('wordpress_api_key'));
 			add_option('gwolle_gb-showEntryIcons','true');
+		}
+		
+		if (version_compare($installed_ver,'0.9.4.2','<')) {
+			/*
+			**	0.9.4.1->0.9.4.2
+			**	Added the possibility to specify the content of the mail
+			**	a subscriber of the mail notification gets.
+			**	Also, added an option to turn the version-check on/off
+			**	and the possibility to set the numbers of entries per page.
+			*/
+			add_option('gwolle_gb-adminMailContent','');
+			if (function_exists('file') && get_cfg_var('allow_url_fopen')) { $default = 'true'; } else { $default = 'false'; }
+			add_option('gwolle_gb-autoCheckVersion',$default);
+			add_option('gwolle_gb-entriesPerPage','20');
 		}
 		
 		//	Update the plugin version option

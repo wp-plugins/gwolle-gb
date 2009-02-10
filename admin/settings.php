@@ -40,7 +40,7 @@
 				<td>
 					<select name="access_level">
 						<?php
-							$userLevelNames = array(0 => 'Subscriber', 1 => 'Contributor', 2 => 'Author', 3 => 'Author', 4 => 'Author', 5 => 'Editor', 6 => 'Editor', 7 => 'Editor', 8 => 'Administrator', 9 => 'Administrator', 10 => 'Administrator');
+							global $userLevelNames;
 							for ($i=10; $i>=0; $i--) {
 								if (strlen($i) == 1) { $zahl = '0' . $i; } else { $zahl = $i; }
 								echo '<option'; if (get_option('gwolle_gb-access-level') == $i) { echo ' selected="selected"'; } echo ' value="' . $i . '">' . $zahl . ' - ' . $userLevelNames[$i] . '</option>';
@@ -206,6 +206,69 @@
 				</td>
 			</tr>
 			
+			<tr valign="top">
+				<th scope="row"><label for="entriesPerPage"><?php _e('Entries per page',$textdomain); ?></label></th>
+				<td>
+					<select name="entriesPerPage">
+						<?php
+							$entriesPerPage = get_option('gwolle_gb-entriesPerPage');
+							$presets = array(5,10,15,20,25,30,40,50,60,70,80,90,100,120,150,200,250);
+							for ($i=0; $i<count($presets); $i++) {
+								echo '<option value="' . $presets[$i] . '"'; if ($presets[$i] == $entriesPerPage) { echo ' selected="selected"'; } echo '>' . $presets[$i] . ' ' . __('Entries',$textdomain) . '</option>';
+							}
+						?>
+					</select>
+					<br>
+					<span class="setting-description"><?php _e('Number of entries shown on the frontend in reading mode.',$textdomain); ?></span>
+				</td>
+			</tr>
+			
+			<tr valign="top">
+				<th scope="row"><label for="adminMailContent"><?php _e('Admin mail content',$textdomain); ?></label></th>
+				<td>
+					<?php
+						$adminMailContent = get_option('gwolle_gb-adminMailContent');
+						if (!$adminMailContent) { //	No text set by the user. Use the default text.
+							$mailText = $defaultMailText;
+						}
+						else {
+							$mailText = stripslashes($adminMailContent);
+						}
+					?>
+					<textarea name="adminMailContent" id="adminMailContent" style="width:400px;height:200px;" class="regular-text"><?php echo $mailText; ?></textarea>
+					<br>
+					<span class="setting-description">
+						<?php
+							_e('You can set the content of the mail a notification subscriber gets on new entries. The following tags are supported:',$textdomain);
+							echo '<br>';
+							$mailTags = array('user_email','entry_management_url','blog_name','blog_url','wp_admin_url');
+							for ($i=0; $i<count($mailTags); $i++) { if ($i!=0) { echo '&nbsp;,&nbsp;'; } echo '%' . $mailTags[$i] . '%'; }
+						?>
+					</span>
+				</td>
+			</tr>
+			
+			<tr valign="top">
+				<th scope="row"><label for="autoCheckVersion"><?php _e('Version check',$textdomain); ?></label></th>
+				<td>
+					<?php
+						if (!get_cfg_var('allow_url_fopen')) {
+							//	This PHP configuration does not allow file() to access URLs
+							_e('I\'m sorry, but your PHP configuration has allow_url_fopen disabled. Please enable it to use the automatic version check.',$textdomain);
+						}
+						elseif (!function_exists('file')) {
+							_e('It seems that your PHP configuration has <code>file()</code> disabled. Please enable it to use the version check.',$textdomain);
+						}
+						else { ?>
+							<input type="checkbox" name="autoCheckVersion" id="autoCheckVersion" <?php if (get_option('gwolle_gb-autoCheckVersion')=='true') { echo 'checked="checked"'; } ?>> <?php _e('Automatically check wolfgangtimme.de for the most recent version number.',$textdomain); ?>
+							<br>
+							<span class="setting-description">
+								<?php _e('Can be turned of in case you don\'t want your blog to ping that site.',$textdomain); ?>
+							</span>
+					<?php } ?>
+				</td>
+			</tr>
+			
 			<tr>
 				<td colspan="" style="">&nbsp;</td>
 				<td>
@@ -233,7 +296,7 @@
 	<form action="<?php echo $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page']; ?>&amp;action=uninstall_gwolle_gb" method="POST">
 		<table style="margin-top:30px;" class="form-table">
 			<tr valign="top" style="margin-top:30px;">
-				<th scope="row"><label for="blogdescription"><?php _e('Uninstall',$textdomain); ?></label></th>
+				<th scope="row" style="color:#FF0000;"><label for="blogdescription"><?php _e('Uninstall',$textdomain); ?></label></th>
 				<td>
 					<?php
 						_e('Uninstalling means that all database entries are removed (settings and entries).',$textdomain);
@@ -243,7 +306,7 @@
 					<br>
 					<input type="checkbox" name="delete_recaptchaKeys"> <?php _e('Also delete reCAPTCHA keys',$textdomain); ?>
 					<br>
-					<input type="submit" class="button" value="<?php _e("I'm aware of that, continue!",$textdomain); ?>">
+					<input type="submit" class="button" onClick="return confirm('<?php _e('Are you really, really sure you want to do this? You may want to make a backup before deleting all the entries.',$textdomain); ?>');" value="<?php _e("I'm aware of that, continue!",$textdomain); ?>">
 				</td>
 			</tr>
 		</table>

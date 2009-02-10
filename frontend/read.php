@@ -21,7 +21,11 @@
 			AND
 			entry_isDeleted = '0'
 	");
-	$entriesPerPage = 20;
+	$entriesPerPage = (int)get_option('gwolle_gb-entriesPerPage');
+	if (!$entriesPerPage || $entriesPerPage < 1) {
+		//	This option has not been set, or has manually been edited/deleted in the database. Use default value.
+		$entriesPerPage = 20;
+	}
 	$entriesCount = mysql_num_rows($allEntries_result);
 	$countPages = round($entriesCount / $entriesPerPage);
 	if ($countPages * $entriesPerPage < $entriesCount) {
