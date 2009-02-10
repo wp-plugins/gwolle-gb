@@ -58,6 +58,7 @@ If you still got problems, or if errors come up please leave a message at the Wo
 The following list contains things I'd like to include in future releases. If you have a feature request please use the forum
 on wordpress.org; I'll may add it to the list then.
 
+* Smiley integration
 * More inline documentation
 *	Better permission management (the current one is very poor)
 
