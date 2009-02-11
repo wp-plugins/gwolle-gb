@@ -64,12 +64,11 @@
 		//	Add option for the admin mail content (can then be defined by the user)
 		add_option('gwolle_gb-adminMailContent','');
 		
-		//	Add option to automatically check for the most recent version number via wolfgangtimme.de
-		if (function_exists('file') && get_cfg_var('allow_url_fopen')) { $default = 'true'; } else { $default = 'false'; }
-		add_option('gwolle_gb-autoCheckVersion',$default);
-		
 		//	Add entries per page option
 		add_option('gwolle_gb-entriesPerPage','20');
+		
+		//	Add option to manually set link to guestbook
+		add_option('gwolle_gb-guestbookLink','');
 		
 		//	Save plugin version to database
 		add_option('gwolle_gb_version', GWOLLE_GB_VER);
@@ -227,6 +226,14 @@
 			**	Removed the version check because of some problems.
 			*/
 			delete_option('gwolle_gb-autoCheckVersion');
+		}
+		
+		if (version_compare($installed_ver,'0.9.4.3','<')) {
+			/*
+			**	0.9.4.2.1->0.9.4.3
+			**	Added option to manually set link to the guestbook.
+			*/
+			delete_option('gwolle_gb-guestbookLink');
 		}
 		
 		//	Update the plugin version option

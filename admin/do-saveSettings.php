@@ -78,6 +78,9 @@
 			update_option('gwolle_gb-entriesPerPage',$_POST['entriesPerPage']);
 		}
 		
+		//	Guestbook link option
+		update_option('gwolle_gb-guestbookLink',$_POST['guestbookLink']);
+		
 		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
 		exit;
 	}

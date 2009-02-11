@@ -2,7 +2,7 @@
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
-	echo '<div><a href="' . $gb_link . '&amp;gb_page=read">&laquo; ' . __('Back to the entries.',$textdomain) . '</a></div>';	
+	echo '<div><a href="' . $gb_link . 'gb_page=read">&laquo; ' . __('Back to the entries.',$textdomain) . '</a></div>';	
 
 	//	Has there been an error?
 	if (!$resp->is_valid && $_POST && get_option('gwolle_gb-recaptcha-active') == 'true') {
@@ -28,7 +28,7 @@
 	}
 	//	Form for submitting new entries
 ?>
-	<form id="new_entry" style="text-align:left;" action="<?php echo $gb_link; ?>&amp;gb_page=write" method="POST">
+	<form id="new_entry" style="text-align:left;" action="<?php echo $gb_link; ?>gb_page=write" method="POST">
 		<input type="hidden" name="gb_link" id="gb_link" value="<?php echo $gb_link; ?>">
 		<div class="label"><?php _e('Name',$textdomain); ?>:*</div>
 		<div class="input"><input class="<?php if ($error_name) { echo ' error'; } ?>" value="<?php echo $_POST['entry_author_name']; ?>" type="text" name="entry_author_name"></div>

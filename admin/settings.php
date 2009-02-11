@@ -36,6 +36,15 @@
 			</tr>
 			
 			<tr valign="top">
+				<th scope="row"><label for="guestbookLink"><?php _e('Link to guestbook',$textdomain); ?></label></th>
+				<td>
+					<input type="text" name="guestbookLink" id="guestbookLink" value="<?php echo get_option('gwolle_gb-guestbookLink'); ?>" class="regular-text" >
+					<br>
+					<span class="setting-description"><?php _e('Set the link (= complete URL) to the page the guestbook set up on manually, in case it is not detected correctly.',$textdomain); ?></span>
+				</td>
+			</tr>
+			
+			<tr valign="top">
 				<th scope="row"><label for="access_control"><?php _e('Access control',$textdomain); ?></label></th>
 				<td>
 					<select name="access_level">

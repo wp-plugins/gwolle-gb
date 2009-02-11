@@ -1,6 +1,6 @@
 <?php
 	//	Link 'write a new entry...'
-	echo '<div style="margin-bottom:10px;"><a href="' . $gb_link . '&amp;gb_page=write">&raquo; ' . __('Write a new entry.',$textdomain) . '</a></div>';
+	echo '<div style="margin-bottom:10px;"><a href="' . $gb_link . 'gb_page=write">&raquo; ' . __('Write a new entry.',$textdomain) . '</a></div>';
 	
 	if ($_REQUEST['msg']) {
 		//	Output a requested message
@@ -82,7 +82,7 @@
 	//	page navigation
 	echo '<div id="page-navigation">';
 		if ($pageNum > 1) {
-			echo '<a href="' . $gb_link . '&amp;pageNum=' . round($pageNum-1) . '">&laquo;</a>';
+			echo '<a href="' . $gb_link . 'pageNum=' . round($pageNum-1) . '">&laquo;</a>';
 		}
 		if ($pageNum < 5) {
 			if ($countPages < 4) { $showRange = $countPages; } else { $showRange = 6; }
@@ -91,7 +91,7 @@
 					echo '<span>' . $i . '</span>';
 				}
 				else {
-					echo '<a href="' . $gb_link . '&amp;pageNum=' . $i . '">' . $i . '</a>';
+					echo '<a href="' . $gb_link . 'pageNum=' . $i . '">' . $i . '</a>';
 				}
 			}
 			
@@ -101,7 +101,7 @@
 			}
 		}
 		elseif ($pageNum >= 5) {
-			echo '<a href="' . $gb_link . '&amp;pageNum=1">1</a>';
+			echo '<a href="' . $gb_link . 'pageNum=1">1</a>';
 			if ($pageNum-3 > 1) { echo '<span>...</span>'; }
 			if ($pageNum + 2 < $countPages) { $minRange = $pageNum - 2; $showRange = $pageNum+2; } else { $minRange = $pageNum - 3; $showRange = $countPages - 1; }
 			for ($i=$minRange; $i<=$showRange; $i++) {
@@ -109,7 +109,7 @@
 					echo '<span>' . $i . '</span>';
 				}
 				else {
-					echo '<a href="' . $gb_link . '&amp;pageNum=' . $i . '">' . $i . '</a>';
+					echo '<a href="' . $gb_link . 'pageNum=' . $i . '">' . $i . '</a>';
 				}
 			}
 			if ($pageNum == $countPages) {
@@ -120,8 +120,8 @@
 		if ($pageNum < $countPages) {
 			if ($pageNum+3 < $countPages && !$highDotsMade) { echo '<span class="page-numbers dots">...</span>'; }
 			
-			echo '<a href="' . $gb_link . '&amp;pageNum=' . $countPages . '">' . $countPages . '</a>';
-			echo '<a href="' . $gb_link . '&amp;pageNum=' . round($pageNum+1) . '">&raquo;</a>';
+			echo '<a href="' . $gb_link . 'pageNum=' . $countPages . '">' . $countPages . '</a>';
+			echo '<a href="' . $gb_link . 'pageNum=' . round($pageNum+1) . '">&raquo;</a>';
 		}
 	echo '</div>';
 	

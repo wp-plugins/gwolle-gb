@@ -3,7 +3,7 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.7
 Tested up to: 2.7
-Stable tag: 0.9.4.2.1
+Stable tag: 0.9.4.3
 
 Gwolle-GB is the Wordpress guestbook you've just been looking for. Beautiful and easy.
 
@@ -32,6 +32,10 @@ use my homepage's comment section. I'd be glad to hear your opinion and/or featu
 
 = Changelog =
 
+0.9.4.3
+[fix] Redirection failed again.
+[new] Added an option to set link to the guestbook manually.
+
 0.9.4.2.1
 [rem] Removed the version check because of some problems.
 
@@ -49,8 +53,8 @@ use my homepage's comment section. I'd be glad to hear your opinion and/or featu
 1. Place '[gwolle-gb]' in an article or page. That's it.
 1. You may disable comments in this arcticle/page, because it may look stupid when there's the possibility to write a guestbook entry. ;) 
 
-Gwolle-GB take the "the_content"-hook and replaces every "[gwolle-gb]" with the guestbook. You may also use
-'<?php add_gwolle_gb_frontend_css(); ?>' to include the frontend CSS of Gwolle-GB and '<?php show_gwolle_gb(); ?>'
+Gwolle-GB take the "the_content"-hook and replaces a article/page containing [gwolle-gb] with the guestbook. You may also use
+'add_gwolle_gb_frontend_css();' to include the frontend CSS of Gwolle-GB and 'show_gwolle_gb();'
 to show the guestbook in your templates. It couldn't be easier.
 
 If you still got problems, or if errors come up please leave a message at the Wordpress forum so I can help you and fix it. Thanks!
@@ -76,6 +80,12 @@ to 'undo' it via your database interface.
 
 I thought about that problem and came up with the solution of Recaptcha. It helps you and your visitors help them. It's really THAT easy.
 Second, I integrated Akismet and it works like a charm. Fighting spam has never been easiser!
+
+= I'm experiencing problems with the redirection. =
+
+Although the plugin tries to automatically calculate the URL of your guestbook it may be that it doesn't get this job done well.
+For users who have that problem there's a new option integrated (since version 0.9.4.3) that allows you to set the URL
+of your guestbook manually.
 
 == Licence ==
 
