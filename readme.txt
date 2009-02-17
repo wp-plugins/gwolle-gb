@@ -62,8 +62,8 @@ use my homepage's comment section. I'd be glad to hear your opinion and/or featu
 1. Place '[gwolle-gb]' in an article or page. That's it.
 1. You may disable comments in this arcticle/page, because it may look stupid when there's the possibility to write a guestbook entry. ;) 
 
-Gwolle-GB take the "the_content"-hook and replaces a article/page containing [gwolle-gb] with the guestbook. You may also use
-'add_gwolle_gb_frontend_css();' to include the frontend CSS of Gwolle-GB and 'show_gwolle_gb();'
+Gwolle-GB take the `the_content`-hook and replaces a article/page containing [gwolle-gb] with the guestbook. You may also use
+`add_gwolle_gb_frontend_css();` to include the frontend CSS of Gwolle-GB and `show_gwolle_gb();`
 to show the guestbook in your templates. It couldn't be easier.
 
 If you still got problems, or if errors come up please leave a message at the WordPress forum so I can help you and fix it. Thanks!
@@ -84,7 +84,8 @@ on WordPress.org; I'll may add it to the list then.
 * Some WP installations don't send the notification mails (currently only known from WP MU installations)
 * Marking multiple entries as spam sometimes takes very long or results in an error message.
 
-Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". Thanks!
+Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". I subscribed to that forums,
+so I'll get your message. Or, if you're in a hurry, send me an email: gwolle (at) wolfgangtimme (dot) de. Thanks!
 
 ==	Thank you! ==
 
