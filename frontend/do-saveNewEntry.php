@@ -13,7 +13,8 @@
 	global $wpdb;
 	
 	//	Captcha processing
-	if (get_option('gwolle_gb-recaptcha-active') == 'true') {
+	$recaptchaActive = get_option('gwolle_gb-recaptcha-active');
+	if ($recaptchaActive == 'true') {
 		require_once('recaptcha/recaptchalib.php');
 		$privatekey = get_option('recaptcha-private-key');
 		$resp = recaptcha_check_answer ($privatekey,
@@ -22,7 +23,7 @@
 		                                $_POST["recaptcha_response_field"]);
 	}
 	
-	if ($resp->is_valid || get_option('gwolle_gb-recaptcha-active') == 'false') {
+	if ($resp->is_valid || $recaptchaActive == 'false') {
 		if (strlen(str_replace(' ','',$_POST['entry_author_name'])) == 0) {
 			$error = true;
 		}
@@ -153,7 +154,7 @@
 				
 					//	Set the mail content
 					$mailTags = array('user_email','entry_management_url','blog_name','blog_url','wp_admin_url');
-					$mail_body = get_option('gwolle_gb-adminMailContent');
+					$mail_body = stripslashes(get_option('gwolle_gb-adminMailContent'));
 					if (!$mail_body) { $mail_body = $defaultMailText; }
 					
 					$subject = "[" . get_bloginfo('name') . "] New guestbook entry"; //subject
@@ -171,7 +172,8 @@
 					for ($i=0; $i<count($subscriber); $i++) {
 						$mailBody[$i] = $mail_body;
 						$mailBody[$i] = str_replace('%user_email%',$subscriber[$i]['user_email'],$mailBody[$i]);
-						mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
+						
+						wp_mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
 					}
 					$msg = 'entry-saved';
 				}
@@ -179,7 +181,10 @@
 					$msg = 'error';
 				}
 			}
-			header('Location: ' . get_bloginfo('url') . '/' . $_POST['gb_link'] . '&msg=' . $msg);
+			
+			$gb_link = gwolle_gb_formatGuestbookLink($_POST['gb_link']);
+			
+			header('Location: ' . $gb_link . 'msg=' . $msg);
 			exit;
 		}
 	}

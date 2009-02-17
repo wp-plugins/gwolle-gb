@@ -28,7 +28,7 @@
 	}
 	//	Form for submitting new entries
 ?>
-	<form id="new_entry" style="text-align:left;" action="<?php echo $gb_link; ?>gb_page=write" method="POST">
+	<form id="new_entry" style="text-align:left;" action="<?php echo $gb_link; ?>gb_page=write" accept-charset="UTF-8" method="POST">
 		<input type="hidden" name="gb_link" id="gb_link" value="<?php echo $gb_link; ?>">
 		<div class="label"><?php _e('Name',$textdomain); ?>:*</div>
 		<div class="input"><input class="<?php if ($error_name) { echo ' error'; } ?>" value="<?php echo $_POST['entry_author_name']; ?>" type="text" name="entry_author_name"></div>
@@ -56,7 +56,14 @@
 				<div class="label">&nbsp;</div>
 				<div class="input">
 					<?php
-						require_once('recaptcha/recaptchalib.php');
+						if (!function_exists('recaptcha_get_html')) {
+							/*
+							**	If function recaptcha_get_html already exists
+							**	the reCAPTCHA library has been included by another
+							**	plugin. Don't load it now 'til it would result in an error.
+							*/
+							require_once('recaptcha/recaptchalib.php');
+						}
 						$publickey = get_option('recaptcha-public-key');
 						echo recaptcha_get_html($publickey);
 					?>

@@ -1,7 +1,7 @@
 <?php
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
-	
+		
 	//	Calculate the number of entries
 	$checkedEntries_result = mysql_query("
 		SELECT entry_id
@@ -53,9 +53,12 @@
 	elseif ($_REQUEST['msg'] == 'check-akismet-configuration') {
 		echo '<div id="message" class="error fade"><p><strong>' . __('Error',$textdomain) . ':</strong> ' . __('Please check your Akismet configuration.',$textdomain) . '</p></div>';
 	}
+	elseif ($_REQUEST['msg'] == 'akismet-not-activated') {
+		echo '<div id="message" class="error fade"><p><strong>' . __('Error',$textdomain) . ':</strong> ' . str_replace('%1','admin.php?page=gwolle-gb/settings.php',__('Please <a href="%1">enable Akismet</a> to use the spam feature of Gwolle-GB.',$textdomain)) . '</p></div>';
+	}
 	?>
 	
-	<div id="dashboard-widgets-wrap" class="ngg-overview">
+	<div id="dashboard-widgets-wrap" class="overview">
 	    <div id="dashboard-widgets" class="metabox-holder">
 				<div id="side-info-column" class="inner-sidebar">
 					<div id='right-sortables' class='meta-box-sortables'>
@@ -64,7 +67,7 @@
 							<h3 class='hndle'><span><?php _e('Help',$textdomain); ?></span></h3>
 							<div class="inside">
 								<div id="dashboard_server_settings" class="dashboard-widget-holder">
-									<div class="ngg-dashboard-widget">
+									<div class="dashboard-widget">
 	  								<div class="dashboard-widget-content">
 	  									<?php _e('This is how the guestbook will be displayed on your page',$textdomain); ?>:
 	  									<br>
@@ -78,12 +81,12 @@
 								</div>
 							</div>
 						</div>
-						<div id="gwolle_recaptcha" class="postbox " >
+						<div id="gwolle_uses" class="postbox " >
 							<div class="handlediv" title="Click to toggle"><br /></div>
 							<h3 class='hndle'><span><?php _e('This plugin uses the following scripts/programs/images:',$textdomain); ?></span></h3>
 							<div class="inside">
 								<div id="dashboard_server_settings" class="dashboard-widget-holder">
-									<div class="ngg-dashboard-widget">
+									<div class="dashboard-widget">
 	  								<div class="dashboard-widget-content">
 	  									<ul class="settings">
 	  										<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>

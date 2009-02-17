@@ -233,7 +233,7 @@
 			**	0.9.4.2.1->0.9.4.3
 			**	Added option to manually set link to the guestbook.
 			*/
-			delete_option('gwolle_gb-guestbookLink');
+			add_option('gwolle_gb-guestbookLink');
 		}
 		
 		//	Update the plugin version option

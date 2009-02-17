@@ -83,12 +83,12 @@
 											<?php
 												if ($entry['entry_isSpam'] == '0') {
 											?>
-													<a class="submitdelete deletion" href="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php&amp;action=markSpam&amp;entry_id=<?php echo $entry['entry_id']; ?>" onClick="return confirm('<?php _e("You\'re about to mark this guestbook entry as spam. It will be sent to the Akismet team to help other people fighting spam. Entries marked as spam are automatically deleted after 15 days. Continue?",$textdomain); ?>');"><?php _e('Spam!',$textdomain); ?></a>
+													<a class="submitdelete deletion" href="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php&amp;action=markSpam&amp;entry_id=<?php echo $entry['entry_id']; ?>&amp;show=editor" onClick="return confirm('<?php _e("You\'re about to mark this guestbook entry as spam. It will be sent to the Akismet team to help other people fighting spam. Entries marked as spam are automatically deleted after 15 days. Continue?",$textdomain); ?>');"><?php _e('Spam!',$textdomain); ?></a>
 											<?php
 												}
 												else {
 											?>
-													<a class="submitdelete deletion" href="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php&amp;action=unmarkSpam&amp;entry_id=<?php echo $entry['entry_id']; ?>" onClick="return confirm('<?php _e("A message will be sent to the Akismet team that this entry is not spam. Continue?",$textdomain); ?>');"><?php _e('No Spam!',$textdomain); ?></a>
+													<a class="submitdelete deletion" href="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php&amp;action=unmarkSpam&amp;entry_id=<?php echo $entry['entry_id']; ?>&amp;show=editor" onClick="return confirm('<?php _e("A message will be sent to the Akismet team that this entry is not spam. Continue?",$textdomain); ?>');"><?php _e('No Spam!',$textdomain); ?></a>
 											<?php
 												}
 											}

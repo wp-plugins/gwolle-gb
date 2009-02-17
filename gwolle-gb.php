@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://wolfgangtimme.de/blog/
 Description: simple guestbook
-Version: 0.9.4.3
+Version: 0.9.4.4
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -32,7 +32,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	load_plugin_textdomain($textdomain, false, dirname( plugin_basename(__FILE__) ) . '/lang');
 
 	//	plugin's version
-	define('GWOLLE_GB_VER','0.9.4.3');
+	define('GWOLLE_GB_VER','0.9.4.4');
 
 	//	Akismet PHP4 class folder's name
 	define('AKISMET_PHP4_CLASS_DIR','Akismet_PHP4');
@@ -94,15 +94,22 @@ Author URI: http://www.wolfgangtimme.de/blog/
     add_submenu_page(__FILE__, __('Settings',$textdomain), __('Settings',$textdomain), GWOLLE_GB_ACCESS_LEVEL, 'gwolle-gb/settings.php', 'page_settings');
 	}
 	//	get the user's ID from the session
-	add_action('init', 'gb_init');
-	function gb_init() {
+	add_action('init', 'gwolle_gb_init');
+	function gwolle_gb_init() {
 		global $current_user;
 		session_start();
 		
-		if ($_REQUEST['action'] == 'uninstall_gwolle_gb' && current_user_can('level_10')) {
-			//	uninstall the plugin -> delete all tables and preferences of the plugin
-			include('admin/upgrade.php');
-			uninstall_gwolle_gb();
+		if ($_REQUEST['action'] == 'uninstall_gwolle_gb' && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
+			if ($_POST['uninstall_confirmed'] == 'on') {
+				//	uninstall the plugin -> delete all tables and preferences of the plugin
+				include('admin/upgrade.php');
+				uninstall_gwolle_gb();
+			}
+			else {
+				//	Uninstallation not confirmed.
+				header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&msg=uninstall-not-confirmed');
+				exit;
+			}
 		}
 		
 		//	Check if the plugin's out of date
@@ -113,7 +120,13 @@ Author URI: http://www.wolfgangtimme.de/blog/
 			upgrade_gwolle_gb();
 		}
 		
-		if (is_numeric($_POST['entry_id']) || $_POST['action'] == 'newEntry') {
+		if ($_REQUEST['do'] == 'massEdit' && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
+			//	Mass edit entries
+			include('admin/do-massEdit.php');
+		}
+		elseif (is_numeric($_POST['entry_id']) || $_POST['action'] == 'newEntry') {
+			include('frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
+			
 			include('admin/do-saveEntry.php');
 		}
 		elseif (is_numeric($_REQUEST['entry_id']) && $_REQUEST['action'] == 'delete') {
@@ -124,6 +137,8 @@ Author URI: http://www.wolfgangtimme.de/blog/
 		}
 		elseif ($_REQUEST['gb_page'] == 'write' && $_POST) {
 			global $defaultMailText;
+			include('frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
+			
 			include('frontend/do-saveNewEntry.php');
 		}
 		elseif ($_REQUEST['action'] == 'saveSettings') {
@@ -152,10 +167,18 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	function add_gwolle_gb_admin_css() {
 		echo "<link rel='stylesheet' href='" . get_option('siteurl') . "/wp-admin/css/dashboard.css?ver=20081210' type='text/css' media='all' />";
 		echo "<link rel='stylesheet' href='" . WP_PLUGIN_URL . "/gwolle-gb/admin/style.css' type='text/css' media='all' />";
+		
+		if ($_REQUEST['page'] == 'gwolle-gb/entries.php') {
+			//	Include JavaScript for the entries page
+			echo '<script language="JavaScript" src="' . WP_PLUGIN_URL . '/gwolle-gb/admin/entries.js"></script>';
+			wp_enqueue_script('jQuery');
+		}
 	}
 	
 	//	Function (use this to display the guestbook on a page)
 	function show_gwolle_gb() {
+		include('frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
+		
 		include('frontend/index.php');
 	}
 	

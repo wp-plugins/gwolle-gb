@@ -3,34 +3,43 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.7
 Tested up to: 2.7
-Stable tag: 0.9.4.3
+Stable tag: 0.9.4.4
 
-Gwolle-GB is the Wordpress guestbook you've just been looking for. Beautiful and easy.
+Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
 == Description ==
 
-Looking for a guestbook that just fits my needs, I found myself lost in a Wordpress plugin database full of plugins
+Looking for a guestbook that just fits my needs, I found myself lost in a WordPress plugin database full of plugins
 which just pretend to be a guestbook, like the guestbook builder does. But it is not more than just a page with a comment
-form. That wasn't what I was looking for, so I came up with developing my own plugin for Wordpress.
+form. That wasn't what I was looking for, so I came up with developing my own plugin for WordPress.
 It works quite good actually, and I'm looking forward to integrate some other cool features, but for the moment you have:
 
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you have to check an entry before it is visible in your guestbook (can be turned off).
 * Recaptcha integration. (Fighting spam!)
 * Akismet integration (Fighting spam, too!)
-* Localisation (currently english and german). Own languages can be added very easily, check WP documentation on this.
+* Localisation (currently english, german and dutch). Own languages can be added very easily, check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release, so please send them to my via mail, thanks!
 * different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
 * a log for each entry, so that you know which member of the staff released an article to the public and when.
 * IP-address- and host-logging
 * Easy uninstall routine for complete removal of all database changes.
 
-... and all that integrated in the stylish Wordpress 2.7 look.
+... and all that integrated in the stylish WordPress 2.7 look.
 
 For a demo, visit the plugin's homepage (http://www.wolfgangtimme.de/blog/). Feel free to drop me a message
-in the Wordpress.org forums or send me an email to gwolle (at) wolfgangtimme (dot) de. You may also
+in the WordPress.org forums or send me an email to gwolle (at) wolfgangtimme (dot) de. You may also
 use my homepage's comment section. I'd be glad to hear your opinion and/or feature request.
 
 = Changelog =
+
+0.9.4.4a
+[new] After deleting an entry directly from the entries page you'll be redirected to that specific page (spam/unlocked/locked/all)
+[fix] reCAPTCHA library is not include if that's already been done by another plugin.
+[new] Dutch translation added. Thank you, timomaas!
+[fix] Now using wp_mail() instead of mail() to send email notifications.
+[fix] stripslashes on the user-defined admin mail text.
+[new] mass editing of entries added
+[new] Notification list shows ALL subscribers, including the current user.
 
 0.9.4.3
 [fix] Redirection failed again.
@@ -57,17 +66,31 @@ Gwolle-GB take the "the_content"-hook and replaces a article/page containing [gw
 'add_gwolle_gb_frontend_css();' to include the frontend CSS of Gwolle-GB and 'show_gwolle_gb();'
 to show the guestbook in your templates. It couldn't be easier.
 
-If you still got problems, or if errors come up please leave a message at the Wordpress forum so I can help you and fix it. Thanks!
+If you still got problems, or if errors come up please leave a message at the WordPress forum so I can help you and fix it. Thanks!
 
 
 ==	Todo/coming up in future releases/plans ==
 
 The following list contains things I'd like to include in future releases. If you have a feature request please use the forum
-on wordpress.org; I'll may add it to the list then.
+on WordPress.org; I'll may add it to the list then.
 
 * Smiley integration
 * More inline documentation
 *	Better permission management (the current one is very poor)
+
+== Known bugs ==
+
+* Some WP installations with permalinks activated receive a 404-error. Going to fix this, currently going through the WP documentation on this.
+* Some WP installations don't send the notification mails (currently only known from WP MU installations)
+* Marking multiple entries as spam sometimes takes very long or results in an error message.
+
+Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". Thanks!
+
+==	Thank you! ==
+
+* timomaas for the Dutch translation
+* All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr
+
 
 == Frequently Asked Questions ==
 
@@ -84,8 +107,13 @@ Second, I integrated Akismet and it works like a charm. Fighting spam has never 
 = I'm experiencing problems with the redirection. =
 
 Although the plugin tries to automatically calculate the URL of your guestbook it may be that it doesn't get this job done well.
-For users who have that problem there's a new option integrated (since version 0.9.4.3) that allows you to set the URL
+For users who have that problem there's a new option integrated (since version 0.9.4.3) that allows you to set the complete URL
 of your guestbook manually.
+
+= How do I localize a plugin? =
+
+A good start to learn about localization and WP plugins is the guide "[Localizing a WordPress plugin using poEdit] (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)"
+and also the WordPress documentation.
 
 == Licence ==
 
