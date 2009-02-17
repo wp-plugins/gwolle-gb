@@ -1,0 +1,709 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gwolle-GB\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-02-11 10:08+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Timo Maas <timo@kermistilburg.nl>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: /Users/wolfgangtimme/Sites/heinegym/wordpress/wp-content/plugins/gwolle-gb/\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: gwolle-gb.php:50
+msgid ""
+"Hello,\n"
+"\n"
+"there is a new guestbook entry at '%blog_name%'.\n"
+"You can check it at %entry_management_url%.\n"
+"\n"
+"Have a nice day!\n"
+"Your Gwolle-GB-Mailer"
+msgstr ""
+"Hallo,\n"
+"\n"
+"Er is een nieuw gastenboekbericht voor: '%blog_name%'.\n"
+"Je kunt het hier bekijken en eventueel bewerken: %entry_management_url%.\n"
+"\n"
+"Prettige dag verder!\n"
+"Je Gwolle-GB-Mailer"
+
+#: gwolle-gb.php:84
+#: admin/welcome.php:48
+msgid "Guestbook"
+msgstr "Gastenboek"
+
+#: gwolle-gb.php:88
+#: admin/settings.php:226
+msgid "Entries"
+msgstr "Berichten"
+
+#: gwolle-gb.php:91
+msgid "Entry editor"
+msgstr "Berichten editor"
+
+#: gwolle-gb.php:91
+msgid "New entry"
+msgstr "Nieuw bericht"
+
+#: gwolle-gb.php:94
+#: admin/settings.php:15
+msgid "Settings"
+msgstr "Instellingen"
+
+#: admin/editor.php:20
+msgid "Edit guestbook entry"
+msgstr "Bewerk gastenboek bericht"
+
+#: admin/editor.php:24
+msgid "Entry could not be found."
+msgstr "Bericht kan niet gevonden worden"
+
+#: admin/editor.php:28
+msgid "New guestbook entry"
+msgstr "Nieuw gastenboek bericht"
+
+#: admin/editor.php:39
+msgid "Changes saved."
+msgstr "Wijzigingen opgeslagen."
+
+#: admin/editor.php:42
+msgid "An error occurred while saving your changes."
+msgstr "Er ging iets fout tijdens het opslaan van de wijzigingen"
+
+#: admin/editor.php:46
+msgid "<strong>Attention:</strong> This entry is marked as spam!"
+msgstr "<strong>Opgpast:</strong> Dit bericht is als SPAM gemarkeerd!"
+
+#: admin/editor.php:49
+msgid "Entry successfully classified as not-spam."
+msgstr "Bericht succesvol gemakeerd als zijnde \"niet-spam\"."
+
+#: admin/editor.php:65
+#: admin/editor.php:97
+msgid "Save"
+msgstr "Opslaan"
+
+#: admin/editor.php:70
+msgid "Options"
+msgstr "Opties"
+
+#: admin/editor.php:74
+msgid "This entry is checked."
+msgstr "Dit bericht is vrijgegeven."
+
+#: admin/editor.php:81
+#: admin/entries.php:277
+msgid "You\\'re about to delete this guestbook entry. This can\\'t be undone. Are you still sure you want to continue?"
+msgstr "Je staat op het punt dit bericht uit je gastenboek te verwijderen. Dit kan niet worden ongedaan gemaakt. Toch doorgaan ?"
+
+#: admin/editor.php:81
+#: admin/entries.php:277
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: admin/editor.php:86
+msgid "You\\'re about to mark this guestbook entry as spam. It will be sent to the Akismet team to help other people fighting spam. Entries marked as spam are automatically deleted after 15 days. Continue?"
+msgstr "Je staat op het punt dit bericht als SPAM te markeren. Het zal naar het Akismet team worden verzonden, om ook anderen te helpen tegen ongewenste berichten. Berichten gemarkeerd als SPAM worden na 15 dagen automatisch verdwijderd, doorgaan ?"
+
+#: admin/editor.php:86
+msgid "Spam!"
+msgstr "Spam!"
+
+#: admin/editor.php:91
+msgid "A message will be sent to the Akismet team that this entry is not spam. Continue?"
+msgstr "Er wordt een bericht gestuurd aan het Akismet-Team, dat dit bericht geen Spam is. Doorgaan ?"
+
+#: admin/editor.php:91
+msgid "No Spam!"
+msgstr "Geen Spam!"
+
+#: admin/editor.php:109
+#: admin/entries.php:278
+msgid "Details"
+msgstr "Details"
+
+#: admin/editor.php:115
+#: admin/entries.php:207
+#: admin/entries.php:221
+msgid "Author"
+msgstr "Auteur"
+
+#: admin/editor.php:115
+#: admin/editor.php:163
+msgid "You"
+msgstr "Jij"
+
+#: admin/editor.php:117
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: admin/editor.php:117
+#: admin/editor.php:121
+#: admin/editor.php:123
+msgid "unknown"
+msgstr "onbekend"
+
+#: admin/editor.php:119
+#: admin/editor.php:144
+msgid "Written"
+msgstr "Geschreven"
+
+#: admin/editor.php:119
+msgid "o'clock"
+msgstr "Uur"
+
+#: admin/editor.php:119
+msgid "not yet"
+msgstr "nog niet"
+
+#: admin/editor.php:121
+msgid "Author's IP-address"
+msgstr "IP-adres van auteur"
+
+#: admin/editor.php:123
+msgid "Host"
+msgstr "Host"
+
+#: admin/editor.php:135
+msgid "Log"
+msgstr "Logboek"
+
+#: admin/editor.php:146
+msgid "Entry has been locked."
+msgstr "Bericht wordt geblokkeerd."
+
+#: admin/editor.php:147
+msgid "Entry has been unlocked."
+msgstr "Bericht wordt vrijgegeven."
+
+#: admin/editor.php:148
+msgid "Entry marked as spam."
+msgstr "Bericht gemarkeerd als spam."
+
+#: admin/editor.php:149
+msgid "Entry marked as not-spam."
+msgstr "Bericht gemarkeerd als niet-spam."
+
+#: admin/editor.php:176
+msgid "No entries yet."
+msgstr "Nog geen berichten"
+
+#: admin/editor.php:195
+msgid "Guestbook entry"
+msgstr "Gastenboek bericht"
+
+#: admin/editor.php:202
+msgid "Homepage"
+msgstr "Homepage"
+
+#: admin/editor.php:205
+msgid "Example: <code>http://www.google.com/</code> &#8212; don't forget the <code>http://</code>!"
+msgstr "Voorbeeld: <code>http://www.google.com/</code> &#8212; de <code>http://</code> niet vergeten!"
+
+#: admin/editor.php:210
+msgid "Origin"
+msgstr "Woonplaats"
+
+#: admin/entries.php:125
+msgid "Guestbook entries"
+msgstr "Gastenboek berichten"
+
+#: admin/entries.php:130
+msgid "Entry successfully deleted."
+msgstr "Bericht succesvol gewist."
+
+#: admin/entries.php:131
+msgid "An error occured while trying to delete the entry."
+msgstr "Er ging iets fouten tijdens het verwijderen van het bericht."
+
+#: admin/entries.php:132
+msgid "Please activate the use of Akismet on your <a href=\"%1\">Gwolle-GB configuration page</a>. Thanks!"
+msgstr "Activeer het gebruik van Akismet op je <a href=\"%1\">Gwolle-GB-configuratiepagina</a>. Dank je!"
+
+#: admin/entries.php:142
+msgid "All"
+msgstr "Alles"
+
+#: admin/entries.php:143
+msgid "Unlocked"
+msgstr "Vrijgegeven"
+
+#: admin/entries.php:144
+msgid "New"
+msgstr "Nieuw"
+
+#: admin/entries.php:145
+msgid "Spam"
+msgstr "Spam"
+
+#: admin/entries.php:150
+msgid "Showing:"
+msgstr "Aantal:"
+
+#: admin/entries.php:150
+msgid "of"
+msgstr "van"
+
+#: admin/entries.php:201
+#: admin/entries.php:215
+msgid "ID"
+msgstr "ID"
+
+#: admin/entries.php:205
+#: admin/entries.php:219
+msgid "Date"
+msgstr "Datum"
+
+#: admin/entries.php:206
+#: admin/entries.php:220
+msgid "Entry (excerpt)"
+msgstr "Bericht (samenvatting)"
+
+#: admin/entries.php:208
+#: admin/entries.php:222
+msgid "Action"
+msgstr "Actie"
+
+#: admin/entries.php:290
+msgid "No entries found."
+msgstr "Geen berichten gevonden."
+
+#: admin/installSplash.php:10
+msgid "Successfully uninstalled"
+msgstr "Installatie succesvol"
+
+#: admin/installSplash.php:10
+msgid "Installation"
+msgstr "Installatie"
+
+#: admin/installSplash.php:15
+msgid "Welcome!<br>It seems that either you're using this plugin for the first time or you've deleted all settings.<br>However, to use this plugin we have to setup the database tables. Good for you, we've made this as easy as possible.<br>All you've got to do is click on that button below, and that's it."
+msgstr "Welkom!<br>Je gebruikt deze plugin voor de eerste keer, of je hebt al je settings verwijderd.<br>Om deze plugin te kunnen gebruiken, hebben we voor je wat tabellen aan de database toegevoegd.<br> Alles wat je nog moet doen is op de knop hieronder klikken en dat is alles!"
+
+#: admin/installSplash.php:20
+msgid "Sure, let's do this!"
+msgstr "OK, daar gaat ie dan !"
+
+#: admin/installSplash.php:26
+msgid "You successfully uninstalled Gwolle-GB."
+msgstr "Je hebt Gwolle-GB succesvol gedeinstalleerd."
+
+#: admin/installSplash.php:28
+msgid "You now may deactivate the plugin using the <a href=\"%1\" title=\"Go to the plugin manager...\">plugin manager</a> or/and delete the plugin from your webserver."
+msgstr "Je kunt nu de plugin deaciveren bij <a href=\"%1\" title=\"Ga naar je  plugin manager...\">plugin manager</a> en/of verwijder de plugin van je webserver."
+
+#: admin/installSplash.php:30
+msgid "If you like feel free to drop a message at the <a href=\"%1\" title=\"Go to the Gwolle-GB homepage...\" target=\"_blank\">Gwolle-GB homepage</a> regarding why you choosed not to use this plugin anymore; I'd really appreciate that."
+msgstr "Als je wil, laat een bericht achter voor me op <a href=\"%1\" title=\"Ga naar de Gwolle-GB website...\" target=\"_blank\">Gwolle-GB homepage</a> en laat me weten waarom je hem niet meer wilt gebruiken; Ik stel dat op prijs. De mail graag in het Engels of Duits."
+
+#: admin/installSplash.php:36
+msgid "Allright, we're done. <a href=\"%1\">Click here to continue...</a>"
+msgstr "OK, alles is klaar. <a href=\"%1\">Klik hier om door te gaan...</a>"
+
+#: admin/installSplash.php:39
+msgid "It looks like there has been an error. <a href=\"%1\">Click here to continue...</a>"
+msgstr "Hmm, het ziet er naar uit dat er iets fout is gegaan. <a href=\"%1\">Klik hier om verder te gaan...</a>"
+
+#: admin/settings.php:18
+msgid "Changes successfully saved."
+msgstr "Wijzigingen succesvol opgeslagen."
+
+#: admin/settings.php:26
+msgid "Moderate Guestbook"
+msgstr "Beheer je gastenboek"
+
+#: admin/settings.php:28
+msgid "Moderate entries before publishing them."
+msgstr "Beheer je berichten voor het publiceren ervan."
+
+#: admin/settings.php:31
+msgid "New entries have to be unlocked by an administrator before they are visible to the public."
+msgstr "Nieuwe berichten moeten worden vrijgegeven door een beheerder, voor bezoekers deze te zien krijgen."
+
+#: admin/settings.php:33
+msgid "It's highly recommended that you turn this on, because your responsible for the content on your homepage."
+msgstr "Het is aanbevolen deze functie te gebruiken, je bent immers verantwoordelijk voor de inhoud van je website."
+
+#: admin/settings.php:39
+msgid "Link to guestbook"
+msgstr "Link naar gastenboek"
+
+#: admin/settings.php:43
+msgid "Set the link (= complete URL) to the page the guestbook set up on manually, in case it is not detected correctly."
+msgstr "Zet hier handmatig de  link (= complete URL) naar de pagina van je gastenboek, in het geval deze niet automatisch wordt overgenomen."
+
+#: admin/settings.php:48
+msgid "Access control"
+msgstr "Toegangsrechten"
+
+#: admin/settings.php:60
+msgid "Choose the userlevel that has access to the guestbook backend."
+msgstr "Kies het gebruikersniveau, welke toegang krijgt tot het gastenboek-beheer."
+
+#: admin/settings.php:65
+msgid "Notification"
+msgstr "Notificatie"
+
+#: admin/settings.php:70
+msgid "Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. Please contact your hosting provider to change this."
+msgstr "Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. Please contact your hosting provider to change this."
+
+#: admin/settings.php:75
+msgid "Send me an e-mail when a new entry has been posted."
+msgstr "Stuur me een mail als er een nieuw bericht is geplaatst."
+
+#: admin/settings.php:78
+msgid "E-Mail me no matter the new entry is spam or not."
+msgstr "Mail me altijd, of het nu een Spam bericht is of niet."
+
+#: admin/settings.php:82
+msgid "The following users have subscribed to this service:"
+msgstr "De volgende gebruikers hebben zich aangemekd voor deze service:"
+
+#: admin/settings.php:97
+msgid "no subscriber yet"
+msgstr "Nog geen gebruiker"
+
+#: admin/settings.php:121
+msgid "Learn more about Recaptcha..."
+msgstr "Meer over Recaptcha..."
+
+#: admin/settings.php:121
+#: admin/settings.php:136
+msgid "What's that?"
+msgstr "Wat is dat?"
+
+#: admin/settings.php:123
+msgid "Use Recaptcha"
+msgstr "Gebruik Recaptcha"
+
+#: admin/settings.php:126
+msgid "<strong>Public</strong> key of your Recaptcha account"
+msgstr "<strong>Public</strong> key of your Recaptcha account"
+
+#: admin/settings.php:129
+msgid "<strong>Private</strong> key of your Recaptcha account"
+msgstr "<strong>Private</strong> key of your Recaptcha account"
+
+#: admin/settings.php:131
+msgid "The keys can be found at your"
+msgstr "De sleutels kunnen gevonden worden bij je"
+
+#: admin/settings.php:131
+msgid "Go to my reCAPTCHA sites..."
+msgstr "Go to my reCAPTCHA sites..."
+
+#: admin/settings.php:131
+msgid "reCAPTCHA sites overview"
+msgstr "reCAPTCHA sites overview"
+
+#: admin/settings.php:136
+msgid "Learn more about Akismet..."
+msgstr "Meer over Akismet..."
+
+#: admin/settings.php:177
+msgid "Using the <a href=\"%1\" target=\"_blank\">Akismet PHP5-Class by Alex</a>."
+msgstr "Using the <a href=\"%1\" target=\"_blank\">Akismet PHP5-Class by Alex</a>."
+
+#: admin/settings.php:180
+msgid "Using the <a href=\"%1\" target=\"_blank\">Akismet PHP4-Class by Bret Kuhns</a>."
+msgstr "Using the <a href=\"%1\" target=\"_blank\">Akismet PHP4-Class by Bret Kuhns</a>."
+
+#: admin/settings.php:185
+msgid "Akismet helps you to fight spam. It's free and easy to install. Download and install it today to stop spam in your guestbook."
+msgstr "Akismet helps you to fight spam. It's free and easy to install. Download and install it today to stop spam in your guestbook."
+
+#: admin/settings.php:189
+msgid "I'm sorry, but it seems you're running an PHP version prior 4.x. The Akismet classes that come with Gwolle-GB are only compatible to 4.x and higher. To be able to use Akismet you should consider updating your server. (The System says your PHP version is %1.)"
+msgstr "I'm sorry, but it seems you're running an PHP version prior 4.x. The Akismet classes that come with Gwolle-GB are only compatible to 4.x and higher. To be able to use Akismet you should consider updating your server. (The System says your PHP version is %1.)"
+
+#: admin/settings.php:193
+msgid "Sorry, wasn't able to locate your <strong>Wordpress API key. You can enter it at the <a href=\"%1\">Akismet configuration page</a>."
+msgstr "Sorry, wasn't able to locate your <strong>Wordpress API key. You can enter it at the <a href=\"%1\">Akismet configuration page</a>."
+
+#: admin/settings.php:197
+msgid "There seems to be something wrong with your Wordpress API key; wasn't able to validate it correctly. Please check it via <a href=\"%1\">Akismet configuration page</a>."
+msgstr "There seems to be something wrong with your Wordpress API key; wasn't able to validate it correctly. Please check it via <a href=\"%1\">Akismet configuration page</a>."
+
+#: admin/settings.php:201
+msgid "Use Akismet"
+msgstr "Gebruik Akismet."
+
+#: admin/settings.php:203
+msgid "I've found the Wordpress API key, so you can start using Akismet right now."
+msgstr "Ik heb de Wordpress API key gevonden, je kunt Akismet meteen gebruiken."
+
+#: admin/settings.php:210
+msgid "Entry icons"
+msgstr "Bericht icons"
+
+#: admin/settings.php:212
+msgid "Show entry icons"
+msgstr "Laat bericht icons zien"
+
+#: admin/settings.php:214
+msgid "These icons are shown in every entry row, so that you know its entry status (spam, locked or unlocked)."
+msgstr "Deze iconen komen voor ieder bericht te staan, zodat je meteen de status ervan weet (spam, geblokkeerd of vrijgegeven)."
+
+#: admin/settings.php:219
+msgid "Entries per page"
+msgstr "Berichten per pagina"
+
+#: admin/settings.php:231
+msgid "Number of entries shown on the frontend in reading mode."
+msgstr "Aantal berichten wat getoond wordt."
+
+#: admin/settings.php:236
+msgid "Admin mail content"
+msgstr "Admin mail content"
+
+#: admin/settings.php:251
+msgid "You can set the content of the mail a notification subscriber gets on new entries. The following tags are supported:"
+msgstr "Geef hier de inhoud op van de mail die je ontvangt bij een nieuw bericht. De volgende tags kun je gebruiken:"
+
+#: admin/settings.php:264
+msgid "Save settings"
+msgstr "Instellingen opslaan"
+
+#: admin/settings.php:287
+msgid "Uninstall"
+msgstr "Deinstallatie"
+
+#: admin/settings.php:290
+msgid "Uninstalling means that all database entries are removed (settings and entries)."
+msgstr "Verwijderen betekend dat alle gastenboek databasegegevens gewist worden (instellingen en berichten)."
+
+#: admin/settings.php:292
+msgid "This can <strong>not</strong> be undone."
+msgstr "Dit kan <strong>NIET</strong> ongedaan gemaakt worden."
+
+#: admin/settings.php:295
+msgid "Also delete reCAPTCHA keys"
+msgstr "Ook reCAPTCHA sleutels verwijderen"
+
+#: admin/settings.php:297
+msgid "Are you really, really sure you want to do this? You may want to make a backup before deleting all the entries."
+msgstr "Weet je heel zeker dat je hiermee door wilt gaan ? Wellicht is het verstandig eerst een backup te maken."
+
+#: admin/settings.php:297
+msgid "I'm aware of that, continue!"
+msgstr "Ik ben me ervan bewust, doorgaan!"
+
+#: admin/welcome.php:51
+#: admin/welcome.php:54
+msgid "Error"
+msgstr "Fout"
+
+#: admin/welcome.php:51
+msgid "You don't have the privileges to perform this action."
+msgstr "Je hebt niet voldoende rechten om deze actie uit te voeren."
+
+#: admin/welcome.php:54
+msgid "Please check your Akismet configuration."
+msgstr "Kijk je Akismet configuratie na."
+
+#: admin/welcome.php:64
+msgid "Help"
+msgstr "Hulp"
+
+#: admin/welcome.php:69
+msgid "This is how the guestbook will be displayed on your page"
+msgstr "Hoe maak ik een gastenboek aan ?"
+
+#: admin/welcome.php:72
+msgid "Create a new article or page."
+msgstr "Maak een nieuw bericht of pagina."
+
+#: admin/welcome.php:73
+msgid "Choose a heading (doesn't matter) and set &quot;[gwolle-gb]&quot; (without the quotes) as the content."
+msgstr "Kies een paginatitel (maakt niet uit wat) en zet \"[gwolle-gb]\" (zonder de quotes) als inhoud."
+
+#: admin/welcome.php:74
+msgid "Of course, you should disable comments on that new content; otherwise, your visitors might get a little confused. ;)"
+msgstr "Zet wel de mogelijkheid om reacties op dat bericht of pagina te geven uit, anders raken je bezoekers wellicht in de war. ;)"
+
+#: admin/welcome.php:83
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr "Deze plugin gebruikt de volgende scripts/programma's/afbeeldingen:"
+
+#: admin/welcome.php:90
+#: admin/welcome.php:91
+msgid "Class by"
+msgstr "Class by"
+
+#: admin/welcome.php:92
+msgid "Icons by"
+msgstr "Icons by"
+
+#: admin/welcome.php:107
+msgid "Welcome to the Guestbook!"
+msgstr "Welkom bij je Gastenboek!"
+
+#: admin/welcome.php:109
+msgid "Overview"
+msgstr "Overzicht"
+
+#: admin/welcome.php:121
+msgid "entry total"
+msgstr "Bericht totaal"
+
+#: admin/welcome.php:124
+msgid "entries total"
+msgstr "Berichten totaal"
+
+#: admin/welcome.php:138
+msgid "unlocked entry"
+msgstr "Vrijgegeven bericht"
+
+#: admin/welcome.php:141
+msgid "unlocked entries"
+msgstr "Vrijgegeven berichten"
+
+#: admin/welcome.php:155
+msgid "new entry"
+msgstr "Nieuw bericht"
+
+#: admin/welcome.php:158
+msgid "new entries"
+msgstr "Nieuwe berichten"
+
+#: admin/welcome.php:172
+msgid "spam entry"
+msgstr "Spambericht"
+
+#: admin/welcome.php:175
+msgid "spam entries"
+msgstr "Spamberichten"
+
+#: admin/welcome.php:187
+msgid "Write admin entry"
+msgstr "Schrijf een \"admin\" bijdrage"
+
+#: admin/welcome.php:188
+msgid "Here you can manage the entries."
+msgstr "Beheer hier je berichten."
+
+#: admin/welcome.php:191
+msgid "Only users with the role %1 have access to the guestbook backend."
+msgstr "Alleen gebruikers met permissie %1 hebben toegang tot het beheer van je gastenboek."
+
+#: admin/welcome.php:198
+msgid "Latest updates"
+msgstr "Laatste updates"
+
+#: admin/welcome.php:198
+msgid "v%1 installed"
+msgstr "v%1 geinstalleerd"
+
+#: frontend/read.php:3
+msgid "Write a new entry."
+msgstr "Schrijf een nieuw bericht."
+
+#: frontend/read.php:8
+msgid "Thanks for your entry."
+msgstr "Bedankt voor uw bericht."
+
+#: frontend/read.php:8
+msgid "<br>We will review it and unlock it in a short while."
+msgstr "<br>Wij kijken uw bericht na en zullen dit zo snel mogelijk vrijgeven."
+
+#: frontend/read.php:9
+msgid "Well, there has been an error querying the database.<br>Please try again later, thanks!"
+msgstr "Er is een fout opgetreden bij het benaderen van de databse.<br>Probeer het later nog eens, thanks!"
+
+#: frontend/read.php:133
+msgid "(no entries yet)"
+msgstr "(nog geen berichten)"
+
+#: frontend/read.php:146
+msgid "Staff"
+msgstr "Redactie"
+
+#: frontend/read.php:153
+msgid "from"
+msgstr "uit"
+
+#: frontend/read.php:155
+msgid "wrote at"
+msgstr "schreef op"
+
+#: frontend/write.php:5
+msgid "Back to the entries."
+msgstr "Terug naar de berichten."
+
+#: frontend/write.php:9
+msgid "The captcha has not been entered correctly."
+msgstr "Het Captcha veld werd niet correct ingevuld."
+
+#: frontend/write.php:14
+msgid "Please enter a name."
+msgstr "Vul uw naam in."
+
+#: frontend/write.php:18
+msgid "Please write an entry."
+msgstr "Vul uw bericht in."
+
+#: frontend/write.php:33
+msgid "Name"
+msgstr "Naam"
+
+#: frontend/write.php:70
+msgid "Submit"
+msgstr "Toevoegen!"
+
+#: frontend/write.php:76
+msgid "Fields marked with * are obligatory."
+msgstr "Velden met  een * zijn verplicht."
+
+#: frontend/write.php:78
+msgid "For security reasons we save you ip address <span id=\"ip\">%1</span>."
+msgstr "Wegens veiligheidsredenen slaan we je IP-adres op: <span id=\"ip\">%1</span>."
+
+#: frontend/write.php:81
+msgid "Your entry will be visible in the guestbook when we reviewed it and gave our permission."
+msgstr "Je bericht wordt geplaatst nadat het door ons nagekeken is."
+
+#: frontend/write.php:84
+msgid "We reserve our right to shorten, delete, or not publish entries."
+msgstr "Wij behouden ons het recht voor, om berichten in te korten, te verwijderen, of om niet openbaar te maken."
+
+#~ msgid "Version check"
+#~ msgstr "Versions-Kontrolle"
+#~ msgid ""
+#~ "I'm sorry, but your PHP configuration has allow_url_fopen disabled. "
+#~ "Please enable it to use the automatic version check."
+#~ msgstr ""
+#~ "Tut mir Leid, aber deine PHP-Konfiguration hat allow_url_fopen "
+#~ "ausgeschaltet. Bitte schaltet dies ein, um die automatische Versions-"
+#~ "Kontrolle zu nutzen."
+#~ msgid ""
+#~ "It seems that your PHP configuration has <code>file()</code> disabled. "
+#~ "Please enable it to use the version check."
+#~ msgstr ""
+#~ "Es scheint, als w&auml;re <code>file()</code> in deiner PHP-Konfiguration "
+#~ "ausgeschaltet. Bitte schaltet dies ein, um den Versions-Check zu nutzen."
+#~ msgid ""
+#~ "Automatically check wolfgangtimme.de for the most recent version number."
+#~ msgstr "Frage wolfgangtimme.de automatisch nach der neusten Versionsnummer."
+#~ msgid "Can be turned of in case you don't want your blog to ping that site."
+#~ msgstr ""
+#~ "Kann ausgeschaltet werden, wenn Du nicht m&ouml;chtest, dass dein Blog "
+#~ "eine Anfrage an diese Seite sendet."
+#~ msgid "Update available"
+#~ msgstr "Neue Version verf&uuml;gbar"
+#~ msgid ""
+#~ "A new version (v%1) is available. Grab it at <a href=\"http://wordpress."
+#~ "org/extend/plugins/gwolle-gb/\">the plugin's Wordpress site</a>."
+#~ msgstr ""
+#~ "Eine neue Version (v%1) ist verf&uuml;gbar. Hol sie dir auf der "
+#~ "offiziellen <a href=\"http://wordpress.org/extend/plugins/gwolle-gb/"
+#~ "\">Wordpress-Seite des Plugins</a>."
+#~ msgid "Guestbook icon by"
+#~ msgstr "G&auml;stebuch-Icon von"
+#~ msgid "Save changes"
+#~ msgstr "&Auml;nderungen speichern"
+
