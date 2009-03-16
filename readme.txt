@@ -32,6 +32,11 @@ use my homepage's comment section. I'd be glad to hear your opinion and/or featu
 
 = Changelog =
 
+0.9.4.5
+As this release alters your Gwolle-GB database tables I highly recommend to backup the old ones.
+If you're experiencing any errors please report them immediately. Thanks!
+[new] Option to toggle the visibility of line breaks
+[fix] All tables & fields are now UTF8 (-> support for Croation letters)
 
 0.9.4.4a
 [new] After deleting an entry directly from the entries page you'll be redirected to that specific page (spam/unlocked/locked/all)
