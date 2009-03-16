@@ -3,7 +3,7 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.7
 Tested up to: 2.7
-Stable tag: 0.9.4.4
+Stable tag: 0.9.4.5
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -31,6 +31,7 @@ in the WordPress.org forums or send me an email to gwolle (at) wolfgangtimme (do
 use my homepage's comment section. I'd be glad to hear your opinion and/or feature request.
 
 = Changelog =
+
 
 0.9.4.4a
 [new] After deleting an entry directly from the entries page you'll be redirected to that specific page (spam/unlocked/locked/all)

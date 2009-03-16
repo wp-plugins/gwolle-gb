@@ -29,7 +29,7 @@
 			  entry_isDeleted varchar(1) NOT NULL default '0',
   			entry_isSpam varchar(1) NOT NULL default '0',
 			  PRIMARY KEY  (entry_id)
-			) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
 		");
 		
 		//	Install the table for the log
@@ -41,7 +41,7 @@
 			  log_authorId int(5) NOT NULL,
 			  log_date varchar(12) NOT NULL,
 			  PRIMARY KEY  (log_id)
-			) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
 		");
 		
 		//	Add reCAPTCHA option
@@ -69,6 +69,9 @@
 		
 		//	Add option to manually set link to guestbook
 		add_option('gwolle_gb-guestbookLink','');
+		
+		//	Add option to toggle the visibility of line breaks
+		add_option('gwolle_gb-showLineBreaks');
 		
 		//	Save plugin version to database
 		add_option('gwolle_gb_version', GWOLLE_GB_VER);
@@ -234,6 +237,38 @@
 			**	Added option to manually set link to the guestbook.
 			*/
 			add_option('gwolle_gb-guestbookLink');
+		}
+		
+		if (version_compare($installed_ver,'0.9.4.5','<')) {
+			/*
+			**	0.9.4.2.3->0.9.4.5
+			**	Support for Croation chars.
+			**	Added option to toggle line breaks-visibility.
+			*/
+			mysql_query("
+				ALTER
+				TABLE " . $wpdb->prefix . "gwolle_gb_entries
+					DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
+			");
+			mysql_query("
+				ALTER
+				TABLE " . $wpdb->prefix . "gwolle_gb_entries
+					CHANGE `entry_id` `entry_id` INT(10) NOT NULL AUTO_INCREMENT,
+					CHANGE `entry_author_name` `entry_author_name` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+					CHANGE `entry_authorAdminId` `entry_authorAdminId` INT(5) NOT NULL DEFAULT '0',
+					CHANGE `entry_author_email` `entry_author_email` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+					CHANGE `entry_author_origin` `entry_author_origin` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+					CHANGE `entry_author_website` `entry_author_website` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+					CHANGE `entry_author_ip` `entry_author_ip` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+					CHANGE `entry_author_host` `entry_author_host` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+					CHANGE `entry_content` `entry_content` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+					CHANGE `entry_date` `entry_date` VARCHAR(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+					CHANGE `entry_isChecked` `entry_isChecked` TINYINT(1) NOT NULL,
+					CHANGE `entry_checkedBy` `entry_checkedBy` INT(5) NOT NULL,
+					CHANGE `entry_isDeleted` `entry_isDeleted` VARCHAR(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+					CHANGE `entry_isSpam` `entry_isSpam` VARCHAR(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0'
+			");
+			add_option('gwolle_gb-showLineBreaks','false');
 		}
 		
 		//	Update the plugin version option

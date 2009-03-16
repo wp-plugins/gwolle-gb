@@ -133,6 +133,8 @@
 		_e('(no entries yet)',$textdomain);
 	}
 	else {
+		//	Get option whether to show line breaks or not
+		$showLineBreaks = get_option('gwolle_gb-showLineBreaks');
 		while ($entry = mysql_fetch_array($entries_result)) {
 			echo '<div'; if (!$notFirst) { $notFirst = true; echo ' id="first"'; } echo ' class="gb-entry '; if ($entry['entry_authorAdminId'] > 0) { echo 'admin-entry'; } echo '">';
 				echo '<div class="author-info">';
@@ -155,7 +157,12 @@
 					echo ' ' . __('wrote at',$textdomain) . ' ' . date('d.m.Y', $entry['entry_date']) . ':';
 				echo '</div>';
 				echo '<div class="entry-content">';
-					echo stripslashes(htmlentities(utf8_decode($entry['entry_content'])));
+					if ($showLineBreaks == 'true') {
+						echo nl2br(stripslashes(htmlentities(utf8_decode($entry['entry_content']))));
+					}
+					else {
+						echo stripslashes(htmlentities(utf8_decode($entry['entry_content'])));
+					}
 				echo '</div>';
 			echo '</div>';
 		}

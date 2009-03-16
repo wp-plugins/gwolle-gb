@@ -288,7 +288,7 @@
 									echo date('d.m.Y',$entry['entry_date']);
 								echo '</td>';
 								echo '<td>';
-									echo stripslashes(htmlentities(utf8_decode(substr($entry['entry_content'], 0, 100))));
+									echo html_entity_decode(stripslashes(substr($entry['entry_content'],0,100)), 0, 'UTF-8');
 									if (strlen($entry['entry_content']) > 100) { echo '...'; }
 								echo '</td>';
 								echo '<td>';
@@ -301,7 +301,7 @@
 										echo '<i>' . $adminName[$entry['entry_authorAdminId']] . '</i>';
 									}
 									else {
-										echo htmlentities(utf8_decode($entry['entry_author_name']));
+										echo html_entity_decode(stripslashes($entry['entry_author_name']), 0, 'UTF-8');
 									}
 								echo '</td>';
 								echo '<td>';

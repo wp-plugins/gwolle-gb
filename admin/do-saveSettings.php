@@ -81,6 +81,14 @@
 		//	Guestbook link option
 		update_option('gwolle_gb-guestbookLink',$_POST['guestbookLink']);
 		
+		//	Line break option
+		if ($_POST['showLineBreaks'] == 'on') {
+			update_option('gwolle_gb-showLineBreaks','true');
+		}
+		else {
+			update_option('gwolle_gb-showLineBreaks','false');
+		}
+		
 		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
 		exit;
 	}

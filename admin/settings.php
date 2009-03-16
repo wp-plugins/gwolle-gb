@@ -242,6 +242,15 @@
 				</tr>
 				
 				<tr valign="top">
+					<th scope="row"><label for="entriesPerPage"><?php _e('Line breaks',$textdomain); ?></label></th>
+					<td>
+						<input type="checkbox" name="showLineBreaks"<?php if (get_option('gwolle_gb-showLineBreaks')=='true') { echo ' checked="checked"'; } ?>> <?php _e('Show line breaks.',$textdomain); ?>
+						<br>
+						<span class="setting-description"><?php _e('Show line breaks as the entry authors entered them. (May result in very long entries. Is turned off by default.)',$textdomain); ?></span>
+					</td>
+				</tr>
+				
+				<tr valign="top">
 					<th scope="row"><label for="adminMailContent"><?php _e('Admin mail content',$textdomain); ?></label></th>
 					<td>
 						<?php

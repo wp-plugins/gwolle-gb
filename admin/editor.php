@@ -50,7 +50,7 @@
 		}
 	?>
 
-	<form name="editlink" id="editlink" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php">
+	<form name="editlink" id="editlink" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php" accept-charset="UTF-8">
 		<?php if ($entry['entry_id']) { ?>
 			<input type="hidden" id="entry_id" name="entry_id" value="<?php echo $entry['entry_id']; ?>">
 		<?php } else { ?>
@@ -194,14 +194,15 @@
 					<div id="contentdiv" class="stuffbox">
 						<h3><label for="link_name"><?php _e('Guestbook entry',$textdomain); ?></label></h3>
 						<div class="inside">
-							<textarea rows="10" cols="56" name="entry_content"><?php echo stripslashes(htmlentities(utf8_decode($entry['entry_content']))); ?></textarea>
+							<textarea rows="10" cols="56" name="entry_content"><?php echo html_entity_decode(stripslashes($entry['entry_content']), 0, 'UTF-8'); ?></textarea>
+							<?php if (get_option('gwolle_gb-showLineBreaks')=='false') { echo '<p>' . str_replace('%1','admin.php?page=gwolle-gb/settings.php',__('Line breaks will not be visible to the visitors due to your <a href="%1">settings</a>.',$textdomain)) . '</p>'; } ?>
 						</div>
 					</div>
 					
 					<div id="homepagediv" class="stuffbox">
 						<h3><label for="link_url"><?php _e('Homepage',$textdomain); ?></label></h3>
 						<div class="inside">
-							<input type="text" name="entry_author_website" size="58" tabindex="1" value="<?php echo stripslashes(htmlentities($entry['entry_author_website'])); ?>" id="entry_author_website">
+							<input type="text" name="entry_author_website" size="58" tabindex="1" value="<?php echo html_entity_decode(stripslashes($entry['entry_author_website']), 0, 'UTF-8'); ?>" id="entry_author_website">
 	    				<p><?php _e("Example: <code>http://www.google.com/</code> &#8212; don't forget the <code>http://</code>!",$textdomain); ?></p>
 						</div>
 					</div>

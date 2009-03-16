@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://wolfgangtimme.de/blog/
 Description: simple guestbook
-Version: 0.9.4.4
+Version: 0.9.4.5
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -89,6 +89,9 @@ Author URI: http://www.wolfgangtimme.de/blog/
 
 		//	'entry editor'
     add_submenu_page(__FILE__, __('Entry editor',$textdomain), __('New entry',$textdomain), GWOLLE_GB_ACCESS_LEVEL, 'gwolle-gb/editor.php', 'page_editor');
+		
+		//	'form fields-editor' (coming up ;)
+    //add_submenu_page(__FILE__, __('Form fields',$textdomain), __('Form fields',$textdomain), GWOLLE_GB_ACCESS_LEVEL, 'gwolle-gb/formfields.php', 'page_formfields');
 		
     //	'settings'
     add_submenu_page(__FILE__, __('Settings',$textdomain), __('Settings',$textdomain), GWOLLE_GB_ACCESS_LEVEL, 'gwolle-gb/settings.php', 'page_settings');
@@ -222,6 +225,16 @@ Author URI: http://www.wolfgangtimme.de/blog/
 		}
 		else {
 			include('admin/editor.php');
+		}
+	}
+	
+	function page_formfields() {
+		global $wpdb; global $current_user; global $textdomain;
+		if (!get_option('gwolle_gb_version')) {
+			include('admin/installSplash.php');
+		}
+		else {
+			include('admin/formfields.php');
 		}
 	}
 	

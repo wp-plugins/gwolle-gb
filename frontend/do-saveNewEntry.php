@@ -15,7 +15,10 @@
 	//	Captcha processing
 	$recaptchaActive = get_option('gwolle_gb-recaptcha-active');
 	if ($recaptchaActive == 'true') {
-		require_once('recaptcha/recaptchalib.php');
+		if (!function_exists('recaptcha_get_html')) {
+			//	Only include the reCAPTCHA-Lib when not already done, e.g. by another plugin.
+			require_once('recaptcha/recaptchalib.php');
+		}
 		$privatekey = get_option('recaptcha-private-key');
 		$resp = recaptcha_check_answer ($privatekey,
 		                                $_SERVER["REMOTE_ADDR"],

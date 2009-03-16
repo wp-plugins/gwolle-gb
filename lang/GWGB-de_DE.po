@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-02-17 01:20+0100\n"
+"POT-Creation-Date: 2009-03-16 14:05+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Wolfgang Timme <info@media-services-hamburg.de>\n"
 "Language-Team: \n"
@@ -32,7 +32,6 @@ msgstr ""
 "Dein Gwolle-GB-Mailer"
 
 #: gwolle-gb.php:84
-#: admin/welcome.php:48
 msgid "Guestbook"
 msgstr "G&auml;stebuch"
 
@@ -49,7 +48,7 @@ msgstr "Eintragseditor"
 msgid "New entry"
 msgstr "Neuer Eintrag"
 
-#: gwolle-gb.php:94
+#: gwolle-gb.php:97
 #: admin/settings.php:15
 msgid "Settings"
 msgstr "Einstellungen"
@@ -67,145 +66,187 @@ msgid "New guestbook entry"
 msgstr "Neuer G&auml;stebuch-Eintrag"
 
 #: admin/editor.php:39
+#: admin/formfields.php:17
 msgid "Changes saved."
 msgstr "&Auml;nderungen gespeichert."
 
 #: admin/editor.php:42
+#: admin/formfields.php:20
 msgid "An error occurred while saving your changes."
 msgstr "Beim Speichern der &Auml;nderungen trat ein Fehler auf."
 
 #: admin/editor.php:46
+#: admin/formfields.php:24
 msgid "<strong>Attention:</strong> This entry is marked as spam!"
 msgstr "<strong>Achtung:</strong> Dieser Eintrag ist als Spam markiert!"
 
 #: admin/editor.php:49
+#: admin/formfields.php:27
 msgid "Entry successfully classified as not-spam."
 msgstr "Eintrag erfolgreich als nicht-Spam markiert."
 
 #: admin/editor.php:65
 #: admin/editor.php:97
+#: admin/formfields.php:43
+#: admin/formfields.php:75
 msgid "Save"
 msgstr "Speichern"
 
 #: admin/editor.php:70
+#: admin/formfields.php:48
 msgid "Options"
 msgstr "Einstellungen"
 
 #: admin/editor.php:74
+#: admin/formfields.php:52
 msgid "This entry is checked."
 msgstr "Eintrag ist freigegeben."
 
 #: admin/editor.php:81
+#: admin/formfields.php:59
 msgid "You\\'re about to delete this guestbook entry. This can\\'t be undone. Are you still sure you want to continue?"
 msgstr "Du bist dabei, diesen G&auml;stebuch-Eintrag zu l&ouml;schen. Dies kann nicht r&uuml;ckg&auml;ngig gemacht werden. Trotzdem fortfahren?"
 
 #: admin/editor.php:81
 #: admin/entries.php:175
 #: admin/entries.php:336
+#: admin/formfields.php:59
 msgid "Delete"
 msgstr "L&ouml;schen"
 
 #: admin/editor.php:86
+#: admin/formfields.php:64
 msgid "You\\'re about to mark this guestbook entry as spam. It will be sent to the Akismet team to help other people fighting spam. Entries marked as spam are automatically deleted after 15 days. Continue?"
 msgstr "Du bist das, diesen Eintrag als Spam zu markieren. Er wird an das Akismet-Team geschickt, um anderen Menschen im Kampf gegen Spam zu helfen. Spam-Eintr&auml;ge, die &auml;lter als 15 Tage sind, werden automatisch gel&ouml;scht. Fortfahren?"
 
 #: admin/editor.php:86
+#: admin/formfields.php:64
 msgid "Spam!"
 msgstr "Spam!"
 
 #: admin/editor.php:91
+#: admin/formfields.php:69
 msgid "A message will be sent to the Akismet team that this entry is not spam. Continue?"
 msgstr "Ich werde das Akismet-Team benachrichtigen, dass dies kein Spam ist. Fortfahren?"
 
 #: admin/editor.php:91
+#: admin/formfields.php:69
 msgid "No Spam!"
 msgstr "kein Spam!"
 
 #: admin/editor.php:109
 #: admin/entries.php:308
+#: admin/formfields.php:87
 msgid "Details"
 msgstr "Details"
 
 #: admin/editor.php:115
 #: admin/entries.php:241
 #: admin/entries.php:255
+#: admin/formfields.php:93
 msgid "Author"
 msgstr "Autor"
 
 #: admin/editor.php:115
 #: admin/editor.php:163
+#: admin/formfields.php:93
+#: admin/formfields.php:141
 #: admin/settings.php:106
 msgid "You"
 msgstr "Du"
 
 #: admin/editor.php:117
+#: admin/formfields.php:95
 msgid "E-Mail"
 msgstr "E-Mail"
 
 #: admin/editor.php:117
 #: admin/editor.php:121
 #: admin/editor.php:123
+#: admin/formfields.php:95
+#: admin/formfields.php:99
+#: admin/formfields.php:101
 msgid "unknown"
 msgstr "unbekannt"
 
 #: admin/editor.php:119
 #: admin/editor.php:144
+#: admin/formfields.php:97
+#: admin/formfields.php:122
 msgid "Written"
 msgstr "Geschrieben"
 
 #: admin/editor.php:119
+#: admin/formfields.php:97
 msgid "o'clock"
 msgstr "Uhr"
 
 #: admin/editor.php:119
+#: admin/formfields.php:97
 msgid "not yet"
 msgstr "noch nicht"
 
 #: admin/editor.php:121
+#: admin/formfields.php:99
 msgid "Author's IP-address"
 msgstr "IP-Adresse des Autors"
 
 #: admin/editor.php:123
+#: admin/formfields.php:101
 msgid "Host"
 msgstr "Host"
 
 #: admin/editor.php:135
+#: admin/formfields.php:113
 msgid "Log"
 msgstr "Logbuch"
 
 #: admin/editor.php:146
+#: admin/formfields.php:124
 msgid "Entry has been locked."
 msgstr "Eintrag wurde gesperrt."
 
 #: admin/editor.php:147
+#: admin/formfields.php:125
 msgid "Entry has been unlocked."
 msgstr "Eintrag wurde freigegeben."
 
 #: admin/editor.php:148
+#: admin/formfields.php:126
 msgid "Entry marked as spam."
 msgstr "Eintrag als Spam eingestuft."
 
 #: admin/editor.php:149
+#: admin/formfields.php:127
 msgid "Entry marked as not-spam."
 msgstr "Eintrag als nicht-Spam eingestuft."
 
 #: admin/editor.php:176
+#: admin/formfields.php:154
 msgid "No entries yet."
 msgstr "Bisher keine Eintr&auml;ge."
 
 #: admin/editor.php:195
+#: admin/formfields.php:173
 msgid "Guestbook entry"
 msgstr "G&auml;stebuch-Eintrag"
 
-#: admin/editor.php:202
+#: admin/editor.php:198
+msgid "Line breaks will not be visible to the visitors due to your <a href=\"%1\">settings</a>."
+msgstr "Zeilenumbr&uuml;che werden auf Grund deiner <a href=\"%1\">Einstellungen</a> nicht f&uuml;r deine Besucher sichtbar sein."
+
+#: admin/editor.php:203
+#: admin/formfields.php:180
 msgid "Homepage"
 msgstr "Homepage"
 
-#: admin/editor.php:205
+#: admin/editor.php:206
+#: admin/formfields.php:183
 msgid "Example: <code>http://www.google.com/</code> &#8212; don't forget the <code>http://</code>!"
 msgstr "Beispiel: <code>http://www.google.com/</code> &#8212; das <code>http://</code> nicht vergessen!"
 
-#: admin/editor.php:210
+#: admin/editor.php:211
+#: admin/formfields.php:188
 msgid "Origin"
 msgstr "Herkunft"
 
@@ -322,6 +363,10 @@ msgstr "Aktion"
 #: admin/entries.php:320
 msgid "No entries found."
 msgstr "Keine Eintr&auml;ge gefunden."
+
+#: admin/formfields.php:13
+msgid "Form fields"
+msgstr "Form-Felder"
 
 #: admin/installSplash.php:10
 msgid "Successfully uninstalled"
@@ -513,46 +558,58 @@ msgid "Number of entries shown on the frontend in reading mode."
 msgstr "Anzahl der Eintr&auml;ge, die im G&auml;stebuch auf einer Seite zu sehen sind."
 
 #: admin/settings.php:245
+msgid "Line breaks"
+msgstr "Zeilenumbr&uuml;che"
+
+#: admin/settings.php:247
+msgid "Show line breaks."
+msgstr "Zeilenumbr&uuml;che anzeigen."
+
+#: admin/settings.php:249
+msgid "Show line breaks as the entry authors entered them. (May result in very long entries. Is turned off by default.)"
+msgstr "Zeilenumbr&uuml;che wie vom Autor eingegeben anzeigen. (K&ouml;nnte sehr lange Eintr&auml;ge zur Folge haben, daher standardm&auml;&szlig;ig ausgeschaltet.)"
+
+#: admin/settings.php:254
 msgid "Admin mail content"
 msgstr "Text der Benachrichtigung"
 
-#: admin/settings.php:260
+#: admin/settings.php:269
 msgid "You can set the content of the mail a notification subscriber gets on new entries. The following tags are supported:"
 msgstr "Du kannst den Inhalt der Benachrichtigungs-E-Mail f&uuml;r neue Eintr&auml;ge ver&auml;ndern. Folgende Tags werden unterst&uuml;tzt:"
 
-#: admin/settings.php:273
+#: admin/settings.php:282
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
-#: admin/settings.php:295
+#: admin/settings.php:304
 msgid "Uninstall"
 msgstr "Deinstallation"
 
-#: admin/settings.php:298
+#: admin/settings.php:307
 msgid "Uninstalling means that all database entries are removed (settings and entries)."
 msgstr "Deinstallation hei&szlig;t, dass alle Datenbank-Eintr&auml;ge (Einstellungen und G&auml;stebuch-Eintr&auml;ge) gel&ouml;scht werden."
 
-#: admin/settings.php:300
+#: admin/settings.php:309
 msgid "This can <strong>not</strong> be undone."
 msgstr "Dies kann <strong>nicht</strong> r&uuml;ckg&auml;ngig gemacht werden."
 
-#: admin/settings.php:303
+#: admin/settings.php:312
 msgid "I'm aware of that, continue!"
 msgstr "Wei&szlig; ich, mach weiter!"
 
-#: admin/settings.php:309
+#: admin/settings.php:318
 msgid "I really don't want to bother you; this page just exists to prevent you from accidentally deleting all your entries.<br>Please check the 'uninstall' checkbox and hit the button; all tables (including their rows) and all settings of Gwolle-GB will be deleted.<br><br>Are you REALLY sure you wan't to continue? There's no 'undo'."
 msgstr "Ich m&ouml;chte dich wirklich nicht nerven; diese Seite versucht lediglich, ein versehentliches L&ouml;schen der Eintr&auml;ge zu vermeiden.<br>Bitte setze den Haken bei der Checkbox und klick auf die Schaltfl&auml;che; alle Tabellen (inkl. ihrer Reihen) und alle Einstellungen von Gwolle-GB werden gel&ouml;scht.<br><br>Bist Du dir WIRKLICH SICHER, dass Du fortfahren m&ouml;chtest? Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden."
 
-#: admin/settings.php:312
+#: admin/settings.php:321
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr "Ja, ich bin mir wirklich 100% sicher. Mach weiter!"
 
-#: admin/settings.php:315
+#: admin/settings.php:324
 msgid "Uninstall &raquo;"
 msgstr "Deinstallieren &raquo;"
 
-#: admin/settings.php:320
+#: admin/settings.php:329
 msgid "Sorry, but the page you're looking for does not exists. Go back to the <a href=\"%1\">settings page</a>"
 msgstr "Uups, die Seite, die Du suchst, gibt es nicht. Versuch es noch einmal &uuml;ber die <a href=\"%1\">Gwolle-GB-Einstellungen</a>."
 
@@ -687,15 +744,15 @@ msgstr "Tja, da gabs wohl einen kleinen Fehler in der Datenbank.<br>Bitte versuc
 msgid "(no entries yet)"
 msgstr "(keine Eintr&auml;ge bisher)"
 
-#: frontend/read.php:146
+#: frontend/read.php:148
 msgid "Staff"
 msgstr "Redaktion"
 
-#: frontend/read.php:153
+#: frontend/read.php:155
 msgid "from"
 msgstr "aus"
 
-#: frontend/read.php:155
+#: frontend/read.php:157
 msgid "wrote at"
 msgstr "schrieb am"
 
