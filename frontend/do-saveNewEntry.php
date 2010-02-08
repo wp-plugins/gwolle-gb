@@ -160,8 +160,9 @@
 					$mail_body = stripslashes(get_option('gwolle_gb-adminMailContent'));
 					if (!$mail_body) { $mail_body = $defaultMailText; }
 					
-					$subject = "[" . get_bloginfo('name') . "] New guestbook entry"; //subject
-					$header = "From: Gwolle-Gb-Mailer <" . get_bloginfo('admin_email') . ">\r\n"; //optional headerfields
+					$subject = "[" . get_bloginfo('name') . "] New guestbook entry";
+					$header = "From: Gwolle-Gb-Mailer <" . get_bloginfo('admin_email') . ">\r\n";
+					$header .= "Content-Type: text/plain; charset=UTF-8\r\n";  //  Encoding of the mail
 					
 					$info['blog_name'] = get_bloginfo('name');
 					$info['blog_url'] = get_bloginfo('url');
@@ -172,9 +173,23 @@
 						$mail_body = str_replace('%' . $mailTags[$tagNum] . '%',$info[$mailTags[$tagNum]],$mail_body);
 					}
 					
+					if (!function_exists('gwolle_gb_formatValuesForMail')) {
+            /*  
+            **  Function to format values for beeing send by mail.
+            **  Since users can input malicious code we have to make
+            **  sure that this code is beeing taken care of.
+            */
+            function gwolle_gb_formatValuesForMail($value) {
+              $value = str_replace('<','{',$value);
+              $value = str_replace('>','}',$value);
+              return $value;
+            }
+          }
+					
 					for ($i=0; $i<count($subscriber); $i++) {
 						$mailBody[$i] = $mail_body;
 						$mailBody[$i] = str_replace('%user_email%',$subscriber[$i]['user_email'],$mailBody[$i]);
+						$mailBody[$i] = str_replace('%entry_content%',gwolle_gb_formatValuesForMail($_POST['entry_content']),$mailBody[$i]);
 						
 						wp_mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
 					}

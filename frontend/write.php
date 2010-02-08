@@ -31,19 +31,19 @@
 	<form id="new_entry" style="text-align:left;" action="<?php echo $gb_link; ?>gb_page=write" accept-charset="UTF-8" method="POST">
 		<input type="hidden" name="gb_link" id="gb_link" value="<?php echo $gb_link; ?>">
 		<div class="label"><?php _e('Name',$textdomain); ?>:*</div>
-		<div class="input"><input class="<?php if ($error_name) { echo ' error'; } ?>" value="<?php echo $_POST['entry_author_name']; ?>" type="text" name="entry_author_name"></div>
+		<div class="input"><input class="<?php if ($error_name) { echo ' error'; } ?>" value="<?php echo $_POST['entry_author_name']; ?>" type="text" name="entry_author_name" /></div>
 		<div class="clearBoth">&nbsp;</div>
 		
 		<div class="label"><?php _e('Origin',$textdomain); ?>:</div>
-		<div class="input"><input value="<?php echo $_POST['entry_author_origin']; ?>" type="text" name="entry_author_origin"></div>
+		<div class="input"><input value="<?php echo $_POST['entry_author_origin']; ?>" type="text" name="entry_author_origin" /></div>
 		<div class="clearBoth">&nbsp;</div>
 		
 		<div class="label"><?php _e('E-Mail',$textdomain); ?>:</div>
-		<div class="input"><input value="<?php echo $_POST['entry_author_email']; ?>" type="text" name="entry_author_email"></div>
+		<div class="input"><input value="<?php echo $_POST['entry_author_email']; ?>" type="text" name="entry_author_email" /></div>
 		<div class="clearBoth">&nbsp;</div>
 		
 		<div class="label"><?php _e('Homepage',$textdomain); ?>:</div>
-		<div class="input"><input value="<?php echo $_POST['entry_author_website']; ?>" type="text" name="entry_author_website"></div>
+		<div class="input"><input value="<?php echo $_POST['entry_author_website']; ?>" type="text" name="entry_author_website" /></div>
 		<div class="clearBoth">&nbsp;</div>
 		
 		<div class="label"><?php _e('Guestbook entry',$textdomain); ?>:*</div>
@@ -74,7 +74,7 @@
 		?>
 		
 		<div class="label">&nbsp;</div>
-		<div class="input"><input type="submit" value="<?php _e('Submit',$textdomain); ?>"></div>
+		<div class="input"><input type="submit" value="<?php _e('Submit',$textdomain); ?>" /></div>
 		<div class="clearBoth">&nbsp;</div>
 	</form>
 	

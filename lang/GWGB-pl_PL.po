@@ -1,0 +1,351 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gwolle-GB\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-31 14:11+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Daniel Speichert <Daniel@Speichert.pro>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: /Users/wolfgangtimme/Sites/heinegym/wordpress/wp-content/plugins/gwolle-gb/\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: gwolle-gb.php:68
+#: admin/welcome.php:8
+msgid "Guestbook"
+msgstr "Księga Gości"
+
+#: gwolle-gb.php:72
+msgid "Entries"
+msgstr "Wpisy"
+
+#: gwolle-gb.php:75
+msgid "Entry editor"
+msgstr "Edytor wpisów"
+
+#: gwolle-gb.php:75
+msgid "New entry"
+msgstr "Nowy wpis"
+
+#: gwolle-gb.php:78
+#: admin/settings.php:15
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: admin/editor.php:20
+msgid "Edit guestbook entry"
+msgstr "Edytuj wpis w księdze gości"
+
+#: admin/editor.php:24
+msgid "Entry could not be found."
+msgstr "Wpis nie został odnaleziony"
+
+#: admin/editor.php:28
+msgid "New guestbook entry"
+msgstr "Nowy wpis w księdze gości"
+
+#: admin/editor.php:39
+msgid "Changes saved."
+msgstr "Zmiany zostały zapisane."
+
+#: admin/editor.php:42
+msgid "An error occurred while saving your changes."
+msgstr "Wystąpił błąd podczas zapisywania zmian."
+
+#: admin/editor.php:58
+msgid "Save"
+msgstr "Zpaisz"
+
+#: admin/editor.php:63
+msgid "Options"
+msgstr "Opcje"
+
+#: admin/editor.php:67
+msgid "This entry is checked."
+msgstr "Ten wpis został sprawdzony."
+
+#: admin/editor.php:73
+msgid "You\\'re about to delete this guestbook entry. This can\\'t be undone. Are you still sure you want to continue?"
+msgstr "Masz zamiar usunąć ten wpis z księgi gości. Nie można tego cofnąć. Czy chcesz kontynuować ?"
+
+#: admin/editor.php:73
+msgid "Delete"
+msgstr "Usuń"
+
+#: admin/editor.php:75
+msgid "Save changes"
+msgstr "Zapisz zmiany"
+
+#: admin/editor.php:87
+#: admin/entries.php:218
+msgid "Details"
+msgstr "Szczegóły"
+
+#: admin/editor.php:93
+#: admin/entries.php:185
+msgid "Author"
+msgstr "Autor"
+
+#: admin/editor.php:93
+#: admin/editor.php:139
+msgid "You"
+msgstr "Ty"
+
+#: admin/editor.php:95
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: admin/editor.php:95
+#: admin/editor.php:99
+#: admin/editor.php:101
+msgid "unknown"
+msgstr "nieznany"
+
+#: admin/editor.php:97
+#: admin/editor.php:122
+msgid "Written"
+msgstr "Napisane"
+
+#: admin/editor.php:97
+msgid "o'clock"
+msgstr ""
+
+#: admin/editor.php:97
+msgid "not yet"
+msgstr "jeszcze nie"
+
+#: admin/editor.php:99
+msgid "Author's IP-address"
+msgstr "Adres IP autora"
+
+#: admin/editor.php:101
+msgid "Host"
+msgstr "Host"
+
+#: admin/editor.php:113
+msgid "Log"
+msgstr "Log"
+
+#: admin/editor.php:124
+msgid "Entry has been locked."
+msgstr "Wpis został zablokowany."
+
+#: admin/editor.php:125
+msgid "Entry has been unlocked."
+msgstr "Wpis został odblokowany."
+
+#: admin/editor.php:152
+msgid "No entries yet."
+msgstr "Brak wpisów."
+
+#: admin/editor.php:171
+msgid "Guestbook entry"
+msgstr "Wpis do księgi gości"
+
+#: admin/editor.php:178
+msgid "Homepage"
+msgstr "Strona główna"
+
+#: admin/editor.php:181
+msgid "Example: <code>http://www.google.com/</code> &#8212; don't forget the <code>http://</code>!"
+msgstr "Przykład: <code>http://www.google.com/</code> &#8212; nie zapomnij o <code>http://</code>!"
+
+#: admin/editor.php:186
+msgid "Origin"
+msgstr "Pochodzenie"
+
+#: admin/entries.php:111
+msgid "Entry successfully deleted."
+msgstr "Wpis został usunięty."
+
+#: admin/entries.php:112
+msgid "An error occured while trying to delete the entry."
+msgstr "Wystąpił błąd przy usuwaniu wpisu."
+
+#: admin/entries.php:122
+msgid "All"
+msgstr "Wszystko"
+
+#: admin/entries.php:123
+msgid "Unlocked"
+msgstr "Odblokowany"
+
+#: admin/entries.php:124
+msgid "New"
+msgstr "Nowy"
+
+#: admin/entries.php:129
+msgid "Showing:"
+msgstr "Przeglądanie:"
+
+#: admin/entries.php:129
+msgid "of"
+msgstr "z"
+
+#: admin/entries.php:182
+msgid "ID"
+msgstr "ID"
+
+#: admin/entries.php:183
+msgid "Date"
+msgstr "Data"
+
+#: admin/entries.php:184
+msgid "Entry (excerpt)"
+msgstr "Wpis (fragment)"
+
+#: admin/entries.php:186
+msgid "Action"
+msgstr "Akcja"
+
+#: admin/entries.php:230
+msgid "No entries found."
+msgstr "Nie znaleziono wpisów."
+
+#: admin/settings.php:18
+msgid "Changes successfully saved."
+msgstr "Zmiany zostały zapisane."
+
+#: admin/settings.php:26
+msgid "Notification"
+msgstr "Powiadomienie"
+
+#: admin/settings.php:43
+msgid "Send me an e-mail when a new entry has been posted."
+msgstr "Wyślij mi email kiedy zostanie dodany wpis."
+
+#: admin/settings.php:47
+msgid "The following users have subscribed to this service:"
+msgstr "Użytkownicy, którzy zapisali się do usługi:"
+
+#: admin/settings.php:62
+msgid "no subscriber yet"
+msgstr "brak użytkowników"
+
+#: admin/settings.php:83
+msgid "Learn more about Recaptcha..."
+msgstr "Dowiedz się więcej o Recaptcha..."
+
+#: admin/settings.php:83
+msgid "What's that?"
+msgstr "Co to ?"
+
+#: admin/settings.php:85
+msgid "Use Recaptcha"
+msgstr "Użyj Recaptcha"
+
+#: admin/settings.php:88
+msgid "<strong>Public</strong> key of your Recaptcha account"
+msgstr "<strong>Publiczny</strong> klucz Twojego konta Recaptcha"
+
+#: admin/settings.php:91
+msgid "<strong>Private</strong> key of your Recaptcha account"
+msgstr "<strong>Prywatny</strong> klucz Twojego konta Recaptcha"
+
+#: admin/settings.php:93
+msgid "The keys can be found at your"
+msgstr "Klucze znajdziesz na swoim"
+
+#: admin/settings.php:93
+msgid "Go to my reCAPTCHA sites..."
+msgstr "Idź do moich stron reCAPTCHA..."
+
+#: admin/settings.php:93
+msgid "reCAPTCHA sites overview"
+msgstr "przegląd stron reCAPTCHA"
+
+#: admin/settings.php:101
+msgid "Save settings"
+msgstr "Zapisz ustawienia"
+
+#: admin/settings.php:114
+msgid "Uninstall"
+msgstr "Odinstaluj"
+
+#: admin/settings.php:117
+msgid "Uninstalling means that all database entries are removed (settings and entries)."
+msgstr "Odinstalowanie oznacza usunięcie wszystkich informacji z bazy danych (ustawienia i wpisy)."
+
+#: admin/settings.php:119
+msgid "This can <strong>not</strong> be undone."
+msgstr "Tej opercji <strong>nie</strong> można cofnąć."
+
+#: admin/settings.php:121
+msgid "I'm aware of that, continue!"
+msgstr "Jestem tego świadomy, kontynuuj !"
+
+#: admin/welcome.php:11
+msgid "Error"
+msgstr "Błąd"
+
+#: admin/welcome.php:11
+msgid "You don't have the privileges to perform this action."
+msgstr "Nie masz uprawniej do wykonania tej czynności."
+
+#: admin/welcome.php:31
+msgid "Latest updates"
+msgstr "Ostatnie aktualizacje"
+
+#: admin/welcome.php:49
+msgid "Help"
+msgstr "Pomoc"
+
+#: admin/welcome.php:54
+msgid "This is how the guestbook will be displayed on your page"
+msgstr "To jest sposób wyświetlenia księgi gości na Twojej stronie"
+
+#: admin/welcome.php:57
+msgid "Create a new article."
+msgstr "Utwórz nowy artykuł."
+
+#: admin/welcome.php:58
+msgid "Choose a heading (doesn't matter) and set &quot;[gwolle-gb]&quot; (without the quotes) as the content."
+msgstr "Wybierz tytuł (nie ma znaczenia) i ustaw &quot;[gwolle-gb]&quot; (bez cudzysłowów) jako treść."
+
+#: admin/welcome.php:87
+msgid "Welcome to the Guestbook!"
+msgstr "Witaj w księdze gości !"
+
+#: admin/welcome.php:89
+msgid "Overview"
+msgstr "Przegląd"
+
+#: admin/welcome.php:111
+msgid "entry total"
+msgstr "wpis łącznie"
+
+#: admin/welcome.php:114
+msgid "entries total"
+msgstr "wpisów łącznie"
+
+#: admin/welcome.php:140
+msgid "unlocked entry"
+msgstr "odblokowany wpis"
+
+#: admin/welcome.php:143
+msgid "unlocked entries"
+msgstr "odblokowanych wpisów"
+
+#: admin/welcome.php:169
+msgid "new entry"
+msgstr "nowy wpis"
+
+#: admin/welcome.php:172
+msgid "new entries"
+msgstr "nowe wpisy"
+
+#: admin/welcome.php:184
+msgid "Write admin entry"
+msgstr "Napisz wpis admina"
+
+#: admin/welcome.php:185
+msgid "Here you can manage the entries."
+msgstr "Tutaj możesz zarządzać wpisami."
+
+#: admin/welcome.php:188
+msgid "Only administrators have access to the guestbook backend."
+msgstr "Wyłącznie administratorzy mają dostęp do panelu administracyjnego księgi gości."
+

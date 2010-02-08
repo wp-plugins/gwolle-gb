@@ -1,9 +1,9 @@
 === Gwolle-GB ===
 Contributors: Gwolle
 Tags: guestbook, feedback, antispam
-Requires at least: 2.7
-Tested up to: 2.7
-Stable tag: 0.9.4.5
+Requires at least: 2.9
+Tested up to: 2.9.4
+Stable tag: 0.9.4.6
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -18,19 +18,31 @@ It works quite good actually, and I'm looking forward to integrate some other co
 * Moderation, so that you have to check an entry before it is visible in your guestbook (can be turned off).
 * Recaptcha integration. (Fighting spam!)
 * Akismet integration (Fighting spam, too!)
-* Localisation (currently english, german and dutch). Own languages can be added very easily, check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release, so please send them to my via mail, thanks!
+* Localisation (currently english, german, spanish, polish and dutch). Own languages can be added very easily, check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release, so please send them to my via mail, thanks!
 * different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
 * a log for each entry, so that you know which member of the staff released an article to the public and when.
-* IP-address- and host-logging
+* IP-address- and host-logging with link to WHOIS query site
 * Easy uninstall routine for complete removal of all database changes.
 
-... and all that integrated in the stylish WordPress 2.7 look.
+... and all that integrated in the stylish WordPress 2.9 look.
 
 For a demo, visit the plugin's homepage (http://www.wolfgangtimme.de/blog/). Feel free to drop me a message
 in the WordPress.org forums or send me an email to gwolle (at) wolfgangtimme (dot) de. You may also
 use my homepage's comment section. I'd be glad to hear your opinion and/or feature request.
 
 = Changelog =
+
+0.9.4.6
+[new] Option to output text before/after the [gwolle-gb]-Tag, as requested
+[new] Whois link for IP address of the entry author
+[new] Entry content can now be send with the notification mail. For security reasons '<' and '>' are send as '{' and '}'.
+[new] Polish language (thanks, Daniel Speichert!)
+[new] Spanish language (thanks, José Luis Sanz Ruiz!)
+[fix] Support for localization of the frontend
+[fix] Now coded in XHTML, just as pointed out by "KriLL3"
+[fix] German special chars ("Umlaute") are now displayed correctly.
+[fix] Metaboxes ('Save' etc.) are displayed again. Sorry for that one, folks!
+Now online again with http://wolfgangtimme.de/blog/!
 
 0.9.4.5
 As this release alters your Gwolle-GB database tables I highly recommend to backup the old ones.
