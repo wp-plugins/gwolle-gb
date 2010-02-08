@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://wolfgangtimme.de/blog/
 Description: simple guestbook
-Version: 0.9.4.5
+Version: 0.9.4.7
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -32,7 +32,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	load_plugin_textdomain($textdomain, false, dirname( plugin_basename(__FILE__) ) . '/lang');
 
 	//	plugin's version
-	define('GWOLLE_GB_VER','0.9.4.4');
+	define('GWOLLE_GB_VER','0.9.4.5');
 
 	//	Akismet PHP4 class folder's name
 	define('AKISMET_PHP4_CLASS_DIR','Akismet_PHP4');
@@ -162,12 +162,17 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	//	load the frontend CSS definition
 	add_action('wp_head', 'add_gwolle_gb_frontend_css');
 	function add_gwolle_gb_frontend_css() {
-		echo '<link rel="stylesheet" href="' . WP_PLUGIN_URL . '/gwolle-gb/frontend/style.css" type="text/css">';
+		echo '<link rel="stylesheet" href="' . WP_PLUGIN_URL . '/gwolle-gb/frontend/style.css" type="text/css" />';
 	}
 	
-	//	load the admin panel CSS
-	add_action('admin_head', 'add_gwolle_gb_admin_css');
-	function add_gwolle_gb_admin_css() {
+	//	Load admin CSS/scripts
+	add_action('admin_head', 'gwolle_gb_admin_head');
+	function gwolle_gb_admin_head() {
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('common');
+    wp_enqueue_script('wp-lists');
+    wp_enqueue_script('postbox');
+ 
 		echo "<link rel='stylesheet' href='" . get_option('siteurl') . "/wp-admin/css/dashboard.css?ver=20081210' type='text/css' media='all' />";
 		echo "<link rel='stylesheet' href='" . WP_PLUGIN_URL . "/gwolle-gb/admin/style.css' type='text/css' media='all' />";
 		
@@ -179,18 +184,33 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	}
 	
 	//	Function (use this to display the guestbook on a page)
-	function show_gwolle_gb() {
+	function get_gwolle_gb() {
+    global $textdomain;
 		include('frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
 		
 		include('frontend/index.php');
+		return $output;
 	}
 	
 	//	Replace the [gwolle-gb] tag with the guestbook
 	add_filter('the_content', 'output_guestbook');
 	function output_guestbook($content) {
-		if (strpos($content,'[gwolle-gb]') > -1) {
-			//	Display the frontend.
-			show_gwolle_gb();
+    $gwolle_gb_tagPosition = strpos($content,'[gwolle-gb]');
+		if ($gwolle_gb_tagPosition > -1) {
+		  if (get_option('gwolle_gb-guestbookOnly')=='true') {
+  			//	Display frontend only; don't display other post content.
+  			return get_gwolle_gb();
+  		}
+  		else {
+  		  $output = '';
+  		  //  Display content BEFORE the guestbook
+  		  $output .= substr($content, 0, $gwolle_gb_tagPosition);
+  		  //  Display the frontend
+  		  $output .= get_gwolle_gb();
+  		  //  Display content AFTER the guestbook
+  		  $output .= substr($content, ($gwolle_gb_tagPosition+strlen('[gwolle-gb]')), (strlen($content)-$gwolle_gb_tagPosition));
+  		  return $output;
+  		}
 		}
 		else {
 			return $content;

@@ -271,6 +271,14 @@
 			add_option('gwolle_gb-showLineBreaks','false');
 		}
 		
+		if (version_compare($installed_ver,'0.9.4.6','<')) {
+		  /*
+		  **  0.9.4.5->0.9.4.6
+		  **  Added option to show/hide text before/after [gwolle-gb] tag.
+		  */
+		  add_option('gwolle_gb-guestbookOnly','true');
+		}
+		
 		//	Update the plugin version option
 		update_option('gwolle_gb_version', GWOLLE_GB_VER);
 	}

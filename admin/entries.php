@@ -7,9 +7,18 @@
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
+	if (!function_exists('gwolle_gb_formatValueForOutput')) {
+    //  Function to format entry values for output
+    function gwolle_gb_formatValueForOutput($value) {
+      $value = html_entity_decode($value);
+      $value = stripslashes($value);
+      $value = htmlspecialchars($value);
+      return $value;
+    }
+  }
+	
 	//	Show icons in entry rows?
 	if (get_option('gwolle_gb-showEntryIcons') == 'true') { $showIcons = true; }
-	
 	//	Get entry counts
 	$checkedEntries_result = mysql_query("
 		SELECT entry_id
@@ -288,7 +297,7 @@
 									echo date('d.m.Y',$entry['entry_date']);
 								echo '</td>';
 								echo '<td>';
-									echo html_entity_decode(stripslashes(substr($entry['entry_content'],0,100)), 0, 'UTF-8');
+									echo gwolle_gb_formatValueForOutput(substr($entry['entry_content'],0,100));
 									if (strlen($entry['entry_content']) > 100) { echo '...'; }
 								echo '</td>';
 								echo '<td>';
@@ -298,10 +307,13 @@
 											$userdata = get_userdata($entry['entry_authorAdminId']);
 											$adminName[$entry['entry_authorAdminId']] = $userdata->user_login;
 										}
+										if ($adminName[$entry['entry_authorAdminId']] == '') {
+										  $adminName[$entry['entry_authorAdminId']] = '<strong>'.__('User not found',$textdomain).'</strong>';
+										}
 										echo '<i>' . $adminName[$entry['entry_authorAdminId']] . '</i>';
 									}
 									else {
-										echo html_entity_decode(stripslashes($entry['entry_author_name']), 0, 'UTF-8');
+										echo gwolle_gb_formatValueForOutput($entry['entry_author_name']);
 									}
 								echo '</td>';
 								echo '<td>';

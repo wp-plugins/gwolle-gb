@@ -89,6 +89,14 @@
 			update_option('gwolle_gb-showLineBreaks','false');
 		}
 		
+		//  Content prepended/appended to the [gwolle-gb] tag option
+		if ($_POST['guestbookOnly'] == 'on') {
+			update_option('gwolle_gb-guestbookOnly','true');
+		}
+		else {
+			update_option('gwolle_gb-guestbookOnly','false');
+		}
+		
 		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
 		exit;
 	}
