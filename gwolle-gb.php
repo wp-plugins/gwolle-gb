@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://wolfgangtimme.de/blog/
 Description: simple guestbook
-Version: 0.9.4.6
+Version: 0.9.4.7
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -184,11 +184,12 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	}
 	
 	//	Function (use this to display the guestbook on a page)
-	function show_gwolle_gb() {
+	function get_gwolle_gb() {
     global $textdomain;
 		include('frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
 		
 		include('frontend/index.php');
+		return $output;
 	}
 	
 	//	Replace the [gwolle-gb] tag with the guestbook
@@ -198,15 +199,17 @@ Author URI: http://www.wolfgangtimme.de/blog/
 		if ($gwolle_gb_tagPosition > -1) {
 		  if (get_option('gwolle_gb-guestbookOnly')=='true') {
   			//	Display frontend only; don't display other post content.
-  			show_gwolle_gb();
+  			return get_gwolle_gb();
   		}
   		else {
+  		  $output = '';
   		  //  Display content BEFORE the guestbook
-  		  echo substr($content, 0, $gwolle_gb_tagPosition);
+  		  $output .= substr($content, 0, $gwolle_gb_tagPosition);
   		  //  Display the frontend
-  		  show_gwolle_gb();
+  		  $output .= get_gwolle_gb();
   		  //  Display content AFTER the guestbook
-  		  echo substr($content, ($gwolle_gb_tagPosition+strlen('[gwolle-gb]')), (strlen($content)-$gwolle_gb_tagPosition));
+  		  $output .= substr($content, ($gwolle_gb_tagPosition+strlen('[gwolle-gb]')), (strlen($content)-$gwolle_gb_tagPosition));
+  		  return $output;
   		}
 		}
 		else {

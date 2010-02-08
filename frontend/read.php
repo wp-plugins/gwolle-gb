@@ -1,14 +1,14 @@
 <?php
 	//	Link 'write a new entry...'
-	echo '<div style="margin-bottom:10px;"><a href="' . $gb_link . 'gb_page=write">&raquo; ' . __('Write a new entry.',$textdomain) . '</a></div>';
+	$output .= '<div style="margin-bottom:10px;"><a href="' . $gb_link . 'gb_page=write">&raquo; ' . __('Write a new entry.',$textdomain) . '</a></div>';
 	
 	if ($_REQUEST['msg']) {
 		//	Output a requested message
-		echo '<div class="msg">';
+		$output .= '<div class="msg">';
 			$msg['entry-saved'] = __('Thanks for your entry.',$textdomain); if (get_option('gwolle_gb-moderate-entries')=='true') { $msg['entry-saved'] .= __('<br>We will review it and unlock it in a short while.',$textdomain); }
 			$msg['error'] = __('Well, there has been an error querying the database.<br>Please try again later, thanks!',$textdomain);
-			echo $msg[$_REQUEST['msg']];
-		echo '</div>';
+			$output .= $msg[$_REQUEST['msg']];
+		$output .= '</div>';
 	}
 	
 	//	Calculate page count for all (checked) entries.
@@ -80,91 +80,91 @@
 	$query_string .= " LIMIT " . $mysqlFirstRow . "," . $entriesPerPage;
 	
 	//	page navigation
-	echo '<div id="page-navigation">';
+	$output .= '<div id="page-navigation">';
 		if ($pageNum > 1) {
-			echo '<a href="' . $gb_link . 'pageNum=' . round($pageNum-1) . '">&laquo;</a>';
+			$output .= '<a href="' . $gb_link . 'pageNum=' . round($pageNum-1) . '">&laquo;</a>';
 		}
 		if ($pageNum < 5) {
 			if ($countPages < 4) { $showRange = $countPages; } else { $showRange = 6; }
 			for ($i=1; $i<$showRange; $i++) {
 				if ($i==$pageNum) {
-					echo '<span>' . $i . '</span>';
+					$output .= '<span>' . $i . '</span>';
 				}
 				else {
-					echo '<a href="' . $gb_link . 'pageNum=' . $i . '">' . $i . '</a>';
+					$output .= '<a href="' . $gb_link . 'pageNum=' . $i . '">' . $i . '</a>';
 				}
 			}
 			
 			if ($pageNum < $countPages-2) {
 				$highDotsMade = true;	//	The dots next to the highest number have already been put out.
-				echo '<span class="page-numbers dots">...</span>';
+				$output .= '<span class="page-numbers dots">...</span>';
 			}
 		}
 		elseif ($pageNum >= 5) {
-			echo '<a href="' . $gb_link . 'pageNum=1">1</a>';
-			if ($pageNum-3 > 1) { echo '<span>...</span>'; }
+			$output .= '<a href="' . $gb_link . 'pageNum=1">1</a>';
+			if ($pageNum-3 > 1) { $output .= '<span>...</span>'; }
 			if ($pageNum + 2 < $countPages) { $minRange = $pageNum - 2; $showRange = $pageNum+2; } else { $minRange = $pageNum - 3; $showRange = $countPages - 1; }
 			for ($i=$minRange; $i<=$showRange; $i++) {
 				if ($i==$pageNum) {
-					echo '<span>' . $i . '</span>';
+					$output .= '<span>' . $i . '</span>';
 				}
 				else {
-					echo '<a href="' . $gb_link . 'pageNum=' . $i . '">' . $i . '</a>';
+					$output .= '<a href="' . $gb_link . 'pageNum=' . $i . '">' . $i . '</a>';
 				}
 			}
 			if ($pageNum == $countPages) {
-				echo '<span class="page-numbers current">' . $pageNum . '</span>';
+				$output .= '<span class="page-numbers current">' . $pageNum . '</span>';
 			}
 		}
 		
 		if ($pageNum < $countPages) {
-			if ($pageNum+3 < $countPages && !$highDotsMade) { echo '<span class="page-numbers dots">...</span>'; }
+			if ($pageNum+3 < $countPages && !$highDotsMade) { $output .= '<span class="page-numbers dots">...</span>'; }
 			
-			echo '<a href="' . $gb_link . 'pageNum=' . $countPages . '">' . $countPages . '</a>';
-			echo '<a href="' . $gb_link . 'pageNum=' . round($pageNum+1) . '">&raquo;</a>';
+			$output .= '<a href="' . $gb_link . 'pageNum=' . $countPages . '">' . $countPages . '</a>';
+			$output .= '<a href="' . $gb_link . 'pageNum=' . round($pageNum+1) . '">&raquo;</a>';
 		}
-	echo '</div>';
+	$output .= '</div>';
 	
 	//	Get the entries for 'this' page from the database.
 	global $wpdb;
 	$entries_result = mysql_query($query_string);
 	
 	if ($entriesCount == 0) {
-		_e('(no entries yet)',$textdomain);
+		$output .= __('(no entries yet)',$textdomain);
 	}
 	else {
 		//	Get option whether to show line breaks or not
 		$showLineBreaks = get_option('gwolle_gb-showLineBreaks');
 		while ($entry = mysql_fetch_array($entries_result)) {
-			echo '<div'; if (!$notFirst) { $notFirst = true; echo ' id="first"'; } echo ' class="gb-entry '; if ($entry['entry_authorAdminId'] > 0) { echo 'admin-entry'; } echo '">';
-				echo '<div class="author-info">';
-					echo '<span class="author-name">';
+			$output .= '<div'; if (!$notFirst) { $notFirst = true; $output .= ' id="first"'; } $output .= ' class="gb-entry '; if ($entry['entry_authorAdminId'] > 0) { $output .= 'admin-entry'; } $output .= '">';
+				$output .= '<div class="author-info">';
+					$output .= '<span class="author-name">';
 						if (is_numeric($entry['entry_authorAdminId']) && $entry['entry_authorAdminId'] > 0) {
 							//	This entry has been written by a staff member; get his/her username, if not already done.
 							if (!$adminName[$entry['entry_authorAdminId']]) {
 								$userdata = get_userdata($entry['entry_authorAdminId']);
 								$adminName[$entry['entry_authorAdminId']] = $userdata->user_login;
 							}
-							echo __('Staff',$textdomain) . ' (<i>' . $adminName[$entry['entry_authorAdminId']] . '</i>)';
+							$output .= __('Staff',$textdomain) . ' (<i>' . $adminName[$entry['entry_authorAdminId']] . '</i>)';
 						}
 						else {
-							echo htmlentities(utf8_decode($entry['entry_author_name']));
+							$output .= htmlentities(utf8_decode($entry['entry_author_name']));
 						}
-					echo '</span>';
+					$output .= '</span>';
 					if (strlen(str_replace(' ','',$entry['entry_author_origin'])) > 0) {
-						echo ' ' . __('from',$textdomain) . ' <span class="author-origin">' . htmlentities(utf8_decode($entry['entry_author_origin'])) . '</span>';
+						$output .= ' ' . __('from',$textdomain) . ' <span class="author-origin">' . htmlentities(utf8_decode(stripslashes($entry['entry_author_origin']))) . '</span>';
 					}
-					echo ' ' . __('wrote at',$textdomain) . ' ' . date('d.m.Y', $entry['entry_date']) . ':';
-				echo '</div>';
-				echo '<div class="entry-content">';
+					$output .= ' ' . __('wrote at',$textdomain) . ' ' . date('d.m.Y', $entry['entry_date']) . ':';
+				$output .= '</div>';
+				$output .= '<div class="entry-content">';
 					if ($showLineBreaks == 'true') {
-						echo nl2br(stripslashes(htmlentities(utf8_decode($entry['entry_content']))));
+						$output .= nl2br(stripslashes(htmlentities(utf8_decode($entry['entry_content']))));
 					}
 					else {
-						echo stripslashes(htmlentities(utf8_decode($entry['entry_content'])));
+						$output .= stripslashes(htmlentities(utf8_decode($entry['entry_content'])));
 					}
-				echo '</div>';
-			echo '</div>';
+				$output .= '</div>';
+			$output .= '</div>';
 		}
 	}
 ?>

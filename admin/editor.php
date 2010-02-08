@@ -124,7 +124,7 @@
             <h3 class='hndle'><span><?php _e('Details',$textdomain); ?></span></h3>
             <div class="inside">
               <div class="tagsdiv" id="post_tag">
-                <?php _e('Author',$textdomain); ?>: <span><?php if ($entry['entry_author_name']) { echo $entry['entry_author_name']; } else { echo '<strong>' . __('You',$textdomain) . '</strong>'; } ?></span>
+                <?php _e('Author',$textdomain); ?>: <span><?php if ($entry['entry_author_name']) { echo stripslashes(htmlentities($entry['entry_author_name'])); } else { echo '<strong>' . __('You',$textdomain) . '</strong>'; } ?></span>
 								<br><br>
 								<?php _e('E-Mail',$textdomain); ?>: <span><?php if (strlen(str_replace(' ','',$entry['entry_author_email'])) > 0) { echo stripslashes(htmlentities($entry['entry_author_email'])); } else { echo '<i>(' . __('unknown',$textdomain) . ')</i>'; } ?></span>
 								<br><br>

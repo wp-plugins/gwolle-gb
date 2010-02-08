@@ -56,6 +56,9 @@
 	elseif ($_REQUEST['msg'] == 'akismet-not-activated') {
 		echo '<div id="message" class="error fade"><p><strong>' . __('Error',$textdomain) . ':</strong> ' . str_replace('%1','admin.php?page=gwolle-gb/settings.php',__('Please <a href="%1">enable Akismet</a> to use the spam feature of Gwolle-GB.',$textdomain)) . '</p></div>';
 	}
+	elseif ($_REQUEST['msg'] == 'successfully-uninstalled') {
+    echo '<div id="message" class="updated fade"><p>'.__('<strong>Gwolle-GB has been successfully uninstalled.</strong> Thanks for using my plugin!',$textdomain).'</p></div>';
+  }
 	?>
 	
 	<div id="dashboard-widgets-wrap" class="gwolle_gb-overview">

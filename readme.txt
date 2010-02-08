@@ -32,6 +32,12 @@ use my homepage's comment section. I'd be glad to hear your opinion and/or featu
 
 = Changelog =
 
+0.9.4.7
+[fix] Correctly displaying author's name if it contains HTML elements such as <script> tags
+[fix] stripslashes on author's location, so locations like "My aunt's house" are displayed correctly.
+[fix] the_content() now just returns the guestbook instead of echo'ing it. This way, other plugins are able to modify the content.
+[fix] Added success message when uninstall is completed.
+
 0.9.4.6
 [new] Option to output text before/after the [gwolle-gb]-Tag, as requested
 [new] Whois link for IP address of the entry author
@@ -131,7 +137,7 @@ of your guestbook manually.
 
 = How do I localize a plugin? =
 
-A good start to learn about localization and WP plugins is the guide "[Localizing a WordPress plugin using poEdit] (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)"
+A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
 and also the WordPress documentation.
 
 == Licence ==
