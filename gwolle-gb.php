@@ -32,7 +32,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	load_plugin_textdomain($textdomain, false, dirname( plugin_basename(__FILE__) ) . '/lang');
 
 	//	plugin's version
-	define('GWOLLE_GB_VER','0.9.4.5');
+	define('GWOLLE_GB_VER','0.9.4.7');
 
 	//	Akismet PHP4 class folder's name
 	define('AKISMET_PHP4_CLASS_DIR','Akismet_PHP4');
@@ -169,9 +169,6 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	add_action('admin_head', 'gwolle_gb_admin_head');
 	function gwolle_gb_admin_head() {
     wp_enqueue_script('jquery');
-    wp_enqueue_script('common');
-    wp_enqueue_script('wp-lists');
-    wp_enqueue_script('postbox');
  
 		echo "<link rel='stylesheet' href='" . get_option('siteurl') . "/wp-admin/css/dashboard.css?ver=20081210' type='text/css' media='all' />";
 		echo "<link rel='stylesheet' href='" . WP_PLUGIN_URL . "/gwolle-gb/admin/style.css' type='text/css' media='all' />";
@@ -179,7 +176,6 @@ Author URI: http://www.wolfgangtimme.de/blog/
 		if ($_REQUEST['page'] == 'gwolle-gb/entries.php') {
 			//	Include JavaScript for the entries page
 			echo '<script language="JavaScript" src="' . WP_PLUGIN_URL . '/gwolle-gb/admin/entries.js"></script>';
-			wp_enqueue_script('jQuery');
 		}
 	}
 	
