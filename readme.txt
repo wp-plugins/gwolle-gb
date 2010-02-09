@@ -2,8 +2,8 @@
 Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.9
-Tested up to: 2.9.4
-Stable tag: 0.9.4.6
+Tested up to: 2.9.1
+Stable tag: 0.9.4.7
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
