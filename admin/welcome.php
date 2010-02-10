@@ -180,6 +180,30 @@
           </div><!-- 'postbox-container'-DIV -->
           <div class="postbox-container" style="width:49%;">
 				    <div id='right-sortables' class='meta-box-sortables'>
+				      <?php if (get_option('gwolle_gb-checkForImport') == 'true') { ?>
+  				      <?php
+  				        //  Check if the 'dmsguestbook' table exists
+  				        $result = mysql_query("
+  				        SHOW
+  				        TABLES
+  				        LIKE '".$wpdb->prefix."dmsguestbook'");
+  				        $foundTables = mysql_fetch_array($result);
+  				        if ($foundTables[0] === $wpdb->prefix.'dmsguestbook') {
+  				      ?>
+    				      <div id="dashboard_primary" class="postbox " >
+                    <div class="handlediv" title="Klicken zum Umschalten"><br /></div>
+                    <h3 class='hndle'><span><?php _e('Import of &quot;DMSGuestbook&quot; entries',$textdomain); ?></span></h3>
+                    <div class="inside">
+                      <?php _e('It looks like you have been using the plugin &quot;DMSGuestbook&quot;.<br>Do you want to import its entries into Gwolle-GB?',$textdomain); ?>
+                      <br>
+                      <p>
+        								<a class="button rbutton" href="admin.php?page=gwolle-gb/gwolle-gb.php&amp;do=import&amp;what=dmsguestbook"><strong><?php _e('Sure, take me to the import.',$textdomain); ?></strong></a>
+          						</p>
+          						<span style="font-size:10px;"><?php echo str_replace('%1','admin.php?page=gwolle-gb/settings.php',__('You may disable this message at the <a href="%1">settings page</a> of Gwolle-GB.',$textdomain)); ?></span>
+                    </div><!-- 'inside'-DIV -->
+                  </div><!-- 'dashboard_primary'-DIV -->
+                <?php } ?>
+              <?php } ?>
               <div id="dashboard_primary" class="postbox " >
                 <div class="handlediv" title="Klicken zum Umschalten"><br /></div>
                 <h3 class='hndle'><span><?php _e('Help',$textdomain); ?></span></h3>

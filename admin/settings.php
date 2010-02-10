@@ -278,7 +278,18 @@
 						</span>
 					</td>
 				</tr>
-							
+		    
+		    <tr valign="top">
+					<th scope="row"><label for="checkForImport"><?php _e('Check for import',$textdomain); ?></label></th>
+					<td>
+						<input <?php if (get_option('gwolle_gb-checkForImport')=='true') { echo 'checked="checked"'; } ?> type="checkbox" name="checkForImport" id="checkForImport"> <?php _e('Check if there are other guestbook plugins installed to import their entries.',$textdomain); ?>
+						<br>
+						<span class="setting-description">
+							<?php _e("If Gwolle-GB detects another guestbook plugin for WordPress it'll prompt you to import that guestbooks's data.",$textdomain); ?>
+						</span>
+					</td>
+				</tr>
+		    
 				<tr>
 					<td colspan="" style="">&nbsp;</td>
 					<td>

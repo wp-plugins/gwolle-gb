@@ -3,7 +3,7 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.9
 Tested up to: 2.9.1
-Stable tag: 0.9.4.7
+Stable tag: 0.9.5
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -14,6 +14,7 @@ which just pretend to be a guestbook, like the guestbook builder does. But it is
 form. That wasn't what I was looking for, so I came up with developing my own plugin for WordPress.
 It works quite good actually, and I'm looking forward to integrate some other cool features, but for the moment you have:
 
+* Easy import of DMSGuestbook entries into Gwolle-GB.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you have to check an entry before it is visible in your guestbook (can be turned off).
 * Recaptcha integration. (Fighting spam!)
@@ -26,11 +27,18 @@ It works quite good actually, and I'm looking forward to integrate some other co
 
 ... and all that integrated in the stylish WordPress 2.9 look.
 
+You may have "DMSGuestbook" installed - that's great, because since version 0.9.5 Gwolle-GB enables you
+to import DMSGuestbook's entries easily using an assistant. The importer does not delete any of your data,
+so you can go back to DMSGuestbook without loss of data, if you want to. Trying Gwolle-GB is easy as 1-2-3.
+
 For a demo, visit the plugin's homepage (http://www.wolfgangtimme.de/blog/). Feel free to drop me a message
 in the WordPress.org forums or send me an email to gwolle (at) wolfgangtimme (dot) de. You may also
 use my homepage's comment section. I'd be glad to hear your opinion and/or feature request.
 
 = Changelog =
+
+0.9.5
+[new] You can now import guestbook entries from the popular "DMSGuestbook" plugin easily.
 
 0.9.4.7
 [fix] Correctly displaying author's name if it contains HTML elements such as <script> tags

@@ -153,6 +153,9 @@
                     		$msg['marked-as-spam'] = __('Entry marked as spam.',$textdomain);
                     		$msg['marked-as-not-spam'] = __('Entry marked as not-spam.',$textdomain);
                     		
+                    		//  Import-Log
+                    		$msg['imported-from-dmsguestbook'] = __('Imported from DMSGuestbook',$textdomain);
+                    		
                     		//	Get all log entries for this entry from the database.
                     		$log_result = mysql_query("
                     			SELECT *
