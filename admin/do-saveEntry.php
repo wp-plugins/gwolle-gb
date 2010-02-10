@@ -38,13 +38,15 @@
 				if ($_POST['entry_isChecked'] == 'on' && $entry['entry_isChecked'] == '0') {
 					//	User wants this entry to be checked.
 					check_gwolle_gb_entry($_REQUEST['entry_id']);
+					$changedCheckedStatus = TRUE;
 				}
 				elseif ($_POST['entry_isChecked'] != 'on' && $entry['entry_isChecked'] == '1') {
 					//	User wants to uncheck this entry.
 					check_gwolle_gb_entry($_REQUEST['entry_id'], 'unchecked');
+					$changedCheckedStatus = TRUE;
 				}
 				
-				$update_result = $wpdb->query($wpdb->prepare("
+				$update_result = mysql_query("
 					UPDATE
 						" . $wpdb->prefix . "gwolle_gb_entries
 					SET
@@ -52,10 +54,16 @@
 						entry_author_origin = '" . mysql_real_escape_string($_POST['entry_author_origin']) . "',
 						entry_author_website = '" . mysql_real_escape_string($_POST['entry_author_website']) . "'
 					WHERE
-						entry_id = '" . $_REQUEST['entry_id'] . "'
+						entry_id = ".(int)$_REQUEST['entry_id']."
 					LIMIT 1
-				"));
-				header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/editor.php&entry_id=' . $_REQUEST['entry_id'] . '&updated=true');
+				");
+				if (mysql_affected_rows() === 1 || $changedCheckedStatus === TRUE) {
+				  $msg = 'updated=true';
+				}
+				else {
+				  $msg = 'updated=false';
+				}
+				header('Location: '.get_bloginfo('url').'/wp-admin/admin.php?page=gwolle-gb/editor.php&entry_id='.$_REQUEST['entry_id'].'&'.$msg);
 				exit;
 			}
 		}

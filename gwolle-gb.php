@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://wolfgangtimme.de/blog/
 Description: simple guestbook
-Version: 0.9.4.5
+Version: 0.9.5
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -32,7 +32,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	load_plugin_textdomain($textdomain, false, dirname( plugin_basename(__FILE__) ) . '/lang');
 
 	//	plugin's version
-	define('GWOLLE_GB_VER','0.9.4.4');
+	define('GWOLLE_GB_VER','0.9.5');
 
 	//	Akismet PHP4 class folder's name
 	define('AKISMET_PHP4_CLASS_DIR','Akismet_PHP4');
@@ -100,7 +100,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	add_action('init', 'gwolle_gb_init');
 	function gwolle_gb_init() {
 		global $current_user;
-		session_start();
+		@session_start();
 		
 		if ($_REQUEST['action'] == 'uninstall_gwolle_gb' && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 			if ($_POST['uninstall_confirmed'] == 'on') {
@@ -157,40 +157,178 @@ Author URI: http://www.wolfgangtimme.de/blog/
 				exit;
 			}
 		}
+		elseif (isset($_POST['start_import'])) {  //  Import guestbook entries from another plugin.
+		  //  Supported plugins to import guestbook entries from
+		  $supported = array('dmsguestbook');
+		  if (!in_array($_REQUEST['what'], $supported)) {
+		    //  The requested plugin is not supported
+		    header('Location: '.get_bloginfo('url').'/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&do=import&msg=plugin-not-supported');
+		    exit;
+		  }
+		  else {
+		    global $wpdb;
+		    if ($_REQUEST['what'] == 'dmsguestbook') {
+		      //  Import entries from DMSGuestbook
+		      if (!function_exists('gwolle_gb_import_dmsgb_entry')) {
+		        function gwolle_gb_import_dmsgb_entry($entry) {
+		          global $wpdb;
+		          global $current_user;
+		          get_currentuserinfo();
+		          
+		          
+		          $isChecked = ($entry['flag'] == 1) ? 0 : 1;
+    		      $isSpam = ($entry['spam'] == 1) ? 1 : 0;
+    		    
+    		      //  Insert into Gwolle-DB entry table
+    		      mysql_query("
+  		        INSERT
+  		        INTO
+  		          ".$wpdb->prefix."gwolle_gb_entries
+  		        (
+  		          entry_author_name,
+  		          entry_author_email,
+  		          entry_author_website,
+  		          entry_author_ip,
+  		          entry_content,
+  		          entry_date,
+  		          entry_isChecked,
+  		          entry_isSpam
+  		        ) VALUES (
+  		          '".mysql_real_escape_string(stripslashes($entry['name']))."',
+  		          '".mysql_real_escape_string(stripslashes($entry['email']))."',
+  		          '".mysql_real_escape_string(stripslashes($entry['url']))."',
+  		          '".$entry['ip']."',
+  		          '".mysql_real_escape_string(strip_tags(stripslashes($entry['message'])))."',
+  		          '".$entry['date']."',
+  		          ".$isChecked.",
+  		          ".$isSpam."
+  		        )");
+  		        
+  		        //  Create a log item for the import
+  		        mysql_query("
+  		        INSERT
+  		        INTO
+  		          ".$wpdb->prefix."gwolle_gb_log
+  		        (
+  		          log_subject,
+  		          log_subjectId,
+  		          log_authorId,
+  		          log_date
+  		        ) VALUES (
+  		          'imported-from-dmsguestbook',
+  		          ".mysql_insert_id().",
+  		          ".$current_user->ID.",
+  		          '".mktime()."'
+  		        )
+  		        ");
+		        }
+		      }
+		      if (isset($_POST['guestbook_number']) && is_numeric($_POST['guestbook_number'])) {
+		        //  Get guestbook entries from the chosen guestbook
+		        $result = mysql_query("
+		        SELECT
+		          *
+		        FROM
+		          ".$wpdb->prefix."dmsguestbook
+		        WHERE
+		          guestbook = ".$_POST['guestbook_number']."
+		        ORDER BY
+		          date ASC
+		        ");
+		        if (mysql_num_rows($result) === 0) {
+		          //  The chosen guestbook does not contain any entries.
+		          header('Location: '.get_bloginfo('url').'/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&do=import&what='.$_REQUEST['what'].'&msg=no-entries-to-import');
+      		    exit;
+      		  }
+      		  else {
+      		    while ($entry = mysql_fetch_array($result)) {
+      		      gwolle_gb_import_dmsgb_entry($entry);
+    		      }
+    		      header('Location: '.get_bloginfo('url').'/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&do=import&what='.$_REQUEST['what'].'&msg=import-successful&count='.mysql_num_rows($result));
+      		    exit;
+      		  }
+      		}
+      		elseif ($_POST['import-all'] == 'true') {
+      		  //  Import all entries.
+      		  $result = mysql_query("
+		        SELECT
+		          *
+		        FROM
+		          ".$wpdb->prefix."dmsguestbook
+		        ORDER BY
+		          date ASC
+		        ");
+		        if (mysql_num_rows($result) === 0) {
+		          //  There are no entries to import.
+		          header('Location: '.get_bloginfo('url').'/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&do=import&what='.$_REQUEST['what'].'&msg=no-entries-to-import');
+      		    exit;
+      		  }
+      		  else {
+      		    while ($entry = mysql_fetch_array($result)) {
+      		      gwolle_gb_import_dmsgb_entry($entry);
+    		      }
+    		      header('Location: '.get_bloginfo('url').'/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&do=import&what='.$_REQUEST['what'].'&msg=import-successful&count='.mysql_num_rows($result));
+      		    exit;
+      		  }
+      		}
+      		else {
+      		  //  There are more than one guestbook and the user didn't choose one to import from.
+      		  header('Location: '.get_bloginfo('url').'/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&do=import&what='.$_REQUEST['what'].'&msg=no-guestbook-chosen');
+      		  exit;
+      		}
+        }
+  		}
+		}
 	}
 	
 	//	load the frontend CSS definition
 	add_action('wp_head', 'add_gwolle_gb_frontend_css');
 	function add_gwolle_gb_frontend_css() {
-		echo '<link rel="stylesheet" href="' . WP_PLUGIN_URL . '/gwolle-gb/frontend/style.css" type="text/css">';
+		echo '<link rel="stylesheet" href="' . WP_PLUGIN_URL . '/gwolle-gb/frontend/style.css" type="text/css" />';
 	}
 	
-	//	load the admin panel CSS
-	add_action('admin_head', 'add_gwolle_gb_admin_css');
-	function add_gwolle_gb_admin_css() {
+	//	Load admin CSS/scripts
+	add_action('admin_head', 'gwolle_gb_admin_head');
+	function gwolle_gb_admin_head() {
+    wp_enqueue_script('jquery');
+ 
 		echo "<link rel='stylesheet' href='" . get_option('siteurl') . "/wp-admin/css/dashboard.css?ver=20081210' type='text/css' media='all' />";
 		echo "<link rel='stylesheet' href='" . WP_PLUGIN_URL . "/gwolle-gb/admin/style.css' type='text/css' media='all' />";
 		
 		if ($_REQUEST['page'] == 'gwolle-gb/entries.php') {
 			//	Include JavaScript for the entries page
 			echo '<script language="JavaScript" src="' . WP_PLUGIN_URL . '/gwolle-gb/admin/entries.js"></script>';
-			wp_enqueue_script('jQuery');
 		}
 	}
 	
 	//	Function (use this to display the guestbook on a page)
-	function show_gwolle_gb() {
+	function get_gwolle_gb() {
+    global $textdomain;
 		include('frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
 		
 		include('frontend/index.php');
+		return $output;
 	}
 	
 	//	Replace the [gwolle-gb] tag with the guestbook
 	add_filter('the_content', 'output_guestbook');
 	function output_guestbook($content) {
-		if (strpos($content,'[gwolle-gb]') > -1) {
-			//	Display the frontend.
-			show_gwolle_gb();
+    $gwolle_gb_tagPosition = strpos($content,'[gwolle-gb]');
+		if ($gwolle_gb_tagPosition > -1) {
+		  if (get_option('gwolle_gb-guestbookOnly')=='true') {
+  			//	Display frontend only; don't display other post content.
+  			return get_gwolle_gb();
+  		}
+  		else {
+  		  $output = '';
+  		  //  Display content BEFORE the guestbook
+  		  $output .= substr($content, 0, $gwolle_gb_tagPosition);
+  		  //  Display the frontend
+  		  $output .= get_gwolle_gb();
+  		  //  Display content AFTER the guestbook
+  		  $output .= substr($content, ($gwolle_gb_tagPosition+strlen('[gwolle-gb]')), (strlen($content)-$gwolle_gb_tagPosition));
+  		  return $output;
+  		}
 		}
 		else {
 			return $content;
@@ -202,6 +340,9 @@ Author URI: http://www.wolfgangtimme.de/blog/
 		global $wpdb; global $textdomain; global $userLevelNames;
 		if (!get_option('gwolle_gb_version')) {
 			include('admin/installSplash.php');
+		}
+		elseif ($_REQUEST['do'] == 'import') {
+		  include('admin/import.php');
 		}
 		else {
 			include('admin/welcome.php');

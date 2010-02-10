@@ -73,6 +73,12 @@
 		//	Add option to toggle the visibility of line breaks
 		add_option('gwolle_gb-showLineBreaks');
 		
+		//  Add option to show/hide text before/after [gwolle-gb] tag.
+		add_option('gwolle_gb-guestbookOnly','true');
+		
+		//  Add option to toggle check if there is data to import.
+		add_option('gwolle_gb-checkForImport','true');
+		
 		//	Save plugin version to database
 		add_option('gwolle_gb_version', GWOLLE_GB_VER);
 	}
@@ -269,6 +275,22 @@
 					CHANGE `entry_isSpam` `entry_isSpam` VARCHAR(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0'
 			");
 			add_option('gwolle_gb-showLineBreaks','false');
+		}
+		
+		if (version_compare($installed_ver,'0.9.4.6','<')) {
+		  /*
+		  **  0.9.4.5->0.9.4.6
+		  **  Added option to show/hide text before/after [gwolle-gb] tag.
+		  */
+		  add_option('gwolle_gb-guestbookOnly','true');
+		}
+		
+		if (version_compare($installed_ver,'0.9.5','<')) {
+		  /*
+		  **  0.9.4.6->0.9.5
+		  **  Added option to toggle check for import data
+		  */
+		  add_option('gwolle_gb-checkForImport','true');
 		}
 		
 		//	Update the plugin version option

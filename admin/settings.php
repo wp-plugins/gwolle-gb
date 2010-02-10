@@ -242,11 +242,15 @@
 				</tr>
 				
 				<tr valign="top">
-					<th scope="row"><label for="entriesPerPage"><?php _e('Line breaks',$textdomain); ?></label></th>
+					<th scope="row"><label for="entriesPerPage"><?php _e('Appearance',$textdomain); ?></label></th>
 					<td>
 						<input type="checkbox" name="showLineBreaks"<?php if (get_option('gwolle_gb-showLineBreaks')=='true') { echo ' checked="checked"'; } ?>> <?php _e('Show line breaks.',$textdomain); ?>
 						<br>
 						<span class="setting-description"><?php _e('Show line breaks as the entry authors entered them. (May result in very long entries. Is turned off by default.)',$textdomain); ?></span>
+						<br>
+						<input type="checkbox" name="guestbookOnly"<?php if (get_option('gwolle_gb-guestbookOnly')=='true') { echo ' checked="checked"'; } ?>> <?php _e('Display the guestbook only, not the text around it.',$textdomain); ?>
+						<br>
+						<span class="setting-description"><?php _e('If you wanted to have content prepended/appended to the guestbook, such as a warm "Welcome, please leave me an entry.", turn this off.',$textdomain); ?></span>
 					</td>
 				</tr>
 				
@@ -268,13 +272,24 @@
 							<?php
 								_e('You can set the content of the mail a notification subscriber gets on new entries. The following tags are supported:',$textdomain);
 								echo '<br>';
-								$mailTags = array('user_email','entry_management_url','blog_name','blog_url','wp_admin_url');
+								$mailTags = array('user_email','entry_management_url','blog_name','blog_url','wp_admin_url','entry_content');
 								for ($i=0; $i<count($mailTags); $i++) { if ($i!=0) { echo '&nbsp;,&nbsp;'; } echo '%' . $mailTags[$i] . '%'; }
 							?>
 						</span>
 					</td>
 				</tr>
-							
+		    
+		    <tr valign="top">
+					<th scope="row"><label for="checkForImport"><?php _e('Check for import',$textdomain); ?></label></th>
+					<td>
+						<input <?php if (get_option('gwolle_gb-checkForImport')=='true') { echo 'checked="checked"'; } ?> type="checkbox" name="checkForImport" id="checkForImport"> <?php _e('Check if there are other guestbook plugins installed to import their entries.',$textdomain); ?>
+						<br>
+						<span class="setting-description">
+							<?php _e("If Gwolle-GB detects another guestbook plugin for WordPress it'll prompt you to import that guestbooks's data.",$textdomain); ?>
+						</span>
+					</td>
+				</tr>
+		    
 				<tr>
 					<td colspan="" style="">&nbsp;</td>
 					<td>

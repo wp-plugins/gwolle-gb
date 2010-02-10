@@ -89,6 +89,22 @@
 			update_option('gwolle_gb-showLineBreaks','false');
 		}
 		
+		//  Content prepended/appended to the [gwolle-gb] tag option
+		if ($_POST['guestbookOnly'] == 'on') {
+			update_option('gwolle_gb-guestbookOnly','true');
+		}
+		else {
+			update_option('gwolle_gb-guestbookOnly','false');
+		}
+		
+		//  Look for other guestbook plugins to import data from option
+		if ($_POST['checkForImport'] == 'on') {
+			update_option('gwolle_gb-checkForImport','true');
+		}
+		else {
+			update_option('gwolle_gb-checkForImport','false');
+		}
+		
 		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
 		exit;
 	}
