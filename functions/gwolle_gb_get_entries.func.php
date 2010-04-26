@@ -10,15 +10,18 @@
       global $wpdb;
       global $textdomain;
       
-      include(WP_PLUGIN_DIR.'/gwolle-gb/config.inc.php');
-      include(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_format_value_for_output.func.php');
+      include(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_format_value_for_output.func.php');
       
       // Load settings, if not set
     	global $gwolle_gb_settings;
     	if (!isset($gwolle_gb_settings)) {
-        include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_settings.func.php');
+        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
         gwolle_gb_get_settings();
       }
+      
+      $num_entries = (isset($args['num_entries']) && (int)$args['num_entries'] > 0) ? (int)$args['num_entries'] : $gwolle_gb_settings['entries_per_page'];
+      
+      $excerpt_length = (isset($args['excerpt_length']) && (int)$args['excerpt_length'] > 0) ? (int)$args['excerpt_length'] : 100;
       
       $where = " 1 = 1";
       
@@ -48,10 +51,10 @@
           e.entry_isDeleted = 0";
       }
       if (isset($args['offset']) && (int)$args['offset'] > 0) {
-        $limit = $args['offset'].", ".$gwolle_gb_cfg['entries_per_page'];
+        $limit = $args['offset'].", ".$num_entries;
       }
       else {
-        $limit = "0, ".$gwolle_gb_cfg['entries_per_page'];
+        $limit = "0, ".$num_entries;
       }
       
       if (isset($args['entry_id'])) {
@@ -117,8 +120,8 @@
           );
           
           //  Build excerpt
-          $entry['excerpt'] = gwolle_gb_format_value_for_output(substr($entry['entry_content'],0,100));
-		      if (strlen($entry['entry_content']) > 100) {
+          $entry['excerpt'] = gwolle_gb_format_value_for_output(substr($entry['entry_content'],0,$excerpt_length));
+		      if (strlen($entry['entry_content']) > $excerpt_length) {
 		        $entry['excerpt'] .= '...';
 		      }
 		      
@@ -127,7 +130,12 @@
 						//	Dies ist ein Admin-Eintrag; hole den Benutzernamen, falls nicht geschehen.
 						if (!isset($staff_member_names[$entry['entry_authorAdminId']])) {
 							$userdata = get_userdata($entry['entry_authorAdminId']);
-							$staff_member_names[$entry['entry_authorAdminId']] = $userdata->user_login;
+							if (!is_object($userdata)) {
+                $staff_member_names[$entry['entry_authorAdminId']] = '<i>'.__('unknown').'</i>';
+              }
+              else {
+                $staff_member_names[$entry['entry_authorAdminId']] = $userdata->user_login;
+              }
 						}
 						if ($staff_member_names[$entry['entry_authorAdminId']] == '') {
 						  $staff_member_names[$entry['entry_authorAdminId']] = '<strong>'.__('User not found',$textdomain).'</strong>';

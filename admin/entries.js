@@ -85,6 +85,9 @@ jQuery(document).ready(function($) {
           //  Set the current_entry_id to false
           current_entry_id = false;
         }
+        else {
+          alert('Error: '+data);
+        }
       }
     });
   });

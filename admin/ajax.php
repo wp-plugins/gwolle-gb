@@ -12,12 +12,14 @@
   // Load settings, if not set
 	global $gwolle_gb_settings;
 	if (!isset($gwolle_gb_settings)) {
-    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_settings.func.php');
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
     gwolle_gb_get_settings();
   }
   
   //	Access level
-	define('GWOLLE_GB_ACCESS_LEVEL', $gwolle_gb_settings['access-level']);
+  if (defined('GWOLLE_GB_ACCESS_LEVEL') === FALSE) {
+    define('GWOLLE_GB_ACCESS_LEVEL', $gwolle_gb_settings['access-level']);
+  }
 	
 	if (!function_exists('set_entry_checked_state')) {
     function set_entry_checked_state() {
@@ -30,7 +32,7 @@
       if ($entry_id === 0) {
         return FALSE;
       }
-      $entry_is_checked = ($_POST['new_state'] == 'checked') ? '1' : '0';
+      $entry_is_checked = ($_POST['new_state'] == 'checked') ? 1 : 0;
       $sql = "
       UPDATE
         ".$wpdb->prefix."gwolle_gb_entries
@@ -41,24 +43,13 @@
       LIMIT 1";
       $result = mysql_query($sql);
       if (mysql_affected_rows() == 1) {
-        //  Write a log entry
-        $log_subject = ($_POST['new_state'] == 'checked') ? 'entry-checked' : 'entry-unchecked';
-        $log_sql = "
-        INSERT
-        INTO
-          ".$wpdb->prefix."gwolle_gb_log
-        (
-          log_subject,
-          log_subjectId,
-          log_authorId,
-          log_date
-        ) VALUES (
-          '".$log_subject."',
-          ".$entry_id.",
-          ".$current_user->data->ID.",
-          '".mktime()."'
-        )";
-        $log_result = mysql_query($log_sql);
+        //	Write a log entry on this.
+				include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_add_log_entry.func.php');
+				$log_subject = ($entry_is_checked === 0) ? 'entry-unchecked' : 'entry-checked';
+				return gwolle_gb_add_log_entry(array(
+				  'subject'     => $log_subject,
+				  'subject_id'  => $entry_id
+				));
         return TRUE;
       }
       return FALSE;

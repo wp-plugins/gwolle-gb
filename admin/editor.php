@@ -6,11 +6,12 @@
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
-	include_once(WP_PLUGIN_DIR.'/gwolle-gb/admin/gwolle_gb_output_to_input_field.func.php');
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_output_to_input_field.func.php');
 	
 	//	If a entry_id has been submitted, check if it's a valid one.
+	$entry = FALSE;
 	if (isset($_REQUEST['entry_id'])) {
-    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entries.func.php');
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
     $entry = gwolle_gb_get_entries(array(
       'entry_id' => $_REQUEST['entry_id']
     ));
@@ -30,28 +31,10 @@
 
 	<div id="icon-gwolle-gb"><br /></div>
 	<h2><?php echo $sectionHeading; ?></h2>
-	
-	<?php
-		if ($_REQUEST['updated'] === 'true') {
-			echo '<div id="message" class="updated fade"><p>' . __('Changes saved.',$textdomain) . '</p></div>';
-		}
-		elseif ($_REQUEST['updated'] === 'false') {
-			echo '<div id="message" class="error fade"><p>' . __('<strong>Notice:</strong> No changes were made.',$textdomain) . '</p></div>';
-		}
-		elseif ($_REQUEST['error']) {
-			echo '<div id="message" class="error fade"><p>' . __('An error occurred while saving your changes.',$textdomain) . '</p></div>';
-		}
-		elseif ($entry['entry_isSpam'] === 1) {
-			//	Notify that this entry is marked as spam.
-			echo '<div id="message" class="error fade"><p>' . __('<strong>Attention:</strong> This entry is marked as spam!',$textdomain) . '</p></div>';
-		}
-		elseif ($_REQUEST['msg'] == 'successfully-unmarkedSpam') {
-			echo '<div id="message" class="updated fade"><p>' . __('Entry successfully classified as not-spam.',$textdomain) . '</p></div>';
-		}
-	?>
+	<?php include(WP_PLUGIN_DIR.'/gwolle-gb/msg.php'); ?>
   
   <form name="editlink" id="editlink" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php" accept-charset="UTF-8">
-    <?php if ($entry['entry_id']) { ?>
+    <?php if ($entry !== FALSE) { ?>
 			<input type="hidden" id="entry_id" name="entry_id" value="<?php echo $entry['entry_id']; ?>">
 		<?php } else { ?>
 			<input type="hidden" id="action" name="action" value="newEntry">
@@ -126,7 +109,7 @@
           
           <div id="tagsdiv-post_tag" class="postbox " >
             <div class="handlediv" title="Klicken zum Umschalten"><br /></div>
-            <h3 class='hndle'><span>Logbuch</span></h3>
+            <h3 class='hndle'><span><?php _e('Entry log',$textdomain); ?></span></h3>
             <div class="inside">
               <div class="tagsdiv" id="post_tag">
                 <div id="categories-pop" class="tabs-panel" style="height:150px;overflow:auto;">
@@ -135,36 +118,15 @@
                     	if ($entry['entry_date'] > 0) {
                     		echo '<li>' . date('d.m.Y',$entry['entry_date']) . ': ' . __('Written',$textdomain) . '</li>';
                     		
-                    		$msg['entry-unchecked'] = __('Entry has been locked.',$textdomain);
-                    		$msg['entry-checked'] = __('Entry has been unlocked.',$textdomain);
-                    		$msg['marked-as-spam'] = __('Entry marked as spam.',$textdomain);
-                    		$msg['marked-as-not-spam'] = __('Entry marked as not-spam.',$textdomain);
-                    		
-                    		//  Import-Log
-                    		$msg['imported-from-dmsguestbook'] = __('Imported from DMSGuestbook',$textdomain);
-                    		
-                    		//	Get all log entries for this entry from the database.
-                    		$log_result = mysql_query("
-                    			SELECT *
-                    			FROM
-                    				" . $wpdb->prefix . "gwolle_gb_log
-                    			WHERE
-                    				log_subjectId = '" . $_REQUEST['entry_id'] . "'
-                    			ORDER BY
-                    				log_date ASC
-                    		");
-                    		while ($log = mysql_fetch_array($log_result)) {
-                    			if ($log['log_authorId'] == $current_user->data->ID) {
-                    				$author = '<strong>' . __('You',$textdomain) . '</strong>';
-                    			}
-                    			else {
-                    				if (!$userdata[$log['log_authorId']]) {
-                    					//	Get userdata of the author, if not already done.
-                    					$userdata[$log['log_authorId']] = get_userdata($log['log_authorId']);
-                    				}
-                    				$author = $userdata[$log['log_authorId']]->user_login;
-                    			}
-                    			echo '<li>' . date('d.m.Y', $log['log_date']) . ': ' . $msg[$log['log_subject']] . ' (' . $author . ')</li>';
+                    		include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_log_entries.func.php');
+                    		$log_entries = gwolle_gb_get_log_entries(array(
+                    		  'subject_id'  => $entry['entry_id']
+                    		));
+                    		if ($log_entries !== FALSE) {
+                    		  foreach($log_entries as $log_entry) {
+                    		    echo '
+                    		    <li>'.$log_entry['msg_html'].'</li>';
+                    		  }
                     		}
                     	}
                     	else {

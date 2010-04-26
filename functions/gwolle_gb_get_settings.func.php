@@ -11,6 +11,7 @@
     function gwolle_gb_get_settings($args=array()) {
       global $gwolle_gb_settings;
       global $wpdb;
+      global $textdomain;
       
       $sql = "
       SELECT
@@ -36,6 +37,15 @@
           }
           $gwolle_gb_settings[$option['name']] = $value;
         }
+        
+        /**
+         *  Now add some hard coded settings.
+         */
+        //  Entries per page (backend)
+        $gwolle_gb_settings['entries_per_page'] = 15;
+        //  Default mail text
+        $gwolle_gb_settings['defaultMailText'] = __("Hello,\n\nthere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer",$textdomain);
+        
         return TRUE;
       }
     }

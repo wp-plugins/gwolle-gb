@@ -12,9 +12,16 @@
 	
 	global $wpdb;
 	
+	// Load settings, if not set
+	global $gwolle_gb_settings;
+	if (!isset($gwolle_gb_settings)) {
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+    gwolle_gb_get_settings();
+  }
+	
 	//	Captcha processing
-	$recaptchaActive = get_option('gwolle_gb-recaptcha-active');
-	if ($recaptchaActive == 'true') {
+	$recaptchaActive = $gwolle_gb_settings['recaptcha-active'];
+	if ($recaptchaActive === TRUE) {
 		if (!function_exists('recaptcha_get_html')) {
 			//	Only include the reCAPTCHA-Lib when not already done, e.g. by another plugin.
 			require_once('recaptcha/recaptchalib.php');
@@ -158,7 +165,7 @@
 					//	Set the mail content
 					$mailTags = array('user_email','entry_management_url','blog_name','blog_url','wp_admin_url');
 					$mail_body = stripslashes(get_option('gwolle_gb-adminMailContent'));
-					if (!$mail_body) { $mail_body = $defaultMailText; }
+					if (!$mail_body) { $mail_body = $gwolle_gb_settings['defaultMailText']; }
 					
 					$subject = "[" . get_bloginfo('name') . "] New guestbook entry";
 					$header = "From: Gwolle-Gb-Mailer <" . get_bloginfo('admin_email') . ">\r\n";

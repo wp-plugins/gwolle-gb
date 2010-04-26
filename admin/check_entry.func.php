@@ -12,11 +12,11 @@
 		$currentStatus_result = mysql_query("
 			SELECT *
 			FROM
-				" . $wpdb->prefix . "gwolle_gb_entries
+				" . $wpdb->prefix . "gwolle_gb_entries e
 			WHERE
-				entry_id = '" . $entry_id . "'
+				e.entry_id = '" . $entry_id . "'
 				AND
-				entry_isChecked = '" . $isChecked . "'
+				e.entry_isChecked = '" . $isChecked . "'
 		");
 		if (mysql_num_rows($currentStatus_result) == 1) {
 			//	The entry already has the status we want to apply. Do not proceed here.
@@ -44,29 +44,13 @@
 				LIMIT 1
 			");
 			
-			if (mysql_affected_rows() == 1) {
+			if (mysql_affected_rows() === 1) {
 				//	Write a log entry on this.
-				$log_result = $wpdb->query("
-					INSERT
-					INTO
-						" . $wpdb->prefix . "gwolle_gb_log
-					(
-						log_subject,
-						log_subjectId,
-						log_authorId,
-						log_date
-					)
-					VALUES
-					(
-						'" . $log_subject . "',
-						'" . $entry_id . "',
-						'" . $current_user->data->ID . "',
-						'" . mktime() . "'
-					)
-				");
-				if (mysql_affected_rows() == 1) {
-					return true;
-				}
+				include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_add_log_entry.func.php');
+				return gwolle_gb_add_log_entry(array(
+				  'subject'     => $log_subject,
+				  'subject_id'  => $entry_id
+				));
 			}
 		}
 	}

@@ -11,22 +11,21 @@
 	// Load settings, if not set
 	global $gwolle_gb_settings;
 	if (!isset($gwolle_gb_settings)) {
-    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_settings.func.php');
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
     gwolle_gb_get_settings();
   }
+  
+  $setting_page = (isset($_REQUEST['setting_page'])) ? $_REQUEST['setting_page'] : FALSE;
 ?>
 
 <div class="wrap">
 
 	<div id="icon-gwolle-gb"><br /></div>
 	<h2><?php _e('Settings',$textdomain); ?></h2>
-	
-	<?php if (!$_REQUEST['setting_page']) { ?>
-		<?php if ($_REQUEST['updated']) { ?>
-			<div id="message" class="updated fade"><p><?php _e('Changes successfully saved.',$textdomain); ?></p></div>
-		<?php } elseif ($_REQUEST['msg'] == 'uninstall-not-confirmed') { ?>
-			<div id="message" class="updated fade"><p><?php _e('Uninstall process stopped.',$textdomain); ?></p></div>
-		<?php } ?>
+  <?php
+    if ($setting_page === FALSE) {
+      include(WP_PLUGIN_DIR.'/gwolle-gb/msg.php');
+  ?>
 	
 		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/settings.php&amp;action=saveSettings">
 			
@@ -81,10 +80,10 @@
 							}
 							else {
 						?>
-								<input name="notify_by_mail" type="checkbox" id="notify_by_mail" <?php if ($gwolle_gb_settings['notifyByMail-'.$current_user->data->ID] === TRUE) { $currentUserNotification = true; echo 'checked="checked"'; } ?>>
+								<input name="notify_by_mail" type="checkbox" id="notify_by_mail" <?php if (isset($gwolle_gb_settings['notifyByMail-'.$current_user->data->ID]) && $gwolle_gb_settings['notifyByMail-'.$current_user->data->ID] === TRUE) { $currentUserNotification = true; echo 'checked="checked"'; } ?>>
 								<span class="setting-description"><?php _e('Send me an e-mail when a new entry has been posted.',$textdomain); ?></span>
 								<br />
-								<input name="notifyAll" type="checkbox" id="notifyAll" <?php if ($gwolle_gb_settings['notifyAll-'.$current_user->data->ID] === TRUE) { echo 'checked="checked"'; } ?>>
+								<input name="notifyAll" type="checkbox" id="notifyAll" <?php if (isset($gwolle_gb_settings['notifyAll-'.$current_user->data->ID]) && $gwolle_gb_settings['notifyAll-'.$current_user->data->ID] === TRUE) { echo 'checked="checked"'; } ?>>
 								<span class="setting-description"><?php _e('E-Mail me no matter the new entry is spam or not.',$textdomain); ?></span>
 								
 								<div>
@@ -272,7 +271,7 @@
 						<?php
 							$adminMailContent = get_option('gwolle_gb-adminMailContent');
 							if (!$adminMailContent) { //	No text set by the user. Use the default text.
-								$mailText = $defaultMailText;
+								$mailText = $gwolle_gb_settings['defaultMailText'];
 							}
 							else {
 								$mailText = stripslashes($adminMailContent);
@@ -340,7 +339,7 @@
 				</td>
 			</tr>
 		</table>
-	<?php } elseif ($_REQUEST['setting_page'] == 'uninstall') { ?>
+	<?php } elseif ($setting_page == 'uninstall') { ?>
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/settings.php&amp;action=uninstall_gwolle_gb" method="POST">
 			<?php _e("I really don't want to bother you; this page just exists to prevent you from accidentally deleting all your entries.<br />Please check the 'uninstall' checkbox and hit the button; all tables (including their rows) and all settings of Gwolle-GB will be deleted.<br /><br />Are you REALLY sure you wan't to continue? There's no 'undo'.",$textdomain); ?>
 			<br />
