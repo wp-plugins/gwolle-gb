@@ -19,6 +19,10 @@
         gwolle_gb_get_settings();
       }
       
+      $num_entries = (isset($args['num_entries']) && (int)$args['num_entries'] > 0) ? (int)$args['num_entries'] : $gwolle_gb_settings['entries_per_page'];
+      
+      $excerpt_length = (isset($args['excerpt_length']) && (int)$args['excerpt_length'] > 0) ? (int)$args['excerpt_length'] : 100;
+      
       $where = " 1 = 1";
       
       if (isset($args['show'])) {
@@ -47,10 +51,10 @@
           e.entry_isDeleted = 0";
       }
       if (isset($args['offset']) && (int)$args['offset'] > 0) {
-        $limit = $args['offset'].", ".$gwolle_gb_settings['entries_per_page'];
+        $limit = $args['offset'].", ".$num_entries;
       }
       else {
-        $limit = "0, ".$gwolle_gb_settings['entries_per_page'];
+        $limit = "0, ".$num_entries;
       }
       
       if (isset($args['entry_id'])) {
@@ -116,8 +120,8 @@
           );
           
           //  Build excerpt
-          $entry['excerpt'] = gwolle_gb_format_value_for_output(substr($entry['entry_content'],0,100));
-		      if (strlen($entry['entry_content']) > 100) {
+          $entry['excerpt'] = gwolle_gb_format_value_for_output(substr($entry['entry_content'],0,$excerpt_length));
+		      if (strlen($entry['entry_content']) > $excerpt_length) {
 		        $entry['excerpt'] .= '...';
 		      }
 		      

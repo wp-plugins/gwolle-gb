@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://wolfgangtimme.de/blog/
 Description: simple guestbook
-Version: 0.9.6.1
+Version: 0.9.6.2
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -32,7 +32,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	load_plugin_textdomain($textdomain, false, dirname( plugin_basename(__FILE__) ) . '/lang');
 
 	//	plugin's version
-	define('GWOLLE_GB_VER','0.9.6.1');
+	define('GWOLLE_GB_VER','0.9.6.2');
 
 	//	Akismet PHP4 class folder's name
 	define('AKISMET_PHP4_CLASS_DIR','Akismet_PHP4');
@@ -86,6 +86,9 @@ Author URI: http://www.wolfgangtimme.de/blog/
 		}
 	}
 	register_activation_hook(__FILE__, 'gwolle_gb_activation');
+	
+	// Widget
+	//include_once(WP_PLUGIN_DIR.'/gwolle-gb/widget.php');
 	
 	//	add a menu in the Wordpress backend.
 	add_action('admin_menu', 'myAdminMenu');

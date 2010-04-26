@@ -77,8 +77,9 @@
 	
 	// Get the entries
 	$entries = gwolle_gb_get_entries(array(
-    'offset'  => $mysqlFirstRow,
-    'show'    => 'checked'
+    'offset'      => $mysqlFirstRow,
+    'show'        => 'checked',
+    'num_entries' => $entriesPerPage
   ));
 	
 	//	page navigation

@@ -3,7 +3,7 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.9
 Tested up to: 2.9.1
-Stable tag: 0.9.6.1
+Stable tag: 0.9.6.2
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -40,6 +40,9 @@ use my homepage's comment section. I'd be glad to hear your opinion and/or featu
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU. I'm working on it, but at the moment it's just not working. Sorry, guys!
 
 = Changelog =
+
+0.9.6.2 (2nd emergency release)
+[fix] 'Number of entries' setting is now applied again to the 'read' frontpage. (Thanks, Kristin!)
 
 0.9.6.1 (emergency release)
 [new] Added log message to track if an entry has been changed using the editor.
@@ -148,7 +151,7 @@ so I'll get your message. Or, if you're in a hurry, send me an email: gwolle (at
 * Daniel Speichert for the polish translation
 * José Luis Sanz Ruiz for the spanish translation
 * cobestran.com for the french translation
-* All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr, Georg K.
+* All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr, Georg K., Kristin
 
 == Beta testers wanted ==
 
