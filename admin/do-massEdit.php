@@ -17,7 +17,7 @@
 	}
 	else {
 		//	No mass edit action selected
-		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=no-massEditAction-selected&show=' . $_REQUEST['show']);
+		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=no-massEditAction-selected&show=' . $_REQUEST['show']);
 		exit;
 	}
 	
@@ -49,6 +49,6 @@
 	
 	if ($entriesEdited > 0) {	$msg = 'successfully-edited'; $count = '&count=' . $entriesEdited; }
 	else { $msg = 'no-entries-edited'; }
-	header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=' . $msg . $show . $count);
+	header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=' . $msg . $show . $count);
 	exit;
 ?>

@@ -3,12 +3,21 @@
 	**	Guestbook frontend
 	*/
 	
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/frontend/gbLinkFormat.func.php');
+	
 	global $current_user;
 	global $wpdb;
 	global $textdomain;
 	
+	// Load settings, if not set
+	global $gwolle_gb_settings;
+	if (!isset($gwolle_gb_settings)) {
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_settings.func.php');
+    gwolle_gb_get_settings();
+  }
+	
 	//	Lets get the link to the page the guestbook is set up on.
-	$manualGuestbookLink = get_option('gwolle_gb-guestbookLink');
+	$manualGuestbookLink = $gwolle_gb_settings['guestbookLink'];
 	if (strlen($manualGuestbookLink) > 0) {
 		//	The guestbook link has been set manually.
 		$gb_link = gwolle_gb_formatGuestbookLink($manualGuestbookLink);

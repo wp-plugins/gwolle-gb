@@ -31,7 +31,7 @@
 			}
 			elseif ($_REQUEST['do'] == 'install_gwolle_gb' && !get_option('gwolle_gb_version')) {
 				//	perform installation
-				include('../' . PLUGINDIR . '/gwolle-gb/admin/upgrade.php');
+				include(WP_PLUGIN_DIR.'/gwolle-gb/admin/upgrade.php');
 				install_gwolle_gb();
 				echo str_replace('%1',$_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page'], __('Allright, we\'re done. <a href="%1">Click here to continue...</a>',$textdomain));
 			}

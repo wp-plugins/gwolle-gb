@@ -9,7 +9,7 @@
 		
 		if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 			//	The current user has no rights to access to this
-			header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
+			header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
 			exit;
 		}
 		else {
@@ -59,7 +59,7 @@
 					$show = '&show=' . $_POST['show'];
 				}
 				
-				header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=' . $msg . $show);
+				header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=' . $msg . $show);
 				exit;
 			}
 			else {

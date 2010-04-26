@@ -79,6 +79,12 @@
 		//  Add option to toggle check if there is data to import.
 		add_option('gwolle_gb-checkForImport','true');
 		
+		//  Add option to toggle replacing of smilies with graphics.
+		add_option('gwolle_gb-showSmilies','true');
+		
+		//  Add option to toogle linking of author's website
+		add_option('gwolle_gb-linkAuthorWebsite','true');
+		
 		//	Save plugin version to database
 		add_option('gwolle_gb_version', GWOLLE_GB_VER);
 	}
@@ -109,7 +115,7 @@
 			");
 		}
 		
-		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=successfully-uninstalled');
+		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=successfully-uninstalled');
 		exit;
 	}
 	
@@ -288,9 +294,20 @@
 		if (version_compare($installed_ver,'0.9.5','<')) {
 		  /*
 		  **  0.9.4.6->0.9.5
-		  **  Added option to toggle check for import data
+		  **  Added option to toggle check for import data.
 		  */
 		  add_option('gwolle_gb-checkForImport','true');
+		}
+		
+		if (version_compare($installed_ver,'0.9.6','<')) {
+		  /**
+		   * 0.9.4.6->0.9.5
+		   * Added the following options:
+		   * - toggle replacing of smilies
+		   * - toogle link to author's website
+		   */
+		  add_option('gwolle_gb-showSmilies','true');
+		  add_option('gwolle_gb-linkAuthorWebsite','true');
 		}
 		
 		//	Update the plugin version option

@@ -1,0 +1,917 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Gwolle-GB\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-10 23:38+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Cobestran\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: D:\\Wordpress\\MOSAIQUE\\plugins\\gwolle-gb.0.9.5\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: gwolle-gb/gwolle-gb.php:50
+msgid ""
+"Hello,\n"
+"\n"
+"there is a new guestbook entry at '%blog_name%'.\n"
+"You can check it at %entry_management_url%.\n"
+"\n"
+"Have a nice day!\n"
+"Your Gwolle-GB-Mailer"
+msgstr ""
+"Bonjour,\n"
+"\n"
+"il ya un nouveau message dans le livre '%blog_name%'.\n"
+"Vous pouvez le vérifier sur %entry_management_url%.\n"
+"\n"
+"Have a nice day!\n"
+"Votre Gwolle-GB-Mailer"
+
+#: gwolle-gb/gwolle-gb.php:84
+#: gwolle-gb/admin/welcome.php:48
+msgid "Guestbook"
+msgstr "Livre d'or"
+
+#: gwolle-gb/gwolle-gb.php:88
+msgid "Entries"
+msgstr "Messages"
+
+#: gwolle-gb/gwolle-gb.php:91
+msgid "Entry editor"
+msgstr "Editeur de message"
+
+#: gwolle-gb/gwolle-gb.php:91
+msgid "New entry"
+msgstr "Nouveau message"
+
+#: gwolle-gb/gwolle-gb.php:97
+msgid "Settings"
+msgstr "Paramètres"
+
+#: gwolle-gb/frontend/read.php:3
+msgid "Write a new entry."
+msgstr "Ecrire un nouveau message."
+
+#: gwolle-gb/frontend/read.php:8
+msgid "Thanks for your entry."
+msgstr "Merci pour votre message."
+
+#: gwolle-gb/frontend/read.php:8
+msgid "<br>We will review it and unlock it in a short while."
+msgstr "<br>Nous allons l'examiner et le déverrouiller après relecture."
+
+#: gwolle-gb/frontend/read.php:9
+msgid "Well, there has been an error querying the database.<br>Please try again later, thanks!"
+msgstr "Eh bien, il y a eu une erreur lors de l'interrogation de la base de données.<br>S'il vous plaît essayer plus tard, merci!"
+
+#: gwolle-gb/frontend/read.php:133
+msgid "(no entries yet)"
+msgstr "(Pas de message)"
+
+#: gwolle-gb/frontend/read.php:148
+msgid "Staff"
+msgstr "Staff"
+
+#: gwolle-gb/frontend/read.php:155
+msgid "from"
+msgstr "à partir de"
+
+#: gwolle-gb/frontend/read.php:157
+msgid "wrote at"
+msgstr "écrit le"
+
+#: gwolle-gb/frontend/write.php:5
+msgid "Back to the entries."
+msgstr "Retour vers les messages."
+
+#: gwolle-gb/frontend/write.php:9
+msgid "The captcha has not been entered correctly."
+msgstr "Le captcha n'a pas été entré correctement."
+
+#: gwolle-gb/frontend/write.php:14
+msgid "Please enter a name."
+msgstr "S'il vous plaît, entrez un nom."
+
+#: gwolle-gb/frontend/write.php:18
+msgid "Please write an entry."
+msgstr "S'il vous plaît écrivez un message."
+
+#: gwolle-gb/frontend/write.php:33
+msgid "Name"
+msgstr "Nom"
+
+#: gwolle-gb/frontend/write.php:37
+#: gwolle-gb/admin/editor.php:213
+msgid "Origin"
+msgstr "Origine"
+
+#: gwolle-gb/frontend/write.php:41
+#: gwolle-gb/admin/editor.php:129
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: gwolle-gb/frontend/write.php:45
+#: gwolle-gb/admin/editor.php:206
+msgid "Homepage"
+msgstr "Page d'accueil"
+
+#: gwolle-gb/frontend/write.php:49
+#: gwolle-gb/admin/editor.php:199
+msgid "Guestbook entry"
+msgstr "Message livre d'or"
+
+#: gwolle-gb/frontend/write.php:75
+msgid "Submit"
+msgstr "Envoyer"
+
+#: gwolle-gb/frontend/write.php:80
+msgid "Fields marked with * are obligatory."
+msgstr "Les champs marqués d'une * sont obligatoires."
+
+#: gwolle-gb/frontend/write.php:82
+msgid "For security reasons we save you ip address <span id=\"ip\">%1</span>."
+msgstr "Pour des raisons de sécurité, nous sauvegardons votre adresse ip <span id=\"ip\">%1</span>."
+
+#: gwolle-gb/frontend/write.php:85
+msgid "Your entry will be visible in the guestbook when we reviewed it and gave our permission."
+msgstr "Votre message sera visible dans le livre d'or quand il aura été examiné et validé par l'administrateur."
+
+#: gwolle-gb/frontend/write.php:88
+msgid "We reserve our right to shorten, delete, or not publish entries."
+msgstr "Nous nous réservons le droit d'écourter, de supprimer ou de ne pas publier des messages."
+
+#: gwolle-gb/admin/installSplash.php:10
+msgid "Successfully uninstalled"
+msgstr "Désinstallé avec succès"
+
+#: gwolle-gb/admin/installSplash.php:10
+msgid "Installation"
+msgstr "Installation"
+
+#: gwolle-gb/admin/installSplash.php:15
+msgid "Welcome!<br>It seems that either you're using this plugin for the first time or you've deleted all settings.<br>However, to use this plugin we have to setup the database tables. Good for you, we've made this as easy as possible.<br>All you've got to do is click on that button below, and that's it."
+msgstr "Bienvenue! <br>Il semble que, soit vous utilisez ce plugin pour la première fois soit vous avez supprimé tous les paramètres. <br> Toutefois, pour utiliser ce plugin, nous devons configurer les tables de la base. Bon pour vous, nous avons fait cela aussi simple que possible. <br> Tout ce que vous avez à faire, c'est de cliquer sur ce bouton ci-dessous, et c'est tout."
+
+#: gwolle-gb/admin/installSplash.php:20
+msgid "Sure, let's do this!"
+msgstr "Bien sûr, let's do this!"
+
+#: gwolle-gb/admin/installSplash.php:26
+msgid "You successfully uninstalled Gwolle-GB."
+msgstr "Vous avez désinstallé avec succès Gwolle-GB."
+
+#: gwolle-gb/admin/installSplash.php:28
+msgid "You now may deactivate the plugin using the <a href=\"%1\" title=\"Go to the plugin manager...\">plugin manager</a> or/and delete the plugin from your webserver."
+msgstr ""
+
+#: gwolle-gb/admin/installSplash.php:30
+msgid "If you like feel free to drop a message at the <a href=\"%1\" title=\"Go to the Gwolle-GB homepage...\" target=\"_blank\">Gwolle-GB homepage</a> regarding why you choosed not to use this plugin anymore; I'd really appreciate that."
+msgstr ""
+
+#: gwolle-gb/admin/installSplash.php:36
+msgid "Allright, we're done. <a href=\"%1\">Click here to continue...</a>"
+msgstr "Ok, nous avons fini. <a href=\"%1\">Cliquez ici pour continuer ...</a>"
+
+#: gwolle-gb/admin/installSplash.php:39
+msgid "It looks like there has been an error. <a href=\"%1\">Click here to continue...</a>"
+msgstr "On dirait qu'il ya eu une erreur. <a href=\"%1\"> Cliquez ici pour continuer ...</a>"
+
+#: gwolle-gb/admin/welcome.php:51
+#: gwolle-gb/admin/welcome.php:54
+#: gwolle-gb/admin/welcome.php:57
+msgid "Error"
+msgstr "Erreur"
+
+#: gwolle-gb/admin/welcome.php:51
+msgid "You don't have the privileges to perform this action."
+msgstr "Vous ne disposez pas des privilèges nécessaires pour effectuer cette action."
+
+#: gwolle-gb/admin/welcome.php:54
+msgid "Please check your Akismet configuration."
+msgstr "S'il vous plaît vérifier votre configuration Akismet."
+
+#: gwolle-gb/admin/welcome.php:57
+msgid "Please <a href=\"%1\">enable Akismet</a> to use the spam feature of Gwolle-GB."
+msgstr "S'il vous plaît <a href=\"%1\"> permettre Akismet </ a> d'utiliser la fonction de spam de Gwolle-GB."
+
+#: gwolle-gb/admin/welcome.php:60
+msgid "<strong>Gwolle-GB has been successfully uninstalled.</strong> Thanks for using my plugin!"
+msgstr "<strong>Gwolle-GB a été désinstallé avec succès.</strong> Merci d'avoir utilisé mon plugin!"
+
+#: gwolle-gb/admin/welcome.php:72
+msgid "Welcome to the Guestbook!"
+msgstr "Bienvenue sur le livre d'or!"
+
+#: gwolle-gb/admin/welcome.php:74
+msgid "Overview"
+msgstr "Présentation"
+
+#: gwolle-gb/admin/welcome.php:85
+msgid "entry total"
+msgstr "total des messages"
+
+#: gwolle-gb/admin/welcome.php:88
+msgid "entries total"
+msgstr "total des messages"
+
+#: gwolle-gb/admin/welcome.php:102
+msgid "unlocked entry"
+msgstr "déverrouillé message"
+
+#: gwolle-gb/admin/welcome.php:105
+msgid "unlocked entries"
+msgstr "déverrouillé messages"
+
+#: gwolle-gb/admin/welcome.php:119
+msgid "new entry"
+msgstr "nouveau message"
+
+#: gwolle-gb/admin/welcome.php:122
+msgid "new entries"
+msgstr "nouveaux messages"
+
+#: gwolle-gb/admin/welcome.php:136
+msgid "spam entry"
+msgstr "message spam"
+
+#: gwolle-gb/admin/welcome.php:139
+msgid "spam entries"
+msgstr "messages spam"
+
+#: gwolle-gb/admin/welcome.php:151
+msgid "Write admin entry"
+msgstr "Ecrire message en admin"
+
+#: gwolle-gb/admin/welcome.php:152
+msgid "Here you can manage the entries."
+msgstr "Ici vous pouvez gérer les messages."
+
+#: gwolle-gb/admin/welcome.php:155
+msgid "Only users with the role %1 have access to the guestbook backend."
+msgstr "Seuls les utilisateurs avec le rôle %1 ont accès à l'administration du livre d'or."
+
+#: gwolle-gb/admin/welcome.php:162
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr "Ce plugin utilise les scripts / programmes / images suivants :"
+
+#: gwolle-gb/admin/welcome.php:169
+#: gwolle-gb/admin/welcome.php:170
+msgid "Class by"
+msgstr "Classer par"
+
+#: gwolle-gb/admin/welcome.php:171
+msgid "Icons by"
+msgstr "Les icônes par"
+
+#: gwolle-gb/admin/welcome.php:195
+msgid "Import of &quot;DMSGuestbook&quot; entries"
+msgstr "Importation des messages de &quot;DMSGuestbook&quot;"
+
+#: gwolle-gb/admin/welcome.php:197
+msgid "It looks like you have been using the plugin &quot;DMSGuestbook&quot;.<br>Do you want to import its entries into Gwolle-GB?"
+msgstr "Il semble que vous avez utilisé le plugin  &quot;DMSGuestbook&quot;. <br> Voulez-vous importer ses messages dans Gwolle-GB ?"
+
+#: gwolle-gb/admin/welcome.php:200
+msgid "Sure, take me to the import."
+msgstr "Bien sûr, me conduire à l'importation."
+
+#: gwolle-gb/admin/welcome.php:202
+msgid "You may disable this message at the <a href=\"%1\">settings page</a> of Gwolle-GB."
+msgstr ""
+
+#: gwolle-gb/admin/welcome.php:209
+msgid "Help"
+msgstr "Aider"
+
+#: gwolle-gb/admin/welcome.php:211
+msgid "This is how the guestbook will be displayed on your page"
+msgstr "Comment insérer votre livre d'or sur votre page de blog"
+
+#: gwolle-gb/admin/welcome.php:214
+msgid "Create a new article or page."
+msgstr "Créer un nouvel article ou nouvelle page."
+
+#: gwolle-gb/admin/welcome.php:215
+msgid "Choose a heading (doesn't matter) and set &quot;[gwolle-gb]&quot; (without the quotes) as the content."
+msgstr "Choisissez une position (peu importe) et insérez &quot;[gwolle-fr]&quot; (sans les guillemets) dans le contenu de l'article"
+
+#: gwolle-gb/admin/welcome.php:216
+msgid "Of course, you should disable comments on that new content; otherwise, your visitors might get a little confused. ;)"
+msgstr "Bien sûr, vous devez désactiver les commentaires sur cette page, sinon, les visiteurs pourraient être perdu. ;)"
+
+#: gwolle-gb/admin/editor.php:20
+msgid "Edit guestbook entry"
+msgstr "Modifier messages du livre d'or"
+
+#: gwolle-gb/admin/editor.php:24
+msgid "Entry could not be found."
+msgstr "Le message n'a pas pu être trouvé."
+
+#: gwolle-gb/admin/editor.php:28
+msgid "New guestbook entry"
+msgstr "Nouveau message"
+
+#: gwolle-gb/admin/editor.php:49
+msgid "Changes saved."
+msgstr "Modifications enregistrées."
+
+#: gwolle-gb/admin/editor.php:52
+msgid "<strong>Notice:</strong> No changes were made."
+msgstr "<strong>Avis:</strong> Aucune modification n'a été apportée."
+
+#: gwolle-gb/admin/editor.php:55
+msgid "An error occurred while saving your changes."
+msgstr "Une erreur s'est produite lors de la sauvegarde de vos modifications."
+
+#: gwolle-gb/admin/editor.php:59
+msgid "<strong>Attention:</strong> This entry is marked as spam!"
+msgstr "<strong>Attention:</strong> Ce message est marqué comme spam!"
+
+#: gwolle-gb/admin/editor.php:62
+msgid "Entry successfully classified as not-spam."
+msgstr "Message classé avec succès comme non-spam."
+
+#: gwolle-gb/admin/editor.php:79
+msgid "Options"
+msgstr "Options"
+
+#: gwolle-gb/admin/editor.php:85
+msgid "This entry is checked."
+msgstr "Ce message est contrôlé."
+
+#: gwolle-gb/admin/editor.php:96
+msgid "You\\'re about to delete this guestbook entry. This can\\'t be undone. Are you still sure you want to continue?"
+msgstr "Vous êtes sur le point de supprimer ce message. Cela ne peut pas être annulé. Êtes-vous toujours sûr de vouloir continuer?"
+
+#: gwolle-gb/admin/editor.php:96
+msgid "Delete"
+msgstr "Supprimer"
+
+#: gwolle-gb/admin/editor.php:101
+msgid "You\\'re about to mark this guestbook entry as spam. It will be sent to the Akismet team to help other people fighting spam. Entries marked as spam are automatically deleted after 15 days. Continue?"
+msgstr "Vous êtes sur le point de marquer le message dans le livre comme du spam. Il sera envoyé à l'équipe Akismet pour aider les autres la lutte contre le spam. Les messages marqués comme étant des pourriels sont supprimés automatiquement après 15 jours. Continuer?"
+
+#: gwolle-gb/admin/editor.php:101
+msgid "Spam!"
+msgstr "Spam!"
+
+#: gwolle-gb/admin/editor.php:106
+msgid "A message will be sent to the Akismet team that this entry is not spam. Continue?"
+msgstr "Un message sera envoyé à l'équipe Akismet pour determiner que le message n'est pas du spam. Continuer?"
+
+#: gwolle-gb/admin/editor.php:106
+msgid "No Spam!"
+msgstr "Pas de Spam!"
+
+#: gwolle-gb/admin/editor.php:112
+msgid "Save"
+msgstr "Enregistrer"
+
+#: gwolle-gb/admin/editor.php:124
+msgid "Details"
+msgstr "Détails"
+
+#: gwolle-gb/admin/editor.php:127
+msgid "Author"
+msgstr "Auteur"
+
+#: gwolle-gb/admin/editor.php:127
+#: gwolle-gb/admin/editor.php:171
+msgid "You"
+msgstr "Vous"
+
+#: gwolle-gb/admin/editor.php:129
+#: gwolle-gb/admin/editor.php:133
+#: gwolle-gb/admin/editor.php:135
+msgid "unknown"
+msgstr "inconnu"
+
+#: gwolle-gb/admin/editor.php:131
+#: gwolle-gb/admin/editor.php:149
+msgid "Written"
+msgstr "Écrit"
+
+#: gwolle-gb/admin/editor.php:131
+msgid "o'clock"
+msgstr "heures"
+
+#: gwolle-gb/admin/editor.php:131
+msgid "not yet"
+msgstr "pas encore"
+
+#: gwolle-gb/admin/editor.php:133
+msgid "Author's IP-address"
+msgstr "IP de l'auteur"
+
+#: gwolle-gb/admin/editor.php:133
+msgid "Whois search for this IP"
+msgstr "recherche Whois pour cette IP"
+
+#: gwolle-gb/admin/editor.php:135
+msgid "Host"
+msgstr "Hôte"
+
+#: gwolle-gb/admin/editor.php:151
+msgid "Entry has been locked."
+msgstr "Le message a été verrouillé."
+
+#: gwolle-gb/admin/editor.php:152
+msgid "Entry has been unlocked."
+msgstr "Le message a été déverrouillée."
+
+#: gwolle-gb/admin/editor.php:153
+msgid "Entry marked as spam."
+msgstr "Message marqué comme spam."
+
+#: gwolle-gb/admin/editor.php:154
+msgid "Entry marked as not-spam."
+msgstr "Message marqué comme non-spam."
+
+#: gwolle-gb/admin/editor.php:157
+msgid "Imported from DMSGuestbook"
+msgstr "Importé d'DMSGuestbook"
+
+#: gwolle-gb/admin/editor.php:184
+msgid "No entries yet."
+msgstr "Pas de message."
+
+#: gwolle-gb/admin/editor.php:202
+msgid "Line breaks will not be visible to the visitors due to your <a href=\"%1\">settings</a>."
+msgstr "Les sauts de ligne ne seront pas visibles aux visiteurs en raison de vos <a href=\"%1\">paramètres</a>."
+
+#: gwolle-gb/admin/editor.php:209
+msgid "Example: <code>http://www.google.com/</code> &#8212; don't forget the <code>http://</code>!"
+msgstr "Exemple: <code>http://www.google.com/</code>  &#8212; ne pas oublier les <code>http://</code>!"
+
+#: gwolle-gb/admin/settings.php:19
+msgid "Changes successfully saved."
+msgstr "Changements enregistrés avec succès."
+
+#: gwolle-gb/admin/settings.php:21
+msgid "Uninstall process stopped."
+msgstr "Désinsallation arrété"
+
+#: gwolle-gb/admin/settings.php:29
+msgid "Moderate Guestbook"
+msgstr "Modéré Livre d'or"
+
+#: gwolle-gb/admin/settings.php:31
+msgid "Moderate entries before publishing them."
+msgstr "Modéré messages avant de les publier."
+
+#: gwolle-gb/admin/settings.php:34
+msgid "New entries have to be unlocked by an administrator before they are visible to the public."
+msgstr "Les nouveaux messages doivent être déverrouillés par un administrateur avant d'être visibles pour le public."
+
+#: gwolle-gb/admin/settings.php:36
+msgid "It's highly recommended that you turn this on, because your responsible for the content on your homepage."
+msgstr "Il est fortement recommandé que vous activez cette option, parce que vous êtes responsable du contenu de votre page d'accueil."
+
+#: gwolle-gb/admin/settings.php:42
+msgid "Link to guestbook"
+msgstr "Lien vers le livre d'or"
+
+#: gwolle-gb/admin/settings.php:46
+msgid "Set the link (= complete URL) to the page the guestbook set up on manually, in case it is not detected correctly."
+msgstr "Définir le lien (= URL complète) de la page du livre d'or, au cas où il ne l'as détecte pas correctement."
+
+#: gwolle-gb/admin/settings.php:51
+msgid "Access control"
+msgstr "Contrôle d'accès"
+
+#: gwolle-gb/admin/settings.php:63
+msgid "Choose the userlevel that has access to the guestbook backend."
+msgstr "Choisissez le userlevel qui a accès à l'administration du livre d'or."
+
+#: gwolle-gb/admin/settings.php:68
+msgid "Notification"
+msgstr "Notification"
+
+#: gwolle-gb/admin/settings.php:73
+msgid "Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. Please contact your hosting provider to change this."
+msgstr "Désolé, mais la fonction <code>mail()</code> nécessaire pour vous avisez par courrier n'est pas activé dans votre configuration PHP. S'il vous plaît contacter votre hébergeur pour changer cela."
+
+#: gwolle-gb/admin/settings.php:78
+msgid "Send me an e-mail when a new entry has been posted."
+msgstr "Envoyez-moi un e-mail dès qu'un nouveau message a été publié."
+
+#: gwolle-gb/admin/settings.php:81
+msgid "E-Mail me no matter the new entry is spam or not."
+msgstr "E-Mail moi que le message soit un spam ou pas."
+
+#: gwolle-gb/admin/settings.php:85
+msgid "The following users have subscribed to this service:"
+msgstr "Les utilisateurs suivants ont souscrit à ce service:"
+
+#: gwolle-gb/admin/settings.php:98
+msgid "no subscriber yet"
+msgstr "Aucun souscripteur encore"
+
+#: gwolle-gb/admin/settings.php:130
+msgid "Learn more about Recaptcha..."
+msgstr "En savoir plus sur Recaptcha ..."
+
+#: gwolle-gb/admin/settings.php:130
+#: gwolle-gb/admin/settings.php:145
+msgid "What's that?"
+msgstr "Qu'est-ce que c'est?"
+
+#: gwolle-gb/admin/settings.php:132
+msgid "Use Recaptcha"
+msgstr "Utilisez Recaptcha"
+
+#: gwolle-gb/admin/settings.php:135
+msgid "<strong>Public</strong> key of your Recaptcha account"
+msgstr "<strong>Publics</strong> clé de votre compte Recaptcha"
+
+#: gwolle-gb/admin/settings.php:138
+msgid "<strong>Private</strong> key of your Recaptcha account"
+msgstr "<strong>Privée</strong> clé de votre compte Recaptcha"
+
+#: gwolle-gb/admin/settings.php:140
+msgid "The keys can be found at your"
+msgstr "Les clés peuvent être trouvés sur"
+
+#: gwolle-gb/admin/settings.php:140
+msgid "Go to my reCAPTCHA sites..."
+msgstr "aller vers mes sites reCAPTCHA ..."
+
+#: gwolle-gb/admin/settings.php:140
+msgid "reCAPTCHA sites overview"
+msgstr "le site reCAPTCHA"
+
+#: gwolle-gb/admin/settings.php:145
+msgid "Learn more about Akismet..."
+msgstr "En savoir plus sur Akismet ..."
+
+#: gwolle-gb/admin/settings.php:186
+msgid "Using the <a href=\"%1\" target=\"_blank\">Akismet PHP5-Class by Alex</a>."
+msgstr "Utiliser le <a href=\"%1\" target=\"_blank\">Akismet PHP5-Class par Alex</a>."
+
+#: gwolle-gb/admin/settings.php:189
+msgid "Using the <a href=\"%1\" target=\"_blank\">Akismet PHP4-Class by Bret Kuhns</a>."
+msgstr "Utiliser le <a href=\"%1\" target=\"_blank\">Akismet PHP4-Class par Bret Kuhns</a>."
+
+#: gwolle-gb/admin/settings.php:194
+msgid "Akismet helps you to fight spam. It's free and easy to install. Download and install it today to stop spam in your guestbook."
+msgstr "Akismet vous aide à lutter contre le spam. Il est gratuit et facile à installer. Téléchargez et installez-le dès aujourd'hui pour arrêter le spam dans vos commentaires."
+
+#: gwolle-gb/admin/settings.php:198
+msgid "I'm sorry, but it seems you're running an PHP version prior 4.x. The Akismet classes that come with Gwolle-GB are only compatible to 4.x and higher. To be able to use Akismet you should consider updating your server. (The System says your PHP version is %1.)"
+msgstr "Je suis désolé, mais il semble que vous utilisez une version antérieure de PHP 4.x. Les classes Akismet qui viennent avec Gwolle-Go sont compatibles uniquement pour 4.x et supérieur. Pour être en mesure d'utiliser Akismet vous devriez envisager de mettre à jour votre serveur. (Le système dit votre version de PHP est de %1.)"
+
+#: gwolle-gb/admin/settings.php:202
+msgid "Sorry, wasn't able to locate your <strong>Wordpress API key. You can enter it at the <a href=\"%1\">Akismet configuration page</a>."
+msgstr "Désolé, nous n'avons pas été en mesure de localiser votre <strong>Wordpress clé API. Vous pouvez la saisir sur la <a href=\"%1\">page de configuration Akismet</a>."
+
+#: gwolle-gb/admin/settings.php:206
+msgid "There seems to be something wrong with your Wordpress API key; wasn't able to validate it correctly. Please check it via <a href=\"%1\">Akismet configuration page</a>."
+msgstr "Il semble y avoir un problème avec votre clé API Wordpress; Nous n'avons pas été capable de la valider. S'il vous plaît vérifier votre saisie via votre <a href=\"%1\">page de configuration Akismet</a>."
+
+#: gwolle-gb/admin/settings.php:210
+msgid "Use Akismet"
+msgstr "Utilisez Akismet"
+
+#: gwolle-gb/admin/settings.php:212
+msgid "I've found the Wordpress API key, so you can start using Akismet right now."
+msgstr "J'ai trouvé la clé API de Wordpress, vous pouvez donc commencer à utiliser le droit Akismet maintenant."
+
+#: gwolle-gb/admin/settings.php:219
+msgid "Entry icons"
+msgstr "Icône de message"
+
+#: gwolle-gb/admin/settings.php:221
+msgid "Show entry icons"
+msgstr "Afficher les icônes de messages"
+
+#: gwolle-gb/admin/settings.php:223
+msgid "These icons are shown in every entry row, so that you know its entry status (spam, locked or unlocked)."
+msgstr "Ces icônes sont affichées sur chaque ligne de message, de sorte que vous connaissez son statut d'entrée (spam, verrouillé ou déverrouillé)."
+
+#: gwolle-gb/admin/settings.php:228
+msgid "Entries per page"
+msgstr "Messages par page"
+
+#: gwolle-gb/admin/settings.php:240
+msgid "Number of entries shown on the frontend in reading mode."
+msgstr "Nombre de messages figurant sur le frontend en lecture."
+
+#: gwolle-gb/admin/settings.php:245
+msgid "Appearance"
+msgstr "Apparence"
+
+#: gwolle-gb/admin/settings.php:247
+msgid "Show line breaks."
+msgstr "Afficher les sauts de ligne."
+
+#: gwolle-gb/admin/settings.php:249
+msgid "Show line breaks as the entry authors entered them. (May result in very long entries. Is turned off by default.)"
+msgstr ""
+
+#: gwolle-gb/admin/settings.php:251
+msgid "Display the guestbook only, not the text around it."
+msgstr "Afficher le livre d'or seulement, pas le texte autour."
+
+#: gwolle-gb/admin/settings.php:253
+msgid "If you wanted to have content prepended/appended to the guestbook, such as a warm \"Welcome, please leave me an entry.\", turn this off."
+msgstr "Si vous vouliez avoir un contenu en préfixe ou joints en annexe au livre d'or, comme par exemple \"Bienvenue, s'il vous plaît laissez-moi un message. \", désactiver cette option."
+
+#: gwolle-gb/admin/settings.php:258
+msgid "Admin mail content"
+msgstr "Contenu du mail à l'administrateur"
+
+#: gwolle-gb/admin/settings.php:273
+msgid "You can set the content of the mail a notification subscriber gets on new entries. The following tags are supported:"
+msgstr "Vous pouvez définir le contenu du mail que l'abonné reçoit en notification sur les nouveaux messages. Les balises suivantes sont supportées:"
+
+#: gwolle-gb/admin/settings.php:283
+msgid "Check for import"
+msgstr "Vérifier pour importer"
+
+#: gwolle-gb/admin/settings.php:285
+msgid "Check if there are other guestbook plugins installed to import their entries."
+msgstr "Vérifier s'il y a d'autres plugins de livre d'or installés à importer leurs entrées."
+
+#: gwolle-gb/admin/settings.php:288
+msgid "If Gwolle-GB detects another guestbook plugin for WordPress it'll prompt you to import that guestbooks's data."
+msgstr "Si Gwolle-GB détecte un autre plugin livre d'or pour WordPress il va vous demander d'importer les données de livres d'or."
+
+#: gwolle-gb/admin/settings.php:297
+msgid "Save settings"
+msgstr "Enregistrer les paramètres"
+
+#: gwolle-gb/admin/settings.php:319
+msgid "Uninstall"
+msgstr "Désinstaller"
+
+#: gwolle-gb/admin/settings.php:322
+msgid "Uninstalling means that all database entries are removed (settings and entries)."
+msgstr "Désinstallation signifie que toutes les entrées de la base de données sont supprimées (les réglages et messages)."
+
+#: gwolle-gb/admin/settings.php:324
+msgid "This can <strong>not</strong> be undone."
+msgstr "L'action ne pourra <strong>pas</ strong> être annulée."
+
+#: gwolle-gb/admin/settings.php:327
+msgid "I'm aware of that, continue!"
+msgstr "Je suis conscient de cela, continue!"
+
+#: gwolle-gb/admin/settings.php:333
+msgid "I really don't want to bother you; this page just exists to prevent you from accidentally deleting all your entries.<br>Please check the 'uninstall' checkbox and hit the button; all tables (including their rows) and all settings of Gwolle-GB will be deleted.<br><br>Are you REALLY sure you wan't to continue? There's no 'undo'."
+msgstr "Je ne veux vraiment pas vous ennuyer, cette page n'existe que pour vous éviter la suppression accidentelle de toutes vos entrées. <br> S'il vous plaît cocher la case 'désinstaller' et cliquez sur le bouton; tous les tableaux (y compris leurs lignes) et tous les réglages de Gwolle-GB seront supprimés. <br> êtes-vous vraiment sûr que vous wan't continuer? Il n'ya pas de retour possible."
+
+#: gwolle-gb/admin/settings.php:336
+msgid "Yes, I'm absolutely sure of this. Proceed!"
+msgstr "Oui, je suis absolument certain de cela. Procéder!"
+
+#: gwolle-gb/admin/settings.php:339
+msgid "Uninstall &raquo;"
+msgstr "Désinstaller &raquo;"
+
+#: gwolle-gb/admin/settings.php:344
+msgid "Sorry, but the page you're looking for does not exists. Go back to the <a href=\"%1\">settings page</a>"
+msgstr "Désolé, la page que vous recherchez n'existe pas. Retour à la <a href=\"%1\">page de paramètres</a>"
+
+#: gwolle-gb/admin/entries.php:137
+msgid "Guestbook entries"
+msgstr "Messages livre d'or"
+
+#: gwolle-gb/admin/entries.php:148
+msgid "Entry successfully deleted."
+msgstr "Message supprimé avec succès."
+
+#: gwolle-gb/admin/entries.php:149
+msgid "An error occured while trying to delete the entry."
+msgstr "Une erreur est survenue en essayant de supprimer le message."
+
+#: gwolle-gb/admin/entries.php:150
+msgid "Please activate the use of Akismet on your <a href=\"%1\">Gwolle-GB configuration page</a>. Thanks!"
+msgstr "S'il vous plaît activer l'utilisation de Akismet sur votre <a href=\"%1\">Gwolle-GB page de configuration</a>. Merci!"
+
+#: gwolle-gb/admin/entries.php:151
+msgid "One entry"
+msgstr "un message"
+
+#: gwolle-gb/admin/entries.php:151
+msgid "entries"
+msgstr "Messages"
+
+#: gwolle-gb/admin/entries.php:152
+msgid "successfully edited."
+msgstr "modifié avec succès."
+
+#: gwolle-gb/admin/entries.php:153
+msgid "No entries were edited."
+msgstr "Aucun message n'a été édité."
+
+#: gwolle-gb/admin/entries.php:154
+msgid "No mass edit action selected."
+msgstr "pas d'action de masse sélectionnée"
+
+#: gwolle-gb/admin/entries.php:170
+msgid "All"
+msgstr "Tous"
+
+#: gwolle-gb/admin/entries.php:171
+msgid "Unlocked"
+msgstr "Déverrouillé"
+
+#: gwolle-gb/admin/entries.php:172
+msgid "New"
+msgstr "Nouveau"
+
+#: gwolle-gb/admin/entries.php:173
+msgid "Spam"
+msgstr "Spam"
+
+#: gwolle-gb/admin/entries.php:179
+#: gwolle-gb/admin/entries.php:343
+msgid "Mass edit actions"
+msgstr "Actions d'éditions des lignes"
+
+#: gwolle-gb/admin/entries.php:180
+#: gwolle-gb/admin/entries.php:344
+msgid "Mark as checked"
+msgstr "Marquer comme ok"
+
+#: gwolle-gb/admin/entries.php:181
+#: gwolle-gb/admin/entries.php:345
+msgid "Mark as not checked"
+msgstr "Marquer comme non ok"
+
+#: gwolle-gb/admin/entries.php:182
+#: gwolle-gb/admin/entries.php:346
+msgid "Mark as spam"
+msgstr "Marquer comme spam"
+
+#: gwolle-gb/admin/entries.php:183
+#: gwolle-gb/admin/entries.php:347
+msgid "Mark as not spam"
+msgstr "Marquer comme non spam"
+
+#: gwolle-gb/admin/entries.php:186
+#: gwolle-gb/admin/entries.php:350
+msgid "Apply"
+msgstr "Appliquer"
+
+#: gwolle-gb/admin/entries.php:193
+msgid "Showing:"
+msgstr "Montrer:"
+
+#: gwolle-gb/admin/entries.php:193
+msgid "of"
+msgstr "de"
+
+#: gwolle-gb/admin/entries.php:244
+#: gwolle-gb/admin/entries.php:258
+msgid "ID"
+msgstr "ID"
+
+#: gwolle-gb/admin/entries.php:248
+#: gwolle-gb/admin/entries.php:262
+msgid "Date"
+msgstr "Date"
+
+#: gwolle-gb/admin/entries.php:249
+#: gwolle-gb/admin/entries.php:263
+msgid "Entry (excerpt)"
+msgstr "Message (extrait)"
+
+#: gwolle-gb/admin/entries.php:251
+#: gwolle-gb/admin/entries.php:265
+msgid "Action"
+msgstr "Action"
+
+#: gwolle-gb/admin/entries.php:311
+msgid "User not found"
+msgstr "Utilisateur non trouvé"
+
+#: gwolle-gb/admin/entries.php:332
+msgid "No entries found."
+msgstr "Aucune message trouvé."
+
+#: gwolle-gb/admin/import.php:20
+msgid "Import guestbook entries from DMSGuestbook"
+msgstr "Importer des livres d'or venant de DMSGuestbook"
+
+#: gwolle-gb/admin/import.php:23
+msgid "Import guestbook entries from other plugins"
+msgstr "Importer des livre d'or venant d'autres plugins"
+
+#: gwolle-gb/admin/import.php:36
+msgid "You haven't chosen a guestbook. Please select one and try again."
+msgstr "Vous n'avez pas choisi de livre d'or. S'il vous plaît sélectionnez en un et essayez à nouveau."
+
+#: gwolle-gb/admin/import.php:37
+msgid "<strong>Nothing to import.</strong> The guestbook you've chosen does not contain any entries."
+msgstr "<strong>Rien à importer.</strong> Le livre d'or que vous avez choisi ne contient pas de message."
+
+#: gwolle-gb/admin/import.php:39
+msgid "One entry imported successfully."
+msgstr "Message importé avec succès."
+
+#: gwolle-gb/admin/import.php:42
+msgid "%1 entries imported successfully."
+msgstr "%1 messages importés avec succès."
+
+#: gwolle-gb/admin/import.php:77
+msgid "Sorry, but I wasn't able to determine the pages at which your guestbook was displayed. You cannot choose the guestbook to import from."
+msgstr "Désolé, mais je n'étais pas en mesure de déterminer les pages sur lesquelles votre livre d'or a été affichée. Vous ne pouvez pas choisir le livre d'or pour importer."
+
+#: gwolle-gb/admin/import.php:86
+msgid "%1 entries were found and will be imported."
+msgstr "%1 messages ont été trouvés et seront importés."
+
+#: gwolle-gb/admin/import.php:89
+msgid "I was able to find %1 configured DMSGuestbooks. Please choose the guestbook you want to import entries from."
+msgstr "J'ai pu trouver %1 DMSGuestbooks configuré. S'il vous plaît choisir le livre d'or que vous souhaitez importer."
+
+#: gwolle-gb/admin/import.php:95
+msgid "Page title"
+msgstr "Titre de la page"
+
+#: gwolle-gb/admin/import.php:96
+msgid "Number of guestbook entries"
+msgstr "Nombre d'entrées du Livre d'or"
+
+#: gwolle-gb/admin/import.php:122
+msgid "Click here to view the entries of this guestbook..."
+msgstr "Cliquez ici pour consulter les messages de ce livre d'or ..."
+
+#: gwolle-gb/admin/import.php:122
+msgid "Review entries"
+msgstr "Consulter les messages"
+
+#: gwolle-gb/admin/import.php:133
+msgid "The importer will preserve the following data per entry:"
+msgstr ""
+
+#: gwolle-gb/admin/import.php:136
+msgid "E-Mail address"
+msgstr "Adresse E-Mail"
+
+#: gwolle-gb/admin/import.php:137
+msgid "URL/Website"
+msgstr "URL/Site Web"
+
+#: gwolle-gb/admin/import.php:138
+msgid "Date of the entry"
+msgstr "Date du message"
+
+#: gwolle-gb/admin/import.php:139
+msgid "IP address"
+msgstr "Adresse IP"
+
+#: gwolle-gb/admin/import.php:140
+msgid "Message"
+msgstr "Message"
+
+#: gwolle-gb/admin/import.php:141
+msgid "\"is spam\" flag"
+msgstr "\"est un spam\" flag"
+
+#: gwolle-gb/admin/import.php:142
+msgid "\"is checked\" flag"
+msgstr "\"est cochée\" flag"
+
+#: gwolle-gb/admin/import.php:144
+msgid "However, data such as HTML formating and gravatars are not supported by Gwolle-GB and <strong>will not</strong> be imported."
+msgstr "Toutefois, les données telles que le HTML formaté et les Gravatars ne sont pas pris en charge par Gwolle-GB et <strong> ne seront pas </strong>importés."
+
+#: gwolle-gb/admin/import.php:146
+msgid "The importer does not delete any data, so you can go back whenever you want.<br>Please start the import by pressing \"Start import\"."
+msgstr "L'importateur ne supprime pas les données, donc vous pouvez revenir en arrière quand vous le voulez.<br>S'il vous plaît commencer l'importation en appuyant sur \"Commencer l'importation\"."
+
+#: gwolle-gb/admin/import.php:150
+msgid "Start import"
+msgstr "Commencer l'importation"
+
+#: gwolle-gb/admin/import.php:159
+msgid "I'm sorry, but I wasn't able to find the table of DMSGuestbook. Please check your MySQL database and try again."
+msgstr "Je suis désolé, mais je n'étais pas capable de trouver la table des DMSGuestbook. S'il vous plaît vérifier votre base de données MySQL et essayez à nouveau."
+
+#: gwolle-gb/admin/import.php:166
+msgid "You may want to import entries from another plugin. Click on the plugin's name to get more details on the import."
+msgstr "Vous souhaitez importer les messages d'un autre plugin. Cliquez sur le nom du plugin pour obtenir plus de détails sur l'importation."
+
+#: gwolle-gb/admin/import.php:169
+msgid "Supported plugins:"
+msgstr "Plugins supportés"
+
+#: gwolle-gb/admin/import.php:183
+msgid "Table %1 not found."
+msgstr "Table %1 introuvable"
+
+#~ msgid "Latest updates"
+#~ msgstr "Dernières mises à jour"
+#~ msgid "v%1 installed"
+#~ msgstr "v%1 installé"
+#~ msgid "Line breaks"
+#~ msgstr "Saut de ligne"
+#~ msgid "Log"
+#~ msgstr "Log"
+

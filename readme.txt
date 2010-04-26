@@ -3,7 +3,7 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.9
 Tested up to: 2.9.1
-Stable tag: 0.9.5
+Stable tag: 0.9.6
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -19,10 +19,11 @@ It works quite good actually, and I'm looking forward to integrate some other co
 * Moderation, so that you have to check an entry before it is visible in your guestbook (can be turned off).
 * Recaptcha integration. (Fighting spam!)
 * Akismet integration (Fighting spam, too!)
-* Localisation (currently english, german, spanish, polish and dutch). Own languages can be added very easily, check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release, so please send them to my via mail, thanks!
+* Localisation (currently english, german, french, spanish, polish and dutch). Own languages can be added very easily, check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release, so please send them to my via mail, thanks!
 * different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
 * a log for each entry, so that you know which member of the staff released an article to the public and when.
 * IP-address- and host-logging with link to WHOIS query site
+* Smiley integration (uses the WordPress smiley engine)
 * Easy uninstall routine for complete removal of all database changes.
 
 ... and all that integrated in the stylish WordPress 2.9 look.
@@ -35,7 +36,19 @@ For a demo, visit the plugin's homepage (http://www.wolfgangtimme.de/blog/). Fee
 in the WordPress.org forums or send me an email to gwolle (at) wolfgangtimme (dot) de. You may also
 use my homepage's comment section. I'd be glad to hear your opinion and/or feature request.
 
+Please note: At the moment, Gwolle-GB does *not* work with WordPress MU. I'm working on it, but at the moment it's just not working. Sorry, guys!
+
 = Changelog =
+
+0.9.6
+[new] When viewing 'all' entries you can now enable/disable entries by just clicking at the icon. (AJAX, Yey!)
+[new] French language (thanks, cobestran.com)
+[new] Author's can now be linked to his/her website. (Can be turned off in the settings.)
+[new] Smilies are now replaced using the built-in WP smiley engine. (Can be turned off in the settings.)
+[fix] 'Spam' is now only an attribute, no longer a state. This results in only two states: 'checked' and 'unchecked'.
+[fix] Cleaned up the code a lot and using a lot of functions. (Check the "func.php" files for futher reading.)
+[fix] Date is now displayed as configured at the WP options page.
+[fix] Admin entries: Only show stuff member's name if found.
 
 0.9.5
 [new] You can now import guestbook entries from the popular "DMSGuestbook" plugin easily.
@@ -106,9 +119,14 @@ If you still got problems, or if errors come up please leave a message at the Wo
 The following list contains things I'd like to include in future releases. If you have a feature request please use the forum
 on WordPress.org; I'll may add it to the list then.
 
-* Smiley integration
 * More inline documentation
-*	Better permission management (the current one is very poor)
+*	Better permission management (the current one is poor)
+* Gravatar support
+* Custom fields (e. g. 'ICQ number' etc.)
+* More functions & methods, less code redundancy.
+* Support for WordPress MU.
+* Better database structure (e. g. 'id' insted of 'entry_id')
+* Widget (at the dashboard as well as the sidebar(s))
 
 == Known bugs ==
 
@@ -121,8 +139,18 @@ so I'll get your message. Or, if you're in a hurry, send me an email: gwolle (at
 
 ==	Thank you! ==
 
-* timomaas for the Dutch translation
-* All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr
+* timomaas for the dutch translation
+* Daniel Speichert for the polish translation
+* José Luis Sanz Ruiz for the spanish translation
+* cobestran.com for the french translation
+* All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr, Georg K.
+
+== WANTED ==
+
+Beta testers wanted!
+I'm currently looking for people willing to test new releases of the plugin before I release it to the public.
+Due the fact that I've got only two sites to test the plugin with I need some people who test the plugin on their site.
+If you wanted to participate please let me know. Write me an email or add a comment to the plugin's homepage. Thanks in advance!
 
 
 == Frequently Asked Questions ==

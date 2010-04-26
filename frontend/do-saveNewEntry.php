@@ -68,7 +68,7 @@
 					if (version_compare(phpversion(),'5.0','>=')) {
 						include('wp-content/plugins/gwolle-gb/' . AKISMET_PHP5_CLASS_DIR . '/Akismet.class.php');
 						
-						$blogURL = get_bloginfo('url');
+						$blogURL = get_bloginfo('wpurl');
 	   				
 	   				$akismet = new Akismet($blogURL, $wordpressApiKey);
 	   				$akismet->setCommentAuthor($_POST['entry_author_name']);
@@ -90,9 +90,9 @@
 							'email' => $_POST['entry_author_email'],
 							'website' => $_POST['entry_author_website'],
 							'body' => $_POST['entry_content'],
-							'permalink' => get_bloginfo('url')
+							'permalink' => get_bloginfo('wpurl')
 						); 
-						$akismet = new Akismet(get_bloginfo('url'), $wordpressApiKey, $comment);
+						$akismet = new Akismet(get_bloginfo('wpurl'), $wordpressApiKey, $comment);
 						
 						if ($akismet->isSpam()) {
 							//	Akismet detected spam.
@@ -165,7 +165,7 @@
 					$header .= "Content-Type: text/plain; charset=UTF-8\r\n";  //  Encoding of the mail
 					
 					$info['blog_name'] = get_bloginfo('name');
-					$info['blog_url'] = get_bloginfo('url');
+					$info['blog_url'] = get_bloginfo('wpurl');
 					$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
 					$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=gwolle-gb/editor.php&entry_id=' . mysql_insert_id();
 					//	The last tags are bloginfo-based

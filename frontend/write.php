@@ -2,10 +2,17 @@
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
+	// Load settings, if not set
+	global $gwolle_gb_settings;
+	if (!isset($gwolle_gb_settings)) {
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_settings.func.php');
+    gwolle_gb_get_settings();
+  }
+	
 	$output .= '<div><a href="' . $gb_link . 'gb_page=read">&laquo; ' . __('Back to the entries.',$textdomain) . '</a></div>';	
 
 	//	Has there been an error?
-	if (!$resp->is_valid && $_POST && get_option('gwolle_gb-recaptcha-active') == 'true') {
+	if (!$resp->is_valid && $_POST && $gwolle_gb_settings['recaptcha-active'] === TRUE) {
 		$error[] = __('The captcha has not been entered correctly.',$textdomain);
 		$error_captcha = true;
 	}
@@ -21,7 +28,7 @@
 	if (count($error) > 0) {
 		$output .= '<div id="error_msg">';
 			for ($i=0; $i<count($error); $i++) {
-				if ($i>0) { $output .= '<br>'; }
+				if ($i>0) { $output .= '<br />'; }
 				$output .= $error[$i];
 			}
 		$output .= '</div>';
@@ -50,7 +57,7 @@
 		<div class="input"><textarea name="entry_content" class="';  if ($error_content) { $output .= ' error'; } $output .= '">'.$_POST['entry_content'].'</textarea></div>
 		<div class="clearBoth">&nbsp;</div>';
 	
-	  if (get_option('gwolle_gb-recaptcha-active') == 'true') {
+	  if ($gwolle_gb_settings['recaptcha-active'] === TRUE) {
 	    $output .= '
 		  <div class="label">&nbsp;</div>
 		  <div class="input">';
@@ -59,7 +66,7 @@
   				/*
   				**	If function recaptcha_get_html already exists
   				**	the reCAPTCHA library has been included by another
-  				**	plugin. Don't load it now 'til it would result in an error.
+  				**	plugin. Don't load it now since it would result in an error.
   				*/
   				require_once('recaptcha/recaptchalib.php');
   			}
@@ -78,10 +85,10 @@
 	
 	<div id="notice">'.
     __('Fields marked with * are obligatory.',$textdomain).
-    '<br>'.
+    '<br />'.
     str_replace('%1',$_SERVER['REMOTE_ADDR'],__('For security reasons we save you ip address <span id="ip">%1</span>.',$textdomain)).
-		'<br>';
-		if (get_option('gwolle_gb-moderate-entries') == 'true') {
+		'<br />';
+		if ($gwolle_gb_settings['moderate-entries'] === TRUE) {
 		  $output .= __('Your entry will be visible in the guestbook when we reviewed it and gave our permission.',$textdomain).'&nbsp;';
 		}
 		$output .=
