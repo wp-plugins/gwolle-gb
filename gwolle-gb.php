@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://wolfgangtimme.de/blog/
 Description: simple guestbook
-Version: 0.9.6
+Version: 0.9.7
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -32,7 +32,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	load_plugin_textdomain($textdomain, false, dirname( plugin_basename(__FILE__) ) . '/lang');
 
 	//	plugin's version
-	define('GWOLLE_GB_VER','0.9.6');
+	define('GWOLLE_GB_VER','0.9.7');
 
 	//	Akismet PHP4 class folder's name
 	define('AKISMET_PHP4_CLASS_DIR','Akismet_PHP4');
@@ -40,14 +40,20 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	//	Akismet PHP5 class folder's name
 	define('AKISMET_PHP5_CLASS_DIR','PHP5Akismet.0.4');
 	
+	// Load settings, if not set
+	global $gwolle_gb_settings;
+	if (!isset($gwolle_gb_settings)) {
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+    gwolle_gb_get_settings();
+  }
+	
 	//	Access level
-	define('GWOLLE_GB_ACCESS_LEVEL', get_option('gwolle_gb-access-level'));
+	if (defined('GWOLLE_GB_ACCESS_LEVEL') === FALSE) {
+    define('GWOLLE_GB_ACCESS_LEVEL', $gwolle_gb_settings['access-level']);
+  }
 
 	//	make sure this plugin is compatible to prior versions of Wordpress
 	include(WP_PLUGIN_DIR.'/gwolle-gb/admin/_compatibility.php');
-	
-	//	Set the default mail text.
-	$defaultMailText = __("Hello,\n\nthere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer",$textdomain);
 	
 	//	Set the user level names
 	$userLevelNames = array(
@@ -111,9 +117,18 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	add_action('init', 'gwolle_gb_init');
 	function gwolle_gb_init() {
 		global $current_user;
+		global $gwolle_gb_settings;
 		@session_start();
 		
-		if ($_REQUEST['action'] == 'uninstall_gwolle_gb' && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
+		//  Process $_REQUEST variables
+		$req_action   = (isset($_REQUEST['action'])) ? $_REQUEST['action'] : FALSE;
+		$post_action  = (isset($_POST['action'])) ? $_POST['action'] : '';
+		$do           = (isset($_REQUEST['do'])) ? $_REQUEST['do'] : '';
+		$entry_id     = (isset($_REQUEST['entry_id']) && (int)$_REQUEST['entry_id'] > 0) ? (int)$_REQUEST['entry_id'] : FALSE;
+		$gb_page      = (isset($_REQUEST['gb_page'])) ? $_REQUEST['gb_page'] : '';
+		$page         = (isset($_REQUEST['page'])) ? $_REQUEST['page'] : '';
+		
+		if ($req_action == 'uninstall_gwolle_gb' && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 			if ($_POST['uninstall_confirmed'] == 'on') {
 				//	uninstall the plugin -> delete all tables and preferences of the plugin
 				include(WP_PLUGIN_DIR.'/gwolle-gb/admin/upgrade.php');
@@ -134,32 +149,30 @@ Author URI: http://www.wolfgangtimme.de/blog/
 			upgrade_gwolle_gb();
 		}
 		
-		if ($_REQUEST['do'] == 'massEdit' && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
+		if ($do == 'massEdit' && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 			//	Mass edit entries
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-massEdit.php');
 		}
-		elseif (is_numeric($_POST['entry_id']) || $_POST['action'] == 'newEntry') {
+		elseif ($req_action === FALSE && isset($_POST['entry_id']) && ($entry_id !== FALSE || $post_action == 'newEntry')) {
 			include(WP_PLUGIN_DIR.'/gwolle-gb/frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
 			
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-saveEntry.php');
 		}
-		elseif (is_numeric($_REQUEST['entry_id']) && $_REQUEST['action'] == 'delete') {
+		elseif ($entry_id !== FALSE && $req_action == 'delete') {
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-deleteEntry.php');
 		}
-		elseif (is_numeric($_REQUEST['entry_id']) && ($_REQUEST['action'] == 'markSpam' || $_REQUEST['action'] == 'unmarkSpam')) {
+		elseif ($entry_id !== FALSE && in_array($req_action, array('markSpam','unmarkSpam'))) {
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-spam.php');
 		}
-		elseif ($_REQUEST['gb_page'] == 'write' && $_POST) {
-			global $defaultMailText;
+		elseif ($gb_page == 'write' && $_POST) {
 			include(WP_PLUGIN_DIR.'/gwolle-gb/frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
 			
 			include(WP_PLUGIN_DIR.'/gwolle-gb/frontend/do-saveNewEntry.php');
 		}
-		elseif ($_REQUEST['action'] == 'saveSettings') {
-			global $defaultMailText;
+		elseif ($req_action == 'saveSettings') {
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-saveSettings.php');
 		}
-		elseif ($_REQUEST['page'] == 'gwolle-gb/entries.php') {
+		elseif ($page == 'gwolle-gb/entries.php') {
 			global $wpdb;
 	
 			if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
@@ -180,7 +193,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 		    global $wpdb;
 		    if ($_REQUEST['what'] == 'dmsguestbook') {
 		      //  Import entries from DMSGuestbook
-		      include(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_import_dmsgb_entry.func.php');
+		      include(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_import_dmsgb_entry.func.php');
 		      if (isset($_POST['guestbook_number']) && is_numeric($_POST['guestbook_number'])) {
 		        //  Get guestbook entries from the chosen guestbook
 		        $result = mysql_query("
@@ -250,11 +263,14 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	function gwolle_gb_admin_head() {
     wp_enqueue_script('jquery');
     global $textdomain;
+    
+    //  Process request variables
+    $page = (isset($_REQUEST['page'])) ? $_REQUEST['page'] : '';
  
 		echo "<link rel='stylesheet' href='" . get_option('siteurl') . "/wp-admin/css/dashboard.css?ver=20081210' type='text/css' media='all' />";
 		echo "<link rel='stylesheet' href='" . WP_PLUGIN_URL . "/gwolle-gb/admin/style.css' type='text/css' media='all' />";
 		
-		if ($_REQUEST['page'] == 'gwolle-gb/entries.php') {
+		if ($page == 'gwolle-gb/entries.php') {
 			//	Include JavaScript for the entries page
 			$show = (isset($_REQUEST['show'])) ? $_REQUEST['show'] : 'all';
 			echo '
@@ -306,11 +322,17 @@ Author URI: http://www.wolfgangtimme.de/blog/
 
 	
 	function page_index() {
-		global $wpdb; global $textdomain; global $userLevelNames;
+		global $wpdb;
+		global $textdomain;
+		global $userLevelNames;
+		
+		//  Process request variables
+		$do = (isset($_REQUEST['do'])) ? $_REQUEST['do'] : '';
+		
 		if (!get_option('gwolle_gb_version')) {
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/installSplash.php');
 		}
-		elseif ($_REQUEST['do'] == 'import') {
+		elseif ($do == 'import') {
 		  include(WP_PLUGIN_DIR.'/gwolle-gb/admin/import.php');
 		}
 		else {

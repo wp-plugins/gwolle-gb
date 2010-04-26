@@ -2,7 +2,7 @@
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
-	include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entry_count.func.php');
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entry_count.func.php');
 		
 	//	Calculate the number of entries
 	$count['checked']    = gwolle_gb_get_entry_count(array(
@@ -15,26 +15,14 @@
     'entry_status' => 'spam'
   ));
 	$count['all'] = $count['checked'] + $count['unchecked'] + $count['spam'];
+	
+	$msg = (isset($_REQUEST['msg'])) ? $_REQUEST['msg'] : FALSE;
 ?>
 
 <div class="wrap">
 	<div id="icon-gwolle-gb"><br /></div>
 	<h2><?php _e('Guestbook',$textdomain); ?></h2>
-	
-	<?php if ($_REQUEST['msg'] == 'no-permission') { ?>
-<!-- 		<div id="message" class="updated fade"><p><strong><?php _e('Error',$textdomain); ?>:</strong>&nbsp;<?php _e("You don't have the privileges to perform this action.",$textdomain); ?></p></div> -->
-	<?php }
-	elseif ($_REQUEST['msg'] == 'check-akismet-configuration') {
-		echo '<div id="message" class="error fade"><p><strong>' . __('Error',$textdomain) . ':</strong> ' . __('Please check your Akismet configuration.',$textdomain) . '</p></div>';
-	}
-	elseif ($_REQUEST['msg'] == 'akismet-not-activated') {
-		echo '<div id="message" class="error fade"><p><strong>' . __('Error',$textdomain) . ':</strong> ' . str_replace('%1','admin.php?page=gwolle-gb/settings.php',__('Please <a href="%1">enable Akismet</a> to use the spam feature of Gwolle-GB.',$textdomain)) . '</p></div>';
-	}
-	elseif ($_REQUEST['msg'] == 'successfully-uninstalled') {
-    echo '<div id="message" class="updated fade"><p>'.__('<strong>Gwolle-GB has been successfully uninstalled.</strong> Thanks for using my plugin!',$textdomain).'</p></div>';
-  }
-	?>
-	
+	<?php include(WP_PLUGIN_DIR.'/gwolle-gb/msg.php'); ?>
 	<div id="dashboard-widgets-wrap" class="gwolle_gb-overview">
     <div id="dashboard-widgets" class="metabox-holder">
       <div id="post-body">

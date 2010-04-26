@@ -9,6 +9,13 @@
 	global $wpdb;
 	global $current_user;
 	
+	// Load settings, if not set
+	global $gwolle_gb_settings;
+	if (!isset($gwolle_gb_settings)) {
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+    gwolle_gb_get_settings();
+  }
+	
 	if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 		//	The current user's not allowed to do this.
 		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
@@ -69,7 +76,7 @@
 		}
 		
 		//	Admin mail content
-		if ($_POST['adminMailContent'] != $defaultMailText) {
+		if ($_POST['adminMailContent'] != $gwolle_gb_settings['defaultMailText']) {
 			update_option('gwolle_gb-adminMailContent',$_POST['adminMailContent']);
 		}
 		
