@@ -4,14 +4,14 @@
    * Reading mode of the guestbook frontend
    */
   
-  include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entries.func.php');
-  include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entry_count.func.php');
-  include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_format_value_for_output.func.php');
+  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
+  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entry_count.func.php');
+  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_format_value_for_output.func.php');
   
   // Load settings, if not set
 	global $gwolle_gb_settings;
 	if (!isset($gwolle_gb_settings)) {
-    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_settings.func.php');
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
     gwolle_gb_get_settings();
   }
   

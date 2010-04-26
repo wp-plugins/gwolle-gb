@@ -3,7 +3,7 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.9
 Tested up to: 2.9.1
-Stable tag: 0.9.6
+Stable tag: 0.9.6.1
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -14,6 +14,7 @@ which just pretend to be a guestbook, like the guestbook builder does. But it is
 form. That wasn't what I was looking for, so I came up with developing my own plugin for WordPress.
 It works quite good actually, and I'm looking forward to integrate some other cool features, but for the moment you have:
 
+* Simple and clean interface that integrates seamlessly into /wp-admin.
 * Easy import of DMSGuestbook entries into Gwolle-GB.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you have to check an entry before it is visible in your guestbook (can be turned off).
@@ -21,7 +22,7 @@ It works quite good actually, and I'm looking forward to integrate some other co
 * Akismet integration (Fighting spam, too!)
 * Localisation (currently english, german, french, spanish, polish and dutch). Own languages can be added very easily, check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release, so please send them to my via mail, thanks!
 * different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
-* a log for each entry, so that you know which member of the staff released an article to the public and when.
+* a log for each entry, so that you know which member of the staff released and edited an article to the public and when.
 * IP-address- and host-logging with link to WHOIS query site
 * Smiley integration (uses the WordPress smiley engine)
 * Easy uninstall routine for complete removal of all database changes.
@@ -39,6 +40,10 @@ use my homepage's comment section. I'd be glad to hear your opinion and/or featu
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU. I'm working on it, but at the moment it's just not working. Sorry, guys!
 
 = Changelog =
+
+0.9.6.1 (emergency release)
+[new] Added log message to track if an entry has been changed using the editor.
+[fix] Fixed several bugs.
 
 0.9.6
 [new] When viewing 'all' entries you can now enable/disable entries by just clicking at the icon. (AJAX, Yey!)
@@ -145,9 +150,8 @@ so I'll get your message. Or, if you're in a hurry, send me an email: gwolle (at
 * cobestran.com for the french translation
 * All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr, Georg K.
 
-== WANTED ==
+== Beta testers wanted ==
 
-Beta testers wanted!
 I'm currently looking for people willing to test new releases of the plugin before I release it to the public.
 Due the fact that I've got only two sites to test the plugin with I need some people who test the plugin on their site.
 If you wanted to participate please let me know. Write me an email or add a comment to the plugin's homepage. Thanks in advance!

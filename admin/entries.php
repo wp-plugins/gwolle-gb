@@ -7,15 +7,14 @@
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
-	include_once(WP_PLUGIN_DIR.'/gwolle-gb/config.inc.php');
-	include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_format_value_for_output.func.php');
-  include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entry_count.func.php');
-  include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entries.func.php');
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_format_value_for_output.func.php');
+  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entry_count.func.php');
+  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
   
   // Load settings, if not set
 	global $gwolle_gb_settings;
 	if (!isset($gwolle_gb_settings)) {
-    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_settings.func.php');
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
     gwolle_gb_get_settings();
   }
 	
@@ -31,7 +30,7 @@
   ));
 	$count['all'] = $count['checked'] + $count['unchecked'] + $count['spam'];
 	
-	$show = (in_array($_REQUEST['show'], array(
+	$show = (isset($_REQUEST['show']) && in_array($_REQUEST['show'], array(
     'checked',
     'unchecked',
     'spam'
@@ -41,11 +40,11 @@
 	if ($show == 'spam' && get_option('gwolle_gb-akismet-active') != 'true') { $showMsg = 'akismet-not-activated'; }
 	
 	// Check if the requested page number is an integer > 0
-	$pageNum = ($_REQUEST['pageNum'] && (int)$_REQUEST['pageNum'] > 0) ? (int)$_REQUEST['pageNum'] : 1;
+	$pageNum = (isset($_REQUEST['pageNum']) && $_REQUEST['pageNum'] && (int)$_REQUEST['pageNum'] > 0) ? (int)$_REQUEST['pageNum'] : 1;
 	
 	//	Calculate the number of pages.
 	$countPages = round($count[$show] / 15);
-	if ($countPages * $gwolle_gb_cfg['entries_per_page'] < $count[$show]) {
+	if ($countPages * $gwolle_gb_settings['entries_per_page'] < $count[$show]) {
 		$countPages++;
 	}
 	
@@ -62,16 +61,16 @@
 		$mysqlFirstRow = 0;
 	}
 	else {
-		$firstEntryNum = ($pageNum-1)*$gwolle_gb_cfg['entries_per_page']+1;
+		$firstEntryNum = ($pageNum-1)*$gwolle_gb_settings['entries_per_page']+1;
 		$mysqlFirstRow = $firstEntryNum-1;
 	}
 	
-	$lastEntryNum = $pageNum * $gwolle_gb_cfg['entries_per_page'];
+	$lastEntryNum = $pageNum * $gwolle_gb_settings['entries_per_page'];
 	if ($count[$show] == 0) {
 		$lastEntryNum = 0;
 	}
 	elseif ($lastEntryNum > $count[$show]) {
-		$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum-1) * $gwolle_gb_cfg['entries_per_page']) - 1;
+		$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum-1) * $gwolle_gb_settings['entries_per_page']) - 1;
 	}
 	
 	// Get the entries
@@ -84,34 +83,7 @@
 <div class="wrap">
 	<div id="icon-gwolle-gb"><br /></div>
 	<h2><?php _e('Guestbook entries',$textdomain); ?></h2>
-	
-	<?php
-		if ($_REQUEST['msg'] || $showMsg) {
-			$msgClass = ($_REQUEST['msg'] == 'no-entries-selected' || $_REQUEST['msg'] == 'no-massEditAction-selected') ? 'error' : 'updated';
-			
-			echo '
-			<div id="message" class="' . $msgClass . ' fade">
-        <p>';
-				$msg['deleted']                     = __('Entry successfully deleted.',$textdomain);
-				$msg['errro-deleting']              = __('An error occured while trying to delete the entry.',$textdomain);
-				$msg['akismet-not-activated']       = str_replace('%1',$_SERVER['PHP_SELF'] . '?page=gwolle-gb/settings.php',__('Please activate the use of Akismet on your <a href="%1">Gwolle-GB configuration page</a>. Thanks!',$textdomain));
-				if ($_REQUEST['count'] == 1) {
-				  $msg['successfully-edited']      .= __('One entry',$textdomain);
-				}
-				else {
-				  $msg['successfully-edited']      .= $_REQUEST['count'] . ' ' . __('entries',$textdomain);
-				}
-				$msg['successfully-edited']        .= ' ' . __('successfully edited.',$textdomain);
-				$msg['no-entries-edited']           = __('No entries were edited.',$textdomain);
-				$msg['no-massEditAction-selected']  = __('No mass edit action selected.',$textdomain);
-				
-				echo $msg[$_REQUEST['msg']];
-				echo $msg[$showMsg];
-			echo '
-        </p>
-      </div>';
-		}
-	?>
+	<?php include(WP_PLUGIN_DIR.'/gwolle-gb/msg.php'); ?>
 
 	<form action="<?php echo $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page']; ?>&amp;do=massEdit" method="POST">
 		<!-- the following fields give us some information we're going to use processing the mass edit -->
