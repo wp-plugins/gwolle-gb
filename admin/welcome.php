@@ -1,45 +1,19 @@
 <?php
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
+	
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entry_count.func.php');
 		
 	//	Calculate the number of entries
-	$checkedEntries_result = mysql_query("
-		SELECT entry_id
-		FROM
-			" . $wpdb->prefix . "gwolle_gb_entries
-		WHERE
-			entry_isChecked = '1'
-			AND
-			entry_isDeleted = '0'
-			AND
-			entry_isSpam != '1'
-	");
-	$count['checked'] = mysql_num_rows($checkedEntries_result);
-	
-	$uncheckedEntries_result = mysql_query("
-		SELECT entry_id
-		FROM
-			" . $wpdb->prefix . "gwolle_gb_entries
-		WHERE
-			entry_isChecked != '1'
-			AND
-			entry_isDeleted = '0'
-			AND
-			entry_isSpam != '1'
-	");
-	$count['unchecked'] = mysql_num_rows($uncheckedEntries_result);
-	
-	$spamEntries_result = mysql_query("
-		SELECT entry_id
-		FROM
-			" . $wpdb->prefix . "gwolle_gb_entries
-		WHERE
-			entry_isSpam = '1'
-			AND
-			entry_isDeleted = '0'
-	");
-	$count['spam'] = mysql_num_rows($spamEntries_result);
-	
+	$count['checked']    = gwolle_gb_get_entry_count(array(
+    'entry_status' => 'checked'
+  ));
+	$count['unchecked']  = gwolle_gb_get_entry_count(array(
+    'entry_status' => 'unchecked'
+  ));
+	$count['spam']       = gwolle_gb_get_entry_count(array(
+    'entry_status' => 'spam'
+  ));
 	$count['all'] = $count['checked'] + $count['unchecked'] + $count['spam'];
 ?>
 

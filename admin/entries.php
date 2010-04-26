@@ -7,97 +7,45 @@
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
-	if (!function_exists('gwolle_gb_formatValueForOutput')) {
-    //  Function to format entry values for output
-    function gwolle_gb_formatValueForOutput($value) {
-      $value = html_entity_decode($value);
-      $value = stripslashes($value);
-      $value = htmlspecialchars($value);
-      return $value;
-    }
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/config.inc.php');
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_format_value_for_output.func.php');
+  include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entry_count.func.php');
+  include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entries.func.php');
+  
+  // Load settings, if not set
+	global $gwolle_gb_settings;
+	if (!isset($gwolle_gb_settings)) {
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_settings.func.php');
+    gwolle_gb_get_settings();
   }
 	
-	//	Show icons in entry rows?
-	if (get_option('gwolle_gb-showEntryIcons') == 'true') { $showIcons = true; }
 	//	Get entry counts
-	$checkedEntries_result = mysql_query("
-		SELECT entry_id
-		FROM
-			" . $wpdb->prefix . "gwolle_gb_entries
-		WHERE
-			entry_isChecked = '1'
-			AND
-			entry_isDeleted = '0'
-			AND
-			entry_isSpam = '0'
-	");
-	$count['checked'] = mysql_num_rows($checkedEntries_result);
-	
-	$uncheckedEntries_result = mysql_query("
-		SELECT entry_id
-		FROM
-			" . $wpdb->prefix . "gwolle_gb_entries
-		WHERE
-			entry_isChecked != '1'
-			AND
-			entry_isDeleted = '0'
-			AND
-			entry_isSpam = '0'
-	");
-	$count['unchecked'] = mysql_num_rows($uncheckedEntries_result);
-	
-	$spamEntries_result = mysql_query("
-		SELECT entry_id
-		FROM
-			" . $wpdb->prefix . "gwolle_gb_entries
-		WHERE
-			entry_isSpam = '1'
-			AND
-			entry_isDeleted = '0'
-	");
-	$count['spam'] = mysql_num_rows($spamEntries_result);
-	
+	$count['checked']    = gwolle_gb_get_entry_count(array(
+    'entry_status' => 'checked'
+  ));
+	$count['unchecked']  = gwolle_gb_get_entry_count(array(
+    'entry_status' => 'unchecked'
+  ));
+	$count['spam']       = gwolle_gb_get_entry_count(array(
+    'entry_status' => 'spam'
+  ));
 	$count['all'] = $count['checked'] + $count['unchecked'] + $count['spam'];
 	
-	if ($_REQUEST['show'] == 'checked' || $_REQUEST['show'] == 'unchecked' || $_REQUEST['show'] == 'spam') { $show = $_REQUEST['show']; } else { $show = 'all'; }
+	$show = (in_array($_REQUEST['show'], array(
+    'checked',
+    'unchecked',
+    'spam'
+  ))) ? $_REQUEST['show'] : 'all';
+  
+  //  If Akimet has not been activated yet and the user is looking at the spam tell him to activate Akismet.
 	if ($show == 'spam' && get_option('gwolle_gb-akismet-active') != 'true') { $showMsg = 'akismet-not-activated'; }
 	
-	if (!$_REQUEST['pageNum']) {
-		$pageNum = 1;
-	}
-	else {
-		$pageNum = $_REQUEST['pageNum'];
-	}
-	
-	//	Create query string.
-	$query_string = "
-		SELECT *
-		FROM
-			" . $wpdb->prefix . "gwolle_gb_entries
-		WHERE
-			entry_isDeleted = '0'
-	";
-	
-	if ($show == 'checked') {
-		$query_string .= " AND entry_isChecked = '1' AND entry_isSpam != '1'";
-	}
-	elseif ($show == 'unchecked') {
-		$query_string .= " AND entry_isChecked != '1' AND entry_isSpam != '1'";
-	}
-	elseif ($show == 'spam') {
-		$query_string .= " AND entry_isSpam = '1' ";
-	}
-	
-	$query_string .= "
-		ORDER BY
-			entry_date DESC
-	";
-	
-	$entriesPerPage = 15;
+	// Check if the requested page number is an integer > 0
+	$pageNum = ($_REQUEST['pageNum'] && (int)$_REQUEST['pageNum'] > 0) ? (int)$_REQUEST['pageNum'] : 1;
 	
 	//	Calculate the number of pages.
 	$countPages = round($count[$show] / 15);
-	if ($countPages * $entriesPerPage < $count[$show]) {
+	if ($countPages * $gwolle_gb_cfg['entries_per_page'] < $count[$show]) {
 		$countPages++;
 	}
 	
@@ -114,22 +62,23 @@
 		$mysqlFirstRow = 0;
 	}
 	else {
-		$firstEntryNum = ($pageNum-1)*$entriesPerPage+1;
+		$firstEntryNum = ($pageNum-1)*$gwolle_gb_cfg['entries_per_page']+1;
 		$mysqlFirstRow = $firstEntryNum-1;
 	}
 	
-	$lastEntryNum = $pageNum * $entriesPerPage;
+	$lastEntryNum = $pageNum * $gwolle_gb_cfg['entries_per_page'];
 	if ($count[$show] == 0) {
 		$lastEntryNum = 0;
 	}
 	elseif ($lastEntryNum > $count[$show]) {
-		$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum-1) * $entriesPerPage) - 1;
+		$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum-1) * $gwolle_gb_cfg['entries_per_page']) - 1;
 	}
 	
-	$query_string .= " LIMIT " . $mysqlFirstRow . "," . $entriesPerPage;
-	
-	//	Load entries.
-	$entries_result = mysql_query($query_string);
+	// Get the entries
+	$entries = gwolle_gb_get_entries(array(
+    'offset'  => $mysqlFirstRow,
+    'show'    => $show
+  ));
 ?>
 
 <div class="wrap">
@@ -138,27 +87,31 @@
 	
 	<?php
 		if ($_REQUEST['msg'] || $showMsg) {
-			if ($_REQUEST['msg'] == 'no-entries-selected' || $_REQUEST['msg'] == 'no-massEditAction-selected') {
-				$msgClass = 'error';
-			}
-			else {
-				$msgClass = 'updated';
-			}
-			echo '<div id="message" class="' . $msgClass . ' fade"><p>';
-				$msg['deleted'] = __('Entry successfully deleted.',$textdomain);
-				$msg['errro-deleting'] = __('An error occured while trying to delete the entry.',$textdomain);
-				$msg['akismet-not-activated'] = str_replace('%1',$_SERVER['PHP_SELF'] . '?page=gwolle-gb/settings.php',__('Please activate the use of Akismet on your <a href="%1">Gwolle-GB configuration page</a>. Thanks!',$textdomain));
-				if ($_REQUEST['count'] == 1) { $msg['successfully-edited'] .= __('One entry',$textdomain); } else { $msg['successfully-edited'] .= $_REQUEST['count'] . ' ' . __('entries',$textdomain); }
-				$msg['successfully-edited'] .= ' ' . __('successfully edited.',$textdomain);
-				$msg['no-entries-edited'] = __('No entries were edited.',$textdomain);
-				$msg['no-massEditAction-selected'] = __('No mass edit action selected.',$textdomain);
+			$msgClass = ($_REQUEST['msg'] == 'no-entries-selected' || $_REQUEST['msg'] == 'no-massEditAction-selected') ? 'error' : 'updated';
+			
+			echo '
+			<div id="message" class="' . $msgClass . ' fade">
+        <p>';
+				$msg['deleted']                     = __('Entry successfully deleted.',$textdomain);
+				$msg['errro-deleting']              = __('An error occured while trying to delete the entry.',$textdomain);
+				$msg['akismet-not-activated']       = str_replace('%1',$_SERVER['PHP_SELF'] . '?page=gwolle-gb/settings.php',__('Please activate the use of Akismet on your <a href="%1">Gwolle-GB configuration page</a>. Thanks!',$textdomain));
+				if ($_REQUEST['count'] == 1) {
+				  $msg['successfully-edited']      .= __('One entry',$textdomain);
+				}
+				else {
+				  $msg['successfully-edited']      .= $_REQUEST['count'] . ' ' . __('entries',$textdomain);
+				}
+				$msg['successfully-edited']        .= ' ' . __('successfully edited.',$textdomain);
+				$msg['no-entries-edited']           = __('No entries were edited.',$textdomain);
+				$msg['no-massEditAction-selected']  = __('No mass edit action selected.',$textdomain);
+				
 				echo $msg[$_REQUEST['msg']];
 				echo $msg[$showMsg];
-			echo '</p></div>';
+			echo '
+        </p>
+      </div>';
 		}
 	?>
-	
-
 
 	<form action="<?php echo $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page']; ?>&amp;do=massEdit" method="POST">
 		<!-- the following fields give us some information we're going to use processing the mass edit -->
@@ -185,7 +138,7 @@
 					$massEditControls .= '</select>';
 					$massEditControls .= '<input type="submit" value="' . __('Apply',$textdomain) . '" name="doaction" id="doaction" class="button-secondary action" />';
 					//	It makes no sense to show the mass edit controls when there are no entries to edit. ;)
-					if (mysql_num_rows($entries_result) > 0) { echo $massEditControls; }
+					if ($entries !== FALSE) { echo $massEditControls; }
 				?>
 			</div>
 	
@@ -242,7 +195,7 @@
 					<tr>
 						<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-top" id="check-all-top" type="checkbox"></th>
 						<th scope="col" ><?php _e('ID',$textdomain); ?></th>
-						<?php	if ($showIcons) { ?>
+						<?php	if ($gwolle_gb_settings['showEntryIcons'] === TRUE) { ?>
 							<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 						<?php } ?>
 						<th scope="col" ><?php _e('Date',$textdomain); ?></th>
@@ -256,7 +209,7 @@
 					<tr>
 						<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-bottom" id="check-all-bottom" type="checkbox"></th>
 						<th scope="col" ><?php _e('ID',$textdomain); ?></th>
-						<?php	if ($showIcons) { ?>
+						<?php	if ($gwolle_gb_settings['showEntryIcons'] === TRUE) { ?>
 							<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 						<?php } ?>
 						<th scope="col" ><?php _e('Date',$textdomain); ?></th>
@@ -270,67 +223,69 @@
 				<tbody>
 					<?php
 						$rowOdd = true;
-						while ($entry = mysql_fetch_array($entries_result)) {
-							if ($showIcons) {
-								//	Choose icon for entry.
-								if ($show == 'all') {
-									if ($entry['entry_isChecked'] == 1) { $entryClass = 'checked'; }
-									elseif ($entry['entry_isChecked'] != 1) {
-										if ($entry['entry_isSpam'] == 1) { $entryClass = 'spam'; }
-										else { $entryClass = 'unchecked'; }
-									}
-								}
-								else {
-									$entryClass = $show;
-								}
-							}
+						$html_output = '';
+						foreach($entries as $entry) {
 							
 							//	rows have a different color.
-							if ($rowOdd) { $rowOdd = false; $class = 'alternate'; } else { $rowOdd = true; $class = ''; }
-							echo '<tr class="' . $class . '">';
-								echo '<td class="check"><input name="check-' . $entry['entry_id'] . '" type="checkbox"></td>';
-								echo '<td class="id">' . $entry['entry_id'] . '</td>';
-								if ($showIcons) {
-									echo '<td class="entry-' . $entryClass . '">&nbsp;</td>';
+							if ($rowOdd) {
+                $rowOdd = false;
+                $class = ' alternate';
+              }
+              else {
+                $rowOdd = true;
+                $class = '';
+              }
+              
+              //  Attach 'spam' to class if the entry's spam
+              if ($entry['entry_isSpam'] === 1) {
+                $class .= ' spam';
+              }
+              
+							$html_output .= '
+							<tr id="entry_'.$entry['entry_id'].'" class="entry '.$class.'">
+                <td class="check">
+                  <input name="check-'.$entry['entry_id'].'" id="check-'.$entry['entry_id'].'" type="checkbox">
+                </td>
+                <td class="id">'.$entry['entry_id'].'</td>';
+								if ($gwolle_gb_settings['showEntryIcons'] === TRUE) {
+									$html_output .= '
+                  <td class="entry-'.$entry['icon_class'].'">&nbsp;</td>';
 								}
-								echo '<td>';
-									echo date('d.m.Y',$entry['entry_date']);
-								echo '</td>';
-								echo '<td>';
-									echo gwolle_gb_formatValueForOutput(substr($entry['entry_content'],0,100));
-									if (strlen($entry['entry_content']) > 100) { echo '...'; }
-								echo '</td>';
-								echo '<td>';
-									if (is_numeric($entry['entry_authorAdminId']) && $entry['entry_authorAdminId'] > 0) {
-										//	Dies ist ein Admin-Eintrag; hole den Benutzernamen, falls nicht geschehen.
-										if (!$adminName[$entry['entry_authorAdminId']]) {
-											$userdata = get_userdata($entry['entry_authorAdminId']);
-											$adminName[$entry['entry_authorAdminId']] = $userdata->user_login;
-										}
-										if ($adminName[$entry['entry_authorAdminId']] == '') {
-										  $adminName[$entry['entry_authorAdminId']] = '<strong>'.__('User not found',$textdomain).'</strong>';
-										}
-										echo '<i>' . $adminName[$entry['entry_authorAdminId']] . '</i>';
-									}
-									else {
-										echo gwolle_gb_formatValueForOutput($entry['entry_author_name']);
-									}
-								echo '</td>';
-								echo '<td>';
-									echo '<a href="' . $_SERVER['PHP_SELF'] . '?page=gwolle-gb/editor.php&amp;entry_id=' . $entry['entry_id'] . '">' . __('Details',$textdomain) . '&nbsp;&raquo;</a>&nbsp;';
-								echo '</td>';
-							echo '</tr>';
+								$html_output .= '
+								<td>'.$entry['entry_date_html'].'</td>
+								<td>
+								  '.$entry['spam_icon'].'
+  							  <label for="check-' . $entry['entry_id'] . '">'.$entry['excerpt'].'</label>
+								</td>
+								<td>'.$entry['entry_author_name_html'].'</td>
+								<td>
+								  <a href="'.$_SERVER['PHP_SELF'].'?page=gwolle-gb/editor.php&amp;entry_id='.$entry['entry_id'].'">'.__('Details',$textdomain).'&nbsp;&raquo;</a>&nbsp;
+								</td>
+              </tr>';
 							
-							//	editor-row (not visible; maybe we use this in one of the next releases)
+							// Quick-Editor
 							/*
-							echo '<tr><td style="border-top:0px;" colspan="5">';
-								echo 'editor...';
-							echo '</td></tr>';
-							*/
+							echo '
+              <tr style="display:none;" class="inline-edit-row inline-edit-row-post quick-edit-row quick-edit-row-post alternate inline-editor" id="quickedit_'.$entry['entry_id'].'">
+                <td style="border-top:0px;" colspan="'; if ($gwolle_gb_settings['showEntryIcons']) { echo 7; } else { echo 6; } echo '">
+								  <h4>QUICKEDIT</h4>
+								  <fieldset>
+								  
+								  </fieldset>
+								</td>
+              </tr>';
+              */
 						}
-						if (mysql_num_rows($entries_result) == 0) {
-							echo '<tr><td colspan="'; if ($showIcons) { echo 7; } else { echo 6; } echo '" align="center"><strong>' . __('No entries found.',$textdomain) . '</strong></td></tr>';
+						if ($entries === FALSE) {
+						  $colspan = ($gwolle_gb_settings['showEntryIcons'] === TRUE) ? 7 : 6;
+							$html_output .= '
+							<tr>
+                <td colspan="'.$colspan.'" align="center">
+                  <strong>'.__('No entries found.',$textdomain).'</strong>
+                </td>
+              </tr>';
 						}
+						echo $html_output;
 					?>
 				</tbody>
 		
@@ -349,7 +304,7 @@
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply',$textdomain) . '" name="doaction" id="doaction" class="button-secondary action" />';
 						//	It makes no sense to show the mass edit controls when there are no entries to edit. ;)
-						if (mysql_num_rows($entries_result) > 0) { echo $massEditControls; }
+						if ($entries !== FALSE) { echo $massEditControls; }
 					?>
 					<br class="clear" />
 				</div>

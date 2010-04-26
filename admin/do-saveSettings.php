@@ -11,13 +11,29 @@
 	
 	if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 		//	The current user's not allowed to do this.
-		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
+		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
 		exit;
 	}
 	else {
-		//	Moderation option
-		if ($_POST['moderate_guestbook'] == 'on') { update_option('gwolle_gb-moderate-entries','true'); }
-		else { update_option('gwolle_gb-moderate-entries','false'); }
+    //  Array of settings configured using checkboxes
+    $checkbox_settings = array(
+      'moderate-entries',
+      'akismet-active',
+      'showEntryIcons',
+      'showLineBreaks',
+      'guestbookOnly',
+      'checkForImport',
+      'showSmilies',
+      'linkAuthorWebsite'
+    );
+    foreach($checkbox_settings as $setting_name) {
+      if ($_POST[$setting_name] == 'on') {
+  			update_option('gwolle_gb-'.$setting_name,'true');
+  		}
+  		else {
+  			update_option('gwolle_gb-'.$setting_name,'false');
+  		}
+    }
 		
 		//	Access control
 		if (is_numeric($_POST['access_level']) && $_POST['access_level'] >= 0 && $_POST['access_level'] <= 10) {
@@ -52,22 +68,6 @@
 			update_option('gwolle_gb-recaptcha-active','false');
 		}
 		
-		//	Akismet settings
-		if ($_POST['akismet-active'] == 'on') {
-			update_option('gwolle_gb-akismet-active','true');
-		}
-		else {
-			update_option('gwolle_gb-akismet-active','false');
-		}
-		
-		//	Entry icons settings
-		if ($_POST['showEntryIcons'] == 'on') {
-			update_option('gwolle_gb-showEntryIcons','true');
-		}
-		else {
-			update_option('gwolle_gb-showEntryIcons','false');
-		}
-		
 		//	Admin mail content
 		if ($_POST['adminMailContent'] != $defaultMailText) {
 			update_option('gwolle_gb-adminMailContent',$_POST['adminMailContent']);
@@ -81,31 +81,7 @@
 		//	Guestbook link option
 		update_option('gwolle_gb-guestbookLink',$_POST['guestbookLink']);
 		
-		//	Line break option
-		if ($_POST['showLineBreaks'] == 'on') {
-			update_option('gwolle_gb-showLineBreaks','true');
-		}
-		else {
-			update_option('gwolle_gb-showLineBreaks','false');
-		}
-		
-		//  Content prepended/appended to the [gwolle-gb] tag option
-		if ($_POST['guestbookOnly'] == 'on') {
-			update_option('gwolle_gb-guestbookOnly','true');
-		}
-		else {
-			update_option('gwolle_gb-guestbookOnly','false');
-		}
-		
-		//  Look for other guestbook plugins to import data from option
-		if ($_POST['checkForImport'] == 'on') {
-			update_option('gwolle_gb-checkForImport','true');
-		}
-		else {
-			update_option('gwolle_gb-checkForImport','false');
-		}
-		
-		header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
+		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
 		exit;
 	}
 ?>

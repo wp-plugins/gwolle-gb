@@ -29,11 +29,19 @@
 	width: 12px;
 }
 
-.entry-spam, .entry-checked, .entry-unchecked {
+.entry-checked, .entry-unchecked, .entry-loading {
 	background-repeat: no-repeat;
 	background-position: 0px 6px;
 	width: 10px;
+	cursor: move;
 }
-.entry-spam { background-image: url(gfx/entry-spam.jpg); }
 .entry-checked { background-image: url(gfx/entry-checked.jpg); }
 .entry-unchecked { background-image: url(gfx/entry-unchecked.jpg); }
+.entry-loading { background-image: url(gfx/loading.gif); }
+
+tr.entry td img {
+  vertical-align: middle;
+}
+img.spam {
+  margin-right: 4px;
+}

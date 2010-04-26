@@ -6,19 +6,16 @@
 	//	No direct calls to this script
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/admin/gwolle_gb_output_to_input_field.func.php');
+	
 	//	If a entry_id has been submitted, check if it's a valid one.
-	if (is_numeric($_REQUEST['entry_id']) && $_REQUEST['entry_id'] > 0) {
-		$entry_result = mysql_query("
-			SELECT *
-			FROM
-				" . $wpdb->prefix . "gwolle_gb_entries
-			WHERE
-				entry_id = '" . $_REQUEST['entry_id'] . "'
-			LIMIT 1
-		");
-		if (mysql_num_rows($entry_result) == 1) {
+	if (isset($_REQUEST['entry_id'])) {
+    include_once(WP_PLUGIN_DIR.'/gwolle-gb/gwolle_gb_get_entries.func.php');
+    $entry = gwolle_gb_get_entries(array(
+      'entry_id' => $_REQUEST['entry_id']
+    ));
+    if ($entry !== FALSE) {
 			$sectionHeading = __('Edit guestbook entry',$textdomain);
-			$entry = mysql_fetch_array($entry_result);
 		}
 		else {
 			$errorMsg = __('Entry could not be found.',$textdomain);
@@ -27,16 +24,6 @@
 	else {
 		$sectionHeading = __('New guestbook entry', $textdomain);
 	}
-	
-	if (!function_exists('gwolle_gb_outputToInputField')) {
-    //  Function to format a form value for an input field (strip '<' etc.)
-    function gwolle_gb_outputToInputField($value) {
-      $value = stripslashes($value);
-      $value = html_entity_decode($value);
-      $value = htmlspecialchars($value);
-      return $value;
-    }
-  }
 ?>
 
 <div class="wrap">
@@ -54,7 +41,7 @@
 		elseif ($_REQUEST['error']) {
 			echo '<div id="message" class="error fade"><p>' . __('An error occurred while saving your changes.',$textdomain) . '</p></div>';
 		}
-		elseif ($entry['entry_isSpam'] == '1') {
+		elseif ($entry['entry_isSpam'] === 1) {
 			//	Notify that this entry is marked as spam.
 			echo '<div id="message" class="error fade"><p>' . __('<strong>Attention:</strong> This entry is marked as spam!',$textdomain) . '</p></div>';
 		}
@@ -198,21 +185,21 @@
             <div id="authordiv" class="postbox " >
               <div class="handlediv" title="Klicken zum Umschalten"><br /></div><h3 class='hndle'><span><?php _e('Guestbook entry',$textdomain); ?></span></h3>
               <div class="inside">
-                <textarea rows="10" cols="56" name="entry_content" tabindex="1"><?php echo gwolle_gb_outputToInputField($entry['entry_content']); ?></textarea>
+                <textarea rows="10" cols="56" name="entry_content" tabindex="1"><?php echo gwolle_gb_output_to_input_field($entry['entry_content']); ?></textarea>
                 <?php if (get_option('gwolle_gb-showLineBreaks')=='false') { echo '<p>' . str_replace('%1','admin.php?page=gwolle-gb/settings.php',__('Line breaks will not be visible to the visitors due to your <a href="%1">settings</a>.',$textdomain)) . '</p>'; } ?>
               </div>
             </div>
             <div id="authordiv" class="postbox " >
               <div class="handlediv" title="Klicken zum Umschalten"><br /></div><h3 class='hndle'><span><?php _e('Homepage',$textdomain); ?></span></h3>
               <div class="inside">
-                <input type="text" name="entry_author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_outputToInputField($entry['entry_author_website']); ?>" id="entry_author_website" />
+                <input type="text" name="entry_author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_output_to_input_field($entry['entry_author_website']); ?>" id="entry_author_website" />
                 <p><?php _e("Example: <code>http://www.google.com/</code> &#8212; don't forget the <code>http://</code>!",$textdomain); ?></p>
               </div>
             </div>
             <div id="authordiv" class="postbox " >
               <div class="handlediv" title="Klicken zum Umschalten"><br /></div><h3 class='hndle'><span><?php _e('Origin',$textdomain); ?></span></h3>
               <div class="inside">
-                <input type="text" name="entry_author_origin" size="58" tabindex="3" value="<?php echo gwolle_gb_outputToInputField($entry['entry_author_origin']); ?>" id="entry_author_origin" />
+                <input type="text" name="entry_author_origin" size="58" tabindex="3" value="<?php echo gwolle_gb_output_to_input_field($entry['entry_author_origin']); ?>" id="entry_author_origin" />
               </div>
             </div>
           </div><!-- 'normal-sortables' -->

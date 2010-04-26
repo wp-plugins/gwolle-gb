@@ -12,14 +12,14 @@
 		
 		if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 			//	The current user's not allowed to do this.
-			header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
+			header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
 			exit;
 		}
 		elseif (!$wordpressApiKey) {
-			header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=check-akismet-configuration');
+			header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=check-akismet-configuration');
 		}
 		elseif (get_option('gwolle_gb-akismet-active') != 'true') {
-			header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=akismet-not-activated');
+			header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=akismet-not-activated');
 		}
 		else {
 			//	Check if the entry exists.
@@ -34,7 +34,7 @@
 			if (mysql_num_rows($entryExists_result) == 0) {
 				//	entry was not found
 				if ($doRedirect) {
-					header('Location: ' . get_bloginfo('url')  . '/wp-admin/admin.php?page=gwolle-gb/entries.php&show=' . $redirectToShow . '&msg=entry-not-found');
+					header('Location: ' . get_bloginfo('wpurl')  . '/wp-admin/admin.php?page=gwolle-gb/entries.php&show=' . $redirectToShow . '&msg=entry-not-found');
 					exit;
 				}
 				else {
@@ -54,7 +54,7 @@
 				else {
 					if (get_option('gwolle_gb-akismet-active')) {
 						//	include the Akismet class and contruct a new akismet object
-						$blogURL = get_bloginfo('url');
+						$blogURL = get_bloginfo('wpurl');
 						if (version_compare(phpversion(),'5.0','>=')) {	//	Use the PHP5 class
 						
 							if (!class_exists('Akismet')) {
@@ -79,9 +79,9 @@
 								'email' => $entry['entry_author_email'],
 								'website' => $entry['entry_author_website'],
 								'body' => $entry['entry_content'],
-								'permalink' => get_bloginfo('url')
+								'permalink' => get_bloginfo('wpurl')
 							); 
-							$akismet = new Akismet(get_bloginfo('url'), $wordpressApiKey, $comment);
+							$akismet = new Akismet(get_bloginfo('wpurl'), $wordpressApiKey, $comment);
 						}
 					}
 						
@@ -150,11 +150,11 @@
 				}
 				if ($doRedirect) {
 					if ($redirectToShow == 'editor') {
-						header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/editor.php&entry_id=' . $entry['entry_id'] . '&msg=' . $msg);
+						header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/editor.php&entry_id=' . $entry['entry_id'] . '&msg=' . $msg);
 						exit;
 					}
 					else {
-						header('Location: ' . get_bloginfo('url') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&show=' . $redirectToShow . '&msg=' . $msg);
+						header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&show=' . $redirectToShow . '&msg=' . $msg);
 					}
 				}
 				else {
