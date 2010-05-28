@@ -30,6 +30,42 @@
 		<form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/settings.php&amp;action=saveSettings">
 			
 			<table class="form-table">
+        
+        <tr valign="top">
+					<th scope="row"><label for="post_ID"><?php _e('ID of the guestbook post',$textdomain); ?></label></th>
+					<td>
+            <?php
+              //  Check if a post with that ID exists
+              $value = ((int)$gwolle_gb_settings['post_ID'] === 0) ? '' : (int)$gwolle_gb_settings['post_ID'];
+              if ((int)$value > 0) {
+                $sql = "
+                SELECT
+                  ID
+                FROM
+                  ".$wpdb->posts." p
+                WHERE
+                  p.ID = ".$value."
+                  AND
+                  p.post_content LIKE '%[gwolle-gb]%'
+                LIMIT 1";
+                $result = mysql_query($sql);
+                if (mysql_num_rows($result) == 0) {
+                  //  Post does not exist or does not contain the tag.
+                  $value = '';
+                }
+              }
+            ?>
+            <input type="text" maxlength="11" style="width:110px;" name="post_ID" id="post_ID" value="<?php echo $value; ?>" class="regular-text" />
+            <?php
+              $post_id_img = ($value == '') ? 'entry-unchecked.jpg' : 'blank.gif';
+              echo '<img id="post_id_status" style="height:10px;" src="'.WP_PLUGIN_URL.'/gwolle-gb/admin/gfx/'.$post_id_img.'" alt="'.__('Not set.', $textdomain).'" />';
+						?>
+						&nbsp;<a id="search_gwolle_gb_post_ID" href="javascript:void(0);" title="<?php _e('Click here to let Gwolle-GB search for the post.',$textdomain); ?>"><?php _e('Search now!', $textdomain); ?></a>
+						<br />
+						<div style="display:none;margin-top:5px;" id="gwolle_gb_post_seach_result">Sorry, post not found. <?php echo convert_smilies(':('); ?></div>
+						<span class="setting-description"><?php _e('This ID is used to generate the correct link to the guestbook read/write page at the frontend.',$textdomain); ?></span>
+					</td>
+				</tr>
 			
 				<tr valign="top">
 					<th scope="row"><label for="moderate-entries"><?php _e('Moderate Guestbook',$textdomain); ?></label></th>
@@ -41,15 +77,6 @@
 							<br />
 							<?php _e("It's highly recommended that you turn this on, because your responsible for the content on your homepage.",$textdomain); ?>
 						</span>
-					</td>
-				</tr>
-				
-				<tr valign="top">
-					<th scope="row"><label for="guestbookLink"><?php _e('Link to guestbook',$textdomain); ?></label></th>
-					<td>
-						<input type="text" name="guestbookLink" id="guestbookLink" value="<?php echo get_option('gwolle_gb-guestbookLink'); ?>" class="regular-text" >
-						<br />
-						<span class="setting-description"><?php _e('Set the link (= complete URL) to the page the guestbook set up on manually, in case it is not detected correctly.',$textdomain); ?></span>
 					</td>
 				</tr>
 				
@@ -106,7 +133,12 @@
 										else {
 											echo '<ul style="font-size:10px;font-style:italic;list-style-type:disc;padding-left:14px;">';
 												while ($option = mysql_fetch_array($notifyUser_result)) {
-													$user_info = get_userdata(str_replace('gwolle_gb-notifyByMail-','',$option['option_name']));
+												  $user_id = (int)str_replace('gwolle_gb-notifyByMail-','',$option['option_name']);
+													$user_info = get_userdata($user_id);
+													if ($user_info === FALSE) {
+                            //  Invalid $user_id
+                            continue;
+                          }
 													echo '<li>';
 														if ($user_info->ID == $current_user->data->ID) {
 															echo '<strong>' . __('You',$textdomain) . '</strong>';

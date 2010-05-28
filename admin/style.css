@@ -44,4 +44,5 @@ tr.entry td img {
 }
 img.spam {
   margin-right: 4px;
+  cursor: move;
 }

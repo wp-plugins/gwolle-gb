@@ -85,8 +85,8 @@
 			update_option('gwolle_gb-entriesPerPage',$_POST['entriesPerPage']);
 		}
 		
-		//	Guestbook link option
-		update_option('gwolle_gb-guestbookLink',$_POST['guestbookLink']);
+		//	Guestbook post ID
+		update_option('gwolle_gb-post_ID', (int)$_POST['post_ID']);
 		
 		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
 		exit;

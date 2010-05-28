@@ -46,6 +46,10 @@
         //  Default mail text
         $gwolle_gb_settings['defaultMailText'] = __("Hello,\n\nthere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer",$textdomain);
         
+        if (defined('GWOLLE_GB_ACCESS_LEVEL') === FALSE) {
+          define('GWOLLE_GB_ACCESS_LEVEL', $gwolle_gb_settings['access-level']);
+        }
+        
         return TRUE;
       }
     }

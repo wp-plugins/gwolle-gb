@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Gwolle Guestbook
-Plugin URI: http://wolfgangtimme.de/blog/
+Plugin URI: http://www.wolfgangtimme.de/blog/category/gwolle-gb/
 Description: simple guestbook
-Version: 0.9.6.2
+Version: 0.9.7
 Author: Wolfgang Timme
 Author URI: http://www.wolfgangtimme.de/blog/
 */
@@ -32,7 +32,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	load_plugin_textdomain($textdomain, false, dirname( plugin_basename(__FILE__) ) . '/lang');
 
 	//	plugin's version
-	define('GWOLLE_GB_VER','0.9.6.2');
+	define('GWOLLE_GB_VER','0.9.7');
 
 	//	Akismet PHP4 class folder's name
 	define('AKISMET_PHP4_CLASS_DIR','Akismet_PHP4');
@@ -45,11 +45,6 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	if (!isset($gwolle_gb_settings)) {
     include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
     gwolle_gb_get_settings();
-  }
-	
-	//	Access level
-	if (defined('GWOLLE_GB_ACCESS_LEVEL') === FALSE) {
-    define('GWOLLE_GB_ACCESS_LEVEL', $gwolle_gb_settings['access-level']);
   }
 
 	//	make sure this plugin is compatible to prior versions of Wordpress
@@ -88,7 +83,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	register_activation_hook(__FILE__, 'gwolle_gb_activation');
 	
 	// Widget
-	//include_once(WP_PLUGIN_DIR.'/gwolle-gb/widget.php');
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/widget.php');
 	
 	//	add a menu in the Wordpress backend.
 	add_action('admin_menu', 'myAdminMenu');
@@ -119,9 +114,146 @@ Author URI: http://www.wolfgangtimme.de/blog/
 	//	get the user's ID from the session
 	add_action('init', 'gwolle_gb_init');
 	function gwolle_gb_init() {
+    @session_start();
+    
 		global $current_user;
-		global $gwolle_gb_settings;
-		@session_start();
+		global $textdomain;
+		
+		// Load settings, if not set
+    global $gwolle_gb_settings;
+    if (!isset($gwolle_gb_settings)) {
+      include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+      gwolle_gb_get_settings();
+    }
+		
+		/**
+		 * Proccess all the $_POST requests of Gwolle-GB.
+		 */
+		$gwolle_gb_function = '';
+		if (isset($_POST['gwolle_gb_function'])) {
+		  $gwolle_gb_function = $_POST['gwolle_gb_function'];
+		}
+		elseif (isset($_GET['gwolle_gb_function'])) {
+		  $gwolle_gb_function = $_GET['gwolle_gb_function'];
+		}
+		
+		if (isset($_POST['entry_id']) && (int)$_POST['entry_id'] > 0) {
+		  $entry_id = (int)$_POST['entry_id'];
+		}
+		elseif (isset($_GET['entry_id']) && (int)$_GET['entry_id'] > 0) {
+		  $entry_id = (int)$_GET['entry_id'];
+		}
+		
+		$return_to          = (isset($_POST['return_to']) && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) ? $_POST['return_to'] : FALSE;
+		switch($gwolle_gb_function) {
+		  case 'add_entry':
+        if ($return_to === FALSE) { //  This is an entry by a visitor. Redirect to Gwolle-GB page.
+          include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_save_entry.func.php');
+          $entry_id = gwolle_gb_save_entry();
+          // Get links to guestbook page
+        	include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_link.func.php');
+        	$gb_links = gwolle_gb_get_link(array(
+            'all' => TRUE
+          ));
+          
+          if ($entry_id === FALSE) {
+            //  There were errors processing the data. Redirect to writing page.
+            header('Location: '.$gb_links['write']);
+        		exit;
+        	}
+        	else {
+            $msg = __('Thanks for your entry.',$textdomain);
+            if ($gwolle_gb_settings['moderate-entries'] === TRUE) {
+              $msg .= __('<br>We will review it and unlock it in a short while.',$textdomain);
+            }
+            $_SESSION['gwolle_gb']['msg'] = $msg;
+            header('Location: '.$gb_links['read']);
+            exit;
+          }
+        }
+        else {  //  This is an entry by an admin.
+          include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_save_entry.func.php');
+          $entry_id = gwolle_gb_save_entry(array(
+            'action'            => 'admin_entry'
+          ));
+          if ($entry_id === FALSE) {
+            //  Error while saving. Redirect to editor.
+            header('Location: '.get_bloginfo('wpurl').'/wp-admin/admin.php?page=gwolle-gb/editor.php');
+          }
+          else {
+            //  Entry added successfully. Redirect to entries.
+            header('Location: '.get_bloginfo('wpurl').'/wp-admin/admin.php?page=gwolle-gb/entries.php&entry_id='.$entry_id);
+          }
+          exit;
+        }
+      break;
+      case 'edit_entry':
+        if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
+          //  This user does not have the right to edit a guestbook entry.
+          exit;
+        }
+        if (!isset($entry_id)) {
+          //  No entry id provided; can't update.
+          exit;
+        }
+        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
+        $entry = gwolle_gb_get_entries(array(
+          'entry_id'  => $entry_id
+        ));
+        if ($entry === FALSE) {
+          //  An entry with this id could not be found.
+          exit;
+        }
+        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_update_entry.func.php');
+        if (gwolle_gb_update_entry(array(
+          'old_entry' => $entry
+        )) === FALSE) {
+          //  Update failed. Return to editor.
+          header('Location: '.get_bloginfo('wpurl').'/wp-admin/admin.php?page=gwolle-gb/editor.php&entry_id='.$entry['entry_id']);
+          exit;
+        }
+        else {
+          //  Updated entry successfully. Return to entries.
+          $_SESSION['gwolle_gb']['msg'] = 'changes-saved';
+          header('Location: '.get_bloginfo('wpurl').'/wp-admin/admin.php?page=gwolle-gb/entries.php');
+          exit;
+        }
+      break;
+      case 'delete_entry':
+        if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
+          //  This user does not have the right to edit a guestbook entry.
+          exit;
+        }
+        if (!isset($entry_id)) {
+          //  No entry id provided; can't update.
+          exit;
+        }
+        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
+        $entry = gwolle_gb_get_entries(array(
+          'entry_id'  => $entry_id
+        ));
+        if ($entry === FALSE) {
+          //  An entry with this id could not be found.
+          exit;
+        }
+        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_delete_entry.func.php');
+        if (gwolle_gb_delete_entry(array(
+          'entry_id'  => $entry_id
+        )) === FALSE) {
+          //  Entry could not be deleted.
+          $_SESSION['gwolle_gb']['msg'] = 'error-deleting';
+          header('Location: '.get_bloginfo('wpurl').'/wp-admin/admin.php?page=gwolle-gb/entries.php');
+          exit;
+        }
+        else {
+          //  Entry has been deleted
+          $_SESSION['gwolle_gb']['msg'] = 'deleted';
+          header('Location: '.get_bloginfo('wpurl').'/wp-admin/admin.php?page=gwolle-gb/entries.php');
+          exit;
+        }
+      break;
+		}
+		
 		
 		//  Process $_REQUEST variables
 		$req_action   = (isset($_REQUEST['action'])) ? $_REQUEST['action'] : FALSE;
@@ -134,7 +266,7 @@ Author URI: http://www.wolfgangtimme.de/blog/
 		if ($req_action == 'uninstall_gwolle_gb' && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 			if ($_POST['uninstall_confirmed'] == 'on') {
 				//	uninstall the plugin -> delete all tables and preferences of the plugin
-				include(WP_PLUGIN_DIR.'/gwolle-gb/admin/upgrade.php');
+				include_once(WP_PLUGIN_DIR.'/gwolle-gb/admin/upgrade.php');
 				uninstall_gwolle_gb();
 			}
 			else {
@@ -156,21 +288,8 @@ Author URI: http://www.wolfgangtimme.de/blog/
 			//	Mass edit entries
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-massEdit.php');
 		}
-		elseif ($req_action === FALSE && isset($_POST['entry_id']) && ($entry_id !== FALSE || $post_action == 'newEntry')) {
-			include(WP_PLUGIN_DIR.'/gwolle-gb/frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
-			
-			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-saveEntry.php');
-		}
-		elseif ($entry_id !== FALSE && $req_action == 'delete') {
-			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-deleteEntry.php');
-		}
 		elseif ($entry_id !== FALSE && in_array($req_action, array('markSpam','unmarkSpam'))) {
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-spam.php');
-		}
-		elseif ($gb_page == 'write' && $_POST) {
-			include(WP_PLUGIN_DIR.'/gwolle-gb/frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
-			
-			include(WP_PLUGIN_DIR.'/gwolle-gb/frontend/do-saveNewEntry.php');
 		}
 		elseif ($req_action == 'saveSettings') {
 			include(WP_PLUGIN_DIR.'/gwolle-gb/admin/do-saveSettings.php');
@@ -270,30 +389,45 @@ Author URI: http://www.wolfgangtimme.de/blog/
     //  Process request variables
     $page = (isset($_REQUEST['page'])) ? $_REQUEST['page'] : '';
  
-		echo "<link rel='stylesheet' href='" . get_option('siteurl') . "/wp-admin/css/dashboard.css?ver=20081210' type='text/css' media='all' />";
-		echo "<link rel='stylesheet' href='" . WP_PLUGIN_URL . "/gwolle-gb/admin/style.css' type='text/css' media='all' />";
+		echo '
+		<link rel="stylesheet" href="'.get_option('wpurl').'/wp-admin/css/dashboard.css?ver=20081210" type="text/css" media="all" />
+		<link rel="stylesheet" href="'.WP_PLUGIN_URL.'/gwolle-gb/admin/style.css" type="text/css" media="all" />';
 		
 		if ($page == 'gwolle-gb/entries.php') {
 			//	Include JavaScript for the entries page
 			$show = (isset($_REQUEST['show'])) ? $_REQUEST['show'] : 'all';
 			echo '
+			<script type="text/javascript" src="'.WP_PLUGIN_URL.'/gwolle-gb/js/stripslashes.js"></script>
 			<script type="text/javascript">
         var entry_show = "'.$show.'";
         //  Localized JavaScript strings
         var gwolle_gb_strings = new Array();
-        gwolle_gb_strings["warning_spam"] = "'.__("Warning: You're about to check an entry that is marked as spam. Continue?", $textdomain).'";
+        gwolle_gb_strings["warning_spam"]             = "'.addslashes(__("Warning: You're about to check an entry that is marked as spam. Continue?", $textdomain)).'";
+        gwolle_gb_strings["warning_marking_not_spam"] = "'.addslashes(__("A message will be sent to the Akismet team that this entry is not spam. Continue?",$textdomain)).'";
         //  URL to Gwolle-GB plugin folder
         var gwolle_gb_plugin_url = "'.WP_PLUGIN_URL.'/gwolle-gb";
       </script>
-      <script language="JavaScript" src="'.WP_PLUGIN_URL.'/gwolle-gb/admin/entries.js"></script>';
+      <script language="JavaScript" src="'.WP_PLUGIN_URL.'/gwolle-gb/admin/js/entries.js"></script>';
+		}
+		elseif ($page == 'gwolle-gb/settings.php') {
+		  echo '
+		  <script type="text/javascript" src="'.WP_PLUGIN_URL.'/gwolle-gb/js/stripslashes.js"></script>
+		  <script type="text/javascript">
+		    //  Localized JavaScript strings
+		    var gwolle_gb_strings = new Array();
+		    gwolle_gb_strings["post_id_search_failed"]  = "'.addslashes(__("An error occured during the search.", $textdomain)).'";
+		    gwolle_gb_strings["post_id_found"]          = "'.addslashes(__("I've found a post with the [gwolle-gb] tag. You can start using Gwolle-GB right away.", $textdomain)).'";
+		    gwolle_gb_strings["post_id_not_found"]      = "'.addslashes(__("No post with [gwolle-gb] could be found. Please insert the tag and try again.", $textdomain)).'";
+		    //  URL to Gwolle-GB plugin folder
+		    var gwolle_gb_plugin_url = "'.WP_PLUGIN_URL.'/gwolle-gb";
+		  </script>
+		  <script type="text/javascript" src="'.WP_PLUGIN_URL.'/gwolle-gb/admin/js/settings.js"></script>';
 		}
 	}
 	
 	//	Function (use this to display the guestbook on a page)
 	function get_gwolle_gb() {
     global $textdomain;
-		include(WP_PLUGIN_DIR.'/gwolle-gb/frontend/gbLinkFormat.func.php');	//	Include function to format the guestbook link
-		
 		include(WP_PLUGIN_DIR.'/gwolle-gb/frontend/index.php');
 		return $output;
 	}

@@ -3,7 +3,7 @@ Contributors: Gwolle
 Tags: guestbook, feedback, antispam
 Requires at least: 2.9
 Tested up to: 2.9.1
-Stable tag: 0.9.6.2
+Stable tag: 0.9.7
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -33,13 +33,18 @@ You may have "DMSGuestbook" installed - that's great, because since version 0.9.
 to import DMSGuestbook's entries easily using an assistant. The importer does not delete any of your data,
 so you can go back to DMSGuestbook without loss of data, if you want to. Trying Gwolle-GB is easy as 1-2-3.
 
-For a demo, visit the plugin's homepage (http://www.wolfgangtimme.de/blog/). Feel free to drop me a message
+For a demo, visit the plugin's homepage (http://www.wolfgangtimme.de/blog/category/gwolle-gb/). Feel free to drop me a message
 in the WordPress.org forums or send me an email to gwolle (at) wolfgangtimme (dot) de. You may also
 use my homepage's comment section. I'd be glad to hear your opinion and/or feature request.
 
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU. I'm working on it, but at the moment it's just not working. Sorry, guys!
 
 = Changelog =
+
+0.9.7
+[new] Removed the 'guestbook link' setting and replaced it with a field for the corresponding $post_id; it should be detected by default.
+[fix] New entries are validated and if this fails the user will be sent back to the 'write' page, but now without any $_POST data.
+Please note: The widget is planned for a future release. Use it at your own risk.
 
 0.9.6.2 (2nd emergency release)
 [fix] 'Number of entries' setting is now applied again to the 'read' frontpage. (Thanks, Kristin!)
@@ -135,6 +140,7 @@ on WordPress.org; I'll may add it to the list then.
 * Support for WordPress MU.
 * Better database structure (e. g. 'id' insted of 'entry_id')
 * Widget (at the dashboard as well as the sidebar(s))
+* 'Thank you' mail to the poster (requested by Joakim from Sweden)
 
 == Known bugs ==
 
