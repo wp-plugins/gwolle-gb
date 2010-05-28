@@ -55,6 +55,8 @@
       return FALSE;
     }
   }
+  
+  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/get_gwolle_gb_post_id.func.php');
 	
 	global $current_user;
 	if (is_user_logged_in() && current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
@@ -69,6 +71,15 @@
         }
         else {
           echo 'failure';
+        }
+        break;
+      case 'search_gwolle_gb_post_ID':
+        $gwolle_gb_post_id = get_gwolle_gb_post_id();
+        if ($gwolle_gb_post_id === FALSE) {
+          echo 'failure';
+        }
+        else {
+          echo $gwolle_gb_post_id;
         }
         break;
     }

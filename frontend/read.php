@@ -15,19 +15,30 @@
     gwolle_gb_get_settings();
   }
   
-	//	Link 'write a new entry...'
+  $msg = FALSE;
+  //  Unset Gwolle-GB session data, if set
+  if (isset($_SESSION['gwolle_gb'])) {
+    if (isset($_SESSION['gwolle_gb']['msg'])) {
+      $msg = $_SESSION['gwolle_gb']['msg'];
+    }
+    $_SESSION['gwolle_gb'] = array();
+  }
+  
+	// Get links to guestbook page
+	include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_link.func.php');
+	$gb_links = gwolle_gb_get_link(array(
+    'all' => TRUE
+  ));
+  
+  //	Link 'write a new entry...'
 	$output .= '
 	<div style="margin-bottom:10px;">
-    <a href="' . $gb_link . 'gb_page=write">&raquo; ' . __('Write a new entry.',$textdomain) . '</a>
+    <a target="_self" href="'.$gb_links['write'].'">&raquo; ' . __('Write a new entry.',$textdomain) . '</a>
   </div>';
 	
-	if ($_REQUEST['msg']) {
-		//	Output a requested message
-		$output .= '<div class="msg">';
-			$msg['entry-saved'] = __('Thanks for your entry.',$textdomain); if ($gwolle_gb_settings['moderate-entries'] === TRUE) { $msg['entry-saved'] .= __('<br>We will review it and unlock it in a short while.',$textdomain); }
-			$msg['error'] = __('Well, there has been an error querying the database.<br>Please try again later, thanks!',$textdomain);
-			$output .= $msg[$_REQUEST['msg']];
-		$output .= '</div>';
+	if ($msg !== FALSE) {
+    $output .= '
+    <div class="msg">'.$msg.'</div>';
 	}
 	
 	$entriesPerPage = (int)$gwolle_gb_settings['entriesPerPage'];
@@ -85,7 +96,7 @@
 	//	page navigation
 	$output .= '<div id="page-navigation">';
 		if ($pageNum > 1) {
-			$output .= '<a href="' . $gb_link . 'pageNum=' . round($pageNum-1) . '">&laquo;</a>';
+			$output .= '<a href="'.$gb_links['read'].'&amp;pageNum=' . round($pageNum-1) . '">&laquo;</a>';
 		}
 		if ($pageNum < 5) {
 			if ($countPages < 4) { $showRange = $countPages; } else { $showRange = 6; }
@@ -94,7 +105,7 @@
 					$output .= '<span>' . $i . '</span>';
 				}
 				else {
-					$output .= '<a href="' . $gb_link . 'pageNum=' . $i . '">' . $i . '</a>';
+					$output .= '<a href="'.$gb_links['read'].'&amp;pageNum=' . $i . '">' . $i . '</a>';
 				}
 			}
 			
@@ -104,7 +115,7 @@
 			}
 		}
 		elseif ($pageNum >= 5) {
-			$output .= '<a href="' . $gb_link . 'pageNum=1">1</a>';
+			$output .= '<a href="'.$gb_links['read'].'&amp;pageNum=1">1</a>';
 			if ($pageNum-3 > 1) { $output .= '<span>...</span>'; }
 			if ($pageNum + 2 < $countPages) { $minRange = $pageNum - 2; $showRange = $pageNum+2; } else { $minRange = $pageNum - 3; $showRange = $countPages - 1; }
 			for ($i=$minRange; $i<=$showRange; $i++) {
@@ -112,7 +123,7 @@
 					$output .= '<span>' . $i . '</span>';
 				}
 				else {
-					$output .= '<a href="' . $gb_link . 'pageNum=' . $i . '">' . $i . '</a>';
+					$output .= '<a href="'.$gb_links['read'].'&amp;pageNum=' . $i . '">' . $i . '</a>';
 				}
 			}
 			if ($pageNum == $countPages) {
@@ -123,8 +134,8 @@
 		if ($pageNum < $countPages) {
 			if ($pageNum+3 < $countPages && !$highDotsMade) { $output .= '<span class="page-numbers dots">...</span>'; }
 			
-			$output .= '<a href="' . $gb_link . 'pageNum=' . $countPages . '">' . $countPages . '</a>';
-			$output .= '<a href="' . $gb_link . 'pageNum=' . round($pageNum+1) . '">&raquo;</a>';
+			$output .= '<a href="'.$gb_links['read'].'&amp;pageNum=' . $countPages . '">' . $countPages . '</a>';
+			$output .= '<a href="'.$gb_links['read'].'&amp;pageNum=' . round($pageNum+1) . '">&raquo;</a>';
 		}
 	$output .= '</div>';
 	

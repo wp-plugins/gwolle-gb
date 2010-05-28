@@ -67,9 +67,6 @@
 		//	Add entries per page option
 		add_option('gwolle_gb-entriesPerPage','20');
 		
-		//	Add option to manually set link to guestbook
-		add_option('gwolle_gb-guestbookLink','');
-		
 		//	Add option to toggle the visibility of line breaks
 		add_option('gwolle_gb-showLineBreaks');
 		
@@ -84,6 +81,9 @@
 		
 		//  Add option to toogle linking of author's website
 		add_option('gwolle_gb-linkAuthorWebsite','true');
+		
+		//  Add option for the post ID of Gwolle-GB
+		add_option('gwolle_gb-post_ID', 'false');
 		
 		//	Save plugin version to database
 		add_option('gwolle_gb_version', GWOLLE_GB_VER);
@@ -301,7 +301,7 @@
 		
 		if (version_compare($installed_ver,'0.9.6','<')) {
 		  /**
-		   * 0.9.4.6->0.9.5
+		   * 0.9.5->0.9.6
 		   * Added the following options:
 		   * - toggle replacing of smilies
 		   * - toogle link to author's website
@@ -309,6 +309,35 @@
 		  add_option('gwolle_gb-showSmilies','true');
 		  add_option('gwolle_gb-linkAuthorWebsite','true');
 		}
+		
+		if (version_compare($installed_ver, '0.9.7', '<')) {
+		  /**
+		   * 0.9.6->0.9.7
+		   * Replace the guestbook link with an ID
+		   */
+		  //  Get post where the [gwolle-gb] tag is set
+	    $sql = "
+	    SELECT
+	      p.ID
+	    FROM
+	      ".$wpdb->posts." p
+	    WHERE
+	      p.post_content LIKE '%[gwolle-gb]%'
+	      AND
+	      p.post_status = 'publish'
+	    LIMIT 1";
+	    $result = mysql_query($sql);
+	    if (mysql_num_rows($result) == 0) {
+	      //  No post found.
+	      add_option('gwolle_gb-post_ID', 'false');
+	    }
+	    else {
+	      //  Guestbook post found
+	      $data = mysql_fetch_array($result, MYSQL_ASSOC);
+	      add_option('gwolle_gb-post_ID', $data['ID']);
+	    }
+	    delete_option('gwolle_gb-guestbookLink');
+    }
 		
 		//	Update the plugin version option
 		update_option('gwolle_gb_version', GWOLLE_GB_VER);

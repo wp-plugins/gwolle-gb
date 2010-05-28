@@ -11,6 +11,16 @@
   elseif (isset($_REQUEST['error'])) {
     $msg = 'error-saving';
   }
+  elseif (isset($_REQUEST['page']) && $_REQUEST['page'] == 'gwolle-gb/editor.php' && isset($_SESSION['gwolle_gb']['error_messages'])) {
+    $msg = 'error-adding-admin-entry';
+  }
+  elseif (isset($_SESSION['gwolle_gb']['msg'])) {
+    $msg = $_SESSION['gwolle_gb']['msg'];
+    unset($_SESSION['gwolle_gb']['msg']);
+  }
+  elseif (isset($_REQUEST['page']) && $_REQUEST['page'] == 'gwolle-gb/entries.php' && isset($_REQUEST['entry_id'])) {
+    $msg = 'admin-entry-added';
+  }
   
   
   if ($msg !== FALSE) {
@@ -20,7 +30,8 @@
       'no-massEditAction-selected'  => __('No mass edit action selected.',$textdomain),
       'error-deleting'              => __('An error occured while trying to delete the entry.',$textdomain),
       'no-changes-made'             => __('<strong>Notice:</strong> No changes were made.',$textdomain),
-      'error-saving'                => __('An error occurred while saving your changes.',$textdomain)
+      'error-saving'                => __('Error(s) occurred while saving your changes.',$textdomain),
+      'error-adding-admin-entry'    => __('Error(s) occurred adding your admin entry.', $textdomain)
     );
     $updated_messages = array(
       'successfully-uninstalled'    => __('<strong>Gwolle-GB has been successfully uninstalled.</strong> Thanks for using my plugin!',$textdomain),
@@ -28,7 +39,8 @@
       'no-entries-edited'           => __('No entries were edited.',$textdomain),
       'changes-saved'               => __('Changes saved.',$textdomain),
       'successfully-unmarkedSpam'   => __('Entry successfully classified as not-spam.',$textdomain),
-      'uninstall-not-confirmed'     => __('Uninstall process stopped.',$textdomain)
+      'uninstall-not-confirmed'     => __('Uninstall process stopped.',$textdomain),
+      'admin-entry-added'           => __('Your new admin entry has been added.', $textdomain)
     );
     
     //  Messages with numbers
@@ -39,7 +51,14 @@
     if (isset($error_messages[$msg])) {
       echo '
       <div id="message" class="error fade">
-        <p>'.$error_messages[$msg].'</p>
+        <p>'.$error_messages[$msg].'</p>';
+        if (isset($_SESSION['gwolle_gb']['error_messages'])) {
+          foreach($_SESSION['gwolle_gb']['error_messages'] as $error_msg) {
+            echo '
+            <div style="display:block;">'.$error_msg.'</div>';
+          }
+        }
+      echo '
       </div>';
     }
     elseif (isset($updated_messages[$msg])) {

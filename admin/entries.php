@@ -196,58 +196,6 @@
 					<?php
 						$rowOdd = true;
 						$html_output = '';
-						foreach($entries as $entry) {
-							
-							//	rows have a different color.
-							if ($rowOdd) {
-                $rowOdd = false;
-                $class = ' alternate';
-              }
-              else {
-                $rowOdd = true;
-                $class = '';
-              }
-              
-              //  Attach 'spam' to class if the entry's spam
-              if ($entry['entry_isSpam'] === 1) {
-                $class .= ' spam';
-              }
-              
-							$html_output .= '
-							<tr id="entry_'.$entry['entry_id'].'" class="entry '.$class.'">
-                <td class="check">
-                  <input name="check-'.$entry['entry_id'].'" id="check-'.$entry['entry_id'].'" type="checkbox">
-                </td>
-                <td class="id">'.$entry['entry_id'].'</td>';
-								if ($gwolle_gb_settings['showEntryIcons'] === TRUE) {
-									$html_output .= '
-                  <td class="entry-'.$entry['icon_class'].'">&nbsp;</td>';
-								}
-								$html_output .= '
-								<td>'.$entry['entry_date_html'].'</td>
-								<td>
-								  '.$entry['spam_icon'].'
-  							  <label for="check-' . $entry['entry_id'] . '">'.$entry['excerpt'].'</label>
-								</td>
-								<td>'.$entry['entry_author_name_html'].'</td>
-								<td>
-								  <a href="'.$_SERVER['PHP_SELF'].'?page=gwolle-gb/editor.php&amp;entry_id='.$entry['entry_id'].'">'.__('Details',$textdomain).'&nbsp;&raquo;</a>&nbsp;
-								</td>
-              </tr>';
-							
-							// Quick-Editor
-							/*
-							echo '
-              <tr style="display:none;" class="inline-edit-row inline-edit-row-post quick-edit-row quick-edit-row-post alternate inline-editor" id="quickedit_'.$entry['entry_id'].'">
-                <td style="border-top:0px;" colspan="'; if ($gwolle_gb_settings['showEntryIcons']) { echo 7; } else { echo 6; } echo '">
-								  <h4>QUICKEDIT</h4>
-								  <fieldset>
-								  
-								  </fieldset>
-								</td>
-              </tr>';
-              */
-						}
 						if ($entries === FALSE) {
 						  $colspan = ($gwolle_gb_settings['showEntryIcons'] === TRUE) ? 7 : 6;
 							$html_output .= '
@@ -257,6 +205,60 @@
                 </td>
               </tr>';
 						}
+						else {
+  						foreach($entries as $entry) {
+  							
+  							//	rows have a different color.
+  							if ($rowOdd) {
+                  $rowOdd = false;
+                  $class = ' alternate';
+                }
+                else {
+                  $rowOdd = true;
+                  $class = '';
+                }
+                
+                //  Attach 'spam' to class if the entry's spam
+                if ($entry['entry_isSpam'] === 1) {
+                  $class .= ' spam';
+                }
+                
+  							$html_output .= '
+  							<tr id="entry_'.$entry['entry_id'].'" class="entry '.$class.'">
+                  <td class="check">
+                    <input name="check-'.$entry['entry_id'].'" id="check-'.$entry['entry_id'].'" type="checkbox">
+                  </td>
+                  <td class="id">'.$entry['entry_id'].'</td>';
+  								if ($gwolle_gb_settings['showEntryIcons'] === TRUE) {
+  									$html_output .= '
+                    <td class="entry-'.$entry['icon_class'].'">&nbsp;</td>';
+  								}
+  								$html_output .= '
+  								<td>'.$entry['entry_date_html'].'</td>
+  								<td>
+  								  '.$entry['spam_icon'].'
+    							  <label for="check-' . $entry['entry_id'] . '">'.$entry['excerpt'].'</label>
+  								</td>
+  								<td>'.$entry['entry_author_name_html'].'</td>
+  								<td>
+  								  <a href="'.$_SERVER['PHP_SELF'].'?page=gwolle-gb/editor.php&amp;entry_id='.$entry['entry_id'].'">'.__('Details',$textdomain).'&nbsp;&raquo;</a>&nbsp;
+  								</td>
+                </tr>';
+  							
+  							// Quick-Editor
+  							/*
+  							echo '
+                <tr style="display:none;" class="inline-edit-row inline-edit-row-post quick-edit-row quick-edit-row-post alternate inline-editor" id="quickedit_'.$entry['entry_id'].'">
+                  <td style="border-top:0px;" colspan="'; if ($gwolle_gb_settings['showEntryIcons']) { echo 7; } else { echo 6; } echo '">
+  								  <h4>QUICKEDIT</h4>
+  								  <fieldset>
+  								  
+  								  </fieldset>
+  								</td>
+                </tr>';
+                */
+  						}
+  				  }
 						echo $html_output;
 					?>
 				</tbody>

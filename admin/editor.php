@@ -7,8 +7,9 @@
 	if(preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 	
 	include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_output_to_input_field.func.php');
-	
 	//	If a entry_id has been submitted, check if it's a valid one.
+	$gwolle_gb_function  = 'add_entry';
+	$entry_id            = '';
 	$entry = FALSE;
 	if (isset($_REQUEST['entry_id'])) {
     include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
@@ -16,7 +17,9 @@
       'entry_id' => $_REQUEST['entry_id']
     ));
     if ($entry !== FALSE) {
-			$sectionHeading = __('Edit guestbook entry',$textdomain);
+			$sectionHeading      = __('Edit guestbook entry',$textdomain);
+			$gwolle_gb_function  = 'edit_entry';
+			$entry_id            = $entry['entry_id'];
 		}
 		else {
 			$errorMsg = __('Entry could not be found.',$textdomain);
@@ -25,6 +28,12 @@
 	else {
 		$sectionHeading = __('New guestbook entry', $textdomain);
 	}
+	
+	if ($entry === FALSE) {
+    $entry['entry_content']         = (isset($_SESSION['gwolle_gb']['entry']['content'])) ? $_SESSION['gwolle_gb']['entry']['content'] : '';
+    $entry['entry_author_website']  = (isset($_SESSION['gwolle_gb']['entry']['website'])) ? $_SESSION['gwolle_gb']['entry']['website'] : '';
+    $entry['entry_author_origin']   = (isset($_SESSION['gwolle_gb']['entry']['origin'])) ? $_SESSION['gwolle_gb']['entry']['origin'] : '';
+  }
 ?>
 
 <div class="wrap">
@@ -33,13 +42,10 @@
 	<h2><?php echo $sectionHeading; ?></h2>
 	<?php include(WP_PLUGIN_DIR.'/gwolle-gb/msg.php'); ?>
   
-  <form name="editlink" id="editlink" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php" accept-charset="UTF-8">
-    <?php if ($entry !== FALSE) { ?>
-			<input type="hidden" id="entry_id" name="entry_id" value="<?php echo $entry['entry_id']; ?>">
-		<?php } else { ?>
-			<input type="hidden" id="action" name="action" value="newEntry">
-		<?php } ?>
-  
+  <form name="gwolle_gb_editor" id="gwolle_gb_editor" method="POST" action="<?php bloginfo('wpurl'); ?>/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php" accept-charset="UTF-8">
+    <input type="hidden" name="gwolle_gb_function" value="<?php echo $gwolle_gb_function; ?>" />
+    <input type="hidden" name="entry_id" value="<?php echo $entry_id; ?>" />
+    <input type="hidden" name="return_to" value="entries" />
     
     <div id="poststuff" class="metabox-holder has-right-sidebar">
       <div id="side-info-column" class="inner-sidebar">
@@ -52,7 +58,9 @@
                 <div id="minor-publishing">
                   <div id="misc-publishing-actions">
                     <div class="misc-pub-section misc-pub-section-last">
-											<label for="entry_isChecked" class="selectit"><input id="entry_isChecked" name="entry_isChecked" type="checkbox" <?php if ($entry['entry_isChecked'] == '1') { echo 'checked="checked"'; } ?> /> <?php _e('This entry is checked.',$textdomain); ?></label>
+											<label for="entry_isChecked" class="selectit">
+		                    <input id="entry_isChecked" name="entry_isChecked" type="checkbox" <?php if ($entry['entry_isChecked'] == '1') { echo 'checked="checked"'; } ?> /> <?php _e('This entry is checked.',$textdomain); ?>
+		                  </label>
 										</div>
                   </div><!-- 'misc-publishing-actions' -->
                   
@@ -63,7 +71,7 @@
                   <div id="publishing-action">
                     
                     <?php if ($entry['entry_id']) { ?>
-											<a class="submitdelete deletion" href="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/editor.php&amp;action=delete&amp;entry_id=<?php echo $entry['entry_id']; ?>" onClick="return confirm('<?php _e("You\'re about to delete this guestbook entry. This can\'t be undone. Are you still sure you want to continue?",$textdomain); ?>');"><?php _e('Delete',$textdomain); ?></a>
+											<a class="submitdelete deletion" href="<?php echo $_SERVER['PHP_SELF']; ?>?page=gwolle-gb/entries.php&amp;gwolle_gb_function=delete_entry&amp;entry_id=<?php echo $entry['entry_id']; ?>" onClick="return confirm('<?php _e("You\'re about to delete this guestbook entry. This can\'t be undone. Are you still sure you want to continue?",$textdomain); ?>');"><?php _e('Delete',$textdomain); ?></a>
 											&nbsp;
 											<?php
 												if ($entry['entry_isSpam'] == '0') {

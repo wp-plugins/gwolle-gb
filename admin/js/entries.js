@@ -56,7 +56,7 @@ jQuery(document).ready(function($) {
     }
     
     //  Warn if this is spam
-    if (new_state == 'checked' && $(this).parent().hasClass('spam') && !confirm(gwolle_gb_strings.warning_spam)) {
+    if (new_state == 'checked' && $(this).parent().hasClass('spam') && !confirm(stripslashes(gwolle_gb_strings.warning_spam))) {
       return false;
     }
     
@@ -72,7 +72,6 @@ jQuery(document).ready(function($) {
       type: 'POST',
       url: gwolle_gb_ajax_url,
       data: ({
-        action:     'gwolle_gb_ajax',
         func:       'set_entry_checked_state',
         id:         current_entry_id,
         new_state:  new_state
@@ -91,5 +90,15 @@ jQuery(document).ready(function($) {
       }
     });
   });
+  
+  /*
+  //  Mark entries as 'not spam' by clicking on the icon
+  $('img.spam').click(function(event) {
+    if (confirm(gwolle_gb_strings.warning_marking_not_spam)) {
+      $(this).attr('src',gwolle_gb_plugin_url+'/admin/gfx/loading.gif');
+    }
+    event.preventDefault();
+  });
+  */
 
 });
