@@ -12,13 +12,13 @@
 	// Load settings, if not set
 	global $gwolle_gb_settings;
 	if (!isset($gwolle_gb_settings)) {
-    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+    include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
     gwolle_gb_get_settings();
   }
 	
 	if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
 		//	The current user's not allowed to do this.
-		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
+		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.GWOLLE_GB_FOLDER.'/gwolle-gb.php&msg=no-permission');
 		exit;
 	}
 	else {
@@ -88,7 +88,7 @@
 		//	Guestbook post ID
 		update_option('gwolle_gb-post_ID', (int)$_POST['post_ID']);
 		
-		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/settings.php&updated=true');
+		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.GWOLLE_GB_FOLDER.'/settings.php&updated=true');
 		exit;
 	}
 ?>

@@ -5,12 +5,11 @@
 	
 	global $current_user;
 	global $wpdb;
-	global $textdomain;
 	
 	// Load settings, if not set
 	global $gwolle_gb_settings;
 	if (!isset($gwolle_gb_settings)) {
-    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+    include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
     gwolle_gb_get_settings();
   }
     

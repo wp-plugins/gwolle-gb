@@ -14,7 +14,7 @@
       // Load settings, if not set
     	global $gwolle_gb_settings;
     	if (!isset($gwolle_gb_settings)) {
-        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+        include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
         gwolle_gb_get_settings();
       }
       
@@ -24,8 +24,8 @@
       }
       
       //  Check entry
-      include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_check_entry.func.php');
-      $entry = gwolle_gb_check_entry(array(
+      include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_check_entry_data.func.php');
+      $entry = gwolle_gb_check_entry_data(array(
         'action'    => 'update',
         'old_entry' => $args['old_entry']
       ));
@@ -37,7 +37,7 @@
         //  No errors. $entry contains the normalized entry data.
         $sql = "
         UPDATE
-          ".$wpdb->prefix."gwolle_gb_entries
+          ".$wpdb->gwolle_gb_entries."
         SET
           entry_author_origin   = '".addslashes($entry['origin'])."',
           entry_author_website  = '".addslashes($entry['website'])."',

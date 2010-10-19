@@ -7,42 +7,51 @@
 	**	=> TRUE, if the old version number is smaller than the new one.
 	*/
 	
+	// Load settings, if not set
+	global $gwolle_gb_settings;
+	if (!isset($gwolle_gb_settings)) {
+    include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
+    gwolle_gb_get_settings();
+  }
 	
 	function install_gwolle_gb() {
 		global $wpdb;
 		
 		//	Install the table for the entries
-		$wpdb->query("
-			CREATE TABLE " . $wpdb->prefix . "gwolle_gb_entries (
-			  entry_id int(10) NOT NULL auto_increment,
-			  entry_author_name text NOT NULL,
-			  entry_authorAdminId int(5) NOT NULL default '0',
-			  entry_author_email text NOT NULL,
-			  entry_author_origin text NOT NULL,
-			  entry_author_website text NOT NULL,
-			  entry_author_ip text NOT NULL,
-			  entry_author_host text NOT NULL,
-			  entry_content longtext NOT NULL,
-			  entry_date varchar(10) NOT NULL,
-			  entry_isChecked tinyint(1) NOT NULL,
-			  entry_checkedBy int(5) NOT NULL,
-			  entry_isDeleted varchar(1) NOT NULL default '0',
-  			entry_isSpam varchar(1) NOT NULL default '0',
-			  PRIMARY KEY  (entry_id)
-			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
-		");
+		$sql = "
+		CREATE TABLE
+		  ".$wpdb->gwolle_gb_entries."
+		(
+		  entry_id int(10) NOT NULL auto_increment,
+		  entry_author_name text NOT NULL,
+		  entry_authorAdminId int(5) NOT NULL default '0',
+		  entry_author_email text NOT NULL,
+		  entry_author_origin text NOT NULL,
+		  entry_author_website text NOT NULL,
+		  entry_author_ip text NOT NULL,
+		  entry_author_host text NOT NULL,
+		  entry_content longtext NOT NULL,
+		  entry_date varchar(10) NOT NULL,
+		  entry_isChecked tinyint(1) NOT NULL,
+		  entry_checkedBy int(5) NOT NULL,
+		  entry_isDeleted varchar(1) NOT NULL default '0',
+			entry_isSpam varchar(1) NOT NULL default '0',
+		  PRIMARY KEY  (entry_id)
+		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
+		$result = mysql_query($sql);
 		
-		//	Install the table for the log
-		$wpdb->query("
-			CREATE TABLE " . $wpdb->prefix . "gwolle_gb_log (
-			  log_id int(8) NOT NULL auto_increment,
-			  log_subject text NOT NULL,
-			  log_subjectId int(5) NOT NULL,
-			  log_authorId int(5) NOT NULL,
-			  log_date varchar(12) NOT NULL,
-			  PRIMARY KEY  (log_id)
-			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci;
-		");
+		$sql = "	
+		CREATE TABLE
+		  ".$wpdb->gwolle_gb_log."
+		(
+		  log_id int(8) NOT NULL auto_increment,
+		  log_subject text NOT NULL,
+		  log_subjectId int(5) NOT NULL,
+		  log_authorId int(5) NOT NULL,
+		  log_date varchar(12) NOT NULL,
+		  PRIMARY KEY  (log_id)
+		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
+		$result = mysql_query($sql);
 		
 		//	Add reCAPTCHA option
 		add_option('gwolle_gb-recaptcha-active','false');
@@ -92,8 +101,8 @@
 	function uninstall_gwolle_gb() {
 		//	delete the plugin's tables
 		global $wpdb;
-		mysql_query("DROP TABLE " . $wpdb->prefix . "gwolle_gb_log");
-		mysql_query("DROP TABLE " . $wpdb->prefix . "gwolle_gb_entries");
+		mysql_query("DROP TABLE " . $wpdb->gwolle_gb_log."");
+		mysql_query("DROP TABLE " . $wpdb->gwolle_gb_entries."");
 		
 		//	delete the plugin's preferences and version-no in the wp-options table
 		mysql_query("
@@ -115,7 +124,7 @@
 			");
 		}
 		
-		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=successfully-uninstalled');
+		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.GWOLLE_GB_FOLDER.'/gwolle-gb.php&msg=successfully-uninstalled');
 		exit;
 	}
 	
@@ -180,7 +189,7 @@
 			add_option('gwolle_gb-akismet-active','false');
 			mysql_query("
 				ALTER
-				TABLE " . $wpdb->prefix . "gwolle_gb_entries
+				TABLE " . $wpdb->gwolle_gb_entries."
 				ADD
 					entry_isSpam
 						VARCHAR( 1 )
@@ -259,12 +268,12 @@
 			*/
 			mysql_query("
 				ALTER
-				TABLE " . $wpdb->prefix . "gwolle_gb_entries
+				TABLE " . $wpdb->gwolle_gb_entries."
 					DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
 			");
 			mysql_query("
 				ALTER
-				TABLE " . $wpdb->prefix . "gwolle_gb_entries
+				TABLE " . $wpdb->gwolle_gb_entries."
 					CHANGE `entry_id` `entry_id` INT(10) NOT NULL AUTO_INCREMENT,
 					CHANGE `entry_author_name` `entry_author_name` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 					CHANGE `entry_authorAdminId` `entry_authorAdminId` INT(5) NOT NULL DEFAULT '0',

@@ -4,14 +4,14 @@
    * Reading mode of the guestbook frontend
    */
   
-  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
-  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entry_count.func.php');
-  include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_format_value_for_output.func.php');
+  include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_entries.func.php');
+  include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_entry_count.func.php');
+  include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_format_value_for_output.func.php');
   
   // Load settings, if not set
 	global $gwolle_gb_settings;
 	if (!isset($gwolle_gb_settings)) {
-    include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+    include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
     gwolle_gb_get_settings();
   }
   
@@ -25,7 +25,7 @@
   }
   
 	// Get links to guestbook page
-	include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_link.func.php');
+	include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_link.func.php');
 	$gb_links = gwolle_gb_get_link(array(
     'all' => TRUE
   ));
@@ -33,7 +33,7 @@
   //	Link 'write a new entry...'
 	$output .= '
 	<div style="margin-bottom:10px;">
-    <a target="_self" href="'.$gb_links['write'].'">&raquo; ' . __('Write a new entry.',$textdomain) . '</a>
+    <a target="_self" href="'.$gb_links['write'].'">&raquo; ' . __('Write a new entry.',GWOLLE_GB_TEXTDOMAIN) . '</a>
   </div>';
 	
 	if ($msg !== FALSE) {
@@ -140,19 +140,18 @@
 	$output .= '</div>';
 	
 	if ($entries === FALSE) {
-		$output .= __('(no entries yet)',$textdomain);
+		$output .= __('(no entries yet)',GWOLLE_GB_TEXTDOMAIN);
 	}
 	else {
 		//  Get option how to display the date
-		$date_format = get_option('date_format');
 		foreach($entries as $entry) {
 			$output .= '<div'; if (!$notFirst) { $notFirst = true; $output .= ' id="first"'; } $output .= ' class="gb-entry '; if ($entry['entry_authorAdminId'] > 0) { $output .= 'admin-entry'; } $output .= '">';
 				$output .= '<div class="author-info">';
 					$output .= '<span class="author-name">'.$entry['entry_author_name_html'].'</span>';
 					if (strlen(str_replace(' ','',$entry['entry_author_origin'])) > 0) {
-						$output .= ' ' . __('from',$textdomain) . ' <span class="author-origin">' . gwolle_gb_format_value_for_output($entry['entry_author_origin']) . '</span>';
+						$output .= ' ' . __('from',GWOLLE_GB_TEXTDOMAIN) . ' <span class="author-origin">' . gwolle_gb_format_value_for_output($entry['entry_author_origin']) . '</span>';
 					}
-					$output .= ' ' . __('wrote at',$textdomain) . ' ' . date($date_format, $entry['entry_date']) . ':';
+					$output .= ' ' . __('wrote at',GWOLLE_GB_TEXTDOMAIN) . ' '.gmdate(get_option('date_format'), $entry['entry_date']).':';
 				$output .= '</div>';
 				$output .= '<div class="entry-content">';
 				  $entry_content = gwolle_gb_format_value_for_output($entry['entry_content']);

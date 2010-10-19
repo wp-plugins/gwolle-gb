@@ -14,16 +14,16 @@
       // Load settings, if not set
     	global $gwolle_gb_settings;
     	if (!isset($gwolle_gb_settings)) {
-        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+        include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
         gwolle_gb_get_settings();
       }
       
       $action = (isset($args['action'])) ? $args['action'] : FALSE;
       
       //  Check entry
-      include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_check_entry.func.php');
+      include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_check_entry_data.func.php');
       $check_args = (isset($args) && count($args) > 0) ? $args : array();
-      $entry = gwolle_gb_check_entry($check_args);
+      $entry = gwolle_gb_check_entry_data($check_args);
       if ($entry === FALSE) {
         //  There are errors in this entry.
         return FALSE;
@@ -34,7 +34,7 @@
         $sql = "
         INSERT
         INTO
-          ".$wpdb->prefix."gwolle_gb_entries
+          ".$wpdb->gwolle_gb_entries."
         (
           entry_author_name,
           entry_authorAdminId,
@@ -90,7 +90,7 @@
               $mail_body = $gwolle_gb_settings['defaultMailText'];
             }
   					
-  					$subject = '['.get_bloginfo('name').'] '.__('New guestbook entry', $textdomain);
+  					$subject = '['.get_bloginfo('name').'] '.__('New guestbook entry', GWOLLE_GB_TEXTDOMAIN);
   					$header = "";
   					$header .= "From: Gwolle-Gb-Mailer <".get_bloginfo('admin_email').">\r\n";
   					$header .= "Content-Type: text/plain; charset=UTF-8\r\n";  //  Encoding of the mail
@@ -98,7 +98,7 @@
   					$info['blog_name'] = get_bloginfo('name');
   					$info['blog_url'] = get_bloginfo('wpurl');
   					$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
-  					$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=gwolle-gb/editor.php&entry_id='.$entry['id'];
+  					$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page='.GWOLLE_GB_FOLDER.'/editor.php&entry_id='.$entry['id'];
   					//	The last tags are bloginfo-based
   					for ($tagNum=1; $tagNum<count($mailTags); $tagNum++) {
   						$mail_body = str_replace('%' . $mailTags[$tagNum] . '%',$info[$mailTags[$tagNum]], $mail_body);

@@ -1,8 +1,8 @@
 === Gwolle-GB ===
 Contributors: Gwolle
 Tags: guestbook, feedback, antispam
-Requires at least: 2.9
-Tested up to: 3.0 RC1
+Requires at least: 2.8
+Tested up to: 2.9.1
 Stable tag: 0.9.7
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -40,6 +40,16 @@ use my homepage's comment section. I'd be glad to hear your opinion and/or featu
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU. I'm working on it, but at the moment it's just not working. Sorry, guys!
 
 = Changelog =
+
+0.9.8.1
+[fix] Fixed bug that prevented posted entries from being published.
+
+0.9.8
+[new] Name of the Gwolle-GB directory can now be changed.
+[new] News for Gwolle-GB are now shown at the dashboard of the plugin
+[new] Dashboard widget for a quick glance at the latest guestbook entries.
+[new] Deleted entries are now 'moved to trash', just like the 'trash' feature in the new WP version.
+[fix] Rewritten some code. Stills looks messy, but we're on the right track. :)
 
 0.9.7
 [new] Removed the 'guestbook link' setting and replaced it with a field for the corresponding $post_id; it should be detected by default.

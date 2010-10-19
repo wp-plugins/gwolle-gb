@@ -11,7 +11,10 @@
     function gwolle_gb_get_settings($args=array()) {
       global $gwolle_gb_settings;
       global $wpdb;
-      global $textdomain;
+      
+      //  Declare database table names
+      $wpdb->gwolle_gb_entries  = $wpdb->prefix.'gwolle_gb_entries';
+      $wpdb->gwolle_gb_log      = $wpdb->prefix.'gwolle_gb_log';
       
       $sql = "
       SELECT
@@ -44,12 +47,16 @@
         //  Entries per page (backend)
         $gwolle_gb_settings['entries_per_page'] = 15;
         //  Default mail text
-        $gwolle_gb_settings['defaultMailText'] = __("Hello,\n\nthere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer",$textdomain);
+        $gwolle_gb_settings['defaultMailText'] = __("Hello,\n\nthere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer",GWOLLE_GB_TEXTDOMAIN);
         
         if (defined('GWOLLE_GB_ACCESS_LEVEL') === FALSE) {
-          define('GWOLLE_GB_ACCESS_LEVEL', $gwolle_gb_settings['access-level']);
+          if (get_option('gwolle_gb-access-level') === FALSE) {
+            define('GWOLLE_GB_ACCESS_LEVEL', 10);
+          }
+          else {
+            define('GWOLLE_GB_ACCESS_LEVEL', $gwolle_gb_settings['access-level']);
+          }
         }
-        
         return TRUE;
       }
     }

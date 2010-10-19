@@ -8,14 +8,13 @@
      */
     function gwolle_gb_get_entries($args=array()) {
       global $wpdb;
-      global $textdomain;
       
-      include(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_format_value_for_output.func.php');
+      include(GWOLLE_GB_DIR.'/functions/gwolle_gb_format_value_for_output.func.php');
       
       // Load settings, if not set
     	global $gwolle_gb_settings;
     	if (!isset($gwolle_gb_settings)) {
-        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+        include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
         gwolle_gb_get_settings();
       }
       
@@ -42,10 +41,15 @@
               AND
               e.entry_isSpam = 1";
             break;
+          case 'trash':
+            $where .= "
+              AND
+              e.entry_isDeleted = 1";
+            break;
         }
       }
       
-      if (!isset($args['show_deleted'])) {
+      if (!isset($args['show_deleted']) && !isset($args['entry_id']) && !isset($args['trash']) && (!isset($args['show']) || (isset($args['show']) && $args['show'] !== 'trash'))) {
         $where .= "
           AND
           e.entry_isDeleted = 0";
@@ -85,7 +89,7 @@
         e.entry_isDeleted,
         e.entry_isSpam
       FROM
-        ".$wpdb->prefix."gwolle_gb_entries e
+        ".$wpdb->gwolle_gb_entries." e
       WHERE
         ".$where."
       ORDER BY
@@ -124,6 +128,9 @@
 		      if (strlen($entry['entry_content']) > $excerpt_length) {
 		        $entry['excerpt'] .= '...';
 		      }
+		      if (trim($entry['excerpt']) == '') {
+		        $entry['excerpt'] = '<i style="color:red;">'.__('No content to display. This entry is empty.',GWOLLE_GB_TEXTDOMAIN).'</i>';
+		      }
 		      
 		      //  Get staff member's name if necessary
 		      if ($entry['entry_authorAdminId'] > 0) {
@@ -138,7 +145,7 @@
               }
 						}
 						if ($staff_member_names[$entry['entry_authorAdminId']] == '') {
-						  $staff_member_names[$entry['entry_authorAdminId']] = '<strong>'.__('User not found',$textdomain).'</strong>';
+						  $staff_member_names[$entry['entry_authorAdminId']] = '<strong>'.__('User not found',GWOLLE_GB_TEXTDOMAIN).'</strong>';
 						}
 						$entry['entry_author_name_html'] = '<i>' . $staff_member_names[$entry['entry_authorAdminId']] . '</i>';
 					}
@@ -157,16 +164,22 @@
             }
 					}
 					
+					// Dashboard class
+					$entry['entry_dashboard_class'] = ($entry['entry_isChecked'] === 1) ? 'approved' : 'unapproved';
+					
+					// Gravtar-URL
+					$entry['entry_author_gravatar'] = ($entry['entry_author_email'] == '') ? 'ad516503a11cd5ca435acc9bb6523536' : md5($entry['entry_author_email']);
+					
 					// Set the entry class (used for the icon)
 					$entry['icon_class'] = ($entry['entry_isChecked'] === 1) ? 'checked' : 'unchecked';
 					
 					// Set spam icon if this entry is marked as spam
-					$entry['spam_icon'] = ($entry['entry_isSpam'] === 1) ? '<img class="spam" alt="[spam]" src="'.$blogurl.'/wp-content/plugins/gwolle-gb/admin/gfx/entry-spam.jpg" />' : '';
+					$entry['spam_icon'] = ($entry['entry_isSpam'] === 1) ? '<img class="spam" alt="[spam]" src="'.GWOLLE_GB_URL.'/admin/gfx/entry-spam.jpg" />' : '';
 		      
 		      //  Add entry to the array of all entries
           array_push($entries, $entry);
         }
-        if (isset($args['entry_id'])) {
+        if (isset($args['entry_id']) || $num_entries === 1) {
           //  Just return one entry
           return $entries[0];
         }

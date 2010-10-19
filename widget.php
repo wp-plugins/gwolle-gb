@@ -8,9 +8,8 @@
       
       /** constructor */
       function GwolleGB_Widget() {
-        global $textdomain;
         /* Widget settings. */
-  		  $widget_ops = array( 'classname' => 'gwolle_gb', 'description' => __('Displays the recent guestbook entries.',$textdomain));
+  		  $widget_ops = array( 'classname' => 'gwolle_gb', 'description' => __('Displays the recent guestbook entries.',GWOLLE_GB_TEXTDOMAIN));
   
     		/* Widget control settings. */
     		$control_ops = array( 'width' => 300, 'height' => 350, 'id_base' => 'gwolle_gb-widget' );
@@ -20,8 +19,7 @@
       }
   
       /** @see WP_Widget::widget */
-      function widget($args, $instance) {		
-        global $textdomain;
+      function widget($args, $instance) {
         global $wpdb;
         
         //  Get the numbers of entries to be shown.
@@ -30,7 +28,7 @@
         //  Get the widget title
         $widget_title = (isset($instance['title']) && strlen(trim($instance['title'])) > 0) ? $instance['title'] : FALSE;
         
-        $link_text = (isset($instance['link_text']) && strlen(trim($instance['link_text'])) > 0) ? $instance['link_text'] : __('Visit guestbook', $textdomain);
+        $link_text = (isset($instance['link_text']) && strlen(trim($instance['link_text'])) > 0) ? $instance['link_text'] : __('Visit guestbook', GWOLLE_GB_TEXTDOMAIN);
         
         //  Init
         $widget_html = '';
@@ -43,7 +41,7 @@
           }
           
           //  Get the latest $num_entries guestbook entries
-          include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
+          include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_entries.func.php');
           $entries = gwolle_gb_get_entries(array(
             'show'            => 'checked',
             'num_entries'     => $num_entries,
@@ -58,13 +56,13 @@
           // Get the ID of the guestbook post and link it.
           if ((int)$gwolle_gb_post_id > 0) {
             //  Build guestbook link
-            include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_link.func.php');
+            include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_link.func.php');
             $gwolle_gb_link = gwolle_gb_get_link(array(
               'post_id' => $gwolle_gb_post_id
             ));
             $widget_html .= '
             <div id="gb_link">
-              <a href="'.$gwolle_gb_link.'" target="_self" title="'.__('Click here to get to the guestbook.', $textdomain).'">
+              <a href="'.$gwolle_gb_link.'" target="_self" title="'.__('Click here to get to the guestbook.', GWOLLE_GB_TEXTDOMAIN).'">
                 '.$link_text.'
               </a>
             </div>';
@@ -90,15 +88,15 @@
         $link_text    = esc_attr($instance['link_text']);
         ?>
           <p>
-            <label for="<?php echo $this->get_field_id('title'); ?>" /><?php _e('Title:',$textdomain); ?></label>
+            <label for="<?php echo $this->get_field_id('title'); ?>" /><?php _e('Title:',GWOLLE_GB_TEXTDOMAIN); ?></label>
             <br />
             <input type="text" id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo $title; ?>" name="<?php echo $this->get_field_name('title'); ?>" />
             <br />
-            <label for="<?php echo $this->get_field_id('link_text'); ?>" /><?php _e('Link text:',$textdomain); ?></label>
+            <label for="<?php echo $this->get_field_id('link_text'); ?>" /><?php _e('Link text:',GWOLLE_GB_TEXTDOMAIN); ?></label>
             <br />
             <input type="text" id="<?php echo $this->get_field_id('link_text'); ?>" value="<?php echo $link_text; ?>" name="<?php echo $this->get_field_name('link_text'); ?>" />
             <br />
-            <label for="<?php echo $this->get_field_id('num_entries'); ?>" /><?php _e('Number of entries:',$textdomain); ?></label>
+            <label for="<?php echo $this->get_field_id('num_entries'); ?>" /><?php _e('Number of entries:',GWOLLE_GB_TEXTDOMAIN); ?></label>
             <br />
             <select id="<?php echo $this->get_field_id('num_entries'); ?>" name="<?php echo $this->get_field_name('num_entries'); ?>">
               <?php

@@ -6,18 +6,18 @@
 	//	What's our mission?
 	if ($_POST['massEditAction1'] == -1) { $massEditAction = $_POST['massEditAction2']; } else { $massEditAction = $_POST['massEditAction1']; }
 	//	Include the function we're going to use
-	if ($massEditAction == 'delete') {
-		include('delete_entry.func.php');
+	if ($massEditAction == 'trash' || $massEditAction == 'untrash') {
+		include(GWOLLE_GB_DIR.'/functions/gwolle_gb_trash_entry.func.php');
 	}
 	elseif ($massEditAction == 'spam' || $massEditAction == 'no-spam') {
-		include('spam.func.php');
+		include(GWOLLE_GB_DIR.'/functions/gwolle_gb_mark_spam.func.php');
 	}
 	elseif ($massEditAction == 'check' || $massEditAction == 'uncheck') {
-		include('check_entry.func.php');
+		include(GWOLLE_GB_DIR.'/functions/gwolle_gb_check_entry.func.php');
 	}
 	else {
 		//	No mass edit action selected
-		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=no-massEditAction-selected&show=' . $_REQUEST['show']);
+		header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.GWOLLE_GB_FOLDER.'/entries.php&msg=no-massEditAction-selected&show=' . $_REQUEST['show']);
 		exit;
 	}
 	
@@ -26,19 +26,22 @@
 	foreach(array_keys($_POST) as $postElementName) {
 		if (strpos($postElementName, 'check') > -1 && !strpos($postElementName, '-all-') && $_POST[$postElementName] == 'on') {
 			$entry_id = str_replace('check-','',$postElementName);
-			if ($massEditAction == 'delete' && delete_gwolle_gb_entry($entry_id)) {
+			if ($massEditAction == 'trash' && gwolle_gb_trash_entry(array('entry_id' => $entry_id)) === TRUE) {
 				$entriesEdited++;
 			}
-			elseif ($massEditAction == 'spam' && spam_gwolle_gb_entry($entry_id)) {
+			elseif ($massEditAction == 'untrash' && gwolle_gb_trash_entry(array('entry_id' => $entry_id, 'untrash' => TRUE)) === TRUE) {
 				$entriesEdited++;
 			}
-			elseif ($massEditAction == 'no-spam' && spam_gwolle_gb_entry($entry_id, 'no-spam')) {
+			elseif ($massEditAction == 'spam' && gwolle_gb_mark_spam(array('entry_id' => $entry_id)) === TRUE) {
 				$entriesEdited++;
 			}
-			elseif ($massEditAction == 'check' && check_gwolle_gb_entry($entry_id)) {
+			elseif ($massEditAction == 'no-spam' && gwolle_gb_mark_spam(array('entry_id' => $entry_id, 'no_spam' => TRUE)) === TRUE) {
 				$entriesEdited++;
 			}
-			elseif ($massEditAction == 'uncheck' && check_gwolle_gb_entry($entry_id, 'uncheck')) {
+			elseif ($massEditAction == 'check' && gwolle_gb_check_entry(array('entry_id' => $entry_id)) === TRUE) {
+				$entriesEdited++;
+			}
+			elseif ($massEditAction == 'uncheck' && gwolle_gb_check_entry(array('entry_id' => $entry_id, 'uncheck' => TRUE)) === TRUE) {
 				$entriesEdited++;
 			}
 		}
@@ -49,6 +52,6 @@
 	
 	if ($entriesEdited > 0) {	$msg = 'successfully-edited'; $count = '&count=' . $entriesEdited; }
 	else { $msg = 'no-entries-edited'; }
-	header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=' . $msg . $show . $count);
+	header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page='.GWOLLE_GB_FOLDER.'/entries.php&msg=' . $msg . $show . $count);
 	exit;
 ?>

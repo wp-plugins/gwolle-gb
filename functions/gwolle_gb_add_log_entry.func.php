@@ -15,7 +15,7 @@
       $sql = "
 			INSERT
 			INTO
-				" . $wpdb->prefix . "gwolle_gb_log
+				" . $wpdb->gwolle_gb_log."
 			(
 				log_subject,
 				log_subjectId,

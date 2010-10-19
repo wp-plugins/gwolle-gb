@@ -17,7 +17,7 @@
       mysql_query("
       INSERT
       INTO
-        ".$wpdb->prefix."gwolle_gb_entries
+        ".$wpdb->gwolle_gb_entries."
       (
         entry_author_name,
         entry_author_email,
@@ -42,7 +42,7 @@
       mysql_query("
       INSERT
       INTO
-        ".$wpdb->prefix."gwolle_gb_log
+        ".$wpdb->gwolle_gb_log."
       (
         log_subject,
         log_subjectId,

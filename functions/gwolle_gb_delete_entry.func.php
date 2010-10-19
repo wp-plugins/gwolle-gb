@@ -2,7 +2,7 @@
   if (!function_exists('gwolle_gb_delete_entry')) {
     /**
      * gwolle_gb_delete_entry
-     * Deletes an entry.
+     * Deletes an entry from the database.
      * Returns:
      * - FALSE      if any errors occur
      * - TRUE       if no errors occur
@@ -14,7 +14,7 @@
       // Load settings, if not set
     	global $gwolle_gb_settings;
     	if (!isset($gwolle_gb_settings)) {
-        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+        include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
         gwolle_gb_get_settings();
       }
       
@@ -22,15 +22,13 @@
       if (!isset($args['entry_id'])) {
         return FALSE;
       }
-      $entry_id = (int)$args['entry_id'];
       
       $sql = "
-      UPDATE
-        ".$wpdb->prefix."gwolle_gb_entries
-      SET
-        entry_isDeleted   = 1
+      DELETE
+      FROM
+        ".$wpdb->gwolle_gb_entries."
       WHERE
-        entry_id = ".$entry_id."
+        entry_id = ".(int)$args['entry_id']."
       LIMIT 1";
       $result = mysql_query($sql);
       if (mysql_affected_rows() == 1) {

@@ -12,7 +12,8 @@
         'all',
         'unchecked',
         'checked',
-        'spam'
+        'spam',
+        'trash'
       ))) {
         return FALSE;
       }
@@ -35,17 +36,26 @@
           AND
           entry_isSpam = 1";
           break;
+        case 'trash':
+          $where .= "
+          AND
+          entry_isDeleted = 1";
+          break;
+      }
+      
+      if (!isset($args['entry_status']) || $args['entry_status'] !== 'trash') {
+        $where .= "
+          AND
+          e.entry_isDeleted = 0";
       }
       
       $sql = "
       SELECT
         COUNT(entry_id) AS entry_count
       FROM
-        ".$wpdb->prefix."gwolle_gb_entries e
+        ".$wpdb->gwolle_gb_entries." e
       WHERE
-        ".$where."
-        AND
-        e.entry_isDeleted = 0";
+        ".$where;
       $result = mysql_query($sql);
       $data = mysql_fetch_array($result, MYSQL_ASSOC);
       return (int)$data['entry_count'];

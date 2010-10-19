@@ -17,10 +17,10 @@
 	<div id="icon-gwolle-gb"><br /></div>
 	<h2><?php
     if ($_REQUEST['what'] == 'dmsguestbook') {
-      _e('Import guestbook entries from DMSGuestbook',$textdomain);
+      _e('Import guestbook entries from DMSGuestbook',GWOLLE_GB_TEXTDOMAIN);
     }
     else {
-      _e('Import guestbook entries from other plugins',$textdomain);
+      _e('Import guestbook entries from other plugins',GWOLLE_GB_TEXTDOMAIN);
     }
   ?></h2>
 	
@@ -33,13 +33,13 @@
 				$msgClass = 'updated';
 			}
 			echo '<div id="message" class="' . $msgClass . ' fade"><p>';
-        $msg['no-guestbook-chosen']   = __("You haven't chosen a guestbook. Please select one and try again.",$textdomain);
-        $msg['no-entries-to-import']  = __("<strong>Nothing to import.</strong> The guestbook you've chosen does not contain any entries.",$textdomain);
+        $msg['no-guestbook-chosen']   = __("You haven't chosen a guestbook. Please select one and try again.",GWOLLE_GB_TEXTDOMAIN);
+        $msg['no-entries-to-import']  = __("<strong>Nothing to import.</strong> The guestbook you've chosen does not contain any entries.",GWOLLE_GB_TEXTDOMAIN);
         if ($_REQUEST['count'] == 1) {
-          $msg['import-successful']   = __('One entry imported successfully.',$textdomain);
+          $msg['import-successful']   = __('One entry imported successfully.',GWOLLE_GB_TEXTDOMAIN);
         }
         else {
-          $msg['import-successful']   = str_replace('%1',$_REQUEST['count'],__('%1 entries imported successfully.',$textdomain));
+          $msg['import-successful']   = str_replace('%1',$_REQUEST['count'],__('%1 entries imported successfully.',GWOLLE_GB_TEXTDOMAIN));
         }
 				echo $msg[$_REQUEST['msg']];
 				echo $msg[$showMsg];
@@ -74,7 +74,7 @@
           
           if (count($page_ids) === 0 || $page_id_string == 0) {
             //  No guestbooks detected.
-            echo '<div style="margin-bottom:20px;">'.__("Sorry, but I wasn't able to determine the pages at which your guestbook was displayed. You cannot choose the guestbook to import from.",$textdomain).'</div>';
+            echo '<div style="margin-bottom:20px;">'.__("Sorry, but I wasn't able to determine the pages at which your guestbook was displayed. You cannot choose the guestbook to import from.",GWOLLE_GB_TEXTDOMAIN).'</div>';
             echo '<input type="hidden" name="import-all" value="true">';
             //  Get entry count
             $result = mysql_query("
@@ -83,17 +83,17 @@
             FROM
               ".$wpdb->prefix."dmsguestbook
             ");
-            echo '<div style="margin-bottom:10px;font-weight:bold;">'.str_replace('%1',mysql_num_rows($result),__("%1 entries were found and will be imported.",$textdomain)).'</div>';
+            echo '<div style="margin-bottom:10px;font-weight:bold;">'.str_replace('%1',mysql_num_rows($result),__("%1 entries were found and will be imported.",GWOLLE_GB_TEXTDOMAIN)).'</div>';
           }
           else {
-            echo '<div>'.str_replace('%1', count($page_ids), __('I was able to find %1 configured DMSGuestbooks. Please choose the guestbook you want to import entries from.',$textdomain)).'</div>';
+            echo '<div>'.str_replace('%1', count($page_ids), __('I was able to find %1 configured DMSGuestbooks. Please choose the guestbook you want to import entries from.',GWOLLE_GB_TEXTDOMAIN)).'</div>';
           ?>
             <table style="margin-top:15px;margin-bottom:15px;" class="widefat">
           		<thead>
           			<tr>
                   <th scope="col" >&nbsp;</th>
-          				<th scope="col" ><?php _e('Page title',$textdomain); ?></th>
-          				<th scope="col" ><?php _e('Number of guestbook entries',$textdomain); ?></th>
+          				<th scope="col" ><?php _e('Page title',GWOLLE_GB_TEXTDOMAIN); ?></th>
+          				<th scope="col" ><?php _e('Number of guestbook entries',GWOLLE_GB_TEXTDOMAIN); ?></th>
           			</tr>
           		</thead>
           		
@@ -119,7 +119,7 @@
           		      echo '<tr>';
           		        echo '<td><input type="radio" name="guestbook_number" value="'.$i.'"></td>';
           		        echo '<td>'.$guestbook_post->post_title.'</td>';
-          		        echo '<td>'.$entry_count.' (<a href="admin.php?page=Entries&guestbook='.$i.'" title="'.__('Click here to view the entries of this guestbook...',$textdomain).'">'.__('Review entries',$textdomain).' &raquo;</a>)</td>';
+          		        echo '<td>'.$entry_count.' (<a href="admin.php?page=Entries&guestbook='.$i.'" title="'.__('Click here to view the entries of this guestbook...',GWOLLE_GB_TEXTDOMAIN).'">'.__('Review entries',GWOLLE_GB_TEXTDOMAIN).' &raquo;</a>)</td>';
           		      echo '</tr>';
           		    }
           		  ?>
@@ -130,24 +130,24 @@
         ?>
         
         <div>
-          <?php _e('The importer will preserve the following data per entry:',$textdomain); ?>
+          <?php _e('The importer will preserve the following data per entry:',GWOLLE_GB_TEXTDOMAIN); ?>
           <ul style="list-style-type:disc;padding-left:15px;">
-            <li><?php _e('Name',$textdomain); ?></li>
-            <li><?php _e('E-Mail address',$textdomain); ?></li>
-            <li><?php _e('URL/Website',$textdomain); ?></li>
-            <li><?php _e('Date of the entry',$textdomain); ?></li>
-            <li><?php _e('IP address',$textdomain); ?></li>
-            <li><?php _e('Message',$textdomain); ?></li>
-            <li><?php _e('"is spam" flag',$textdomain); ?></li>
-            <li><?php _e('"is checked" flag',$textdomain); ?></li>
+            <li><?php _e('Name',GWOLLE_GB_TEXTDOMAIN); ?></li>
+            <li><?php _e('E-Mail address',GWOLLE_GB_TEXTDOMAIN); ?></li>
+            <li><?php _e('URL/Website',GWOLLE_GB_TEXTDOMAIN); ?></li>
+            <li><?php _e('Date of the entry',GWOLLE_GB_TEXTDOMAIN); ?></li>
+            <li><?php _e('IP address',GWOLLE_GB_TEXTDOMAIN); ?></li>
+            <li><?php _e('Message',GWOLLE_GB_TEXTDOMAIN); ?></li>
+            <li><?php _e('"is spam" flag',GWOLLE_GB_TEXTDOMAIN); ?></li>
+            <li><?php _e('"is checked" flag',GWOLLE_GB_TEXTDOMAIN); ?></li>
           </ul>
-          <?php _e('However, data such as HTML formating and gravatars are not supported by Gwolle-GB and <strong>will not</strong> be imported.',$textdomain); ?>
+          <?php _e('However, data such as HTML formating and gravatars are not supported by Gwolle-GB and <strong>will not</strong> be imported.',GWOLLE_GB_TEXTDOMAIN); ?>
           <br>
-          <?php _e('The importer does not delete any data, so you can go back whenever you want.<br>Please start the import by pressing "Start import".',$textdomain); ?>
+          <?php _e('The importer does not delete any data, so you can go back whenever you want.<br>Please start the import by pressing "Start import".',GWOLLE_GB_TEXTDOMAIN); ?>
         </div>
         
         <p style="text-align:center;margin-top:10px;">
-          <input name="start_import" type="submit" value="<?php _e('Start import',$textdomain); ?>">
+          <input name="start_import" type="submit" value="<?php _e('Start import',GWOLLE_GB_TEXTDOMAIN); ?>">
         </p>
       
       </form>
@@ -156,17 +156,17 @@
       }
       else {
         //  Table of DMSGuestbook does not exist.
-        _e("I'm sorry, but I wasn't able to find the table of DMSGuestbook. Please check your MySQL database and try again.",$textdomain);
+        _e("I'm sorry, but I wasn't able to find the table of DMSGuestbook. Please check your MySQL database and try again.",GWOLLE_GB_TEXTDOMAIN);
       }
     }
     else {
       //  User did not choose a plugin to import entries from.
     ?>
       <div style="margin-top:10px;margin-bottom:10px;">
-        <?php _e("You may want to import entries from another plugin. Click on the plugin's name to get more details on the import.",$textdomain); ?>
+        <?php _e("You may want to import entries from another plugin. Click on the plugin's name to get more details on the import.",GWOLLE_GB_TEXTDOMAIN); ?>
       </div>
       
-      <strong><?php _e('Supported plugins:',$textdomain); ?></strong>
+      <strong><?php _e('Supported plugins:',GWOLLE_GB_TEXTDOMAIN); ?></strong>
       <ul style="list-style-type:disc;padding-left:25px;margin-top:5px;">
     <?php
       //  Check if the 'dmsguestbook' table exists
@@ -176,11 +176,11 @@
       LIKE '".$wpdb->prefix."dmsguestbook'");
       $foundTables = mysql_fetch_array($result);
       if ($foundTables[0] === $wpdb->prefix.'dmsguestbook') {
-        echo '<li><a href="admin.php?page=gwolle-gb/gwolle-gb.php&amp;do=import&amp;what=dmsguestbook">DMSGuestbook</a></li>';
+        echo '<li><a href="admin.php?page='.GWOLLE_GB_FOLDER.'/gwolle-gb.php&amp;do=import&amp;what=dmsguestbook">DMSGuestbook</a></li>';
       }
       else {
         //  DMSGuestbook table could not be found, so we can't import from it.
-        echo '<li>DMSGuestbook ('.str_replace('%1',$wpdb->prefix.'dmsguestbook',__('Table %1 not found.',$textdomain)).')</li>';
+        echo '<li>DMSGuestbook ('.str_replace('%1',$wpdb->prefix.'dmsguestbook',__('Table %1 not found.',GWOLLE_GB_TEXTDOMAIN)).')</li>';
       }
     ?>
       </ul>

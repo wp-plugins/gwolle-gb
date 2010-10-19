@@ -7,7 +7,7 @@
       // Load settings, if not set
     	global $gwolle_gb_settings;
     	if (!isset($gwolle_gb_settings)) {
-        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_settings.func.php');
+        include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
         gwolle_gb_get_settings();
       }
       
@@ -16,7 +16,7 @@
       }
       else {
         //  Check if this entry exists
-        include_once(WP_PLUGIN_DIR.'/gwolle-gb/functions/gwolle_gb_get_entries.func.php');
+        include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_entries.func.php');
         $old_entry = gwolle_gb_get_entries(array(
           'entry_id'  => $args['entry_id']
         ));
@@ -45,7 +45,7 @@
           //  Check was successful
           $sql = "
           UPDATE
-            ".$wpdb->prefix."gwolle_gb_entries e
+            ".$wpdb->gwolle_gb_entries." e
           SET
             e.entry_author_name = '".addslashes($entry['name'])."',
             e.entry_author_name = '".addslashes($entry['name'])."',
