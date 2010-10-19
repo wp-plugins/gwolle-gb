@@ -57,8 +57,8 @@
           '".addslashes($entry['host'])."',
           '".addslashes($entry['content'])."',
           '".mktime()."',
-          ".$entry['is_checked'].",
-          ".$entry['is_spam']."
+          ".$entry['is_spam'].",
+          ".$entry['is_checked']."
         )";
         $result = mysql_query($sql);
         if (mysql_affected_rows() > 0) {  // Entry saved successfully.
