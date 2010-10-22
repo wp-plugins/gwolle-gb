@@ -23,9 +23,22 @@ function gwolle_gb_overview(){
     'entry_status' => 'spam'
   ));
 	$count['all'] = $count['checked'] + $count['unchecked'] + $count['spam'];
+	
+	if (version_compare(get_bloginfo('version'), '3.0', '>=')) {
+	   // 3.0 and higher use another style
 ?>
-  <p class="sub"><?php _e('Overview',GWOLLE_GB_TEXTDOMAIN); ?></p>
-  <div class="table">
+    <div class="table table_content">
+        <p class="sub"><?php _e('Overview',GWOLLE_GB_TEXTDOMAIN); ?></p>
+<?php 
+    }
+    else {
+?>
+    <p class="sub"><?php _e('Overview',GWOLLE_GB_TEXTDOMAIN); ?></p>
+    <div class="table">
+<?php
+    }
+?>
+
   	<table>
 			<tbody>
 				<tr class="first">
