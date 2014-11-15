@@ -63,15 +63,14 @@ include_once( GWOLLE_GB_DIR . '/frontend/read.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/write.php' );
 
 // Functions and pages for the backend
-include_once( GWOLLE_GB_DIR . '/admin/check_entry.func.php' );
-include_once( GWOLLE_GB_DIR . '/admin/editor.php' );
-include_once( GWOLLE_GB_DIR . '/admin/entries.php' );
-include_once( GWOLLE_GB_DIR . '/admin/import.php' );
 include_once( GWOLLE_GB_DIR . '/admin/installSplash.php' );
-include_once( GWOLLE_GB_DIR . '/admin/settings.php' );
+include_once( GWOLLE_GB_DIR . '/admin/page-editor.php' );
+include_once( GWOLLE_GB_DIR . '/admin/page-entries.php' );
+include_once( GWOLLE_GB_DIR . '/admin/page-gwolle-gb.php' );
+include_once( GWOLLE_GB_DIR . '/admin/page-import.php' );
+include_once( GWOLLE_GB_DIR . '/admin/page-settings.php' );
 include_once( GWOLLE_GB_DIR . '/admin/spam.func.php' );
 include_once( GWOLLE_GB_DIR . '/admin/upgrade.php' );
-include_once( GWOLLE_GB_DIR . '/admin/welcome.php' );
 
 // General Functions
 include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_akismet.php' );
@@ -83,6 +82,7 @@ include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_misc.php' );
 // Old Functions, to be replaced by new functions or classes
 include_once( GWOLLE_GB_DIR . '/functions/get_gwolle_gb_post_id.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_add_log_entry.func.php' );
+include_once( GWOLLE_GB_DIR . '/admin/check_entry.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_check_entry.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_check_entry_data.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_delete_entry.func.php' );

@@ -174,7 +174,7 @@ function gwolle_gb_frontend_read() {
 			if ( strlen(str_replace(' ', '', $origin)) > 0 ) {
 				$output .= ' ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' <span class="author-origin">' . gwolle_gb_format_value_for_output($origin) . '</span>';
 			}
-			$output .= ' ' . __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ' . gmdate( get_option('date_format'), $entry->get_date() ) . ':';
+			$output .= ' ' . __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ' . date_i18n( get_option('date_format'), $entry->get_date() ) . ':';
 			$output .= '</div>';
 
 			// Main Content
