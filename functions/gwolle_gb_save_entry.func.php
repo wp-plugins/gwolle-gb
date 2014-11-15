@@ -14,25 +14,23 @@ if (!function_exists('gwolle_gb_save_entry')) {
 		// Load settings, if not set
 		global $gwolle_gb_settings;
 		if (!isset($gwolle_gb_settings)) {
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_settings.func.php');
 			gwolle_gb_get_settings();
 		}
 
 		$action = (isset($args['action'])) ? $args['action'] : FALSE;
 
-		//  Check entry
-		include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_check_entry_data.func.php');
+		// Check entry
 		$check_args = (isset($args) && count($args) > 0) ? $args : array();
 		$entry = gwolle_gb_check_entry_data($check_args);
 		if ($entry === FALSE) {
-			//  There are errors in this entry.
+			// There are errors in this entry.
 			return FALSE;
 		} else {
-			//  No errors. $entry contains the normalized entry data.
+			// No errors. $entry contains the normalized entry data.
 			$sql = "
 				INSERT
 				INTO
-				  " . $wpdb -> gwolle_gb_entries . "
+					" . $wpdb->gwolle_gb_entries . "
 				(
 				  entry_author_name,
 				  entry_authorAdminId,
@@ -59,21 +57,22 @@ if (!function_exists('gwolle_gb_save_entry')) {
 				  " . $entry['is_checked'] . "
 				)";
 			$result = $wpdb->query($sql);
-			if ($result > 0) { // Entry saved successfully.
+			if ($result > 0) {
+				// Entry saved successfully.
 				$entry['id'] = $wpdb->insert_id;
 				if ($action === FALSE) {
-					//  Send the notification mail(s)
+					// Send the notification mail(s)
 					$recipients_sql = "
-  					SELECT
-  					  o.option_name,
-  					  o.option_value
-  					FROM
-  						" . $wpdb -> prefix . "options o
-  					WHERE
-  						o.option_name LIKE 'gwolle_gb-notifyByMail-%'";
+						SELECT
+							o.option_name,
+							o.option_value
+						FROM
+							" . $wpdb->prefix . "options o
+						WHERE
+							o.option_name LIKE 'gwolle_gb-notifyByMail-%'";
 					$recipients = $wpdb->query($recipients_sql, ARRAY_A);
 					foreach ( $recipients as $recipients ) {
-						$userdata = get_userdata(str_replace('gwolle_gb-notifyByMail-', '', $recipient['option_name']));
+						$userdata = get_userdata( str_replace('gwolle_gb-notifyByMail-', '', $recipient['option_name']) );
 						if (($entry['is_spam'] === 1 && (isset($gwolle_gb_settings['notifyAll-' . $userdata -> ID]) && $gwolle_gb_settings['notifyAll-' . $userdata -> ID] === TRUE)) || $entry['is_spam'] === 0) {
 							$subscriber[]['user_email'] = $userdata -> user_email;
 						}
@@ -81,7 +80,7 @@ if (!function_exists('gwolle_gb_save_entry')) {
 
 					@ini_set('sendmail_from', get_bloginfo('admin_mail'));
 
-					//	Set the mail content
+					// Set the mail content
 					$mailTags = array('user_email', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url');
 					$mail_body = stripslashes($gwolle_gb_settings['adminMailContent']);
 					if (!$mail_body) {
@@ -92,7 +91,7 @@ if (!function_exists('gwolle_gb_save_entry')) {
 					$header = "";
 					$header .= "From: Gwolle-Gb-Mailer <" . get_bloginfo('admin_email') . ">\r\n";
 					$header .= "Content-Type: text/plain; charset=UTF-8\r\n";
-					//  Encoding of the mail
+					// Encoding of the mail
 
 					$info['blog_name'] = get_bloginfo('name');
 					$info['blog_url'] = get_bloginfo('wpurl');
@@ -104,17 +103,16 @@ if (!function_exists('gwolle_gb_save_entry')) {
 					}
 
 					if (!function_exists('gwolle_gb_formatValuesForMail')) {
-						/**
+						/*
 						 * Function to format values for beeing send by mail.
 						 * Since users can input malicious code we have to make
-						 * sure that this code is beeing taken care of.
+						 * sure that this code is being taken care of.
 						 */
 						function gwolle_gb_formatValuesForMail($value) {
 							$value = str_replace('<', '{', $value);
 							$value = str_replace('>', '}', $value);
 							return $value;
 						}
-
 					}
 
 					for ($i = 0; $i < count($subscriber); $i++) {
@@ -130,6 +128,5 @@ if (!function_exists('gwolle_gb_save_entry')) {
 		}
 		return FALSE;
 	}
-
 }
-?>
+
