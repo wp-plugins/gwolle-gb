@@ -171,7 +171,7 @@ and also the WordPress documentation.
 == Changelog ==
 
 
-0.9.9.1
+= 0.9.9.1 =
 * 2014-11-15
 * Use $wpdb everywhere.
 * Many small fixes.
@@ -199,38 +199,38 @@ and also the WordPress documentation.
 * On admin page editor.php; show if entry is listed as spam or not.
 * Mind your head, only the frontend is secure, the backend is open for SQL Injection Attacks.
 
-0.9.9.0
+= 0.9.9.0 =
 * 2014-10-22
 * Use $wpdb everywhere
 * Many small fixes
 * Reformat code for readability. It will break diffs in svn though.
 * Mind your head; Frontend and Backend are open for SQL Injection Attacks.
 
-0.9.8.1
+= 0.9.8.1 =
 * Somewhere in 2010.
 * [fix] Fixed bug that prevented posted entries from being published.
 * Update Readme to 2014.
 
-0.9.8
+= 0.9.8 =
 [new] Name of the Gwolle-GB directory can now be changed.
 [new] News for Gwolle-GB are now shown at the dashboard of the plugin
 [new] Dashboard widget for a quick glance at the latest guestbook entries.
 [new] Deleted entries are now 'moved to trash', just like the 'trash' feature in the new WP version.
 [fix] Rewritten some code. Stills looks messy, but we're on the right track. :)
 
-0.9.7
+= 0.9.7 =
 [new] Removed the 'guestbook link' setting and replaced it with a field for the corresponding $post_id; it should be detected by default.
 [fix] New entries are validated and if this fails the user will be sent back to the 'write' page, but now without any $_POST data.
 Please note: The widget is planned for a future release. Use it at your own risk.
 
-0.9.6.2 (2nd emergency release)
+= 0.9.6.2 (2nd emergency release) =
 [fix] 'Number of entries' setting is now applied again to the 'read' frontpage. (Thanks, Kristin!)
 
-0.9.6.1 (emergency release)
+= 0.9.6.1 (emergency release) =
 [new] Added log message to track if an entry has been changed using the editor.
 [fix] Fixed several bugs.
 
-0.9.6
+= 0.9.6 =
 [new] When viewing 'all' entries you can now enable/disable entries by just clicking at the icon. (AJAX, Yey!)
 [new] French language (thanks, cobestran.com)
 [new] Author's can now be linked to his/her website. (Can be turned off in the settings.)
@@ -240,16 +240,16 @@ Please note: The widget is planned for a future release. Use it at your own risk
 [fix] Date is now displayed as configured at the WP options page.
 [fix] Admin entries: Only show stuff member's name if found.
 
-0.9.5
+= 0.9.5 =
 [new] You can now import guestbook entries from the popular "DMSGuestbook" plugin easily.
 
-0.9.4.7
+= 0.9.4.7 =
 [fix] Correctly displaying author's name if it contains HTML elements such as <script> tags
 [fix] stripslashes on author's location, so locations like "My aunt's house" are displayed correctly.
 [fix] the_content() now just returns the guestbook instead of echo'ing it. This way, other plugins are able to modify the content.
 [fix] Added success message when uninstall is completed.
 
-0.9.4.6
+= 0.9.4.6 =
 [new] Option to output text before/after the [gwolle-gb]-Tag, as requested
 [new] Whois link for IP address of the entry author
 [new] Entry content can now be send with the notification mail. For security reasons '<' and '>' are send as '{' and '}'.
@@ -261,13 +261,13 @@ Please note: The widget is planned for a future release. Use it at your own risk
 [fix] Metaboxes ('Save' etc.) are displayed again. Sorry for that one, folks!
 Now online again with http://wolfgangtimme.de/blog/!
 
-0.9.4.5
+= 0.9.4.5 =
 As this release alters your Gwolle-GB database tables I highly recommend to backup the old ones.
 If you're experiencing any errors please report them immediately. Thanks!
 [new] Option to toggle the visibility of line breaks
 [fix] All tables & fields are now UTF8 (-> support for Croation letters)
 
-0.9.4.4a
+= 0.9.4.4a =
 [new] After deleting an entry directly from the entries page you'll be redirected to that specific page (spam/unlocked/locked/all)
 [fix] reCAPTCHA library is not include if that's already been done by another plugin.
 [new] Dutch translation added. Thank you, timomaas!
@@ -276,14 +276,14 @@ If you're experiencing any errors please report them immediately. Thanks!
 [new] mass editing of entries added
 [new] Notification list shows ALL subscribers, including the current user.
 
-0.9.4.3
+= 0.9.4.3 =
 [fix] Redirection failed again.
 [new] Added an option to set link to the guestbook manually.
 
-0.9.4.2.1
+= 0.9.4.2.1 =
 [rem] Removed the version check because of some problems.
 
-0.9.4.2
+= 0.9.4.2 =
 [fix] Redirection to reading page after posting entry sometimes failed.
 [new] Option to set the number of entries displayed in reading mode.
 [new] Option to set the mail notification text
