@@ -1,18 +1,20 @@
 <?php
-  /**
-   * gwolle_gb_add_log_entry
-   * Adds a new log entry
-   */
-  if (!function_exists('gwolle_gb_add_log_entry')) {
-    function gwolle_gb_add_log_entry($args) {
-      global $wpdb;
-      global $current_user;
-      
-      if (!isset($args['subject']) || !isset($args['subject_id']) || (int)$args['subject_id'] === 0) {
-        return FALSE;
-      }
-      
-      $sql = "
+	/*
+	 * gwolle_gb_add_log_entry
+	 * Adds a new log entry
+	 */
+
+
+if (!function_exists('gwolle_gb_add_log_entry')) {
+	function gwolle_gb_add_log_entry($args) {
+		global $wpdb;
+		global $current_user;
+
+		if (!isset($args['subject']) || !isset($args['subject_id']) || (int) $args['subject_id'] === 0) {
+			return FALSE;
+		}
+
+		$sql = "
 			INSERT
 			INTO
 				" . $wpdb->gwolle_gb_log."
@@ -23,15 +25,14 @@
 				log_date
 			) VALUES (
 				'".addslashes($args['subject'])."',
-				".(int)$args['subject_id'].",
-				".(int)$current_user->data->ID.",
+				".(int) $args['subject_id'].",
+				".(int) $current_user->data->ID.",
 				'".mktime()."'
 			)";
-			$result = mysql_query($sql);
-			if (mysql_affected_rows() == 1) {
-				return TRUE;
-			}
-			return FALSE;
-    }
-  }
-?>
+		$result = $wpdb->query($sql);
+		if ($result == 1) {
+			return TRUE;
+		}
+		return FALSE;
+	}
+}
