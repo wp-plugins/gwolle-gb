@@ -1,20 +1,17 @@
 <?php
-if (!function_exists('gwolle_gb_get_entries')) {
-	/**
+
+	/*
 	 * gwolle_gb_get_entries
 	 * Function to get query the database for guestbook entries.
 	 * Parameter:
 	 * - $args  arguments to specify the query
 	 */
-	function gwolle_gb_get_entries($args = array()) {
+	function gwolle_gb_get_entries_old($args = array()) {
 		global $wpdb;
-
-		include (GWOLLE_GB_DIR . '/functions/gwolle_gb_format_value_for_output.func.php');
+		global $gwolle_gb_settings;
 
 		// Load settings, if not set
-		global $gwolle_gb_settings;
 		if (!isset($gwolle_gb_settings)) {
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_settings.func.php');
 			gwolle_gb_get_settings();
 		}
 
@@ -28,33 +25,33 @@ if (!function_exists('gwolle_gb_get_entries')) {
 			switch($args['show']) {
 				case 'checked' :
 					$where .= "
-              AND
-              e.entry_isChecked = 1";
+						AND
+						e.entry_isChecked = 1";
 					break;
 				case 'unchecked' :
 					$where .= "
-              AND
-              e.entry_isChecked != 1";
+						AND
+						e.entry_isChecked != 1";
 					break;
 				case 'spam' :
 					$where .= "
-              AND
-              e.entry_isSpam = 1";
+						AND
+						e.entry_isSpam = 1";
 					break;
 				case 'trash' :
 					$where .= "
-              AND
-              e.entry_isDeleted = 1";
+						AND
+						e.entry_isDeleted = 1";
 					break;
 			}
 		}
 
 		if (!isset($args['show_deleted']) && !isset($args['entry_id']) && !isset($args['trash']) && (!isset($args['show']) || (isset($args['show']) && $args['show'] !== 'trash'))) {
 			$where .= "
-          AND
-          e.entry_isDeleted = 0";
+				AND
+				e.entry_isDeleted = 0";
 		}
-		if (isset($args['offset']) && (int)$args['offset'] > 0) {
+		if (isset($args['offset']) && (int) $args['offset'] > 0) {
 			$limit = $args['offset'] . ", " . $num_entries;
 		} else {
 			$limit = "0, " . $num_entries;
@@ -62,48 +59,63 @@ if (!function_exists('gwolle_gb_get_entries')) {
 		if (isset($args['entry_id'])) {
 			if ((int)$args['entry_id'] > 0) {
 				$where .= "
-            AND
-            e.entry_id = " . (int)$args['entry_id'];
+					AND
+					e.entry_id = " . (int) $args['entry_id'];
 			} else {
 				return FALSE;
 			}
 		}
 
 		$sql = "
-      SELECT
-        e.entry_id,
-        e.entry_author_name,
-        e.entry_authorAdminId,
-        e.entry_author_email,
-        e.entry_author_origin,
-        e.entry_author_website,
-        e.entry_author_ip,
-        e.entry_author_host,
-        e.entry_content,
-        e.entry_date,
-        e.entry_isChecked,
-        e.entry_checkedBy,
-        e.entry_isDeleted,
-        e.entry_isSpam
-      FROM
-        " . $wpdb -> gwolle_gb_entries . " e
-      WHERE
-        " . $where . "
-      ORDER BY
-        e.entry_date DESC
-      LIMIT
-        " . $limit;
-		$result = $wpdb->query($sql);
-		if ($result == 0) {
+			SELECT
+				e.entry_id,
+				e.entry_author_name,
+				e.entry_authorAdminId,
+				e.entry_author_email,
+				e.entry_author_origin,
+				e.entry_author_website,
+				e.entry_author_ip,
+				e.entry_author_host,
+				e.entry_content,
+				e.entry_date,
+				e.entry_isChecked,
+				e.entry_checkedBy,
+				e.entry_isDeleted,
+				e.entry_isSpam
+			FROM
+				" . $wpdb->gwolle_gb_entries . " e
+			WHERE
+				" . $where . "
+			ORDER BY
+				e.entry_date DESC
+			LIMIT
+				" . $limit;
+		$datalist = $wpdb->get_results($sql, ARRAY_A);
+		if (count($datalist) == 0) {
 			return FALSE;
 		} else {
 			$entries = array();
 			$staff_member_names = array();
 			$blogurl = get_bloginfo('wpurl');
-			$datalist = $wpdb -> get_results($sql, ARRAY_A);
 			foreach ($datalist as $data) {
 
-				$entry = array('entry_id' => (int)$data['entry_id'], 'entry_author_name' => stripslashes($data['entry_author_name']), 'entry_authorAdminId' => (int)$data['entry_authorAdminId'], 'entry_author_email' => stripslashes($data['entry_author_email']), 'entry_author_origin' => stripslashes($data['entry_author_origin']), 'entry_author_website' => stripslashes($data['entry_author_website']), 'entry_author_ip' => $data['entry_author_ip'], 'entry_author_host' => $data['entry_author_host'], 'entry_content' => stripslashes($data['entry_content']), 'entry_date' => $data['entry_date'], 'entry_isChecked' => (int)$data['entry_isChecked'], 'entry_checkedBy' => (int)$data['entry_checkedBy'], 'entry_isDeleted' => (int)$data['entry_isDeleted'], 'entry_isSpam' => (int)$data['entry_isSpam'], 'entry_date_html' => date('d.m.Y', $data['entry_date']));
+				$entry = array(
+					'entry_id' => (int)$data['entry_id'],
+					'entry_author_name' => stripslashes($data['entry_author_name']),
+					'entry_authorAdminId' => (int)$data['entry_authorAdminId'],
+					'entry_author_email' => stripslashes($data['entry_author_email']),
+					'entry_author_origin' => stripslashes($data['entry_author_origin']),
+					'entry_author_website' => stripslashes($data['entry_author_website']),
+					'entry_author_ip' => $data['entry_author_ip'],
+					'entry_author_host' => $data['entry_author_host'],
+					'entry_content' => stripslashes($data['entry_content']),
+					'entry_date' => $data['entry_date'],
+					'entry_isChecked' => (int)$data['entry_isChecked'],
+					'entry_checkedBy' => (int)$data['entry_checkedBy'],
+					'entry_isDeleted' => (int)$data['entry_isDeleted'],
+					'entry_isSpam' => (int)$data['entry_isSpam'],
+					'entry_date_html' => date('d.m.Y', $data['entry_date'])
+				);
 
 				//  Build excerpt
 				$entry['excerpt'] = gwolle_gb_format_value_for_output(substr($entry['entry_content'], 0, $excerpt_length));
@@ -115,7 +127,7 @@ if (!function_exists('gwolle_gb_get_entries')) {
 				}
 				//  Get staff member's name if necessary
 				if ($entry['entry_authorAdminId'] > 0) {
-					//	Dies ist ein Admin-Eintrag; hole den Benutzernamen, falls nicht geschehen.
+					// Admin entry; hole den Benutzernamen, falls nicht geschehen.
 					if (!isset($staff_member_names[$entry['entry_authorAdminId']])) {
 						$userdata = get_userdata($entry['entry_authorAdminId']);
 						if (!is_object($userdata)) {
@@ -169,5 +181,4 @@ if (!function_exists('gwolle_gb_get_entries')) {
 		return FALSE;
 	}
 
-}
-?>
+
