@@ -7,11 +7,11 @@
     function gwolle_gb_add_log_entry($args) {
       global $wpdb;
       global $current_user;
-      
+
       if (!isset($args['subject']) || !isset($args['subject_id']) || (int)$args['subject_id'] === 0) {
         return FALSE;
       }
-      
+
       $sql = "
 			INSERT
 			INTO
@@ -27,8 +27,8 @@
 				".(int)$current_user->data->ID.",
 				'".mktime()."'
 			)";
-			$result = mysql_query($sql);
-			if (mysql_affected_rows() == 1) {
+			$result = $wpdb->query($sql);
+			if ($result == 1) {
 				return TRUE;
 			}
 			return FALSE;
