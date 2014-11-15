@@ -1,4 +1,6 @@
 <?php
+
+// KILL this file, it's too old anyway
 	// Pre-2.6 compatibility
 	if ( !defined( 'WP_CONTENT_URL' ) )
 		define( 'WP_CONTENT_URL', get_option( 'siteurl' ) . '/wp-content' );
