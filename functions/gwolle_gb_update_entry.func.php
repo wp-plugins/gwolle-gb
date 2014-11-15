@@ -14,7 +14,6 @@ if (!function_exists('gwolle_gb_update_entry')) {
 		// Load settings, if not set
 		global $gwolle_gb_settings;
 		if (!isset($gwolle_gb_settings)) {
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_settings.func.php');
 			gwolle_gb_get_settings();
 		}
 
@@ -24,7 +23,6 @@ if (!function_exists('gwolle_gb_update_entry')) {
 		}
 
 		//  Check entry
-		include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_check_entry_data.func.php');
 		$entry = gwolle_gb_check_entry_data(array('action' => 'update', 'old_entry' => $args['old_entry']));
 		if ($entry === FALSE) {
 			//  There are errors in this entry.
@@ -38,7 +36,7 @@ if (!function_exists('gwolle_gb_update_entry')) {
 				  entry_author_origin   = '" . addslashes($entry['origin']) . "',
 				  entry_author_website  = '" . addslashes($entry['website']) . "',
 				  entry_content         = '" . addslashes($entry['content']) . "',
-				  entry_isChecked       = " . (int)$entry['is_checked'] . "
+				  entry_isChecked       = " . (int) $entry['is_checked'] . "
 				WHERE
 				  entry_id = " . $entry['entry_id'] . "
 				LIMIT 1";
