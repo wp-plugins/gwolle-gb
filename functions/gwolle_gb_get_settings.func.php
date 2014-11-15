@@ -26,12 +26,12 @@
         o.option_name LIKE 'gwolle_gb-%'
       ORDER BY
         o.option_name";
-      $result = mysql_query($sql);
-      if (mysql_num_rows($result) == 0) {
+      $options = $wpdb->get_results($sql, ARRAY_A);
+      if ($wpdb->num_rows == 0) {
         return FALSE;
-      }
-      else {
-        while($option = mysql_fetch_array($result, MYSQL_ASSOC)) {
+      } else {
+
+		foreach ($options as $option) {
           if (in_array($option['value'], array('true', 'false'))) {
             $value = ($option['value'] == 'true') ? TRUE : FALSE;
           }
@@ -48,12 +48,10 @@
         $gwolle_gb_settings['entries_per_page'] = 15;
         //  Default mail text
         $gwolle_gb_settings['defaultMailText'] = __("Hello,\n\nthere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer",GWOLLE_GB_TEXTDOMAIN);
-        
         if (defined('GWOLLE_GB_ACCESS_LEVEL') === FALSE) {
           if (get_option('gwolle_gb-access-level') === FALSE) {
             define('GWOLLE_GB_ACCESS_LEVEL', 10);
-          }
-          else {
+          //} else {
             define('GWOLLE_GB_ACCESS_LEVEL', $gwolle_gb_settings['access-level']);
           }
         }
