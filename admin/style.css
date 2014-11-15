@@ -1,3 +1,10 @@
+
+/*
+ * CSS for the admin part of Gwolle GB Guestbook.
+ */
+
+
+/* Menu Icon */
 #icon-gwolle-gb {
 	background-image: url(gfx/icon-gross-hover.png);
 	background-repeat: no-repeat;
@@ -7,6 +14,7 @@
 	height: 46px;
 }
 
+/* Page Navigation on entries.php */
 #page-nav {
 	display: block;
 	clear: both;
@@ -14,37 +22,48 @@
 	text-align: right;
 }
 
-.id, .check {
+.id,
+.check {
 	width: 12px;
 }
 
-.entry-checked, .entry-unchecked, .entry-loading {
+.entry-checked,
+.entry-unchecked,
+.entry-loading {
 	background-repeat: no-repeat;
 	background-position: 0px 6px;
 	width: 10px;
 	cursor: move;
 }
-.entry-checked { background-image: url(gfx/entry-checked.jpg); }
-.entry-unchecked { background-image: url(gfx/entry-unchecked.jpg); }
-.entry-loading { background-image: url(gfx/loading.gif); }
+.entry-checked {
+	background-image: url(gfx/entry-checked.jpg);
+}
+.entry-unchecked {
+	background-image: url(gfx/entry-unchecked.jpg);
+}
+.entry-loading {
+	background-image: url(gfx/loading.gif);
+}
 
 tr.entry td img {
-  vertical-align: middle;
+	vertical-align: middle;
 }
 img.spam {
-  margin-right: 4px;
-  cursor: move;
+	margin-right: 4px;
+	cursor: move;
 }
 
+
+/* Dashboard Widget */
 #gwolle_gb_dashboard .inside {
-  margin-top: 0px;
+	margin-top: 0px;
 }
 #gwolle_gb_dashboard div.undo {
-  border-top-color:#DFDFDF;
-  background-color:#F4F4F4;
-  border-top-style: solid;
-  border-top-width: 1px;
-  font-size: 11px;
-  margin: 0 -10px;
-  padding: 3px 8px;
+	border-top-color: #DFDFDF;
+	background-color: #F4F4F4;
+	border-top-style: solid;
+	border-top-width: 1px;
+	font-size: 11px;
+	margin: 0 -10px;
+	padding: 3px 8px;
 }
