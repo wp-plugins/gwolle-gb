@@ -1,168 +1,199 @@
 <?php
-/**
- * read.php
+
+// No direct calls to this script
+if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
+
+
+/*
+ * gwolle_gb_frontend_read
  * Reading mode of the guestbook frontend
  */
 
-include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_entries.func.php');
-include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_entry_count.func.php');
-include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_format_value_for_output.func.php');
+function gwolle_gb_frontend_read() {
 
-// Load settings, if not set
-global $gwolle_gb_settings;
-if (!isset($gwolle_gb_settings)) {
-	include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_settings.func.php');
-	gwolle_gb_get_settings();
-}
+	$output = '';
 
-$msg = FALSE;
-//  Unset Gwolle-GB session data, if set
-if (isset($_SESSION['gwolle_gb'])) {
-	if (isset($_SESSION['gwolle_gb']['msg'])) {
-		$msg = $_SESSION['gwolle_gb']['msg'];
+
+	// Get permalink of the guestbookpage so we can work with it.
+	$page_link = get_permalink( get_the_ID() );
+	$pattern = '/\?/';
+	if ( !preg_match($pattern, $page_link, $matches, PREG_OFFSET_CAPTURE, 3) ) {
+		// Append with a slash and questionmark, so we can add parameters
+		$page_link .= '/?';
 	}
-	$_SESSION['gwolle_gb'] = array();
-}
 
-// Get links to guestbook page
-include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_link.func.php');
-$gb_links = gwolle_gb_get_link(array('all' => TRUE));
 
-//	Link 'write a new entry...'
-$output .= '
-	<div style="margin-bottom:10px;">
-    <a target="_self" href="' . $gb_links['write'] . '">&raquo; ' . __('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '</a>
-  </div>';
+	$entriesPerPage = (int) get_option('gwolle_gb-entriesPerPage');
+	if (!$entriesPerPage || $entriesPerPage < 1) {
+		// This option has not been set, or has manually been edited/deleted in the database. Use default value.
+		$entriesPerPage = 20;
+	}
+	$entriesCount = gwolle_gb_get_entry_count(
+		array(
+			'checked' => 'checked',
+			'deleted' => 'notdeleted',
+			'spam' => 'nospam'
+		)
+	);
 
-if ($msg !== FALSE) {
-	$output .= '
-    <div class="msg">' . $msg . '</div>';
-}
+	$countPages = round($entriesCount / $entriesPerPage);
+	if ($countPages * $entriesPerPage < $entriesCount) {
+		$countPages++;
+	}
 
-$entriesPerPage = (int)$gwolle_gb_settings['entriesPerPage'];
-if (!$entriesPerPage || $entriesPerPage < 1) {
-	//	This option has not been set, or has manually been edited/deleted in the database. Use default value.
-	$entriesPerPage = 20;
-}
-$entriesCount = gwolle_gb_get_entry_count(array('entry_status' => 'checked'));
-$countPages = round($entriesCount / $entriesPerPage);
-if ($countPages * $entriesPerPage < $entriesCount) {
-	$countPages++;
-}
-
-if (!$_REQUEST['pageNum']) {
 	$pageNum = 1;
-} else {
-	$pageNum = $_REQUEST['pageNum'];
-}
-
-if ($pageNum > $countPages) {
-	$pageNum = 1;
-}
-
-if ($pageNum == 1 && $entriesCount > 0) {
-	$firstEntryNum = 1;
-	$mysqlFirstRow = 0;
-} elseif ($entriesCount == 0) {
-	$firstEntryNum = 0;
-	$mysqlFirstRow = 0;
-} else {
-	$firstEntryNum = ($pageNum - 1) * $entriesPerPage + 1;
-	$mysqlFirstRow = $firstEntryNum - 1;
-}
-
-$lastEntryNum = $pageNum * $entriesPerPage;
-if ($entriesCount == 0) {
-	$lastEntryNum = 0;
-} elseif ($lastEntryNum > $entriesCount) {
-	$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
-}
-
-// Get the entries
-$entries = gwolle_gb_get_entries(array('offset' => $mysqlFirstRow, 'show' => 'checked', 'num_entries' => $entriesPerPage));
-
-//	page navigation
-$output .= '<div id="page-navigation">';
-if ($pageNum > 1) {
-	$output .= '<a href="' . $gb_links['read'] . '&amp;pageNum=' . round($pageNum - 1) . '">&laquo;</a>';
-}
-if ($pageNum < 5) {
-	if ($countPages < 4) { $showRange = $countPages;
-	} else { $showRange = 6;
+	if ( isset($_GET['pageNum']) && is_numeric($_GET['pageNum']) ) {
+		$pageNum = $_GET['pageNum'];
 	}
-	for ($i = 1; $i < $showRange; $i++) {
-		if ($i == $pageNum) {
-			$output .= '<span>' . $i . '</span>';
-		} else {
-			$output .= '<a href="' . $gb_links['read'] . '&amp;pageNum=' . $i . '">' . $i . '</a>';
+
+	if ($pageNum > $countPages) {
+		$pageNum = 1;
+	}
+
+	if ($pageNum == 1 && $entriesCount > 0) {
+		$firstEntryNum = 1;
+		$mysqlFirstRow = 0;
+	} elseif ($entriesCount == 0) {
+		$firstEntryNum = 0;
+		$mysqlFirstRow = 0;
+	} else {
+		$firstEntryNum = ($pageNum - 1) * $entriesPerPage + 1;
+		$mysqlFirstRow = $firstEntryNum - 1;
+	}
+
+	$lastEntryNum = $pageNum * $entriesPerPage;
+	if ($entriesCount == 0) {
+		$lastEntryNum = 0;
+	} elseif ($lastEntryNum > $entriesCount) {
+		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
+	}
+
+
+	/* Get the entries for the frontend */
+	$entries = gwolle_gb_get_entries(
+		array(
+			'offset' => $mysqlFirstRow,
+			'num_entries' => $entriesPerPage,
+			'checked' => 'checked',
+			'deleted' => 'notdeleted',
+			'spam' => 'nospam'
+		)
+	);
+
+
+	/* Page navigation */
+	$output .= '<div id="page-navigation">';
+	if ($pageNum > 1) {
+		$output .= '<a href="' . $page_link . '&amp;pageNum=' . round($pageNum - 1) . '">&laquo;</a>';
+	}
+	if ($pageNum < 5) {
+		if ($countPages < 4) { $showRange = $countPages;
+		} else { $showRange = 6;
+		}
+		for ($i = 1; $i < $showRange; $i++) {
+			if ($i == $pageNum) {
+				$output .= '<span>' . $i . '</span>';
+			} else {
+				$output .= '<a href="' . $page_link . '&amp;pageNum=' . $i . '">' . $i . '</a>';
+			}
+		}
+
+		if ($pageNum < $countPages - 2) {
+			$highDotsMade = true;
+			/* The dots next to the highest number have already been put out. */
+			$output .= '<span class="page-numbers dots">...</span>';
+		}
+	} elseif ($pageNum >= 5) {
+		$output .= '<a href="' . $gb_links['read'] . '&amp;pageNum=1">1</a>';
+		if ($pageNum - 3 > 1) { $output .= '<span>...</span>';
+		}
+		if ($pageNum + 2 < $countPages) { $minRange = $pageNum - 2;
+			$showRange = $pageNum + 2;
+		} else { $minRange = $pageNum - 3;
+			$showRange = $countPages - 1;
+		}
+		for ($i = $minRange; $i <= $showRange; $i++) {
+			if ($i == $pageNum) {
+				$output .= '<span>' . $i . '</span>';
+			} else {
+				$output .= '<a href="' . $page_link . '&amp;pageNum=' . $i . '">' . $i . '</a>';
+			}
+		}
+		if ($pageNum == $countPages) {
+			$output .= '<span class="page-numbers current">' . $pageNum . '</span>';
 		}
 	}
 
-	if ($pageNum < $countPages - 2) {
-		$highDotsMade = true;
-		//	The dots next to the highest number have already been put out.
-		$output .= '<span class="page-numbers dots">...</span>';
+	if ($pageNum < $countPages) {
+		if ($pageNum + 3 < $countPages && !$highDotsMade) {
+			$output .= '<span class="page-numbers dots">...</span>';
+		}
+		$output .= '<a href="' . $page_link . '&amp;pageNum=' . $countPages . '">' . $countPages . '</a>';
+		$output .= '<a href="' . $page_link . '&amp;pageNum=' . round($pageNum + 1) . '">&raquo;</a>';
 	}
-} elseif ($pageNum >= 5) {
-	$output .= '<a href="' . $gb_links['read'] . '&amp;pageNum=1">1</a>';
-	if ($pageNum - 3 > 1) { $output .= '<span>...</span>';
-	}
-	if ($pageNum + 2 < $countPages) { $minRange = $pageNum - 2;
-		$showRange = $pageNum + 2;
-	} else { $minRange = $pageNum - 3;
-		$showRange = $countPages - 1;
-	}
-	for ($i = $minRange; $i <= $showRange; $i++) {
-		if ($i == $pageNum) {
-			$output .= '<span>' . $i . '</span>';
-		} else {
-			$output .= '<a href="' . $gb_links['read'] . '&amp;pageNum=' . $i . '">' . $i . '</a>';
+	$output .= '</div>';
+
+
+	/* Entries */
+	if ( count($entries) == 0 ) {
+		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
+	} else {
+		$first = true;
+		foreach ($entries as $entry) {
+			// Main Author div
+			$output .= '<div class="';
+			if ($first == true) {
+				$first = false;
+				$output .= ' first ';
+			}
+			$output .= ' gb-entry ';
+			$output .= ' gb-entry_' . $entry->get_id() . ' ';
+			$authoradminid = $entry->get_authoradminid();
+			$is_moderator = gwolle_gb_is_moderator( $authoradminid );
+			if ( $is_moderator ) {
+				$output .= ' admin-entry ';
+			}
+			$output .= '">';
+
+			// Author Info
+			$output .= '<div class="author-info">';
+
+			// Author Avatar
+			if ( get_option('show_avatars') ) {
+				$avatar = get_avatar( $entry->get_author_email(), 32, '', $entry->get_author_name() );
+				if ($avatar) {
+					$output .= '<span class="author-avatar">' . $avatar . '</span>';
+				}
+			}
+
+			$author_name_html = gwolle_gb_get_author_name_html($entry);
+			$output .= '<span class="author-name">' . $author_name_html . '</span>';
+
+			// Author Origin
+			$origin = $entry->get_author_origin();
+			if ( strlen(str_replace(' ', '', $origin)) > 0 ) {
+				$output .= ' ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' <span class="author-origin">' . gwolle_gb_format_value_for_output($origin) . '</span>';
+			}
+			$output .= ' ' . __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ' . gmdate( get_option('date_format'), $entry->get_date() ) . ':';
+			$output .= '</div>';
+
+			// Main Content
+			$output .= '<div class="entry-content">';
+			$entry_content = gwolle_gb_format_value_for_output( $entry->get_content() );
+			if ( get_option('gwolle_gb-showSmilies') === 'true' ) {
+				$entry_content = convert_smilies($entry_content);
+			}
+			if ( get_option('gwolle_gb-showLineBreaks') === 'true' ) {
+				$output .= nl2br($entry_content);
+			} else {
+				$output .= $entry_content;
+			}
+			$output .= '</div>';
+
+			$output .= '</div>';
 		}
 	}
-	if ($pageNum == $countPages) {
-		$output .= '<span class="page-numbers current">' . $pageNum . '</span>';
-	}
+
+	return $output;
 }
 
-if ($pageNum < $countPages) {
-	if ($pageNum + 3 < $countPages && !$highDotsMade) { $output .= '<span class="page-numbers dots">...</span>';
-	}
-
-	$output .= '<a href="' . $gb_links['read'] . '&amp;pageNum=' . $countPages . '">' . $countPages . '</a>';
-	$output .= '<a href="' . $gb_links['read'] . '&amp;pageNum=' . round($pageNum + 1) . '">&raquo;</a>';
-}
-$output .= '</div>';
-
-if ($entries === FALSE) {
-	$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
-} else {
-	//  Get option how to display the date
-	foreach ($entries as $entry) {
-		$output .= '<div';
-		if (!$notFirst) { $notFirst = true;
-			$output .= ' id="first"';
-		} $output .= ' class="gb-entry ';
-		if ($entry['entry_authorAdminId'] > 0) { $output .= 'admin-entry';
-		} $output .= '">';
-		$output .= '<div class="author-info">';
-		$output .= '<span class="author-name">' . $entry['entry_author_name_html'] . '</span>';
-		if (strlen(str_replace(' ', '', $entry['entry_author_origin'])) > 0) {
-			$output .= ' ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' <span class="author-origin">' . gwolle_gb_format_value_for_output($entry['entry_author_origin']) . '</span>';
-		}
-		$output .= ' ' . __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ' . gmdate(get_option('date_format'), $entry['entry_date']) . ':';
-		$output .= '</div>';
-		$output .= '<div class="entry-content">';
-		$entry_content = gwolle_gb_format_value_for_output($entry['entry_content']);
-		if ($gwolle_gb_settings['showSmilies'] === TRUE) {
-			$entry_content = convert_smilies($entry_content);
-		}
-		if ($gwolle_gb_settings['showLineBreaks'] === TRUE) {
-			$output .= nl2br($entry_content);
-		} else {
-			$output .= $entry_content;
-		}
-		$output .= '</div>';
-		$output .= '</div>';
-	}
-}
-?>
