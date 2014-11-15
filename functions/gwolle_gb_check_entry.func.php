@@ -7,19 +7,21 @@
     function gwolle_gb_check_entry($args=array()) {
       global $wpdb;
       global $current_user;
+//echo "Args: "; var_dump($args);
+
       if (!isset($args['entry_id']) || (int)$args['entry_id'] === 0) {
         return FALSE;
       }
-      
+
       // Load settings, if not set
     	global $gwolle_gb_settings;
     	if (!isset($gwolle_gb_settings)) {
         include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
         gwolle_gb_get_settings();
       }
-      
+
       $entry_isChecked = (isset($args['uncheck']) && $args['uncheck'] === TRUE) ? 0 : 1;
-      
+
       $sql = "
       UPDATE
         ".$wpdb->gwolle_gb_entries."
@@ -29,8 +31,8 @@
       WHERE
         entry_id = ".(int)$args['entry_id']."
       LIMIT 1";
-      $result = mysql_query($sql);
-      if (mysql_affected_rows() == 1) {
+      $result = $wpdb->query($sql);
+      if ($result == 1) {
         //  Write log entry
         include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_add_log_entry.func.php');
         $log = array();

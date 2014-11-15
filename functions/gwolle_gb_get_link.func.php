@@ -17,12 +17,12 @@
        * If not, try to get it.
        */
       $post_id = (isset($gwolle_gb_settings['post_ID']) && (int)$gwolle_gb_settings['post_ID'] > 0) ? (int)$gwolle_gb_settings['post_ID'] : FALSE;
-      if ($post_id === FALSE) {
+      if ((int) $post_id === 0) {
         include_once(GWOLLE_GB_DIR.'/functions/get_gwolle_gb_post_id.func.php');
         $post_id = get_gwolle_gb_post_id();
       }
       
-      if ($post_id === FALSE) {
+      if ((int) $post_id === 0) {
         global $wp_query;
         global $post;
         // Still no $post_id. Try to get it via the $_REQUEST vars.
@@ -37,7 +37,7 @@
           $post_id = $post->ID;
         }
       }
-      
+
       if ((int)$post_id === 0) {
         //  Well, we've done everything we can. Time to tell the truth.
         return FALSE;
