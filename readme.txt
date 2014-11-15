@@ -88,10 +88,13 @@ First priority is getting the plugin working with current WordPress and resolve 
 * Use no redirects.
 * Use a simple Message system.
 * Add possibility to empty trash and spam.
-* Make install method more safe.
+* Make Install method more safe.
+* Make Import method more failsafe and refactor it.
 * Bring AJAX back, this time inside actions.
 * Bring Import and Uninstall back, this time in separate admin pages.
 * Bring Frontend Widget and Dashboard Widget back.
+* Redo Settings page with tabs for separate parts.
+* Add an RSS Feed.
 
 If you have a feature request please use the forum on WordPress.org. I may add it to the list then.
 
@@ -111,7 +114,7 @@ The following list is from the original author.
 Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". I am subscribed to that forum,
 so I will get your message. Or send me an email: marcel (at) zenoweb (dot) nl. Thanks.
 
-= Thank you! =
+= Thank you =
 
 * timomaas for the original dutch translation
 * Daniel Speichert for the polish translation
@@ -170,6 +173,7 @@ and also the WordPress documentation.
 
 == Changelog ==
 
+= 0.9.9.2 =
 
 = 0.9.9.1 =
 * 2014-11-15

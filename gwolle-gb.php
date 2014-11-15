@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://zenoweb.nl
 Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and have a real guestbook.
-Version: 0.9.9.1
+Version: 0.9.9.2
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
 */
@@ -28,7 +28,7 @@ Author URI: http://zenoweb.nl
 
 
 // Plugin Version
-define('GWOLLE_GB_VER', '0.9.9.1');
+define('GWOLLE_GB_VER', '0.9.9.2');
 
 
 /*
@@ -69,7 +69,6 @@ include_once( GWOLLE_GB_DIR . '/admin/page-entries.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-gwolle-gb.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-import.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-settings.php' );
-include_once( GWOLLE_GB_DIR . '/admin/spam.func.php' );
 include_once( GWOLLE_GB_DIR . '/admin/upgrade.php' );
 
 // General Functions
@@ -79,10 +78,11 @@ include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_get_entry_count.php
 include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_misc.php' );
 
 
-// Old Functions, to be replaced by new functions or classes
+// Old Functions, to be replaced by new functions or class
+include_once( GWOLLE_GB_DIR . '/admin/check_entry.func.php' );
+include_once( GWOLLE_GB_DIR . '/admin/spam.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/get_gwolle_gb_post_id.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_add_log_entry.func.php' );
-include_once( GWOLLE_GB_DIR . '/admin/check_entry.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_check_entry.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_check_entry_data.func.php' );
 include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_delete_entry.func.php' );

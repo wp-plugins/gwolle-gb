@@ -317,7 +317,7 @@ function upgrade_gwolle_gb() {
 		/*
 		 *  0.9.8.1->0.9.9.0
 		 *  Removed the access level option, use standard WordPress capabilities.
-		 *  Save Users that are subcribed to nitification mails in an option with the array of user_id's
+		 *  Save Users that are subcribed to notification mails in an option with the array of user_id's
 		 */
 		delete_option('gwolle_gb-access-level');
 
@@ -348,6 +348,23 @@ function upgrade_gwolle_gb() {
 			$user_ids = implode(",", $user_ids);
 			update_option('gwolle_gb-notifyByMail', $user_ids);
 		}
+	}
+
+	if (version_compare($installed_ver, '0.9.9.2', '<')) {
+		/*
+		 *  0.9.9.1->0.9.9.2
+		 *  Remove the options of Users that are subcribed to notification mails
+		 */
+		// FIXME: test this
+		$wpdb->query("
+				DELETE
+					FROM " . $wpdb->prefix . "options
+				WHERE
+					option_name LIKE 'gwolle_gb-notifyByMail-%'
+				OR
+					option_name LIKE 'gwolle_gb-notifyAll-%'
+			");
+
 	}
 
 	// Update the plugin version option
