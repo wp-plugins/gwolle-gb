@@ -14,7 +14,6 @@ if (!function_exists('gwolle_gb_check_entry_data')) {
 		// Load settings, if not set
 		global $gwolle_gb_settings;
 		if (!isset($gwolle_gb_settings)) {
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_settings.func.php');
 			gwolle_gb_get_settings();
 		}
 
@@ -128,21 +127,21 @@ if (!function_exists('gwolle_gb_check_entry_data')) {
 			 * table fields but the date.
 			 */
 			$sql = "
-        SELECT
-          entry_id
-        FROM
-          " . $wpdb -> gwolle_gb_entries . " e
-        WHERE
-          e.entry_author_name   = '" . addslashes($entry['name']) . "'
-          AND
-          e.entry_author_email  = '" . addslashes($entry['email']) . "'
-          AND
-          e.entry_author_origin = '" . addslashes($entry['origin']) . "'
-          AND
-          e.entry_author_ip     = '" . addslashes($entry['ip']) . "'
-          AND
-          e.entry_content       = '" . addslashes($entry['content']) . "'
-        LIMIT 1";
+				SELECT
+					entry_id
+				FROM
+					" . $wpdb -> gwolle_gb_entries . " e
+				WHERE
+					e.entry_author_name   = '" . addslashes($entry['name']) . "'
+					AND
+					e.entry_author_email  = '" . addslashes($entry['email']) . "'
+					AND
+					e.entry_author_origin = '" . addslashes($entry['origin']) . "'
+					AND
+					e.entry_author_ip     = '" . addslashes($entry['ip']) . "'
+					AND
+					e.entry_content       = '" . addslashes($entry['content']) . "'
+				LIMIT 1";
 			$result = $wpdb->query($sql);
 			if ($result > 0) {
 				//  This is a double post.
@@ -151,38 +150,15 @@ if (!function_exists('gwolle_gb_check_entry_data')) {
 
 			/**
 			 * Check for spam using Akismet, if this has been set in the
-			 * settings dialog of Gwolle-GB and if there's a Wordpress API key defined.
+			 * settings dialog of Gwolle-GB and if there's a WordPress API key defined.
 			 */
 			$entry['is_spam'] = 0;
 			$wordpressApiKey = get_option('wordpress_api_key');
 			if ($gwolle_gb_settings['akismet-active'] === TRUE && strlen($wordpressApiKey) > 0 && !isset($args['bypass_akismet'])) {
-				if (version_compare(phpversion(), '5.0', '>=')) {
-					include (AKISMET_PHP5_CLASS_DIR . '/Akismet.class.php');
-
-					$akismet = new Akismet($blogURL, $wordpressApiKey);
-					$akismet -> setCommentAuthor($entry['name']);
-					$akismet -> setCommentAuthorEmail($entry['email']);
-					$akismet -> setCommentAuthorURL($entry['website']);
-					$akismet -> setCommentContent($entry['content']);
-					$akismet -> setPermalink(get_bloginfo('wpurl'));
-					//	what's this?
-
-					if ($akismet -> isCommentSpam()) {
-						//	Akismet detected spam.
-						$entry['is_spam'] = 1;
-					}
-				} elseif (version_compare(phpversion(), '4.0', '>=')) {
-					//	Use the PHP4 class
-					include (AKISMET_PHP4_CLASS_DIR . '/Akismet.class.php');
-					$comment = array('author' => $entry['name'], 'email' => $entry['email'], 'website' => $entry['website'], 'body' => $entry['content'], 'permalink' => get_bloginfo('wpurl'));
-					$akismet = new Akismet(get_bloginfo('wpurl'), $wordpressApiKey, $comment);
-
-					if ($akismet -> isSpam()) {
-						//	Akismet detected spam.
-						$entry['is_spam'] = 1;
-					}
-				}
-				if ($entry['is_spam'] === 1) {
+				$isspam = gwolle_gb_isspam_akismet_old( $entry );
+				if ($isspam === true) {
+					//	Akismet detected spam.
+					$entry['is_spam'] = 1;
 					$error_messages[] = __("Your entry has been challenged against an anti-spam server and the result was positive.", GWOLLE_GB_TEXTDOMAIN);
 				}
 			}
@@ -201,4 +177,4 @@ if (!function_exists('gwolle_gb_check_entry_data')) {
 	}
 
 }
-?>
+
