@@ -7,10 +7,9 @@
 		global $current_user;
 		global $wpdb;
 
-		if (!current_user_can('level_' . GWOLLE_GB_ACCESS_LEVEL)) {
-			//	The current user has no rights to access to this
-			header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/gwolle-gb.php&msg=no-permission');
-			exit;
+		if (!current_user_can('moderate_comments')) {
+			// The current user has no rights to access to this
+			die(__('Cheatin&#8217; uh?'));
 		} else {
 			$delete_result = $wpdb->query("
 				UPDATE
@@ -59,7 +58,7 @@
 				header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=gwolle-gb/entries.php&msg=' . $msg . $show);
 				exit;
 			} else {
-				//	Don't redirect; just return success
+				// Don't redirect; just return success
 				return $success;
 			}
 		}
