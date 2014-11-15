@@ -7,12 +7,6 @@
  **	=> TRUE, if the old version number is smaller than the new one.
  */
 
-// Load settings, if not set
-global $gwolle_gb_settings;
-if (!isset($gwolle_gb_settings)) {
-	include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_settings.func.php');
-	gwolle_gb_get_settings();
-}
 
 function install_gwolle_gb() {
 	global $wpdb;
@@ -20,36 +14,36 @@ function install_gwolle_gb() {
 	//	Install the table for the entries
 	$sql = "
 		CREATE TABLE
-		  " . $wpdb->gwolle_gb_entries . "
+			" . $wpdb->gwolle_gb_entries . "
 		(
-		  entry_id int(10) NOT NULL auto_increment,
-		  entry_author_name text NOT NULL,
-		  entry_authorAdminId int(5) NOT NULL default '0',
-		  entry_author_email text NOT NULL,
-		  entry_author_origin text NOT NULL,
-		  entry_author_website text NOT NULL,
-		  entry_author_ip text NOT NULL,
-		  entry_author_host text NOT NULL,
-		  entry_content longtext NOT NULL,
-		  entry_date varchar(10) NOT NULL,
-		  entry_isChecked tinyint(1) NOT NULL,
-		  entry_checkedBy int(5) NOT NULL,
-		  entry_isDeleted varchar(1) NOT NULL default '0',
+			entry_id int(10) NOT NULL auto_increment,
+			entry_author_name text NOT NULL,
+			entry_authorAdminId int(5) NOT NULL default '0',
+			entry_author_email text NOT NULL,
+			entry_author_origin text NOT NULL,
+			entry_author_website text NOT NULL,
+			entry_author_ip text NOT NULL,
+			entry_author_host text NOT NULL,
+			entry_content longtext NOT NULL,
+			entry_date varchar(10) NOT NULL,
+			entry_isChecked tinyint(1) NOT NULL,
+			entry_checkedBy int(5) NOT NULL,
+			entry_isDeleted varchar(1) NOT NULL default '0',
 			entry_isSpam varchar(1) NOT NULL default '0',
-		  PRIMARY KEY  (entry_id)
+			PRIMARY KEY  (entry_id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
 
 	$sql = "
 		CREATE TABLE
-		  " . $wpdb -> gwolle_gb_log . "
+			" . $wpdb->gwolle_gb_log . "
 		(
-		  log_id int(8) NOT NULL auto_increment,
-		  log_subject text NOT NULL,
-		  log_subjectId int(5) NOT NULL,
-		  log_authorId int(5) NOT NULL,
-		  log_date varchar(12) NOT NULL,
-		  PRIMARY KEY  (log_id)
+			log_id int(8) NOT NULL auto_increment,
+			log_subject text NOT NULL,
+			log_subjectId int(5) NOT NULL,
+			log_authorId int(5) NOT NULL,
+			log_date varchar(12) NOT NULL,
+			PRIMARY KEY  (log_id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
 
@@ -60,9 +54,6 @@ function install_gwolle_gb() {
 
 	//	Add Akismet option
 	add_option('gwolle_gb-akismet-active', 'false');
-
-	//	Add access level option
-	add_option('gwolle_gb-access-level', '10');
 
 	//	Add moderation option
 	add_option('gwolle_gb-moderate-entries', 'true');
@@ -78,9 +69,6 @@ function install_gwolle_gb() {
 
 	//	Add option to toggle the visibility of line breaks
 	add_option('gwolle_gb-showLineBreaks');
-
-	//  Add option to show/hide text before/after [gwolle-gb] tag.
-	add_option('gwolle_gb-guestbookOnly', 'true');
 
 	//  Add option to toggle check if there is data to import.
 	add_option('gwolle_gb-checkForImport', 'true');
@@ -101,22 +89,22 @@ function install_gwolle_gb() {
 function uninstall_gwolle_gb() {
 	//	delete the plugin's tables
 	global $wpdb;
-	$wpdb->query("DROP TABLE " . $wpdb -> gwolle_gb_log . "");
-	$wpdb->query("DROP TABLE " . $wpdb -> gwolle_gb_entries . "");
+	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_log . "");
+	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_entries . "");
 
-	//	delete the plugin's preferences and version-no in the wp-options table
+	// Delete the plugin's preferences and version-no in the wp-options table
 	$wpdb->query("
 			DELETE
-				FROM " . $wpdb -> prefix . "options
+				FROM " . $wpdb->prefix . "options
 			WHERE
 				option_name LIKE 'gwolle_gb%'
 		");
 
 	if ($_POST['delete_recaptchaKeys'] == 'on' || (get_option('recaptcha-public-key') == '' && get_option('recaptcha-private-key') == '')) {
-		//	also delete the reCAPTCHA-keys
+		// Also delete the reCAPTCHA-keys
 		$wpdb->query("
 				DELETE
-					FROM " . $wpdb -> prefix . "options
+					FROM " . $wpdb->prefix . "options
 				WHERE
 					option_name = 'recaptcha-public-key'
 					OR
@@ -124,6 +112,7 @@ function uninstall_gwolle_gb() {
 			");
 	}
 
+	// FIXME, no redirect...
 	header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&msg=successfully-uninstalled');
 	exit ;
 }
@@ -134,8 +123,8 @@ function upgrade_gwolle_gb() {
 
 	if (version_compare($installed_ver, '0.9', '<')) {
 		/*
-		 **	0.8 -> 0.9
-		 **	No changes to the database; just added a few options.
+		 * 0.8 -> 0.9
+		 * No changes to the database; just added a few options.
 		 */
 		add_option('recaptcha-active', 'false');
 		add_option('recaptcha-public-key', '');
@@ -144,8 +133,8 @@ function upgrade_gwolle_gb() {
 
 	if (version_compare($installed_ver, '0.9.1', '<')) {
 		/*
-		 **	0.9 -> 0.9.1
-		 **	Moved the email notification options to the WP options table.
+		 * 0.9 -> 0.9.1
+		 * Moved the email notification options to the WP options table.
 		 */
 		$notifyUser = "
 				SELECT *
@@ -162,10 +151,10 @@ function upgrade_gwolle_gb() {
 			add_option('gwolle_gb-notifyByMail-' . $notifySetting['user_id'], 'true');
 		}
 
-		//	Delete the old settings table.
+		// Delete the old settings table.
 		$wpdb->query("
 				DROP TABLE
-					" . $wpdb -> prefix . "gwolle_gb_settings
+					" . $wpdb->prefix . "gwolle_gb_settings
 			");
 	}
 
@@ -273,12 +262,12 @@ function upgrade_gwolle_gb() {
 		 */
 		$wpdb->query("
 				ALTER
-				TABLE " . $wpdb -> gwolle_gb_entries . "
+				TABLE " . $wpdb->gwolle_gb_entries . "
 					DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci
 			");
 		$wpdb->query("
 				ALTER
-				TABLE " . $wpdb -> gwolle_gb_entries . "
+				TABLE " . $wpdb->gwolle_gb_entries . "
 					CHANGE `entry_id` `entry_id` INT(10) NOT NULL AUTO_INCREMENT,
 					CHANGE `entry_author_name` `entry_author_name` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
 					CHANGE `entry_authorAdminId` `entry_authorAdminId` INT(5) NOT NULL DEFAULT '0',
@@ -300,7 +289,7 @@ function upgrade_gwolle_gb() {
 	if (version_compare($installed_ver, '0.9.4.6', '<')) {
 		/*
 		 **  0.9.4.5->0.9.4.6
-		 **  Added option to show/hide text before/after [gwolle-gb] tag.
+		 **  Added option to show/hide text before/after [gwolle_gb] tag.
 		 */
 		add_option('gwolle_gb-guestbookOnly', 'true');
 	}
@@ -318,41 +307,50 @@ function upgrade_gwolle_gb() {
 		 * 0.9.5->0.9.6
 		 * Added the following options:
 		 * - toggle replacing of smilies
-		 * - toogle link to author's website
+		 * - toggle link to author's website
 		 */
 		add_option('gwolle_gb-showSmilies', 'true');
 		add_option('gwolle_gb-linkAuthorWebsite', 'true');
 	}
 
-	if (version_compare($installed_ver, '0.9.7', '<')) {
-		/**
-		 * 0.9.6->0.9.7
-		 * Replace the guestbook link with an ID
+	if (version_compare($installed_ver, '0.9.9.1', '<')) {
+		/*
+		 *  0.9.8.1->0.9.9.0
+		 *  Removed the access level option, use standard WordPress capabilities.
+		 *  Save Users that are subcribed to nitification mails in an option with the array of user_id's
 		 */
-		//  Get post where the [gwolle-gb] tag is set
+		delete_option('gwolle_gb-access-level');
+
+		// Get users from database who have subscribed to the notification service.
 		$sql = "
-	    SELECT
-	      p.ID
-	    FROM
-	      " . $wpdb -> posts . " p
-	    WHERE
-	      p.post_content LIKE '%[gwolle-gb]%'
-	      AND
-	      p.post_status = 'publish'
-	    LIMIT 1";
-		$result = $wpdb->query($sql);
-		if ($result == 0) {
-			//  No post found.
-			add_option('gwolle_gb-post_ID', 'false');
-		} else {
-			//  Guestbook post found
-			$data = $wpdb->get_results($sql, ARRAY_A);
-			add_option('gwolle_gb-post_ID', $data['ID']);
+				SELECT *
+				FROM
+					" . $wpdb->prefix . "options
+				WHERE
+					option_name LIKE 'gwolle_gb-notifyByMail-%'
+				ORDER BY
+					option_name
+			";
+		$notifyUser_result = $wpdb->get_results($sql, ARRAY_A);
+		if ( count($notifyUser_result) > 0 ) {
+			$user_ids = Array();
+			foreach ( $notifyUser_result as $option ) {
+				$user_id = (int) str_replace('gwolle_gb-notifyByMail-', '', $option['option_name']);
+				$user_info = get_userdata($user_id);
+				if ($user_info === FALSE) {
+					// Invalid $user_id
+					continue;
+				}
+				if ($user_id > 0) {
+					$user_ids[] = $user_id;
+				}
+			}
+			$user_ids = implode(",", $user_ids);
+			update_option('gwolle_gb-notifyByMail', $user_ids);
 		}
-		delete_option('gwolle_gb-guestbookLink');
 	}
 
-	//	Update the plugin version option
+	// Update the plugin version option
 	update_option('gwolle_gb_version', GWOLLE_GB_VER);
 }
-?>
+
