@@ -1,4 +1,6 @@
 <?php
+
+
 if (!function_exists('gwolle_gb_output_to_input_field')) {
 	//  Function to format a form value for an input field (strip '<' etc.)
 	function gwolle_gb_output_to_input_field($value) {
@@ -7,6 +9,4 @@ if (!function_exists('gwolle_gb_output_to_input_field')) {
 		$value = htmlspecialchars($value);
 		return $value;
 	}
-
 }
-?>
