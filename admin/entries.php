@@ -92,7 +92,7 @@
 	<form action="<?php echo $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page']; ?>&amp;do=massEdit" method="POST">
 		<!-- the following fields give us some information we're going to use processing the mass edit -->
 		<input type="hidden" name="pageNum" value="<?php echo $pageNum; ?>">
-		<input type="hidden" name="entriesOnThisPage" value="<?php mysql_num_rows($entries_result); ?>">
+		<input type="hidden" name="entriesOnThisPage" value="<?php $wpdb->num_rows; ?>">
 		<input type="hidden" name="show" value="<?php echo $show; ?>">
 		
 		<ul class="subsubsub">
