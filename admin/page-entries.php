@@ -300,6 +300,7 @@ function gwolle_gb_page_entries() {
 											<td class="entry-' . $entry['icon_class'] . '">&nbsp;</td>';
 									}
 									// FIXME: use date_i18n for localised date, see frontend/read.php
+									// FIXME: add option to show time as well
 									$html_output .= '
 										<td>' . $entry['entry_date_html'] . '</td>
 										<td>' . $entry['spam_icon'] . '
