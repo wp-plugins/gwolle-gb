@@ -7,15 +7,12 @@
 function gwolle_gb_dashboard() {
 	$wpurl = get_bloginfo('wpurl');
 
-	include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_entries.func.php');
-
 	$entries = gwolle_gb_get_entries(array('num_entries' => 5, 'excerpt_length' => 250));
 	if ($entries !== FALSE) {
 		//  Dashboard JavaScript
 		echo '<script type="text/javascript" src="' . GWOLLE_GB_URL . '/admin/js/dashboard.js"></script>';
 		//  List of guestbook entries
 		echo '<div id="the-comment-list" class="gwolle-gb-entry-list">';
-		include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_dashboard_widget_row.func.php');
 		foreach ($entries as $entry) {
 			gwolle_gb_get_dashboard_widget_row(array('entry' => $entry));
 		}
@@ -34,4 +31,4 @@ function gwolle_gb_dashboard_setup() {
 	wp_add_dashboard_widget('gwolle_gb_dashboard', __('Guestbook', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_dashboard');
 }
 add_action('wp_dashboard_setup', 'gwolle_gb_dashboard_setup');
-?>
+
