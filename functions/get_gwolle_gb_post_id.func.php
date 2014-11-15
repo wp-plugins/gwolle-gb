@@ -19,13 +19,12 @@
 	      AND
 	      p.post_status = 'publish'
 	    LIMIT 1";
-	    $result = mysql_query($sql);
-	    if (mysql_num_rows($result) == 0) {
+	  $result = $wpdb->query($sql);
+	  if ($wpdb->num_rows == 0) {
         return 0;
-      }
-      else {
-        $data = mysql_fetch_array($result, MYSQL_ASSOC);
-        return $data['ID'];
+      } else {
+        $data = $wpdb->get_results($sql, ARRAY_A);
+        return $data[0]['ID'];
       }
       return FALSE;
     }
