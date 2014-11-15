@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://www.wolfgangtimme.de/blog/category/gwolle-gb/
 Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and have a real guestbook.
-Version: 0.9.8
+Version: 0.9.9.0
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
 */
@@ -27,7 +27,7 @@ Author URI: http://zenoweb.nl
 */
 
 //	plugin's version
-define('GWOLLE_GB_VER', '0.9.8');
+define('GWOLLE_GB_VER', '0.9.9.0');
 
 /**
  * Definitions
