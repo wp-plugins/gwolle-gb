@@ -1,12 +1,11 @@
 <?php
-if (!function_exists('gwolle_gb_get_entry_count')) {
 	/**
 	 * gwolle_gb_get_entry_count
 	 * Get the number of entries.
 	 * Parameters:
 	 * $args  Array with arguments
 	 */
-	function gwolle_gb_get_entry_count($args) {
+	function gwolle_gb_get_entry_count_old($args) {
 		global $wpdb;
 		if (!isset($args['entry_status']) || !in_array($args['entry_status'], array('all', 'unchecked', 'checked', 'spam', 'trash'))) {
 			return FALSE;
@@ -47,12 +46,10 @@ if (!function_exists('gwolle_gb_get_entry_count')) {
       SELECT
         COUNT(entry_id) AS entry_count
       FROM
-        " . $wpdb -> gwolle_gb_entries . " e
+        " . $wpdb->gwolle_gb_entries . " e
       WHERE
         " . $where;
 		$data = $wpdb->get_results($sql, ARRAY_A);
-		return (int)$data[0]['entry_count'];
+		return (int) $data[0]['entry_count'];
 	}
 
-}
-?>
