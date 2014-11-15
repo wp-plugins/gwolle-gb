@@ -1,20 +1,20 @@
 <?php
-if (!function_exists('gwolle_gb_delete_entry')) {
-	/**
+	/*
 	 * gwolle_gb_delete_entry
 	 * Deletes an entry from the database.
 	 * Returns:
 	 * - FALSE      if any errors occur
 	 * - TRUE       if no errors occur
 	 */
+
+if (!function_exists('gwolle_gb_delete_entry')) {
 	function gwolle_gb_delete_entry($args = array()) {
 		global $wpdb;
 		global $current_user;
+		global $gwolle_gb_settings;
 
 		// Load settings, if not set
-		global $gwolle_gb_settings;
 		if (!isset($gwolle_gb_settings)) {
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_settings.func.php');
 			gwolle_gb_get_settings();
 		}
 
@@ -38,4 +38,3 @@ if (!function_exists('gwolle_gb_delete_entry')) {
 	}
 
 }
-?>
