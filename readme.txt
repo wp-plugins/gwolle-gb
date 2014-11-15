@@ -1,45 +1,222 @@
 === Gwolle-GB ===
-Contributors: Gwolle
-Tags: guestbook, feedback, antispam
-Requires at least: 2.9
-Tested up to: 3.0 RC1
+Contributors: Gwolle, mpol
+Tags: guestbook, guest book, comments, feedback, antispam
+Requires at least: 2.8
+Tested up to: 3.8
 Stable tag: 0.9.7
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
+
 == Description ==
 
-Looking for a guestbook that just fits my needs, I found myself lost in a WordPress plugin database full of plugins
-which just pretend to be a guestbook, like the guestbook builder does. But it is not more than just a page with a comment
-form. That wasn't what I was looking for, so I came up with developing my own plugin for WordPress.
-It works quite good actually, and I'm looking forward to integrate some other cool features, but for the moment you have:
+Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
+Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate
+a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and
+have a real guestbook.
 
-* Simple and clean interface that integrates seamlessly into /wp-admin.
+
+Please note that this plugin has been unmaintained for some time. The current stable version 0.9.7 might just work allright for you.
+The only really big problem is with the combination of WordPress 3.9+, PHP 5.5 and MySQLi, which makes the plugin unusable.
+Another small problem is that reading the code makes your eyes bleed, and it needs to be rewritten. That work is currently
+underway in the 0.9.9 series in SVN, going towards a new stable version 1.0.
+
+
+Current features include:
+
+* Easy to use guestbook frontend with a simple form for visitors of your website.
+* Simple and clean admin interface that integrates seamlessly into WordPress admin.
 * Easy import of DMSGuestbook entries into Gwolle-GB.
 * Notification by mail when a new entry has been posted.
-* Moderation, so that you have to check an entry before it is visible in your guestbook (can be turned off).
-* Recaptcha integration. (Fighting spam!)
-* Akismet integration (Fighting spam, too!)
-* Localisation (currently english, german, french, spanish, polish and dutch). Own languages can be added very easily, check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release, so please send them to my via mail, thanks!
-* different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
-* a log for each entry, so that you know which member of the staff released and edited an article to the public and when.
-* IP-address- and host-logging with link to WHOIS query site
-* Smiley integration (uses the WordPress smiley engine)
+* Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
+* Akismet integration for fighting spam.
+* Recaptcha integration for fighting spam, too.
+* Localisation (currently English, German, French, Spanish, Polish and Dutch). Own languages can be added very easily,
+  check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release,
+  so please send them to my via mail, thanks!
+* Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
+* A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
+* IP-address and host-logging with link to WHOIS query site.
+* Smiley integration (uses the WordPress smiley engine).
 * Easy uninstall routine for complete removal of all database changes.
 
-... and all that integrated in the stylish WordPress 2.9 look.
+... and all that integrated in the stylish WordPress look.
 
 You may have "DMSGuestbook" installed - that's great, because since version 0.9.5 Gwolle-GB enables you
 to import DMSGuestbook's entries easily using an assistant. The importer does not delete any of your data,
-so you can go back to DMSGuestbook without loss of data, if you want to. Trying Gwolle-GB is easy as 1-2-3.
+so you can go back to DMSGuestbook without loss of data, if you want to. Trying Gwolle-GB is as easy as 1-2-3.
 
-For a demo, visit the plugin's homepage (http://www.wolfgangtimme.de/blog/category/gwolle-gb/). Feel free to drop me a message
-in the WordPress.org forums or send me an email to gwolle (at) wolfgangtimme (dot) de. You may also
-use my homepage's comment section. I'd be glad to hear your opinion and/or feature request.
+Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
-Please note: At the moment, Gwolle-GB does *not* work with WordPress MU. I'm working on it, but at the moment it's just not working. Sorry, guys!
 
-= Changelog =
+= Languages =
+
+* de_DE [Wolfgang Timme]
+* en_GB [Wolfgang Timme]
+* es_ES [José Luis Sanz Ruiz]
+* fr_FR [Cobestran.com]
+* nl_NL [Marcel Pol](http://zenoweb.nl)
+* pl_PL [Daniel Speichert]
+
+
+== Installation ==
+
+1a. Install the plugin through the admin page "Plugins".
+1b. Alternatively, unpack and upload the contents of the zipfile to your '/wp-content/plugins/' directory.
+2.  Activate the plugin through the 'Plugins' menu in WordPress.
+3.  Place '[gwolle_gb]' in an article or page. That's it.
+4.  You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
+
+Gwolle-GB uses the shortcode and places the guestbook on a page or post containing [gwolle_gb].
+Alternatively you can use the function `show_gwolle_gb();`to show the guestbook in your templates.
+It couldn't be easier.
+
+= Updating from an old version =
+
+Since 0.9.9.1 Gwolle-GB uses the Shortcode API. Untill then the shortcode used for Gwolle-GB was [gwolle-gb].
+However, using dashes in shortcodes is advised against, so make sure to update your guestbook page to use [gwolle_gb].
+
+= Todo/coming up in future releases =
+
+First priority is getting the plugin working with current WordPress and resolve a lot of bugs.
+
+* Bughunting (check all the FIXME's in the code).
+* Use $wpdb->prepare everywhere against SQL Injection Attacks.
+* Only use the main ReCaptcha plugin, do not include it ourselves.
+* Have the Backend use the new Entry class to share code and have less redundancy.
+* Update admin HTML/CSS.
+* Use no redirects.
+* Use a simple Message system.
+* Add possibility to empty trash and spam.
+* Make install method more safe.
+* Bring AJAX back, this time inside actions.
+* Bring Import and Uninstall back, this time in separate admin pages.
+* Bring Frontend Widget and Dashboard Widget back.
+
+If you have a feature request please use the forum on WordPress.org. I may add it to the list then.
+
+The following list is from the original author.
+
+* Custom fields (e. g. 'ICQ number' etc.).
+* Support for WordPress MU.
+* Better database structure (e. g. 'id' instead of 'entry_id').
+* 'Thank you' mail to the poster (requested by Joakim from Sweden).
+
+= Known bugs in 0.9.7 =
+
+* Some WP installations with permalinks activated receive a 404-error.
+* Some WP installations don't send the notification mails (currently only known from WP MU installations).
+* Marking multiple entries as spam sometimes takes very long or results in an error message.
+
+Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". I am subscribed to that forum,
+so I will get your message. Or send me an email: marcel (at) zenoweb (dot) nl. Thanks.
+
+= Thank you! =
+
+* timomaas for the original dutch translation
+* Daniel Speichert for the polish translation
+* José Luis Sanz Ruiz for the spanish translation
+* cobestran.com for the french translation
+* All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr, Georg K., Kristin
+
+= Licence =
+
+The plugin itself (the code) is released under the GNU General Public License; a copy of this licence can be found at the licence homepage or
+in the gwolle-gb.php file at the top.
+
+For the licences regarding the use of reCAPTCHA or the icons you may ask the authors.
+
+
+== Frequently Asked Questions ==
+
+= Which entries are visible on the Frontend? =
+
+Starting with version 0.9.9.1, the following entries are listed on the Frontend:
+* Checked
+* Not Deleted / not in the Trash
+* Not marked as Spam
+Before that, in 0.9.7, all the 'checked' entries were visible.
+
+= I have a lot of unchecked entries. What do I do? =
+
+For the entries that you consider spam, but were not caught by Akismet, you can first set them to be spam, and they will not be visible anymore.
+For entries that are not spam, but you still don't want them visible, you can move them to trash.
+
+= Why aren't entries really deleted, and instead stored in the database? =
+
+First, it's not a heavy load for the database, and second, it's that if you clicked wrong you're not lost without the possibility
+to 'undo' it via your database interface.
+In a future version this might be implemented.
+
+= What about Spam? =
+
+Your first option is to use Akismet. It works like a charm. Fighting spam has never been easier.
+
+You can also use Recaptcha. It helps you and your visitors to fight spam at the slight cost of usability.
+
+= How do I localize a plugin? =
+
+A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
+and also the WordPress documentation.
+
+
+== Screenshots ==
+
+1. Overview panel, so that you easily can see what's the status.
+2. List of the entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
+3. The editor for entries.
+4. Settings panel (showing version 0.9.4.1).
+
+
+== Changelog ==
+
+
+0.9.9.1
+* 2014-11-15
+* Use $wpdb everywhere.
+* Many small fixes.
+* Redo the Readme.
+* Reformat code for readability. It will break diffs in svn though.
+* Do most of the includes in the main gwolle-gb file. Put lots of code inside functions.
+* Move actions to actions.php and partly clean up main gwolle-gb.php.
+* Load language files from an action.
+* Use Settings API.
+* Use Shortcode API.
+* Use standard WordPress capabilities.
+* Only use the Automattic Akismet plugin, not any other class.
+* Added functions/function.gwolle_gb_akismet.php for spamchecking against Akismet.
+* Made Frontend CSS more specific and less conflicting. Small cleanups.
+* Only load Frontend CSS when the plugin is active.
+* Have the frontend-form on the main page, and show it with Javascript.
+* Make email field obligatory on new entries.
+* Show avatars when enabled in General / Comments.
+* Start of class.gwolle_gb_entry.php.
+* Have the frontend use the class gwolle_gb_entry.
+* Show counter of unchecked entries in admin menu.
+* Clean up Akismet in the Settings page.
+* Save user notification list in one option as an array, so we follow the Settings API.
+* Many more changes in the Settings page.
+* On admin page editor.php; show if entry is listed as spam or not.
+* Mind your head, only the frontend is secure, the backend is open for SQL Injection Attacks.
+
+0.9.9.0
+* 2014-10-22
+* Use $wpdb everywhere
+* Many small fixes
+* Reformat code for readability. It will break diffs in svn though.
+* Mind your head; Frontend and Backend are open for SQL Injection Attacks.
+
+0.9.8.1
+* Somewhere in 2010.
+* [fix] Fixed bug that prevented posted entries from being published.
+* Update Readme to 2014.
+
+0.9.8
+[new] Name of the Gwolle-GB directory can now be changed.
+[new] News for Gwolle-GB are now shown at the dashboard of the plugin
+[new] Dashboard widget for a quick glance at the latest guestbook entries.
+[new] Deleted entries are now 'moved to trash', just like the 'trash' feature in the new WP version.
+[fix] Rewritten some code. Stills looks messy, but we're on the right track. :)
 
 0.9.7
 [new] Removed the 'guestbook link' setting and replaced it with a field for the corresponding $post_id; it should be detected by default.
@@ -113,92 +290,4 @@ If you're experiencing any errors please report them immediately. Thanks!
 [new] When uninstalling via the plugin's setting panel you'll be asked to confirm again.
 [new] Notification mails now can include a direct link to the editor, speeding things up for you.
 
-== Installation ==
 
-1. Upload the directory 'gwolle-gb' (where the 'gwolle-gb.php' is in) to your '/wp-content/plugins' directory.
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place '[gwolle-gb]' in an article or page. That's it.
-1. You may disable comments in this arcticle/page, because it may look stupid when there's the possibility to write a guestbook entry. ;) 
-
-Gwolle-GB take the `the_content`-hook and replaces a article/page containing [gwolle-gb] with the guestbook. You may also use
-`add_gwolle_gb_frontend_css();` to include the frontend CSS of Gwolle-GB and `show_gwolle_gb();`
-to show the guestbook in your templates. It couldn't be easier.
-
-If you still got problems, or if errors come up please leave a message at the WordPress forum so I can help you and fix it. Thanks!
-
-
-==	Todo/coming up in future releases/plans ==
-
-The following list contains things I'd like to include in future releases. If you have a feature request please use the forum
-on WordPress.org; I'll may add it to the list then.
-
-* More inline documentation
-*	Better permission management (the current one is poor)
-* Gravatar support
-* Custom fields (e. g. 'ICQ number' etc.)
-* More functions & methods, less code redundancy.
-* Support for WordPress MU.
-* Better database structure (e. g. 'id' insted of 'entry_id')
-* Widget (at the dashboard as well as the sidebar(s))
-* 'Thank you' mail to the poster (requested by Joakim from Sweden)
-
-== Known bugs ==
-
-* Some WP installations with permalinks activated receive a 404-error. Going to fix this, currently going through the WP documentation on this.
-* Some WP installations don't send the notification mails (currently only known from WP MU installations)
-* Marking multiple entries as spam sometimes takes very long or results in an error message.
-
-Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". I subscribed to that forums,
-so I'll get your message. Or, if you're in a hurry, send me an email: gwolle (at) wolfgangtimme (dot) de. Thanks!
-
-==	Thank you! ==
-
-* timomaas for the dutch translation
-* Daniel Speichert for the polish translation
-* José Luis Sanz Ruiz for the spanish translation
-* cobestran.com for the french translation
-* All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr, Georg K., Kristin
-
-== Beta testers wanted ==
-
-I'm currently looking for people willing to test new releases of the plugin before I release it to the public.
-Due the fact that I've got only two sites to test the plugin with I need some people who test the plugin on their site.
-If you wanted to participate please let me know. Write me an email or add a comment to the plugin's homepage. Thanks in advance!
-
-
-== Frequently Asked Questions ==
-
-= Why aren't entries really deleted, and instead stored in the database? =
-
-First, it's not a heavy load for the database, and second, it's that if you clicked wrong you're not lost without the possibility
-to 'undo' it via your database interface.
-
-= What about spam? =
-
-I thought about that problem and came up with the solution of Recaptcha. It helps you and your visitors help them. It's really THAT easy.
-Second, I integrated Akismet and it works like a charm. Fighting spam has never been easiser!
-
-= I'm experiencing problems with the redirection. =
-
-Although the plugin tries to automatically calculate the URL of your guestbook it may be that it doesn't get this job done well.
-For users who have that problem there's a new option integrated (since version 0.9.4.3) that allows you to set the complete URL
-of your guestbook manually.
-
-= How do I localize a plugin? =
-
-A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
-and also the WordPress documentation.
-
-== Licence ==
-
-The plugin itself (the "code") is released under the GNU General Public License; a copy of this licence can be found at the licence' homepage or
-in the gwolle-gb.php file at the top.
-
-For the licences regarding the Askimet classes, the use of reCAPTCHA or the icons you may ask the authors.
-
-== Screenshots ==
-
-1. Overview panel, so that you easily can see what's the status.
-2. List of the entries. Notice the icons displaying the status of an entry. (Can be turned off in the settings panel.)
-3. The editor for entries.
-4. Settings panel (showing version 0.9.4.1).
