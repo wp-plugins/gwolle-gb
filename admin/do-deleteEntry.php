@@ -8,7 +8,5 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 	die('No direct calls allowed!');
 }
 
-include_once (WP_PLUGIN_DIR . '/gwolle-gb/admin/delete_entry.func.php');
-
+// FIXME, just use a $_POST check in some action, and remove the form-action
 delete_gwolle_gb_entry($_REQUEST['entry_id'], true, $_REQUEST['show']);
-?>
