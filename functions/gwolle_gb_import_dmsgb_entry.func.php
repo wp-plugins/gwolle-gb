@@ -56,6 +56,4 @@ if (!function_exists('gwolle_gb_import_dmsgb_entry')) {
 			  )
 			  ");
 	}
-
 }
-?>
