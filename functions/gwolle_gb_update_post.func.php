@@ -1,16 +1,21 @@
 <?php
-  /*
+
+
+exit;
+// KILL this file
+
+/*
   if (!function_exists('gwolle_gb_update_post')) {
     function gwolle_gb_update_post($args=array()) {
       global $wpdb;
-      
+
       // Load settings, if not set
     	global $gwolle_gb_settings;
     	if (!isset($gwolle_gb_settings)) {
         include_once(GWOLLE_GB_DIR.'/functions/gwolle_gb_get_settings.func.php');
         gwolle_gb_get_settings();
       }
-      
+
       if (!isset($args['entry_id']) || (int)$args['entry_id'] === 0) {
         return FALSE;
       }
@@ -25,7 +30,7 @@
           return FALSE;
         }
       }
-      
+
         if (isset($args['bypass_recaptcha'])) {
           $arguments['bypass_recaptcha'] = $args['bypass_recaptcha'];
         }
@@ -51,12 +56,12 @@
             e.entry_author_name = '".addslashes($entry['name'])."',
             e.entry_author_name = '".addslashes($entry['name'])."',
             e.entry_author_name = '".addslashes($entry['name'])."',
-           
+
         }
       }
-            
-      
-      
+
+
+
       return FALSE;
     }
   }
