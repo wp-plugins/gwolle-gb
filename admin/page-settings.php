@@ -10,10 +10,8 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 
 
 function gwolle_gb_page_settings() {
-	global $wpdb, $defaultMailText, $current_user, $gwolle_gb_settings;
-	if (!isset($gwolle_gb_settings)) {
-		gwolle_gb_get_settings();
-	}
+	global $wpdb, $defaultMailText, $current_user;
+
 	if (!get_option('gwolle_gb_version')) {
 		gwolle_gb_installSplash();
 	} else {
@@ -98,7 +96,7 @@ function gwolle_gb_page_settings() {
 
 			// Admin mail content
 			// FIXME: sanitize value
-			if ( isset($_POST['adminMailContent']) && $_POST['adminMailContent'] != $gwolle_gb_settings['defaultMailText'] ) {
+			if ( isset($_POST['adminMailContent']) && $_POST['adminMailContent'] != get_option('gwolle_gb-defaultMailText') ) {
 				update_option('gwolle_gb-adminMailContent', $_POST['adminMailContent']);
 				$saved = true;
 			}
@@ -143,7 +141,7 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="post_ID"><?php _e('ID of the guestbook post', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<?php // Check if a post with that ID exists
-								$value = ((int) $gwolle_gb_settings['post_ID'] === 0) ? '' : (int) $gwolle_gb_settings['post_ID'];
+								$value = ((int) get_option('gwolle_gb-post_ID') === 0) ? '' : (int) get_option('gwolle_gb-post_ID');
 								if ((int) $value > 0) {
 									$sql = "
 										SELECT

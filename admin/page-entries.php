@@ -309,7 +309,7 @@ function gwolle_gb_page_entries() {
 									if ($show == 'trash') {
 										$html_output .= '
 											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=untrash_entry&entry_id=' . $entry['entry_id'] . '&show=trash">' . __('Recover', GWOLLE_GB_TEXTDOMAIN) . '</a>
-											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=delete_entry&entry_id=' . $entry['entry_id'] . '&show=trash" onClick="return confirm(\'' . __("You\'re about to delete this guestbook entry. This can\'t be undone. Are you still sure you want to continue?", GWOLLE_GB_TEXTDOMAIN) . '\');">' . __('Delete', GWOLLE_GB_TEXTDOMAIN) . '</a>';
+											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=delete_entry&entry_id=' . $entry['entry_id'] . '&show=trash" onClick="return confirm(\'' . __("You are about to delete this guestbook entry. This can not be undone. Are you still sure you want to continue?", GWOLLE_GB_TEXTDOMAIN) . '\');">' . __('Delete', GWOLLE_GB_TEXTDOMAIN) . '</a>';
 									} else {
 										$html_output .= '
 											<a href="' . $_SERVER['PHP_SELF'] . '?page=' . GWOLLE_GB_FOLDER . '/editor.php&amp;entry_id=' . $entry['entry_id'] . '">' . __('Details', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;&raquo;</a>&nbsp;';
@@ -320,7 +320,7 @@ function gwolle_gb_page_entries() {
 									/*
 									 echo '
 									 <tr style="display:none;" class="inline-edit-row inline-edit-row-post quick-edit-row quick-edit-row-post alternate inline-editor" id="quickedit_'.$entry['entry_id'].'">
-									 <td style="border-top:0px;" colspan="'; if ($gwolle_gb_settings['showEntryIcons']) { echo 7; } else { echo 6; } echo '">
+									 <td style="border-top:0px;" colspan="'; if (get_option('gwolle_gb-showEntryIcons')) { echo 7; } else { echo 6; } echo '">
 									 <h4>QUICKEDIT</h4>
 									 <fieldset>
 
