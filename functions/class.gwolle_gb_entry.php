@@ -136,10 +136,49 @@ class gwolle_gb_entry {
 
 		if ( $this->get_id() ) {
 			// entry exists, use UPDATE
+
 			if ( WP_DEBUG ) { echo "Saving ID:: "; var_dump($this->get_id()); }
 
-			// tmp for testing
-			return true;
+			$sql = "
+				UPDATE $wpdb->gwolle_gb_entries
+				SET
+					entry_author_name = %s,
+					entry_authorAdminId = %d,
+					entry_author_email = %s,
+					entry_author_origin = %s,
+					entry_author_website = %s,
+					entry_author_ip = %s,
+					entry_author_host = %s,
+					entry_content = %s,
+					entry_date = %s,
+					entry_isSpam = %d,
+					entry_isChecked = %s,
+					entry_checkedBy = %d,
+					entry_isDeleted = %d
+				WHERE
+					entry_id = %d
+				";
+
+			$values = array(
+					$this->get_author_name(),
+					$this->get_authoradminid(),
+					$this->get_author_email(),
+					$this->get_author_origin(),
+					$this->get_author_website(),
+					$this->get_author_ip(),
+					$this->get_author_host(),
+					$this->get_content(),
+					$this->get_date(),
+					$this->get_isspam(),
+					$this->get_ischecked(),
+					$this->get_checkedby(),
+					$this->get_isdeleted(),
+					$this->get_id()
+				);
+
+			$result = $wpdb->query(
+					$wpdb->prepare( $sql, $values )
+				);
 
 		} else {
 			// entry is new, use INSERT
@@ -194,15 +233,22 @@ class gwolle_gb_entry {
 					$this->get_isdeleted()
 				)
 			) );
+
+			if ($result > 0) {
+				// Entry saved successfully.
+				$this->set_id( $wpdb->insert_id );
+			}
 		}
+
+		// Error handling
+		//$wpdb->print_error();
+		//if ( WP_DEBUG ) { echo "Result: " .$result; }
+
 
 		if ($result > 0) {
-
-			// Entry saved successfully.
-			$this->set_id( $wpdb->insert_id );
-
 			return $this->get_id();
 		}
+
 		return false;
 	}
 

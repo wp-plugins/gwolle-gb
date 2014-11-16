@@ -114,7 +114,7 @@ function gwolle_gb_akismet_entry_check( $comment, $action ) {
 		$response = akismet_http_post( $query_string, $akismet_api_host, '/1.1/' . $action, $akismet_api_port );
 	}
 
-	if ( WP_DEBUG ) { echo "Akismet response: "; var_dump($response); }
+	//if ( WP_DEBUG ) { echo "Akismet response: "; var_dump($response); }
 
 	if ( $action == 'comment-check' && isset( $response[1] ) && 'true' == $response[1] ) {
 		return true;

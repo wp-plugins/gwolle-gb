@@ -75,14 +75,18 @@ function gwolle_gb_page_editor() {
 					if ( isset($_POST['isspam']) && $_POST['isspam'] == 'on' ) {
 						if ( $_POST['isspam'] == 'on' && $entry->get_isspam() == 0 ) {
 							$entry->set_isspam( true );
-							gwolle_gb_akismet( $entry, 'submit-spam' );
-							$gwolle_gb_messages .= '<p>' . __('Submitted as Spam to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+							$result = gwolle_gb_akismet( $entry, 'submit-spam' );
+							if ( $result ) {
+								$gwolle_gb_messages .= '<p>' . __('Submitted as Spam to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+							}
 							$changed = true;
 						}
 					} else if ( $entry->get_isspam() == 1 ) {
 						$entry->set_isspam( false );
-						gwolle_gb_akismet( $entry, 'submit-ham' );
-						$gwolle_gb_messages .= '<p>' . __('Submitted as Ham to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$result = gwolle_gb_akismet( $entry, 'submit-ham' );
+						if ( $result ) {
+							$gwolle_gb_messages .= '<p>' . __('Submitted as Ham to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						}
 						$changed = true;
 					}
 
