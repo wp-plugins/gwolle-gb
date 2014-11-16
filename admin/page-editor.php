@@ -57,7 +57,7 @@ function gwolle_gb_page_editor() {
 					$gwolle_gb_messages .= '<p class="error">' . __('Something strange happened.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					$gwolle_gb_errors = 'error';
 				} else {
-
+// FIXME: add logging
 					/* Set as checked or unchecked, and by whom */
 					if ( isset($_POST['ischecked']) && $_POST['ischecked'] == 'on' ) {
 						if ( $_POST['ischecked'] == 'on' && $entry->get_ischecked() == 0 ) {
@@ -312,7 +312,7 @@ function gwolle_gb_page_editor() {
 												echo date_i18n( get_option('time_format'), $entry->get_date() );
 												echo ': ' . __('Written', GWOLLE_GB_TEXTDOMAIN) . '</li>';
 
-												$log_entries = gwolle_gb_get_log_entries(array( 'subject_id' => $entry->get_id() ));
+												$log_entries = gwolle_gb_get_log_entries( $entry->get_id() );
 												if ( is_array($log_entries) && count($log_entries) > 0 ) {
 													foreach ($log_entries as $log_entry) {
 														echo '<li>' . $log_entry['msg_html'] . '</li>';
