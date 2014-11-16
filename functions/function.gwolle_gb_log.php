@@ -31,17 +31,8 @@ function gwolle_gb_add_log_entry( $args ) {
 		) VALUES (
 			%s,
 			%d,
-			%s,
-			%s,
-			%s,
-			%s,
-			%s,
-			%s,
-			%s,
 			%d,
-			%d,
-			%d,
-			%d
+			%s
 		)
 		",
 		array(
