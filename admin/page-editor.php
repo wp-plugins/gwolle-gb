@@ -19,22 +19,21 @@ function gwolle_gb_page_editor() {
 
 		$gwolle_gb_errors = '';
 		$gwolle_gb_messages = '';
-		// <p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>'
 
 		$sectionHeading = __('Edit guestbook entry', GWOLLE_GB_TEXTDOMAIN);
 
-		// Always fetch the requested entry, even on a $_POST
+		// Always fetch the requested entry, so we can compare the $entry and the $_POST.
 		$entry = new gwolle_gb_entry();
 		if ( isset($_GET['entry_id']) ) {
 			$entry_id = intval($_GET['entry_id']);
 			if ( $entry_id > 0 ) {
 				$result = $entry->load( $entry_id );
 				if ( !$result ) {
-					$gwolle_gb_messages = '<p class="error">' . __('Entry could not be found.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_messages .= '<p class="error">' . __('Entry could not be found.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					$gwolle_gb_errors = 'error';
 					$sectionHeading = __('Guestbook entry (error)', GWOLLE_GB_TEXTDOMAIN);				}
 			} else {
-				$gwolle_gb_messages = '<p class="error">' . __('Entry could not be found.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+				$gwolle_gb_messages .= '<p class="error">' . __('Entry could not be found.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 				$gwolle_gb_errors = 'error';
 				$sectionHeading = __('Guestbook entry (error)', GWOLLE_GB_TEXTDOMAIN);
 			}
@@ -51,12 +50,90 @@ function gwolle_gb_page_editor() {
 				die(__('Cheatin&#8217; uh?'));
 			}
 
+			if ( isset($_POST['gwolle_gb_page']) && $_POST['gwolle_gb_page'] == 'editor' ) {
+				$changed = false;
 
+				if ( !isset($_POST['entry_id']) || $_POST['entry_id'] != $entry->get_id() ) {
+					$gwolle_gb_messages .= '<p class="error">' . __('Something strange happened.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_errors = 'error';
+				} else {
 
+					/* Set as checked or unchecked, and by whom */
+					if ( isset($_POST['ischecked']) && $_POST['ischecked'] == 'on' ) {
+						if ( $_POST['ischecked'] == 'on' && $entry->get_ischecked() == 0 ) {
+							$entry->set_ischecked( true );
+							$user_id = get_current_user_id(); // returns 0 if no current user
+							$entry->set_checkedby( $user_id );
+							$changed = true;
+						}
+					} else if ( $entry->get_ischecked() == 1 ) {
+						$entry->set_ischecked( false );
+						$changed = true;
+					}
 
+					/* Set as spam or not, and submit as ham or spam to Akismet service */
+					if ( isset($_POST['isspam']) && $_POST['isspam'] == 'on' ) {
+						if ( $_POST['isspam'] == 'on' && $entry->get_isspam() == 0 ) {
+							$entry->set_isspam( true );
+							gwolle_gb_akismet( $entry, 'submit-spam' );
+							$gwolle_gb_messages .= '<p>' . __('Submitted as Spam to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+							$changed = true;
+						}
+					} else if ( $entry->get_isspam() == 1 ) {
+						$entry->set_isspam( false );
+						gwolle_gb_akismet( $entry, 'submit-ham' );
+						$gwolle_gb_messages .= '<p>' . __('Submitted as Ham to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$changed = true;
+					}
 
-			//$gwolle_gb_messages = '<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					/* Set as deleted or not */
+					if ( isset($_POST['isdeleted']) && $_POST['isdeleted'] == 'on' ) {
+						if ( $_POST['isdeleted'] == 'on' && $entry->get_isdeleted() == 0 ) {
+							$entry->set_isdeleted( true );
+							$changed = true;
+						}
+					} else if ( $entry->get_isdeleted() == 1 ) {
+						$entry->set_isdeleted( false );
+						$changed = true;
+					}
 
+					/* Check if the content changed, and update accordingly */
+					if ( isset($_POST['content']) && $_POST['content'] != '' ) {
+						if ( $_POST['content'] != $entry->get_content() ) {
+							$entry->set_content( $_POST['content'] );
+							$changed = true;
+						}
+					}
+
+					/* Check if the website changed, and update accordingly */
+					if ( isset($_POST['author_website']) ) {
+						if ( $_POST['author_website'] != $entry->get_author_website() ) {
+							$entry->set_author_website( $_POST['author_website'] );
+							$changed = true;
+						}
+					}
+
+					/* Check if the author_origin changed, and update accordingly */
+					if ( isset($_POST['author_origin']) ) {
+						if ( $_POST['author_origin'] != $entry->get_author_origin() ) {
+							$entry->set_author_origin( $_POST['author_origin'] );
+							$changed = true;
+						}
+					}
+
+					if ( $changed ) {
+						$result = $entry->save();
+						if ($result ) {
+							$gwolle_gb_messages .= '<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						} else {
+							$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						}
+					} else {
+						$gwolle_gb_messages .= '<p>' . __('Entry was not changed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+
+					}
+				}
+			}
 
 		}
 

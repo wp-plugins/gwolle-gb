@@ -179,6 +179,7 @@ and also the WordPress documentation.
 * 2014-
 * Admin page editor.php is redone.
 * Admin page entries.php is still in need.
+* Submit-Ham and Submit-Spam in Akismet is back.
 * Many cleanups.
 
 = 0.9.9.1 =

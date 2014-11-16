@@ -7,13 +7,19 @@
 
 
 /*
- * $params: object $gwolle_gb_entry with a guestbook entry to be checked
+ * $params:
+ * $entry:  object $gwolle_gb_entry with a guestbook entry to be checked
  *          should be an instance of the gwolle_gb_entry class
+ * $action: string with the requested action
+ * 			- comment-check: check with Akismet service if entry is considered spam or not
+ * 			- submit-ham: submit as ham to Akismet service
+ * 			- submit-spam: submit as spam to Akismet service
+ *
  * Return: - true if the entry is considered spam by akismet
  *         - false if no spam, or no akismet functionality is found
  */
 
-function gwolle_gb_isspam_akismet( $entry ) {
+function gwolle_gb_akismet( $entry, $action ) {
 
 	$akismet_active = get_option( 'gwolle_gb-akismet-active', false );
 	if ( !$akismet_active ) {
@@ -76,8 +82,9 @@ function gwolle_gb_isspam_akismet( $entry ) {
 	}
 
 
-	// Do the real check against Akismet
-	return gwolle_gb_akismet_entry_check( $comment );
+	// Send the thing to the Akismet service
+	return gwolle_gb_akismet_entry_check( $comment, $action );
+
 }
 
 
@@ -86,11 +93,12 @@ function gwolle_gb_isspam_akismet( $entry ) {
  *
  * Parameters:
  * $comment: Array with the comment
+ * $action: string with 'comment-check', 'submit-ham', 'submit-spam'
  *
  * Return: true or false
  */
 
-function gwolle_gb_akismet_entry_check( $comment ) {
+function gwolle_gb_akismet_entry_check( $comment, $action ) {
 	global $akismet_api_host, $akismet_api_port;
 
 	$query_string = '';
@@ -101,36 +109,23 @@ function gwolle_gb_akismet_entry_check( $comment ) {
 
 	if ( is_callable( array( 'Akismet', 'http_post' ) ) ) {
 		// Akismet v3.0+
-		$response = Akismet::http_post( $query_string, 'comment-check' );
+		$response = Akismet::http_post( $query_string, $action );
 	} else {
-		$response = akismet_http_post( $query_string, $akismet_api_host, '/1.1/comment-check', $akismet_api_port );
+		$response = akismet_http_post( $query_string, $akismet_api_host, '/1.1/' . $action, $akismet_api_port );
 	}
 
-	if ( 'true' == $response[1] ) {
+	if ( WP_DEBUG ) { echo "Akismet response: "; var_dump($response); }
+
+	if ( $action == 'comment-check' && isset( $response[1] ) && 'true' == $response[1] ) {
+		return true;
+	} else if ( $action == 'submit-ham' && isset( $response[1] ) ) {
+		return true;
+	} else if ( $action == 'submit-spam' && isset( $response[1] ) ) {
 		return true;
 	} else {
 		return false;
 	}
 
 }
-
-
-/*
- * Submit the entry as Spam to Akismet Service
- */
-
-function gwolle_gb_akismet_submit_spam( $entry ) {
-	// FIXME: Stub
-}
-
-
-/*
- * Submit the entry as Ham to Akismet Service
- */
-
-function gwolle_gb_akismet_submit_ham( $entry ) {
-	// FIXME: Stub
-}
-
 
 

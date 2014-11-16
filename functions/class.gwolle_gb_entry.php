@@ -138,7 +138,8 @@ class gwolle_gb_entry {
 			// entry exists, use UPDATE
 			if ( WP_DEBUG ) { echo "Saving ID:: "; var_dump($this->get_id()); }
 
-
+			// tmp for testing
+			return true;
 
 		} else {
 			// entry is new, use INSERT

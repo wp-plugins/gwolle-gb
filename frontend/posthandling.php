@@ -102,7 +102,7 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/* Check for spam and set accordingly */
-		$isspam = gwolle_gb_isspam_akismet( $entry );
+		$isspam = gwolle_gb_isspam_akismet( $entry, 'comment-check' );
 		if ( $isspam ) {
 			// Returned true, so considered spam
 			$entry->set_isspam(true);
