@@ -141,6 +141,7 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="post_ID"><?php _e('ID of the guestbook post', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<?php // Check if a post with that ID exists
+								// FIXME: use get_post
 								$value = ((int) get_option('gwolle_gb-post_ID') === 0) ? '' : (int) get_option('gwolle_gb-post_ID');
 								if ((int) $value > 0) {
 									$sql = "
@@ -325,7 +326,7 @@ function gwolle_gb_page_settings() {
 
 
 						<tr valign="top">
-							<th scope="row"><label for="entriesPerPage"><?php _e('Entries per page', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+							<th scope="row"><label for="entriesPerPage"><?php _e('Entries per page on the frontend', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<select name="entriesPerPage">
 									<?php $entriesPerPage = get_option( 'gwolle_gb-entriesPerPage', 15 );
@@ -346,7 +347,7 @@ function gwolle_gb_page_settings() {
 
 
 						<tr valign="top">
-							<th scope="row"><label for="entriesPerPage"><?php _e('Appearance', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+							<th scope="row"><label><?php _e('Appearance', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<input type="checkbox" id="showLineBreaks" name="showLineBreaks"<?php
 									if ( get_option( 'gwolle_gb-showLineBreaks', 'false' ) === 'true' ) {

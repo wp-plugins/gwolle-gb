@@ -147,17 +147,17 @@ function gwolle_gb_overview_help_more() {
 	echo '<h3>
 	'.__('These entries will be visible for your visitors:', GWOLLE_GB_TEXTDOMAIN).'</h3>
 	<ul>
-		<li>'.__('Marked as "Checked".', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__('Not marked as "Spam".', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__('Not marked as "Trash".',GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Marked as Checked.', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Not marked as Spam.', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Not marked as Trash.',GWOLLE_GB_TEXTDOMAIN).'</li>
 	</ul>';
 
 	echo '<h3>
 	'.__('The Main Menu counter counts the following entries:', GWOLLE_GB_TEXTDOMAIN).'</h3>
 	<ul>
-		<li>'.__('Marked as "Unchecked" (You might want to moderate them).', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__('Not marked as "Spam" (You might want to check that).', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__('Not marked as "Trash" (You decide what goes to the trash).',GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Marked as Unchecked (You might want to moderate them).', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Not marked as Spam (You might want to check them).', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Not marked as Trash (You decide what goes to the trash).',GWOLLE_GB_TEXTDOMAIN).'</li>
 	</ul>';
 }
 

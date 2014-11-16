@@ -60,7 +60,57 @@ class gwolle_gb_entry {
 	public function load( $id ) {
 		global $wpdb;
 
-		// FIXME, stub
+		$where = " 1 = 1";
+		$values = Array();
+
+		if ( !is_numeric($id) ) {
+			return false;
+		}
+
+		if ((int) $id > 0) {
+			$where .= "
+				AND
+				entry_id = %d";
+			$values[] = $id;
+		} else {
+			return false;
+		}
+
+		$tablename = $wpdb->prefix . "gwolle_gb_entries";
+
+		$sql = "
+				SELECT
+					*
+				FROM
+					" . $tablename . "
+				WHERE
+					" . $where . "
+				;";
+
+		$sql = $wpdb->prepare( $sql, $values );
+
+		$data = $wpdb->get_row( $sql, ARRAY_A );
+
+		// Use the fields that the setter method expects
+		$item = array(
+			'id' => (int) $data['entry_id'],
+			'author_name' => stripslashes($data['entry_author_name']),
+			'authoradminid' => (int) $data['entry_authorAdminId'],
+			'author_email' => stripslashes($data['entry_author_email']),
+			'author_origin' => stripslashes($data['entry_author_origin']),
+			'author_website' => stripslashes($data['entry_author_website']),
+			'author_ip' => $data['entry_author_ip'],
+			'author_host' => $data['entry_author_host'],
+			'content' => stripslashes($data['entry_content']),
+			'date' => $data['entry_date'],
+			'ischecked' => (int) $data['entry_isChecked'],
+			'checkedby' => (int) $data['entry_checkedBy'],
+			'isdeleted' => (int) $data['entry_isDeleted'],
+			'isspam' => (int) $data['entry_isSpam']
+		);
+
+		$this->set_data( $item );
+
 	}
 
 

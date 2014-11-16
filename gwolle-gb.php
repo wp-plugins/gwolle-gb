@@ -146,6 +146,10 @@ function gwolle_gb_init() {
 
 	$show = (isset($_REQUEST['show'])) ? '&show=' . $_REQUEST['show'] : '';
 	$return_to = (isset($_REQUEST['return_to']) ) ? $_REQUEST['return_to'] : FALSE;
+
+	// Disabled for now, use a real page
+	$gwolle_gb_function = '';
+
 	switch($gwolle_gb_function) {
 		case 'add_entry' :
 			if ($return_to === FALSE) {//  This is an entry by a visitor.
