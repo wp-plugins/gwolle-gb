@@ -17,7 +17,7 @@ function gwolle_gb_page_settings() {
 	} else {
 		$setting_page = (isset($_REQUEST['setting_page'])) ? $_REQUEST['setting_page'] : FALSE;
 		$saved = false;
-		if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
+		//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) {
 			if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {

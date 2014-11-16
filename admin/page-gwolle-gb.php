@@ -28,7 +28,7 @@ function gwolle_gb_overview(){
 	?>
 
 	<div class="table table_content">
-		<p class="sub"><?php _e('Overview',GWOLLE_GB_TEXTDOMAIN); ?></p>
+		<h3><?php _e('Overview',GWOLLE_GB_TEXTDOMAIN); ?></h3>
 
 		<table>
 			<tbody>
@@ -41,10 +41,10 @@ function gwolle_gb_overview(){
 					<td class="t">
 						<?php
 							if ($count['all']==1) {
-								_e('entry total',GWOLLE_GB_TEXTDOMAIN);
+								_e('Entry total',GWOLLE_GB_TEXTDOMAIN);
 							}
 							else {
-								_e('entries total',GWOLLE_GB_TEXTDOMAIN);
+								_e('Entries total',GWOLLE_GB_TEXTDOMAIN);
 							}
 						?>
 					</td>
@@ -74,7 +74,7 @@ function gwolle_gb_overview(){
 					<td class="first b"><a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=checked">
 						<?php echo $count['checked']; ?>
 					</a></td>
-					<td class="t" style="color:#008000;">
+					<td class="t" style="color:#0000b0;">
 						<?php
 							if ($count['checked'] == 1) {
 								_e('Checked entry',GWOLLE_GB_TEXTDOMAIN);
@@ -124,67 +124,43 @@ function gwolle_gb_overview(){
 	<div class="versions">
 		<p>
 			<a class="button rbutton" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><strong><?php _e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></strong></a>
-			<?php _e('Here you can manage the entries.',GWOLLE_GB_TEXTDOMAIN); ?>
 		</p>
-		<span>
-			<?php echo str_replace('%1','<strong>' . $userLevelNames[(int)get_option('gwolle_gb-access-level')] . '</strong>',__('Only users with the role %1 have access to the guestbook backend.',GWOLLE_GB_TEXTDOMAIN)); ?>
-		</span>
+		<h3>
+			<?php _e('Only users with the capability "moderate_comments" have access to the guestbook backend.', GWOLLE_GB_TEXTDOMAIN); ?>
+		</h3>
 	</div>
 <?php }
 
-/*
-function gwolle_gb_overview_news(){
-	require_once(ABSPATH . WPINC . '/rss.php');
-	?>
-	<div class="rss-widget">
-	<?php
-	$rss = @fetch_rss('http://www.wolfgangtimme.de/blog/category/gwolle-gb/feed/');
-	if (isset($rss->items) && count($rss->items) !== 0) {
-	$rss->items = array_slice($rss->items, 0, 3);
-	echo '
-	<ul>';
-	foreach($rss->items as $item) {
-	?>
-	<li>
-	<a class="rsswidget" title="" href='<?php echo wp_filter_kses($item['link']); ?>'>
-	<?php echo wp_specialchars($item['title']); ?>
-	</a>
-	<span class="rss-date">
-	<?php echo date("F jS, Y", strtotime($item['pubdate'])); ?>
-	</span>
-	<div class="rssSummary">
-	<strong><?php echo human_time_diff(strtotime($item['pubdate'], time())); ?></strong> - <?php echo $item['description']; ?>
-	</div>
-	</li>
-	<?php
-	}
-	echo '
-	</ul>';
-	}
-	else {
-	?>
-	<p>
-	<?php printf(__('Newsfeed could not be loaded.  Check the <a href="%s">front page</a> to check for updates.', GWOLLE_GB_TEXTDOMAIN), 'http://wolfgangtimme.de/blog/') ?>
-	</p>
-	<?php
-	}
-	?>
-	</div>
-	<?php
-}
-*/
 
 function gwolle_gb_overview_help() {
-	echo '
-	'.__('This is how the guestbook will be displayed on your page', GWOLLE_GB_TEXTDOMAIN).':
-	<br />
-	<br />
+	echo '<h3>
+	'.__('This is how you can get your guestbook displayed on your website:', GWOLLE_GB_TEXTDOMAIN).'</h3>
 	<ul>
-		<li>'.__('Create a new post or page.', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__("Choose a heading (doesn't matter) and set &quot;[gwolle_gb]&quot; (without the quotes) as the content.", GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__("It is probably a good idea to disable comments on that post or page; otherwise, your visitors might get a little confused.",GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Create a new page.', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__("Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the content.", GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__("It is probably a good idea to disable comments on that page; otherwise, your visitors might get a little confused.",GWOLLE_GB_TEXTDOMAIN).'</li>
 	</ul>';
 }
+
+
+function gwolle_gb_overview_help_more() {
+	echo '<h3>
+	'.__('These entries will be visible for your visitors:', GWOLLE_GB_TEXTDOMAIN).'</h3>
+	<ul>
+		<li>'.__('Marked as "Checked".', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Not marked as "Spam".', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Not marked as "Trash".',GWOLLE_GB_TEXTDOMAIN).'</li>
+	</ul>';
+
+	echo '<h3>
+	'.__('The Main Menu counter counts the following entries:', GWOLLE_GB_TEXTDOMAIN).'</h3>
+	<ul>
+		<li>'.__('Marked as "Unchecked" (You might want to moderate them).', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Not marked as "Spam" (You might want to check that).', GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Not marked as "Trash" (You decide what goes to the trash).',GWOLLE_GB_TEXTDOMAIN).'</li>
+	</ul>';
+}
+
 
 function gwolle_gb_overview_thanks() {
 	echo '
@@ -194,6 +170,7 @@ function gwolle_gb_overview_thanks() {
 		<li><a href="http://recaptcha.net/aboutus.html" target="_blank">Recaptcha</a></li>
 	</ul>';
 }
+
 
 function gwolle_gb_overview_import() {
 	global $wpdb;
@@ -230,31 +207,26 @@ function gwolle_gb_overview_import() {
 	}
 }
 
+
 /* Show the page */
 function gwolle_gb_welcome() {
 	global $wpdb;
-	global $userLevelNames;
-
-	//  Process request variables
-	$do = (isset($_REQUEST['do'])) ? $_REQUEST['do'] : '';
 
 	if (get_option('gwolle_gb_version') === FALSE) {
 		gwolle_gb_installSplash();
-	} elseif ($do == 'import') {
-		gwolle_gb_import();
 	} else {
 		add_meta_box('dashboard_right_now', __('Welcome to the Guestbook!',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview', 'gwolle_gb_welcome', 'left', 'core');
 		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts/programs/images:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'left', 'core');
 		if (get_option('gwolle_gb-checkForImport') == 'true') {
-			add_meta_box('gwolle_gb_import', __('Import', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_import', 'gwolle_gb_welcome', 'right', 'core');
+			//add_meta_box('gwolle_gb_import', __('Import', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_import', 'gwolle_gb_welcome', 'right', 'core');
 		}
 		add_meta_box('gwolle_gb_help', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');
-		//add_meta_box('dashboard_primary', __('Latest News', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_news', 'gwolle_gb_welcome', 'right', 'core');
+		add_meta_box('gwolle_gb_help_more', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help_more', 'gwolle_gb_welcome', 'right', 'core');
 
 		?>
 		<div class="wrap gwolle_gb-wrap">
 			<div id="icon-gwolle-gb"><br /></div>
-			<h2><?php _e('Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></h2>
+			<h2><?php _e('Gwolle Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></h2>
 			<div id="dashboard-widgets-wrap" class="gwolle_gb_welcome">
 				<div id="dashboard-widgets" class="metabox-holder">
 					<div class="postbox-container" style="width:49%;">

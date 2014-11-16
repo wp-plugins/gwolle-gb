@@ -17,6 +17,8 @@ function gwolle_gb_page_entries() {
 		gwolle_gb_installSplash();
 	} else {
 
+		//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
+
 		// FIXME: use the right pagename
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) { // different names
 			if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
@@ -31,7 +33,7 @@ function gwolle_gb_page_entries() {
 
 
 		// Get entry counts
-		// FIXME: make sure the 'visible' works
+		// FIXME: make sure the 'visible' works on this page
 		$count = Array();
 		$count['visible']	= gwolle_gb_get_entry_count(
 			array(

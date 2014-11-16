@@ -102,10 +102,10 @@ include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_update_entry.func.php' );
 include_once( GWOLLE_GB_DIR . '/actions.php' );
 
 // Widget
-include_once( GWOLLE_GB_DIR . '/widget.php' );
+// include_once( GWOLLE_GB_DIR . '/widget.php' );
 
 // Dashboard widget (for the WP-Admin dashboard)
-include_once( GWOLLE_GB_DIR . '/admin/dashboard-widget.php' );
+// include_once( GWOLLE_GB_DIR . '/admin/dashboard-widget.php' );
 
 
 
