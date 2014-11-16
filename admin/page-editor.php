@@ -17,72 +17,65 @@ function gwolle_gb_page_editor() {
 	} else {
 		if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
-		$saved = false;
+		$gwolle_gb_errors = '';
+		$gwolle_gb_messages = '';
+		// <p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>'
 
-		if ( isset( $_POST) ) {
+		$sectionHeading = __('Edit guestbook entry', GWOLLE_GB_TEXTDOMAIN);
+
+		// Always fetch the requested entry, even on a $_POST
+		$entry = new gwolle_gb_entry();
+		if ( isset($_GET['entry_id']) ) {
+			$entry_id = intval($_GET['entry_id']);
+			if ( $entry_id > 0 ) {
+				$result = $entry->load( $entry_id );
+				if ( !$result ) {
+					$gwolle_gb_messages = '<p class="error">' . __('Entry could not be found.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_errors = 'error';
+					$sectionHeading = __('Guestbook entry (error)', GWOLLE_GB_TEXTDOMAIN);				}
+			} else {
+				$gwolle_gb_messages = '<p class="error">' . __('Entry could not be found.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+				$gwolle_gb_errors = 'error';
+				$sectionHeading = __('Guestbook entry (error)', GWOLLE_GB_TEXTDOMAIN);
+			}
+		} else {
+			$sectionHeading = __('New guestbook entry', GWOLLE_GB_TEXTDOMAIN);
+		}
+
+
+		/*
+		 * Handle the $_POST
+		 */
+		if ( isset( $_POST) && $gwolle_gb_errors == '' ) {
 			if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
 				die(__('Cheatin&#8217; uh?'));
 			}
 
 
-			// FIXME; put here the posthandling from the do- files
 
 
 
+			//$gwolle_gb_messages = '<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 
-			// If a entry_id has been submitted, check if it's a valid one.
-			$entry_id = '';
-			$entry = FALSE;
 
-			if (isset($_REQUEST['entry_id'])) {
-				$entry = gwolle_gb_get_entries_old(array('entry_id' => $_REQUEST['entry_id']));
-				if ($entry !== FALSE) {
-					$sectionHeading = __('Edit guestbook entry', GWOLLE_GB_TEXTDOMAIN);
-					$gwolle_gb_function = 'edit_entry';
-					$entry_id = $entry['entry_id'];
-				} else {
-					$errorMsg = __('Entry could not be found.', GWOLLE_GB_TEXTDOMAIN);
-				}
-			} else {
-				$sectionHeading = __('New guestbook entry', GWOLLE_GB_TEXTDOMAIN);
-			}
-
-			if ($entry === FALSE) {
-				$entry['entry_content'] = (isset($_SESSION['gwolle_gb']['entry']['content'])) ? $_SESSION['gwolle_gb']['entry']['content'] : '';
-				$entry['entry_author_website'] = (isset($_SESSION['gwolle_gb']['entry']['website'])) ? $_SESSION['gwolle_gb']['entry']['website'] : '';
-				$entry['entry_author_origin'] = (isset($_SESSION['gwolle_gb']['entry']['origin'])) ? $_SESSION['gwolle_gb']['entry']['origin'] : '';
-			}
 		}
 
-
-		$sectionHeading = __('Edit guestbook entry', GWOLLE_GB_TEXTDOMAIN);
-
-		if ( !isset($entry) || !is_object($entry) ) {
-			$entry = new gwolle_gb_entry();
-			if ( isset($_GET['entry_id']) ) {
-				$entry_id = intval($_GET['entry_id']);
-				if ($entry_id) {
-					$entry->load($entry_id);
-				} else {
-					$sectionHeading = __('New guestbook entry', GWOLLE_GB_TEXTDOMAIN);
-				}
-			} else {
-				$sectionHeading = __('New guestbook entry', GWOLLE_GB_TEXTDOMAIN);
-			}
-		}
 		if ( WP_DEBUG ) { echo "entry: "; var_dump($entry); }
-		?>
 
+		/*
+		 * Build the Page and the Form
+		 */
+		?>
 		<div class="wrap">
 			<div id="icon-gwolle-gb"><br /></div>
 			<h2><?php echo $sectionHeading; ?></h2>
 
 			<?php
-			if ( $saved ) {
+			if ( $gwolle_gb_messages ) {
 				echo '
-					<div id="message" class="updated fade">
-						<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>
-					</div>';
+					<div id="message" class="updated fade ' . $gwolle_gb_errors . ' ">' .
+						$gwolle_gb_messages .
+					'</div>';
 			}
 			?>
 

@@ -176,6 +176,10 @@ and also the WordPress documentation.
 == Changelog ==
 
 = 0.9.9.2 =
+* 2014-
+* Admin page editor.php is redone.
+* Admin page entries.php is still in need.
+* Many cleanups.
 
 = 0.9.9.1 =
 * 2014-11-15

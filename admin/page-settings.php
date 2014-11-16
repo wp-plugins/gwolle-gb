@@ -13,6 +13,7 @@ function gwolle_gb_page_settings() {
 	global $wpdb, $defaultMailText, $current_user;
 
 	if (!get_option('gwolle_gb_version')) {
+		// FIXME: do this on activation
 		gwolle_gb_installSplash();
 	} else {
 		$setting_page = (isset($_REQUEST['setting_page'])) ? $_REQUEST['setting_page'] : FALSE;

@@ -52,9 +52,14 @@ class gwolle_gb_entry {
 	}
 
 
-	/* function load
-	 * Loads the entry from database
+	/*
+	 * function load
+	 * Loads the entry from database and sets the data in the instance
+	 *
+	 * Parameter:
 	 * $id id of the entry to be loaded
+	 *
+	 * Return: true or false, depending on success
 	 */
 
 	public function load( $id ) {
@@ -91,6 +96,10 @@ class gwolle_gb_entry {
 
 		$data = $wpdb->get_row( $sql, ARRAY_A );
 
+		if ( empty($data) ) {
+			return false;
+		}
+
 		// Use the fields that the setter method expects
 		$item = array(
 			'id' => (int) $data['entry_id'],
@@ -111,6 +120,7 @@ class gwolle_gb_entry {
 
 		$this->set_data( $item );
 
+		return true;
 	}
 
 
