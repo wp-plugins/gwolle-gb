@@ -12,6 +12,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 function gwolle_gb_page_editor() {
 	global $wpdb, $current_user;
 	if (!get_option('gwolle_gb_version')) {
+		// FIXME: do this on activation
 		gwolle_gb_installSplash();
 	} else {
 		if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }

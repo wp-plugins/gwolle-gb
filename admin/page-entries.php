@@ -14,6 +14,7 @@ function gwolle_gb_page_entries() {
 	global $wpdb;
 
 	if (!get_option('gwolle_gb_version')) {
+		// FIXME: do this on activation
 		gwolle_gb_installSplash();
 	} else {
 

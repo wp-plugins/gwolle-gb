@@ -122,234 +122,16 @@ function gwolle_gb_init() {
 
 	global $current_user;
 
-	// Load settings, if not set
-	global $gwolle_gb_settings;
-	if (!isset($gwolle_gb_settings)) {
-		gwolle_gb_get_settings();
-	}
-
-	/*
-	 * Process all the $_POST requests of Gwolle-GB for the backend.
-	 */
-	$gwolle_gb_function = '';
-	if (isset($_POST['gwolle_gb_function'])) {
-		$gwolle_gb_function = $_POST['gwolle_gb_function'];
-	} elseif (isset($_GET['gwolle_gb_function'])) {
-		$gwolle_gb_function = $_GET['gwolle_gb_function'];
-	}
-
-	if (isset($_POST['entry_id']) && (int)$_POST['entry_id'] > 0) {
-		$entry_id = (int)$_POST['entry_id'];
-	} elseif (isset($_GET['entry_id']) && (int)$_GET['entry_id'] > 0) {
-		$entry_id = (int)$_GET['entry_id'];
-	}
-
 	$show = (isset($_REQUEST['show'])) ? '&show=' . $_REQUEST['show'] : '';
-	$return_to = (isset($_REQUEST['return_to']) ) ? $_REQUEST['return_to'] : FALSE;
 
-	// Disabled for now, use a real page
-	$gwolle_gb_function = '';
-
-	switch($gwolle_gb_function) {
-		case 'add_entry' :
-			if ($return_to === FALSE) {//  This is an entry by a visitor.
-				// deleted
-			} else {
-				// This is an entry by an admin.
-				$entry_id = gwolle_gb_save_entry(array('action' => 'admin_entry'));
-				if ($entry_id === FALSE) {
-					//  Error while saving. Redirect to editor.
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php');
-				} else {
-					//  Entry added successfully. Redirect to entries.
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&entry_id=' . $entry_id);
-				}
-				exit ;
-			}
-			break;
-		case 'edit_entry' :
-			if (!isset($entry_id)) {
-				//  No entry id provided; can't update.
-				// FIXME, this is now broken in the editor?
-				break;
-			}
-
-			$entry = gwolle_gb_get_entries_old(array('entry_id' => $entry_id));
-			if ($entry === FALSE) {
-				// An entry with this id could not be found.
-				break;
-			}
-			if (gwolle_gb_update_entry(array('old_entry' => $entry)) === FALSE) {
-				// Update failed. Return to editor.
-				header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry['entry_id']);
-				exit ;
-			} else {
-				// Updated entry successfully. Return to entries.
-				$_SESSION['gwolle_gb']['msg'] = 'changes-saved';
-				header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php');
-				exit ;
-			}
-			break;
-		case 'trash_entry' :
-			if (!isset($entry_id)) {
-				//  No entry id provided; can't update.
-				break;
-			}
-			$entry = gwolle_gb_get_entries_old(array('entry_id' => $entry_id));
-			if ($entry === FALSE) {
-				//  An entry with this id could not be found.
-				break;
-			}
-			if (gwolle_gb_trash_entry(array('entry_id' => $entry_id)) === FALSE) {
-				//  Entry could not be trashed.
-				$_SESSION['gwolle_gb']['msg'] = 'error-trashing';
-				if ($return_to == 'dashboard') {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/index.php');
-					exit ;
-				} else {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php' . $show);
-					exit ;
-				}
-			} else {
-				//  Entry has been trashed
-				$_SESSION['gwolle_gb']['entry_id'] = $entry_id;
-				$_SESSION['gwolle_gb']['msg'] = 'trashed';
-				if ($return_to == 'dashboard') {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/index.php');
-					exit ;
-				} else {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php' . $show);
-					exit ;
-				}
-			}
-			break;
-		case 'untrash_entry' :
-			if (!isset($entry_id)) {
-				//  No entry id provided; can't update.
-				break;
-			}
-			$entry = gwolle_gb_get_entries_old(array('entry_id' => $entry_id));
-			if ($entry === FALSE) {
-				//  An entry with this id could not be found.
-				break ;
-			}
-			if (gwolle_gb_trash_entry(array('entry_id' => $entry_id, 'untrash' => TRUE)) === FALSE) {
-				//  Entry could not be untrashed.
-				$_SESSION['gwolle_gb']['msg'] = 'error-untrashing';
-				if ($return_to == 'dashboard') {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/index.php');
-					exit ;
-				} else {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php' . $show);
-					exit ;
-				}
-			} else {
-				//  Entry has been untrashed
-				$_SESSION['gwolle_gb']['entry_id'] = $entry_id;
-				$_SESSION['gwolle_gb']['msg'] = 'untrashed';
-				if ($return_to == 'dashboard') {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/index.php');
-					exit ;
-				} else {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php' . $show);
-					exit ;
-				}
-			}
-			break;
-		case 'delete_entry' :
-			if (!isset($entry_id)) {
-				//  No entry id provided; can't update.
-				break;
-			}
-			$entry = gwolle_gb_get_entries_old(array('entry_id' => $entry_id));
-			if ($entry === FALSE) {
-				//  An entry with this id could not be found.
-				break;
-			}
-			if (gwolle_gb_delete_entry(array('entry_id' => $entry_id)) === FALSE) {
-				//  Entry could not be deleted.
-				$_SESSION['gwolle_gb']['msg'] = 'error-deleting';
-				header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php' . $show);
-				exit ;
-			} else {
-				// Entry has been deleted
-				$_SESSION['gwolle_gb']['msg'] = 'deleted';
-				header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php' . $show);
-				exit ;
-			}
-			break;
-		case 'mark_spam' :
-			if (!isset($entry_id)) {
-				// No entry id provided; can't update.
-				break;
-			}
-			$entry = gwolle_gb_get_entries_old(array('entry_id' => $entry_id));
-			if ($entry === FALSE) {
-				//  An entry with this id could not be found.
-				break;
-			}
-			if (gwolle_gb_mark_spam(array('entry_id' => $entry_id)) === FALSE) {
-				// Entry could not be marked as spam.
-				$_SESSION['gwolle_gb']['msg'] = 'error-marking-spam';
-				if ($return_to == 'dashboard') {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/index.php');
-					exit ;
-				} else {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry_id);
-					exit ;
-				}
-			} else {
-				// Entry has been marked as spam
-				if ($return_to == 'dashboard') {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/index.php');
-					exit ;
-				} else {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry_id);
-					exit ;
-				}
-			}
-			break;
-		case 'unmark_spam' :
-			if (!isset($entry_id)) {
-				// No entry id provided; can't update.
-				break;
-			}
-			$entry = gwolle_gb_get_entries_old(array('entry_id' => $entry_id));
-			if ($entry === FALSE) {
-				// An entry with this id could not be found.
-				break;
-			}
-			if (gwolle_gb_mark_spam(array('entry_id' => $entry_id, 'no_spam' => TRUE)) === FALSE) {
-				// Entry could not be marked as no-spam.
-				$_SESSION['gwolle_gb']['msg'] = 'error-unmarking-spam';
-				if ($return_to == 'dashboard') {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/index.php');
-					exit ;
-				} else {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry_id);
-					exit ;
-				}
-			} else {
-				// Entry has been marked as no-spam
-				if ($return_to == 'dashboard') {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/index.php');
-					exit ;
-				} else {
-					header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry_id);
-					exit ;
-				}
-			}
-			break;
-	}
 
 	// Process $_REQUEST variables
-	$req_action = (isset($_REQUEST['action'])) ? $_REQUEST['action'] : FALSE;
-	$post_action = (isset($_POST['action'])) ? $_POST['action'] : '';
 	$do = (isset($_REQUEST['do'])) ? $_REQUEST['do'] : '';
-	$entry_id = (isset($_REQUEST['entry_id']) && (int)$_REQUEST['entry_id'] > 0) ? (int)$_REQUEST['entry_id'] : FALSE;
 	$gb_page = (isset($_REQUEST['gb_page'])) ? $_REQUEST['gb_page'] : '';
-	$page = (isset($_REQUEST['page'])) ? $_REQUEST['page'] : '';
 
+
+	// FIXME: make it into a page
+	/*
 	if ($req_action == 'uninstall_gwolle_gb') {
 		if ($_POST['uninstall_confirmed'] == 'on') {
 			// uninstall the plugin -> delete all tables and preferences of the plugin
@@ -359,7 +141,8 @@ function gwolle_gb_init() {
 			header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php&msg=uninstall-not-confirmed');
 			exit ;
 		}
-	}
+	}*/
+
 
 	// Check if the plugin is out of date
 	$current_version = get_option('gwolle_gb_version');
@@ -368,8 +151,9 @@ function gwolle_gb_init() {
 		upgrade_gwolle_gb();
 	}
 
+
 	if ($do == 'massEdit') {
-		// Mass edit entries
+		// FIXME: Move to page-entries.php
 		include (GWOLLE_GB_DIR . '/admin/do-massEdit.php');
 	} elseif (isset($_POST['start_import'])) {
 		// FIXME, make it into a separate page in /admin/import.php and move this posthandling there
