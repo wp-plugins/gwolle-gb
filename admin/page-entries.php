@@ -17,8 +17,10 @@ function gwolle_gb_page_entries() {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();
 	} else {
+		if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
-		//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
+		$gwolle_gb_errors = '';
+		$gwolle_gb_messages = '';
 
 		// FIXME: use the right pagename
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) { // different names
@@ -103,12 +105,20 @@ function gwolle_gb_page_entries() {
 		<div class="wrap">
 			<div id="icon-gwolle-gb"><br /></div>
 			<h2><?php _e('Guestbook entries', GWOLLE_GB_TEXTDOMAIN); ?></h2>
-			<?php include (GWOLLE_GB_DIR . '/msg.php'); ?>
 
-			<form action="<?php echo $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page']; ?>&amp;do=massEdit" method="POST">
+			<?php
+			if ( $gwolle_gb_messages ) {
+				echo '
+					<div id="message" class="updated fade ' . $gwolle_gb_errors . ' ">' .
+						$gwolle_gb_messages .
+					'</div>';
+			}
+			?>
+
+			<form name="gwolle_gb_entries" action="" method="POST">
 				<!-- the following fields give us some information we're going to use processing the mass edit -->
 				<input type="hidden" name="pageNum" value="<?php echo $pageNum; ?>">
-				<input type="hidden" name="entriesOnThisPage" value="<?php $wpdb -> num_rows; ?>">
+				<input type="hidden" name="entriesOnThisPage" value="<?php $wpdb->num_rows; ?>">
 				<input type="hidden" name="show" value="<?php echo $show; ?>">
 
 				<ul class="subsubsub">
@@ -116,6 +126,11 @@ function gwolle_gb_page_entries() {
 						if ($show == 'all') { echo 'class="current"'; }
 						?>>
 						<?php _e('All', GWOLLE_GB_TEXTDOMAIN); ?> <span class="count">(<?php echo $count['all']; ?>)</span></a> |
+					</li>
+					<li><a href='admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=visible' <?php
+						if ($show == 'visible') { echo 'class="current"'; }
+						?>>
+						<?php _e('Visible', GWOLLE_GB_TEXTDOMAIN); ?> <span class="count">(<?php echo $count['visible']; ?>)</span></a> |
 					</li>
 					<li><a href='admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=checked' <?php
 						if ($show == 'checked') { echo 'class="current"'; }
@@ -142,20 +157,21 @@ function gwolle_gb_page_entries() {
 						$massEditControls .= '<option value="-1" selected="selected">' . __('Mass edit actions', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						if ($show == 'trash') {
 							$massEditControls .= '
-								<option value="untrash">Widerherstellen</option>
-								<option value="remove">Endgültig entfernen</option>';
+								<option value="untrash">' . __('Restore from Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>
+								<option value="remove">' . __('Remove Permanently', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						} else {
 							if ($show != 'checked') {
-								$massEditControls .= '<option value="check">' . __('Mark as checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="check">' . __('Mark as Checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							if ($show != 'unchecked') {
-								$massEditControls .= '<option value="uncheck">' . __('Mark as not checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="uncheck">' . __('Mark as not Checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							if ($show != 'spam') {
-								$massEditControls .= '<option value="spam">' . __('Mark as spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="spam">' . __('Mark as Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
-							$massEditControls .= '<option value="no-spam">' . __('Mark as not spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							$massEditControls .= '<option value="delete">' . __('Move to Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							$massEditControls .= '<option value="no-spam">' . __('Mark as not Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							$massEditControls .= '<option value="trash">' . __('Move to Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						}
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
@@ -346,17 +362,24 @@ function gwolle_gb_page_entries() {
 							<?php
 							$massEditControls = '<select name="massEditAction2">';
 							$massEditControls .= '<option value="-1" selected="selected">' . __('Mass edit actions', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							if ($show != 'checked') {
-								$massEditControls .= '<option value="check">' . __('Mark as checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							if ($show == 'trash') {
+								$massEditControls .= '
+									<option value="untrash">' . __('Restore from Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>
+									<option value="remove">' . __('Remove Permanently', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							} else {
+								if ($show != 'checked') {
+									$massEditControls .= '<option value="check">' . __('Mark as Checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								}
+								if ($show != 'unchecked') {
+									$massEditControls .= '<option value="uncheck">' . __('Mark as not Checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								}
+								if ($show != 'spam') {
+									$massEditControls .= '<option value="spam">' . __('Mark as Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								}
+								$massEditControls .= '<option value="no-spam">' . __('Mark as not Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="trash">' . __('Move to Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
-							if ($show != 'unchecked') {
-								$massEditControls .= '<option value="uncheck">' . __('Mark as not checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							}
-							if ($show != 'spam') {
-								$massEditControls .= '<option value="spam">' . __('Mark as spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							}
-							$massEditControls .= '<option value="no-spam">' . __('Mark as not spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							$massEditControls .= '<option value="delete">' . __('Move to Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							$massEditControls .= '</select>';
 							$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
 							// It makes no sense to show the mass edit controls when there are no entries to edit. ;)

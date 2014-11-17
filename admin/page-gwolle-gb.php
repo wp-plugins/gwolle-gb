@@ -123,11 +123,8 @@ function gwolle_gb_overview(){
 	</div><!-- Table-DIV -->
 	<div class="versions">
 		<p>
-			<a class="button rbutton" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><strong><?php _e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></strong></a>
+			<a class="button rbutton" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php _e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
 		</p>
-		<h3>
-			<?php _e('Only users with the capability "moderate_comments" have access to the guestbook backend.', GWOLLE_GB_TEXTDOMAIN); ?>
-		</h3>
 	</div>
 <?php }
 

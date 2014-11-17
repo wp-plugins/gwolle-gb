@@ -66,7 +66,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * 1a. Install the plugin through the admin page "Plugins".
 * 1b. Alternatively, unpack and upload the contents of the zipfile to your '/wp-content/plugins/' directory.
 * 2.  Activate the plugin through the 'Plugins' menu in WordPress.
-* 3.  Place '[gwolle_gb]' in an article or page. That's it.
+* 3.  Place '[gwolle_gb]' in a page. That's it.
 * 4.  You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
 
 Gwolle-GB uses the shortcode and places the guestbook on a page or post containing [gwolle_gb].
@@ -75,8 +75,9 @@ It couldn't be easier.
 
 = Updating from an old version =
 
-Since 0.9.9.1 Gwolle-GB uses the Shortcode API. Untill then the shortcode used for Gwolle-GB was [gwolle-gb].
-However, using dashes in shortcodes is advised against, so make sure to update your guestbook page to use [gwolle_gb].
+Since 0.9.9.1 Gwolle-GB uses the Shortcode API. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
+Also since that release, the posts that are visible to visitors has changed. Make sure to check if you have everything
+visible that you want and nothing more.
 
 = Todo/coming up in future releases =
 
@@ -96,9 +97,9 @@ First priority is getting the plugin working with current WordPress and resolve 
 * Bring Import and Uninstall back, this time in separate admin pages.
 * Bring Frontend Widget and Dashboard Widget back.
 * Redo Settings page with tabs for separate parts.
-* Add an RSS Feed.
+* Add an RSS Feed for Guestbook Entries.
 
-If you have a feature request please use the forum on WordPress.org. I may add it to the list then.
+If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
 
 The following list is from the original author.
 
@@ -144,8 +145,9 @@ Before that, in 0.9.7, all the 'checked' entries were visible.
 
 = I have a lot of unchecked entries. What do I do? =
 
-For the entries that you consider spam, but were not caught by Akismet, you can first set them to be spam, and they will not be visible anymore.
+For the entries that you consider spam, but were not caught by Akismet, you can mark them as spam, and they will not be visible anymore.
 For entries that are not spam, but you still don't want them visible, you can move them to trash.
+The entries that you want visible, select these to be checked.
 
 = Why aren't entries really deleted, and instead stored in the database? =
 
@@ -180,6 +182,8 @@ and also the WordPress documentation.
 * Admin page editor.php is redone.
 * Admin page entries.php is still in need.
 * Submit-Ham and Submit-Spam in Akismet is back.
+* Use get_current_user_id instead of a global variable.
+* Use option on the Settings page to set the number of entries on the admin.
 * Many cleanups.
 
 = 0.9.9.1 =
