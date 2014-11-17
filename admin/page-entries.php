@@ -38,29 +38,28 @@ function gwolle_gb_page_entries() {
 		// Get entry counts
 		// FIXME: make sure the 'visible' works on this page
 		$count = Array();
-		$count['visible']	= gwolle_gb_get_entry_count(
+		$count['checked']	= gwolle_gb_get_entry_count(
 			array(
 				'checked' => 'checked',
 				'deleted' => 'notdeleted',
-				'spam' => 'nospam'
+				'spam'    => 'nospam'
 			)
 		);
-		$count['checked']	= gwolle_gb_get_entry_count(array( 'checked' => 'checked' ));
-		$count['unchecked']	= gwolle_gb_get_entry_count(array( 'checked' => 'unchecked' ));
+		$count['unchecked']	= gwolle_gb_get_entry_count(array(
+				'checked' => 'unchecked',
+				'deleted' => 'notdeleted',
+				'spam'    => 'nospam'
+			));
 		$count['spam']		= gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
 		$count['trash']		= gwolle_gb_get_entry_count(array( 'deleted' => 'deleted' ));
 		$count['all']		= gwolle_gb_get_entry_count(array( 'all' => 'all' ));
 
 		// FIXME: for now the old counters
-		$count['checked']    = gwolle_gb_get_entry_count_old(array( 'entry_status' => 'checked' ));
-		$count['unchecked']  = gwolle_gb_get_entry_count_old(array( 'entry_status' => 'unchecked' ));
-		$count['spam']       = gwolle_gb_get_entry_count_old(array( 'entry_status' => 'spam' ));
-		$count['trash']      = gwolle_gb_get_entry_count_old(array( 'entry_status' => 'trash' ));
 		$count['all'] = $count['checked'] + $count['unchecked'] + $count['spam'];
 
 
 
-		$show = (isset($_REQUEST['show']) && in_array($_REQUEST['show'], array('visible', 'checked', 'unchecked', 'spam', 'trash'))) ? $_REQUEST['show'] : 'all';
+		$show = (isset($_REQUEST['show']) && in_array($_REQUEST['show'], array('checked', 'unchecked', 'spam', 'trash'))) ? $_REQUEST['show'] : 'all';
 
 		//  If Akimet has not been activated yet and the user is looking at the spam tell him to activate Akismet.
 		if ($show == 'spam' && get_option('gwolle_gb-akismet-active') != 'true') {
@@ -126,11 +125,6 @@ function gwolle_gb_page_entries() {
 						if ($show == 'all') { echo 'class="current"'; }
 						?>>
 						<?php _e('All', GWOLLE_GB_TEXTDOMAIN); ?> <span class="count">(<?php echo $count['all']; ?>)</span></a> |
-					</li>
-					<li><a href='admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=visible' <?php
-						if ($show == 'visible') { echo 'class="current"'; }
-						?>>
-						<?php _e('Visible', GWOLLE_GB_TEXTDOMAIN); ?> <span class="count">(<?php echo $count['visible']; ?>)</span></a> |
 					</li>
 					<li><a href='admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=checked' <?php
 						if ($show == 'checked') { echo 'class="current"'; }

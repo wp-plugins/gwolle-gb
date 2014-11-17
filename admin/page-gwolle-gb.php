@@ -14,14 +14,13 @@ function gwolle_gb_overview(){
 
 	// Calculate the number of entries
 	$count = Array();
-	$count['visible']    = gwolle_gb_get_entry_count(
+	$count['checked']    = gwolle_gb_get_entry_count(
 		array(
 			'checked' => 'checked',
 			'deleted' => 'notdeleted',
 			'spam' => 'nospam'
 		)
 	);
-	$count['checked']    = gwolle_gb_get_entry_count(array( 'checked' => 'checked' ));
 	$count['unchecked']  = gwolle_gb_get_entry_count(array( 'checked' => 'unchecked' ));
 	$count['spam']       = gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
 	$count['all']        = gwolle_gb_get_entry_count(array( 'all' => 'all' ));
@@ -38,6 +37,7 @@ function gwolle_gb_overview(){
 							<?php echo $count['all']; ?>
 						</a>
 					</td>
+
 					<td class="t">
 						<?php
 							if ($count['all']==1) {
@@ -53,28 +53,10 @@ function gwolle_gb_overview(){
 				</tr>
 
 				<tr>
-					<td class="first b"><a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=visible">
-						<?php echo $count['visible']; ?>
-					</a></td>
-					<td class="t" style="color:#008000;">
-						<?php
-							if ($count['visible'] == 1) {
-								_e('Visible entry',GWOLLE_GB_TEXTDOMAIN);
-							} else {
-								_e('Visible entries',GWOLLE_GB_TEXTDOMAIN);;
-							}
-						?>
-					</td>
-					<td class="b"></td>
-					<td class="last"></td>
-				</tr>
-
-
-				<tr>
 					<td class="first b"><a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=checked">
 						<?php echo $count['checked']; ?>
 					</a></td>
-					<td class="t" style="color:#0000b0;">
+					<td class="t" style="color:#008000;">
 						<?php
 							if ($count['checked'] == 1) {
 								_e('Checked entry',GWOLLE_GB_TEXTDOMAIN);
@@ -86,11 +68,12 @@ function gwolle_gb_overview(){
 					<td class="b"></td>
 					<td class="last"></td>
 				</tr>
+
 				<tr>
 					<td class="first b"><a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=unchecked">
 						<?php echo $count['unchecked']; ?>
 					</a></td>
-					<td class="t" style="color:#FFA500;">
+					<td class="t" style="color:#ff6f00;">
 						<?php
 							if ($count['unchecked'] == 1) {
 								_e('Unchecked entry',GWOLLE_GB_TEXTDOMAIN);
@@ -102,6 +85,7 @@ function gwolle_gb_overview(){
 					<td class="b"></td>
 					<td class="last"></td>
 				</tr>
+
 				<tr>
 					<td class="first b"><a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=spam">
 						<?php echo $count['spam']; ?>
@@ -118,6 +102,7 @@ function gwolle_gb_overview(){
 					<td class="b"></td>
 					<td class="last"></td>
 				</tr>
+
 			</tbody>
 		</table>
 	</div><!-- Table-DIV -->
