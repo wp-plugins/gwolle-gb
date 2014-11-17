@@ -11,7 +11,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 
 function gwolle_gb_page_editor() {
 	global $wpdb;
-	// FIXME: use get current info function, not a global var
+
 	if (!get_option('gwolle_gb_version')) {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();

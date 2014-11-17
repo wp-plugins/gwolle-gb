@@ -102,10 +102,17 @@ function gwolle_gb_page_settings() {
 				$saved = true;
 			}
 
-			// Entries per page options
+			// Entries per page options for Frontend
 			// FIXME: sanitize value
 			if ( isset($_POST['entriesPerPage']) && is_numeric($_POST['entriesPerPage']) && $_POST['entriesPerPage'] > 0 ) {
 				update_option('gwolle_gb-entriesPerPage', $_POST['entriesPerPage']);
+				$saved = true;
+			}
+
+			// Entries per page options for Admin
+			// FIXME: sanitize value
+			if ( isset($_POST['entries_per_page']) && is_numeric($_POST['entries_per_page']) && $_POST['entries_per_page'] > 0 ) {
+				update_option( 'gwolle_gb-entries_per_page', $_POST['entries_per_page']);
 				$saved = true;
 			}
 
@@ -343,6 +350,27 @@ function gwolle_gb_page_settings() {
 								</select>
 								<br />
 								<span class="setting-description"><?php _e('Number of entries shown on the frontend.', GWOLLE_GB_TEXTDOMAIN); ?></span>
+							</td>
+						</tr>
+
+
+						<tr valign="top">
+							<th scope="row"><label for="entries_per_page"><?php _e('Entries per page in the admin', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+							<td>
+								<select name="entries_per_page">
+									<?php $entries_per_page = get_option( 'gwolle_gb-entries_per_page', 15 );
+									$presets = array(5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 120, 150, 200, 250);
+									for ($i = 0; $i < count($presets); $i++) {
+										echo '<option value="' . $presets[$i] . '"';
+										if ($presets[$i] == $entries_per_page) {
+											echo ' selected="selected"';
+										}
+										echo '>' . $presets[$i] . ' ' . __('Entries', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+									}
+									?>
+								</select>
+								<br />
+								<span class="setting-description"><?php _e('Number of entries shown in the admin.', GWOLLE_GB_TEXTDOMAIN); ?></span>
 							</td>
 						</tr>
 
