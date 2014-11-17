@@ -10,7 +10,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 
 
 function gwolle_gb_page_settings() {
-	global $wpdb, $defaultMailText, $current_user;
+	global $wpdb, $defaultMailText;
 
 	if (!get_option('gwolle_gb_version')) {
 		// FIXME: do this on activation
@@ -39,7 +39,7 @@ function gwolle_gb_page_settings() {
 			// E-mail notification option
 			if ( isset($_POST['notify_by_mail']) && $_POST['notify_by_mail'] == 'on' ) {
 				// Turn the notification ON for the current user.
-				$user_id = $current_user->data->ID;
+				$user_id = get_current_user_id();
 				$user_ids = Array();
 
 				$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
@@ -62,7 +62,7 @@ function gwolle_gb_page_settings() {
 				$saved = true;
 			} elseif ( !isset($_POST['notify_by_mail']) ) {
 				// Turn the notification OFF for the current user
-				$user_id = $current_user->data->ID;
+				$user_id = get_current_user_id();
 				$user_ids = Array();
 
 				$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
@@ -205,7 +205,7 @@ function gwolle_gb_page_settings() {
 										__('Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. You might want to install a WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can contact your hosting provider to change this.',GWOLLE_GB_TEXTDOMAIN)
 										. '</p>';
 								}
-								$current_user_id = $current_user->data->ID;
+								$current_user_id = get_current_user_id();;
 								$currentUserNotification = false;
 								$user_ids = get_option('gwolle_gb-notifyByMail' );
 								if ( count($user_ids) > 0 ) {
@@ -237,7 +237,7 @@ function gwolle_gb_page_settings() {
 												continue;
 											}
 											echo '<li>';
-											if ($user_info->ID == $current_user->data->ID) {
+											if ( $user_info->ID == get_current_user_id() ) {
 												echo '<strong>' . __('You', GWOLLE_GB_TEXTDOMAIN) . '</strong>';
 											} else {
 												echo $user_info->first_name . ' ' . $user_info->last_name;

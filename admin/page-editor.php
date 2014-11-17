@@ -10,7 +10,8 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 
 
 function gwolle_gb_page_editor() {
-	global $wpdb, $current_user;
+	global $wpdb;
+	// FIXME: use get current info function, not a global var
 	if (!get_option('gwolle_gb_version')) {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();
@@ -51,13 +52,17 @@ function gwolle_gb_page_editor() {
 			}
 
 			if ( isset($_POST['gwolle_gb_page']) && $_POST['gwolle_gb_page'] == 'editor' ) {
-				$changed = false;
 
 				if ( !isset($_POST['entry_id']) || $_POST['entry_id'] != $entry->get_id() ) {
 					$gwolle_gb_messages .= '<p class="error">' . __('Something strange happened.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					$gwolle_gb_errors = 'error';
-				} else {
+				} else if ( $_POST['entry_id'] > 0 ) {
+					/* Check for changes, and update accordingly. This is on an Existing Entry */
+					$changed = false;
+
 // FIXME: add logging
+// FIXME: make it work on new entry as well
+
 					/* Set as checked or unchecked, and by whom */
 					if ( isset($_POST['ischecked']) && $_POST['ischecked'] == 'on' ) {
 						if ( $_POST['ischecked'] == 'on' && $entry->get_ischecked() == 0 ) {
@@ -131,17 +136,39 @@ function gwolle_gb_page_editor() {
 							$gwolle_gb_messages .= '<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 						} else {
 							$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+							$gwolle_gb_errors = 'error';
 						}
 					} else {
 						$gwolle_gb_messages .= '<p>' . __('Entry was not changed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 
 					}
+				} else if ( $_POST['entry_id'] == 0 ) {
+					/* Check for input, and save accordingly. This is on a New Entry */
+					$saved = false;
+
+
+
+					if ( $saved ) {
+						$result = $entry->save();
+						if ($result ) {
+							$gwolle_gb_messages .= '<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						} else {
+							$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+							$gwolle_gb_errors = 'error';
+						}
+					} else {
+						$gwolle_gb_messages .= '<p>' . __('Entry was not changed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+
+					}
+
 				}
 			}
 
 		}
 
 		if ( WP_DEBUG ) { echo "entry: "; var_dump($entry); }
+
+		// FIXME: reload the entry, just for consistency?
 
 		/*
 		 * Build the Page and the Form

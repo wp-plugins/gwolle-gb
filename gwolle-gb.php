@@ -119,8 +119,6 @@ function gwolle_gb_init() {
 
 	@session_start();
 
-	global $current_user;
-
 	$show = (isset($_REQUEST['show'])) ? '&show=' . $_REQUEST['show'] : '';
 
 

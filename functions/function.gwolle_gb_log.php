@@ -14,7 +14,6 @@
 
 function gwolle_gb_add_log_entry( $args ) {
 	global $wpdb;
-	global $current_user;
 
 	if (!isset($args['subject']) || !isset($args['subject_id']) || (int) $args['subject_id'] === 0) {
 		return false;
@@ -38,7 +37,7 @@ function gwolle_gb_add_log_entry( $args ) {
 		array(
 			addslashes( $args['subject'] ),
 			intval( $args['subject_id'] ),
-			intval( $current_user->data->ID ),
+			intval( get_current_user_id() ),
 			mktime()
 		)
 	) );
@@ -69,7 +68,6 @@ function gwolle_gb_add_log_entry( $args ) {
 
 function gwolle_gb_get_log_entries( $subject_id ) {
 	global $wpdb;
-	global $current_user;
 
 	if ( !isset($subject_id) || (int) $subject_id === 0 ) {
 		return false;
@@ -150,7 +148,7 @@ function gwolle_gb_get_log_entries( $subject_id ) {
 		$log_entry['msg_html'] .= date_i18n( get_option('time_format'), $log_entry['log_date']);
 		$log_entry['msg_html'] .= ': ' . $log_entry['msg'];
 
-		if ( $log_entry['author_id'] == $current_user->data->ID ) {
+		if ( $log_entry['author_id'] == get_current_user_id() ) {
 			$log_entry['msg_html'] .= ' (<strong>' . __('You', GWOLLE_GB_TEXTDOMAIN) . '</strong>)';
 		} else {
 			$log_entry['msg_html'] .= ' (' . $log_entry['author_login'] . ')';
