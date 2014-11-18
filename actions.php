@@ -142,6 +142,36 @@ function gwolle_gb_register_settings() {
 }
 
 
+add_action('init', 'gwolle_gb_init');
+function gwolle_gb_init() {
+	if ( ! is_admin() ) {
+		// only run this on wp-admin panel
+		return;
+	}
+
+	// FIXME: make it into a page
+	/*
+	if ($req_action == 'uninstall_gwolle_gb') {
+		if ($_POST['uninstall_confirmed'] == 'on') {
+			// uninstall the plugin -> delete all tables and preferences of the plugin
+			uninstall_gwolle_gb();
+		} else {
+			// Uninstallation not confirmed.
+			header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php&msg=uninstall-not-confirmed');
+			exit ;
+		}
+	}*/
+
+
+	// Check if the plugin is out of date
+	$current_version = get_option('gwolle_gb_version');
+	if ($current_version && version_compare($current_version, GWOLLE_GB_VER, '<')) {
+		// Upgrade, if this version differs from what the database says.
+		upgrade_gwolle_gb();
+	}
+}
+
+
 /*
  * gwolle_gb_load_lang
  * Function called at initialisation.

@@ -34,10 +34,10 @@ function gwolle_gb_format_values_for_mail($value) {
 /*
  * Function to build the excerpt
  *
- * Args: $content: content of the entry to be shortened
- *       $excerpt_length: the maximum length to return
+ * Args: $content: (string) content of the entry to be shortened
+ *       $excerpt_length: (int) the maximum length to return in number of characters
  *
- * Return: $excerpt the shortened content
+ * Return: $excerpt: (string) the shortened content
  */
 function gwolle_gb_get_excerpt($content, $excerpt_length) {
 	$excerpt = gwolle_gb_format_value_for_output( substr($content, 0, $excerpt_length ));

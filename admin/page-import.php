@@ -20,6 +20,99 @@ function gwolle_gb_import() {
 		if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
 			die(__('Cheatin&#8217; uh?'));
 		}
+
+		if (isset($_POST['start_import'])) {
+			// FIXME, make it into a separate page in /admin/import.php and move this posthandling there
+			?>
+			<div class="wrap">
+				<div id="icon-gwolle-gb"><br /></div>
+				<h2>Currently disabled. It will come back in a future version.</h2>
+			</div> <?php
+			return;
+			// Import guestbook entries from another plugin.
+			// Supported plugins to import guestbook entries from
+			$supported = array('dmsguestbook');
+			if (!in_array($_REQUEST['what'], $supported)) {
+				// The requested plugin is not supported
+				header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&do=import&msg=plugin-not-supported');
+				exit ;
+			} else {
+				global $wpdb;
+				if ($_REQUEST['what'] == 'dmsguestbook') {
+					// Import entries from DMSGuestbook
+					if (isset($_POST['guestbook_number']) && is_numeric($_POST['guestbook_number'])) {
+						// Get guestbook entries from the chosen guestbook
+						// FIXME, cleanup first query
+						$result_nr = $wpdb->query("
+							SELECT
+								*
+							FROM
+								" . $wpdb->prefix . "dmsguestbook
+							WHERE
+								guestbook = " . $_POST['guestbook_number'] . "
+							ORDER BY
+								date ASC
+							");
+						if ($result_nr === 0) {
+							// The chosen guestbook does not contain any entries.
+							header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&do=import&what=' . $_REQUEST['what'] . '&msg=no-entries-to-import');
+							exit ;
+						} else {
+							$result = $wpdb->get_results("
+								SELECT
+									*
+								FROM
+									" . $wpdb->prefix . "dmsguestbook
+								WHERE
+									guestbook = " . $_POST['guestbook_number'] . "
+								ORDER BY
+									date ASC
+								", ARRAY_A);
+							foreach ($result as $entry) {
+								gwolle_gb_import_dmsgb_entry($entry);
+							}
+							header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&do=import&what=' . $_REQUEST['what'] . '&msg=import-successful&count=' . $result_nr);
+							exit ;
+						}
+					} elseif ($_POST['import-all'] == 'true') {
+						//  Import all entries.
+						// FIXME: cleanup first query
+						$result_nr = $wpdb->query("
+							SELECT
+								*
+							FROM
+								" . $wpdb->prefix . "dmsguestbook
+							ORDER BY
+								date ASC
+							");
+						if ($result_nr === 0) {
+							//  There are no entries to import.
+							header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&do=import&what=' . $_REQUEST['what'] . '&msg=no-entries-to-import');
+							exit ;
+						} else {
+							$result = $wpdb->get_results("
+								SELECT
+									*
+								FROM
+									" . $wpdb->prefix . "dmsguestbook
+								ORDER BY
+									date ASC
+								", ARRAY_A);
+							foreach ($result as $entry) {
+								gwolle_gb_import_dmsgb_entry($entry);
+							}
+							header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&do=import&what=' . $_REQUEST['what'] . '&msg=import-successful&count=' . $result_nr);
+							exit ;
+						}
+					} else {
+						//  There are more than one guestbook and the user didn't choose one to import from.
+						header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&do=import&what=' . $_REQUEST['what'] . '&msg=no-guestbook-chosen');
+						exit ;
+					}
+				}
+			}
+		}
+
 	}
 
 	// FIXME; put here the posthandling from gwolle-gb.php
