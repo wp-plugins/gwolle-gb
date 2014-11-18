@@ -30,6 +30,13 @@ function gwolle_gb_page_entries() {
 
 			// FIXME; put here the posthandling from ...
 
+			$entriesEdited = 0;
+			foreach( array_keys($_POST) as $postElementName ) {
+				if (strpos($postElementName, 'check') > -1 && !strpos($postElementName, '-all-') && $_POST[$postElementName] == 'on') {
+					$entry_id = str_replace('check-','',$postElementName);
+				}
+				$entriesEdited++;
+			}
 
 
 		}

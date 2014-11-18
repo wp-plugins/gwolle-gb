@@ -26,7 +26,7 @@ function gwolle_gb_import() {
 			?>
 			<div class="wrap">
 				<div id="icon-gwolle-gb"><br /></div>
-				<h2>Currently disabled. It will come back in a future version.</h2>
+				<h2>Import is currently disabled. It will come back in a future version.</h2>
 			</div> <?php
 			return;
 			// Import guestbook entries from another plugin.
@@ -34,8 +34,7 @@ function gwolle_gb_import() {
 			$supported = array('dmsguestbook');
 			if (!in_array($_REQUEST['what'], $supported)) {
 				// The requested plugin is not supported
-				header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&do=import&msg=plugin-not-supported');
-				exit ;
+
 			} else {
 				global $wpdb;
 				if ($_REQUEST['what'] == 'dmsguestbook') {
@@ -115,12 +114,10 @@ function gwolle_gb_import() {
 
 	}
 
-	// FIXME; put here the posthandling from gwolle-gb.php
-
 	?>
 	<div class="wrap">
 		<div id="icon-gwolle-gb"><br /></div>
-		<h2>Currently disabled. It will come back in a future version.</h2>
+		<h2>Import is currently disabled. It will come back in a future version.</h2>
 	</div>
 	<?php return; ?>
 

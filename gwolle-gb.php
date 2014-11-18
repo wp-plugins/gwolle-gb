@@ -41,12 +41,6 @@ define('GWOLLE_GB_DIR', WP_PLUGIN_DIR . '/' . GWOLLE_GB_FOLDER);
 define('GWOLLE_GB_TEXTDOMAIN', 'GWGB');
 
 
-// Load settings
-global $gwolle_gb_settings;
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_get_settings.func.php' );
-gwolle_gb_get_settings();
-
-
 // FIXME, this needs to be in init action or so?
 // Declare database table names
 $wpdb->gwolle_gb_entries = $wpdb->prefix . 'gwolle_gb_entries';
@@ -78,25 +72,6 @@ include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_get_entry_count.php
 include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_log.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_misc.php' );
 
-
-// Old Functions, to be replaced by new functions or class
-include_once( GWOLLE_GB_DIR . '/admin/check_entry.func.php' );
-include_once( GWOLLE_GB_DIR . '/admin/spam.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/get_gwolle_gb_post_id.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_check_entry.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_check_entry_data.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_delete_entry.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_get_dashboard_widget_row.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_get_entries.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_get_entry_count.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_get_link.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_import_dmsgb_entry.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_isspam_akismet.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_mark_spam.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_save_entry.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_trash_entry.func.php' );
-include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_update_entry.func.php' );
-
 // Actions
 include_once( GWOLLE_GB_DIR . '/actions.php' );
 
@@ -105,6 +80,7 @@ include_once( GWOLLE_GB_DIR . '/actions.php' );
 
 // Dashboard widget (for the WP-Admin dashboard)
 // include_once( GWOLLE_GB_DIR . '/admin/dashboard-widget.php' );
+// include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_get_dashboard_widget_row.func.php' );
 
 
 // Load admin CSS/scripts

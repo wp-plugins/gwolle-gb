@@ -327,7 +327,7 @@ class gwolle_gb_entry {
 
 		return true;
 	}
-
+	// FIXME: integrate the setters and checkers? It's all the same anyway
 	public function set_id($id) {
 		$id = $this->check_id($id);
 		if ($id) {
@@ -574,10 +574,24 @@ class gwolle_gb_entry {
 		global $wpdb;
 
 		// FIXME, stub
-		$sql = "";
 
-		if (true) {
-			// Also remove the log entries? Or do it in another class?
+		//  We need the old entry data as an argument.
+		//if (!isset($id)) {
+			return false;
+		//}
+
+		// FIXME: use wpdb->prepare
+		$sql = "
+			DELETE
+			FROM
+				" . $wpdb -> gwolle_gb_entries . "
+			WHERE
+				entry_id = " . (int)$id . "
+			LIMIT 1";
+		$result = $wpdb->query($sql);
+
+		if ($result == 1) {
+			// Also remove the log entries? Probably. Needs a function for del_log though
 
 			return true;
 		}

@@ -16,7 +16,7 @@ function gwolle_gb_page_settings() {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();
 	} else {
-		$setting_page = (isset($_REQUEST['setting_page'])) ? $_REQUEST['setting_page'] : FALSE;
+		$setting_page = (isset($_REQUEST['setting_page'])) ? $_REQUEST['setting_page'] : FALSE; // FIXME< remove it?
 		$saved = false;
 		//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
@@ -144,43 +144,6 @@ function gwolle_gb_page_settings() {
 					do_settings_sections( 'gwolle_gb_options' ); ?>
 
 					<table class="form-table">
-
-						<tr valign="top">
-							<th scope="row"><label for="post_ID"><?php _e('ID of the guestbook post', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
-							<td>
-								<?php // Check if a post with that ID exists
-								// FIXME: use get_post
-								$value = ((int) get_option('gwolle_gb-post_ID') === 0) ? '' : (int) get_option('gwolle_gb-post_ID');
-								if ((int) $value > 0) {
-									$sql = "
-										SELECT
-											ID
-										FROM
-											" . $wpdb->posts . " p
-										WHERE
-											p.ID = " . $value . "
-											AND
-											p.post_content LIKE '%[gwolle-gb]%'
-										LIMIT 1";
-									$result = $wpdb->query($sql);
-									if ( $result == 0 ) {
-										// Post does not exist or does not contain the tag.
-										$value = '';
-									}
-								}
-								?>
-								<input type="text" maxlength="11" style="width:110px;" name="post_ID" id="post_ID" value="<?php echo $value; ?>" class="regular-text" />
-								<?php $post_id_img = ($value == '') ? 'entry-unchecked.jpg' : 'blank.gif';
-								echo '<img id="post_id_status" style="height:10px;" src="' . GWOLLE_GB_URL . '/admin/gfx/' . $post_id_img . '" alt="' . __('Not set.', GWOLLE_GB_TEXTDOMAIN) . '" />';
-								?>
-								&nbsp;
-								<a id="search_gwolle_gb_post_ID" href="javascript:void(0);" title="<?php _e('Click here to let Gwolle-GB search for the post.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Search now!', GWOLLE_GB_TEXTDOMAIN); ?></a>
-								<br />
-								<div style="display:none;margin-top:5px;" id="gwolle_gb_post_seach_result">Sorry, post not found. <?php echo convert_smilies(':('); ?></div>
-								<span class="setting-description"><?php _e('This ID was used to generate the correct link to the guestbook read/write page at the frontend. It will however be refactored. Maybe it stays, maybe not. Just ignore it for now.', GWOLLE_GB_TEXTDOMAIN); ?></span>
-							</td>
-						</tr>
-
 
 						<tr valign="top">
 							<th scope="row"><label for="moderate-entries"><?php _e('Moderate Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -468,7 +431,7 @@ function gwolle_gb_page_settings() {
 				</form>
 
 				<!-- uninstall section -->
-				<table style="margin-top:30px;" class="form-table">
+<!--				<table style="margin-top:30px;" class="form-table">
 					<tr valign="top" style="margin-top:30px;">
 						<th scope="row" style="color:#FF0000;"><label for="blogdescription"><?php _e('Uninstall', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
@@ -482,11 +445,11 @@ function gwolle_gb_page_settings() {
 							</a>
 						</td>
 					</tr>
-				</table>
+				</table> -->
 				<?php
 				// FIXME; make this a separate page?
 			} elseif ($setting_page == 'uninstall') { ?>
-				<form action="<?php echo $_SERVER['PHP_SELF']; ?>?page=<?php echo GWOLLE_GB_FOLDER; ?>/settings.php&amp;action=uninstall_gwolle_gb" method="POST">
+				<!--<form action="<?php echo $_SERVER['PHP_SELF']; ?>?page=<?php echo GWOLLE_GB_FOLDER; ?>/settings.php&amp;action=uninstall_gwolle_gb" method="POST">
 					<?php _e("I really don't want to bother you; this page just exists to prevent you from accidentally deleting all your entries.<br />Please check the 'uninstall' checkbox and hit the button; all tables (including their rows) and all settings of Gwolle-GB will be deleted.<br /><br />Are you REALLY sure you wan't to continue? There's no 'undo'.", GWOLLE_GB_TEXTDOMAIN); ?>
 					<br />
 					<br />
@@ -494,7 +457,7 @@ function gwolle_gb_page_settings() {
 					<br />
 					<br />
 					<input type="submit" class="button" value="<?php _e("Uninstall &raquo;", GWOLLE_GB_TEXTDOMAIN); ?>">
-				</form>
+				</form>-->
 				<?php
 			} else {
 				str_replace('%1',$_SERVER['PHP_SELF'] . '?page='.GWOLLE_GB_FOLDER.'/settings.php',__('Sorry, but the page you are looking for does not exists. Go back to the <a href="%1">settings page</a>', GWOLLE_GB_TEXTDOMAIN));

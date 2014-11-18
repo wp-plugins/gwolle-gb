@@ -80,7 +80,7 @@ function gwolle_gb_frontend_read() {
 		)
 	);
 
-
+	// FIXME: pagination is broken on frontend on page 3 of 3
 	/* Page navigation */
 	$output .= '<div id="page-navigation">';
 	if ($pageNum > 1) {
