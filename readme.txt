@@ -178,13 +178,14 @@ and also the WordPress documentation.
 == Changelog ==
 
 = 0.9.9.2 =
-* 2014-
+* 2014-11-18
 * Admin page editor.php is redone.
-* Admin page entries.php is still in need.
+* Admin page entries.php is still in need of handling the _POST (Mass-Edit doesn't work)
 * Submit-Ham and Submit-Spam in Akismet is back.
 * Use get_current_user_id instead of a global variable.
-* Use option on the Settings page to set the number of entries on the admin.
-* Many cleanups.
+* Many options on Settings page _temporarily) removed.
+* Use new option on the Settings page to set the number of entries on the admin.
+* Many many many cleanups.
 
 = 0.9.9.1 =
 * 2014-11-15
