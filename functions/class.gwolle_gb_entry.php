@@ -65,8 +65,8 @@ class gwolle_gb_entry {
 	public function load( $id ) {
 		global $wpdb;
 
-		$where = " 1 = 1";
-		$values = Array();
+		$where = " 1 = %d";
+		$values = Array(1);
 
 		if ( !is_numeric($id) ) {
 			return false;

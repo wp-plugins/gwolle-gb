@@ -19,8 +19,8 @@ function gwolle_gb_get_entry_count($args) {
 	global $wpdb;
 
 
-	$where = " 1 = 1";
-	$values = Array();
+	$where = " 1 = %d";
+	$values = Array(1);
 
 	if ( !is_array($args) ) {
 		return false;

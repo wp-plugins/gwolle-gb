@@ -21,8 +21,8 @@
 function gwolle_gb_get_entries($args = array()) {
 	global $wpdb;
 
-	$where = " 1 = 1";
-	$values = Array();
+	$where = " 1 = %d";
+	$values = Array(1);
 
 	if ( !is_array($args) ) {
 		return false;
@@ -81,7 +81,12 @@ function gwolle_gb_get_entries($args = array()) {
 		}
 	}
 	// Limit
-	$num_entries = (isset($args['num_entries']) && (int)$args['num_entries'] > 0) ? (int)$args['num_entries'] : get_option('gwolle_gb-entries_per_page', 15);
+	if ( is_admin() ) {
+		$perpage_option = (int) get_option('gwolle_gb-entries_per_page', 20);
+	} else {
+		$perpage_option = (int) get_option('gwolle_gb-entriesPerPage', 15);
+	}
+	$num_entries = (isset($args['num_entries']) && (int)$args['num_entries'] > 0) ? (int)$args['num_entries'] : $perpage_option;
 
 	if ( isset($args['offset']) && (int) $args['offset'] > 0 ) {
 		$limit = $args['offset'] . ", " . $num_entries;
@@ -141,21 +146,6 @@ function gwolle_gb_get_entries($args = array()) {
 			$entry = new gwolle_gb_entry();
 
 			$entry->set_data( $item );
-
-
-
-/*
-			FIXME: use in views
-
-			// Dashboard class
-			$entry['entry_dashboard_class'] = ($entry['entry_isChecked'] === 1) ? 'approved' : 'unapproved';
-
-			// Set the entry class (used for the icon)
-			$entry['icon_class'] = ($entry['entry_isChecked'] === 1) ? 'checked' : 'unchecked';
-
-			// Set spam icon if this entry is marked as spam
-			$entry['spam_icon'] = ($entry['entry_isSpam'] === 1) ? '<img class="spam" alt="[spam]" src="' . GWOLLE_GB_URL . '/admin/gfx/entry-spam.jpg" />' : '';
-*/
 
 			// Add entry to the array of all entries
 			$entries[] = $entry;

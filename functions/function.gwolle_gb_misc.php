@@ -39,11 +39,9 @@ function gwolle_gb_format_values_for_mail($value) {
  *
  * Return: $excerpt the shortened content
  */
-
-// FIXME, use $content or $entry as input?
 function gwolle_gb_get_excerpt($content, $excerpt_length) {
-	$excerpt = gwolle_gb_format_value_for_output( substr($content(), 0, $excerpt_length ));
-	if (strlen( $content() ) > $excerpt_length) {
+	$excerpt = gwolle_gb_format_value_for_output( substr($content, 0, $excerpt_length ));
+	if (strlen( $content ) > $excerpt_length) {
 		$excerpt .= '...';
 	}
 	if (trim($excerpt) == '') {

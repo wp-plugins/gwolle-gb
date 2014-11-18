@@ -27,58 +27,51 @@ function gwolle_gb_page_entries() {
 			if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
 				die(__('Cheatin&#8217; uh?'));
 			}
+
+			// FIXME; put here the posthandling from ...
+
+
+
 		}
-
-		// FIXME; put here the posthandling from ...
-
-
-
 
 
 		// Get entry counts
-		// FIXME: make sure the 'visible' works on this page
 		$count = Array();
-		$count['checked']	= gwolle_gb_get_entry_count(
+		$count['checked'] = gwolle_gb_get_entry_count(
 			array(
 				'checked' => 'checked',
 				'deleted' => 'notdeleted',
 				'spam'    => 'nospam'
 			)
 		);
-		$count['unchecked']	= gwolle_gb_get_entry_count(array(
+		$count['unchecked'] = gwolle_gb_get_entry_count(array(
 				'checked' => 'unchecked',
 				'deleted' => 'notdeleted',
 				'spam'    => 'nospam'
 			));
-		$count['spam']		= gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
-		$count['trash']		= gwolle_gb_get_entry_count(array( 'deleted' => 'deleted' ));
-		$count['all']		= gwolle_gb_get_entry_count(array( 'all' => 'all' ));
-
-		// FIXME: for now the old counters
-		$count['all'] = $count['checked'] + $count['unchecked'] + $count['spam'];
-
+		$count['spam']  = gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
+		$count['trash'] = gwolle_gb_get_entry_count(array( 'deleted' => 'deleted' ));
+		$count['all']   = gwolle_gb_get_entry_count(array( 'all' => 'all' ));
 
 
 		$show = (isset($_REQUEST['show']) && in_array($_REQUEST['show'], array('checked', 'unchecked', 'spam', 'trash'))) ? $_REQUEST['show'] : 'all';
 
 		//  If Akimet has not been activated yet and the user is looking at the spam tell him to activate Akismet.
 		if ($show == 'spam' && get_option('gwolle_gb-akismet-active') != 'true') {
-			$showMsg = 'akismet-not-activated';
+			$gwolle_gb_messages = '<p>' . __('Please activate Akismet if you want to battle spam.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 		}
 
 		// Check if the requested page number is an integer > 0
-		$pageNum = (isset($_REQUEST['pageNum']) && $_REQUEST['pageNum'] && (int)$_REQUEST['pageNum'] > 0) ? (int)$_REQUEST['pageNum'] : 1;
+		$pageNum = (isset($_REQUEST['pageNum']) && $_REQUEST['pageNum'] && (int) $_REQUEST['pageNum'] > 0) ? (int) $_REQUEST['pageNum'] : 1;
 
 		// Pagination: Calculate the number of pages.
-		$countPages = round($count[$show] / 15);
-		if ($countPages * get_option('gwolle_gb-entries_per_page', 15) < $count[$show]) {
-			$countPages++;
-		}
+		$countPages = ceil( $count[$show] / get_option('gwolle_gb-entries_per_page', 15) );
 
 		if ($pageNum > $countPages) {
-			$pageNum = 1;
+			$pageNum = 1; // page doesnot exist, return to first page
 		}
 
+		// Calculate entry-args for query
 		if ($pageNum == 1 && $count[$show] > 0) {
 			$firstEntryNum = 1;
 			$mysqlFirstRow = 0;
@@ -90,6 +83,7 @@ function gwolle_gb_page_entries() {
 			$mysqlFirstRow = $firstEntryNum - 1;
 		}
 
+		// Calculate written text with info "Showing 1 – 25 of 54"
 		$lastEntryNum = $pageNum * get_option('gwolle_gb-entries_per_page');
 		if ($count[$show] == 0) {
 			$lastEntryNum = 0;
@@ -97,8 +91,44 @@ function gwolle_gb_page_entries() {
 			$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum - 1) * get_option('gwolle_gb-entries_per_page')) - 1;
 		}
 
+		if ( WP_DEBUG ) { echo "mysqlFirstRow on $show: "; var_dump($mysqlFirstRow); }
+		// FIXME: buggy paging on page 1 - 4 of "all"
 		// Get the entries
-		$entries = gwolle_gb_get_entries_old(array('offset' => $mysqlFirstRow, 'show' => $show));
+		if ( $show == 'checked' ) {
+			$entries = gwolle_gb_get_entries(array(
+				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'offset'  => $mysqlFirstRow,
+				'checked' => 'checked',
+				'deleted' => 'notdeleted',
+				'spam'    => 'nospam'
+			));
+		} else if ( $show == 'unchecked' ) {
+			$entries = gwolle_gb_get_entries(array(
+				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'offset'  => $mysqlFirstRow,
+				'checked' => 'unchecked',
+				'deleted' => 'notdeleted',
+				'spam'    => 'nospam'
+			));
+		} else if ( $show == 'spam' ) {
+			$entries = gwolle_gb_get_entries(array(
+				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'offset'  => $mysqlFirstRow,
+				'spam' => 'spam'
+			));
+		} else if ( $show == 'trash' ) {
+			$entries = gwolle_gb_get_entries(array(
+				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'offset'  => $mysqlFirstRow,
+				'deleted' => 'deleted'
+			));
+		} else {
+			$entries = gwolle_gb_get_entries(array(
+				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'offset'  => $mysqlFirstRow,
+				'all' => 'all'
+			));
+		}
 		?>
 
 		<div class="wrap">
@@ -147,11 +177,11 @@ function gwolle_gb_page_entries() {
 				<div class="tablenav">
 					<div class="alignleft actions">
 						<?php
-						$massEditControls = '<select name="massEditAction1">';
-						$massEditControls .= '<option value="-1" selected="selected">' . __('Mass edit actions', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+						$massEditControls_select = '<select name="massEditAction1">';
+						$massEditControls = '<option value="-1" selected="selected">' . __('Mass edit actions', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						if ($show == 'trash') {
 							$massEditControls .= '
-								<option value="untrash">' . __('Restore from Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>
+								<option value="untrash">' . __('Recover from Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>
 								<option value="remove">' . __('Remove Permanently', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						} else {
 							if ($show != 'checked') {
@@ -164,14 +194,16 @@ function gwolle_gb_page_entries() {
 								$massEditControls .= '<option value="spam">' . __('Mark as Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							$massEditControls .= '<option value="no-spam">' . __('Mark as not Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							if ( get_option('gwolle_gb-akismet-active') == 'true' ) {
+								$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							}
 							$massEditControls .= '<option value="trash">' . __('Move to Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						}
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
 						// It makes no sense to show the mass edit controls when there are no entries to edit. ;)
-						if ($entries !== FALSE) {
-							echo $massEditControls;
+						if ( is_array($entries) && count($entries) > 0 ) {
+							echo $massEditControls_select . $massEditControls;
 						}
 						?>
 					</div>
@@ -184,13 +216,14 @@ function gwolle_gb_page_entries() {
 						if ($pageNum > 1) {
 							echo '<a class="first page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . round($pageNum - 1) . '">&laquo;</a>';
 						}
+
 						if ($pageNum < 5) {
 							if ($countPages < 4) {
 								$showRange = $countPages;
 							} else {
 								$showRange = 6;
 							}
-							for ($i = 1; $i < $showRange; $i++) {
+							for ($i = 1; $i < ($showRange + 1); $i++) {
 								if ($i == $pageNum) {
 									echo '<span class="page-numbers current">' . $i . '</span>';
 								} else {
@@ -251,8 +284,8 @@ function gwolle_gb_page_entries() {
 								<?php
 								} ?>
 								<th scope="col" ><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<th scope="col" ><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<th scope="col" ><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
 							</tr>
 						</thead>
@@ -277,7 +310,7 @@ function gwolle_gb_page_entries() {
 						<tbody>
 							<?php $rowOdd = true;
 							$html_output = '';
-							if ($entries === FALSE) {
+							if ( !is_array($entries) || count($entries) === 0 ) {
 								$colspan = (get_option('gwolle_gb-showEntryIcons') === 'true') ? 7 : 6;
 								$html_output .= '
 									<tr>
@@ -288,7 +321,7 @@ function gwolle_gb_page_entries() {
 							} else {
 								foreach ($entries as $entry) {
 
-									//	rows have a different color.
+									// rows have a different color.
 									if ($rowOdd) {
 										$rowOdd = false;
 										$class = ' alternate';
@@ -297,52 +330,80 @@ function gwolle_gb_page_entries() {
 										$class = '';
 									}
 
-									//  Attach 'spam' to class if the entry's spam
-									if ($entry['entry_isSpam'] === 1) {
+									// Attach 'spam' to class if the entry is spam
+									if ( $entry->get_isspam() === 1 ) {
 										$class .= ' spam';
 									}
 
-									$html_output .= '
-										<tr id="entry_' . $entry['entry_id'] . '" class="entry ' . $class . '">
-											<td class="check">
-												<input name="check-' . $entry['entry_id'] . '" id="check-' . $entry['entry_id'] . '" type="checkbox">
-											</td>
-										<td class="id">' . $entry['entry_id'] . '</td>';
-									if (get_option('gwolle_gb-showEntryIcons') === TRUE && $show !== 'trash') {
-										$html_output .= '
-											<td class="entry-' . $entry['icon_class'] . '">&nbsp;</td>';
+									// Attach 'trash' to class if the entry is in trash
+									if ( $entry->get_isdeleted() === 1 ) {
+										$class .= ' trash';
 									}
-									// FIXME: use date_i18n for localised date, see frontend/read.php
-									// FIXME: add option to show time as well
-									$html_output .= '
-										<td>' . $entry['entry_date_html'] . '</td>
-										<td>' . $entry['spam_icon'] . '
-											<label for="check-' . $entry['entry_id'] . '">' . $entry['excerpt'] . '</label>
-										</td>
-										<td>' . $entry['entry_author_name_html'] . '</td>
-										<td>';
-									if ($show == 'trash') {
-										$html_output .= '
-											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=untrash_entry&entry_id=' . $entry['entry_id'] . '&show=trash">' . __('Recover', GWOLLE_GB_TEXTDOMAIN) . '</a>
-											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=delete_entry&entry_id=' . $entry['entry_id'] . '&show=trash" onClick="return confirm(\'' . __("You are about to delete this guestbook entry. This can not be undone. Are you still sure you want to continue?", GWOLLE_GB_TEXTDOMAIN) . '\');">' . __('Delete', GWOLLE_GB_TEXTDOMAIN) . '</a>';
+
+									// Attach 'visible/invisible' to class
+									if ( $entry->get_isspam() === 1 || $entry->get_isdeleted() === 1 || $entry->get_ischecked() === 0 ) {
+										$class .= ' invisible';
 									} else {
-										$html_output .= '
-											<a href="' . $_SERVER['PHP_SELF'] . '?page=' . GWOLLE_GB_FOLDER . '/editor.php&amp;entry_id=' . $entry['entry_id'] . '">' . __('Details', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;&raquo;</a>&nbsp;';
+										$class .= ' visible';
 									}
+
+
+									// Checkbox and ID columns
+									$html_output .= '
+										<tr id="entry_' . $entry->get_id() . '" class="entry ' . $class . '">
+											<td class="check">
+												<input name="check-' . $entry->get_id() . '" id="check-' . $entry->get_id() . '" type="checkbox">
+											</td>
+											<td class="id">' . $entry->get_id() . '</td>';
+
+									// Optional Icon column where CSS is being used to show them or not
+									if ( get_option('gwolle_gb-showEntryIcons') === 'true' ) {
+										$html_output .= '
+											<td class="entry-icons">
+												<span class="visible-icon"></span>
+												<span class="invisible-icon"></span>
+												<span class="spam-icon"></span>
+												<span class="trash-icon"></span>
+											</td>';
+									}
+
+									// Date column
+									$html_output .= '
+										<td>' . date_i18n( get_option('date_format'), $entry->get_date() ) . ', ' .
+											date_i18n( get_option('time_format'), $entry->get_date() ) .
+										'</td>';
+
+									// Author column
+									$author_name_html = gwolle_gb_get_author_name_html($entry);
+									$html_output .= '
+										<td><span class="author-name">' . $author_name_html . '</span>' .
+										'</td>';
+
+									// Excerpt column
+									$html_output .= '
+										<td>
+											<label for="check-' . $entry->get_id() . '">';
+									$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), 100 );
+									if ( get_option('gwolle_gb-showSmilies') === 'true' ) {
+										$entry_content = convert_smilies($entry_content);
+									}
+									$html_output .= $entry_content . '</label>
+										</td>';
+
+									// Actions column
+									$html_output .= '
+										<td>';
+									// disabled for now, never use GET for deleting
+									/*if ($show == 'trash__') {
+										$html_output .= '
+											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=untrash_entry&entry_id=' . $entry->get_id() . '&show=trash">' . __('Recover', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=delete_entry&entry_id=' . $entry->get_id() . '&show=trash" onClick="return confirm(\'' . __("You are about to delete this guestbook entry. This can not be undone. Are you still sure you want to continue?", GWOLLE_GB_TEXTDOMAIN) . '\');">' . __('Delete', GWOLLE_GB_TEXTDOMAIN) . '</a>';
+									} else {*/
+										$html_output .= '
+											<a href="' . $_SERVER['PHP_SELF'] . '?page=' . GWOLLE_GB_FOLDER . '/editor.php&amp;entry_id=' . $entry->get_id() . '">' . __('Details', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;&raquo;</a>&nbsp;';
+									//}
 									echo '</td></tr>';
 
-									// Quick-Editor
-									/*
-									 echo '
-									 <tr style="display:none;" class="inline-edit-row inline-edit-row-post quick-edit-row quick-edit-row-post alternate inline-editor" id="quickedit_'.$entry['entry_id'].'">
-									 <td style="border-top:0px;" colspan="'; if (get_option('gwolle_gb-showEntryIcons')) { echo 7; } else { echo 6; } echo '">
-									 <h4>QUICKEDIT</h4>
-									 <fieldset>
-
-									 </fieldset>
-									 </td>
-									 </tr>';
-									 */
 								}
 							}
 							echo $html_output;
@@ -354,31 +415,10 @@ function gwolle_gb_page_entries() {
 					<div class="tablenav">
 						<div class="alignleft actions">
 							<?php
-							$massEditControls = '<select name="massEditAction2">';
-							$massEditControls .= '<option value="-1" selected="selected">' . __('Mass edit actions', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							if ($show == 'trash') {
-								$massEditControls .= '
-									<option value="untrash">' . __('Restore from Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>
-									<option value="remove">' . __('Remove Permanently', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							} else {
-								if ($show != 'checked') {
-									$massEditControls .= '<option value="check">' . __('Mark as Checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-								}
-								if ($show != 'unchecked') {
-									$massEditControls .= '<option value="uncheck">' . __('Mark as not Checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-								}
-								if ($show != 'spam') {
-									$massEditControls .= '<option value="spam">' . __('Mark as Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-								}
-								$massEditControls .= '<option value="no-spam">' . __('Mark as not Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-								$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-								$massEditControls .= '<option value="trash">' . __('Move to Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							}
-							$massEditControls .= '</select>';
-							$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
+							$massEditControls_select = '<select name="massEditAction2">';
 							// It makes no sense to show the mass edit controls when there are no entries to edit. ;)
-							if ($entries !== FALSE) {
-								echo $massEditControls;
+							if ( is_array($entries) && count($entries) > 0 ) {
+								echo $massEditControls_select . $massEditControls;
 							}
 							?>
 							<br class="clear" />

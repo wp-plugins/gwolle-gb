@@ -85,8 +85,8 @@ function gwolle_gb_get_log_entries( $subject_id ) {
 		'entry-untrashed'             => __('Entry has been untrashed.', GWOLLE_GB_TEXTDOMAIN)
 	);
 
-	$where = " 1 = 1";
-	$values = Array();
+	$where = " 1 = %d";
+	$values = Array(1);
 	$tablename = $wpdb->prefix . "gwolle_gb_log";
 
 	$where .= "
