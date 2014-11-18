@@ -101,11 +101,7 @@ add_filter( 'plugin_action_links', 'gwolle_gb_links', 10, 2 );
 
 add_action('after_setup_theme', 'gwolle_gb_handle_post');
 function gwolle_gb_handle_post() {
-	if ( is_admin() ) {
-		// Admin Handling of $_POST
-
-
-	} else {
+	if ( !is_admin() ) {
 		// Frontend Handling of $_POST, only one form
 		if ( isset($_POST['gwolle_gb_function']) && $_POST['gwolle_gb_function'] == 'add_entry' ) {
 			gwolle_gb_frontend_posthandling();
@@ -142,12 +138,8 @@ function gwolle_gb_register_settings() {
 }
 
 
-add_action('init', 'gwolle_gb_init');
+add_action('init', 'gwolle_gb_init'); // FIXME: is this the right action, or admin_init?
 function gwolle_gb_init() {
-	if ( ! is_admin() ) {
-		// only run this on wp-admin panel
-		return;
-	}
 
 	// FIXME: make it into a page
 	/*

@@ -22,15 +22,15 @@ function gwolle_gb_import() {
 		}
 
 		if (isset($_POST['start_import'])) {
-			// FIXME, make it into a separate page in /admin/import.php and move this posthandling there
 			?>
 			<div class="wrap">
 				<div id="icon-gwolle-gb"><br /></div>
 				<h2>Import is currently disabled. It will come back in a future version.</h2>
 			</div> <?php
 			return;
+
 			// Import guestbook entries from another plugin.
-			// Supported plugins to import guestbook entries from
+			// Supported options could be: DMSguestbook, Rizzi, WP-ViperGB, and Standard WordPress comments, from a selectable page.
 			$supported = array('dmsguestbook');
 			if (!in_array($_REQUEST['what'], $supported)) {
 				// The requested plugin is not supported

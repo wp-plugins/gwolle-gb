@@ -69,32 +69,28 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * 3.  Place '[gwolle_gb]' in a page. That's it.
 * 4.  You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
 
-Gwolle-GB uses the shortcode and places the guestbook on a page or post containing [gwolle_gb].
-Alternatively you can use the function `show_gwolle_gb();`to show the guestbook in your templates.
+As an alternative for the shortcode, you can use the function `show_gwolle_gb();` to show the guestbook in your templates.
 It couldn't be easier.
 
 = Updating from an old version =
 
-Since 0.9.9.1 Gwolle-GB uses the Shortcode API. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
-Also since that release, the posts that are visible to visitors has changed. Make sure to check if you have everything
-visible that you want and nothing more.
+With version 1.0 there have been some changes:
+* Gwolle-GB uses the Shortcode API now. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
+* The entries that are visible to visitors have changed. Make sure to check if you have everything
+  visible that you want and nothing more.
 
 = Todo/coming up in future releases =
 
 First priority is getting the plugin working with current WordPress and resolve a lot of bugs.
 
 * Bughunting (check all the FIXME's in the code).
-* Use $wpdb->prepare everywhere against SQL Injection Attacks.
+* Sanitize options.
 * Only use the main ReCaptcha plugin, do not include it ourselves.
-* Have the Backend use the new Entry class to share code and have less redundancy.
-* Update admin HTML/CSS.
-* Use no redirects.
-* Use a simple Message system.
 * Add possibility to empty trash and spam.
 * Make Install method more safe.
-* Make Import method more failsafe and refactor it.
+* Bring Import method back and refactor it. Add more sources.
+* Bring Uninstall back, this time in a seperate admin page?
 * Bring AJAX back, this time inside actions.
-* Bring Import and Uninstall back, this time in separate admin pages.
 * Bring Frontend Widget and Dashboard Widget back.
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
@@ -177,13 +173,16 @@ and also the WordPress documentation.
 
 == Changelog ==
 
+= 0.9.9.3 =
+* 2014-11-
+
 = 0.9.9.2 =
 * 2014-11-18
 * Admin page editor.php is redone.
 * Admin page entries.php is still in need of handling the _POST (Mass-Edit doesn't work)
 * Submit-Ham and Submit-Spam in Akismet is back.
 * Use get_current_user_id instead of a global variable.
-* Many options on Settings page _temporarily) removed.
+* Many options on Settings page (temporarily) removed.
 * Use new option on the Settings page to set the number of entries on the admin.
 * Many many many cleanups.
 
