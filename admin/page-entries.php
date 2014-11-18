@@ -112,7 +112,7 @@ function gwolle_gb_page_entries() {
 						$gwolle_gb_messages .
 					'</div>';
 			}
-			?>
+			// FIXME: add a searchform someday? ?>
 
 			<form name="gwolle_gb_entries" action="" method="POST">
 				<!-- the following fields give us some information we're going to use processing the mass edit -->

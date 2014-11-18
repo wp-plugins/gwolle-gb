@@ -182,7 +182,6 @@ class gwolle_gb_entry {
 
 		} else {
 			// entry is new, use INSERT
-			if ( WP_DEBUG ) { echo "Saving THIS:: "; var_dump($this); }
 
 			$result = $wpdb->query( $wpdb->prepare(
 				"
@@ -244,7 +243,6 @@ class gwolle_gb_entry {
 		//$wpdb->print_error();
 		//if ( WP_DEBUG ) { echo "Result: " .$result; }
 
-
 		if ($result > 0) {
 			return $this->get_id();
 		}
@@ -303,7 +301,7 @@ class gwolle_gb_entry {
 		}
 		if ( isset( $args['author_host'] ) ) {
 			$this->set_author_host( $args['author_host'] );
-		} else if ( !$this->get_author_host() && $this->get_author_ip() ) {
+		} else if ( $this->get_author_host() == '' && $this->get_author_ip() ) {
 			$this->set_author_host(); // set as new
 		}
 		if ( isset( $args['content'] ) ) {
@@ -514,9 +512,11 @@ class gwolle_gb_entry {
 	public function check_author_host($author_host = NULL) {
 		$author_host = trim($author_host);
 		$author_host = addslashes($author_host);
-		if (!$author_host) {
+		if (strlen($author_host) > 0) {
+			return $author_host;
+		} else {
 			$author_ip = $this->get_author_ip();
-			if ( isset($author_ip) ) {
+			if ( strlen($author_ip) > 0 ) {
 				$author_host = gethostbyaddr( $author_ip );
 				return $author_host;
 			}

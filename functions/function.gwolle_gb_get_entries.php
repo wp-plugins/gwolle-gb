@@ -11,7 +11,7 @@
  * - deleted			string: 'deleted' or 'notdeleted', List the entries that are deleted or not deleted
  * - spam				string: 'spam' or 'nospam', List the entries marked as spam or as no spam
  * - email				string: The emailaddress to search for
- * - entry_id			int: Show this single entry
+ * - entry_id			int: Show this single entry  FIXME: should this still be here? Why not just use new and set_data()
  *
  * Return:
  * - Array of objects of gwolle_gb_entry
