@@ -61,39 +61,41 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
 == Installation ==
 
-1a. Install the plugin through the admin page "Plugins".
-1b. Alternatively, unpack and upload the contents of the zipfile to your '/wp-content/plugins/' directory.
-2.  Activate the plugin through the 'Plugins' menu in WordPress.
-3.  Place '[gwolle_gb]' in an article or page. That's it.
-4.  You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
+= Installation =
 
-Gwolle-GB uses the shortcode and places the guestbook on a page or post containing [gwolle_gb].
-Alternatively you can use the function `show_gwolle_gb();`to show the guestbook in your templates.
+* 1a. Install the plugin through the admin page "Plugins".
+* 1b. Alternatively, unpack and upload the contents of the zipfile to your '/wp-content/plugins/' directory.
+* 2.  Activate the plugin through the 'Plugins' menu in WordPress.
+* 3.  Place '[gwolle_gb]' in a page. That's it.
+* 4.  You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
+
+As an alternative for the shortcode, you can use the function `show_gwolle_gb();` to show the guestbook in your templates.
 It couldn't be easier.
 
 = Updating from an old version =
 
-Since 0.9.9.1 Gwolle-GB uses the Shortcode API. Untill then the shortcode used for Gwolle-GB was [gwolle-gb].
-However, using dashes in shortcodes is advised against, so make sure to update your guestbook page to use [gwolle_gb].
+With version 1.0 there have been some changes:
+* Gwolle-GB uses the Shortcode API now. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
+* The entries that are visible to visitors have changed. Make sure to check if you have everything
+  visible that you want and nothing more.
 
 = Todo/coming up in future releases =
 
 First priority is getting the plugin working with current WordPress and resolve a lot of bugs.
 
 * Bughunting (check all the FIXME's in the code).
-* Use $wpdb->prepare everywhere against SQL Injection Attacks.
+* Sanitize options.
 * Only use the main ReCaptcha plugin, do not include it ourselves.
-* Have the Backend use the new Entry class to share code and have less redundancy.
-* Update admin HTML/CSS.
-* Use no redirects.
-* Use a simple Message system.
 * Add possibility to empty trash and spam.
-* Make install method more safe.
+* Make Install method more safe.
+* Bring Import method back and refactor it. Add more sources.
+* Bring Uninstall back, this time in a seperate admin page?
 * Bring AJAX back, this time inside actions.
-* Bring Import and Uninstall back, this time in separate admin pages.
 * Bring Frontend Widget and Dashboard Widget back.
+* Redo Settings page with tabs for separate parts.
+* Add an RSS Feed for Guestbook Entries.
 
-If you have a feature request please use the forum on WordPress.org. I may add it to the list then.
+If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
 
 The following list is from the original author.
 
@@ -111,7 +113,7 @@ The following list is from the original author.
 Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". I am subscribed to that forum,
 so I will get your message. Or send me an email: marcel (at) zenoweb (dot) nl. Thanks.
 
-= Thank you! =
+= Thank you =
 
 * timomaas for the original dutch translation
 * Daniel Speichert for the polish translation
@@ -139,8 +141,9 @@ Before that, in 0.9.7, all the 'checked' entries were visible.
 
 = I have a lot of unchecked entries. What do I do? =
 
-For the entries that you consider spam, but were not caught by Akismet, you can first set them to be spam, and they will not be visible anymore.
+For the entries that you consider spam, but were not caught by Akismet, you can mark them as spam, and they will not be visible anymore.
 For entries that are not spam, but you still don't want them visible, you can move them to trash.
+The entries that you want visible, select these to be checked.
 
 = Why aren't entries really deleted, and instead stored in the database? =
 
@@ -170,6 +173,18 @@ and also the WordPress documentation.
 
 == Changelog ==
 
+= 0.9.9.3 =
+* 2014-11-
+
+= 0.9.9.2 =
+* 2014-11-18
+* Admin page editor.php is redone.
+* Admin page entries.php is still in need of handling the _POST (Mass-Edit doesn't work)
+* Submit-Ham and Submit-Spam in Akismet is back.
+* Use get_current_user_id instead of a global variable.
+* Many options on Settings page (temporarily) removed.
+* Use new option on the Settings page to set the number of entries on the admin.
+* Many many many cleanups.
 
 = 0.9.9.1 =
 * 2014-11-15
