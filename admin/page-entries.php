@@ -362,7 +362,7 @@ function gwolle_gb_page_entries() {
 		}
 		?>
 
-		<div class="wrap">
+		<div class="wrap gwolle_gb">
 			<div id="icon-gwolle-gb"><br /></div>
 			<h2><?php _e('Guestbook entries', GWOLLE_GB_TEXTDOMAIN); ?></h2>
 

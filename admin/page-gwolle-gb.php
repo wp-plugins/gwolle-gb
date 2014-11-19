@@ -26,7 +26,7 @@ function gwolle_gb_overview(){
 	$count['all']        = gwolle_gb_get_entry_count(array( 'all' => 'all' ));
 	?>
 
-	<div class="table table_content">
+	<div class="table table_content gwolle_gb">
 		<h3><?php _e('Overview',GWOLLE_GB_TEXTDOMAIN); ?></h3>
 
 		<table>

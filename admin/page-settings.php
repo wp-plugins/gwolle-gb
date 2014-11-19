@@ -123,7 +123,7 @@ function gwolle_gb_page_settings() {
 		}
 		?>
 
-		<div class="wrap">
+		<div class="wrap gwolle_gb">
 
 			<div id="icon-gwolle-gb"><br /></div>
 			<h2><?php _e('Settings', GWOLLE_GB_TEXTDOMAIN); ?></h2>
@@ -292,7 +292,7 @@ function gwolle_gb_page_settings() {
 									}
 									?> name="showEntryIcons" /> <?php _e('Show entry icons', GWOLLE_GB_TEXTDOMAIN); ?>
 								<br />
-								<span class="setting-description"><?php _e('These icons are shown in every entry row of the admin list, so that you know its status (spam, checked and deleted).', GWOLLE_GB_TEXTDOMAIN); ?></span>
+								<span class="setting-description"><?php _e('These icons are shown in every entry row of the admin list, so that you know its status (checked, spam and trash).', GWOLLE_GB_TEXTDOMAIN); ?></span>
 							</td>
 						</tr>
 

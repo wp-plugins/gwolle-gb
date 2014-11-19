@@ -229,7 +229,7 @@ function gwolle_gb_page_editor() {
 		 * Build the Page and the Form
 		 */
 		?>
-		<div class="wrap">
+		<div class="wrap gwolle_gb">
 			<div id="icon-gwolle-gb"><br /></div>
 			<h2><?php echo $sectionHeading; ?></h2>
 

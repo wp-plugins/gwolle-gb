@@ -116,11 +116,11 @@ function gwolle_gb_import() {
 	}
 
 	?>
-	<div class="wrap">
+	<div class="wrap gwolle_gb">
 		<div id="icon-gwolle-gb"><br /></div>
 		<h2>Import is currently disabled. It will come back in a future version.</h2>
-	</div>
-	<?php return; ?>
+
+<?php return; ?>
 
 		<h2><?php
 		if ($_REQUEST['what'] == 'dmsguestbook') {
