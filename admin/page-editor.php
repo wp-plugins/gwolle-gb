@@ -12,6 +12,10 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 function gwolle_gb_page_editor() {
 	global $wpdb;
 
+	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+		die(__('Cheatin&#8217; uh?'));
+	}
+
 	if (!get_option('gwolle_gb_version')) {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();
@@ -46,9 +50,6 @@ function gwolle_gb_page_editor() {
 		 * Handle the $_POST
 		 */
 		if ( isset($_POST['gwolle_gb_page']) && $_POST['gwolle_gb_page'] == 'editor' && $gwolle_gb_errors == '' ) {
-			if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
-				die(__('Cheatin&#8217; uh?'));
-			}
 
 			if ( !isset($_POST['entry_id']) || $_POST['entry_id'] != $entry->get_id() ) {
 				$gwolle_gb_messages .= '<p class="error">' . __('Something strange happened.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
@@ -178,7 +179,7 @@ function gwolle_gb_page_editor() {
 						$saved = true;
 					}
 				} else {
-					$gwolle_gb_messages .= '<p>' . __('Entry has no content, but it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_messages .= '<p>' . __('Entry has no content, even though that is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					$gwolle_gb_errors = 'error';
 				}
 

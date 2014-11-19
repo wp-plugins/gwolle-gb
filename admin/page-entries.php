@@ -13,6 +13,10 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 function gwolle_gb_page_entries() {
 	global $wpdb;
 
+	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+		die(__('Cheatin&#8217; uh?'));
+	}
+
 	if (!get_option('gwolle_gb_version')) {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();
@@ -24,9 +28,6 @@ function gwolle_gb_page_entries() {
 
 		// FIXME: use the right pagename
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) { // different names
-			if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
-				die(__('Cheatin&#8217; uh?'));
-			}
 
 			// FIXME; put here the posthandling from ...
 
@@ -188,23 +189,23 @@ function gwolle_gb_page_entries() {
 						$massEditControls = '<option value="-1" selected="selected">' . __('Mass edit actions', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						if ($show == 'trash') {
 							$massEditControls .= '
-								<option value="untrash">' . __('Recover from Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>
-								<option value="remove">' . __('Remove Permanently', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								<option value="untrash">' . __('Recover from trash', GWOLLE_GB_TEXTDOMAIN) . '</option>
+								<option value="remove">' . __('Remove permanently', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						} else {
 							if ($show != 'checked') {
-								$massEditControls .= '<option value="check">' . __('Mark as Checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="check">' . __('Mark as checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							if ($show != 'unchecked') {
-								$massEditControls .= '<option value="uncheck">' . __('Mark as not Checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="uncheck">' . __('Mark as not checked', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							if ($show != 'spam') {
-								$massEditControls .= '<option value="spam">' . __('Mark as Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="spam">' . __('Mark as spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
-							$massEditControls .= '<option value="no-spam">' . __('Mark as not Spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							$massEditControls .= '<option value="no-spam">' . __('Mark as not spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							if ( get_option('gwolle_gb-akismet-active') == 'true' ) {
-								$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								$massEditControls .= '<option value="akismet">' . __('Check with akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
-							$massEditControls .= '<option value="trash">' . __('Move to Trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							$massEditControls .= '<option value="trash">' . __('Move to trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 						}
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';

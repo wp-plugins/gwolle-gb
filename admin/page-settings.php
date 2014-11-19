@@ -12,6 +12,10 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 function gwolle_gb_page_settings() {
 	global $wpdb, $defaultMailText;
 
+	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
+		die(__('Cheatin&#8217; uh?'));
+	}
+
 	if (!get_option('gwolle_gb_version')) {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();
@@ -21,9 +25,6 @@ function gwolle_gb_page_settings() {
 		//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) {
-			if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
-				die(__('Cheatin&#8217; uh?'));
-			}
 
 			// Array of settings configured using checkboxes
 			$checkbox_settings = array('moderate-entries', 'akismet-active', 'showEntryIcons', 'showLineBreaks', 'checkForImport', 'showSmilies', 'linkAuthorWebsite');

@@ -15,11 +15,12 @@ function gwolle_gb_import() {
 
 	if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
+	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+		die(__('Cheatin&#8217; uh?'));
+	}
+
 	// FIXME: use the right pagename
 	if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) { // different names
-		if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
-			die(__('Cheatin&#8217; uh?'));
-		}
 
 		if (isset($_POST['start_import'])) {
 			?>
