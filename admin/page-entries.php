@@ -607,7 +607,8 @@ function gwolle_gb_page_entries() {
 									// Author column
 									$author_name_html = gwolle_gb_get_author_name_html($entry);
 									$html_output .= '
-										<td><span class="author-name">' . $author_name_html . '</span>' .
+										<td><span class="author-name">' . $author_name_html . '</span><br />' .
+											'<span class="author-email">' . $entry->get_author_email() . '</span>' .
 										'</td>';
 
 									// Excerpt column
