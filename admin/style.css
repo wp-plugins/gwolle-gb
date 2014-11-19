@@ -38,7 +38,7 @@
 
 /* Icons on entries.php and editor.php */
 .gwolle_gb td.entry-icons {
-	min-width: 40px;
+	min-width: 50px;
 }
 .gwolle_gb .visible-icon,
 .gwolle_gb .invisible-icon,
@@ -47,6 +47,7 @@
 	display: none;
 	width: 16px;
 	height: 16px;
+	margin-right: 5px;
 }
 .gwolle_gb .visible .visible-icon {
 	display: inline-block;
