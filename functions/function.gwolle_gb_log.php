@@ -1,21 +1,34 @@
 <?php
 
-
 /*
  * gwolle_gb_add_log_entry()
  * Add a new log entry
  *
- * Parameter: $args, Array:
- *   - (string) subject: one of the possible log_messages, see gwolle_gb_get_log_entries()
- *   - (int) subject_id: the id of the entry
+ * Parameters:
+ *   - subject_id: (int)    the id of the entry
+ *   - subject:    (string) one of the possible log_messages
  *
  * Return: (bool) true or false, depending on succes
  */
 
-function gwolle_gb_add_log_entry( $args ) {
+function gwolle_gb_add_log_entry( $subject_id, $subject ) {
 	global $wpdb;
 
-	if (!isset($args['subject']) || !isset($args['subject_id']) || (int) $args['subject_id'] === 0) {
+	if ( !isset($subject) || !isset($subject_id) || (int) $subject_id === 0 ) {
+		return false;
+	}
+
+	$log_messages = array(
+		'entry-unchecked',
+		'entry-checked',
+		'marked-as-spam',
+		'marked-as-not-spam',
+		'entry-edited',
+		'imported-from-dmsguestbook',
+		'entry-trashed',
+		'entry-untrashed'
+	);
+	if ( !in_array( $subject, $log_messages ) ) {
 		return false;
 	}
 
@@ -35,8 +48,8 @@ function gwolle_gb_add_log_entry( $args ) {
 		)
 		",
 		array(
-			addslashes( $args['subject'] ),
-			intval( $args['subject_id'] ),
+			addslashes( $subject ),
+			intval( $subject_id ),
 			intval( get_current_user_id() ),
 			mktime()
 		)

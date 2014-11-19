@@ -22,6 +22,12 @@
  * $isdeleted		entry_isDeleted			varchar(1)		entry is placed in the trashbin, 0 or 1			required, default 0
  * $isspam			entry_isSpam		 	varchar(1)		entry is considered as spam, 0 or 1				required, default 0
  *
+ * FIXME: rename entry_id to id, and all the others as well
+ * FIXME: use all lowercase for consistency, have an ORM idea
+ * FIXME: rename is_deleted into istrash to avoid confusion. deletion is really removal
+ * FIXME: date should be TIMESTAMP
+ * FIXME: make id UNIQUE, so we can use SQL REPLACE
+ * FIXME: use bool when appropriate (checkedby, isdeleted, isspam)
  */
 
 
@@ -580,6 +586,11 @@ class gwolle_gb_entry {
 			return false;
 		//}
 
+		if ( $this->get_isspam() == 0 && $this->get_isdeleted() == 0 ) {
+			// Do not delete the good stuff.
+			return false;
+		}
+
 		// FIXME: use wpdb->prepare
 		$sql = "
 			DELETE
@@ -593,6 +604,8 @@ class gwolle_gb_entry {
 		if ($result == 1) {
 			// Also remove the log entries? Probably. Needs a function for del_log though
 
+
+			// FIXME: use unset?
 			return true;
 		}
 		return false;
