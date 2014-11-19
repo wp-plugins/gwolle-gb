@@ -67,10 +67,12 @@ function gwolle_gb_page_editor() {
 						$entry->set_ischecked( true );
 						$user_id = get_current_user_id(); // returns 0 if no current user
 						$entry->set_checkedby( $user_id );
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-checked' );
 						$changed = true;
 					}
 				} else if ( $entry->get_ischecked() == 1 ) {
 					$entry->set_ischecked( false );
+					gwolle_gb_add_log_entry( $entry->get_id(), 'entry-unchecked' );
 					$changed = true;
 				}
 
@@ -82,6 +84,7 @@ function gwolle_gb_page_editor() {
 						if ( $result ) {
 							$gwolle_gb_messages .= '<p>' . __('Submitted as Spam to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 						}
+						gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
 						$changed = true;
 					}
 				} else if ( $entry->get_isspam() == 1 ) {
@@ -90,6 +93,7 @@ function gwolle_gb_page_editor() {
 					if ( $result ) {
 						$gwolle_gb_messages .= '<p>' . __('Submitted as Ham to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					}
+					gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
 					$changed = true;
 				}
 
@@ -97,10 +101,12 @@ function gwolle_gb_page_editor() {
 				if ( isset($_POST['isdeleted']) && $_POST['isdeleted'] == 'on' ) {
 					if ( $_POST['isdeleted'] == 'on' && $entry->get_isdeleted() == 0 ) {
 						$entry->set_isdeleted( true );
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-trashed' );
 						$changed = true;
 					}
 				} else if ( $entry->get_isdeleted() == 1 ) {
 					$entry->set_isdeleted( false );
+					gwolle_gb_add_log_entry( $entry->get_id(), 'entry-untrashed' );
 					$changed = true;
 				}
 
@@ -108,6 +114,7 @@ function gwolle_gb_page_editor() {
 				if ( isset($_POST['content']) && $_POST['content'] != '' ) {
 					if ( $_POST['content'] != $entry->get_content() ) {
 						$entry->set_content( $_POST['content'] );
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
 				}
@@ -116,6 +123,7 @@ function gwolle_gb_page_editor() {
 				if ( isset($_POST['author_website']) ) {
 					if ( $_POST['author_website'] != $entry->get_author_website() ) {
 						$entry->set_author_website( $_POST['author_website'] );
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
 				}
@@ -124,6 +132,7 @@ function gwolle_gb_page_editor() {
 				if ( isset($_POST['author_origin']) ) {
 					if ( $_POST['author_origin'] != $entry->get_author_origin() ) {
 						$entry->set_author_origin( $_POST['author_origin'] );
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
 				}
@@ -142,7 +151,7 @@ function gwolle_gb_page_editor() {
 				}
 			} else if ( $_POST['entry_id'] == 0 && $entry->get_id() == 0 ) {
 
-				/* Check for input, and save accordingly. This is on a New Entry */
+				/* Check for input, and save accordingly. This is on a New Entry, so no logging */
 				$saved = false;
 				$data = Array();
 
@@ -253,6 +262,35 @@ function gwolle_gb_page_editor() {
 												<div class="misc-pub-section misc-pub-section-last">
 
 													<?php
+													$class = '';
+													// Attach 'spam' to class if the entry is spam
+													if ( $entry->get_isspam() === 1 ) {
+														$class .= ' spam';
+													}
+
+													// Attach 'trash' to class if the entry is in trash
+													if ( $entry->get_isdeleted() === 1 ) {
+														$class .= ' trash';
+													}
+
+													// Attach 'visible/invisible' to class
+													if ( $entry->get_isspam() === 1 || $entry->get_isdeleted() === 1 || $entry->get_ischecked() === 0 ) {
+														$class .= ' invisible';
+													} else {
+														$class .= ' visible';
+													}
+
+													// Optional Icon column where CSS is being used to show them or not
+													if ( get_option('gwolle_gb-showEntryIcons') === 'true' ) { ?>
+														<span class="entry-icons <?php echo $class; ?>">
+															<span class="visible-icon"></span>
+															<span class="invisible-icon"></span>
+															<span class="spam-icon"></span>
+															<span class="trash-icon"></span>
+														</span>
+														<?php
+													}
+
 													if ($entry->get_ischecked() == '1' && $entry->get_isspam() == '0' && $entry->get_isdeleted() == '0' ) {
 														echo "<h3>" . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . "</h3>";
 													} else {
