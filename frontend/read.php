@@ -135,7 +135,7 @@ function gwolle_gb_frontend_read() {
 
 
 	/* Entries */
-	if ( count($entries) == 0 ) {
+	if ( !is_array($entries) || count($entries) == 0 ) {
 		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
 	} else {
 		$first = true;

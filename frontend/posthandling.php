@@ -35,7 +35,6 @@ function gwolle_gb_frontend_posthandling() {
 
 		// Initialize messages
 		$gwolle_gb_messages = '';
-		$gwolle_gb_messages .= '<p class="test_message"><strong>test message</strong></p>';
 
 
 		/*
@@ -102,7 +101,7 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/* Check for spam and set accordingly */
-		$isspam = gwolle_gb_isspam_akismet( $entry, 'comment-check' );
+		$isspam = gwolle_gb_akismet( $entry, 'comment-check' );
 		if ( $isspam ) {
 			// Returned true, so considered spam
 			$entry->set_isspam(true);
@@ -122,6 +121,13 @@ function gwolle_gb_frontend_posthandling() {
 		/* Check for logged in user, and set the userid as adminid, just in case someone is also admin, or gets promoted some day */
 		$user_id = get_current_user_id(); // returns 0 if no current user
 		$entry->set_authoradminid( $user_id );
+
+
+		/*
+		 * Network Information
+		 */
+		$entry->set_author_ip( $_SERVER['REMOTE_ADDR'] );
+		$entry->set_author_host( gethostbyaddr( $_SERVER['REMOTE_ADDR'] ) );
 
 
 		/*
