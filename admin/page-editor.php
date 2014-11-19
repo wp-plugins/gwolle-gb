@@ -206,6 +206,10 @@ function gwolle_gb_page_editor() {
 					}
 				}
 
+				/* Network Information */
+				$entry->set_author_ip( $_SERVER['REMOTE_ADDR'] );
+				$entry->set_author_host( gethostbyaddr( $_SERVER['REMOTE_ADDR'] ) );
+
 				$result1 = $entry->set_data( $data );
 				if ( $saved ) {
 					$result2 = $entry->save();

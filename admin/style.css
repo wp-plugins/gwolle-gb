@@ -4,6 +4,10 @@
  */
 
 
+.gwolle-gb {
+	clear: both;
+}
+
 /* Menu Icon */
 #icon-gwolle-gb {
 	background-image: url('gfx/icon-gross-hover.png');
