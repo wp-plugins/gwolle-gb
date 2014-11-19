@@ -605,7 +605,7 @@ class gwolle_gb_entry {
 			// Also remove the log entries? Probably. Needs a function for del_log though
 
 
-			// FIXME: use unset?
+			// FIXME: use unset? or set_id(0) if that even works with the setter
 			return true;
 		}
 		return false;

@@ -21,6 +21,16 @@
 
 function gwolle_gb_akismet( $entry, $action ) {
 
+	$actions = array(
+		'comment-check',
+		'submit-ham',
+		'submit-spam'
+	);
+
+	if ( !in_array( $action, $actions ) ) {
+		return false;
+	}
+
 	$akismet_active = get_option( 'gwolle_gb-akismet-active', false );
 	if ( !$akismet_active ) {
 		// Akismet is not active, so we don't do anything
