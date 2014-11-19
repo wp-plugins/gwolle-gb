@@ -59,8 +59,6 @@ function gwolle_gb_page_editor() {
 				/* Check for changes, and update accordingly. This is on an Existing Entry */
 				$changed = false;
 
-// FIXME: add logging
-
 				/* Set as checked or unchecked, and by whom */
 				if ( isset($_POST['ischecked']) && $_POST['ischecked'] == 'on' ) {
 					if ( $_POST['ischecked'] == 'on' && $entry->get_ischecked() == 0 ) {
