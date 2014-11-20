@@ -134,19 +134,6 @@ function gwolle_gb_init() {
 	$wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
 
 
-	// FIXME: make it into a page or have a tab on the settings page
-	/*
-	if ($req_action == 'uninstall_gwolle_gb') {
-		if ($_POST['uninstall_confirmed'] == 'on') {
-			// uninstall the plugin -> delete all tables and preferences of the plugin
-			uninstall_gwolle_gb();
-		} else {
-			// Uninstallation not confirmed.
-
-		}
-	}*/
-
-
 	// Check if the plugin is out of date
 	$current_version = get_option('gwolle_gb_version');
 	if ($current_version && version_compare($current_version, GWOLLE_GB_VER, '<')) {

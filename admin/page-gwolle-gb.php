@@ -14,16 +14,18 @@ function gwolle_gb_overview(){
 
 	// Calculate the number of entries
 	$count = Array();
-	$count['checked']    = gwolle_gb_get_entry_count(
-		array(
+	$count['checked']    = gwolle_gb_get_entry_count(array(
 			'checked' => 'checked',
 			'deleted' => 'notdeleted',
-			'spam' => 'nospam'
-		)
-	);
-	$count['unchecked']  = gwolle_gb_get_entry_count(array( 'checked' => 'unchecked' ));
-	$count['spam']       = gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
-	$count['all']        = gwolle_gb_get_entry_count(array( 'all' => 'all' ));
+			'spam'    => 'nospam'
+		));
+	$count['unchecked'] = gwolle_gb_get_entry_count(array(
+			'checked' => 'unchecked',
+			'deleted' => 'notdeleted',
+			'spam'    => 'nospam'
+		));
+	$count['spam']    = gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
+	$count['all']     = gwolle_gb_get_entry_count(array( 'all' => 'all' ));
 	?>
 
 	<div class="table table_content gwolle_gb">
