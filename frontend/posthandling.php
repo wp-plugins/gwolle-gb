@@ -111,7 +111,7 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/* if Moderation is off, set it to "ischecked" */
-		if ( get_option('gwolle_gb-moderate-entries' === 'true' ) ) {
+		if ( get_option('gwolle_gb-moderate-entries', 'true') == 'true' ) {
 			$entry->set_ischecked( false );
 		} else {
 			$entry->set_ischecked( true );
@@ -134,7 +134,7 @@ function gwolle_gb_frontend_posthandling() {
 		 * Check for double post using all table fields but the date.
 		 */
 
-		// FIXME: use a get_entries_by_email() function, then loop through them checking for similar content (no SQL here)
+		// FIXME: use the get_entries(email) function, then loop through them checking for similar content (no SQL here)
 		/*
 		$sql = "
 			SELECT
@@ -165,11 +165,11 @@ function gwolle_gb_frontend_posthandling() {
 
 		// $save = ""; // Testing mode
 		$save = $entry->save();
-		if ( WP_DEBUG ) { echo "save: "; var_dump($save); }
+		//if ( WP_DEBUG ) { echo "save: "; var_dump($save); }
 		if ( $save ) {
 			// We have been saved to the Database
 			$gwolle_gb_messages .= '<p class="entry_saved">' . __('Thank you for your entry.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
-			if ( get_option('gwolle_gb-moderate-entries' === TRUE) ) {
+			if ( get_option('gwolle_gb-moderate-entries', 'true') === 'true' ) {
 				$gwolle_gb_messages .= '<p>' . __('We will review it and unlock it in a short while.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
 		}

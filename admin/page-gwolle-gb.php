@@ -154,6 +154,7 @@ function gwolle_gb_overview_thanks() {
 }
 
 
+// FIXME: move this somewhere to page-import.php
 function gwolle_gb_overview_import() {
 	global $wpdb;
 	//  Check if the 'dmsguestbook' table exists
@@ -199,7 +200,7 @@ function gwolle_gb_welcome() {
 	} else {
 		add_meta_box('dashboard_right_now', __('Welcome to the Guestbook!',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview', 'gwolle_gb_welcome', 'left', 'core');
 		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts/programs/images:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'left', 'core');
-		if (get_option('gwolle_gb-checkForImport') == 'true') {
+		if (get_option('gwolle_gb-checkForImport', 'true') == 'true') {
 			//add_meta_box('gwolle_gb_import', __('Import', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_import', 'gwolle_gb_welcome', 'right', 'core');
 		}
 		add_meta_box('gwolle_gb_help', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');

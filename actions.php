@@ -76,7 +76,12 @@ function gwolle_gb_adminmenu() {
 	// FIXME, rename function to gwolle_gb_page_import
 	//add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Import', GWOLLE_GB_TEXTDOMAIN), __('Import', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/import.php', 'gwolle_gb_import' );
 
+	// Load Admin CSS
+	wp_enqueue_style( 'gwolle-gb-css', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/style.css', false, GWOLLE_GB_VER, 'all' );
 
+	// Load jQuery
+	wp_enqueue_script( 'jquery ');
+	wp_enqueue_script( 'gwolle-gb-entries', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/js/admin.js', 'jquery', GWOLLE_GB_VER, true );
 }
 
 
@@ -106,7 +111,6 @@ function gwolle_gb_handle_post() {
 		if ( isset($_POST['gwolle_gb_function']) && $_POST['gwolle_gb_function'] == 'add_entry' ) {
 			gwolle_gb_frontend_posthandling();
 		}
-
 	}
 }
 
@@ -117,23 +121,22 @@ function gwolle_gb_handle_post() {
 
 add_action( 'admin_init', 'gwolle_gb_register_settings' );
 function gwolle_gb_register_settings() {
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-access-level',		'intval' );
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-access-level',		'intval' ); // to delete
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-adminMailContent',	'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-akismet-active',		'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-checkForImport',		'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-entriesPerPage',		'intval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-guestbookOnly',		'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-linkAuthorWebsite',	'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-moderate-entries',	'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-notifyByMail',		'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-post_ID',				'intval' );
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-akismet-active',		'strval' ); // 'false'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-checkForImport',		'strval' ); // 'true', to delete?
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-entriesPerPage',		'intval' ); // 20
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-guestbookOnly',		'strval' ); // to delete
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-linkAuthorWebsite',	'strval' ); // 'true'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-moderate-entries',	'strval' ); // 'true'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-notifyByMail',		'strval' ); // array, but empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-post_ID',				'intval' ); // to delete
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-recaptcha-active',	'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-showLineBreaks',		'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-showSmilies',			'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-checkForImport',		'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-showEntryIcons',		'strval' );
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-showLineBreaks',		'strval' ); // 'false'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-showSmilies',			'strval' ); // 'true'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-showEntryIcons',		'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-defaultMailText',		'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-entries_per_page',	'intval' );
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-entries_per_page',	'intval' ); // 20
 	register_setting( 'gwolle_gb_options', 'gwolle_gb_version',				'strval' ); // mind the underscore
 }
 
@@ -141,7 +144,8 @@ function gwolle_gb_register_settings() {
 add_action('init', 'gwolle_gb_init'); // FIXME: is this the right action, or admin_init?
 function gwolle_gb_init() {
 
-	// FIXME: make it into a page
+
+	// FIXME: make it into a page or have a tab on the settings page
 	/*
 	if ($req_action == 'uninstall_gwolle_gb') {
 		if ($_POST['uninstall_confirmed'] == 'on') {

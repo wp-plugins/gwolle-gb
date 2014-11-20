@@ -154,7 +154,7 @@ function gwolle_gb_frontend_write() {
 			' . str_replace('%1', $_SERVER['REMOTE_ADDR'], __('For security reasons we save the ip address <span id="ip">%1</span>.', GWOLLE_GB_TEXTDOMAIN)) . '
 			<br />';
 
-	if (get_option('gwolle_gb-moderate-entries') === TRUE) {
+	if (get_option('gwolle_gb-moderate-entries', 'true') === 'true') {
 		$output .= __('Your entry will be visible in the guestbook after we reviewed it.', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;';
 	}
 	$output .= __('We reserve our right to edit, delete, or not publish entries.', GWOLLE_GB_TEXTDOMAIN) . '

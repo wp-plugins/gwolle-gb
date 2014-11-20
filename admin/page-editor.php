@@ -276,14 +276,18 @@ function gwolle_gb_page_editor() {
 													}
 
 													// Attach 'visible/invisible' to class
-													if ( $entry->get_isspam() === 1 || $entry->get_isdeleted() === 1 || $entry->get_ischecked() === 0 ) {
+													if ( $entry->get_id() == 0 ) {
 														$class .= ' invisible';
 													} else {
-														$class .= ' visible';
+														if ( $entry->get_isspam() === 1 || $entry->get_isdeleted() === 1 || $entry->get_ischecked() === 0 ) {
+															$class .= ' invisible';
+														} else {
+															$class .= ' visible';
+														}
 													}
 
 													// Optional Icon column where CSS is being used to show them or not
-													if ( get_option('gwolle_gb-showEntryIcons') === 'true' ) { ?>
+													if ( get_option('gwolle_gb-showEntryIcons', 'true') === 'true' ) { ?>
 														<span class="entry-icons <?php echo $class; ?>">
 															<span class="visible-icon"></span>
 															<span class="invisible-icon"></span>
@@ -293,10 +297,14 @@ function gwolle_gb_page_editor() {
 														<?php
 													}
 
-													if ($entry->get_ischecked() == '1' && $entry->get_isspam() == '0' && $entry->get_isdeleted() == '0' ) {
-														echo "<h3>" . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . "</h3>";
-													} else {
+													if ( $entry->get_id() == 0 ) {
 														echo "<h3>" . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . "</h3>";
+													} else {
+														if ($entry->get_ischecked() == 1 && $entry->get_isspam() == 0 && $entry->get_isdeleted() == 0 ) {
+															echo "<h3>" . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . "</h3>";
+														} else {
+															echo "<h3>" . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . "</h3>";
+														}
 													} ?>
 
 													<label for="ischecked" class="selectit">
@@ -455,7 +463,7 @@ function gwolle_gb_page_editor() {
 									<div class="inside">
 										<textarea rows="10" cols="56" name="content" tabindex="1"><?php echo gwolle_gb_output_to_input_field( $entry->get_content() ); ?></textarea>
 										<?php
-										if (get_option('gwolle_gb-showLineBreaks') == 'false') {
+										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
 											echo '<p>' . str_replace('%1', 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php', __('Line breaks will not be visible to the visitors due to your <a href="%1">settings</a>.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
 										} ?>
 									</div>

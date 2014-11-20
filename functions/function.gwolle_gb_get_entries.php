@@ -84,7 +84,7 @@ function gwolle_gb_get_entries($args = array()) {
 	if ( is_admin() ) {
 		$perpage_option = (int) get_option('gwolle_gb-entries_per_page', 20);
 	} else {
-		$perpage_option = (int) get_option('gwolle_gb-entriesPerPage', 15);
+		$perpage_option = (int) get_option('gwolle_gb-entriesPerPage', 20);
 	}
 	$num_entries = (isset($args['num_entries']) && (int)$args['num_entries'] > 0) ? (int)$args['num_entries'] : $perpage_option;
 

@@ -31,8 +31,8 @@ function gwolle_gb_akismet( $entry, $action ) {
 		return false;
 	}
 
-	$akismet_active = get_option( 'gwolle_gb-akismet-active', false );
-	if ( !$akismet_active ) {
+	$akismet_active = get_option( 'gwolle_gb-akismet-active', 'false' );
+	if ( $akismet_active != 'true' ) {
 		// Akismet is not active, so we don't do anything
 		return false;
 	}

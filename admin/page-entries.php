@@ -97,7 +97,9 @@ function gwolle_gb_page_entries() {
 								} else if ( $action == 'spam' ) {
 									if ( $entry->get_isspam() == 0 ) {
 										$entry->set_isspam( true );
-										gwolle_gb_akismet( $entry, 'submit-spam' );
+										if ( get_option('gwolle_gb-akismet-active', 'false') == 'true' ) {
+											gwolle_gb_akismet( $entry, 'submit-spam' );
+										}
 										gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
 										$entries_handled++;
 									} else {
@@ -106,7 +108,9 @@ function gwolle_gb_page_entries() {
 								} else if ( $action == 'no-spam' ) {
 									if ( $entry->get_isspam() == 1 ) {
 										$entry->set_isspam( false );
-										gwolle_gb_akismet( $entry, 'submit-ham' );
+										if ( get_option('gwolle_gb-akismet-active', 'false') == 'true' ) {
+											gwolle_gb_akismet( $entry, 'submit-ham' );
+										}
 										gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
 										$result = $entry->save();
 										if ($result ) {
@@ -119,33 +123,35 @@ function gwolle_gb_page_entries() {
 									}
 								} else if ( $action == 'akismet' ) {
 									/* Check for spam and set accordingly */
-									$isspam = gwolle_gb_akismet( $entry, 'comment-check' );
-									if ( $isspam ) {
-										// Returned true, so considered spam
-										if ( $entry->get_isspam() == 0 ) {
-											$entry->set_isspam( true );
-											gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
-											$result = $entry->save();
-											if ($result ) {
-												$akismet_spam++;
+									if ( get_option('gwolle_gb-akismet-active', 'false') == 'true' ) {
+										$isspam = gwolle_gb_akismet( $entry, 'comment-check' );
+										if ( $isspam ) {
+											// Returned true, so considered spam
+											if ( $entry->get_isspam() == 0 ) {
+												$entry->set_isspam( true );
+												gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
+												$result = $entry->save();
+												if ($result ) {
+													$akismet_spam++;
+												} else {
+													$akismet_not_spam++;
+												}
 											} else {
-												$akismet_not_spam++;
+												$akismet_already_spam++;
 											}
 										} else {
-											$akismet_already_spam++;
-										}
-									} else {
-										if ( $entry->get_isspam() == 1 ) {
-											$entry->set_isspam( false );
-											gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
-											$result = $entry->save();
-											if ($result ) {
-												$akismet_not_spam++;
+											if ( $entry->get_isspam() == 1 ) {
+												$entry->set_isspam( false );
+												gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
+												$result = $entry->save();
+												if ($result ) {
+													$akismet_not_spam++;
+												} else {
+													$akismet_spam++;
+												}
 											} else {
-												$akismet_spam++;
+												$akismet_already_not_spam++;
 											}
-										} else {
-											$akismet_already_not_spam++;
 										}
 									}
 								} else if ( $action == 'trash' ) {
@@ -206,17 +212,17 @@ function gwolle_gb_page_entries() {
 					}
 				} else if ( $action == 'spam' ) {
 					if ( $entries_handled == 1 ) {
-						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entry marked as spam and submitted to Akismet as spam.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entry marked as spam and submitted to Akismet as spam (if Akismet was enabled).', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					} else if ( $entries_handled > 1 ) {
-						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entries marked as spam and submitted to Akismet as spam.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entries marked as spam and submitted to Akismet as spam (if Akismet was enabled).', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					} else {
 						$gwolle_gb_messages .= '<p>' . __('No entries marked as spam.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					}
 				} else if ( $action == 'no-spam' ) {
 					if ( $entries_handled == 1 ) {
-						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entry marked as not spam and submitted to Akismet as ham.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entry marked as not spam and submitted to Akismet as ham (if Akismet was enabled).', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					} else if ( $entries_handled > 1 ) {
-						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entries marked as not spam and submitted to Akismet as ham.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entries marked as not spam and submitted to Akismet as ham (if Akismet was enabled).', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					} else {
 						$gwolle_gb_messages .= '<p>' . __('No entries marked as not spam.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					}
@@ -287,8 +293,10 @@ function gwolle_gb_page_entries() {
 
 		$show = (isset($_REQUEST['show']) && in_array($_REQUEST['show'], array('checked', 'unchecked', 'spam', 'trash'))) ? $_REQUEST['show'] : 'all';
 
+		$entries_per_page = get_option('gwolle_gb-entries_per_page', 20);
+
 		// If Akimet has not been activated yet and the user is looking at the spam tell him to activate Akismet.
-		if ($show == 'spam' && get_option('gwolle_gb-akismet-active') != 'true') {
+		if ($show == 'spam' && get_option('gwolle_gb-akismet-active', 'false') != 'true') {
 			$gwolle_gb_messages = '<p>' . __('Please activate Akismet if you want to battle spam.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 		}
 
@@ -296,7 +304,7 @@ function gwolle_gb_page_entries() {
 		$pageNum = (isset($_REQUEST['pageNum']) && $_REQUEST['pageNum'] && (int) $_REQUEST['pageNum'] > 0) ? (int) $_REQUEST['pageNum'] : 1;
 
 		// Pagination: Calculate the number of pages.
-		$countPages = ceil( $count[$show] / get_option('gwolle_gb-entries_per_page', 20) );
+		$countPages = ceil( $count[$show] / $entries_per_page );
 
 		if ($pageNum > $countPages) {
 			$pageNum = 1; // page doesnot exist, return to first page
@@ -310,24 +318,24 @@ function gwolle_gb_page_entries() {
 			$firstEntryNum = 0;
 			$mysqlFirstRow = 0;
 		} else {
-			$firstEntryNum = ($pageNum - 1) * get_option('gwolle_gb-entries_per_page', 20) + 1;
+			$firstEntryNum = ($pageNum - 1) * $entries_per_page + 1;
 			$mysqlFirstRow = $firstEntryNum - 1;
 		}
 
 		// Calculate written text with info "Showing 1 – 25 of 54"
-		$lastEntryNum = $pageNum * get_option('gwolle_gb-entries_per_page', 20);
+		$lastEntryNum = $pageNum * $entries_per_page;
 		if ($count[$show] == 0) {
 			$lastEntryNum = 0;
 		} elseif ($lastEntryNum > $count[$show]) {
-			$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum - 1) * get_option('gwolle_gb-entries_per_page', 20)) - 1;
+			$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum - 1) * $entries_per_page) - 1;
 		}
 
-		if ( WP_DEBUG ) { echo "mysqlFirstRow on $show: "; var_dump($mysqlFirstRow); }
+		//if ( WP_DEBUG ) { echo "mysqlFirstRow on $show: "; var_dump($mysqlFirstRow); }
 		// FIXME: buggy paging on page 1 - 4 of "all"
 		// Get the entries
 		if ( $show == 'checked' ) {
 			$entries = gwolle_gb_get_entries(array(
-				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
 				'checked' => 'checked',
 				'deleted' => 'notdeleted',
@@ -335,7 +343,7 @@ function gwolle_gb_page_entries() {
 			));
 		} else if ( $show == 'unchecked' ) {
 			$entries = gwolle_gb_get_entries(array(
-				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
 				'checked' => 'unchecked',
 				'deleted' => 'notdeleted',
@@ -343,19 +351,19 @@ function gwolle_gb_page_entries() {
 			));
 		} else if ( $show == 'spam' ) {
 			$entries = gwolle_gb_get_entries(array(
-				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
 				'spam' => 'spam'
 			));
 		} else if ( $show == 'trash' ) {
 			$entries = gwolle_gb_get_entries(array(
-				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
 				'deleted' => 'deleted'
 			));
 		} else {
 			$entries = gwolle_gb_get_entries(array(
-				'num_entries' => get_option('gwolle_gb-entries_per_page', 20),
+				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
 				'all' => 'all'
 			));
@@ -426,7 +434,7 @@ function gwolle_gb_page_entries() {
 								$massEditControls .= '<option value="spam">' . __('Mark as spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							$massEditControls .= '<option value="no-spam">' . __('Mark as not spam', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							if ( get_option('gwolle_gb-akismet-active') == 'true' ) {
+							if ( get_option('gwolle_gb-akismet-active', 'false') == 'true' ) {
 								$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							$massEditControls .= '<option value="trash">' . __('Move to trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
@@ -511,7 +519,7 @@ function gwolle_gb_page_entries() {
 								<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-top" id="check-all-top" type="checkbox"></th>
 								<th scope="col" ><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<?php
-								if (get_option('gwolle_gb-showEntryIcons') === 'true' && $show !== 'trash') { ?>
+								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true' && $show !== 'trash') { ?>
 									<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 								<?php
 								} ?>
@@ -527,7 +535,7 @@ function gwolle_gb_page_entries() {
 								<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-bottom" id="check-all-bottom" type="checkbox"></th>
 								<th scope="col" ><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<?php
-								if (get_option('gwolle_gb-showEntryIcons') === 'true' && $show !== 'trash') { ?>
+								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true' && $show !== 'trash') { ?>
 									<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 								<?php
 								} ?>
@@ -543,7 +551,7 @@ function gwolle_gb_page_entries() {
 							<?php $rowOdd = true;
 							$html_output = '';
 							if ( !is_array($entries) || count($entries) === 0 ) {
-								$colspan = (get_option('gwolle_gb-showEntryIcons') === 'true') ? 7 : 6;
+								$colspan = (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') ? 7 : 6;
 								$html_output .= '
 									<tr>
 										<td colspan="' . $colspan . '" align="center">
@@ -588,7 +596,7 @@ function gwolle_gb_page_entries() {
 											<td class="id">' . $entry->get_id() . '</td>';
 
 									// Optional Icon column where CSS is being used to show them or not
-									if ( get_option('gwolle_gb-showEntryIcons') === 'true' ) {
+									if ( get_option('gwolle_gb-showEntryIcons', 'true') === 'true' ) {
 										$html_output .= '
 											<td class="entry-icons">
 												<span class="visible-icon"></span>
@@ -616,7 +624,7 @@ function gwolle_gb_page_entries() {
 										<td>
 											<label for="check-' . $entry->get_id() . '">';
 									$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), 100 );
-									if ( get_option('gwolle_gb-showSmilies') === 'true' ) {
+									if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 										$entry_content = convert_smilies($entry_content);
 									}
 									$html_output .= $entry_content . '</label>

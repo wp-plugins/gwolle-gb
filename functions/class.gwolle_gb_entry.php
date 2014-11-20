@@ -143,7 +143,7 @@ class gwolle_gb_entry {
 		if ( $this->get_id() ) {
 			// entry exists, use UPDATE
 
-			if ( WP_DEBUG ) { echo "Saving ID:: "; var_dump($this->get_id()); }
+			//if ( WP_DEBUG ) { echo "Saving ID:: "; var_dump($this->get_id()); }
 
 			$sql = "
 				UPDATE $wpdb->gwolle_gb_entries

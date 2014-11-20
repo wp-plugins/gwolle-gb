@@ -23,11 +23,8 @@ function gwolle_gb_frontend_read() {
 	}
 
 
-	$entriesPerPage = (int) get_option('gwolle_gb-entriesPerPage');
-	if (!$entriesPerPage || $entriesPerPage < 1) {
-		// This option has not been set, or has manually been edited/deleted in the database. Use default value.
-		$entriesPerPage = 20;
-	}
+	$entriesPerPage = (int) get_option('gwolle_gb-entriesPerPage', 20);
+
 	$entriesCount = gwolle_gb_get_entry_count(
 		array(
 			'checked' => 'checked',
@@ -175,8 +172,7 @@ function gwolle_gb_frontend_read() {
 				$output .= ' ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' <span class="author-origin">' . gwolle_gb_format_value_for_output($origin) . '</span>';
 			}
 
-			// Post Date
-			// FIXME: add option to show time as well
+			// Entry Date and Time
 			$output .= ' ' . __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ' . date_i18n( get_option('date_format'), $entry->get_date() ) . ', ' .
 				date_i18n( get_option('time_format'), $entry->get_date() ) . ': ';
 			$output .= '</div>';
@@ -184,10 +180,10 @@ function gwolle_gb_frontend_read() {
 			// Main Content
 			$output .= '<div class="entry-content">';
 			$entry_content = gwolle_gb_format_value_for_output( $entry->get_content() );
-			if ( get_option('gwolle_gb-showSmilies') === 'true' ) {
+			if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 				$entry_content = convert_smilies($entry_content);
 			}
-			if ( get_option('gwolle_gb-showLineBreaks') === 'true' ) {
+			if ( get_option( 'gwolle_gb-showLineBreaks', 'false' ) === 'true' ) {
 				$output .= nl2br($entry_content);
 			} else {
 				$output .= $entry_content;

@@ -74,7 +74,7 @@ function gwolle_gb_get_author_name_html($entry) {
 	}
 
 	// Link the author website?
-	if ( get_option('gwolle_gb-linkAuthorWebsite') === 'true' ) {
+	if ( get_option('gwolle_gb-linkAuthorWebsite', 'true') === 'true' ) {
 		$author_website = trim( $entry->get_author_website() );
 		if ($author_website) {
 			$pattern = '/^http/';

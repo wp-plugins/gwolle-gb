@@ -150,16 +150,16 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="moderate-entries"><?php _e('Moderate Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<input <?php
-									if (get_option( 'gwolle_gb-moderate-entries' ) == 'true') {
+									if (get_option( 'gwolle_gb-moderate-entries', 'true') == 'true') {
 										echo 'checked="checked"';
 									} ?>
 									type="checkbox" name="moderate-entries" id="moderate-entries">
 								<?php _e('Moderate entries before publishing them.', GWOLLE_GB_TEXTDOMAIN); ?>
 								<br />
 								<span class="setting-description">
-									<?php _e("New entries have to be unlocked by an administrator before they are visible to the public.", GWOLLE_GB_TEXTDOMAIN); ?>
+									<?php _e("New entries have to be unlocked by a moderator before they are visible to the public.", GWOLLE_GB_TEXTDOMAIN); ?>
 									<br />
-									<?php _e("It's highly recommended that you turn this on, because your responsible for the content on your homepage.", GWOLLE_GB_TEXTDOMAIN); ?>
+									<?php _e("It is highly recommended that you turn this on, because you are responsible for the content on your website.", GWOLLE_GB_TEXTDOMAIN); ?>
 								</span>
 							</td>
 						</tr>
@@ -287,7 +287,7 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="showEntryIcons"><?php _e('Entry icons', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<input type="checkbox" <?php
-									if ( get_option( 'gwolle_gb-showEntryIcons', 'false' ) === 'true' ) {
+									if ( get_option( 'gwolle_gb-showEntryIcons', 'true' ) === 'true' ) {
 										echo 'checked="checked"';
 									}
 									?> name="showEntryIcons" /> <?php _e('Show entry icons', GWOLLE_GB_TEXTDOMAIN); ?>
@@ -301,7 +301,7 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="entriesPerPage"><?php _e('Entries per page on the frontend', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<select name="entriesPerPage">
-									<?php $entriesPerPage = get_option( 'gwolle_gb-entriesPerPage', 15 );
+									<?php $entriesPerPage = get_option( 'gwolle_gb-entriesPerPage', 20 );
 									$presets = array(5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 120, 150, 200, 250);
 									for ($i = 0; $i < count($presets); $i++) {
 										echo '<option value="' . $presets[$i] . '"';
@@ -322,7 +322,7 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="entries_per_page"><?php _e('Entries per page in the admin', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<select name="entries_per_page">
-									<?php $entries_per_page = get_option( 'gwolle_gb-entries_per_page', 15 );
+									<?php $entries_per_page = get_option( 'gwolle_gb-entries_per_page', 20 );
 									$presets = array(5, 10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100, 120, 150, 200, 250);
 									for ($i = 0; $i < count($presets); $i++) {
 										echo '<option value="' . $presets[$i] . '"';
@@ -353,7 +353,7 @@ function gwolle_gb_page_settings() {
 								<br />
 
 								<input type="checkbox" id="showSmilies" name="showSmilies"<?php
-									if ( get_option( 'gwolle_gb-showSmilies', 'false' ) === 'true' ) {
+									if ( get_option( 'gwolle_gb-showSmilies', 'true' ) === 'true' ) {
 										echo ' checked="checked"';
 									}
 									?> />
@@ -363,7 +363,7 @@ function gwolle_gb_page_settings() {
 								<br />
 
 								<input type="checkbox" id="linkAuthorWebsite" name="linkAuthorWebsite"<?php
-									if ( get_option( 'gwolle_gb-linkAuthorWebsite', 'false' ) === 'true' ) {
+									if ( get_option( 'gwolle_gb-linkAuthorWebsite', 'true' ) === 'true' ) {
 										echo ' checked="checked"';
 									}
 									?> />
@@ -406,7 +406,7 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="checkForImport"><?php _e('Check for import', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 							<td>
 								<input <?php
-									if (get_option( 'gwolle_gb-checkForImport', 'false' ) === 'true' ) {
+									if (get_option( 'gwolle_gb-checkForImport', 'true' ) === 'true' ) {
 										echo 'checked="checked"';
 									}
 									?> type="checkbox" name="checkForImport" id="checkForImport" />

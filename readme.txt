@@ -78,14 +78,14 @@ With version 1.0 there have been some changes:
 * Gwolle-GB uses the Shortcode API now. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
 * The entries that are visible to visitors have changed. Make sure to check if you have everything
   visible that you want and nothing more.
+* CSS has changed somewhat. If you have custom CSS, you want to check if it still applies.
 
 = Todo/coming up in future releases =
 
 First priority is getting the plugin working with current WordPress and resolve a lot of bugs.
 
 * Bughunting (check all the FIXME's in the code).
-* Sanitize options.
-* Only use the main ReCaptcha plugin, do not include it ourselves.
+* Bring back ReCaptcha.
 * Add possibility to empty trash and spam.
 * Make Install method more safe.
 * Bring Import method back and refactor it. Add more sources.
@@ -94,15 +94,10 @@ First priority is getting the plugin working with current WordPress and resolve 
 * Bring Frontend Widget and Dashboard Widget back.
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
-
-If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
-
-The following list is from the original author.
-
-* Custom fields (e. g. 'ICQ number' etc.).
-* Support for WordPress MU.
 * Better database structure (e. g. 'id' instead of 'entry_id').
 * 'Thank you' mail to the poster (requested by Joakim from Sweden).
+
+If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
 
 = Known bugs in 0.9.7 =
 
@@ -123,7 +118,7 @@ so I will get your message. Or send me an email: marcel (at) zenoweb (dot) nl. T
 
 = Licence =
 
-The plugin itself (the code) is released under the GNU General Public License; a copy of this licence can be found at the licence homepage or
+The plugin itself is released under the GNU General Public License; a copy of this licence can be found at the licence homepage or
 in the gwolle-gb.php file at the top.
 
 For the licences regarding the use of reCAPTCHA or the icons you may ask the authors.
@@ -155,13 +150,16 @@ In a future version this might be implemented.
 
 Your first option is to use Akismet. It works like a charm. Fighting spam has never been easier.
 
-You can also use Recaptcha. It helps you and your visitors to fight spam at the slight cost of usability.
+You can also use ReCaptcha. It helps you and your visitors to fight spam at the slight cost of usability.
 
 = How do I localize a plugin? =
 
 A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
 and also the WordPress documentation.
 
+= Is this plugin actively maintained? =
+
+Yes, it is again actively maintained.
 
 == Screenshots ==
 
@@ -174,13 +172,23 @@ and also the WordPress documentation.
 == Changelog ==
 
 = 0.9.9.3 =
-* 2014-11-
+* 2014-11-20
+* Admin page entries.php is redone, Mass-Edit works.
+* Add option to check entries with Akismet.
+* Streamlined all the options with default values.
+* Logging is back.
+* Icons are back.
+* Admin CSS is more specific, less conflicting.
+* Enqueue the Javascript that we use.
+* Do not load the currently unused Javascript.
+* Use wpdb->prepare for input everywhere.
+* This thing may even be secure and quite allright.
 
 = 0.9.9.2 =
 * 2014-11-18
 * Admin page editor.php is redone.
 * Admin page entries.php is still in need of handling the _POST (Mass-Edit doesn't work)
-* Submit-Ham and Submit-Spam in Akismet is back.
+* Submit-Ham and Submit-Spam in Akismet are back.
 * Use get_current_user_id instead of a global variable.
 * Many options on Settings page (temporarily) removed.
 * Use new option on the Settings page to set the number of entries on the admin.
