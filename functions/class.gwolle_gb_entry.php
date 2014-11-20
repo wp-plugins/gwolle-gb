@@ -473,6 +473,7 @@ class gwolle_gb_entry {
 		return $id;
 	}
 	public function check_author_name($author_name) {
+		// User input
 		$author_name = trim($author_name);
 		$author_name = addslashes($author_name);
 		$author_name = strval($author_name);
@@ -483,18 +484,21 @@ class gwolle_gb_entry {
 		return $authoradminid;
 	}
 	public function check_author_email($author_email) {
+		// User input
 		$author_email = trim($author_email);
 		$author_email = addslashes($author_email);
 		$author_email = strval($author_email);
 		return filter_var($author_email, FILTER_VALIDATE_EMAIL);
 	}
 	public function check_author_origin($author_origin) {
+		// User input
 		$author_origin = trim($author_origin);
 		$author_origin = addslashes($author_origin);
 		$author_origin = strval($author_origin);
 		return $author_origin;
 	}
 	public function check_author_website($author_website) {
+		// User input
 		$author_website = trim($author_website);
 		$author_website = addslashes($author_website);
 		$author_website = strval($author_website);
@@ -521,9 +525,12 @@ class gwolle_gb_entry {
 		return $author_host;
 	}
 	public function check_content($content) {
+		// User input
 		$content = trim($content);
+		$content = stripslashes($content); // Make sure we're not just adding lots of slashes.
 		$content = addslashes($content);
 		$content = strval($content);
+		$content = strip_tags($content);
 		$strlen = strlen($content);
 		if ($strlen > 0) {
 			return $content;
