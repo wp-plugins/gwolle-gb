@@ -83,4 +83,21 @@ include_once( GWOLLE_GB_DIR . '/actions.php' );
 // include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_get_dashboard_widget_row.func.php' );
 
 
+/*
+ * Trigger an install/upgrade function when the plugin is activated.
+ */
+
+function gwolle_gb_activation() {
+	$current_version = get_option( 'gwolle_gb_version' );
+
+	if ( $current_version == false ) {
+		install_gwolle_gb();
+	} elseif ($current_version != GWOLLE_GB_VER) {
+		upgrade_gwolle_gb();
+	}
+}
+register_activation_hook(__FILE__, 'gwolle_gb_activation');
+
+
+
 

@@ -3,6 +3,9 @@
  * CSS for the Frontend of Gwolle-GB Guestbook plugin
  */
 
+#gwolle_gb {
+	clear: both;
+}
 
 /* Write section */
 #gwolle_gb form#gwolle_gb_new_entry {

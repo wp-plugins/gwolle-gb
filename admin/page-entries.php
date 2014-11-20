@@ -95,13 +95,19 @@ function gwolle_gb_page_entries() {
 										$entries_not_handled++;
 									}
 								} else if ( $action == 'spam' ) {
+
 									if ( $entry->get_isspam() == 0 ) {
 										$entry->set_isspam( true );
 										if ( get_option('gwolle_gb-akismet-active', 'false') == 'true' ) {
 											gwolle_gb_akismet( $entry, 'submit-spam' );
 										}
 										gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
-										$entries_handled++;
+										$result = $entry->save();
+										if ($result ) {
+											$entries_handled++;
+										} else {
+											$entries_not_handled++;
+										}
 									} else {
 										$entries_not_handled++;
 									}

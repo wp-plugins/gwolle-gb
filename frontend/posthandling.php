@@ -191,40 +191,43 @@ function gwolle_gb_frontend_posthandling() {
 					}
 				}
 			}
-		}
 
-		@ini_set('sendmail_from', get_bloginfo('admin_mail'));
 
-		// Set the Mail Content
-		$mailTags = array('user_email', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url');
-		$mail_body = stripslashes( get_option( 'gwolle_gb-adminMailContent' ) );
-		if (!$mail_body) {
-			$mail_body = get_option( 'gwolle_gb-defaultMailText' );
-		}
-		// FIXME: use more content in the mailbody from the entry, like author_name, email, content
+			@ini_set('sendmail_from', get_bloginfo('admin_mail'));
 
-		// Set the Mail Headers
-		$subject = '[' . get_bloginfo('name') . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
-		$header = "";
-		$header .= "From: Gwolle-GB-Mailer <" . get_bloginfo('admin_email') . ">\r\n";
-		$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
+			// Set the Mail Content
+			$mailTags = array('user_email', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url');
+			$mail_body = stripslashes( get_option( 'gwolle_gb-adminMailContent' ) );
+			if (!$mail_body) {
+				$mail_body = get_option( 'gwolle_gb-defaultMailText' );
+			}
+			// FIXME: use more content in the mailbody from the entry, like author_name, email, content
 
-		// Replace the tags from the mailtemplate with real data from the website and entry
-		$info['blog_name'] = get_bloginfo('name');
-		$info['blog_url'] = get_bloginfo('wpurl');
-		$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
-		$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id();
-		// The last tags are bloginfo-based
-		for ($tagNum = 1; $tagNum < count($mailTags); $tagNum++) {
-			$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
-		}
+			// Set the Mail Headers
+			$subject = '[' . get_bloginfo('name') . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
+			$header = "";
+			$header .= "From: Gwolle-GB-Mailer <" . get_bloginfo('admin_email') . ">\r\n";
+			$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
 
-		for ($i = 0; $i < count($subscriber); $i++) {
-			$mailBody[$i] = $mail_body;
-			$mailBody[$i] = str_replace('%user_email%', $subscriber[$i]['user_email'], $mailBody[$i]);
-			$mailBody[$i] = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody[$i]);
+			// Replace the tags from the mailtemplate with real data from the website and entry
+			$info['blog_name'] = get_bloginfo('name');
+			$info['blog_url'] = get_bloginfo('wpurl');
+			$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
+			$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id();
+			// The last tags are bloginfo-based
+			for ($tagNum = 1; $tagNum < count($mailTags); $tagNum++) {
+				$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
+			}
 
-			wp_mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
+			if ( isset($subscriber) && is_array($subscriber) && count($subscriber) > 0 ) {
+				for ($i = 0; $i < count($subscriber); $i++) {
+					$mailBody[$i] = $mail_body;
+					$mailBody[$i] = str_replace('%user_email%', $subscriber[$i]['user_email'], $mailBody[$i]);
+					$mailBody[$i] = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody[$i]);
+
+					wp_mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
+				}
+			}
 		}
 
 

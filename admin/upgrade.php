@@ -11,7 +11,12 @@
 function install_gwolle_gb() {
 	global $wpdb;
 
-	//	Install the table for the entries
+	// Install the table for the entries
+
+	// Declare database table names
+	$wpdb->gwolle_gb_entries = $wpdb->prefix . 'gwolle_gb_entries';
+	$wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
+
 	$sql = "
 		CREATE TABLE
 			" . $wpdb->gwolle_gb_entries . "
@@ -47,7 +52,7 @@ function install_gwolle_gb() {
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
 
-	//	Add reCAPTCHA option
+	// Add reCAPTCHA option
 	add_option('gwolle_gb-recaptcha-active', 'false');
 	add_option('recaptcha-public-key', '');
 	add_option('recaptcha-private-key', '');
@@ -64,11 +69,14 @@ function install_gwolle_gb() {
 	//	Add option for the admin mail content (can then be defined by the user)
 	add_option('gwolle_gb-adminMailContent', '');
 
+	// Add entries per page option
+	add_option('gwolle_gb-entries_per_page', '20');
+
 	//	Add entries per page option
 	add_option('gwolle_gb-entriesPerPage', '20');
 
 	//	Add option to toggle the visibility of line breaks
-	add_option('gwolle_gb-showLineBreaks');
+	add_option('gwolle_gb-showLineBreaks', 'false');
 
 	//  Add option to toggle check if there is data to import.
 	add_option('gwolle_gb-checkForImport', 'true');
@@ -111,10 +119,6 @@ function uninstall_gwolle_gb() {
 					option_name = 'recaptcha-private-key'
 			");
 	}
-
-	// FIXME, no redirect...
-	header('Location: ' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=' . GWOLLE_GB_FOLDER . '/gwolle-gb.php&msg=successfully-uninstalled');
-	exit ;
 }
 
 function upgrade_gwolle_gb() {

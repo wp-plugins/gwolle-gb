@@ -16,12 +16,6 @@ a guestbook into your WordPress powered site. Don't use your 'comment' section t
 have a real guestbook.
 
 
-Please note that this plugin has been unmaintained for some time. The current stable version 0.9.7 might just work allright for you.
-The only really big problem is with the combination of WordPress 3.9+, PHP 5.5 and MySQLi, which makes the plugin unusable.
-Another small problem is that reading the code makes your eyes bleed, and it needs to be rewritten. That work is currently
-underway in the 0.9.9 series in SVN, going towards a new stable version 1.0.
-
-
 Current features include:
 
 * Easy to use guestbook frontend with a simple form for visitors of your website.

@@ -7,23 +7,6 @@
  */
 
 
-/*
- * Trigger an upgrade function when the plugin is activated.
- */
-
-if (!function_exists('gwolle_gb_activation')) {
-	function gwolle_gb_activation() {
-		$current_version = get_option('gwolle_gb_version');
-
-		if (!$current_version) {
-			install_gwolle_gb();
-		} elseif ($current_version != GWOLLE_GB_VER) {
-			upgrade_gwolle_gb();
-		}
-	}
-}
-register_activation_hook(__FILE__, 'gwolle_gb_activation');
-
 
 /*
  * Add a menu in the WordPress backend.
@@ -35,6 +18,7 @@ function gwolle_gb_adminmenu() {
 	 * How to add new menu-entries:
 	 * add_menu_page( $page_title, $menu_title, $access_level, $file, $function = '', $icon_url = '' )
 	 */
+
 
 	// Counter
 	$count_unchecked = gwolle_gb_get_entry_count(
