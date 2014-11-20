@@ -41,12 +41,6 @@ define('GWOLLE_GB_DIR', WP_PLUGIN_DIR . '/' . GWOLLE_GB_FOLDER);
 define('GWOLLE_GB_TEXTDOMAIN', 'GWGB');
 
 
-// FIXME, this needs to be in init action or so?
-// Declare database table names
-$wpdb->gwolle_gb_entries = $wpdb->prefix . 'gwolle_gb_entries';
-$wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
-
-
 // Classes
 include_once( GWOLLE_GB_DIR . '/functions/class.gwolle_gb_entry.php' );
 

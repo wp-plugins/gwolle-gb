@@ -127,6 +127,11 @@ function gwolle_gb_register_settings() {
 
 add_action('init', 'gwolle_gb_init'); // FIXME: is this the right action, or admin_init?
 function gwolle_gb_init() {
+	global $wpdb;
+
+	// Declare database table names
+	$wpdb->gwolle_gb_entries = $wpdb->prefix . 'gwolle_gb_entries';
+	$wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
 
 
 	// FIXME: make it into a page or have a tab on the settings page

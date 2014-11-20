@@ -463,6 +463,19 @@ function gwolle_gb_page_settings() {
 			} else {
 				str_replace('%1',$_SERVER['PHP_SELF'] . '?page='.GWOLLE_GB_FOLDER.'/settings.php',__('Sorry, but the page you are looking for does not exists. Go back to the <a href="%1">settings page</a>', GWOLLE_GB_TEXTDOMAIN));
 			}
+
+				// FIXME: make it into a page or have a tab on the settings page ($_POST)
+				/*
+				if ($req_action == 'uninstall_gwolle_gb') {
+					if ($_POST['uninstall_confirmed'] == 'on') {
+						// uninstall the plugin -> delete all tables and preferences of the plugin
+						uninstall_gwolle_gb();
+					} else {
+						// Uninstallation not confirmed.
+
+					}
+				}*/
+
 			?>
 
 		</div>
