@@ -63,8 +63,7 @@ function gwolle_gb_adminmenu() {
 	// Load Admin CSS
 	wp_enqueue_style( 'gwolle-gb-css', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/style.css', false, GWOLLE_GB_VER, 'all' );
 
-	// Load jQuery
-	wp_enqueue_script( 'jquery ');
+	// Load JavaScript for Admin
 	wp_enqueue_script( 'gwolle-gb-entries', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/js/admin.js', 'jquery', GWOLLE_GB_VER, true );
 }
 
@@ -85,7 +84,7 @@ add_filter( 'plugin_action_links', 'gwolle_gb_links', 10, 2 );
 
 /*
  * gwolle_gb_handle_post
- * Handle the $_POST for the Backend and the Frontend.
+ * Handle the $_POST for the Frontend.
  */
 
 add_action('after_setup_theme', 'gwolle_gb_handle_post');
@@ -127,12 +126,6 @@ function gwolle_gb_register_settings() {
 
 add_action('init', 'gwolle_gb_init'); // FIXME: is this the right action, or admin_init?
 function gwolle_gb_init() {
-	global $wpdb;
-
-	// Declare database table names
-	$wpdb->gwolle_gb_entries = $wpdb->prefix . 'gwolle_gb_entries';
-	$wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
-
 
 	// Check if the plugin is out of date
 	$current_version = get_option('gwolle_gb_version');
@@ -141,6 +134,14 @@ function gwolle_gb_init() {
 		upgrade_gwolle_gb();
 	}
 }
+
+
+/* Load jQuery */
+function gwolle_gb_jquery() {
+	// load always
+	wp_enqueue_script('jquery');
+}
+add_action('wp_enqueue_scripts', 'gwolle_gb_jquery');
 
 
 /*

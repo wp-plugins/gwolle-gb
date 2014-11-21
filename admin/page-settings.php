@@ -10,7 +10,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 
 
 function gwolle_gb_page_settings() {
-	global $wpdb, $defaultMailText;
+	global $wpdb, $defaultMailText; // FIXME
 
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
 		die(__('Cheatin&#8217; uh?'));

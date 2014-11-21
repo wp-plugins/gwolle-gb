@@ -28,8 +28,7 @@ function gwolle_gb_frontend_write() {
 	$content = '';
 
 	// Only show old data when there are errors
-	// FIXME, use "if" again at release time
-	//if ( $gwolle_gb_errors ) {
+	if ( $gwolle_gb_errors ) {
 		if ( is_array($gwolle_gb_data) && count($gwolle_gb_data) > 0 ) {
 			if (isset($gwolle_gb_data['author_name'])) {
 				$name = $gwolle_gb_data['author_name'];
@@ -47,7 +46,7 @@ function gwolle_gb_frontend_write() {
 				$content = $gwolle_gb_data['content'];
 			}
 		}
-	//}
+	}
 
 	// FIXME: If user is logged in, auto-fill the form if there's no data yet
 
@@ -61,8 +60,13 @@ function gwolle_gb_frontend_write() {
 	 * Handle Messaging to the user
 	 */
 
+	$class="";
+	if ( $gwolle_gb_errors ) {
+		$class="error";
+	}
+
 	if ( isset($gwolle_gb_messages) && $gwolle_gb_messages != '') {
-		$output .= "<div id='gwolle_gb_messages'>";
+		$output .= "<div id='gwolle_gb_messages' class='$class'>";
 		$output .= $gwolle_gb_messages;
 		$output .= "</div>";
 	}
@@ -82,12 +86,9 @@ function gwolle_gb_frontend_write() {
 	 * Build up Form including possible error_fields
 	 */
 
-	// Get permalink of the guestbookpage so we can have the right form-action.
-	$page_link = get_permalink( get_the_ID() );
-
 	// Form for submitting new entries
 	$output .= '
-		<form id="gwolle_gb_new_entry" action="' . $page_link . '" method="POST">
+		<form id="gwolle_gb_new_entry" action="" method="POST">
 			<h3>' . __('Write a new entry for the Guestbook', GWOLLE_GB_TEXTDOMAIN) . '</h3>
 			<input type="hidden" name="gwolle_gb_function" value="add_entry" />
 			<div class="label">' . __('Name', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
@@ -95,11 +96,11 @@ function gwolle_gb_frontend_write() {
 	if (in_array('name', $gwolle_gb_error_fields)) {
 		$output .= ' error';
 	}
-	$output .= '" value="' . $name . '" type="text" name="author_name" placeholder="' . __('Name', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+	$output .= '" value="' . $name . '" type="text" name="gwolle_gb_author_name" placeholder="' . __('Name', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 		<div class="clearBoth">&nbsp;</div>
 
 		<div class="label">' . __('City', GWOLLE_GB_TEXTDOMAIN) . ':</div>
-		<div class="input"><input value="' . $origin . '" type="text" name="author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+		<div class="input"><input value="' . $origin . '" type="text" name="gwolle_gb_author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 		<div class="clearBoth">&nbsp;</div>
 
 		<div class="label">' . __('Email', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
@@ -107,15 +108,15 @@ function gwolle_gb_frontend_write() {
 	if (in_array('author_email', $gwolle_gb_error_fields)) {
 		$output .= ' error';
 	}
-	$output .= '" value="' . $email . '" type="text" name="author_email" placeholder="' . __('Email', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+	$output .= '" value="' . $email . '" type="text" name="gwolle_gb_author_email" placeholder="' . __('Email', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 		<div class="clearBoth">&nbsp;</div>
 
 		<div class="label">' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . ':</div>
-		<div class="input"><input value="' . $website . '" type="text" name="author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+		<div class="input"><input value="' . $website . '" type="text" name="gwolle_gb_author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 		<div class="clearBoth">&nbsp;</div>
 
 		<div class="label">' . __('Guestbook entry', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
-		<div class="input"><textarea name="content" class="';
+		<div class="input"><textarea name="gwolle_gb_content" class="';
 	if (in_array('content', $gwolle_gb_error_fields)) {
 		$output .= ' error';
 	}

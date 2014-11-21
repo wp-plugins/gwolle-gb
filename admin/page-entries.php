@@ -11,7 +11,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 
 
 function gwolle_gb_page_entries() {
-	global $wpdb;
+	global $wpdb; // FIXME
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
 		die(__('Cheatin&#8217; uh?'));

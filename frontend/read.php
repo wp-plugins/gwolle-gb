@@ -13,7 +13,6 @@ function gwolle_gb_frontend_read() {
 
 	$output = '';
 
-
 	// Get permalink of the guestbookpage so we can work with it.
 	$page_link = get_permalink( get_the_ID() );
 	$pattern = '/\?/';

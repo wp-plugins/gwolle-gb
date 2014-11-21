@@ -51,7 +51,7 @@ function gwolle_gb_add_log_entry( $subject_id, $subject ) {
 			addslashes( $subject ),
 			intval( $subject_id ),
 			intval( get_current_user_id() ),
-			mktime()
+			current_time( 'timestamp' )
 		)
 	) );
 

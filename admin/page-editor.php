@@ -10,7 +10,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 
 
 function gwolle_gb_page_editor() {
-	global $wpdb;
+	global $wpdb; // FIXME
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
 		die(__('Cheatin&#8217; uh?'));
@@ -109,27 +109,27 @@ function gwolle_gb_page_editor() {
 				}
 
 				/* Check if the content changed, and update accordingly */
-				if ( isset($_POST['content']) && $_POST['content'] != '' ) {
-					if ( $_POST['content'] != $entry->get_content() ) {
-						$entry->set_content( $_POST['content'] );
+				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
+					if ( $_POST['gwolle_gb_content'] != $entry->get_content() ) {
+						$entry->set_content( $_POST['gwolle_gb_content'] );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
 				}
 
 				/* Check if the website changed, and update accordingly */
-				if ( isset($_POST['author_website']) ) {
-					if ( $_POST['author_website'] != $entry->get_author_website() ) {
-						$entry->set_author_website( $_POST['author_website'] );
+				if ( isset($_POST['gwolle_gb_author_website']) ) {
+					if ( $_POST['gwolle_gb_author_website'] != $entry->get_author_website() ) {
+						$entry->set_author_website( $_POST['gwolle_gb_author_website'] );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
 				}
 
 				/* Check if the author_origin changed, and update accordingly */
-				if ( isset($_POST['author_origin']) ) {
-					if ( $_POST['author_origin'] != $entry->get_author_origin() ) {
-						$entry->set_author_origin( $_POST['author_origin'] );
+				if ( isset($_POST['gwolle_gb_author_origin']) ) {
+					if ( $_POST['gwolle_gb_author_origin'] != $entry->get_author_origin() ) {
+						$entry->set_author_origin( $_POST['gwolle_gb_author_origin'] );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
@@ -191,18 +191,18 @@ function gwolle_gb_page_editor() {
 				}
 
 				/* Check if the website changed, and update accordingly */
-				if ( isset($_POST['author_website']) ) {
-					if ( $_POST['author_website'] != '' ) {
-						$data['author_website'] = $_POST['author_website'];
+				if ( isset($_POST['gwolle_gb_author_website']) ) {
+					if ( $_POST['gwolle_gb_author_website'] != '' ) {
+						$data['author_website'] = $_POST['gwolle_gb_author_website'];
 					} else {
 						$data['author_website'] = home_url();
 					}
 				}
 
 				/* Check if the author_origin changed, and update accordingly */
-				if ( isset($_POST['author_origin']) ) {
-					if ( $_POST['author_origin'] != '' ) {
-						$data['author_origin'] = $_POST['author_origin'];
+				if ( isset($_POST['gwolle_gb_author_origin']) ) {
+					if ( $_POST['gwolle_gb_author_origin'] != '' ) {
+						$data['author_origin'] = $_POST['gwolle_gb_author_origin'];
 					}
 				}
 
@@ -461,7 +461,7 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><br /></div>
 									<h3 class='hndle'><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<textarea rows="10" cols="56" name="content" tabindex="1"><?php echo gwolle_gb_output_to_input_field( $entry->get_content() ); ?></textarea>
+										<textarea rows="10" cols="56" name="gwolle_gb_content" tabindex="1"><?php echo gwolle_gb_output_to_input_field( $entry->get_content() ); ?></textarea>
 										<?php
 										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
 											echo '<p>' . str_replace('%1', 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php', __('Line breaks will not be visible to the visitors due to your <a href="%1">settings</a>.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
@@ -472,7 +472,7 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><br /></div>
 									<h3 class='hndle'><span><?php _e('Homepage', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<input type="text" name="author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_output_to_input_field( $entry->get_author_website() ); ?>" id="author_website" />
+										<input type="text" name="gwolle_gb_author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_output_to_input_field( $entry->get_author_website() ); ?>" id="author_website" />
 										<p><?php _e("Example: <code>http://www.example.com/</code>", GWOLLE_GB_TEXTDOMAIN); ?></p>
 									</div>
 								</div>
@@ -480,7 +480,7 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><br /></div>
 									<h3 class='hndle'><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<input type="text" name="author_origin" size="58" tabindex="3" value="<?php echo gwolle_gb_output_to_input_field( $entry->get_author_origin() ); ?>" id="author_origin" />
+										<input type="text" name="gwolle_gb_author_origin" size="58" tabindex="3" value="<?php echo gwolle_gb_output_to_input_field( $entry->get_author_origin() ); ?>" id="author_origin" />
 									</div>
 								</div>
 							</div><!-- 'normal-sortables' -->

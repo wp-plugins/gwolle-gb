@@ -10,7 +10,7 @@
 if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 
 function gwolle_gb_overview(){
-	global $userLevelNames;
+	global $userLevelNames; // FIXME
 
 	// Calculate the number of entries
 	$count = Array();

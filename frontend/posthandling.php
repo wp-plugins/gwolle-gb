@@ -41,8 +41,8 @@ function gwolle_gb_frontend_posthandling() {
 		 * Collect data from the Form
 		 */
 		$gwolle_gb_data = array();
-		if (isset($_POST['author_name'])) {
-			$gwolle_gb_data['author_name'] = trim($_POST['author_name']);
+		if (isset($_POST['gwolle_gb_author_name'])) {
+			$gwolle_gb_data['author_name'] = trim($_POST['gwolle_gb_author_name']);
 			if ( $gwolle_gb_data['author_name'] == "" ) {
 				$gwolle_gb_errors = true;
 				$gwolle_gb_error_fields[] = 'name'; // mandatory
@@ -51,11 +51,11 @@ function gwolle_gb_frontend_posthandling() {
 			$gwolle_gb_errors = true;
 			$gwolle_gb_error_fields[] = 'name'; // mandatory
 		}
-		if (isset($_POST['author_origin'])) {
-			$gwolle_gb_data['author_origin'] = trim($_POST['author_origin']);
+		if (isset($_POST['gwolle_gb_author_origin'])) {
+			$gwolle_gb_data['author_origin'] = trim($_POST['gwolle_gb_author_origin']);
 		}
-		if (isset($_POST['author_email'])) {
-			$gwolle_gb_data['author_email'] = trim($_POST['author_email']);
+		if (isset($_POST['gwolle_gb_author_email'])) {
+			$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
 			if ( $gwolle_gb_data['author_email'] == "" ) {
 				$gwolle_gb_errors = true;
 				$gwolle_gb_error_fields[] = 'author_email'; // mandatory
@@ -64,11 +64,11 @@ function gwolle_gb_frontend_posthandling() {
 			$gwolle_gb_errors = true;
 			$gwolle_gb_error_fields[] = 'author_email'; // mandatory
 		}
-		if (isset($_POST['author_website'])) {
-			$gwolle_gb_data['author_website'] = trim($_POST['author_website']);
+		if (isset($_POST['gwolle_gb_author_website'])) {
+			$gwolle_gb_data['author_website'] = trim($_POST['gwolle_gb_author_website']);
 		}
-		if (isset($_POST['content'])) {
-			$gwolle_gb_data['content'] = trim($_POST['content']);
+		if (isset($_POST['gwolle_gb_content'])) {
+			$gwolle_gb_data['content'] = trim($_POST['gwolle_gb_content']);
 			if ( $gwolle_gb_data['content'] == "" ) {
 				$gwolle_gb_errors = true;
 				$gwolle_gb_error_fields[] = 'content'; // mandatory

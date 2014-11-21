@@ -13,14 +13,27 @@
 	text-align: left;
 }
 
-#gwolle_gb .error {
-	border: 1px solid #ff1111;
+/* Messages */
+
+#gwolle_gb #gwolle_gb_messages {
+	background-color: #fff;
+	border-left: 4px solid #7ad03a;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	padding: 1px 12px;
+	margin: 5px 0 15px;
 }
-#gwolle_gb .error_fields,
-#gwolle_gb #error_msg {
-	border: 2px solid #ff1111;
-	font-weight: bold;
-	padding: 5px;
+#gwolle_gb #gwolle_gb_messages.error {
+	border-left: 4px solid #dd3d36;
+}
+
+#gwolle_gb .error p, div.updated p {
+	margin: 0.5em 0;
+	padding: 2px;
+}
+
+#gwolle_gb input.error,
+#gwolle_gb textarea.error {
+	border: 1px solid #dd3d36;
 }
 
 #gwolle_gb .label,
