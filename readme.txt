@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam
 Requires at least: 2.8
 Tested up to: 4.1
-Stable tag: 0.9.7
+Stable tag: 1.0
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -57,11 +57,11 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
 = Installation =
 
-* 1a. Install the plugin through the admin page "Plugins".
-* 1b. Alternatively, unpack and upload the contents of the zipfile to your '/wp-content/plugins/' directory.
-* 2.  Activate the plugin through the 'Plugins' menu in WordPress.
-* 3.  Place '[gwolle_gb]' in a page. That's it.
-* 4.  You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
+1a. Install the plugin through the admin page "Plugins".
+1b. Alternatively, unpack and upload the contents of the zipfile to your '/wp-content/plugins/' directory.
+2.  Activate the plugin through the 'Plugins' menu in WordPress.
+3.  Place '[gwolle_gb]' in a page. That's it.
+4.  You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
 
 As an alternative for the shortcode, you can use the function `show_gwolle_gb();` to show the guestbook in your templates.
 It couldn't be easier.
