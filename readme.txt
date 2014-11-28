@@ -79,6 +79,7 @@ With version 1.0 there have been some changes:
 First priority is getting the plugin working with current WordPress and resolve a lot of bugs.
 
 * Bughunting (check all the FIXME's in the code).
+* Pagination is sometimes funky.
 * Bring back ReCaptcha.
 * Add possibility to empty trash and spam.
 * Make Install method more safe.
@@ -166,7 +167,7 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 0.9.9.3 =
-* 2014-11-20
+* 2014-11-28
 * Admin page entries.php is redone, Mass-Edit works.
 * Add option to check entries with Akismet.
 * Streamlined all the options with default values.
@@ -176,7 +177,7 @@ Yes, it is again actively maintained.
 * Enqueue the Javascript that we use.
 * Do not load the currently unused Javascript.
 * Use wpdb->prepare for input everywhere.
-* This thing may even be secure and quite allright.
+* This thing may even be quite allright.
 
 = 0.9.9.2 =
 * 2014-11-18

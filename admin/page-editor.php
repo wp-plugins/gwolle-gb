@@ -442,7 +442,7 @@ function gwolle_gb_page_editor() {
 													}
 												}
 											} else {
-												echo '<li>(' . __('No entries yet.', GWOLLE_GB_TEXTDOMAIN) . ')</li>';
+												echo '<li>(' . __('No log yet.', GWOLLE_GB_TEXTDOMAIN) . ')</li>';
 											}
 											?>
 											</ul>

@@ -111,15 +111,20 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/* if Moderation is off, set it to "ischecked" */
+		$user_id = get_current_user_id(); // returns 0 if no current user
+
 		if ( get_option('gwolle_gb-moderate-entries', 'true') == 'true' ) {
-			$entry->set_ischecked( false );
+			if ( gwolle_gb_is_moderator($user_id) ) {
+				$entry->set_ischecked( true );
+			} else {
+				$entry->set_ischecked( false );
+			}
 		} else {
 			$entry->set_ischecked( true );
 		}
 
 
 		/* Check for logged in user, and set the userid as adminid, just in case someone is also admin, or gets promoted some day */
-		$user_id = get_current_user_id(); // returns 0 if no current user
 		$entry->set_authoradminid( $user_id );
 
 
@@ -169,7 +174,7 @@ function gwolle_gb_frontend_posthandling() {
 		if ( $save ) {
 			// We have been saved to the Database
 			$gwolle_gb_messages .= '<p class="entry_saved">' . __('Thank you for your entry.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
-			if ( get_option('gwolle_gb-moderate-entries', 'true') === 'true' ) {
+			if ( get_option('gwolle_gb-moderate-entries', 'true') === 'true' && !gwolle_gb_is_moderator($user_id) ) {
 				$gwolle_gb_messages .= '<p>' . __('We will review it and unlock it in a short while.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
 		}

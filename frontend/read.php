@@ -173,7 +173,7 @@ function gwolle_gb_frontend_read() {
 
 			// Entry Date and Time
 			$output .= ' ' . __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ' . date_i18n( get_option('date_format'), $entry->get_date() ) . ', ' .
-				date_i18n( get_option('time_format'), $entry->get_date() ) . ': ';
+				trim(date_i18n( get_option('time_format'), $entry->get_date() )) . ': ';
 			$output .= '</div>';
 
 			// Main Content

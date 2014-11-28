@@ -193,6 +193,7 @@ function gwolle_gb_frontend_write() {
 		jQuery( "#gwolle_gb_write_button" ).click(function() {
 			document.getElementById("gwolle_gb_write_button").style.display = "none";
 			document.getElementById("gwolle_gb_new_entry").style.display = "block";
+			return false;
 		});
 		</script>';
 
