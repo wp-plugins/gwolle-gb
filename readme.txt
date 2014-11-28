@@ -84,7 +84,7 @@ First priority is getting the plugin working with current WordPress and resolve 
 * Add possibility to empty trash and spam.
 * Make Install method more safe.
 * Bring Import method back and refactor it. Add more sources.
-* Bring Uninstall back, this time in a seperate admin page?
+* Bring Uninstall back, this time in a separate admin page?
 * Bring AJAX back, this time inside actions.
 * Bring Frontend Widget and Dashboard Widget back.
 * Redo Settings page with tabs for separate parts.
@@ -94,7 +94,7 @@ First priority is getting the plugin working with current WordPress and resolve 
 
 If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
 
-= Known bugs in 0.9.7 =
+= Known bugs in 0.9.7 (the old version) =
 
 * Some WP installations with permalinks activated receive a 404-error.
 * Some WP installations don't send the notification mails (currently only known from WP MU installations).
@@ -123,9 +123,9 @@ For the licences regarding the use of reCAPTCHA or the icons you may ask the aut
 
 = Which entries are visible on the Frontend? =
 
-Starting with version 0.9.9.1, the following entries are listed on the Frontend:
+Starting with version 1.0, the following entries are listed on the Frontend:
 * Checked
-* Not Deleted / not in the Trash
+* Not in the Trash
 * Not marked as Spam
 Before that, in 0.9.7, all the 'checked' entries were visible.
 
