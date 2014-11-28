@@ -89,6 +89,7 @@ class gwolle_gb_entry {
 
 		$tablename = $wpdb->prefix . "gwolle_gb_entries";
 
+		// FIXME, donot use * but list all the columns we want, it is cheaper for the db
 		$sql = "
 				SELECT
 					*

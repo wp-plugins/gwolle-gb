@@ -97,6 +97,7 @@ function gwolle_gb_get_entries($args = array()) {
 
 	$tablename = $wpdb->prefix . "gwolle_gb_entries";
 
+	// FIXME, donot use * but list all the columns we want, it is cheaper for the db
 	$sql = "
 			SELECT
 				*

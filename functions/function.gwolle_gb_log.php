@@ -108,6 +108,7 @@ function gwolle_gb_get_log_entries( $subject_id ) {
 
 	$values[] = $subject_id;
 
+	// FIXME, donot use * but list all the columns we want, it is cheaper for the db
 	$sql = "
 			SELECT
 				*

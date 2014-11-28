@@ -180,11 +180,9 @@ function gwolle_gb_page_editor() {
 				$data['isdeleted'] = false;
 
 				/* Check if the content is filled in, and update accordingly */
-				if ( isset($_POST['content']) && $_POST['content'] != '' ) {
-					if ( $_POST['content'] != $entry->get_content() ) {
-						$data['content'] = $_POST['content'];
-						$saved = true;
-					}
+				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
+					$data['content'] = $_POST['gwolle_gb_content'];
+					$saved = true;
 				} else {
 					$gwolle_gb_messages .= '<p>' . __('Entry has no content, even though that is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					$gwolle_gb_errors = 'error';
