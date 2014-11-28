@@ -166,6 +166,11 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.0 =
+* 2014-11-28
+* Release stable and updated version 1.0 to the public.
+* Go on holiday, have a few beers, and watch the girls do the hoolahoop().
+
 = 0.9.9.3 =
 * 2014-11-28
 * Admin page entries.php is redone, Mass-Edit works.
