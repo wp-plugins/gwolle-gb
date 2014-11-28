@@ -69,6 +69,7 @@ It couldn't be easier.
 = Updating from an old version =
 
 With version 1.0 there have been some changes:
+
 * Gwolle-GB uses the Shortcode API now. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
 * The entries that are visible to visitors have changed. Make sure to check if you have everything
   visible that you want and nothing more.
