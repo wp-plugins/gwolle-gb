@@ -170,6 +170,8 @@ function gwolle_gb_page_settings() {
 							<td>
 								<?php
 								// FIXME: use labels, not spans
+								// FIXME: make this into its own menu-page so subscribing can be done with the moderate_comments capability.
+
 								// Check if function mail() exists. If not, display a hint to the user.
 								if (!function_exists('mail')) {
 									echo '<p class="setting-description">' .

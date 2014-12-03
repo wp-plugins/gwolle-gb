@@ -148,6 +148,12 @@ Your first option is to use Akismet. It works like a charm. Fighting spam has ne
 
 You can also use ReCaptcha. It helps you and your visitors to fight spam at the slight cost of usability.
 
+= What capabilities are needed? =
+
+For moderating comments you need the capability moderate_comments.
+
+For managing options you need the capability manage_options. For subscribing to notifications, this one is also needed.
+
 = How do I localize a plugin? =
 
 A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
