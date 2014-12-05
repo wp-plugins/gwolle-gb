@@ -24,7 +24,7 @@ Current features include:
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
-* Recaptcha integration for fighting spam, too.
+* reCAPTCHA integration for fighting spam, too.
 * Localisation (currently English, German, French, Spanish, Polish and Dutch). Own languages can be added very easily,
   check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release,
   so please send them to my via mail, thanks!
@@ -59,9 +59,9 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
 * Install the plugin through the admin page "Plugins".
 * Alternatively, unpack and upload the contents of the zipfile to your '/wp-content/plugins/' directory.
-*  Activate the plugin through the 'Plugins' menu in WordPress.
-*  Place '[gwolle_gb]' in a page. That's it.
-*  You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
+* Activate the plugin through the 'Plugins' menu in WordPress.
+* Place '[gwolle_gb]' in a page. That's it.
+* You may disable comments in this post or page, because it may look confusing when there's the possibility to write a guestbook entry.
 
 As an alternative for the shortcode, you can use the function `show_gwolle_gb();` to show the guestbook in your templates.
 It couldn't be easier.
@@ -81,7 +81,6 @@ First priority is getting the plugin working with current WordPress and resolve 
 
 * Bughunting (check all the FIXME's in the code).
 * Pagination is sometimes funky.
-* Bring back ReCaptcha.
 * Add possibility to empty trash and spam.
 * Make Install method more safe.
 * Bring Import method back and refactor it. Add more sources.
@@ -146,7 +145,7 @@ In a future version this might be implemented.
 
 Your first option is to use Akismet. It works like a charm. Fighting spam has never been easier.
 
-You can also use ReCaptcha. It helps you and your visitors to fight spam at the slight cost of usability.
+You can also use reCAPTCHA. It helps you and your visitors to fight spam at the slight cost of usability.
 
 = What capabilities are needed? =
 
@@ -179,6 +178,7 @@ Yes, it is again actively maintained.
 * Frontend checks again for double post.
 * Main admin page also shows trashed entries.
 * Settings page now saves Recaptcha setting.
+* reCAPTCHA is back.
 
 = 1.0 =
 * 2014-11-28

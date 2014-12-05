@@ -173,7 +173,7 @@ function gwolle_gb_overview_thanks() {
 	<ul class="settings">
 		<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>
 		<li><a href="http://philipwilson.de/" target="_blank">'.__('Icons by',GWOLLE_GB_TEXTDOMAIN).' Philip Wilson</a></li>
-		<li><a href="http://recaptcha.net/aboutus.html" target="_blank">Recaptcha</a></li>
+		<li><a href="http://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a></li>
 	</ul>';
 }
 

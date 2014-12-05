@@ -171,6 +171,7 @@ function gwolle_gb_page_settings() {
 								<?php
 								// FIXME: use labels, not spans
 								// FIXME: make this into its own menu-page so subscribing can be done with the moderate_comments capability.
+								// FIXME: also make it possible for admins to add editors to the list.
 
 								// Check if function mail() exists. If not, display a hint to the user.
 								if (!function_exists('mail')) {
@@ -231,22 +232,22 @@ function gwolle_gb_page_settings() {
 						$recaptcha_privateKey = get_option('recaptcha-private-key');
 						?>
 						<tr valign="top">
-							<th scope="row"><label for="recaptcha-settings">Recaptcha</label><br /><span class="setting-description"><a href="http://recaptcha.net/learnmore.html" title="<?php _e('Learn more about Recaptcha...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e("What's that?", GWOLLE_GB_TEXTDOMAIN); ?></a></span></th>
+							<th scope="row"><label for="recaptcha-settings">reCAPTCHA</label><br /><span class="setting-description"><a href="http://www.google.com/recaptcha/intro/index.html" title="<?php _e('Learn more about reCAPTCHA...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e("What's that?", GWOLLE_GB_TEXTDOMAIN); ?></a></span></th>
 							<td>
 								<input name="recaptcha-active" <?php
 									if (get_option( 'gwolle_gb-recaptcha-active', 'false' ) === 'true') {
 										echo 'checked="checked" ';
 									}
 									?> id="use-recaptcha" type="checkbox">
-								<?php _e('Use Recaptcha', GWOLLE_GB_TEXTDOMAIN); ?>
+								<?php _e('Use reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>
 								<br />
 								<input name="recaptcha-public-key" type="text" id="recaptcha-public-key"  value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
-								<span class="setting-description"><?php _e('<strong>Public</strong> key of your Recaptcha account', GWOLLE_GB_TEXTDOMAIN); ?></span>
+								<span class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
 								<br />
 								<input name="recaptcha-private-key" type="text" id="recaptcha-private-key"  value="<?php echo $recaptcha_privateKey; ?>" class="regular-text" />
-								<span class="setting-description"><?php _e('<strong>Private</strong> key of your Recaptcha account', GWOLLE_GB_TEXTDOMAIN); ?></span>
+								<span class="setting-description"><?php _e('<strong>Secret</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
 								<br />
-								<span class="setting-description"><?php _e('The keys can be found at your', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://admin.recaptcha.net/recaptcha/sites/" title="<?php _e('Go to my reCAPTCHA sites...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('reCAPTCHA sites overview', GWOLLE_GB_TEXTDOMAIN); ?></a>.</span>
+								<span class="setting-description"><?php _e('The keys can be found at your', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.google.com/recaptcha/admin/" title="<?php _e('Go to my reCAPTCHA sites...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('reCAPTCHA sites overview', GWOLLE_GB_TEXTDOMAIN); ?></a>.</span>
 							</td>
 						</tr>
 

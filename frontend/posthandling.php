@@ -11,7 +11,9 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No 
  * - author_name
  * - author_email
  * - content
- * and a negative Akismet result (= no spam) and a correct captcha; both only when turned on in the settings panel.
+ * - negative Akismet result (= no spam)
+ * - correct reCAPTCHA
+ * (the last two only when turned on in the settings panel)
  *
  * global vars used:
  * $gwolle_gb_errors: false if no errors found, true if errors found
@@ -76,6 +78,41 @@ function gwolle_gb_frontend_posthandling() {
 		} else {
 			$gwolle_gb_errors = true;
 			$gwolle_gb_error_fields[] = 'content'; // mandatory
+		}
+
+
+		/* reCAPTCHA */
+		if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
+
+			if (!class_exists('ReCaptcha')) {
+				require_once "recaptchalib.php";
+			}
+
+			// Register API keys at https://www.google.com/recaptcha/admin
+			//$recaptcha_publicKey = get_option('recaptcha-public-key');
+			$recaptcha_privateKey = get_option('recaptcha-private-key');
+
+			// The response from reCAPTCHA
+			$resp = null;
+			// The error code from reCAPTCHA, if any
+			$error = null;
+
+			$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
+
+			// Was there a reCAPTCHA response?
+			if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
+				$resp = $reCaptcha->verifyResponse(
+					$_SERVER["REMOTE_ADDR"],
+					$_POST["g-recaptcha-response"]
+				);
+			}
+
+			if ( $resp != null && $resp->success ) {
+				//echo "You got it!";
+			} else {
+				$gwolle_gb_errors = true;
+				$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+			}
 		}
 
 
@@ -234,7 +271,6 @@ function gwolle_gb_frontend_posthandling() {
 		/*
 		 * No Log for the Entry needed, it has a default post date in the Entry itself.
 		 */
-
 
 	}
 }

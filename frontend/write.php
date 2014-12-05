@@ -128,10 +128,14 @@ function gwolle_gb_frontend_write() {
 	if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
 		$output .= '
 			<div class="label">&nbsp;</div>
-			<div class="input">';
+			<div class="input ';
+		if (in_array('recaptcha', $gwolle_gb_error_fields)) {
+			$output .= ' error';
+		}
 		$publickey = get_option('recaptcha-public-key');
 		$output .=
-			'<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
+			' ">
+				<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
 		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
