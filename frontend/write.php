@@ -123,26 +123,20 @@ function gwolle_gb_frontend_write() {
 	$output .= '">' . $content . '</textarea></div>
 			<div class="clearBoth">&nbsp;</div>';
 
-	/* FIXME: commented out for now.
+
+	/* reCAPTCHA */
 	if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
 		$output .= '
 			<div class="label">&nbsp;</div>
 			<div class="input">';
-
-		if (!function_exists('recaptcha_get_html')) {
-			/*
-			 * If function recaptcha_get_html already exists
-			 * the reCAPTCHA library has been included by another
-			 * plugin. Don't load it now since it would result in an error.
-			 */
-			/* require_once('recaptcha/recaptchalib.php');
-		}
 		$publickey = get_option('recaptcha-public-key');
 		$output .=
-			recaptcha_get_html($publickey).'
+			'<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
-	} */
+		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
+	}
+
 
 	$output .= '
 			<div class="label">&nbsp;</div>
@@ -154,6 +148,7 @@ function gwolle_gb_frontend_write() {
 			<br />
 			' . str_replace('%1', $_SERVER['REMOTE_ADDR'], __('For security reasons we save the ip address <span id="ip">%1</span>.', GWOLLE_GB_TEXTDOMAIN)) . '
 			<br />';
+
 
 	if (get_option('gwolle_gb-moderate-entries', 'true') === 'true') {
 		$output .= __('Your entry will be visible in the guestbook after we reviewed it.', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;';
