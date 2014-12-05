@@ -1,42 +1,44 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Gwolle-GB\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-19 00:47+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Daniel Speichert <Daniel@Speichert.pro>\n"
-"Language-Team: \n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-Basepath: /Users/wolfgangtimme/Sites/heinegym/wordpress/wp-content/"
-"plugins/gwolle-gb/\n"
-"X-Poedit-SearchPath-0: .\n"
 
 #: actions.php:51 actions.php:52 admin/dashboard-widget.php:31
 msgid "Guestbook"
-msgstr "Księga Gości"
+msgstr ""
 
 #: actions.php:62 actions.php:63 admin/page-settings.php:310
 #: admin/page-settings.php:331
 msgid "Entries"
-msgstr "Wpisy"
+msgstr ""
 
 #. /editor.php
 #: actions.php:70
 msgid "Entry editor"
-msgstr "Edytor wpisów"
+msgstr ""
 
 #: actions.php:70
 msgid "New entry"
-msgstr "Nowy wpis"
+msgstr ""
 
 #. /settings.php
 #: actions.php:73 actions.php:90 admin/page-settings.php:128
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr ""
 
 #: gwolle-gb.php:111
 msgid ""
@@ -143,11 +145,11 @@ msgstr ""
 
 #: admin/page-editor.php:23
 msgid "Edit guestbook entry"
-msgstr "Edytuj wpis w księdze gości"
+msgstr ""
 
 #: admin/page-editor.php:36
 msgid "Entry could not be found."
-msgstr "Wpis nie został odnaleziony"
+msgstr ""
 
 #: admin/page-editor.php:38
 msgid "Guestbook entry (error)"
@@ -155,7 +157,7 @@ msgstr ""
 
 #: admin/page-editor.php:41
 msgid "New guestbook entry"
-msgstr "Nowy wpis w księdze gości"
+msgstr ""
 
 #: admin/page-editor.php:50 admin/page-entries.php:28 admin/page-import.php:21
 #: admin/page-settings.php:25
@@ -176,7 +178,7 @@ msgstr ""
 
 #: admin/page-editor.php:133 admin/page-settings.php:135
 msgid "Changes saved."
-msgstr "Zmiany zostały zapisane."
+msgstr ""
 
 #: admin/page-editor.php:135 admin/page-editor.php:207
 msgid "Error happened during saving."
@@ -206,7 +208,7 @@ msgstr ""
 
 #: admin/page-editor.php:247
 msgid "Options"
-msgstr "Opcje"
+msgstr ""
 
 #: admin/page-editor.php:256
 msgid "This entry is Visible."
@@ -242,19 +244,19 @@ msgstr ""
 
 #: admin/page-editor.php:312
 msgid "Save"
-msgstr "Zpaisz"
+msgstr ""
 
 #. /entries.php&gwolle_gb_function=untrash_entry&entry_id=' . $entry->get_id() . '&show=trash">' . __('Recover', GWOLLE_GB_TEXTDOMAIN) . '</a>
 #. /entries.php&gwolle_gb_function=delete_entry&entry_id=' . $entry->get_id() . '&show=trash" onClick="return confirm(\'' . __("You are about to delete this guestbook entry. This can not be undone. Are you still sure you want to continue?", GWOLLE_GB_TEXTDOMAIN) . '\');">' . __('Delete', GWOLLE_GB_TEXTDOMAIN) . '</a>';
 #. } else {
 #: admin/page-editor.php:322 admin/page-entries.php:410
 msgid "Details"
-msgstr "Szczegóły"
+msgstr ""
 
 #: admin/page-editor.php:326 admin/page-entries.php:294
 #: admin/page-entries.php:311
 msgid "Author"
-msgstr "Autor"
+msgstr ""
 
 #: admin/page-editor.php:331 admin/page-editor.php:339
 #: admin/page-editor.php:359 admin/page-editor.php:367
@@ -264,11 +266,11 @@ msgstr ""
 
 #: admin/page-editor.php:335
 msgid "E-Mail"
-msgstr "E-Mail"
+msgstr ""
 
 #: admin/page-editor.php:343 admin/page-editor.php:387
 msgid "Written"
-msgstr "Napisane"
+msgstr ""
 
 #: admin/page-editor.php:348
 msgid "Not yet"
@@ -276,7 +278,7 @@ msgstr ""
 
 #: admin/page-editor.php:352
 msgid "Author's IP-address"
-msgstr "Adres IP autora"
+msgstr ""
 
 #: admin/page-editor.php:355
 msgid "Whois search for this IP"
@@ -284,7 +286,7 @@ msgstr ""
 
 #: admin/page-editor.php:363
 msgid "Host"
-msgstr "Host"
+msgstr ""
 
 #: admin/page-editor.php:377
 msgid "Entry log"
@@ -292,11 +294,11 @@ msgstr ""
 
 #: admin/page-editor.php:396
 msgid "No entries yet."
-msgstr "Brak wpisów."
+msgstr ""
 
 #: admin/page-editor.php:413 frontend/write.php:117
 msgid "Guestbook entry"
-msgstr "Wpis do księgi gości"
+msgstr ""
 
 #: admin/page-editor.php:418
 msgid ""
@@ -306,7 +308,7 @@ msgstr ""
 
 #: admin/page-editor.php:424 frontend/write.php:113 frontend/write.php:114
 msgid "Homepage"
-msgstr "Strona główna"
+msgstr ""
 
 #: admin/page-editor.php:427
 msgid "Example: <code>http://www.example.com/</code>"
@@ -314,7 +316,7 @@ msgstr ""
 
 #: admin/page-editor.php:432
 msgid "Origin"
-msgstr "Pochodzenie"
+msgstr ""
 
 #: admin/page-entries.php:68
 msgid "Please activate Akismet if you want to battle spam."
@@ -326,15 +328,15 @@ msgstr ""
 
 #: admin/page-entries.php:164
 msgid "All"
-msgstr "Wszystko"
+msgstr ""
 
 #: admin/page-entries.php:169
 msgid "Unlocked"
-msgstr "Odblokowany"
+msgstr ""
 
 #: admin/page-entries.php:173
 msgid "New"
-msgstr "Nowy"
+msgstr ""
 
 #: admin/page-entries.php:177
 #: functions/gwolle_gb_get_dashboard_widget_row.func.php:50
@@ -388,35 +390,35 @@ msgstr ""
 
 #: admin/page-entries.php:219
 msgid "Showing:"
-msgstr "Przeglądanie:"
+msgstr ""
 
 #: admin/page-entries.php:220
 msgid "of"
-msgstr "z"
+msgstr ""
 
 #: admin/page-entries.php:287 admin/page-entries.php:303
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #: admin/page-entries.php:293 admin/page-entries.php:309
 msgid "Date"
-msgstr "Data"
+msgstr ""
 
 #: admin/page-entries.php:295 admin/page-entries.php:310
 msgid "Entry (excerpt)"
-msgstr "Wpis (fragment)"
+msgstr ""
 
 #: admin/page-entries.php:296 admin/page-entries.php:312
 msgid "Action"
-msgstr "Akcja"
+msgstr ""
 
 #: admin/page-entries.php:325
 msgid "No entries found."
-msgstr "Nie znaleziono wpisów."
+msgstr ""
 
 #: admin/page-gwolle-gb.php:30
 msgid "Overview"
-msgstr "Przegląd"
+msgstr ""
 
 #: admin/page-gwolle-gb.php:44
 msgid "Entry total"
@@ -452,7 +454,7 @@ msgstr ""
 
 #: admin/page-gwolle-gb.php:111
 msgid "Write admin entry"
-msgstr "Napisz wpis admina"
+msgstr ""
 
 #: admin/page-gwolle-gb.php:119
 msgid "This is how you can get your guestbook displayed on your website:"
@@ -538,7 +540,7 @@ msgstr ""
 
 #: admin/page-gwolle-gb.php:200
 msgid "Welcome to the Guestbook!"
-msgstr "Witaj w księdze gości !"
+msgstr ""
 
 #: admin/page-gwolle-gb.php:201
 msgid "This plugin uses the following scripts/programs/images:"
@@ -546,7 +548,7 @@ msgstr ""
 
 #: admin/page-gwolle-gb.php:205 admin/page-gwolle-gb.php:206
 msgid "Help"
-msgstr "Pomoc"
+msgstr ""
 
 #: admin/page-gwolle-gb.php:211
 msgid "Gwolle Guestbook"
@@ -704,7 +706,7 @@ msgstr ""
 
 #: admin/page-settings.php:168
 msgid "Notification"
-msgstr "Powiadomienie"
+msgstr ""
 
 #: admin/page-settings.php:175
 msgid ""
@@ -716,11 +718,11 @@ msgstr ""
 
 #: admin/page-settings.php:193
 msgid "Send me an e-mail when a new entry has been posted."
-msgstr "Wyślij mi email kiedy zostanie dodany wpis."
+msgstr ""
 
 #: admin/page-settings.php:196
 msgid "The following users have subscribed to this service:"
-msgstr "Użytkownicy, którzy zapisali się do usługi:"
+msgstr ""
 
 #: admin/page-settings.php:200
 msgid "No subscriber yet"
@@ -728,39 +730,39 @@ msgstr ""
 
 #: admin/page-settings.php:211 functions/function.gwolle_gb_log.php:152
 msgid "You"
-msgstr "Ty"
+msgstr ""
 
 #: admin/page-settings.php:231
 msgid "Learn more about Recaptcha..."
-msgstr "Dowiedz się więcej o Recaptcha..."
+msgstr ""
 
 #: admin/page-settings.php:231 admin/page-settings.php:256
 msgid "What's that?"
-msgstr "Co to ?"
+msgstr ""
 
 #: admin/page-settings.php:238
 msgid "Use Recaptcha"
-msgstr "Użyj Recaptcha"
+msgstr ""
 
 #: admin/page-settings.php:241
 msgid "<strong>Public</strong> key of your Recaptcha account"
-msgstr "<strong>Publiczny</strong> klucz Twojego konta Recaptcha"
+msgstr ""
 
 #: admin/page-settings.php:244
 msgid "<strong>Private</strong> key of your Recaptcha account"
-msgstr "<strong>Prywatny</strong> klucz Twojego konta Recaptcha"
+msgstr ""
 
 #: admin/page-settings.php:246
 msgid "The keys can be found at your"
-msgstr "Klucze znajdziesz na swoim"
+msgstr ""
 
 #: admin/page-settings.php:246
 msgid "Go to my reCAPTCHA sites..."
-msgstr "Idź do moich stron reCAPTCHA..."
+msgstr ""
 
 #: admin/page-settings.php:246
 msgid "reCAPTCHA sites overview"
-msgstr "przegląd stron reCAPTCHA"
+msgstr ""
 
 #: admin/page-settings.php:256
 msgid "Learn more about Akismet..."
@@ -880,27 +882,25 @@ msgstr ""
 
 #: admin/page-settings.php:425
 msgid "Save settings"
-msgstr "Zapisz ustawienia"
+msgstr ""
 
 #: admin/page-settings.php:436
 msgid "Uninstall"
-msgstr "Odinstaluj"
+msgstr ""
 
 #: admin/page-settings.php:438
 msgid ""
 "Uninstalling means that all database entries are removed (settings and "
 "entries)."
 msgstr ""
-"Odinstalowanie oznacza usunięcie wszystkich informacji z bazy danych "
-"(ustawienia i wpisy)."
 
 #: admin/page-settings.php:440
 msgid "This can <strong>not</strong> be undone."
-msgstr "Tej opercji <strong>nie</strong> można cofnąć."
+msgstr ""
 
 #: admin/page-settings.php:444
 msgid "I'm aware of that, continue!"
-msgstr "Jestem tego świadomy, kontynuuj !"
+msgstr ""
 
 #: admin/page-settings.php:453
 msgid ""
@@ -1008,7 +1008,7 @@ msgstr ""
 
 #: functions/function.gwolle_gb_log.php:78
 msgid "Entry has been locked."
-msgstr "Wpis został zablokowany."
+msgstr ""
 
 #: functions/function.gwolle_gb_log.php:79
 msgid "Entry has been checked."
@@ -1089,101 +1089,3 @@ msgstr ""
 #: functions/gwolle_gb_get_dashboard_widget_row.func.php:54
 msgid "Move entry to trash."
 msgstr ""
-
-#~ msgid "An error occurred while saving your changes."
-#~ msgstr "Wystąpił błąd podczas zapisywania zmian."
-
-#~ msgid "This entry is checked."
-#~ msgstr "Ten wpis został sprawdzony."
-
-#~ msgid ""
-#~ "You\\'re about to delete this guestbook entry. This can\\'t be undone. "
-#~ "Are you still sure you want to continue?"
-#~ msgstr ""
-#~ "Masz zamiar usunąć ten wpis z księgi gości. Nie można tego cofnąć. Czy "
-#~ "chcesz kontynuować ?"
-
-#~ msgid "Delete"
-#~ msgstr "Usuń"
-
-#~ msgid "Save changes"
-#~ msgstr "Zapisz zmiany"
-
-#~ msgid "unknown"
-#~ msgstr "nieznany"
-
-#~ msgid "not yet"
-#~ msgstr "jeszcze nie"
-
-#~ msgid "Log"
-#~ msgstr "Log"
-
-#~ msgid "Entry has been unlocked."
-#~ msgstr "Wpis został odblokowany."
-
-#~ msgid ""
-#~ "Example: <code>http://www.google.com/</code> &#8212; don't forget the "
-#~ "<code>http://</code>!"
-#~ msgstr ""
-#~ "Przykład: <code>http://www.google.com/</code> &#8212; nie zapomnij o "
-#~ "<code>http://</code>!"
-
-#~ msgid "Entry successfully deleted."
-#~ msgstr "Wpis został usunięty."
-
-#~ msgid "An error occured while trying to delete the entry."
-#~ msgstr "Wystąpił błąd przy usuwaniu wpisu."
-
-#~ msgid "Changes successfully saved."
-#~ msgstr "Zmiany zostały zapisane."
-
-#~ msgid "no subscriber yet"
-#~ msgstr "brak użytkowników"
-
-#~ msgid "Error"
-#~ msgstr "Błąd"
-
-#~ msgid "You don't have the privileges to perform this action."
-#~ msgstr "Nie masz uprawniej do wykonania tej czynności."
-
-#~ msgid "Latest updates"
-#~ msgstr "Ostatnie aktualizacje"
-
-#~ msgid "This is how the guestbook will be displayed on your page"
-#~ msgstr "To jest sposób wyświetlenia księgi gości na Twojej stronie"
-
-#~ msgid "Create a new article."
-#~ msgstr "Utwórz nowy artykuł."
-
-#~ msgid ""
-#~ "Choose a heading (doesn't matter) and set &quot;[gwolle-gb]&quot; "
-#~ "(without the quotes) as the content."
-#~ msgstr ""
-#~ "Wybierz tytuł (nie ma znaczenia) i ustaw &quot;[gwolle-gb]&quot; (bez "
-#~ "cudzysłowów) jako treść."
-
-#~ msgid "entry total"
-#~ msgstr "wpis łącznie"
-
-#~ msgid "entries total"
-#~ msgstr "wpisów łącznie"
-
-#~ msgid "unlocked entry"
-#~ msgstr "odblokowany wpis"
-
-#~ msgid "unlocked entries"
-#~ msgstr "odblokowanych wpisów"
-
-#~ msgid "new entry"
-#~ msgstr "nowy wpis"
-
-#~ msgid "new entries"
-#~ msgstr "nowe wpisy"
-
-#~ msgid "Here you can manage the entries."
-#~ msgstr "Tutaj możesz zarządzać wpisami."
-
-#~ msgid "Only administrators have access to the guestbook backend."
-#~ msgstr ""
-#~ "Wyłącznie administratorzy mają dostęp do panelu administracyjnego księgi "
-#~ "gości."
