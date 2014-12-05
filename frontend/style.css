@@ -3,35 +3,26 @@
  * CSS for the Frontend of Gwolle-GB Guestbook plugin
  */
 
+
 #gwolle_gb {
 	clear: left;
 }
 
+
 /* Write button */
+
 #gwolle_gb_write_button {
 	margin: 20px 0 0;
-}
-#gwolle_gb_write_button a {
-	padding: 8px 12px;
-	color: #333;
-	background-color: #e6e6e6;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
-	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
-	border: 1px solid #d2d2d2;
-	border-radius: 3px;
-	box-shadow: 0 1px 2px rgba(64, 64, 64, 0.1);
 }
 
 
 /* Write section */
+
 #gwolle_gb form#gwolle_gb_new_entry {
 	margin-top: 20px;
 	text-align: left;
 }
+
 
 /* Messages */
 
@@ -77,6 +68,7 @@
 
 
 /* Page Navigation */
+
 #gwolle_gb #page-navigation {
 	width: 100%;
 	text-align: right;
@@ -91,6 +83,7 @@
 
 
 /* Read section */
+
 #gwolle_gb .admin-entry {
 	background-color: #FFF0F5;
 	padding-left: 5px;

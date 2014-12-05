@@ -173,6 +173,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.0.1 =
+* 2014-12-05
+* Frontend uses now input-button for the write link
+
 = 1.0 =
 * 2014-11-28
 * Release stable and updated version 1.0 to the public.

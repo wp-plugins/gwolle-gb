@@ -73,12 +73,12 @@ function gwolle_gb_frontend_write() {
 
 
 	/*
-	 * Link 'write a new entry.'
+	 * Button 'write a new entry.'
 	 */
 
 	$output .= '
 		<div id="gwolle_gb_write_button">
-			<a target="_self" href="#">&raquo; ' . __('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '</a>
+			<input type="button" value="&raquo; ' . __('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '" />
 		</div>';
 
 
