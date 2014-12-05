@@ -159,7 +159,7 @@ function gwolle_gb_page_settings() {
 								<span class="setting-description">
 									<?php _e("New entries have to be unlocked by a moderator before they are visible to the public.", GWOLLE_GB_TEXTDOMAIN); ?>
 									<br />
-									<?php _e("It is highly recommended that you turn this on, because you are responsible for the content on your website.", GWOLLE_GB_TEXTDOMAIN); ?>
+									<?php _e("It is recommended that you turn this on, because you are responsible for the content on your website.", GWOLLE_GB_TEXTDOMAIN); ?>
 								</span>
 							</td>
 						</tr>
@@ -234,7 +234,7 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="recaptcha-settings">Recaptcha</label><br /><span class="setting-description"><a href="http://recaptcha.net/learnmore.html" title="<?php _e('Learn more about Recaptcha...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e("What's that?", GWOLLE_GB_TEXTDOMAIN); ?></a></span></th>
 							<td>
 								<input name="recaptcha-active" <?php
-									if (get_option( 'gwolle_gb-recaptcha-active' ) === TRUE) {
+									if (get_option( 'gwolle_gb-recaptcha-active' ) === 'true') {
 										echo 'checked="checked" ';
 									}
 									?> id="use-recaptcha" type="checkbox">

@@ -178,6 +178,7 @@ Yes, it is again actively maintained.
 * Frontend uses now input-button for the write link.
 * Frontend checks again for double post.
 * Main admin page also shows trashed entries.
+* Settings page now saves Recaptcha setting.
 
 = 1.0 =
 * 2014-11-28
