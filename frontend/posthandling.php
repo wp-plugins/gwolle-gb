@@ -136,32 +136,22 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/*
-		 * Check for double post using all table fields but the date.
+		 * Check for double post using email field and content.
 		 */
 
-		// FIXME: use the get_entries(email) function, then loop through them checking for similar content (no SQL here)
-		/*
-		$sql = "
-			SELECT
-				entry_id
-			FROM
-				" . $wpdb->gwolle_gb_entries . " e
-			WHERE
-				e.entry_author_name   = '" . addslashes($entry['name']) . "'
-				AND
-				e.entry_author_email  = '" . addslashes($entry['email']) . "'
-				AND
-				e.entry_author_origin = '" . addslashes($entry['origin']) . "'
-				AND
-				e.entry_author_ip     = '" . addslashes($entry['ip']) . "'
-				AND
-				e.entry_content       = '" . addslashes($entry['content']) . "'
-			LIMIT 1";
-		$result = $wpdb->query($sql);
-		if ($result > 0) {
-			// This is a double post.
-			$gwolle_gb_messages .= '<p class="double_post"><strong>' . __('Double post: An entry with the data you entered has already been saved.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
-		} */
+		$entries = gwolle_gb_get_entries(array(
+				'email' => $entry->get_author_email()
+			));
+		if ( is_array( $entries ) && count( $entries ) > 0 ) {
+			foreach ( $entries as $entry_email ) {
+				if ( $entry_email->get_content() == $entry->get_content() ) {
+					// Match is double entry
+					$gwolle_gb_errors = true;
+					$gwolle_gb_messages .= '<p class="double_post"><strong>' . __('Double post: An entry with the data you entered has already been saved.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+					return false;
+				}
+			}
+		}
 
 
 		/*

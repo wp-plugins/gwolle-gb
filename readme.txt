@@ -175,7 +175,8 @@ Yes, it is again actively maintained.
 
 = 1.0.1 =
 * 2014-12-05
-* Frontend uses now input-button for the write link
+* Frontend uses now input-button for the write link.
+* Frontend checks again for double post.
 
 = 1.0 =
 * 2014-11-28
