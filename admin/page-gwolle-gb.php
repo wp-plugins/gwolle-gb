@@ -25,6 +25,7 @@ function gwolle_gb_overview(){
 			'spam'    => 'nospam'
 		));
 	$count['spam']    = gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
+	$count['trash']   = gwolle_gb_get_entry_count(array( 'deleted' => 'deleted' ));
 	$count['all']     = gwolle_gb_get_entry_count(array( 'all' => 'all' ));
 	?>
 
@@ -55,15 +56,16 @@ function gwolle_gb_overview(){
 				</tr>
 
 				<tr>
-					<td class="first b"><a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=checked">
+					<td class="first b">
+						<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=checked">
 						<?php echo $count['checked']; ?>
 					</a></td>
 					<td class="t" style="color:#008000;">
 						<?php
 							if ($count['checked'] == 1) {
-								_e('Checked entry',GWOLLE_GB_TEXTDOMAIN);
+								_e('Unlocked entry',GWOLLE_GB_TEXTDOMAIN);
 							} else {
-								_e('Checked entries',GWOLLE_GB_TEXTDOMAIN);;
+								_e('Unlocked entries',GWOLLE_GB_TEXTDOMAIN);;
 							}
 						?>
 					</td>
@@ -72,15 +74,16 @@ function gwolle_gb_overview(){
 				</tr>
 
 				<tr>
-					<td class="first b"><a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=unchecked">
+					<td class="first b">
+						<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=unchecked">
 						<?php echo $count['unchecked']; ?>
 					</a></td>
 					<td class="t" style="color:#ff6f00;">
 						<?php
 							if ($count['unchecked'] == 1) {
-								_e('Unchecked entry',GWOLLE_GB_TEXTDOMAIN);
+								_e('New entry',GWOLLE_GB_TEXTDOMAIN);
 							} else {
-								_e('Unchecked entries',GWOLLE_GB_TEXTDOMAIN);
+								_e('New entries',GWOLLE_GB_TEXTDOMAIN);
 							}
 						?>
 					</td>
@@ -89,7 +92,8 @@ function gwolle_gb_overview(){
 				</tr>
 
 				<tr>
-					<td class="first b"><a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=spam">
+					<td class="first b">
+						<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=spam">
 						<?php echo $count['spam']; ?>
 					</a></td>
 					<td class="t" style="color:#FF0000;">
@@ -98,6 +102,24 @@ function gwolle_gb_overview(){
 								_e('Spam entry',GWOLLE_GB_TEXTDOMAIN);
 							} else {
 								_e('Spam entries',GWOLLE_GB_TEXTDOMAIN);
+							}
+						?>
+					</td>
+					<td class="b"></td>
+					<td class="last"></td>
+				</tr>
+
+				<tr>
+					<td class="first b">
+						<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=trash">
+						<?php echo $count['trash']; ?>
+					</a></td>
+					<td class="t" style="color:#FF0000;">
+						<?php
+							if ($count['trash'] == 1) {
+								_e('Trashed entry',GWOLLE_GB_TEXTDOMAIN);
+							} else {
+								_e('Trashed entries',GWOLLE_GB_TEXTDOMAIN);
 							}
 						?>
 					</td>

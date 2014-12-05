@@ -177,6 +177,7 @@ Yes, it is again actively maintained.
 * 2014-12-05
 * Frontend uses now input-button for the write link.
 * Frontend checks again for double post.
+* Main admin page also shows trashed entries.
 
 = 1.0 =
 * 2014-11-28
