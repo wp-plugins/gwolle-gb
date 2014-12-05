@@ -124,9 +124,11 @@ For the licences regarding the use of reCAPTCHA or the icons you may ask the aut
 = Which entries are visible on the Frontend? =
 
 Starting with version 1.0, the following entries are listed on the Frontend:
+
 * Checked
 * Not in the Trash
 * Not marked as Spam
+
 Before that, in 0.9.7, all the 'checked' entries were visible.
 
 = I have a lot of unchecked entries. What do I do? =
