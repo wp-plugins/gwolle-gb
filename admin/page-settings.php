@@ -234,7 +234,7 @@ function gwolle_gb_page_settings() {
 							<th scope="row"><label for="recaptcha-settings">Recaptcha</label><br /><span class="setting-description"><a href="http://recaptcha.net/learnmore.html" title="<?php _e('Learn more about Recaptcha...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e("What's that?", GWOLLE_GB_TEXTDOMAIN); ?></a></span></th>
 							<td>
 								<input name="recaptcha-active" <?php
-									if (get_option( 'gwolle_gb-recaptcha-active' ) === 'true') {
+									if (get_option( 'gwolle_gb-recaptcha-active', 'false' ) === 'true') {
 										echo 'checked="checked" ';
 									}
 									?> id="use-recaptcha" type="checkbox">

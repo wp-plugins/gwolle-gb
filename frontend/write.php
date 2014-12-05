@@ -124,7 +124,7 @@ function gwolle_gb_frontend_write() {
 			<div class="clearBoth">&nbsp;</div>';
 
 	/* FIXME: commented out for now.
-	if (get_option('gwolle_gb-recaptcha-active') === TRUE) {
+	if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
 		$output .= '
 			<div class="label">&nbsp;</div>
 			<div class="input">';
