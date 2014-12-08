@@ -91,51 +91,64 @@ function gwolle_gb_frontend_write() {
 		<form id="gwolle_gb_new_entry" action="" method="POST">
 			<h3>' . __('Write a new entry for the Guestbook', GWOLLE_GB_TEXTDOMAIN) . '</h3>
 			<input type="hidden" name="gwolle_gb_function" value="add_entry" />
-			<div class="label">' . __('Name', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
-			<div class="input"><input class="';
+			<div class="gwolle_gb_author_name">
+				<div class="label"><label for="gwolle_gb_author_name">' . __('Name', GWOLLE_GB_TEXTDOMAIN) . ': *</label></div>
+				<div class="input"><input class="';
 	if (in_array('name', $gwolle_gb_error_fields)) {
 		$output .= ' error';
 	}
-	$output .= '" value="' . $name . '" type="text" name="gwolle_gb_author_name" placeholder="' . __('Name', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
-		<div class="clearBoth">&nbsp;</div>
+	$output .= '" value="' . $name . '" type="text" name="gwolle_gb_author_name" id="gwolle_gb_author_name" placeholder="' . __('Name', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+			</div>
+			<div class="clearBoth">&nbsp;</div>
 
-		<div class="label">' . __('City', GWOLLE_GB_TEXTDOMAIN) . ':</div>
-		<div class="input"><input value="' . $origin . '" type="text" name="gwolle_gb_author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
-		<div class="clearBoth">&nbsp;</div>
+			<div class="gwolle_gb_author_origin">
+				<div class="label"><label for="gwolle_gb_author_origin">' . __('City', GWOLLE_GB_TEXTDOMAIN) . ':</label></div>
+				<div class="input"><input value="' . $origin . '" type="text" name="gwolle_gb_author_origin" id="gwolle_gb_author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+			</div>
+			<div class="clearBoth">&nbsp;</div>
 
-		<div class="label">' . __('Email', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
-		<div class="input"><input class="';
+
+			<div class="gwolle_gb_author_email">
+				<div class="label"><label for="gwolle_gb_author_email">' . __('Email', GWOLLE_GB_TEXTDOMAIN) . ': *</label></div>
+				<div class="input"><input class="';
 	if (in_array('author_email', $gwolle_gb_error_fields)) {
 		$output .= ' error';
 	}
-	$output .= '" value="' . $email . '" type="text" name="gwolle_gb_author_email" placeholder="' . __('Email', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
-		<div class="clearBoth">&nbsp;</div>
+	$output .= '" value="' . $email . '" type="text" name="gwolle_gb_author_email" id="gwolle_gb_author_email" placeholder="' . __('Email', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+			</div>
+			<div class="clearBoth">&nbsp;</div>
 
-		<div class="label">' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . ':</div>
-		<div class="input"><input value="' . $website . '" type="text" name="gwolle_gb_author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
-		<div class="clearBoth">&nbsp;</div>
+			<div class="gwolle_gb_author_website">
+				<div class="label"><label for="gwolle_gb_author_website">' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . ':</label></div>
+				<div class="input"><input value="' . $website . '" type="text" name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+			</div>
+			<div class="clearBoth">&nbsp;</div>
 
-		<div class="label">' . __('Guestbook entry', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
-		<div class="input"><textarea name="gwolle_gb_content" class="';
+			<div class="gwolle_gb_content">
+				<div class="label"><label for="gwolle_gb_content">' . __('Guestbook entry', GWOLLE_GB_TEXTDOMAIN) . ': *</label></div>
+				<div class="input"><textarea name="gwolle_gb_content" id="gwolle_gb_content" class="';
 	if (in_array('content', $gwolle_gb_error_fields)) {
 		$output .= ' error';
 	}
 	$output .= '">' . $content . '</textarea></div>
+			</div>
 			<div class="clearBoth">&nbsp;</div>';
 
 
 	/* reCAPTCHA */
 	if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
 		$output .= '
-			<div class="label">&nbsp;</div>
-			<div class="input ';
+			<div class="gwolle_gb_recaptcha">
+				<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
+				<div class="input ';
 		if (in_array('recaptcha', $gwolle_gb_error_fields)) {
 			$output .= ' error';
 		}
 		$publickey = get_option('recaptcha-public-key');
 		$output .=
-			' ">
-				<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
+				' ">
+					<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
+				</div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
 		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
@@ -143,23 +156,25 @@ function gwolle_gb_frontend_write() {
 
 
 	$output .= '
-			<div class="label">&nbsp;</div>
-			<div class="input"><input type="submit" name="gwolle_gb_submit" value="' . __('Submit', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+			<div class="gwolle_gb_submit">
+				<div class="label">&nbsp;</div>
+				<div class="input"><input type="submit" name="gwolle_gb_submit" value="' . __('Submit', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+			</div>
 			<div class="clearBoth">&nbsp;</div>
 
-			<div class="notice">
-			' . __('Fields marked with * are obligatory.', GWOLLE_GB_TEXTDOMAIN) . '
-			<br />
-			' . str_replace('%1', $_SERVER['REMOTE_ADDR'], __('For security reasons we save the ip address <span id="ip">%1</span>.', GWOLLE_GB_TEXTDOMAIN)) . '
-			<br />';
+			<div class="gwolle_gb_notice">
+				' . __('Fields marked with * are obligatory.', GWOLLE_GB_TEXTDOMAIN) . '
+				<br />
+				' . str_replace('%1', $_SERVER['REMOTE_ADDR'], __('For security reasons we save the ip address <span id="ip">%1</span>.', GWOLLE_GB_TEXTDOMAIN)) . '
+				<br />';
 
 
 	if (get_option('gwolle_gb-moderate-entries', 'true') === 'true') {
 		$output .= __('Your entry will be visible in the guestbook after we reviewed it.', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;';
 	}
 	$output .= __('We reserve our right to edit, delete, or not publish entries.', GWOLLE_GB_TEXTDOMAIN) . '
-				</div>
-			</form>';
+			</div>
+		</form>';
 
 
 	/*
