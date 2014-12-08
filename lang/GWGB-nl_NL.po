@@ -51,27 +51,27 @@ msgstr "Titel:"
 
 #: widget.php:97
 msgid "Link text:"
-msgstr ""
+msgstr "Link tekst:"
 
 #: widget.php:102
 msgid "Number of entries:"
-msgstr ""
+msgstr "Aantal berichten:"
 
 #: admin/ajax.php:84
 msgid "Entry by %1 has been moved to trash."
-msgstr ""
+msgstr "Bericht door %s is verplaatst naar de prullenbak."
 
 #: admin/ajax.php:86
 msgid "Undo"
-msgstr ""
+msgstr "Ongedaan maken"
 
 #: admin/dashboard-widget.php:21
 msgid "View all"
-msgstr ""
+msgstr "Bekijk alles"
 
 #: admin/dashboard-widget.php:24
 msgid "No guestbook entries yet."
-msgstr ""
+msgstr "Geen gastenboek berichten nog."
 
 #: admin/installSplash.php:14
 msgid "Successfully uninstalled"
@@ -126,7 +126,7 @@ msgstr ""
 #: admin/page-editor.php:16 admin/page-entries.php:17 admin/page-import.php:19
 #: admin/page-settings.php:16
 msgid "Cheatin&#8217; uh?"
-msgstr ""
+msgstr "Valsspelen, uh?"
 
 #: admin/page-editor.php:27
 msgid "Edit guestbook entry"
@@ -138,7 +138,7 @@ msgstr "Bericht kan niet gevonden worden"
 
 #: admin/page-editor.php:42
 msgid "Guestbook entry (error)"
-msgstr ""
+msgstr "Gastenboek bericht (fout)"
 
 #: admin/page-editor.php:45
 msgid "New guestbook entry"
@@ -146,15 +146,15 @@ msgstr "Nieuw gastenboek bericht"
 
 #: admin/page-editor.php:55
 msgid "Something strange happened."
-msgstr ""
+msgstr "Er gebeurde iets vreemds."
 
 #: admin/page-editor.php:83
 msgid "Submitted as Spam to the Akismet service."
-msgstr ""
+msgstr "Aangemeld als Spam bij de Akismet dienst."
 
 #: admin/page-editor.php:92
 msgid "Submitted as Ham to the Akismet service."
-msgstr ""
+msgstr "Aangemeld als Ham bij de Akismet dienst."
 
 #: admin/page-editor.php:141 admin/page-settings.php:136
 msgid "Changes saved."
@@ -162,29 +162,29 @@ msgstr "Wijzigingen opgeslagen."
 
 #: admin/page-editor.php:143 admin/page-editor.php:217
 msgid "Error happened during saving."
-msgstr ""
+msgstr "Er ging iets fout bij het opslaan."
 
 #: admin/page-editor.php:147
 msgid "Entry was not changed."
-msgstr ""
+msgstr "Bericht was niet veranderd."
 
 #: admin/page-editor.php:187
 msgid "Entry has no content, even though that is mandatory."
-msgstr ""
+msgstr "Bericht heeft geen inhoud, terwijl dat wel verplicht is."
 
 #: admin/page-editor.php:215
 msgid "Entry saved."
-msgstr ""
+msgstr "Bericht opgeslagen."
 
 #: admin/page-editor.php:221
 msgid "Entry was not saved."
-msgstr ""
+msgstr "Bericht is niet opgeslagen."
 
 #: admin/page-editor.php:256 admin/page-editor.php:368
 #: admin/page-editor.php:423 admin/page-editor.php:459
 #: admin/page-editor.php:470 admin/page-editor.php:478
 msgid "Click to open or close"
-msgstr ""
+msgstr "Klik om te openen of te sluiten"
 
 #: admin/page-editor.php:257
 msgid "Options"
@@ -192,35 +192,35 @@ msgstr "Opties"
 
 #: admin/page-editor.php:299 admin/page-editor.php:304
 msgid "This entry is Not Visible."
-msgstr ""
+msgstr "Dit bericht is Niet Zichtbaar."
 
 #: admin/page-editor.php:302
 msgid "This entry is Visible."
-msgstr ""
+msgstr "Dit bericht is Zichtbaar."
 
 #: admin/page-editor.php:316
 msgid "This entry is Not Checked."
-msgstr ""
+msgstr "Dit bericht is Niet Vrijgegeven."
 
 #: admin/page-editor.php:318
 msgid "This entry is Checked"
-msgstr ""
+msgstr "Dit bericht is Vrijgegeven."
 
 #: admin/page-editor.php:331
 msgid "This entry is Not marked as Spam."
-msgstr ""
+msgstr "Dit bericht is Niet gemarkeerd als Spam."
 
 #: admin/page-editor.php:333
 msgid "This entry is marked as Spam"
-msgstr ""
+msgstr "Dit bericht is gemarkeerd als Spam."
 
 #: admin/page-editor.php:346
 msgid "This entry is Not in Trash."
-msgstr ""
+msgstr "Dit bericht is Niet in de Prullenbak."
 
 #: admin/page-editor.php:348
 msgid "This entry is in Trash"
-msgstr ""
+msgstr "Dit bericht is in de Prullenbak."
 
 #: admin/page-editor.php:359
 msgid "Save"
@@ -262,7 +262,7 @@ msgstr "IP-adres van auteur"
 
 #: admin/page-editor.php:402
 msgid "Whois search for this IP"
-msgstr ""
+msgstr "Whois zoeken voor dit IP-adres"
 
 #: admin/page-editor.php:410
 msgid "Host"
@@ -292,7 +292,7 @@ msgstr "Homepage"
 
 #: admin/page-editor.php:474
 msgid "Example: <code>http://www.example.com/</code>"
-msgstr ""
+msgstr "Voorbeeld: <code>http://www.example.com/</code>"
 
 #: admin/page-editor.php:479
 msgid "Origin"
@@ -702,7 +702,7 @@ msgstr ""
 
 #: admin/page-import.php:199
 msgid "Number of guestbook entries"
-msgstr ""
+msgstr "Aantal gastenboekberichten"
 
 #: admin/page-import.php:225
 msgid "Click here to view the entries of this guestbook..."
@@ -710,7 +710,7 @@ msgstr ""
 
 #: admin/page-import.php:225
 msgid "Review entries"
-msgstr ""
+msgstr "Modereer berichten"
 
 #: admin/page-import.php:235
 msgid "The importer will preserve the following data per entry:"
@@ -722,7 +722,7 @@ msgstr "Naam"
 
 #: admin/page-import.php:238
 msgid "E-Mail address"
-msgstr ""
+msgstr "E-mail adres"
 
 #: admin/page-import.php:239
 msgid "URL/Website"
@@ -730,7 +730,7 @@ msgstr "URL/Website"
 
 #: admin/page-import.php:240
 msgid "Date of the entry"
-msgstr ""
+msgstr "Datum van het bericht"
 
 #: admin/page-import.php:241
 msgid "IP address"
@@ -909,47 +909,51 @@ msgstr ""
 
 #: admin/page-settings.php:304
 msgid "Entries per page on the frontend"
-msgstr ""
+msgstr "Berichten per pagina aan de voorkant"
 
 #: admin/page-settings.php:319
 msgid "Number of entries shown on the frontend."
-msgstr ""
+msgstr "Aantal berichten per pagina aan de voorkant."
 
 #: admin/page-settings.php:325
 msgid "Entries per page in the admin"
-msgstr ""
+msgstr "Berichten per pagina aan de admin"
 
 #: admin/page-settings.php:340
 msgid "Number of entries shown in the admin."
-msgstr ""
+msgstr "Aantal berichten per pagina aan de admin."
 
 #: admin/page-settings.php:346
 msgid "Appearance"
-msgstr ""
+msgstr "Weergave"
 
 #: admin/page-settings.php:353
 msgid "Show line breaks."
-msgstr ""
+msgstr "Toon regeleinden."
 
 #: admin/page-settings.php:355
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
 msgstr ""
+"Toon regeleinden zoals de auteurs die ingevoerd hebben. (Dit kan resulteren "
+"in erg lange berichten en staat standaard uit.)"
 
 #: admin/page-settings.php:363
 msgid "Display smilies as images."
-msgstr ""
+msgstr "Toon smileys als afbeeldingen."
 
 #: admin/page-settings.php:365
 msgid ""
 "Replaces smilies in entries like :) with their image %1. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smilies."
 msgstr ""
+"Vervangt smileys in berichten, zoals :) met de afbeelding %1. Gebruikt de WP "
+"vervanger, dus kijk daar wanneer je meer smileys wilt toevoegen."
 
 #: admin/page-settings.php:373
 msgid "Link authors' name to their website."
-msgstr ""
+msgstr "Laat de auteur zijn naam verwijzen naar zijn website."
 
 #: admin/page-settings.php:375
 msgid ""
@@ -1102,7 +1106,7 @@ msgstr ""
 #: frontend/write.php:160
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
-"We houden het recht om berichten te bewerken, verwijderen of niet te "
+"We houden het recht voor om berichten te bewerken, verwijderen of niet te "
 "publiceren."
 
 #: functions/function.gwolle_gb_log.php:91
@@ -1111,7 +1115,7 @@ msgstr "Bericht wordt geblokkeerd."
 
 #: functions/function.gwolle_gb_log.php:92
 msgid "Entry has been checked."
-msgstr ""
+msgstr "Bericht is vrijgegeven."
 
 #: functions/function.gwolle_gb_log.php:93
 msgid "Entry marked as spam."
@@ -1119,11 +1123,11 @@ msgstr "Bericht gemarkeerd als spam."
 
 #: functions/function.gwolle_gb_log.php:94
 msgid "Entry marked as not spam."
-msgstr ""
+msgstr "Bericht is gemarkeerd als niet spam."
 
 #: functions/function.gwolle_gb_log.php:95
 msgid "Entry has been edited."
-msgstr ""
+msgstr "Bericht is bewerkt."
 
 #: functions/function.gwolle_gb_log.php:96
 msgid "Imported from DMSGuestbook"
@@ -1131,15 +1135,15 @@ msgstr ""
 
 #: functions/function.gwolle_gb_log.php:97
 msgid "Entry has been trashed."
-msgstr ""
+msgstr "Bericht is verplaatst naar de prullenbak."
 
 #: functions/function.gwolle_gb_log.php:98
 msgid "Entry has been untrashed."
-msgstr ""
+msgstr "Bericht is hersteld uit de prullenbak."
 
 #: functions/function.gwolle_gb_misc.php:48
 msgid "No content to display. This entry is empty."
-msgstr ""
+msgstr "Geen inhoud om weer te geven. Het bericht is leeg."
 
 #: functions/gwolle_gb_get_dashboard_widget_row.func.php:24
 msgid "Unchecked"
