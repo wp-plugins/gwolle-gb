@@ -32,17 +32,15 @@ function gwolle_gb_frontend_read() {
 		)
 	);
 
-	$countPages = round($entriesCount / $entriesPerPage);
-	if ($countPages * $entriesPerPage < $entriesCount) {
-		$countPages++;
-	}
+	$countPages = ceil( $entriesCount / $entriesPerPage );
 
 	$pageNum = 1;
 	if ( isset($_GET['pageNum']) && is_numeric($_GET['pageNum']) ) {
 		$pageNum = $_GET['pageNum'];
 	}
 
-	if ($pageNum > $countPages) {
+	if ( $pageNum > $countPages ) {
+		// Page doesnot exist
 		$pageNum = 1;
 	}
 
@@ -64,6 +62,7 @@ function gwolle_gb_frontend_read() {
 		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
 	}
 
+	$output .= 'countPages: ' . $countPages;
 
 	/* Get the entries for the frontend */
 	$entries = gwolle_gb_get_entries(
@@ -76,58 +75,68 @@ function gwolle_gb_frontend_read() {
 		)
 	);
 
-	// FIXME: pagination is broken on frontend on page 3 of 3
 	/* Page navigation */
-	$output .= '<div id="page-navigation">';
+	$pagination = '<div class="page-navigation">';
 	if ($pageNum > 1) {
-		$output .= '<a href="' . $page_link . '&amp;pageNum=' . round($pageNum - 1) . '">&laquo;</a>';
+		$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . round($pageNum - 1) . '" title="' . __('Previous page', GWOLLE_GB_TEXTDOMAIN) . '">&laquo;</a>';
 	}
 	if ($pageNum < 5) {
-		if ($countPages < 4) { $showRange = $countPages;
-		} else { $showRange = 6;
+		if ($countPages < 5) {
+			$showRange = $countPages;
+		} else {
+			$showRange = 6;
 		}
-		for ($i = 1; $i < $showRange; $i++) {
+
+		for ($i = 1; $i < ($showRange + 1); $i++) {
 			if ($i == $pageNum) {
-				$output .= '<span>' . $i . '</span>';
+				$pagination .= '<span>' . $i . '</span>';
 			} else {
-				$output .= '<a href="' . $page_link . '&amp;pageNum=' . $i . '">' . $i . '</a>';
+				$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . $i . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
 			}
 		}
 
-		if ($pageNum < $countPages - 2) {
-			$highDotsMade = true;
-			/* The dots next to the highest number have already been put out. */
-			$output .= '<span class="page-numbers dots">...</span>';
+		if ( $countPages > 6 ) {
+			if ( $countPages > 7 && ($pageNum + 3) < $countPages ) {
+				$pagination .= '<span class="page-numbers dots">...</span>';
+			}
+			$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . $countPages . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
+		}
+		if ($pageNum < $countPages) {
+			$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . round($pageNum + 1) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
 		}
 	} elseif ($pageNum >= 5) {
-		$output .= '<a href="' . $gb_links['read'] . '&amp;pageNum=1">1</a>';
-		if ($pageNum - 3 > 1) { $output .= '<span>...</span>';
+		$pagination .= '<a href="' . $page_link . '&amp;pageNum=1" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . ' 1">1</a>';
+		if ( ($pageNum - 4) > 1) {
+			$pagination .= '<span class="page-numbers dots">...</span>';
 		}
-		if ($pageNum + 2 < $countPages) { $minRange = $pageNum - 2;
+		if ( ($pageNum + 2) < $countPages) {
+			$minRange = $pageNum - 2;
 			$showRange = $pageNum + 2;
-		} else { $minRange = $pageNum - 3;
+		} else {
+			$minRange = $pageNum - 3;
 			$showRange = $countPages - 1;
 		}
 		for ($i = $minRange; $i <= $showRange; $i++) {
 			if ($i == $pageNum) {
-				$output .= '<span>' . $i . '</span>';
+				$pagination .= '<span>' . $i . '</span>';
 			} else {
-				$output .= '<a href="' . $page_link . '&amp;pageNum=' . $i . '">' . $i . '</a>';
+				$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . $i . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
 			}
 		}
 		if ($pageNum == $countPages) {
-			$output .= '<span class="page-numbers current">' . $pageNum . '</span>';
+			$pagination .= '<span class="page-numbers current">' . $pageNum . '</span>';
 		}
-	}
 
-	if ($pageNum < $countPages) {
-		if ($pageNum + 3 < $countPages && !$highDotsMade) {
-			$output .= '<span class="page-numbers dots">...</span>';
+		if ($pageNum < $countPages) {
+			if ( ($pageNum + 3) < $countPages ) {
+				$pagination .= '<span class="page-numbers dots">...</span>';
+			}
+			$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . $countPages . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
+			$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . round($pageNum + 1) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
 		}
-		$output .= '<a href="' . $page_link . '&amp;pageNum=' . $countPages . '">' . $countPages . '</a>';
-		$output .= '<a href="' . $page_link . '&amp;pageNum=' . round($pageNum + 1) . '">&raquo;</a>';
 	}
-	$output .= '</div>';
+	$pagination .= '</div>';
+	$output .= $pagination;
 
 
 	/* Entries */
@@ -192,6 +201,8 @@ function gwolle_gb_frontend_read() {
 			$output .= '</div>';
 		}
 	}
+
+	$output .= $pagination;
 
 	return $output;
 }

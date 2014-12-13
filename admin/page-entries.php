@@ -453,7 +453,7 @@ function gwolle_gb_page_entries() {
 								$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							$massEditControls .= '<option value="trash">' . __('Move to trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
-							if ( $show == 'spam' || $show == 'trash' ) {
+							if ( $show == 'spam' ) {
 								$massEditControls .= '<option value="remove">' . __('Remove permanently', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 

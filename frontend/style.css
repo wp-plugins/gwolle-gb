@@ -70,12 +70,12 @@
 
 /* Page Navigation */
 
-#gwolle_gb #page-navigation {
+#gwolle_gb .page-navigation {
 	width: 100%;
 	text-align: right;
 }
-#gwolle_gb #page-navigation a,
-#gwolle_gb #page-navigation span {
+#gwolle_gb .page-navigation a,
+#gwolle_gb .page-navigation span {
 	padding: 2px;
 	margin: 2px;
 	background-color: #C6C6C6;

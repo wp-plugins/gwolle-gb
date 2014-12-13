@@ -78,7 +78,7 @@ With version 1.0 there have been some changes:
 = Todo/coming up in future releases =
 
 * Bughunting (check all the FIXME's in the code).
-* Pagination is sometimes funky.
+* Pagination is sometimes funky in the backend.
 * Add possibility to empty trash and spam.
 * Make Install method more safe.
 * Bring Import method back and refactor it. Add more sources.
@@ -143,9 +143,9 @@ For managing options you need the capability manage_options. For subscribing to 
 
 = Should I really not use WordPress comments for a guestbook? =
 
-Sure you can if you want to. In my personal opinion it can be a good thing to keep comments and guestbook entries separated.
-So if you already have a blog with comments, guestbook entries might get lost in there. But if you don't use standard comments,
-you can just as easily use the comments for a guestbook.
+Sure you can if you want to. In my personal opinion however it can be a good thing to keep comments and guestbook entries separated.
+So if you already have a blog with comments, the guestbook entries might get lost in there. But if you don't use standard comments,
+you can just as easily use the comment section for a guestbook.
 
 = How do I localize a plugin? =
 
@@ -169,6 +169,7 @@ Yes, it is again actively maintained.
 = 1.0.3 =
 * 2014-12-
 * Add delete function in editor and mass-edit.
+* Fix pagination on Frontend.
 
 = 1.0.2 =
 * 2014-12-13
