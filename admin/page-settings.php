@@ -270,7 +270,7 @@ function gwolle_gb_page_settings() {
 									_e("Akismet helps you to fight spam. It's free and easy to install. Download and install it today to stop spam in your guestbook.", GWOLLE_GB_TEXTDOMAIN);
 								} elseif (!$wordpress_api_key) {
 									// Check if a Wordpress API key is defined and set in the database. We just assume it is valid
-									echo str_replace('%1', 'options-general.php?page=akismet-key-config', __("Sorry, wasn't able to locate your <strong>WordPress API key. You can enter it at the <a href=\"%1\">Akismet configuration page</a>.", GWOLLE_GB_TEXTDOMAIN));
+									echo str_replace('%1', 'options-general.php?page=akismet-key-config', __("Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You can enter it at the <a href=\"%1\">Akismet configuration page</a>.", GWOLLE_GB_TEXTDOMAIN));
 								} else {
 									// Akismet is installed and a WordPress api key exists
 									echo '<input ';

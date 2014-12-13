@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 21:16+0100\n"
+"POT-Creation-Date: 2014-12-13 19:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Cobestran\n"
 "Language-Team: \n"
@@ -33,7 +33,7 @@ msgid "New entry"
 msgstr "Nouveau message"
 
 #. /settings.php
-#: actions.php:57 actions.php:78 admin/page-settings.php:129
+#: actions.php:57 actions.php:80 admin/page-settings.php:129
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -274,7 +274,7 @@ msgstr ""
 msgid "No log yet."
 msgstr ""
 
-#: admin/page-editor.php:460 frontend/write.php:118
+#: admin/page-editor.php:460 frontend/write.php:128
 msgid "Guestbook entry"
 msgstr "Message livre d'or"
 
@@ -286,7 +286,7 @@ msgstr ""
 "Les sauts de ligne ne seront pas visibles aux visiteurs en raison de vos <a "
 "href=\"%1\">paramètres</a>."
 
-#: admin/page-editor.php:471 frontend/write.php:114 frontend/write.php:115
+#: admin/page-editor.php:471 frontend/write.php:122 frontend/write.php:123
 msgid "Homepage"
 msgstr "Page d'accueil"
 
@@ -727,7 +727,7 @@ msgstr "Consulter les messages"
 msgid "The importer will preserve the following data per entry:"
 msgstr ""
 
-#: admin/page-import.php:237 frontend/write.php:94 frontend/write.php:99
+#: admin/page-import.php:237 frontend/write.php:95 frontend/write.php:100
 msgid "Name"
 msgstr "Nom"
 
@@ -900,8 +900,8 @@ msgstr ""
 
 #: admin/page-settings.php:273
 msgid ""
-"Sorry, wasn't able to locate your <strong>WordPress API key. You can enter "
-"it at the <a href=\"%1\">Akismet configuration page</a>."
+"Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
+"can enter it at the <a href=\"%1\">Akismet configuration page</a>."
 msgstr ""
 
 #: admin/page-settings.php:280
@@ -1091,31 +1091,35 @@ msgstr "Ecrire un nouveau message."
 msgid "Write a new entry for the Guestbook"
 msgstr ""
 
-#: frontend/write.php:102 frontend/write.php:103
+#: frontend/write.php:105 frontend/write.php:106
 msgid "City"
 msgstr ""
 
-#: frontend/write.php:106 frontend/write.php:111
+#: frontend/write.php:112 frontend/write.php:117
 msgid "Email"
 msgstr ""
 
-#: frontend/write.php:147
+#: frontend/write.php:142
+msgid "Anti-spam"
+msgstr ""
+
+#: frontend/write.php:161
 msgid "Submit"
 msgstr "Envoyer"
 
-#: frontend/write.php:151
+#: frontend/write.php:166
 msgid "Fields marked with * are obligatory."
 msgstr "Les champs marqués d'une * sont obligatoires."
 
-#: frontend/write.php:153
+#: frontend/write.php:168
 msgid "For security reasons we save the ip address <span id=\"ip\">%1</span>."
 msgstr ""
 
-#: frontend/write.php:158
+#: frontend/write.php:173
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr ""
 
-#: frontend/write.php:160
+#: frontend/write.php:175
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 

@@ -174,6 +174,13 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.0.2 =
+* 2014-12-
+* HTML uses labels now.
+* HTML has more classes.
+* New generated pot file. Please send in your translations.
+* Update for nl_NL.
+
 = 1.0.1 =
 * 2014-12-05
 * Frontend uses now input-button for the write link.
