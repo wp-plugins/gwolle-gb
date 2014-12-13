@@ -141,6 +141,12 @@ For moderating comments you need the capability moderate_comments.
 
 For managing options you need the capability manage_options. For subscribing to notifications, this one is also needed.
 
+= Should I really not use WordPress comments for a guestbook? =
+
+Sure you can if you want to. In my personal opinion it can be a good thing to keep comments and guestbook entries separated.
+So if you already have a blog with comments, guestbook entries might get lost in there. But if you don't use standard comments,
+you can just as easily use the comments for a guestbook.
+
 = How do I localize a plugin? =
 
 A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
