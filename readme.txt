@@ -48,7 +48,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * de_DE [Wolfgang Timme]
 * en_GB [Wolfgang Timme]
 * es_ES [José Luis Sanz Ruiz]
-* fr_FR [Cobestran.com]
+* fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
 * nl_NL [Marcel Pol](http://zenoweb.nl)
 * pl_PL [Daniel Speichert]
 
@@ -175,11 +175,12 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.0.2 =
-* 2014-12-
+* 2014-12-13
 * HTML uses labels now.
 * HTML has more classes.
 * New generated pot file. Please send in your translations.
 * Update for nl_NL.
+* Update for fr_FR (Thanks Charles-Aurélien)
 
 = 1.0.1 =
 * 2014-12-05
