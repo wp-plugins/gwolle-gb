@@ -129,12 +129,6 @@ For the entries that you consider spam, but were not caught by Akismet, you can 
 For entries that are not spam, but you still don't want them visible, you can move them to trash.
 The entries that you want visible, select these to be checked.
 
-= Why aren't entries really deleted, and instead stored in the database? =
-
-First, it's not a heavy load for the database, and second, it's that if you clicked wrong you're not lost without the possibility
-to 'undo' it via your database interface.
-In a future version this might be implemented.
-
 = What about Spam? =
 
 Your first option is to use Akismet. It works like a charm. Fighting spam has never been easier.
