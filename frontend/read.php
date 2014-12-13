@@ -62,8 +62,6 @@ function gwolle_gb_frontend_read() {
 		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
 	}
 
-	$output .= 'countPages: ' . $countPages;
-
 	/* Get the entries for the frontend */
 	$entries = gwolle_gb_get_entries(
 		array(
@@ -97,7 +95,7 @@ function gwolle_gb_frontend_read() {
 
 		if ( $countPages > 6 ) {
 			if ( $countPages > 7 && ($pageNum + 3) < $countPages ) {
-				$pagination .= '<span class="page-numbers dots">...</span>';
+				$pagination .= '<span class="page-numbers dots">&hellip;</span>';
 			}
 			$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . $countPages . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
 		}
@@ -107,7 +105,7 @@ function gwolle_gb_frontend_read() {
 	} elseif ($pageNum >= 5) {
 		$pagination .= '<a href="' . $page_link . '&amp;pageNum=1" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . ' 1">1</a>';
 		if ( ($pageNum - 4) > 1) {
-			$pagination .= '<span class="page-numbers dots">...</span>';
+			$pagination .= '<span class="page-numbers dots">&hellip;</span>';
 		}
 		if ( ($pageNum + 2) < $countPages) {
 			$minRange = $pageNum - 2;
@@ -129,7 +127,7 @@ function gwolle_gb_frontend_read() {
 
 		if ($pageNum < $countPages) {
 			if ( ($pageNum + 3) < $countPages ) {
-				$pagination .= '<span class="page-numbers dots">...</span>';
+				$pagination .= '<span class="page-numbers dots">&hellip;</span>';
 			}
 			$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . $countPages . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
 			$pagination .= '<a href="' . $page_link . '&amp;pageNum=' . round($pageNum + 1) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
