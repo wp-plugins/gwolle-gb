@@ -569,42 +569,46 @@ class gwolle_gb_entry {
 
 	/* function delete
 	 * Deletes the current $entry from database
-	 * $id id of the entry to be deleted
+	 *
 	 * Return:
 	 * - true: deleted
 	 * - false: not deleted
+	 *
 	 */
 
-	public function delete( $id ) {
+	public function delete() {
 		global $wpdb;
-
-		// FIXME, stub
-
-		//  We need the old entry data as an argument.
-		//if (!isset($id)) {
-			return false;
-		//}
 
 		if ( $this->get_isspam() == 0 && $this->get_isdeleted() == 0 ) {
 			// Do not delete the good stuff.
 			return false;
 		}
 
-		// FIXME: use wpdb->prepare
+		$id = $this->get_id();
+
 		$sql = "
 			DELETE
 			FROM
-				" . $wpdb -> gwolle_gb_entries . "
+				$wpdb->gwolle_gb_entries
 			WHERE
-				entry_id = " . (int)$id . "
+				entry_id = %d
 			LIMIT 1";
-		$result = $wpdb->query($sql);
+
+		$values = array(
+				$id
+			);
+
+		$result = $wpdb->query(
+				$wpdb->prepare( $sql, $values )
+			);
+
 
 		if ($result == 1) {
-			// Also remove the log entries? Probably. Needs a function for del_log though
-
+			// Also remove the log entries
+			gwolle_gb_del_log_entries( $id );
 
 			// FIXME: use unset? or set_id(0) if that even works with the setter
+			// unset $this
 			return true;
 		}
 		return false;

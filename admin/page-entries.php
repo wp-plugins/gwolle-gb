@@ -187,7 +187,12 @@ function gwolle_gb_page_entries() {
 										$entries_not_handled++;
 									}
 								} else if ( $action == 'remove' ) {
-									// FIXME: Stub
+									$result = $entry->delete();
+									if ($result ) {
+										$entries_handled++;
+									} else {
+										$entries_not_handled++;
+									}
 								}
 							} else { // no result on load()
 								$entries_not_handled++;
@@ -270,9 +275,13 @@ function gwolle_gb_page_entries() {
 						$gwolle_gb_messages .= '<p>' . __('No entries recovered from trash.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					}
 				} else if ( $action == 'remove' ) {
-					// FIXME: Stub
-					$gwolle_gb_messages .= '<p>' . __('Removing entries is not yet implemented.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
-					$gwolle_gb_errors = 'error';
+					if ( $entries_handled == 1 ) {
+						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entry removed permanently.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else if ( $entries_handled > 1 ) {
+						$gwolle_gb_messages .= '<p>' . $entries_handled . " " . __('entries removed permanently.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else {
+						$gwolle_gb_messages .= '<p>' . __('No entries permanently removed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					}
 				}
 			}
 		}
@@ -444,6 +453,10 @@ function gwolle_gb_page_entries() {
 								$massEditControls .= '<option value="akismet">' . __('Check with Akismet', GWOLLE_GB_TEXTDOMAIN) . '</option>';
 							}
 							$massEditControls .= '<option value="trash">' . __('Move to trash', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							if ( $show == 'spam' || $show == 'trash' ) {
+								$massEditControls .= '<option value="remove">' . __('Remove permanently', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+							}
+
 						}
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
@@ -638,14 +651,7 @@ function gwolle_gb_page_entries() {
 
 									// Actions column
 									$html_output .= '
-										<td>';
-									// disabled for now, never use GET for deleting
-									/*if ($show == 'trash__') {
-										$html_output .= '
-											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=untrash_entry&entry_id=' . $entry->get_id() . '&show=trash">' . __('Recover', GWOLLE_GB_TEXTDOMAIN) . '</a>
-											<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&gwolle_gb_function=delete_entry&entry_id=' . $entry->get_id() . '&show=trash" onClick="return confirm(\'' . __("You are about to delete this guestbook entry. This can not be undone. Are you still sure you want to continue?", GWOLLE_GB_TEXTDOMAIN) . '\');">' . __('Delete', GWOLLE_GB_TEXTDOMAIN) . '</a>';
-									} */
-									$html_output .= '
+										<td>
 											<a href="' . $_SERVER['PHP_SELF'] . '?page=' . GWOLLE_GB_FOLDER . '/editor.php&amp;entry_id=' . $entry->get_id() . '">' . __('Details', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;&raquo;</a>&nbsp;
 										</td>
 									</tr>';

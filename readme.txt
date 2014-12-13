@@ -77,8 +77,6 @@ With version 1.0 there have been some changes:
 
 = Todo/coming up in future releases =
 
-First priority is getting the plugin working with current WordPress and resolve a lot of bugs.
-
 * Bughunting (check all the FIXME's in the code).
 * Pagination is sometimes funky.
 * Add possibility to empty trash and spam.
@@ -86,11 +84,13 @@ First priority is getting the plugin working with current WordPress and resolve 
 * Bring Import method back and refactor it. Add more sources.
 * Bring Uninstall back, this time in a separate admin page?
 * Bring AJAX back, this time inside actions.
-* Bring Frontend Widget and Dashboard Widget back.
+* Bring Frontend Widget back, and maybe a Widget with "best" entries as well.
+* Bring Dashboard Widget back.
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
 * Better database structure (e. g. 'id' instead of 'entry_id').
 * 'Thank you' mail to the poster (requested by Joakim from Sweden).
+* Add PHP methods to add an entry.
 
 If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
 
@@ -102,14 +102,6 @@ If you have a feature request please use the forum on WordPress.org. It may be a
 
 Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". I am subscribed to that forum,
 so I will get your message. Or send me an email: marcel (at) zenoweb (dot) nl. Thanks.
-
-= Thank you =
-
-* timomaas for the original dutch translation
-* Daniel Speichert for the polish translation
-* José Luis Sanz Ruiz for the spanish translation
-* cobestran.com for the french translation
-* All the bug posters, including Berrie Pelser, Sebastian Moeller, voodoobanshee, Peter Pollack, Werner Traschuetz, Dean Suhr, Georg K., Kristin
 
 = Licence =
 
@@ -173,6 +165,10 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.0.3 =
+* 2014-12-
+* Add delete function in editor and mass-edit.
 
 = 1.0.2 =
 * 2014-12-13

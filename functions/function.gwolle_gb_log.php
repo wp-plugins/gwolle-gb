@@ -174,3 +174,48 @@ function gwolle_gb_get_log_entries( $subject_id ) {
 	return $log_entries;
 }
 
+
+/*
+ * gwolle_gb_del_log_entries()
+ * Delete the log entries for a guestbook entry
+ *
+ * Parameters:
+ *   - subject_id: (int)    the id of the entry
+ *
+ * Return: (bool) true or false, depending on succes
+ */
+
+function gwolle_gb_del_log_entries( $subject_id ) {
+		global $wpdb;
+
+		$subject_id = intval( $subject_id );
+
+		if ( $subject_id == 0 || $subject_id < 0 ) {
+			return false;
+		}
+
+		$sql = "
+			DELETE
+			FROM
+				$wpdb->gwolle_gb_log
+			WHERE
+				log_subjectId = %d";
+
+		$values = array(
+				$subject_id
+			);
+
+		$result = $wpdb->query(
+				$wpdb->prepare( $sql, $values )
+			);
+
+
+		if ( $result > 0 ) {
+			return true;
+		}
+		return false;
+
+}
+
+
+

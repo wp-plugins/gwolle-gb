@@ -147,6 +147,17 @@ function gwolle_gb_page_editor() {
 					$gwolle_gb_messages .= '<p>' . __('Entry was not changed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 
 				}
+
+				/* Remove permanently */
+				if ( isset($_POST['isdeleted']) && $_POST['isdeleted'] == 'on' && isset($_POST['remove']) && $_POST['remove'] == 'on' ) {
+					if ( $entry->get_isdeleted() == 1 ) {
+						$entry->delete();
+						$entry->set_id(0);
+						$changed = true;
+						$gwolle_gb_messages .= '<p>' . __('Entry removed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					}
+				}
+
 			} else if ( $_POST['entry_id'] == 0 && $entry->get_id() == 0 ) {
 
 				/* Check for input, and save accordingly. This is on a New Entry, so no logging */
@@ -348,6 +359,15 @@ function gwolle_gb_page_editor() {
 															_e('This entry is in Trash', GWOLLE_GB_TEXTDOMAIN);
 														} ?>
 													</label>
+
+													<?php
+													if ($entry->get_isdeleted() == '1') { ?>
+														<br />
+														<label for="remove" class="selectit">
+															<input id="remove" name="remove" type="checkbox" />
+															<?php _e('Remove this entry Permanently.', GWOLLE_GB_TEXTDOMAIN); ?>
+														</label>
+													<?php } ?>
 
 												</div>
 											</div><!-- 'misc-publishing-actions' -->
