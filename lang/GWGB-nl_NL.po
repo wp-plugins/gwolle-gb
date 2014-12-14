@@ -646,7 +646,7 @@ msgstr "Gemarkeerd als Niet Vrijgegeven (Je wilt ze modereren)."
 
 #: admin/page-gwolle-gb.php:165
 msgid "Not marked as Spam (You might want to check them)."
-msgstr "Nietr gemarkeerd als Spam (Je zou ze kunnen controleren)."
+msgstr "Niet gemarkeerd als Spam (Je zou ze kunnen controleren)."
 
 #: admin/page-gwolle-gb.php:166
 msgid "Not marked as Trash (You decide what goes to the trash)."
