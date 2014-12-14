@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-13 19:38+0100\n"
+"POT-Creation-Date: 2014-12-14 14:54+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Daniel Speichert <Daniel@Speichert.pro>\n"
 "Language-Team: \n"
@@ -15,7 +15,8 @@ msgstr ""
 "plugins/gwolle-gb/\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: actions.php:35 actions.php:36 admin/dashboard-widget.php:31
+#: actions.php:35 actions.php:36 widget.php:21 widget.php:99
+#: admin/dashboard-widget.php:31
 msgid "Guestbook"
 msgstr "Księga Gości"
 
@@ -38,24 +39,40 @@ msgstr "Nowy wpis"
 msgid "Settings"
 msgstr "Ustawienia"
 
-#: widget.php:13
+#: widget.php:12
 msgid "Displays the recent guestbook entries."
 msgstr ""
 
-#: widget.php:32
+#: widget.php:27 widget.php:102
 msgid "Visit guestbook"
 msgstr ""
 
-#: widget.php:92
+#: widget.php:72
+msgid "Click here to get to the guestbook."
+msgstr ""
+
+#: widget.php:115
 msgid "Title:"
 msgstr ""
 
-#: widget.php:97
+#: widget.php:121
+msgid "Number of entries:"
+msgstr ""
+
+#: widget.php:137
+msgid "Number of words for each entry:"
+msgstr ""
+
+#: widget.php:153
 msgid "Link text:"
 msgstr ""
 
-#: widget.php:102
-msgid "Number of entries:"
+#: widget.php:159
+msgid "Select the page of the guestbook:"
+msgstr ""
+
+#: widget.php:161
+msgid "Select page"
 msgstr ""
 
 #: admin/ajax.php:84
@@ -152,7 +169,7 @@ msgstr ""
 msgid "Changes saved."
 msgstr "Zmiany zostały zapisane."
 
-#: admin/page-editor.php:143 admin/page-editor.php:217
+#: admin/page-editor.php:143 admin/page-editor.php:228
 msgid "Error happened during saving."
 msgstr ""
 
@@ -160,347 +177,360 @@ msgstr ""
 msgid "Entry was not changed."
 msgstr ""
 
-#: admin/page-editor.php:187
+#: admin/page-editor.php:157
+msgid "Entry removed."
+msgstr ""
+
+#: admin/page-editor.php:198
 msgid "Entry has no content, even though that is mandatory."
 msgstr ""
 
-#: admin/page-editor.php:215
+#: admin/page-editor.php:226
 msgid "Entry saved."
 msgstr ""
 
-#: admin/page-editor.php:221
+#: admin/page-editor.php:232
 msgid "Entry was not saved."
 msgstr ""
 
-#: admin/page-editor.php:256 admin/page-editor.php:368
-#: admin/page-editor.php:423 admin/page-editor.php:459
-#: admin/page-editor.php:470 admin/page-editor.php:478
+#: admin/page-editor.php:267 admin/page-editor.php:388
+#: admin/page-editor.php:443 admin/page-editor.php:479
+#: admin/page-editor.php:490 admin/page-editor.php:498
 msgid "Click to open or close"
 msgstr ""
 
-#: admin/page-editor.php:257
+#: admin/page-editor.php:268
 msgid "Options"
 msgstr "Opcje"
 
-#: admin/page-editor.php:299 admin/page-editor.php:304
+#: admin/page-editor.php:310 admin/page-editor.php:315
 msgid "This entry is Not Visible."
 msgstr ""
 
-#: admin/page-editor.php:302
+#: admin/page-editor.php:313
 msgid "This entry is Visible."
 msgstr ""
 
-#: admin/page-editor.php:316
+#: admin/page-editor.php:327
 msgid "This entry is Not Checked."
 msgstr ""
 
-#: admin/page-editor.php:318
+#: admin/page-editor.php:329
 msgid "This entry is Checked"
 msgstr ""
 
-#: admin/page-editor.php:331
+#: admin/page-editor.php:342
 msgid "This entry is Not marked as Spam."
 msgstr ""
 
-#: admin/page-editor.php:333
+#: admin/page-editor.php:344
 msgid "This entry is marked as Spam"
 msgstr ""
 
-#: admin/page-editor.php:346
+#: admin/page-editor.php:357
 msgid "This entry is Not in Trash."
 msgstr ""
 
-#: admin/page-editor.php:348
+#: admin/page-editor.php:359
 msgid "This entry is in Trash"
 msgstr ""
 
-#: admin/page-editor.php:359
+#: admin/page-editor.php:368
+msgid "Remove this entry Permanently."
+msgstr ""
+
+#: admin/page-editor.php:379
 msgid "Save"
 msgstr "Zpaisz"
 
-#. /entries.php&gwolle_gb_function=untrash_entry&entry_id=' . $entry->get_id() . '&show=trash">' . __('Recover', GWOLLE_GB_TEXTDOMAIN) . '</a>
-#. /entries.php&gwolle_gb_function=delete_entry&entry_id=' . $entry->get_id() . '&show=trash" onClick="return confirm(\'' . __("You are about to delete this guestbook entry. This can not be undone. Are you still sure you want to continue?", GWOLLE_GB_TEXTDOMAIN) . '\');">' . __('Delete', GWOLLE_GB_TEXTDOMAIN) . '</a>';
-#. }
-#: admin/page-editor.php:369 admin/page-entries.php:649
+#: admin/page-editor.php:389 admin/page-entries.php:656
 msgid "Details"
 msgstr "Szczegóły"
 
-#: admin/page-editor.php:373 admin/page-entries.php:534
-#: admin/page-entries.php:550
+#: admin/page-editor.php:393 admin/page-entries.php:548
+#: admin/page-entries.php:564
 msgid "Author"
 msgstr "Autor"
 
-#: admin/page-editor.php:378 admin/page-editor.php:386
-#: admin/page-editor.php:406 admin/page-editor.php:414
+#: admin/page-editor.php:398 admin/page-editor.php:406
+#: admin/page-editor.php:426 admin/page-editor.php:434
 #: functions/function.gwolle_gb_log.php:157
 msgid "Unknown"
 msgstr ""
 
-#: admin/page-editor.php:382
+#: admin/page-editor.php:402
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: admin/page-editor.php:390 admin/page-editor.php:434
+#: admin/page-editor.php:410 admin/page-editor.php:454
 msgid "Written"
 msgstr "Napisane"
 
-#: admin/page-editor.php:395
+#: admin/page-editor.php:415
 msgid "Not yet"
 msgstr ""
 
-#: admin/page-editor.php:399
+#: admin/page-editor.php:419
 msgid "Author's IP-address"
 msgstr "Adres IP autora"
 
-#: admin/page-editor.php:402
+#: admin/page-editor.php:422
 msgid "Whois search for this IP"
 msgstr ""
 
-#: admin/page-editor.php:410
+#: admin/page-editor.php:430
 msgid "Host"
 msgstr "Host"
 
-#: admin/page-editor.php:424
+#: admin/page-editor.php:444
 msgid "Entry log"
 msgstr ""
 
-#: admin/page-editor.php:443
+#: admin/page-editor.php:463
 msgid "No log yet."
 msgstr ""
 
-#: admin/page-editor.php:460 frontend/write.php:128
+#: admin/page-editor.php:480 frontend/write.php:128
 msgid "Guestbook entry"
 msgstr "Wpis do księgi gości"
 
-#: admin/page-editor.php:465
+#: admin/page-editor.php:485
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href="
 "\"%1\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:471 frontend/write.php:122 frontend/write.php:123
+#: admin/page-editor.php:491 frontend/write.php:122 frontend/write.php:123
 msgid "Homepage"
 msgstr "Strona główna"
 
-#: admin/page-editor.php:474
+#: admin/page-editor.php:494
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr ""
 
-#: admin/page-editor.php:479
+#: admin/page-editor.php:499
 msgid "Origin"
 msgstr "Pochodzenie"
 
-#: admin/page-entries.php:205
+#: admin/page-entries.php:210
 msgid "entry checked."
 msgstr ""
 
-#: admin/page-entries.php:207
+#: admin/page-entries.php:212
 msgid "entries checked."
 msgstr ""
 
-#: admin/page-entries.php:209
+#: admin/page-entries.php:214
 msgid "No entries checked."
 msgstr ""
 
-#: admin/page-entries.php:213
+#: admin/page-entries.php:218
 msgid "entry unchecked."
 msgstr ""
 
-#: admin/page-entries.php:215
+#: admin/page-entries.php:220
 msgid "entries unchecked."
 msgstr ""
 
-#: admin/page-entries.php:217
+#: admin/page-entries.php:222
 msgid "No entries unchecked."
 msgstr ""
 
-#: admin/page-entries.php:221
+#: admin/page-entries.php:226
 msgid ""
 "entry marked as spam and submitted to Akismet as spam (if Akismet was "
 "enabled)."
 msgstr ""
 
-#: admin/page-entries.php:223
+#: admin/page-entries.php:228
 msgid ""
 "entries marked as spam and submitted to Akismet as spam (if Akismet was "
 "enabled)."
 msgstr ""
 
-#: admin/page-entries.php:225
+#: admin/page-entries.php:230
 msgid "No entries marked as spam."
 msgstr ""
 
-#: admin/page-entries.php:229
+#: admin/page-entries.php:234
 msgid ""
 "entry marked as not spam and submitted to Akismet as ham (if Akismet was "
 "enabled)."
 msgstr ""
 
-#: admin/page-entries.php:231
+#: admin/page-entries.php:236
 msgid ""
 "entries marked as not spam and submitted to Akismet as ham (if Akismet was "
 "enabled)."
 msgstr ""
 
-#: admin/page-entries.php:233
+#: admin/page-entries.php:238
 msgid "No entries marked as not spam."
 msgstr ""
 
-#: admin/page-entries.php:237
+#: admin/page-entries.php:242
 msgid "entry considered spam and marked as such."
 msgstr ""
 
-#: admin/page-entries.php:239
+#: admin/page-entries.php:244
 msgid "entries considered spam and marked as such."
 msgstr ""
 
-#: admin/page-entries.php:242
+#: admin/page-entries.php:247
 msgid "entry not considered spam and marked as such."
 msgstr ""
 
-#: admin/page-entries.php:244
+#: admin/page-entries.php:249
 msgid "entries not considered spam and marked as such."
 msgstr ""
 
-#: admin/page-entries.php:247
+#: admin/page-entries.php:252
 msgid "entry already considered spam and not changed."
 msgstr ""
 
-#: admin/page-entries.php:249
+#: admin/page-entries.php:254
 msgid "entries already considered spam and not changed."
 msgstr ""
 
-#: admin/page-entries.php:252
+#: admin/page-entries.php:257
 msgid "entry already considered not spam and not changed."
 msgstr ""
 
-#: admin/page-entries.php:254
+#: admin/page-entries.php:259
 msgid "entries already considered not spam and not changed."
 msgstr ""
 
-#: admin/page-entries.php:258
+#: admin/page-entries.php:263
 msgid "entry moved to trash."
 msgstr ""
 
-#: admin/page-entries.php:260
+#: admin/page-entries.php:265
 msgid "entries moved to trash."
 msgstr ""
 
-#: admin/page-entries.php:262
+#: admin/page-entries.php:267
 msgid "No entries moved to trash."
 msgstr ""
 
-#: admin/page-entries.php:266
+#: admin/page-entries.php:271
 msgid "entry recovered from trash."
 msgstr ""
 
-#: admin/page-entries.php:268
+#: admin/page-entries.php:273
 msgid "entries recovered from trash."
 msgstr ""
 
-#: admin/page-entries.php:270
+#: admin/page-entries.php:275
 msgid "No entries recovered from trash."
 msgstr ""
 
-#: admin/page-entries.php:274
-msgid "Removing entries is not yet implemented."
+#: admin/page-entries.php:279
+msgid "entry removed permanently."
 msgstr ""
 
-#: admin/page-entries.php:306
+#: admin/page-entries.php:281
+msgid "entries removed permanently."
+msgstr ""
+
+#: admin/page-entries.php:283
+msgid "No entries permanently removed."
+msgstr ""
+
+#: admin/page-entries.php:315
 msgid "Please activate Akismet if you want to battle spam."
 msgstr ""
 
-#: admin/page-entries.php:381
+#: admin/page-entries.php:390
 msgid "Guestbook entries"
 msgstr ""
 
-#: admin/page-entries.php:403
+#: admin/page-entries.php:412
 msgid "All"
 msgstr "Wszystko"
 
-#: admin/page-entries.php:408
+#: admin/page-entries.php:417
 msgid "Unlocked"
 msgstr "Odblokowany"
 
-#: admin/page-entries.php:412
+#: admin/page-entries.php:421
 msgid "New"
 msgstr "Nowy"
 
-#: admin/page-entries.php:416
+#: admin/page-entries.php:425
 #: functions/gwolle_gb_get_dashboard_widget_row.func.php:50
 msgid "Spam"
 msgstr ""
 
-#: admin/page-entries.php:420
+#: admin/page-entries.php:429
 #: functions/gwolle_gb_get_dashboard_widget_row.func.php:54
 msgid "Trash"
 msgstr ""
 
-#: admin/page-entries.php:427
+#: admin/page-entries.php:436
 msgid "Mass edit actions"
 msgstr ""
 
-#: admin/page-entries.php:430
+#: admin/page-entries.php:439
 msgid "Recover from trash"
 msgstr ""
 
-#: admin/page-entries.php:431
+#: admin/page-entries.php:440 admin/page-entries.php:457
 msgid "Remove permanently"
 msgstr ""
 
-#: admin/page-entries.php:434
+#: admin/page-entries.php:443
 msgid "Mark as checked"
 msgstr ""
 
-#: admin/page-entries.php:437
+#: admin/page-entries.php:446
 msgid "Mark as not checked"
 msgstr ""
 
-#: admin/page-entries.php:440
+#: admin/page-entries.php:449
 msgid "Mark as spam"
 msgstr ""
 
-#: admin/page-entries.php:442
+#: admin/page-entries.php:451
 msgid "Mark as not spam"
 msgstr ""
 
-#: admin/page-entries.php:444
+#: admin/page-entries.php:453
 msgid "Check with Akismet"
 msgstr ""
 
-#: admin/page-entries.php:446
+#: admin/page-entries.php:455
 msgid "Move to trash"
 msgstr ""
 
-#: admin/page-entries.php:449
+#: admin/page-entries.php:462
 msgid "Apply"
 msgstr ""
 
-#: admin/page-entries.php:458
+#: admin/page-entries.php:472
 msgid "Showing:"
 msgstr "Przeglądanie:"
 
-#: admin/page-entries.php:459
+#: admin/page-entries.php:473
 msgid "of"
 msgstr "z"
 
-#: admin/page-entries.php:526 admin/page-entries.php:542
+#: admin/page-entries.php:540 admin/page-entries.php:556
 msgid "ID"
 msgstr "ID"
 
-#: admin/page-entries.php:532 admin/page-entries.php:548
+#: admin/page-entries.php:546 admin/page-entries.php:562
 msgid "Date"
 msgstr "Data"
 
-#: admin/page-entries.php:533 admin/page-entries.php:549
+#: admin/page-entries.php:547 admin/page-entries.php:563
 msgid "Entry (excerpt)"
 msgstr "Wpis (fragment)"
 
-#: admin/page-entries.php:535 admin/page-entries.php:551
+#: admin/page-entries.php:549 admin/page-entries.php:565
 msgid "Action"
 msgstr "Akcja"
 
-#: admin/page-entries.php:564
+#: admin/page-entries.php:578
 msgid "No entries found."
 msgstr "Nie znaleziono wpisów."
 
@@ -1039,15 +1069,28 @@ msgstr ""
 msgid "New Guestbook Entry"
 msgstr ""
 
-#: frontend/read.php:135
+#: frontend/read.php:79
+msgid "Previous page"
+msgstr ""
+
+#: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
+#: frontend/read.php:121 frontend/read.php:132
+msgid "Page"
+msgstr ""
+
+#: frontend/read.php:103 frontend/read.php:133
+msgid "Next page"
+msgstr ""
+
+#: frontend/read.php:142
 msgid "(no entries yet)"
 msgstr ""
 
-#: frontend/read.php:171
+#: frontend/read.php:178
 msgid "from"
 msgstr ""
 
-#: frontend/read.php:175
+#: frontend/read.php:182
 msgid "wrote at"
 msgstr ""
 
@@ -1123,7 +1166,7 @@ msgstr ""
 msgid "Entry has been untrashed."
 msgstr ""
 
-#: functions/function.gwolle_gb_misc.php:48
+#: functions/function.gwolle_gb_misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr ""
 
