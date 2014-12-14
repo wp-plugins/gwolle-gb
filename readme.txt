@@ -78,13 +78,10 @@ With version 1.0 there have been some changes:
 = Todo/coming up in future releases =
 
 * Bughunting (check all the FIXME's in the code).
-* Pagination is sometimes funky in the backend.
-* Add possibility to empty trash and spam.
 * Make Install method more safe.
 * Bring Import method back and refactor it. Add more sources.
 * Bring Uninstall back, this time in a separate admin page?
 * Bring AJAX back, this time inside actions.
-* Bring Frontend Widget back, and maybe a Widget with "best" entries as well.
 * Bring Dashboard Widget back.
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
@@ -167,9 +164,12 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.0.3 =
-* 2014-12-
+* 2014-12-14
 * Add delete function in editor and mass-edit.
 * Fix pagination on Frontend.
+* Frontend Widget is back.
+* Excerpt is now counted in words and uses wp_trim_words.
+* Updates for pot, nl_NL and fr_FR.
 
 = 1.0.2 =
 * 2014-12-13

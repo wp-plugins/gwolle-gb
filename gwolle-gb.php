@@ -77,7 +77,7 @@ include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_misc.php' );
 include_once( GWOLLE_GB_DIR . '/actions.php' );
 
 // Widget
-// include_once( GWOLLE_GB_DIR . '/widget.php' );
+include_once( GWOLLE_GB_DIR . '/widget.php' );
 
 // Dashboard widget (for the WP-Admin dashboard)
 // include_once( GWOLLE_GB_DIR . '/admin/dashboard-widget.php' );

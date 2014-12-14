@@ -71,7 +71,7 @@ function gwolle_gb_page_entries() {
 										$entry->set_checkedby( $user_id );
 										gwolle_gb_add_log_entry( $entry->get_id(), 'entry-checked' );
 										$result = $entry->save();
-										if ($result ) {
+										if ( $result ) {
 											$entries_handled++;
 										} else {
 											$entries_not_handled++;
@@ -86,7 +86,7 @@ function gwolle_gb_page_entries() {
 										$entry->set_checkedby( $user_id );
 										gwolle_gb_add_log_entry( $entry->get_id(), 'entry-unchecked' );
 										$result = $entry->save();
-										if ($result ) {
+										if ( $result ) {
 											$entries_handled++;
 										} else {
 											$entries_not_handled++;
@@ -103,7 +103,7 @@ function gwolle_gb_page_entries() {
 										}
 										gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
 										$result = $entry->save();
-										if ($result ) {
+										if ( $result ) {
 											$entries_handled++;
 										} else {
 											$entries_not_handled++;
@@ -119,7 +119,7 @@ function gwolle_gb_page_entries() {
 										}
 										gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
 										$result = $entry->save();
-										if ($result ) {
+										if ( $result ) {
 											$entries_handled++;
 										} else {
 											$entries_not_handled++;
@@ -137,7 +137,7 @@ function gwolle_gb_page_entries() {
 												$entry->set_isspam( true );
 												gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
 												$result = $entry->save();
-												if ($result ) {
+												if ( $result ) {
 													$akismet_spam++;
 												} else {
 													$akismet_not_spam++;
@@ -150,7 +150,7 @@ function gwolle_gb_page_entries() {
 												$entry->set_isspam( false );
 												gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
 												$result = $entry->save();
-												if ($result ) {
+												if ( $result ) {
 													$akismet_not_spam++;
 												} else {
 													$akismet_spam++;
@@ -165,7 +165,7 @@ function gwolle_gb_page_entries() {
 										$entry->set_isdeleted( true );
 										gwolle_gb_add_log_entry( $entry->get_id(), 'entry-trashed' );
 										$result = $entry->save();
-										if ($result ) {
+										if ( $result ) {
 											$entries_handled++;
 										} else {
 											$entries_not_handled++;
@@ -178,7 +178,7 @@ function gwolle_gb_page_entries() {
 										$entry->set_isdeleted( false );
 										gwolle_gb_add_log_entry( $entry->get_id(), 'entry-untrashed' );
 										$result = $entry->save();
-										if ($result ) {
+										if ( $result ) {
 											$entries_handled++;
 										} else {
 											$entries_not_handled++;
@@ -188,7 +188,7 @@ function gwolle_gb_page_entries() {
 									}
 								} else if ( $action == 'remove' ) {
 									$result = $entry->delete();
-									if ($result ) {
+									if ( $result ) {
 										$entries_handled++;
 									} else {
 										$entries_not_handled++;
@@ -312,7 +312,7 @@ function gwolle_gb_page_entries() {
 
 		// If Akimet has not been activated yet and the user is looking at the spam tell him to activate Akismet.
 		if ($show == 'spam' && get_option('gwolle_gb-akismet-active', 'false') != 'true') {
-			$gwolle_gb_messages = '<p>' . __('Please activate Akismet if you want to battle spam.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+			$gwolle_gb_messages .= '<p>' . __('Please activate Akismet if you want to battle spam.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 		}
 
 		// Check if the requested page number is an integer > 0
@@ -468,12 +468,12 @@ function gwolle_gb_page_entries() {
 					</div>
 
 					<div class="tablenav-pages">
-						<span class="displaying-num"><?php _e('Showing:', GWOLLE_GB_TEXTDOMAIN);
-							echo ' ' . $firstEntryNum . ' &#8211; ' . $lastEntryNum . ' ' . __('of', GWOLLE_GB_TEXTDOMAIN) . ' ' . $count[$show]; ?>
-						</span>
 						<?php
+						$pagination = '<span class="displaying-num">' . __('Showing:', GWOLLE_GB_TEXTDOMAIN) .
+							' ' . $firstEntryNum . ' &#8211; ' . $lastEntryNum . ' ' . __('of', GWOLLE_GB_TEXTDOMAIN) . ' ' . $count[$show] . '</span>
+							';
 						if ($pageNum > 1) {
-							echo '<a class="first page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . round($pageNum - 1) . '">&laquo;</a>';
+							$pagination .= '<a class="first page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . round($pageNum - 1) . '">&laquo;</a>';
 						}
 
 						if ($pageNum < 5) {
@@ -484,21 +484,21 @@ function gwolle_gb_page_entries() {
 							}
 							for ($i = 1; $i < ($showRange + 1); $i++) {
 								if ($i == $pageNum) {
-									echo '<span class="page-numbers current">' . $i . '</span>';
+									$pagination .= '<span class="page-numbers current">' . $i . '</span>';
 								} else {
-									echo '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $i . '">' . $i . '</a>';
+									$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $i . '">' . $i . '</a>';
 								}
 							}
 
 							if ($pageNum + 4 < $countPages) {
 								$highDotsMade = true;
-								//	The dots next to the highest number have already been put out.
-								echo '<span class="page-numbers dots">...</span>';
+								// The dots next to the highest number have already been put out.
+								$pagination .= '<span class="page-numbers dots">&hellip;</span>';
 							}
 						} elseif ($pageNum >= 5) {
-							echo '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=1">1</a>';
+							$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=1">1</a>';
 							if ($countPages > 5) {
-								echo '<span class="page-numbers dots">...</span>';
+								$pagination .= '<span class="page-numbers dots">&hellip;</span>';
 							}
 							if ($pageNum + 2 < $countPages) {
 								$minRange = $pageNum - 2;
@@ -509,26 +509,27 @@ function gwolle_gb_page_entries() {
 							}
 							for ($i = $minRange; $i <= $showRange; $i++) {
 								if ($i == $pageNum) {
-									echo '<span class="page-numbers current">' . $i . '</span>';
+									$pagination .= '<span class="page-numbers current">' . $i . '</span>';
 								} else {
-									echo '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $i . '">' . $i . '</a>';
+									$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $i . '">' . $i . '</a>';
 								}
 							}
 							if ($pageNum == $countPages) {
-								echo '<span class="page-numbers current">' . $pageNum . '</span>';
+								$pagination .= '<span class="page-numbers current">' . $pageNum . '</span>';
 							}
 						}
 
 						if ($pageNum < $countPages) {
 							if (($pageNum + 4 < $countPages) && !$highDotsMade) {
-								echo '<span class="page-numbers dots">...</span>';
+								$pagination .= '<span class="page-numbers dots">...</span>';
 								$highDotsMade = true;
 							}
 							if ( isset($highDotsMade) ) {
-								echo '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $countPages . '">' . $countPages . '</a>';
+								$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $countPages . '">' . $countPages . '</a>';
 							}
-							echo '<a class="last page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . round($pageNum + 1) . '">&raquo;</a>';
+							$pagination .= '<a class="last page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . round($pageNum + 1) . '">&raquo;</a>';
 						}
+						echo $pagination;
 						?>
 					</div>
 
@@ -642,7 +643,7 @@ function gwolle_gb_page_entries() {
 									$html_output .= '
 										<td>
 											<label for="check-' . $entry->get_id() . '">';
-									$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), 100 );
+									$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), 17 );
 									if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 										$entry_content = convert_smilies($entry_content);
 									}
@@ -671,11 +672,11 @@ function gwolle_gb_page_entries() {
 							if ( is_array($entries) && count($entries) > 0 ) {
 								echo $massEditControls_select . $massEditControls;
 							}
-							// FIXME: place pagination here as well
 							?>
-							<br class="clear" />
 						</div>
-						<br class="clear" />
+						<div class="tablenav-pages">
+							<?php echo $pagination; ?>
+						</div>
 					</div>
 
 				</div>
