@@ -149,12 +149,15 @@ function gwolle_gb_page_import() {
 											$count = 0;
 											if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) {
 												// Get entry count
-												$count = $wpdb->query("
+												$sql = "
 													SELECT
-														id
+														COUNT(id) AS count
 													FROM
-														" . $wpdb->prefix . "dmsguestbook
-													");
+														" . $wpdb->prefix . "dmsguestbook";
+
+												$data = $wpdb->get_results( $sql, ARRAY_A );
+
+												$count = (int) $data[0]['count'];
 											} ?>
 										<div>
 											<?php
@@ -195,14 +198,14 @@ function gwolle_gb_page_import() {
 								</div>
 								<div id="wp_comm_div" class="postbox" >
 									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-									<h3 class='hndle'><?php // _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+									<h3 class='hndle'><?php _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside">
 
 									</div>
 								</div>
 								<div id="gwollediv" class="postbox">
 									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-									<h3 class='hndle'><?php // _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+									<h3 class='hndle'><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside">
 
 									</div>
