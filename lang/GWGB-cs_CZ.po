@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: guestbook\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-14 14:54+0100\n"
+"POT-Creation-Date: 2014-12-16 14:52+0100\n"
 "PO-Revision-Date: 2014-12-15 00:58+0100\n"
 "Last-Translator: Honya K. <korous.jan@gmail.com>\n"
 "Language-Team: HONYA K. <foto@honya-k.cz>\n"
@@ -33,14 +33,19 @@ msgstr "Záznamů"
 msgid "Entry editor"
 msgstr "Editor záznamu"
 
-#: actions.php:54 admin/page-gwolle-gb.php:84
+#: actions.php:54 admin/page-gwolle-gb.php:83
 msgid "New entry"
 msgstr "Nový záznam"
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:129
+#: actions.php:57 actions.php:79 admin/page-settings.php:129
 msgid "Settings"
 msgstr "Nastavení"
+
+#. /import.php
+#: actions.php:60
+msgid "Import"
+msgstr ""
 
 #: widget.php:12
 msgid "Displays the recent guestbook entries."
@@ -146,7 +151,7 @@ msgstr ""
 "Vypadá to, že došlo k chybě. <a href=\"%1\"> Klikněte zde pro "
 "pokračování ... </a>"
 
-#: admin/page-editor.php:16 admin/page-entries.php:17 admin/page-import.php:19
+#: admin/page-editor.php:16 admin/page-entries.php:16 admin/page-import.php:22
 #: admin/page-settings.php:16
 msgid "Cheatin&#8217; uh?"
 msgstr "Cheatin&#8217; uh?"
@@ -210,6 +215,8 @@ msgstr "Záznam nebyl uložen"
 #: admin/page-editor.php:267 admin/page-editor.php:388
 #: admin/page-editor.php:443 admin/page-editor.php:479
 #: admin/page-editor.php:490 admin/page-editor.php:498
+#: admin/page-import.php:139 admin/page-import.php:197
+#: admin/page-import.php:204
 msgid "Click to open or close"
 msgstr "Klidni pro otevření nebo zavření"
 
@@ -257,12 +264,12 @@ msgstr ""
 msgid "Save"
 msgstr "Uložit"
 
-#: admin/page-editor.php:389 admin/page-entries.php:656
+#: admin/page-editor.php:389 admin/page-entries.php:655
 msgid "Details"
 msgstr "Detaily"
 
-#: admin/page-editor.php:393 admin/page-entries.php:548
-#: admin/page-entries.php:564
+#: admin/page-editor.php:393 admin/page-entries.php:547
+#: admin/page-entries.php:563
 msgid "Author"
 msgstr "Text"
 
@@ -328,287 +335,287 @@ msgstr "Příklad: <code>http://www.example.com/</code>"
 msgid "Origin"
 msgstr "Město"
 
-#: admin/page-entries.php:210
+#: admin/page-entries.php:209
 msgid "entry checked."
 msgstr ""
 
-#: admin/page-entries.php:212
+#: admin/page-entries.php:211
 msgid "entries checked."
 msgstr ""
 
-#: admin/page-entries.php:214
+#: admin/page-entries.php:213
 msgid "No entries checked."
 msgstr ""
 
-#: admin/page-entries.php:218
+#: admin/page-entries.php:217
 msgid "entry unchecked."
 msgstr ""
 
-#: admin/page-entries.php:220
+#: admin/page-entries.php:219
 msgid "entries unchecked."
 msgstr ""
 
-#: admin/page-entries.php:222
+#: admin/page-entries.php:221
 msgid "No entries unchecked."
 msgstr ""
 
-#: admin/page-entries.php:226
+#: admin/page-entries.php:225
 msgid ""
 "entry marked as spam and submitted to Akismet as spam (if Akismet was "
 "enabled)."
 msgstr ""
 
-#: admin/page-entries.php:228
+#: admin/page-entries.php:227
 msgid ""
 "entries marked as spam and submitted to Akismet as spam (if Akismet was "
 "enabled)."
 msgstr ""
 
-#: admin/page-entries.php:230
+#: admin/page-entries.php:229
 msgid "No entries marked as spam."
 msgstr ""
 
-#: admin/page-entries.php:234
+#: admin/page-entries.php:233
 msgid ""
 "entry marked as not spam and submitted to Akismet as ham (if Akismet was "
 "enabled)."
 msgstr ""
 
-#: admin/page-entries.php:236
+#: admin/page-entries.php:235
 msgid ""
 "entries marked as not spam and submitted to Akismet as ham (if Akismet was "
 "enabled)."
 msgstr ""
 
-#: admin/page-entries.php:238
+#: admin/page-entries.php:237
 msgid "No entries marked as not spam."
 msgstr ""
 
-#: admin/page-entries.php:242
+#: admin/page-entries.php:241
 msgid "entry considered spam and marked as such."
 msgstr ""
 
-#: admin/page-entries.php:244
+#: admin/page-entries.php:243
 msgid "entries considered spam and marked as such."
 msgstr ""
 
-#: admin/page-entries.php:247
+#: admin/page-entries.php:246
 msgid "entry not considered spam and marked as such."
 msgstr ""
 
-#: admin/page-entries.php:249
+#: admin/page-entries.php:248
 msgid "entries not considered spam and marked as such."
 msgstr ""
 
-#: admin/page-entries.php:252
+#: admin/page-entries.php:251
 msgid "entry already considered spam and not changed."
 msgstr ""
 
-#: admin/page-entries.php:254
+#: admin/page-entries.php:253
 msgid "entries already considered spam and not changed."
 msgstr ""
 
-#: admin/page-entries.php:257
+#: admin/page-entries.php:256
 msgid "entry already considered not spam and not changed."
 msgstr ""
 
-#: admin/page-entries.php:259
+#: admin/page-entries.php:258
 msgid "entries already considered not spam and not changed."
 msgstr ""
 
-#: admin/page-entries.php:263
+#: admin/page-entries.php:262
 msgid "entry moved to trash."
 msgstr ""
 
-#: admin/page-entries.php:265
+#: admin/page-entries.php:264
 msgid "entries moved to trash."
 msgstr ""
 
-#: admin/page-entries.php:267
+#: admin/page-entries.php:266
 msgid "No entries moved to trash."
 msgstr ""
 
-#: admin/page-entries.php:271
+#: admin/page-entries.php:270
 msgid "entry recovered from trash."
 msgstr ""
 
-#: admin/page-entries.php:273
+#: admin/page-entries.php:272
 msgid "entries recovered from trash."
 msgstr ""
 
-#: admin/page-entries.php:275
+#: admin/page-entries.php:274
 msgid "No entries recovered from trash."
 msgstr ""
 
-#: admin/page-entries.php:279
+#: admin/page-entries.php:278
 msgid "entry removed permanently."
 msgstr ""
 
-#: admin/page-entries.php:281
+#: admin/page-entries.php:280
 msgid "entries removed permanently."
 msgstr ""
 
-#: admin/page-entries.php:283
+#: admin/page-entries.php:282
 msgid "No entries permanently removed."
 msgstr ""
 
-#: admin/page-entries.php:315
+#: admin/page-entries.php:314
 msgid "Please activate Akismet if you want to battle spam."
 msgstr "Aktivujte si prosím Akismet Chcete-li bojovat proti spamu"
 
-#: admin/page-entries.php:390
+#: admin/page-entries.php:389
 msgid "Guestbook entries"
 msgstr "Záznamy knihy návštěv"
 
-#: admin/page-entries.php:412
+#: admin/page-entries.php:411
 msgid "All"
 msgstr "Vše"
 
-#: admin/page-entries.php:417
+#: admin/page-entries.php:416
 msgid "Unlocked"
 msgstr "Schválené"
 
-#: admin/page-entries.php:421
+#: admin/page-entries.php:420
 msgid "New"
 msgstr "Nové"
 
-#: admin/page-entries.php:425
+#: admin/page-entries.php:424
 #: functions/gwolle_gb_get_dashboard_widget_row.func.php:50
 msgid "Spam"
 msgstr "Nevyžádané"
 
-#: admin/page-entries.php:429
+#: admin/page-entries.php:428
 #: functions/gwolle_gb_get_dashboard_widget_row.func.php:54
 msgid "Trash"
 msgstr "Odstraněné"
 
-#: admin/page-entries.php:436
+#: admin/page-entries.php:435
 msgid "Mass edit actions"
 msgstr "Hromadně upravit"
 
-#: admin/page-entries.php:439
+#: admin/page-entries.php:438
 msgid "Recover from trash"
 msgstr "Obnovit z koše"
 
-#: admin/page-entries.php:440 admin/page-entries.php:457
+#: admin/page-entries.php:439 admin/page-entries.php:456
 msgid "Remove permanently"
 msgstr "Trvale odstanit"
 
-#: admin/page-entries.php:443
+#: admin/page-entries.php:442
 msgid "Mark as checked"
 msgstr "Označit jako zkontrolované"
 
-#: admin/page-entries.php:446
+#: admin/page-entries.php:445
 msgid "Mark as not checked"
 msgstr "Označit jako nezkontrolované"
 
-#: admin/page-entries.php:449
+#: admin/page-entries.php:448
 msgid "Mark as spam"
 msgstr "Označit jako spam"
 
-#: admin/page-entries.php:451
+#: admin/page-entries.php:450
 msgid "Mark as not spam"
 msgstr "Označit jako Není spam"
 
-#: admin/page-entries.php:453
+#: admin/page-entries.php:452
 msgid "Check with Akismet"
 msgstr "Zkotrolovat s Akismet"
 
-#: admin/page-entries.php:455
+#: admin/page-entries.php:454
 msgid "Move to trash"
 msgstr "Přesunout do koše"
 
-#: admin/page-entries.php:462
+#: admin/page-entries.php:461
 msgid "Apply"
 msgstr "Aplikovat"
 
-#: admin/page-entries.php:472
+#: admin/page-entries.php:471
 msgid "Showing:"
 msgstr "Ukazuji:"
 
-#: admin/page-entries.php:473
+#: admin/page-entries.php:472
 msgid "of"
 msgstr "z"
 
-#: admin/page-entries.php:540 admin/page-entries.php:556
+#: admin/page-entries.php:539 admin/page-entries.php:555
 msgid "ID"
 msgstr "ID"
 
-#: admin/page-entries.php:546 admin/page-entries.php:562
+#: admin/page-entries.php:545 admin/page-entries.php:561
 msgid "Date"
 msgstr "Datum"
 
-#: admin/page-entries.php:547 admin/page-entries.php:563
+#: admin/page-entries.php:546 admin/page-entries.php:562
 msgid "Entry (excerpt)"
 msgstr "Autor"
 
-#: admin/page-entries.php:549 admin/page-entries.php:565
+#: admin/page-entries.php:548 admin/page-entries.php:564
 msgid "Action"
 msgstr "Akce"
 
-#: admin/page-entries.php:578
+#: admin/page-entries.php:577
 msgid "No entries found."
 msgstr "Nenalzeny žádné záznamy"
 
-#: admin/page-gwolle-gb.php:33
+#: admin/page-gwolle-gb.php:32
 msgid "Overview"
 msgstr "Přehled"
 
-#: admin/page-gwolle-gb.php:47
+#: admin/page-gwolle-gb.php:46
 msgid "Entry total"
 msgstr "Záznam"
 
-#: admin/page-gwolle-gb.php:50
+#: admin/page-gwolle-gb.php:49
 msgid "Entries total"
 msgstr "záznamy (ů) celkem"
 
-#: admin/page-gwolle-gb.php:66
+#: admin/page-gwolle-gb.php:65
 msgid "Unlocked entry"
 msgstr "Schválený záznam"
 
-#: admin/page-gwolle-gb.php:68
+#: admin/page-gwolle-gb.php:67
 msgid "Unlocked entries"
 msgstr "Schválené záznamy"
 
-#: admin/page-gwolle-gb.php:86
+#: admin/page-gwolle-gb.php:85
 msgid "New entries"
 msgstr "Nových záznamů"
 
-#: admin/page-gwolle-gb.php:102
+#: admin/page-gwolle-gb.php:101
 msgid "Spam entry"
 msgstr "Nevyžádaný"
 
-#: admin/page-gwolle-gb.php:104
+#: admin/page-gwolle-gb.php:103
 msgid "Spam entries"
 msgstr "Nevyžádané"
 
-#: admin/page-gwolle-gb.php:120
+#: admin/page-gwolle-gb.php:119
 msgid "Trashed entry"
 msgstr "Odstraněný"
 
-#: admin/page-gwolle-gb.php:122
+#: admin/page-gwolle-gb.php:121
 msgid "Trashed entries"
 msgstr "Odstraněných"
 
-#: admin/page-gwolle-gb.php:135
+#: admin/page-gwolle-gb.php:134
 msgid "Write admin entry"
 msgstr "Napsat záznam jako admin"
 
-#: admin/page-gwolle-gb.php:143
+#: admin/page-gwolle-gb.php:142
 msgid "This is how you can get your guestbook displayed on your website:"
 msgstr "Jak zobrazit knihu návštěv Gwolle na svém webu?"
 
-#: admin/page-gwolle-gb.php:145
+#: admin/page-gwolle-gb.php:144
 msgid "Create a new page."
 msgstr "Vytvořte novou stránku"
 
-#: admin/page-gwolle-gb.php:146
+#: admin/page-gwolle-gb.php:145
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
 msgstr "Nastavte název a do obsahu vepište \"[gwolle_gb]\" (bez uvozovek)"
 
-#: admin/page-gwolle-gb.php:147
+#: admin/page-gwolle-gb.php:146
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
@@ -616,102 +623,73 @@ msgstr ""
 "Je taky dobrý zakázat komentáře pro tuto stránku; jinak budou návštěvníci "
 "dost zmatený"
 
-#: admin/page-gwolle-gb.php:154
+#: admin/page-gwolle-gb.php:153
 msgid "These entries will be visible for your visitors:"
 msgstr "Tyto položky budou viditelné pro návštěvníky:"
 
-#: admin/page-gwolle-gb.php:156
+#: admin/page-gwolle-gb.php:155
 msgid "Marked as Checked."
 msgstr "Záznam musí být označen jako zkontrolovaný"
 
-#: admin/page-gwolle-gb.php:157
+#: admin/page-gwolle-gb.php:156
 msgid "Not marked as Spam."
 msgstr "Záznam nesmí být označen jako spam"
 
-#: admin/page-gwolle-gb.php:158
+#: admin/page-gwolle-gb.php:157
 msgid "Not marked as Trash."
 msgstr "Záznam nesmí být označen jako odstraněný"
 
-#: admin/page-gwolle-gb.php:162
+#: admin/page-gwolle-gb.php:161
 msgid "The Main Menu counter counts the following entries:"
 msgstr "Čítač v hlavním menu počítá následující záznamy:"
 
-#: admin/page-gwolle-gb.php:164
+#: admin/page-gwolle-gb.php:163
 msgid "Marked as Unchecked (You might want to moderate them)."
 msgstr "- označené jako nezkontrolované (Možná s nimi chcete pracovat)"
 
-#: admin/page-gwolle-gb.php:165
+#: admin/page-gwolle-gb.php:164
 msgid "Not marked as Spam (You might want to check them)."
 msgstr "- neoznačené jako spam (Možná byste je měli zkontrolovat)"
 
-#: admin/page-gwolle-gb.php:166
+#: admin/page-gwolle-gb.php:165
 msgid "Not marked as Trash (You decide what goes to the trash)."
 msgstr "- označeny jako odstraněné (Rozhodněte se, co jde do koše)"
 
-#: admin/page-gwolle-gb.php:175
+#: admin/page-gwolle-gb.php:174
 msgid "Icons by"
 msgstr "ikony od"
 
-#: admin/page-gwolle-gb.php:193
-msgid ""
-"It looks like you have been using the plugin &quot;DMSGuestbook&quot;.<br>Do "
-"you want to import its entries into Gwolle-GB?"
-msgstr ""
-"Vypadá to, že jste používali plugin &quot;DMSGuestbook&quot;.<br> Chcete "
-"importovat jeho položky do Gwolle GB?"
-
-#: admin/page-gwolle-gb.php:197
-msgid "Sure, take me to the import."
-msgstr "Jistě, pusť mě k importu!"
-
-#: admin/page-gwolle-gb.php:201 admin/page-gwolle-gb.php:212
-msgid ""
-"You may disable this message at the <a href=\"%1\">settings page</a> of "
-"Gwolle-GB."
-msgstr ""
-"Tuto zprávu můžeš zakázat v <a href=\"%1\">nastavení</a> pluginu Gwolle-GB"
-
-#: admin/page-gwolle-gb.php:206
-msgid "Nothing to import here."
-msgstr "Není tu nic k importu"
-
-#: admin/page-gwolle-gb.php:209
-msgid ""
-"If you had another guestbook plugin (e. g. DMSGuestbook) installed its "
-"entries could be imported into Gwolle-GB with just a few clicks."
-msgstr ""
-"Pokud máte nainstalován jiný pluginu návštěvní knihy (např DMSGuestbook), "
-"jeho položky lze importovat do Gwolle GB s několika málo kliknutí"
-
-#: admin/page-gwolle-gb.php:225
+#: admin/page-gwolle-gb.php:187
 msgid "Welcome to the Guestbook!"
 msgstr "Vítejte v knize návštěv!"
 
-#: admin/page-gwolle-gb.php:226
+#: admin/page-gwolle-gb.php:188
 msgid "This plugin uses the following scripts/programs/images:"
 msgstr "Tento plugin používá následující skripty scripts/programs/images:"
 
-#: admin/page-gwolle-gb.php:230 admin/page-gwolle-gb.php:231
+#: admin/page-gwolle-gb.php:189 admin/page-gwolle-gb.php:190
 msgid "Help"
 msgstr "Nápověda"
 
-#: admin/page-gwolle-gb.php:236
+#: admin/page-gwolle-gb.php:195
 msgid "Gwolle Guestbook"
 msgstr "Kniha návštěv Gwolle GB"
 
-#: admin/page-import.php:127
-msgid "Import guestbook entries from DMSGuestbook"
-msgstr "Importovat položky knihy návštěv z DMSGuestbook"
+#: admin/page-import.php:89
+msgid ""
+"I'm sorry, but I wasn't able to import entries from DMSGuestbook "
+"successfully."
+msgstr ""
 
-#: admin/page-import.php:129
-msgid "Import guestbook entries from other plugins"
-msgstr "Importovat položky knihy návštěv z jiných pluginů"
+#: admin/page-import.php:91
+msgid "1 entry imported successfully from DMSGuestbook."
+msgstr ""
 
-#: admin/page-import.php:142
-msgid "You haven't chosen a guestbook. Please select one and try again."
-msgstr "Nezvolili jste knihu návštěv. Vyberte jednu a zkuste to znovu"
+#: admin/page-import.php:93
+msgid "%1 entries imported successfully from DMSGuestbook."
+msgstr ""
 
-#: admin/page-import.php:143
+#: admin/page-import.php:97
 msgid ""
 "<strong>Nothing to import.</strong> The guestbook you've chosen does not "
 "contain any entries."
@@ -719,129 +697,84 @@ msgstr ""
 "<strong> nic k importu. </strong> do knihy návštěv. Ty, které jste vybrali, "
 "neobsahují žádné položky"
 
-#: admin/page-import.php:145
-msgid "One entry imported successfully."
-msgstr "Jeden záznam úspěšně importován"
-
-#: admin/page-import.php:147
-msgid "%1 entries imported successfully."
-msgstr "%1 záznam(y / ú) úspěšně importován(y)"
-
-#: admin/page-import.php:181
-msgid ""
-"Sorry, but I wasn't able to determine the pages at which your guestbook was "
-"displayed. You cannot choose the guestbook to import from."
+#: admin/page-import.php:102
+msgid "I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook."
 msgstr ""
-"Omlouvám se, ale nejsem schopen určit stránky, na které zobrazuje vaše kniha "
-"návštěv. K importu si  tuto knihu vybrat nemůžete"
 
-#: admin/page-import.php:190
+#: admin/page-import.php:107
+msgid "You haven't chosen a guestbook. Please select one and try again."
+msgstr "Nezvolili jste knihu návštěv. Vyberte jednu a zkuste to znovu"
+
+#: admin/page-import.php:119
+msgid "Import guestbook entries."
+msgstr ""
+
+#: admin/page-import.php:140
+msgid "Import guestbook entries from DMSGuestbook"
+msgstr "Importovat položky knihy návštěv z DMSGuestbook"
+
+#: admin/page-import.php:162
 msgid "%1 entries were found and will be imported."
 msgstr "%1 záznamy (ů) bylo nalezeno a budou importovány"
 
-#: admin/page-import.php:192
-msgid ""
-"I was able to find %1 configured DMSGuestbooks. Please choose the guestbook "
-"you want to import entries from."
+#: admin/page-import.php:164
+msgid "DMSGuestbook was not found."
 msgstr ""
-"Byl jsem schopen najít %1 nastavených DMSGuestbooks. Vyberte knihu, ze které "
-"chcete importovat záznamy"
 
-#: admin/page-import.php:198
-msgid "Page title"
-msgstr "Název stránky"
-
-#: admin/page-import.php:199
-msgid "Number of guestbook entries"
-msgstr "Počet záznamů v knize návštěv"
-
-#: admin/page-import.php:225
-msgid "Click here to view the entries of this guestbook..."
-msgstr "Knikněte pro zobrazení záznamů v této knize..."
-
-#: admin/page-import.php:225
-msgid "Review entries"
-msgstr "Přehled záznamů"
-
-#: admin/page-import.php:235
+#: admin/page-import.php:169
 msgid "The importer will preserve the following data per entry:"
 msgstr "Import uchová následující záznamy:"
 
-#: admin/page-import.php:237 frontend/write.php:95 frontend/write.php:100
+#: admin/page-import.php:171 frontend/write.php:95 frontend/write.php:100
 msgid "Name"
 msgstr "Jméno"
 
-#: admin/page-import.php:238
+#: admin/page-import.php:172
 msgid "E-Mail address"
 msgstr "Emailová adresa"
 
-#: admin/page-import.php:239
+#: admin/page-import.php:173
 msgid "URL/Website"
 msgstr "URL / Webová stránka"
 
-#: admin/page-import.php:240
+#: admin/page-import.php:174
 msgid "Date of the entry"
 msgstr "Čas záznamu"
 
-#: admin/page-import.php:241
+#: admin/page-import.php:175
 msgid "IP address"
 msgstr "IP adresa"
 
-#: admin/page-import.php:242
+#: admin/page-import.php:176
 msgid "Message"
 msgstr "Zpráva"
 
-#: admin/page-import.php:243
+#: admin/page-import.php:177
 msgid "\"is spam\" flag"
 msgstr "\"je spam\" vlajka"
 
-#: admin/page-import.php:244
+#: admin/page-import.php:178
 msgid "\"is checked\" flag"
 msgstr "\"označeno\" vlajka"
 
-#: admin/page-import.php:246
+#: admin/page-import.php:180
 msgid ""
-"However, data such as HTML formating and gravatars are not supported by "
-"Gwolle-GB and <strong>will not</strong> be imported."
+"However, data such as HTML formatting is not supported by Gwolle-GB and "
+"<strong>will not</strong> be imported."
 msgstr ""
-"Nicméně údaje, jako je HTML formátování a gravatary nejsou podporovány "
-"Gwolle GB a <strong> nebudou </strong> importovány"
 
-#: admin/page-import.php:248
+#: admin/page-import.php:182
 msgid ""
 "The importer does not delete any data, so you can go back whenever you want."
-"<br>Please start the import by pressing \"Start import\"."
 msgstr ""
-"Import neodstraní žádná data, takže se můžete vrátit kdykoliv budete chtít. "
-"<br>Prosím spusťte import stisknutím tlačítka  \"Start import\""
 
-#: admin/page-import.php:252
+#: admin/page-import.php:188
+msgid "Import all entries from DMSGuestbook."
+msgstr ""
+
+#: admin/page-import.php:192
 msgid "Start import"
 msgstr "Zahájit import"
-
-#: admin/page-import.php:260
-msgid ""
-"I'm sorry, but I wasn't able to find the table of DMSGuestbook. Please check "
-"your MySQL database and try again."
-msgstr ""
-"Je mi líto, ale nebyl jsem schopen najít tabulku DMSGuestbook. Zkontrolujte "
-"databázi MySQL a zkuste to znovu"
-
-#: admin/page-import.php:266
-msgid ""
-"You may want to import entries from another plugin. Click on the plugin's "
-"name to get more details on the import."
-msgstr ""
-"Možná budete chtít importovat položky z jiného pluginu. Klikněte na jméno "
-"pluginu k získání více informací o importu"
-
-#: admin/page-import.php:269
-msgid "Supported plugins:"
-msgstr "Podporované pluginy:"
-
-#: admin/page-import.php:280
-msgid "Table %1 not found."
-msgstr "Tabulky %1 nenalezeny."
 
 #: admin/page-settings.php:150
 msgid "Moderate Guestbook"
@@ -1285,6 +1218,101 @@ msgstr "Označit záznam jako spam"
 #: functions/gwolle_gb_get_dashboard_widget_row.func.php:54
 msgid "Move entry to trash."
 msgstr "Přesunout záznam do koše"
+
+#~ msgid ""
+#~ "It looks like you have been using the plugin &quot;DMSGuestbook&quot;."
+#~ "<br>Do you want to import its entries into Gwolle-GB?"
+#~ msgstr ""
+#~ "Vypadá to, že jste používali plugin &quot;DMSGuestbook&quot;.<br> Chcete "
+#~ "importovat jeho položky do Gwolle GB?"
+
+#~ msgid "Sure, take me to the import."
+#~ msgstr "Jistě, pusť mě k importu!"
+
+#~ msgid ""
+#~ "You may disable this message at the <a href=\"%1\">settings page</a> of "
+#~ "Gwolle-GB."
+#~ msgstr ""
+#~ "Tuto zprávu můžeš zakázat v <a href=\"%1\">nastavení</a> pluginu Gwolle-GB"
+
+#~ msgid "Nothing to import here."
+#~ msgstr "Není tu nic k importu"
+
+#~ msgid ""
+#~ "If you had another guestbook plugin (e. g. DMSGuestbook) installed its "
+#~ "entries could be imported into Gwolle-GB with just a few clicks."
+#~ msgstr ""
+#~ "Pokud máte nainstalován jiný pluginu návštěvní knihy (např DMSGuestbook), "
+#~ "jeho položky lze importovat do Gwolle GB s několika málo kliknutí"
+
+#~ msgid "Import guestbook entries from other plugins"
+#~ msgstr "Importovat položky knihy návštěv z jiných pluginů"
+
+#~ msgid "One entry imported successfully."
+#~ msgstr "Jeden záznam úspěšně importován"
+
+#~ msgid "%1 entries imported successfully."
+#~ msgstr "%1 záznam(y / ú) úspěšně importován(y)"
+
+#~ msgid ""
+#~ "Sorry, but I wasn't able to determine the pages at which your guestbook "
+#~ "was displayed. You cannot choose the guestbook to import from."
+#~ msgstr ""
+#~ "Omlouvám se, ale nejsem schopen určit stránky, na které zobrazuje vaše "
+#~ "kniha návštěv. K importu si  tuto knihu vybrat nemůžete"
+
+#~ msgid ""
+#~ "I was able to find %1 configured DMSGuestbooks. Please choose the "
+#~ "guestbook you want to import entries from."
+#~ msgstr ""
+#~ "Byl jsem schopen najít %1 nastavených DMSGuestbooks. Vyberte knihu, ze "
+#~ "které chcete importovat záznamy"
+
+#~ msgid "Page title"
+#~ msgstr "Název stránky"
+
+#~ msgid "Number of guestbook entries"
+#~ msgstr "Počet záznamů v knize návštěv"
+
+#~ msgid "Click here to view the entries of this guestbook..."
+#~ msgstr "Knikněte pro zobrazení záznamů v této knize..."
+
+#~ msgid "Review entries"
+#~ msgstr "Přehled záznamů"
+
+#~ msgid ""
+#~ "However, data such as HTML formating and gravatars are not supported by "
+#~ "Gwolle-GB and <strong>will not</strong> be imported."
+#~ msgstr ""
+#~ "Nicméně údaje, jako je HTML formátování a gravatary nejsou podporovány "
+#~ "Gwolle GB a <strong> nebudou </strong> importovány"
+
+#~ msgid ""
+#~ "The importer does not delete any data, so you can go back whenever you "
+#~ "want.<br>Please start the import by pressing \"Start import\"."
+#~ msgstr ""
+#~ "Import neodstraní žádná data, takže se můžete vrátit kdykoliv budete "
+#~ "chtít. <br>Prosím spusťte import stisknutím tlačítka  \"Start import\""
+
+#~ msgid ""
+#~ "I'm sorry, but I wasn't able to find the table of DMSGuestbook. Please "
+#~ "check your MySQL database and try again."
+#~ msgstr ""
+#~ "Je mi líto, ale nebyl jsem schopen najít tabulku DMSGuestbook. "
+#~ "Zkontrolujte databázi MySQL a zkuste to znovu"
+
+#~ msgid ""
+#~ "You may want to import entries from another plugin. Click on the plugin's "
+#~ "name to get more details on the import."
+#~ msgstr ""
+#~ "Možná budete chtít importovat položky z jiného pluginu. Klikněte na jméno "
+#~ "pluginu k získání více informací o importu"
+
+#~ msgid "Supported plugins:"
+#~ msgstr "Podporované pluginy:"
+
+#~ msgid "Table %1 not found."
+#~ msgstr "Tabulky %1 nenalezeny."
 
 #~ msgid ""
 #~ "Warning: You're about to check an entry that is marked as spam. Continue?"
