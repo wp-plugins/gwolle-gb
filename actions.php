@@ -57,10 +57,9 @@ function gwolle_gb_adminmenu() {
 	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Settings', GWOLLE_GB_TEXTDOMAIN), __('Settings', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/settings.php', 'gwolle_gb_page_settings' );
 
 	// Admin page: admin/import.php
-	// FIXME, rename function to gwolle_gb_page_import
-	//add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Import', GWOLLE_GB_TEXTDOMAIN), __('Import', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/import.php', 'gwolle_gb_import' );
+	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Import', GWOLLE_GB_TEXTDOMAIN), __('Import', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/import.php', 'gwolle_gb_page_import' );
 
-	// FIXME: add Export page
+	// FIXME: Admin page: admin/export.php
 
 	// Load Admin CSS
 	wp_enqueue_style( 'gwolle-gb-css', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/style.css', false, GWOLLE_GB_VER, 'all' );

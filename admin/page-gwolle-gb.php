@@ -10,7 +10,6 @@
 if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
 
 function gwolle_gb_overview(){
-	global $userLevelNames; // FIXME
 
 	// Calculate the number of entries
 	$count = Array();
@@ -132,7 +131,7 @@ function gwolle_gb_overview(){
 	</div><!-- Table-DIV -->
 	<div class="versions">
 		<p>
-			<a class="button rbutton" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php _e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
+			<a class="button rbutton button button-primary" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php _e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
 		</p>
 	</div>
 <?php }
@@ -152,7 +151,7 @@ function gwolle_gb_overview_help() {
 function gwolle_gb_overview_help_more() {
 	echo '<h3>
 	'.__('These entries will be visible for your visitors:', GWOLLE_GB_TEXTDOMAIN).'</h3>
-	<ul>
+	<ul class="ul-disc">
 		<li>'.__('Marked as Checked.', GWOLLE_GB_TEXTDOMAIN).'</li>
 		<li>'.__('Not marked as Spam.', GWOLLE_GB_TEXTDOMAIN).'</li>
 		<li>'.__('Not marked as Trash.',GWOLLE_GB_TEXTDOMAIN).'</li>
@@ -160,7 +159,7 @@ function gwolle_gb_overview_help_more() {
 
 	echo '<h3>
 	'.__('The Main Menu counter counts the following entries:', GWOLLE_GB_TEXTDOMAIN).'</h3>
-	<ul>
+	<ul class="ul-disc">
 		<li>'.__('Marked as Unchecked (You might want to moderate them).', GWOLLE_GB_TEXTDOMAIN).'</li>
 		<li>'.__('Not marked as Spam (You might want to check them).', GWOLLE_GB_TEXTDOMAIN).'</li>
 		<li>'.__('Not marked as Trash (You decide what goes to the trash).',GWOLLE_GB_TEXTDOMAIN).'</li>
@@ -178,55 +177,15 @@ function gwolle_gb_overview_thanks() {
 }
 
 
-// FIXME: move this somewhere to page-import.php
-function gwolle_gb_overview_import() {
-	global $wpdb;
-	//  Check if the 'dmsguestbook' table exists
-	$sql = "
-		SHOW
-		TABLES
-		LIKE '".$wpdb->prefix."dmsguestbook'";
-	$foundTables = $wpdb->get_results($sql, ARRAY_A);
-	if (isset($foundTables[0])) {
-		if ($foundTables[0] === $wpdb->prefix.'dmsguestbook') {
-			echo '
-			'.__('It looks like you have been using the plugin &quot;DMSGuestbook&quot;.<br>Do you want to import its entries into Gwolle-GB?',GWOLLE_GB_TEXTDOMAIN).'
-			<br />
-			<p>
-			<a class="button rbutton" href="admin.php?page='.GWOLLE_GB_FOLDER.'/gwolle-gb.php&amp;do=import&amp;what=dmsguestbook">
-			<strong>'.__('Sure, take me to the import.',GWOLLE_GB_TEXTDOMAIN).'</strong>
-			</a>
-			</p>
-			<span style="font-size:10px;">
-			'.str_replace('%1','admin.php?page='.GWOLLE_GB_FOLDER.'/settings.php',__('You may disable this message at the <a href="%1">settings page</a> of Gwolle-GB.',GWOLLE_GB_TEXTDOMAIN)).'
-			</span>';
-			}
-			else {
-			echo '
-			'.__('Nothing to import here.',GWOLLE_GB_TEXTDOMAIN).'
-			<br />
-			<br />
-			'.__('If you had another guestbook plugin (e. g. DMSGuestbook) installed its entries could be imported into Gwolle-GB with just a few clicks.',GWOLLE_GB_TEXTDOMAIN).'
-			<br />
-			<br />
-			'.str_replace('%1','admin.php?page='.GWOLLE_GB_FOLDER.'/settings.php',__('You may disable this message at the <a href="%1">settings page</a> of Gwolle-GB.',GWOLLE_GB_TEXTDOMAIN));
-		}
-	}
-}
-
-
 /* Show the page */
 function gwolle_gb_welcome() {
 	global $wpdb;
 
-	if (get_option('gwolle_gb_version') === FALSE) {
+	if (get_option('gwolle_gb_version', false) === false) {
 		gwolle_gb_installSplash();
 	} else {
 		add_meta_box('dashboard_right_now', __('Welcome to the Guestbook!',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview', 'gwolle_gb_welcome', 'left', 'core');
 		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts/programs/images:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'left', 'core');
-		if (get_option('gwolle_gb-checkForImport', 'true') == 'true') {
-			//add_meta_box('gwolle_gb_import', __('Import', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_import', 'gwolle_gb_welcome', 'right', 'core');
-		}
 		add_meta_box('gwolle_gb_help', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');
 		add_meta_box('gwolle_gb_help_more', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help_more', 'gwolle_gb_welcome', 'right', 'core');
 

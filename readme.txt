@@ -78,7 +78,7 @@ With version 1.0 there have been some changes:
 
 * Bughunting (check all the FIXME's in the code).
 * Make Install method more safe.
-* Bring Import method back and refactor it. Add more sources.
+* Add more sources for import page. Add export as well.
 * Bring Uninstall back, this time in a separate admin page?
 * Bring AJAX back, this time inside actions.
 * Bring Dashboard Widget back.
@@ -164,6 +164,7 @@ Yes, it is again actively maintained.
 
 = 1.0.4 =
 * 2014-12-
+* Bring back Import from DMSGuestbook.
 * Update cs_CZ (Thanks Jan Korous).
 
 = 1.0.3 =

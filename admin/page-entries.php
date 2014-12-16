@@ -11,7 +11,6 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 
 
 function gwolle_gb_page_entries() {
-	global $wpdb; // FIXME
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
 		die(__('Cheatin&#8217; uh?'));
@@ -402,7 +401,7 @@ function gwolle_gb_page_entries() {
 				<input type="hidden" name="gwolle_gb_page" value="entries" />
 				<!-- the following fields give us some information we're going to use processing the mass edit -->
 				<input type="hidden" name="pageNum" value="<?php echo $pageNum; ?>">
-				<input type="hidden" name="entriesOnThisPage" value="<?php $wpdb->num_rows; ?>">
+				<input type="hidden" name="entriesOnThisPage" value="<?php echo count($entries); ?>">
 				<input type="hidden" name="show" value="<?php echo $show; ?>">
 
 				<ul class="subsubsub">
@@ -668,7 +667,7 @@ function gwolle_gb_page_entries() {
 						<div class="alignleft actions">
 							<?php
 							$massEditControls_select = '<select name="massEditAction2">';
-							// It makes no sense to show the mass edit controls when there are no entries to edit. ;)
+							// It makes no sense to show the mass edit controls when there are no entries to edit.
 							if ( is_array($entries) && count($entries) > 0 ) {
 								echo $massEditControls_select . $massEditControls;
 							}
