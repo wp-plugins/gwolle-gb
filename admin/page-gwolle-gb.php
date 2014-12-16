@@ -140,7 +140,7 @@ function gwolle_gb_overview(){
 function gwolle_gb_overview_help() {
 	echo '<h3>
 	'.__('This is how you can get your guestbook displayed on your website:', GWOLLE_GB_TEXTDOMAIN).'</h3>
-	<ul>
+	<ul class="ul-disc">
 		<li>'.__('Create a new page.', GWOLLE_GB_TEXTDOMAIN).'</li>
 		<li>'.__("Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the content.", GWOLLE_GB_TEXTDOMAIN).'</li>
 		<li>'.__("It is probably a good idea to disable comments on that page; otherwise, your visitors might get a little confused.",GWOLLE_GB_TEXTDOMAIN).'</li>

@@ -97,10 +97,22 @@ function gwolle_gb_get_entries($args = array()) {
 
 	$tablename = $wpdb->prefix . "gwolle_gb_entries";
 
-	// FIXME, donot use * but list all the columns we want, it is cheaper for the db
 	$sql = "
 			SELECT
-				*
+				`entry_id`,
+				`entry_author_name`,
+				`entry_authorAdminId`,
+				`entry_author_email`,
+				`entry_author_origin`,
+				`entry_author_website`,
+				`entry_author_ip`,
+				`entry_author_host`,
+				`entry_content`,
+				`entry_date`,
+				`entry_isChecked`,
+				`entry_checkedBy`,
+				`entry_isDeleted`,
+				`entry_isSpam`
 			FROM
 				" . $tablename . "
 			WHERE
