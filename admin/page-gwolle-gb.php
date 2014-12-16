@@ -40,7 +40,7 @@ function gwolle_gb_overview(){
 						</a>
 					</td>
 
-					<td class="t">
+					<td class="t" style="color:#0000f0;">
 						<?php
 							if ($count['all']==1) {
 								_e('Entry total',GWOLLE_GB_TEXTDOMAIN);
@@ -179,7 +179,6 @@ function gwolle_gb_overview_thanks() {
 
 /* Show the page */
 function gwolle_gb_welcome() {
-	global $wpdb;
 
 	if (get_option('gwolle_gb_version', false) === false) {
 		gwolle_gb_installSplash();

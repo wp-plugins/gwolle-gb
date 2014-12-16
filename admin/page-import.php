@@ -136,8 +136,8 @@ function gwolle_gb_page_import() {
 						<div id="post-body-content">
 							<div id='normal-sortables' class='meta-box-sortables'>
 								<div id="dmsdiv" class="postbox" >
-									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-									<h3 class='hndle'><?php _e('Import guestbook entries from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside"><?php
 											// Does the table of DMSGuestbook exist?
 											$sql = "
@@ -197,15 +197,15 @@ function gwolle_gb_page_import() {
 									</div>
 								</div>
 								<div id="wp_comm_div" class="postbox" >
-									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-									<h3 class='hndle'><?php _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside">
 
 									</div>
 								</div>
 								<div id="gwollediv" class="postbox">
-									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-									<h3 class='hndle'><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside">
 
 									</div>

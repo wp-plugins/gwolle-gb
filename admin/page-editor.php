@@ -264,8 +264,8 @@ function gwolle_gb_page_editor() {
 						<div id='side-sortables' class='meta-box-sortables'>
 
 							<div id="submitdiv" class="postbox">
-								<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-								<h3 class='hndle'><span><?php _e('Options', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+								<div class="handlediv"></div>
+								<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Options', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 								<div class="inside">
 									<div class="submitbox" id="submitpost">
 										<div id="minor-publishing">
@@ -385,8 +385,8 @@ function gwolle_gb_page_editor() {
 							</div><!-- 'submitdiv' -->
 
 							<div id="gwolle_gb-entry-details" class="postbox " >
-								<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-								<h3 class='hndle'><span><?php _e('Details', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+								<div class="handlediv"></div>
+								<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Details', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 								<div class="inside">
 									<div class="tagsdiv" id="post_tag">
 										<p>
@@ -440,8 +440,8 @@ function gwolle_gb_page_editor() {
 							</div><!-- postbox -->
 
 							<div id="tagsdiv-post_tag" class="postbox">
-								<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-								<h3 class='hndle'><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+								<div class="handlediv"></div>
+								<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 								<div class="inside">
 									<div class="tagsdiv" id="post_tag">
 										<div id="categories-pop" class="tabs-panel" style="max-height:400px;overflow:auto;"> <?php /* FIXME: place in CSS file */ ?>
@@ -476,8 +476,8 @@ function gwolle_gb_page_editor() {
 							<?php // FIXME: add labels ?>
 							<div id='normal-sortables' class='meta-box-sortables'>
 								<div id="contentdiv" class="postbox" >
-									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-									<h3 class='hndle'><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
 										<textarea rows="10" cols="56" name="gwolle_gb_content" tabindex="1"><?php echo gwolle_gb_output_to_input_field( $entry->get_content() ); ?></textarea>
 										<?php
@@ -487,16 +487,16 @@ function gwolle_gb_page_editor() {
 									</div>
 								</div>
 								<div id="authordiv" class="postbox " >
-									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-									<h3 class='hndle'><span><?php _e('Homepage', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Homepage', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
 										<input type="text" name="gwolle_gb_author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_output_to_input_field( $entry->get_author_website() ); ?>" id="author_website" />
 										<p><?php _e("Example: <code>http://www.example.com/</code>", GWOLLE_GB_TEXTDOMAIN); ?></p>
 									</div>
 								</div>
 								<div id="authordiv" class="postbox ">
-									<div class="handlediv" title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"></div>
-									<h3 class='hndle'><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
 										<input type="text" name="gwolle_gb_author_origin" size="58" tabindex="3" value="<?php echo gwolle_gb_output_to_input_field( $entry->get_author_origin() ); ?>" id="author_origin" />
 									</div>

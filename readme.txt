@@ -165,6 +165,7 @@ Yes, it is again actively maintained.
 = 1.0.4 =
 * 2014-12-
 * Bring back Import from DMSGuestbook.
+* Postboxes can be closed now.
 * Add cs_CZ (Thanks Jan Korous).
 
 = 1.0.3 =
