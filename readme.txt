@@ -162,6 +162,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.0.5 =
+* 2014-12-
+* Cleanup obsolete options.
+
 = 1.0.4 =
 * 2014-12-16
 * Bring back Import from DMSGuestbook.
