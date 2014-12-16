@@ -27,7 +27,7 @@ function gwolle_gb_page_settings() {
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) {
 
 			// Array of settings configured using checkboxes
-			$checkbox_settings = array('moderate-entries', 'akismet-active', 'showEntryIcons', 'showLineBreaks', 'checkForImport', 'showSmilies', 'linkAuthorWebsite');
+			$checkbox_settings = array('moderate-entries', 'akismet-active', 'showEntryIcons', 'showLineBreaks', 'showSmilies', 'linkAuthorWebsite');
 			foreach ($checkbox_settings as $setting_name) {
 				if (isset($_POST[$setting_name]) && $_POST[$setting_name] == 'on') {
 					update_option('gwolle_gb-' . $setting_name, 'true');
@@ -400,23 +400,6 @@ function gwolle_gb_page_settings() {
 										echo '%' . $mailTags[$i] . '%';
 									}
 									?>
-								</span>
-							</td>
-						</tr>
-
-
-						<tr valign="top">
-							<th scope="row"><label for="checkForImport"><?php _e('Check for import', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
-							<td>
-								<input <?php
-									if (get_option( 'gwolle_gb-checkForImport', 'true' ) === 'true' ) {
-										echo 'checked="checked"';
-									}
-									?> type="checkbox" name="checkForImport" id="checkForImport" />
-								<?php _e('Check if there are other guestbook plugins installed to import their entries (deprecated, will be refactored).', GWOLLE_GB_TEXTDOMAIN); ?>
-								<br />
-								<span class="setting-description">
-									<?php _e("If Gwolle-GB detects another guestbook plugin for WordPress it will prompt you to import that guestbooks's data.", GWOLLE_GB_TEXTDOMAIN); ?>
 								</span>
 							</td>
 						</tr>

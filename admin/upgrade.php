@@ -78,17 +78,11 @@ function install_gwolle_gb() {
 	//	Add option to toggle the visibility of line breaks
 	add_option('gwolle_gb-showLineBreaks', 'false');
 
-	//  Add option to toggle check if there is data to import.
-	add_option('gwolle_gb-checkForImport', 'true');
-
 	//  Add option to toggle replacing of smilies with graphics.
 	add_option('gwolle_gb-showSmilies', 'true');
 
 	//  Add option to toogle linking of author's website
 	add_option('gwolle_gb-linkAuthorWebsite', 'true');
-
-	//  Add option for the post ID of Gwolle-GB
-	add_option('gwolle_gb-post_ID', 'false');
 
 	//	Save plugin version to database
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
@@ -359,7 +353,6 @@ function upgrade_gwolle_gb() {
 		 *  0.9.9.1->0.9.9.2
 		 *  Remove the options of Users that are subcribed to notification mails
 		 */
-		// FIXME: test this
 		$wpdb->query("
 				DELETE
 					FROM " . $wpdb->prefix . "options
@@ -369,6 +362,16 @@ function upgrade_gwolle_gb() {
 					option_name LIKE 'gwolle_gb-notifyAll-%'
 			");
 
+	}
+
+	if (version_compare($installed_ver, '1.0.5', '<')) {
+		/*
+		 *  1.0.4->1.0.5
+		 *  Remove obsolete options
+		 */
+		delete_option('gwolle_gb-access-level');
+		delete_option('gwolle_gb-checkForImport');
+		delete_option('gwolle_gb-post_ID');
 	}
 
 	// Update the plugin version option
