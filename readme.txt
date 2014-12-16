@@ -25,9 +25,7 @@ Current features include:
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
 * reCAPTCHA integration for fighting spam, too.
-* Localisation (currently English, German, French, Spanish, Polish and Dutch). Own languages can be added very easily,
-  check WP documentation on this. If you translated the plugin I'd be glad to include your language in a future release,
-  so please send them to my via mail, thanks!
+* Localisation. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
 * IP-address and host-logging with link to WHOIS query site.
@@ -45,6 +43,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
 = Languages =
 
+* cs_CZ [Jan Korous]
 * de_DE [Wolfgang Timme]
 * en_GB [Wolfgang Timme]
 * es_ES [José Luis Sanz Ruiz]
@@ -141,13 +140,13 @@ For managing options you need the capability manage_options. For subscribing to 
 = Should I really not use WordPress comments for a guestbook? =
 
 Sure you can if you want to. In my personal opinion however it can be a good thing to keep comments and guestbook entries separated.
-So if you already have a blog with comments, the guestbook entries might get lost in there. But if you don't use standard comments,
-you can just as easily use the comment section for a guestbook.
+So if you already have a blog with comments, the guestbook entries might get lost in there, and keeping a separatge guestbook can be good.
+But if you don't use standard comments, you can just as easily use the comment section for a guestbook.
 
 = How do I localize a plugin? =
 
 A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
-and also the WordPress documentation.
+and also the WordPress documentation. When you made a translation, you can send the po-file to marcel at timelord.nl.
 
 = Is this plugin actively maintained? =
 
@@ -162,6 +161,10 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.0.4 =
+* 2014-12-
+* Update cs_CZ (Thanks Jan Korous).
 
 = 1.0.3 =
 * 2014-12-14
