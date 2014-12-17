@@ -164,7 +164,9 @@ Yes, it is again actively maintained.
 
 = 1.0.5 =
 * 2014-12-
+* Start of the Dashboard Widget.
 * Cleanup obsolete options.
+* Update cs_CZ.
 
 = 1.0.4 =
 * 2014-12-16

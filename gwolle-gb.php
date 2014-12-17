@@ -80,8 +80,7 @@ include_once( GWOLLE_GB_DIR . '/actions.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/widget.php' );
 
 // Dashboard widget (for the WP-Admin dashboard)
-// include_once( GWOLLE_GB_DIR . '/admin/dashboard-widget.php' );
-// include_once( GWOLLE_GB_DIR . '/functions/gwolle_gb_get_dashboard_widget_row.func.php' );
+include_once( GWOLLE_GB_DIR . '/admin/dashboard-widget.php' );
 
 
 /*
