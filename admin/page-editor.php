@@ -154,7 +154,8 @@ function gwolle_gb_page_editor() {
 						$entry->delete();
 						$entry->set_id(0);
 						$changed = true;
-						$gwolle_gb_messages .= '<p>' . __('Entry removed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						// Overwrite any other message, only removal is relevant.
+						$gwolle_gb_messages = '<p>' . __('Entry removed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					}
 				}
 

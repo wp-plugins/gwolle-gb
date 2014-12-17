@@ -139,7 +139,7 @@ function gwolle_gb_get_log_entries( $subject_id ) {
 
 	foreach ( $entries as $entry ) {
 		$log_entry = array(
-			'id'        => (int) $entry['log_id'],
+			'id'        => (int) $entry['log_subjectId'],
 			'subject'   => stripslashes($entry['log_subject']),
 			'author_id' => (int) $entry['log_authorId'],
 			'log_date'  => stripslashes($entry['log_date'])
