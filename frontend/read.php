@@ -28,7 +28,7 @@ function gwolle_gb_frontend_read() {
 		array(
 			'checked' => 'checked',
 			'deleted' => 'notdeleted',
-			'spam' => 'nospam'
+			'spam'    => 'nospam'
 		)
 	);
 
@@ -82,7 +82,7 @@ function gwolle_gb_frontend_read() {
 		if ($countPages < 5) {
 			$showRange = $countPages;
 		} else {
-			$showRange = 6;
+			$showRange = 5;
 		}
 
 		for ($i = 1; $i < ($showRange + 1); $i++) {

@@ -165,6 +165,7 @@ Yes, it is again actively maintained.
 * 2014-12-
 * Add best entries to Frontend Widget.
 * Start of the Dashboard Widget (for now without AJAX).
+* Fix small pagination issue.
 * Cleanup obsolete options.
 * Update cs_CZ.
 
