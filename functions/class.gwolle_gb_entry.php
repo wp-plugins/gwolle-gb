@@ -344,7 +344,7 @@ class gwolle_gb_entry {
 
 		return true;
 	}
-	// FIXME: integrate the setters and checkers? It's all the same anyway
+
 	public function set_id($id) {
 		$id = intval($id);
 		if ($id) {

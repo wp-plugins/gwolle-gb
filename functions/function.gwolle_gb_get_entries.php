@@ -11,7 +11,6 @@
  * - deleted			string: 'deleted' or 'notdeleted', List the entries that are deleted or not deleted
  * - spam				string: 'spam' or 'nospam', List the entries marked as spam or as no spam
  * - email				string: The emailaddress to search for
- * - entry_id			int: Show this single entry  FIXME: should this still be here? Why not just use new and set_data()
  *
  * Return:
  * - Array of objects of gwolle_gb_entry
@@ -70,16 +69,7 @@ function gwolle_gb_get_entries($args = array()) {
 			entry_author_email = %s";
 		$values[] = $args['email'];
 	}
-	if (isset($args['entry_id'])) {
-		if ((int) $args['entry_id'] > 0) {
-			$where .= "
-				AND
-				entry_id = %d";
-			$values[] = $args['entry_id'];
-		} else {
-			return false;
-		}
-	}
+
 	// Limit
 	if ( is_admin() ) {
 		$perpage_option = (int) get_option('gwolle_gb-entries_per_page', 20);
@@ -163,13 +153,7 @@ function gwolle_gb_get_entries($args = array()) {
 			// Add entry to the array of all entries
 			$entries[] = $entry;
 		}
-
-		if (isset($args['entry_id'])) {
-			// Just return one entry
-			return $entries[0];
-		} else {
-			return $entries;
-		}
+		return $entries;
 	}
 	return false;
 }
