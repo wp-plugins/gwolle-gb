@@ -25,10 +25,7 @@ function gwolle_gb_page_import() {
 
 	if ( isset( $_POST['gwolle_gb_page']) &&  $_POST['gwolle_gb_page'] == 'gwolle_gb_import' ) {
 
-		if (isset($_POST['start_import'])) {
-
-			// Supported options could be: DMSguestbook, Standard WordPress comments, and Gwolle-GB from an xml.
-			$supported = array( 'dmsguestbook' );
+		if (isset($_POST['start_import_dms'])) {
 
 			if ( isset($_POST['dmsguestbook']) && $_POST['dmsguestbook'] == 'on' ) {
 				// Import all entries from DMSGuestbook
@@ -192,7 +189,7 @@ function gwolle_gb_page_import() {
 											</label>
 										</p>
 										<p>
-											<input name="start_import" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+											<input name="start_import_dms" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
 										</p>
 									</div>
 								</div>
