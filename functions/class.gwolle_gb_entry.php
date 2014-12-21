@@ -346,83 +346,120 @@ class gwolle_gb_entry {
 	}
 	// FIXME: integrate the setters and checkers? It's all the same anyway
 	public function set_id($id) {
-		$id = $this->check_id($id);
+		$id = intval($id);
 		if ($id) {
 			$this->id = $id;
 		}
 	}
 	public function set_author_name($author_name) {
-		$author_name = $this->check_author_name($author_name);
+		// User input
+		$author_name = trim($author_name);
+		$author_name = addslashes($author_name);
+		$author_name = strval($author_name);
 		if ($author_name) {
 			$this->author_name = $author_name;
 		}
 	}
 	public function set_authoradminid($authoradminid) {
-		$authoradminid = $this->check_authoradminid($authoradminid);
+		$authoradminid = intval($authoradminid);
 		if ($authoradminid) {
 			$this->authoradminid = $authoradminid;
 		}
 	}
 	public function set_author_email($author_email) {
-		$author_email = $this->check_author_email($author_email);
+		// User input
+		$author_email = trim($author_email);
+		$author_email = addslashes($author_email);
+		$author_email = strval($author_email);
+		$author_email = filter_var($author_email, FILTER_VALIDATE_EMAIL);
 		if ($author_email) {
 			$this->author_email = $author_email;
 		}
 	}
 	public function set_author_origin($author_origin) {
-		$author_origin = $this->check_author_origin($author_origin);
+		// User input
+		$author_origin = trim($author_origin);
+		$author_origin = addslashes($author_origin);
+		$author_origin = strval($author_origin);
 		if ($author_origin) {
 			$this->author_origin = $author_origin;
 		}
 	}
 	public function set_author_website($author_website) {
-		$author_website = $this->check_author_website($author_website);
+		// User input
+		$author_website = trim($author_website);
+		$author_website = addslashes($author_website);
+		$author_website = strval($author_website);
+		$pattern = '/^http/';
+		if ( !preg_match($pattern, $author_website, $matches) ) {
+			$author_website = "http://" . $author_website;
+		}
+		$author_website = filter_var($author_website, FILTER_VALIDATE_URL);
 		if ($author_website) {
 			$this->author_website = $author_website;
 		}
 	}
 	public function set_author_ip($author_ip = NULL) {
-		$author_ip = $this->check_author_ip($author_ip);
+		if ( empty($author_ip) ) {
+			$author_ip = $_SERVER['REMOTE_ADDR'];
+		}
+		$author_ip = trim($author_ip);
+		$author_ip = addslashes($author_ip);
+		$author_ip = strval($author_ip);
 		if ($author_ip) {
 			$this->author_ip = $author_ip;
 		}
 	}
 	public function set_author_host($author_host = NULL) {
-		$author_host = $this->check_author_host($author_host);
+		$author_host = trim($author_host);
+		$author_host = addslashes($author_host);
+		// Don't use this here, only when it is really needed, like on a new entry
+		// $author_host = gethostbyaddr( $author_ip );
 		if ($author_host) {
 			$this->author_host = $author_host;
 		}
 	}
 	public function set_content($content) {
-		$content = $this->check_content($content);
-		if ($content) {
+		// User input
+		$content = trim($content);
+		$content = stripslashes($content); // Make sure we're not just adding lots of slashes.
+		$content = addslashes($content);
+		$content = strval($content);
+		$content = strip_tags($content);
+		if ( strlen($content) > 0 ) {
 			$this->content = $content;
 		}
 	}
 	public function set_date($date = NULL) {
-		$date = $this->check_date($date);
+		$date = trim($date);
+		$date = addslashes($date);
+		if ( !$date ) {
+			$date = current_time( 'timestamp' );
+		}
 		if ($date) {
 			$this->date = $date;
 		}
 	}
 	public function set_ischecked($ischecked) {
 		// $ischecked means the message has been moderated
-		$ischecked = $this->check_ischecked($ischecked);
+		$ischecked = intval($ischecked);
 		$this->ischecked = $ischecked;
 	}
 	public function set_checkedby($checkedby) {
 		// $checkedby is a userid of the moderator
-		$checkedby = $this->check_checkedby($checkedby);
+		$checkedby = intval($checkedby);
+		// FIXME: Check if user exists
+
 		if ($checkedby) {
 			$this->checkedby = $checkedby;
 		}
 	}
 	public function set_isdeleted($isdeleted) {
-		$isdeleted = $this->check_isdeleted($isdeleted);
+		$isdeleted = intval($isdeleted);
 		$this->isdeleted = $isdeleted;
 	}
 	public function set_isspam($isspam) {
-		$isspam = $this->check_isspam($isspam);
+		$isspam = intval($isspam);
 		$this->isspam = $isspam;
 	}
 
@@ -470,112 +507,6 @@ class gwolle_gb_entry {
 	}
 	public function get_isspam() {
 		return $this->isspam;
-	}
-
-
-	/*
-	 * The Check methods.
-	 * Check and normalize the data.
-	 * Arg:    The data to be checked.
-	 * Return: The data that has been validated and normalized.
-	 *         Or false if it's not valid.
-	 */
-
-	public function check_id($id) {
-		$id = intval($id);
-		return $id;
-	}
-	public function check_author_name($author_name) {
-		// User input
-		$author_name = trim($author_name);
-		$author_name = addslashes($author_name);
-		$author_name = strval($author_name);
-		return $author_name;
-	}
-	public function check_authoradminid($authoradminid) {
-		$authoradminid = intval($authoradminid);
-		return $authoradminid;
-	}
-	public function check_author_email($author_email) {
-		// User input
-		$author_email = trim($author_email);
-		$author_email = addslashes($author_email);
-		$author_email = strval($author_email);
-		return filter_var($author_email, FILTER_VALIDATE_EMAIL);
-	}
-	public function check_author_origin($author_origin) {
-		// User input
-		$author_origin = trim($author_origin);
-		$author_origin = addslashes($author_origin);
-		$author_origin = strval($author_origin);
-		return $author_origin;
-	}
-	public function check_author_website($author_website) {
-		// User input
-		$author_website = trim($author_website);
-		$author_website = addslashes($author_website);
-		$author_website = strval($author_website);
-		$pattern = '/^http/';
-		if ( !preg_match($pattern, $author_website, $matches) ) {
-			$author_website = "http://" . $author_website;
-		}
-		return filter_var($author_website, FILTER_VALIDATE_URL);
-	}
-	public function check_author_ip($author_ip = NULL) {
-		if ( empty($author_ip) ) {
-			$author_ip = $_SERVER['REMOTE_ADDR'];
-		}
-		$author_ip = trim($author_ip);
-		$author_ip = addslashes($author_ip);
-		$author_ip = strval($author_ip);
-		return $author_ip;
-	}
-	public function check_author_host($author_host = NULL) {
-		$author_host = trim($author_host);
-		$author_host = addslashes($author_host);
-		// Don't use this here, only when it is really needed, like on a new entry
-		// $author_host = gethostbyaddr( $author_ip );
-		return $author_host;
-	}
-	public function check_content($content) {
-		// User input
-		$content = trim($content);
-		$content = stripslashes($content); // Make sure we're not just adding lots of slashes.
-		$content = addslashes($content);
-		$content = strval($content);
-		$content = strip_tags($content);
-		$strlen = strlen($content);
-		if ($strlen > 0) {
-			return $content;
-		} else {
-			return false;
-		}
-	}
-	public function check_date($date = NULL) {
-		$date = trim($date);
-		$date = addslashes($date);
-		if ( !$date ) {
-			$date = current_time( 'timestamp' );
-		}
-		return $date;
-	}
-	public function check_ischecked($ischecked) {
-		$ischecked = intval($ischecked);
-		return $ischecked;
-	}
-	public function check_checkedby($checkedby) {
-		$checkedby = intval($checkedby);
-		// FIXME: Check if user exists
-		return $checkedby;
-	}
-	public function check_isdeleted($isdeleted) {
-		$isdeleted = intval($isdeleted);
-		return $isdeleted;
-	}
-	// This function does not check with Akismet, but simple checks if the value is valid
-	public function check_isspam($isspam) {
-		$isspam = intval($isspam);
-		return $isspam;
 	}
 
 

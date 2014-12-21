@@ -167,6 +167,7 @@ Yes, it is again actively maintained.
 * Start of the Dashboard Widget (for now without AJAX).
 * Fix small pagination issue.
 * Cleanup obsolete options.
+* Class entry; integrate setters and checkers, it's all the same.
 * Update cs_CZ.
 
 = 1.0.4 =
