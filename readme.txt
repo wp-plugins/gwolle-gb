@@ -169,6 +169,7 @@ Yes, it is again actively maintained.
 * Cleanup obsolete options.
 * Class entry; integrate setters and checkers, it's all the same.
 * gwolle_gb_entries: entry_id is not a parameter anymore.
+* Small cleanups.
 * Update cs_CZ.
 
 = 1.0.4 =
