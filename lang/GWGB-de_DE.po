@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-16 14:52+0100\n"
+"POT-Creation-Date: 2014-12-21 20:35+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Wolfgang Timme <gwolle@wolfgangtimme.de>\n"
 "Language-Team: \n"
@@ -15,13 +15,13 @@ msgstr ""
 "plugins/gwolle-gb/\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: actions.php:35 actions.php:36 widget.php:21 widget.php:99
-#: admin/dashboard-widget.php:31
+#: actions.php:35 actions.php:36 frontend/widget.php:21
+#: frontend/widget.php:140
 msgid "Guestbook"
 msgstr "G&auml;stebuch"
 
-#: actions.php:46 actions.php:47 admin/page-settings.php:314
-#: admin/page-settings.php:335
+#: actions.php:46 actions.php:47 admin/page-settings.php:311
+#: admin/page-settings.php:332
 msgid "Entries"
 msgstr "Eintr&auml;ge"
 
@@ -35,7 +35,7 @@ msgid "New entry"
 msgstr "Neuer Eintrag"
 
 #. /settings.php
-#: actions.php:57 actions.php:79 admin/page-settings.php:129
+#: actions.php:57 actions.php:79 admin/page-settings.php:127
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -43,42 +43,6 @@ msgstr "Einstellungen"
 #: actions.php:60
 msgid "Import"
 msgstr "Importieren"
-
-#: widget.php:12
-msgid "Displays the recent guestbook entries."
-msgstr "Zeigt die neusten Gästebucheinträge an."
-
-#: widget.php:27 widget.php:102
-msgid "Visit guestbook"
-msgstr "Gästebuch lesen"
-
-#: widget.php:72
-msgid "Click here to get to the guestbook."
-msgstr "Klicke hier, um zum Gästebuch zu gelangen."
-
-#: widget.php:115
-msgid "Title:"
-msgstr "Überschrift:"
-
-#: widget.php:121
-msgid "Number of entries:"
-msgstr "Anzahl/Einträge:"
-
-#: widget.php:137
-msgid "Number of words for each entry:"
-msgstr ""
-
-#: widget.php:153
-msgid "Link text:"
-msgstr "Link-Text:"
-
-#: widget.php:159
-msgid "Select the page of the guestbook:"
-msgstr ""
-
-#: widget.php:161
-msgid "Select page"
-msgstr ""
 
 #: admin/ajax.php:84
 msgid "Entry by %1 has been moved to trash."
@@ -88,13 +52,77 @@ msgstr "Eintrag von %1 wurde i. d. Papierkorb verschoben."
 msgid "Undo"
 msgstr "Rückgängig machen"
 
-#: admin/dashboard-widget.php:21
+#: admin/dashboard-widget.php:101
+msgid "Edit entry"
+msgstr "Eintrag bearbeiten"
+
+#: admin/dashboard-widget.php:101
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: admin/dashboard-widget.php:105
+msgid "Check entry"
+msgstr "Eintrag freigeben"
+
+#: admin/dashboard-widget.php:105
+msgid "Check"
+msgstr "Freigeben"
+
+#: admin/dashboard-widget.php:109
+msgid "Uncheck entry"
+msgstr "Eintrag sperren"
+
+#: admin/dashboard-widget.php:109
+msgid "Uncheck"
+msgstr "Sperren"
+
+#: admin/dashboard-widget.php:113
+msgid "Mark entry as spam."
+msgstr "Eintrag als Spam einstufen."
+
+#: admin/dashboard-widget.php:113 admin/page-entries.php:424
+msgid "Spam"
+msgstr "Spam"
+
+#: admin/dashboard-widget.php:117
+msgid "Mark entry as not-spam."
+msgstr "Eintrag als nicht-Spam einstufen."
+
+#: admin/dashboard-widget.php:117
+msgid "Not spam"
+msgstr "kein Spam"
+
+#: admin/dashboard-widget.php:121
+msgid "Move entry to trash."
+msgstr "Eintrag i. d. Papierkorb verschieben."
+
+#: admin/dashboard-widget.php:121 admin/page-entries.php:428
+msgid "Trash"
+msgstr "Papierkorb"
+
+#: admin/dashboard-widget.php:125
+msgid "Please wait..."
+msgstr "Bitte warten..."
+
+#: admin/dashboard-widget.php:125
+msgid "Wait..."
+msgstr ""
+
+#: admin/dashboard-widget.php:136
 msgid "View all"
 msgstr "Alle ansehen"
 
-#: admin/dashboard-widget.php:24
-msgid "No guestbook entries yet."
-msgstr "Noch keine Gästebucheinträge."
+#: admin/dashboard-widget.php:137
+msgid "View new"
+msgstr ""
+
+#: admin/dashboard-widget.php:140
+msgid "No new and unchecked guestbook entries."
+msgstr ""
+
+#: admin/dashboard-widget.php:147
+msgid "Guestbook (new entries)"
+msgstr ""
 
 #: admin/installSplash.php:14
 msgid "Successfully uninstalled"
@@ -146,48 +174,48 @@ msgstr ""
 "Hmm, es scheint, als w&auml;re ein Fehler aufgetreten. <a href=\"%1\">Hier "
 "geht es weiter...</a>"
 
-#: admin/page-editor.php:16 admin/page-entries.php:16 admin/page-import.php:22
-#: admin/page-settings.php:16
+#: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-import.php:22
+#: admin/page-settings.php:15
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: admin/page-editor.php:27
+#: admin/page-editor.php:26
 msgid "Edit guestbook entry"
 msgstr "G&auml;stebucheintrag bearbeiten"
 
-#: admin/page-editor.php:40
+#: admin/page-editor.php:39
 msgid "Entry could not be found."
 msgstr "Eintrag konnte nicht gefunden werden."
 
-#: admin/page-editor.php:42
+#: admin/page-editor.php:41
 msgid "Guestbook entry (error)"
 msgstr ""
 
-#: admin/page-editor.php:45
+#: admin/page-editor.php:44
 msgid "New guestbook entry"
 msgstr "Neuer G&auml;stebuch-Eintrag"
 
-#: admin/page-editor.php:55
+#: admin/page-editor.php:54
 msgid "Something strange happened."
 msgstr ""
 
-#: admin/page-editor.php:83
+#: admin/page-editor.php:82
 msgid "Submitted as Spam to the Akismet service."
 msgstr ""
 
-#: admin/page-editor.php:92
+#: admin/page-editor.php:91
 msgid "Submitted as Ham to the Akismet service."
 msgstr ""
 
-#: admin/page-editor.php:141 admin/page-settings.php:136
+#: admin/page-editor.php:140 admin/page-settings.php:133
 msgid "Changes saved."
 msgstr "&Auml;nderungen gespeichert."
 
-#: admin/page-editor.php:143 admin/page-editor.php:228
+#: admin/page-editor.php:142 admin/page-editor.php:228
 msgid "Error happened during saving."
 msgstr ""
 
-#: admin/page-editor.php:147
+#: admin/page-editor.php:146
 msgid "Entry was not changed."
 msgstr ""
 
@@ -207,11 +235,11 @@ msgstr ""
 msgid "Entry was not saved."
 msgstr ""
 
-#: admin/page-editor.php:267 admin/page-editor.php:388
-#: admin/page-editor.php:443 admin/page-editor.php:479
-#: admin/page-editor.php:490 admin/page-editor.php:498
-#: admin/page-import.php:139 admin/page-import.php:197
-#: admin/page-import.php:204
+#: admin/page-editor.php:268 admin/page-editor.php:389
+#: admin/page-editor.php:444 admin/page-editor.php:480
+#: admin/page-editor.php:491 admin/page-editor.php:499
+#: admin/page-import.php:137 admin/page-import.php:198
+#: admin/page-import.php:205
 msgid "Click to open or close"
 msgstr ""
 
@@ -270,7 +298,7 @@ msgstr "Autor"
 
 #: admin/page-editor.php:398 admin/page-editor.php:406
 #: admin/page-editor.php:426 admin/page-editor.php:434
-#: functions/function.gwolle_gb_log.php:157
+#: functions/function.gwolle_gb_log.php:161
 msgid "Unknown"
 msgstr ""
 
@@ -474,16 +502,6 @@ msgstr "Freigegeben"
 msgid "New"
 msgstr "Neue"
 
-#: admin/page-entries.php:424
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:50
-msgid "Spam"
-msgstr "Spam"
-
-#: admin/page-entries.php:428
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:54
-msgid "Trash"
-msgstr "Papierkorb"
-
 #: admin/page-entries.php:435
 msgid "Mass edit actions"
 msgstr "Massenbearbeitung"
@@ -652,37 +670,37 @@ msgstr ""
 msgid "Icons by"
 msgstr "Icons von"
 
-#: admin/page-gwolle-gb.php:187
+#: admin/page-gwolle-gb.php:186
 msgid "Welcome to the Guestbook!"
 msgstr "Willkommen im G&auml;stebuch!"
 
-#: admin/page-gwolle-gb.php:188
+#: admin/page-gwolle-gb.php:187
 msgid "This plugin uses the following scripts/programs/images:"
 msgstr "Dieses Plugin nutzt die folgenden Scripts/Programme/Bilder:"
 
-#: admin/page-gwolle-gb.php:189 admin/page-gwolle-gb.php:190
+#: admin/page-gwolle-gb.php:188 admin/page-gwolle-gb.php:189
 msgid "Help"
 msgstr "Hilfe"
 
-#: admin/page-gwolle-gb.php:195
+#: admin/page-gwolle-gb.php:194
 msgid "Gwolle Guestbook"
 msgstr ""
 
-#: admin/page-import.php:89
+#: admin/page-import.php:86
 msgid ""
 "I'm sorry, but I wasn't able to import entries from DMSGuestbook "
 "successfully."
 msgstr ""
 
-#: admin/page-import.php:91
+#: admin/page-import.php:88
 msgid "1 entry imported successfully from DMSGuestbook."
 msgstr ""
 
-#: admin/page-import.php:93
+#: admin/page-import.php:90
 msgid "%1 entries imported successfully from DMSGuestbook."
 msgstr ""
 
-#: admin/page-import.php:97
+#: admin/page-import.php:94
 msgid ""
 "<strong>Nothing to import.</strong> The guestbook you've chosen does not "
 "contain any entries."
@@ -690,19 +708,19 @@ msgstr ""
 "<strong>Nichts zu importieren.</strong> Das ausgewählte Gästebuch enthält "
 "keine Einträge."
 
-#: admin/page-import.php:102
+#: admin/page-import.php:99
 msgid "I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook."
 msgstr ""
 
-#: admin/page-import.php:107
+#: admin/page-import.php:104
 msgid "You haven't chosen a guestbook. Please select one and try again."
 msgstr "Kein Gästebuch ausgewählt. Treffe eine Auswahl und versuchs nochmal."
 
-#: admin/page-import.php:119
+#: admin/page-import.php:116
 msgid "Import guestbook entries."
 msgstr ""
 
-#: admin/page-import.php:140
+#: admin/page-import.php:137
 msgid "Import guestbook entries from DMSGuestbook"
 msgstr "DMSGuestbook-Einträge importieren"
 
@@ -769,31 +787,39 @@ msgstr ""
 msgid "Start import"
 msgstr "Import starten"
 
-#: admin/page-settings.php:150
+#: admin/page-import.php:198
+msgid "Import guestbook entries from WordPress comments"
+msgstr ""
+
+#: admin/page-import.php:205
+msgid "Import guestbook entries from Gwolle-GB"
+msgstr ""
+
+#: admin/page-settings.php:147
 msgid "Moderate Guestbook"
 msgstr "G&auml;stebuch moderieren"
 
-#: admin/page-settings.php:157
+#: admin/page-settings.php:154
 msgid "Moderate entries before publishing them."
 msgstr "Eintr&auml;ge vor Ver&ouml;ffentlichung erst freischalten."
 
-#: admin/page-settings.php:160
+#: admin/page-settings.php:157
 msgid ""
 "New entries have to be unlocked by a moderator before they are visible to "
 "the public."
 msgstr ""
 
-#: admin/page-settings.php:162
+#: admin/page-settings.php:159
 msgid ""
 "It is recommended that you turn this on, because you are responsible for the "
 "content on your website."
 msgstr ""
 
-#: admin/page-settings.php:169
+#: admin/page-settings.php:166
 msgid "Notification"
 msgstr "Benachrichtigung"
 
-#: admin/page-settings.php:179
+#: admin/page-settings.php:176
 msgid ""
 "Sorry, but the function <code>mail()</code> required to notify you by mail "
 "is not enabled in your PHP configuration. You might want to install a "
@@ -801,59 +827,59 @@ msgid ""
 "contact your hosting provider to change this."
 msgstr ""
 
-#: admin/page-settings.php:197
+#: admin/page-settings.php:194
 msgid "Send me an e-mail when a new entry has been posted."
 msgstr "Sende mir eine E-Mail wenn ein neuer Beitrag geschrieben wurde."
 
-#: admin/page-settings.php:200
+#: admin/page-settings.php:197
 msgid "The following users have subscribed to this service:"
 msgstr "Folgende Benutzer haben diesen Service abonniert:"
 
-#: admin/page-settings.php:204
+#: admin/page-settings.php:201
 msgid "No subscriber yet"
 msgstr ""
 
-#: admin/page-settings.php:215 functions/function.gwolle_gb_log.php:166
+#: admin/page-settings.php:212 functions/function.gwolle_gb_log.php:170
 msgid "You"
 msgstr "Du"
 
-#: admin/page-settings.php:235
+#: admin/page-settings.php:232
 msgid "Learn more about reCAPTCHA..."
 msgstr ""
 
-#: admin/page-settings.php:235 admin/page-settings.php:260
+#: admin/page-settings.php:232 admin/page-settings.php:257
 msgid "What's that?"
 msgstr "Was ist das?"
 
-#: admin/page-settings.php:242
+#: admin/page-settings.php:239
 msgid "Use reCAPTCHA"
 msgstr ""
 
-#: admin/page-settings.php:245
+#: admin/page-settings.php:242
 msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
 msgstr ""
 
-#: admin/page-settings.php:248
+#: admin/page-settings.php:245
 msgid "<strong>Secret</strong> key of your reCAPTCHA account"
 msgstr ""
 
-#: admin/page-settings.php:250
+#: admin/page-settings.php:247
 msgid "The keys can be found at your"
 msgstr "Die Schl&uuml;ssel findest Du auf deiner"
 
-#: admin/page-settings.php:250
+#: admin/page-settings.php:247
 msgid "Go to my reCAPTCHA sites..."
 msgstr "Gehe zu meinen reCAPTCHA-Seiten..."
 
-#: admin/page-settings.php:250
+#: admin/page-settings.php:247
 msgid "reCAPTCHA sites overview"
 msgstr "reCAPTCHA-Seiten&uuml;bersicht"
 
-#: admin/page-settings.php:260
+#: admin/page-settings.php:257
 msgid "Learn more about Akismet..."
 msgstr "Lerne mehr &uuml;ber Akismet..."
 
-#: admin/page-settings.php:270
+#: admin/page-settings.php:267
 msgid ""
 "Akismet helps you to fight spam. It's free and easy to install. Download and "
 "install it today to stop spam in your guestbook."
@@ -862,61 +888,61 @@ msgstr ""
 "installieren. Lade es dir noch heute herunter und stoppe so den Spam in "
 "deinem G&auml;stebuch."
 
-#: admin/page-settings.php:273
+#: admin/page-settings.php:270
 msgid ""
 "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
 "can enter it at the <a href=\"%1\">Akismet configuration page</a>."
 msgstr ""
 
-#: admin/page-settings.php:280
+#: admin/page-settings.php:277
 msgid "Use Akismet"
 msgstr "Akismet benutzen"
 
-#: admin/page-settings.php:282
+#: admin/page-settings.php:279
 msgid ""
 "The WordPress API key has been found, so you can start using Akismet right "
 "now."
 msgstr ""
 
-#: admin/page-settings.php:290
+#: admin/page-settings.php:287
 msgid "Entry icons"
 msgstr "Eintrag-Icons"
 
-#: admin/page-settings.php:296
+#: admin/page-settings.php:293
 msgid "Show entry icons"
 msgstr "Zeige Icons zu den Eintr&auml;gen"
 
-#: admin/page-settings.php:298
+#: admin/page-settings.php:295
 msgid ""
 "These icons are shown in every entry row of the admin list, so that you know "
 "its status (checked, spam and trash)."
 msgstr ""
 
-#: admin/page-settings.php:304
+#: admin/page-settings.php:301
 msgid "Entries per page on the frontend"
 msgstr ""
 
-#: admin/page-settings.php:319
+#: admin/page-settings.php:316
 msgid "Number of entries shown on the frontend."
 msgstr ""
 
-#: admin/page-settings.php:325
+#: admin/page-settings.php:322
 msgid "Entries per page in the admin"
 msgstr ""
 
-#: admin/page-settings.php:340
+#: admin/page-settings.php:337
 msgid "Number of entries shown in the admin."
 msgstr ""
 
-#: admin/page-settings.php:346
+#: admin/page-settings.php:343
 msgid "Appearance"
 msgstr "Aussehen"
 
-#: admin/page-settings.php:353
+#: admin/page-settings.php:350
 msgid "Show line breaks."
 msgstr "Zeilenumbr&uuml;che anzeigen."
 
-#: admin/page-settings.php:355
+#: admin/page-settings.php:352
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
@@ -925,11 +951,11 @@ msgstr ""
 "lange Eintr&auml;ge zur Folge haben, daher standardm&auml;&szlig;ig "
 "ausgeschaltet.)"
 
-#: admin/page-settings.php:363
+#: admin/page-settings.php:360
 msgid "Display smilies as images."
 msgstr "Smilies als Bilder anzeigen."
 
-#: admin/page-settings.php:365
+#: admin/page-settings.php:362
 msgid ""
 "Replaces smilies in entries like :) with their image %1. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smilies."
@@ -937,51 +963,35 @@ msgstr ""
 "Ersetzt Smilies wie bspw. :) durch das entsprechende Bild %1. Benutzt den WP "
 "Smiley Mechanismus und kann über diesen erweitert werden."
 
-#: admin/page-settings.php:373
+#: admin/page-settings.php:370
 msgid "Link authors' name to their website."
 msgstr "Verlinke den Autor-Namen mit deren/dessen Website."
 
-#: admin/page-settings.php:375
+#: admin/page-settings.php:372
 msgid ""
 "The author of an entry can set his/her website. If this setting is checked, "
 "his/her name will be a link to that website."
 msgstr ""
 
-#: admin/page-settings.php:381
+#: admin/page-settings.php:378
 msgid "Admin mail content"
 msgstr "Text der Benachrichtigung"
 
-#: admin/page-settings.php:393
+#: admin/page-settings.php:390
 msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
 msgstr ""
 
 #: admin/page-settings.php:409
-msgid "Check for import"
-msgstr "Prüfe, ob Daten zum Import vorliegen"
-
-#: admin/page-settings.php:416
-msgid ""
-"Check if there are other guestbook plugins installed to import their entries "
-"(deprecated, will be refactored)."
-msgstr ""
-
-#: admin/page-settings.php:419
-msgid ""
-"If Gwolle-GB detects another guestbook plugin for WordPress it will prompt "
-"you to import that guestbooks's data."
-msgstr ""
-
-#: admin/page-settings.php:429
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
-#: admin/page-settings.php:440
+#: admin/page-settings.php:422
 msgid "Uninstall"
 msgstr "Deinstallation"
 
-#: admin/page-settings.php:442
+#: admin/page-settings.php:424
 msgid ""
 "Uninstalling means that all database entries are removed (settings and "
 "entries)."
@@ -989,15 +999,15 @@ msgstr ""
 "Deinstallation hei&szlig;t, dass alle Datenbank-Eintr&auml;ge (Einstellungen "
 "und G&auml;stebuch-Eintr&auml;ge) gel&ouml;scht werden."
 
-#: admin/page-settings.php:444
+#: admin/page-settings.php:426
 msgid "This can <strong>not</strong> be undone."
 msgstr "Dies kann <strong>nicht</strong> r&uuml;ckg&auml;ngig gemacht werden."
 
-#: admin/page-settings.php:448
+#: admin/page-settings.php:430
 msgid "I'm aware of that, continue!"
 msgstr "Wei&szlig; ich, mach weiter!"
 
-#: admin/page-settings.php:457
+#: admin/page-settings.php:438
 msgid ""
 "I really don't want to bother you; this page just exists to prevent you from "
 "accidentally deleting all your entries.<br />Please check the 'uninstall' "
@@ -1012,19 +1022,13 @@ msgstr ""
 "gel&ouml;scht.<br /><br />Bist Du dir WIRKLICH SICHER, dass Du fortfahren "
 "m&ouml;chtest? Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden."
 
-#: admin/page-settings.php:460
+#: admin/page-settings.php:441
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr "Ja, ich bin mir wirklich 100% sicher. Mach weiter!"
 
-#: admin/page-settings.php:463
+#: admin/page-settings.php:444
 msgid "Uninstall &raquo;"
 msgstr "Deinstallieren &raquo;"
-
-#: admin/page-settings.php:467
-msgid ""
-"Sorry, but the page you are looking for does not exists. Go back to the <a "
-"href=\"%1\">settings page</a>"
-msgstr ""
 
 #: frontend/posthandling.php:121 frontend/posthandling.php:135
 msgid "There were errors submitting your guestbook entry."
@@ -1072,6 +1076,50 @@ msgstr "aus"
 #: frontend/read.php:182
 msgid "wrote at"
 msgstr "schrieb am"
+
+#: frontend/widget.php:12
+msgid "Displays the recent guestbook entries."
+msgstr "Zeigt die neusten Gästebucheinträge an."
+
+#: frontend/widget.php:30 frontend/widget.php:144
+msgid "Visit guestbook"
+msgstr "Gästebuch lesen"
+
+#: frontend/widget.php:112
+msgid "Click here to get to the guestbook."
+msgstr "Klicke hier, um zum Gästebuch zu gelangen."
+
+#: frontend/widget.php:158
+msgid "Title:"
+msgstr "Überschrift:"
+
+#: frontend/widget.php:164
+msgid "Number of entries:"
+msgstr "Anzahl/Einträge:"
+
+#: frontend/widget.php:180
+msgid "Best entries to show:"
+msgstr ""
+
+#: frontend/widget.php:182
+msgid "List of entry_id's, comma-separated"
+msgstr ""
+
+#: frontend/widget.php:186
+msgid "Number of words for each entry:"
+msgstr ""
+
+#: frontend/widget.php:202
+msgid "Link text:"
+msgstr "Link-Text:"
+
+#: frontend/widget.php:208
+msgid "Select the page of the guestbook:"
+msgstr ""
+
+#: frontend/widget.php:210
+msgid "Select page"
+msgstr ""
 
 #: frontend/write.php:81
 msgid "Write a new entry."
@@ -1149,52 +1197,11 @@ msgstr "Eintrag wurde wiederhergestellt."
 msgid "No content to display. This entry is empty."
 msgstr "Kein Inhalt; dieser Eintrag ist leer."
 
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:24
-msgid "Unchecked"
-msgstr "Nicht freigegeben"
+#~ msgid "No guestbook entries yet."
+#~ msgstr "Noch keine Gästebucheinträge."
 
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:31
-msgid "Please wait..."
-msgstr "Bitte warten..."
+#~ msgid "Check for import"
+#~ msgstr "Prüfe, ob Daten zum Import vorliegen"
 
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:35
-msgid "Check entry"
-msgstr "Eintrag freigeben"
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:35
-msgid "Check"
-msgstr "Freigeben"
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:38
-msgid "Uncheck entry"
-msgstr "Eintrag sperren"
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:38
-msgid "Uncheck"
-msgstr "Sperren"
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:42
-msgid "Edit entry"
-msgstr "Eintrag bearbeiten"
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:42
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:49
-msgid "Mark entry as not-spam."
-msgstr "Eintrag als nicht-Spam einstufen."
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:49
-msgid "Not spam"
-msgstr "kein Spam"
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:50
-msgid "Mark entry as spam."
-msgstr "Eintrag als Spam einstufen."
-
-#: functions/gwolle_gb_get_dashboard_widget_row.func.php:54
-msgid "Move entry to trash."
-msgstr "Eintrag i. d. Papierkorb verschieben."
-
-
+#~ msgid "Unchecked"
+#~ msgstr "Nicht freigegeben"
