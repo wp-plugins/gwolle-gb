@@ -22,6 +22,9 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 
 			$num_entries = (isset($instance['num_entries']) && (int)$instance['num_entries'] > 0) ? (int)$instance['num_entries'] : 5;
 
+			$best = (isset($instance['best']) && strlen(trim($instance['best'])) > 0) ? $instance['best'] : '';
+			$best = explode(",", $best);
+
 			$num_words = (isset($instance['num_words']) && (int)$instance['num_words'] > 0) ? (int)$instance['num_words'] : 10;
 
 			$link_text = (isset($instance['link_text']) && strlen(trim($instance['link_text'])) > 0) ? $instance['link_text'] : __('Visit guestbook', GWOLLE_GB_TEXTDOMAIN);
@@ -37,33 +40,70 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 				$widget_html .= $before_title . apply_filters('widget_title', $widget_title) . $after_title;
 			}
 
-			// Get the latest $num_entries guestbook entries
-			$entries = gwolle_gb_get_entries(
-				array(
-					'num_entries' => $num_entries,
-					'checked' => 'checked',
-					'deleted' => 'notdeleted',
-					'spam' => 'nospam'
-					)
-				);
-			if ( is_array( $entries ) && count( $entries ) > 0 ) {
-				$widget_html .= '<ul class="gwolle_gb_widget">';
-				foreach( $entries as $entry ) {
-					// Main Content
-					$widget_html .= '
-									<li class="gwolle_gb_widget">
-									';
-					$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), $num_words );
-					if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
-						$entry_content = convert_smilies($entry_content);
+			$widget_html .= '<ul class="gwolle_gb_widget">';
+			$counter = 0;
+
+			// Get the best entries first
+			if ( is_array( $best ) && count( $best ) > 0 ) {
+				foreach ($best as $entry_id) {
+					if ( $counter == $num_entries) { break; } // we have enough
+					$entry = new gwolle_gb_entry();
+					$entry_id = intval($entry_id);
+					if ( isset($entry_id) && $entry_id > 0 ) {
+						$result = $entry->load( $entry_id );
+						if ( !$result ) {
+							// No entry loaded
+							continue;
+						}
+						// Main Content
+						$widget_html .= '
+										<li class="gwolle_gb_widget">
+										';
+						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), $num_words );
+						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
+							$entry_content = convert_smilies($entry_content);
+						}
+						$widget_html .= $entry_content;
+						$widget_html .= '
+										</li>
+										';
+						$counter++;
 					}
-					$widget_html .= $entry_content;
-					$widget_html .= '
-									</li>
-									';
 				}
-				$widget_html .= '</ul>';
 			}
+
+			// Get the latest $num_entries guestbook entries
+			if ( $counter != $num_entries) { // we have enough
+				$entries = gwolle_gb_get_entries(
+					array(
+						'num_entries' => $num_entries,
+						'checked' => 'checked',
+						'deleted' => 'notdeleted',
+						'spam' => 'nospam'
+						)
+					);
+				if ( is_array( $entries ) && count( $entries ) > 0 ) {
+					foreach( $entries as $entry ) {
+						if ( $counter == $num_entries) { break; } // we have enough
+						if ( is_array( $best) && in_array( $entry->get_id(), $best ) ) { continue; } // already listed
+						// Main Content
+						$widget_html .= '
+										<li class="gwolle_gb_widget">
+										';
+						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), $num_words );
+						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
+							$entry_content = convert_smilies($entry_content);
+						}
+						$widget_html .= $entry_content;
+						$widget_html .= '
+										</li>
+										';
+						$counter++;
+					}
+				}
+			}
+
+			$widget_html .= '</ul>';
 
 			// Post the link to the Guestbook.
 			if ( (int) $postid > 0 ) {
@@ -74,7 +114,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 			}
 			$widget_html .= '</div>' . $after_widget;
 
-			if ( is_array( $entries ) && count( $entries ) > 0 ) {
+			if ( $counter > 0 ) {
 				// Only display widget if there are any entries
 				echo $widget_html;
 			}
@@ -85,6 +125,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 			$instance = $old_instance;
 			$instance['title']       = strip_tags($new_instance['title']);
 			$instance['num_entries'] = (int) strip_tags($new_instance['num_entries']);
+			$instance['best']        = strip_tags($new_instance['best']);
 			$instance['num_words']   = (int) strip_tags($new_instance['num_words']);
 			$instance['link_text']   = strip_tags($new_instance['link_text']);
 			$instance['postid']      = (int) strip_tags($new_instance['postid']);
@@ -98,6 +139,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 			$default_value = array(
 						"title" => __('Guestbook', GWOLLE_GB_TEXTDOMAIN),
 						"num_entries" => 5,
+						"best" => '',
 						"num_words" => 10,
 						"link_text" => __('Visit guestbook', GWOLLE_GB_TEXTDOMAIN),
 						"postid" => 0
@@ -106,6 +148,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 
 			$title         = esc_attr($instance['title']);
 			$num_entries   = (int) esc_attr($instance['num_entries']);
+			$best          = esc_attr($instance['best']);
 			$num_words     = (int) esc_attr($instance['num_words']);
 			$link_text     = esc_attr($instance['link_text']);
 			$postid        = (int) esc_attr($instance['postid']);
@@ -131,6 +174,12 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 					}
 					?>
 				</select>
+			</p>
+
+			<p>
+				<label for="<?php echo $this->get_field_id('best'); ?>" /><?php _e('Best entries to show:', GWOLLE_GB_TEXTDOMAIN); ?></label>
+				<br />
+				<input type="text" id="<?php echo $this->get_field_id('best'); ?>" value="<?php echo $best; ?>" name="<?php echo $this->get_field_name('best'); ?>" placeholder="<?php _e('List of entry_id\'s, comma-separated', GWOLLE_GB_TEXTDOMAIN); ?>" />
 			</p>
 
 			<p>

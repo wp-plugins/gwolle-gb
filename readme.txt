@@ -163,6 +163,7 @@ Yes, it is again actively maintained.
 
 = 1.0.5 =
 * 2014-12-
+* Add best entries to Frontend Widget.
 * Start of the Dashboard Widget (for now without AJAX).
 * Cleanup obsolete options.
 * Update cs_CZ.
