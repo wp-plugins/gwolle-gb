@@ -77,9 +77,37 @@
 
 
 /* Dashboard Widget */
+
 #gwolle_gb_dashboard .inside {
-	margin-top: 0px;
+	margin-top: 4px;
 }
+#gwolle_gb_dashboard .date {
+	font-size: 82%;
+}
+#gwolle_gb_dashboard blockquote.excerpt {
+	margin: 0;
+}
+#gwolle_gb_dashboard .excerpt p {
+	margin: 4px 0;
+}
+
+#gwolle_gb_dashboard p.row-actions {
+	margin: 0;
+	padding-bottom: 4px;
+}
+
+/* AJAX */
+span.unapprove,
+span.nospam,
+span.ajax {
+	display: none;
+}
+/* For now, till there is AJAX */
+span.spam,
+span.trash {
+	display: none;
+}
+
 #gwolle_gb_dashboard div.undo {
 	border-top-color: #DFDFDF;
 	background-color: #F4F4F4;
@@ -89,3 +117,6 @@
 	margin: 0 -10px;
 	padding: 3px 8px;
 }
+
+
+

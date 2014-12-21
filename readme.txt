@@ -81,7 +81,6 @@ With version 1.0 there have been some changes:
 * Add more sources for import page. Add export as well.
 * Bring Uninstall back, this time in a separate admin page?
 * Bring AJAX back, this time inside actions.
-* Bring Dashboard Widget back.
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
 * Better database structure (e. g. 'id' instead of 'entry_id').
@@ -164,7 +163,7 @@ Yes, it is again actively maintained.
 
 = 1.0.5 =
 * 2014-12-
-* Start of the Dashboard Widget.
+* Start of the Dashboard Widget (for now without AJAX).
 * Cleanup obsolete options.
 * Update cs_CZ.
 

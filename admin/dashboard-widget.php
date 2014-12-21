@@ -7,10 +7,13 @@
 
 function gwolle_gb_dashboard() {
 
-	$entries = gwolle_gb_get_entries( array(
+	// Only get new and unchecked entries
+	$entries = gwolle_gb_get_entries(array(
 			'num_entries' => 5,
-			'all' => 'all'
-		) );
+			'checked' => 'unchecked',
+			'deleted' => 'notdeleted',
+			'spam'    => 'nospam'
+		));
 
 	if ( is_array($entries) && count($entries) > 0 ) {
 		// Dashboard JavaScript
@@ -63,6 +66,7 @@ function gwolle_gb_dashboard() {
 
 					<?php
 					// Optional Icon column where CSS is being used to show them or not
+					/*
 					if ( get_option('gwolle_gb-showEntryIcons', 'true') === 'true' ) { ?>
 						<div class="entry-icons">
 							<span class="visible-icon"></span>
@@ -70,7 +74,7 @@ function gwolle_gb_dashboard() {
 							<span class="spam-icon"></span>
 							<span class="trash-icon"></span>
 						</div><?php
-					}
+					} */
 
 					// Date column
 					echo '
@@ -82,7 +86,7 @@ function gwolle_gb_dashboard() {
 						<p>
 						<?php
 						// Content / Excerpt
-						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), 12 );
+						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), 16 );
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
@@ -92,29 +96,33 @@ function gwolle_gb_dashboard() {
 
 					// Actions, to be made with AJAX
 					?>
-					<p class="row-actions" style="display:none;" id="wait-entry-ajax-<?php echo $entry->get_id(); ?>">
-						<img style="height:11px;margin-right:2px;" src="' . GWOLLE_GB_URL . '/admin/gfx/loading.gif" />
-						<?php _e('Please wait...', GWOLLE_GB_TEXTDOMAIN); ?>
-					</p>
 					<p class="row-actions" id="entry-actions-<?php echo $entry->get_id(); ?>">
+						<span class="edit">
+							<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php&entry_id=<?php echo $entry->get_id(); ?>" title="<?php _e('Edit entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Edit', GWOLLE_GB_TEXTDOMAIN); ?></a>
+						</span>
 						<span class="approve">
+							&nbsp;|&nbsp;
 							<a href="#" id="check_<?php echo $entry->get_id(); ?>" class="vim-a" title="<?php _e('Check entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Check', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
 						<span class="unapprove">
+							&nbsp;|&nbsp;
 							<a href="#" id="uncheck_<?php echo $entry->get_id(); ?>" class="vim-u" title="<?php _e('Uncheck entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Uncheck', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="edit">
-							&nbsp;|&nbsp;
-							<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php&entry_id=<?php echo $entry->get_id(); ?>" title="<?php _e('Edit entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Edit', GWOLLE_GB_TEXTDOMAIN); ?></a>
-						</span>
 						<span class="spam">
-							&nbsp;|&nbsp;';
-							<a id="unmark-spam-<?php echo $entry->get_id(); ?>" href="#" class="vim-a" title="<?php _e('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Not spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							&nbsp;|&nbsp;
 							<a id="mark-spam-<?php echo $entry->get_id(); ?>" href="#" class="vim-s vim-destructive" title="<?php _e('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
+						</span>
+						<span class="nospam">
+							&nbsp;|&nbsp;
+							<a id="unmark-spam-<?php echo $entry->get_id(); ?>" href="#" class="vim-a" title="<?php _e('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Not spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
 						<span class="trash">
 							&nbsp;|&nbsp;
 							<a href="#" id="trash_<?php echo $entry->get_id(); ?>" class="delete vim-d vim-destructive" title="<?php _e('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Trash'); ?></a>
+						</span>
+						<span class="ajax">
+							&nbsp;|&nbsp;
+							<a href="#" id="ajax_<?php echo $entry->get_id(); ?>" class="ajax vim-d vim-destructive" title="<?php _e('Please wait...', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Wait...'); ?></a>
 						</span>
 					</p>
 				</div>
@@ -125,17 +133,18 @@ function gwolle_gb_dashboard() {
 
 		</div>
 		<p class="textright">
-			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php" class="button"><?php _e('View all', GWOLLE_GB_TEXTDOMAIN); ?></a>
+			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=all" class="button"><?php _e('View all', GWOLLE_GB_TEXTDOMAIN); ?></a>
+			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=unchecked" class="button"><?php _e('View new', GWOLLE_GB_TEXTDOMAIN); ?></a>
 		</p><?php
 	} else {
-		echo '<p>' . __('No guestbook entries yet.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+		echo '<p>' . __('No new and unchecked guestbook entries.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 	}
 }
 
 
 // Add the widget
 function gwolle_gb_dashboard_setup() {
-	wp_add_dashboard_widget('gwolle_gb_dashboard', __('Guestbook', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_dashboard');
+	wp_add_dashboard_widget('gwolle_gb_dashboard', __('Guestbook (new entries)', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_dashboard');
 }
 add_action('wp_dashboard_setup', 'gwolle_gb_dashboard_setup');
 
