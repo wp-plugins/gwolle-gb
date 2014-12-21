@@ -43,11 +43,11 @@ function install_gwolle_gb() {
 		CREATE TABLE
 			" . $wpdb->gwolle_gb_log . "
 		(
-			log_id int(8) NOT NULL auto_increment,
-			log_subject text NOT NULL,
-			log_subjectId int(5) NOT NULL,
-			log_authorId int(5) NOT NULL,
-			log_date varchar(12) NOT NULL,
+			id int(8) NOT NULL auto_increment,
+			subject text NOT NULL,
+			entry_id int(5) NOT NULL,
+			author_id int(5) NOT NULL,
+			date varchar(12) NOT NULL,
 			PRIMARY KEY  (log_id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
@@ -361,7 +361,6 @@ function upgrade_gwolle_gb() {
 				OR
 					option_name LIKE 'gwolle_gb-notifyAll-%'
 			");
-
 	}
 
 	if (version_compare($installed_ver, '1.0.5', '<')) {
@@ -372,6 +371,16 @@ function upgrade_gwolle_gb() {
 		delete_option('gwolle_gb-access-level');
 		delete_option('gwolle_gb-checkForImport');
 		delete_option('gwolle_gb-post_ID');
+
+		/* Alter table of logs */
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_log
+				CHANGE log_id id int(8) NOT NULL auto_increment,
+				CHANGE log_subject subject text NOT NULL,
+				CHANGE log_subjectId entry_id int(5) NOT NULL,
+				CHANGE log_authorId author_id int(5) NOT NULL,
+				CHANGE log_date date varchar(12) NOT NULL
+			");
 	}
 
 	// Update the plugin version option

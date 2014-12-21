@@ -162,15 +162,16 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.0.5 =
-* 2014-12-
+* 2014-12-21
 * Add best entries to Frontend Widget.
 * Start of the Dashboard Widget (for now without AJAX).
 * Fix small pagination issue.
 * Cleanup obsolete options.
 * Class entry; integrate setters and checkers, it's all the same.
 * gwolle_gb_entries: entry_id is not a parameter anymore.
+* Change database structure for log entries.
 * Small cleanups.
-* Update cs_CZ.
+* Update pot, nl_NL and cs_CZ.
 
 = 1.0.4 =
 * 2014-12-16

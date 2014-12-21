@@ -456,7 +456,7 @@ function gwolle_gb_page_editor() {
 												$log_entries = gwolle_gb_get_log_entries( $entry->get_id() );
 												if ( is_array($log_entries) && count($log_entries) > 0 ) {
 													foreach ($log_entries as $log_entry) {
-														echo '<li>' . $log_entry['msg_html'] . '</li>';
+														echo '<li class="log_id_' . $log_entry['id'] . '">' . $log_entry['msg_html'] . '</li>';
 													}
 												}
 											} else {

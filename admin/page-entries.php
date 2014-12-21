@@ -459,7 +459,7 @@ function gwolle_gb_page_entries() {
 						}
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
-						// It makes no sense to show the mass edit controls when there are no entries to edit. ;)
+						// Only show controls when there are entries
 						if ( is_array($entries) && count($entries) > 0 ) {
 							echo $massEditControls_select . $massEditControls;
 						}
@@ -667,7 +667,7 @@ function gwolle_gb_page_entries() {
 						<div class="alignleft actions">
 							<?php
 							$massEditControls_select = '<select name="massEditAction2">';
-							// It makes no sense to show the mass edit controls when there are no entries to edit.
+							// Only show controls when there are entries
 							if ( is_array($entries) && count($entries) > 0 ) {
 								echo $massEditControls_select . $massEditControls;
 							}
