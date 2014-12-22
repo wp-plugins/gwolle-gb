@@ -492,12 +492,12 @@ function gwolle_gb_page_entries() {
 							if ($pageNum + 4 < $countPages) {
 								$highDotsMade = true;
 								// The dots next to the highest number have already been put out.
-								$pagination .= '<span class="page-numbers dots">&hellip;</span>';
+								$pagination .= '<span class="page-numbers dots">...</span>';
 							}
 						} elseif ($pageNum >= 5) {
 							$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=1">1</a>';
 							if ($countPages > 5) {
-								$pagination .= '<span class="page-numbers dots">&hellip;</span>';
+								$pagination .= '<span class="page-numbers dots">...</span>';
 							}
 							if ($pageNum + 2 < $countPages) {
 								$minRange = $pageNum - 2;

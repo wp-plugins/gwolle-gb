@@ -40,7 +40,7 @@ function gwolle_gb_format_values_for_mail($value) {
  * Return: $excerpt: (string) the shortened content
  */
 function gwolle_gb_get_excerpt( $content, $excerpt_length = 20 ) {
-	$excerpt = wp_trim_words( $content, $excerpt_length, '&hellip;' );
+	$excerpt = wp_trim_words( $content, $excerpt_length, '...' );
 	$excerpt = gwolle_gb_format_value_for_output( $excerpt );
 	if (trim($excerpt) == '') {
 		$excerpt = '<i style="color:red;">' . __('No content to display. This entry is empty.', GWOLLE_GB_TEXTDOMAIN) . '</i>';
