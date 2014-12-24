@@ -6,55 +6,52 @@
  * Class gwolle_gb_entry
  * Each instance is an entry in the guestbook.
  *
- * Variable:		Database field:			Type in db:		Description:									Value when saving in db:
- * $id				entry_id				int(10)			id of the entry/row/instance					required, autoincrement
- * $author_name		entry_author_name		text			name of the author								required
- * $authoradminid	entry_authorAdminId		int(5)			The author is also registered user				required, default 0
- * $author_email	entry_author_email		text			email address of the author						required
- * $author_origin	entry_author_origin		text			city of the author								required
- * $author_website	entry_author_website	text			website of the author, with or without http://	required
- * $author_ip		entry_author_ip			text			ip address of the author						required
- * $author_host		entry_author_host		text			hostname of that ip address						required
- * $content			entry_content			longtext		content of the entry							required
- * $date			entry_date				varchar(10)		date of posting the entry, timestamp			required
- * $ischecked		entry_isChecked			tinyint(1)		checked/moderated by an admin, 0 or 1			required
- * $checkedby		entry_checkedBy			int(5)			the admin who checked/moderated this entry		required
- * $isdeleted		entry_isDeleted			varchar(1)		entry is placed in the trashbin, 0 or 1			required, default 0
- * $isspam			entry_isSpam		 	varchar(1)		entry is considered as spam, 0 or 1				required, default 0
+ * Variable:        Database field:  Type in db:   Description:                            Value when saving in db:
+ * $id              id               int(10)       id of the entry/row/instance            required, autoincrement
+ * $author_name     author_name      text          name of the author                      required
+ * $author_id       author_id        int(5)        author is also registered user          required, default 0
+ * $author_email    author_email     text          email address of the author             required
+ * $author_origin   author_origin    text          city of the author                      required
+ * $author_website  author_website   text          website of the author                   required
+ * $author_ip       author_ip        text          ip address of the author                required
+ * $author_host     author_host      text          hostname of that ip address             required
+ * $content         content          longtext      content of the entry                    required
+ * $date            date             varchar(10)   date of posting the entry, timestamp    required
+ * $ischecked       ischecked        tinyint(1)    checked/moderated by an admin, 0 or 1   required
+ * $checkedby       checkedby        int(5)        admin who checked/moderated this entry  required
+ * $istrash         istrash          varchar(1)    entry is placed in the trashbin, 0 or 1 required, default 0
+ * $isspam          isspam           varchar(1)    entry is considered as spam, 0 or 1     required, default 0
  *
- * FIXME: rename entry_id to id, and all the others as well
- * FIXME: use all lowercase for consistency, have an ORM idea
- * FIXME: rename is_deleted into istrash to avoid confusion. deletion is really removal
  * FIXME: date should be TIMESTAMP
  * FIXME: make id UNIQUE, so we can use SQL REPLACE
- * FIXME: use bool when appropriate (checkedby, isdeleted, isspam)
+ * FIXME: use bool when appropriate (checkedby, istrash, isspam)
  */
 
 
 class gwolle_gb_entry {
 
-	protected $id, $author_name, $authoradminid, $author_email, $author_origin, $author_website,
-		$author_ip, $author_host, $content, $date, $ischecked, $checkedby, $isdeleted, $isspam;
+	protected $id, $author_name, $author_id, $author_email, $author_origin, $author_website,
+		$author_ip, $author_host, $content, $date, $ischecked, $checkedby, $istrash, $isspam;
 
 	/*
 	 * Construct an instance
 	 */
 
 	public function __construct() {
-		$this->id 				= (int) 0;
-		$this->author_name 		= (string) "";
-		$this->authoradminid	= (int) 0;
-		$this->author_email		= (string) "";
-		$this->author_origin	= (string) "";
-		$this->author_website	= (string) "";
-		$this->author_ip		= (string) "";
-		$this->author_host		= (string) "";
-		$this->content			= (string) "";
-		$this->date				= (string) "";
-		$this->ischecked		= (int) 0;
-		$this->checkedby		= (int) 0;
-		$this->isdeleted		= (int) 0;
-		$this->isspam			= (int) 0;
+		$this->id             = (int) 0;
+		$this->author_name    = (string) "";
+		$this->author_id      = (int) 0;
+		$this->author_email   = (string) "";
+		$this->author_origin  = (string) "";
+		$this->author_website = (string) "";
+		$this->author_ip      = (string) "";
+		$this->author_host    = (string) "";
+		$this->content        = (string) "";
+		$this->date           = (string) "";
+		$this->ischecked      = (int) 0;
+		$this->checkedby      = (int) 0;
+		$this->istrash        = (int) 0;
+		$this->isspam         = (int) 0;
 	}
 
 
@@ -81,7 +78,7 @@ class gwolle_gb_entry {
 		if ((int) $id > 0) {
 			$where .= "
 				AND
-				entry_id = %d";
+				id = %d";
 			$values[] = $id;
 		} else {
 			return false;
@@ -91,20 +88,20 @@ class gwolle_gb_entry {
 
 		$sql = "
 				SELECT
-					`entry_id`,
-					`entry_author_name`,
-					`entry_authorAdminId`,
-					`entry_author_email`,
-					`entry_author_origin`,
-					`entry_author_website`,
-					`entry_author_ip`,
-					`entry_author_host`,
-					`entry_content`,
-					`entry_date`,
-					`entry_isChecked`,
-					`entry_checkedBy`,
-					`entry_isDeleted`,
-					`entry_isSpam`
+					`id`,
+					`author_name`,
+					`author_id`,
+					`author_email`,
+					`author_origin`,
+					`author_website`,
+					`author_ip`,
+					`author_host`,
+					`content`,
+					`date`,
+					`ischecked`,
+					`checkedby`,
+					`istrash`,
+					`isspam`
 				FROM
 					" . $tablename . "
 				WHERE
@@ -121,20 +118,20 @@ class gwolle_gb_entry {
 
 		// Use the fields that the setter method expects
 		$item = array(
-			'id' => (int) $data['entry_id'],
-			'author_name' => stripslashes($data['entry_author_name']),
-			'authoradminid' => (int) $data['entry_authorAdminId'],
-			'author_email' => stripslashes($data['entry_author_email']),
-			'author_origin' => stripslashes($data['entry_author_origin']),
-			'author_website' => stripslashes($data['entry_author_website']),
-			'author_ip' => $data['entry_author_ip'],
-			'author_host' => $data['entry_author_host'],
-			'content' => stripslashes($data['entry_content']),
-			'date' => $data['entry_date'],
-			'ischecked' => (int) $data['entry_isChecked'],
-			'checkedby' => (int) $data['entry_checkedBy'],
-			'isdeleted' => (int) $data['entry_isDeleted'],
-			'isspam' => (int) $data['entry_isSpam']
+			'id' => (int) $data['id'],
+			'author_name' => stripslashes($data['author_name']),
+			'author_id' => (int) $data['author_id'],
+			'author_email' => stripslashes($data['author_email']),
+			'author_origin' => stripslashes($data['author_origin']),
+			'author_website' => stripslashes($data['author_website']),
+			'author_ip' => $data['author_ip'],
+			'author_host' => $data['author_host'],
+			'content' => stripslashes($data['content']),
+			'date' => $data['date'],
+			'ischecked' => (int) $data['ischecked'],
+			'checkedby' => (int) $data['checkedby'],
+			'istrash' => (int) $data['istrash'],
+			'isspam' => (int) $data['isspam']
 		);
 
 		$this->set_data( $item );
@@ -146,7 +143,7 @@ class gwolle_gb_entry {
 	/* function save
 	 * Saves the current $entry to database
 	 * Return:
-	 * - entry_id: if saved
+	 * - id:    if saved
 	 * - false: if not saved
 	 */
 
@@ -161,26 +158,26 @@ class gwolle_gb_entry {
 			$sql = "
 				UPDATE $wpdb->gwolle_gb_entries
 				SET
-					entry_author_name = %s,
-					entry_authorAdminId = %d,
-					entry_author_email = %s,
-					entry_author_origin = %s,
-					entry_author_website = %s,
-					entry_author_ip = %s,
-					entry_author_host = %s,
-					entry_content = %s,
-					entry_date = %s,
-					entry_isSpam = %d,
-					entry_isChecked = %s,
-					entry_checkedBy = %d,
-					entry_isDeleted = %d
+					author_name = %s,
+					author_id = %d,
+					author_email = %s,
+					author_origin = %s,
+					author_website = %s,
+					author_ip = %s,
+					author_host = %s,
+					content = %s,
+					date = %s,
+					isspam = %d,
+					ischecked = %s,
+					checkedby = %d,
+					istrash = %d
 				WHERE
-					entry_id = %d
+					id = %d
 				";
 
 			$values = array(
 					$this->get_author_name(),
-					$this->get_authoradminid(),
+					$this->get_author_id(),
 					$this->get_author_email(),
 					$this->get_author_origin(),
 					$this->get_author_website(),
@@ -191,7 +188,7 @@ class gwolle_gb_entry {
 					$this->get_isspam(),
 					$this->get_ischecked(),
 					$this->get_checkedby(),
-					$this->get_isdeleted(),
+					$this->get_istrash(),
 					$this->get_id()
 				);
 
@@ -206,19 +203,19 @@ class gwolle_gb_entry {
 				"
 				INSERT INTO $wpdb->gwolle_gb_entries
 				(
-					entry_author_name,
-					entry_authorAdminId,
-					entry_author_email,
-					entry_author_origin,
-					entry_author_website,
-					entry_author_ip,
-					entry_author_host,
-					entry_content,
-					entry_date,
-					entry_isSpam,
-					entry_isChecked,
-					entry_checkedBy,
-					entry_isDeleted
+					author_name,
+					author_id,
+					author_email,
+					author_origin,
+					author_website,
+					author_ip,
+					author_host,
+					content,
+					date,
+					isspam,
+					ischecked,
+					checkedby,
+					istrash
 				) VALUES (
 					%s,
 					%d,
@@ -237,7 +234,7 @@ class gwolle_gb_entry {
 				",
 				array(
 					$this->get_author_name(),
-					$this->get_authoradminid(),
+					$this->get_author_id(),
 					$this->get_author_email(),
 					$this->get_author_origin(),
 					$this->get_author_website(),
@@ -248,7 +245,7 @@ class gwolle_gb_entry {
 					$this->get_isspam(),
 					$this->get_ischecked(),
 					$this->get_checkedby(),
-					$this->get_isdeleted()
+					$this->get_istrash()
 				)
 			) );
 
@@ -279,7 +276,7 @@ class gwolle_gb_entry {
 	 * Array $args:
 	 * - id
 	 * - author_name
-	 * - authoradminid
+	 * - author_id
 	 * - author_email
 	 * - author_origin
 	 * - author_website
@@ -289,7 +286,7 @@ class gwolle_gb_entry {
 	 * - date
 	 * - ischecked
 	 * - checkedby
-	 * - isdeleted
+	 * - istrash
 	 * - isspam
 	 */
 
@@ -301,8 +298,8 @@ class gwolle_gb_entry {
 		if ( isset( $args['author_name']) ) {
 			$this->set_author_name( $args['author_name'] );
 		}
-		if ( isset( $args['authoradminid']) ) {
-			$this->set_authoradminid( $args['authoradminid'] );
+		if ( isset( $args['author_id']) ) {
+			$this->set_author_id( $args['author_id'] );
 		}
 		if ( isset( $args['author_email'] ) ) {
 			$this->set_author_email( $args['author_email'] );
@@ -335,8 +332,8 @@ class gwolle_gb_entry {
 		if ( isset( $args['checkedby'] ) ) {
 			$this->set_checkedby( $args['checkedby'] );
 		}
-		if ( isset( $args['isdeleted'] ) ) {
-			$this->set_isdeleted( $args['isdeleted'] );
+		if ( isset( $args['istrash'] ) ) {
+			$this->set_istrash( $args['istrash'] );
 		}
 		if ( isset( $args['isspam'] ) ) {
 			$this->set_isspam( $args['isspam'] );
@@ -360,10 +357,10 @@ class gwolle_gb_entry {
 			$this->author_name = $author_name;
 		}
 	}
-	public function set_authoradminid($authoradminid) {
-		$authoradminid = intval($authoradminid);
-		if ($authoradminid) {
-			$this->authoradminid = $authoradminid;
+	public function set_author_id($author_id) {
+		$author_id = intval($author_id);
+		if ($author_id) {
+			$this->author_id = $author_id;
 		}
 	}
 	public function set_author_email($author_email) {
@@ -454,9 +451,9 @@ class gwolle_gb_entry {
 			$this->checkedby = $checkedby;
 		}
 	}
-	public function set_isdeleted($isdeleted) {
-		$isdeleted = intval($isdeleted);
-		$this->isdeleted = $isdeleted;
+	public function set_istrash($istrash) {
+		$istrash = intval($istrash);
+		$this->istrash = $istrash;
 	}
 	public function set_isspam($isspam) {
 		$isspam = intval($isspam);
@@ -472,8 +469,8 @@ class gwolle_gb_entry {
 	public function get_author_name() {
 		return $this->author_name;
 	}
-	public function get_authoradminid() {
-		return $this->authoradminid;
+	public function get_author_id() {
+		return $this->author_id;
 	}
 	public function get_author_email() {
 		return $this->author_email;
@@ -502,8 +499,8 @@ class gwolle_gb_entry {
 	public function get_checkedby() {
 		return $this->checkedby;
 	}
-	public function get_isdeleted() {
-		return $this->isdeleted;
+	public function get_istrash() {
+		return $this->istrash;
 	}
 	public function get_isspam() {
 		return $this->isspam;
@@ -522,7 +519,7 @@ class gwolle_gb_entry {
 	public function delete() {
 		global $wpdb;
 
-		if ( $this->get_isspam() == 0 && $this->get_isdeleted() == 0 ) {
+		if ( $this->get_isspam() == 0 && $this->get_istrash() == 0 ) {
 			// Do not delete the good stuff.
 			return false;
 		}
@@ -534,7 +531,7 @@ class gwolle_gb_entry {
 			FROM
 				$wpdb->gwolle_gb_entries
 			WHERE
-				entry_id = %d
+				id = %d
 			LIMIT 1";
 
 		$values = array(

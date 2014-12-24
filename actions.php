@@ -24,8 +24,8 @@ function gwolle_gb_adminmenu() {
 	$count_unchecked = gwolle_gb_get_entry_count(
 		array(
 			'checked' => 'unchecked',
-			'deleted' => 'notdeleted',
-			'spam' => 'nospam'
+			'trash'   => 'notrash',
+			'spam'    => 'nospam'
 		)
 	);
 

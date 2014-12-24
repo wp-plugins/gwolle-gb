@@ -11,9 +11,9 @@
  * $entry:  object $gwolle_gb_entry with a guestbook entry to be checked
  *          should be an instance of the gwolle_gb_entry class
  * $action: string with the requested action
- * 			- comment-check: check with Akismet service if entry is considered spam or not
- * 			- submit-ham: submit as ham to Akismet service
- * 			- submit-spam: submit as spam to Akismet service
+ *          - comment-check: check with Akismet service if entry is considered spam or not
+ *          - submit-ham: submit as ham to Akismet service
+ *          - submit-spam: submit as spam to Akismet service
  *
  * Return: - true if the entry is considered spam by akismet
  *         - false if no spam, or no akismet functionality is found

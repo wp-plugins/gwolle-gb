@@ -21,21 +21,21 @@ function install_gwolle_gb() {
 		CREATE TABLE
 			" . $wpdb->gwolle_gb_entries . "
 		(
-			entry_id int(10) NOT NULL auto_increment,
-			entry_author_name text NOT NULL,
-			entry_authorAdminId int(5) NOT NULL default '0',
-			entry_author_email text NOT NULL,
-			entry_author_origin text NOT NULL,
-			entry_author_website text NOT NULL,
-			entry_author_ip text NOT NULL,
-			entry_author_host text NOT NULL,
-			entry_content longtext NOT NULL,
-			entry_date varchar(10) NOT NULL,
-			entry_isChecked tinyint(1) NOT NULL,
-			entry_checkedBy int(5) NOT NULL,
-			entry_isDeleted varchar(1) NOT NULL default '0',
-			entry_isSpam varchar(1) NOT NULL default '0',
-			PRIMARY KEY  (entry_id)
+			id int(10) NOT NULL auto_increment,
+			author_name text NOT NULL,
+			author_id int(5) NOT NULL default '0',
+			author_email text NOT NULL,
+			author_origin text NOT NULL,
+			author_website text NOT NULL,
+			author_ip text NOT NULL,
+			author_host text NOT NULL,
+			content longtext NOT NULL,
+			date varchar(10) NOT NULL,
+			ischecked tinyint(1) NOT NULL,
+			checkedby int(5) NOT NULL,
+			istrash varchar(1) NOT NULL default '0',
+			isspam varchar(1) NOT NULL default '0',
+			PRIMARY KEY  (id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
 
@@ -380,6 +380,30 @@ function upgrade_gwolle_gb() {
 				CHANGE log_subjectId entry_id int(5) NOT NULL,
 				CHANGE log_authorId author_id int(5) NOT NULL,
 				CHANGE log_date date varchar(12) NOT NULL
+			");
+	}
+
+	if (version_compare($installed_ver, '1.0.6', '<')) {
+		/*
+		 * 1.0.5->1.0.6
+		 * Alter table of entries
+		 */
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_entries
+				CHANGE `entry_id` `id` INT(10) NOT NULL AUTO_INCREMENT,
+				CHANGE `entry_author_name` `author_name` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+				CHANGE `entry_authorAdminId` `author_id` INT(5) NOT NULL DEFAULT '0',
+				CHANGE `entry_author_email` `author_email` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+				CHANGE `entry_author_origin` `author_origin` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+				CHANGE `entry_author_website` `author_website` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+				CHANGE `entry_author_ip` `author_ip` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+				CHANGE `entry_author_host` `author_host` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+				CHANGE `entry_content` `content` LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+				CHANGE `entry_date` `date` VARCHAR(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+				CHANGE `entry_isChecked` `ischecked` TINYINT(1) NOT NULL,
+				CHANGE `entry_checkedBy` `checkedby` INT(5) NOT NULL,
+				CHANGE `entry_isDeleted` `istrash` VARCHAR(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+				CHANGE `entry_isSpam` `isspam` VARCHAR(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0'
 			");
 	}
 

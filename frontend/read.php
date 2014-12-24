@@ -27,7 +27,7 @@ function gwolle_gb_frontend_read() {
 	$entriesCount = gwolle_gb_get_entry_count(
 		array(
 			'checked' => 'checked',
-			'deleted' => 'notdeleted',
+			'trash'   => 'notrash',
 			'spam'    => 'nospam'
 		)
 	);
@@ -68,8 +68,8 @@ function gwolle_gb_frontend_read() {
 			'offset' => $mysqlFirstRow,
 			'num_entries' => $entriesPerPage,
 			'checked' => 'checked',
-			'deleted' => 'notdeleted',
-			'spam' => 'nospam'
+			'trash'   => 'notrash',
+			'spam'    => 'nospam'
 		)
 	);
 
@@ -151,8 +151,8 @@ function gwolle_gb_frontend_read() {
 			}
 			$output .= ' gb-entry ';
 			$output .= ' gb-entry_' . $entry->get_id() . ' ';
-			$authoradminid = $entry->get_authoradminid();
-			$is_moderator = gwolle_gb_is_moderator( $authoradminid );
+			$author_id = $entry->get_author_id();
+			$is_moderator = gwolle_gb_is_moderator( $author_id );
 			if ( $is_moderator ) {
 				$output .= ' admin-entry ';
 			}

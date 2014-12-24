@@ -5,16 +5,16 @@
  * Function to get guestbook entries from the database.
  *
  * Parameter $args is an Array:
- * - num_entries		int: Number of requested entries
- * - offset				int: Start after this entry
- * - checked			string: 'checked' or 'unchecked', List the entries that are checked or not checked
- * - deleted			string: 'deleted' or 'notdeleted', List the entries that are deleted or not deleted
- * - spam				string: 'spam' or 'nospam', List the entries marked as spam or as no spam
- * - email				string: The emailaddress to search for
+ * - num_entries  int: Number of requested entries
+ * - offset       int: Start after this entry
+ * - checked      string: 'checked' or 'unchecked', List the entries that are checked or not checked
+ * - trash        string: 'trash' or 'notrash', List the entries that are deleted or not deleted
+ * - spam         string: 'spam' or 'nospam', List the entries marked as spam or as no spam
+ * - email        string: The emailaddress to search for
  *
  * Return:
  * - Array of objects of gwolle_gb_entry
- * - false  if no entries found.
+ * - false if no entries found.
  */
 
 function gwolle_gb_get_entries($args = array()) {
@@ -31,7 +31,7 @@ function gwolle_gb_get_entries($args = array()) {
 		if ( $args['checked'] == 'checked' || $args['checked'] == 'unchecked' ) {
 			$where .= "
 				AND
-				entry_isChecked = %d";
+				ischecked = %d";
 			if ( $args['checked'] == 'checked' ) {
 				$values[] = 1;
 			} else if ( $args['checked'] == 'unchecked' ) {
@@ -43,7 +43,7 @@ function gwolle_gb_get_entries($args = array()) {
 		if ( $args['spam'] == 'spam' || $args['spam'] == 'nospam' ) {
 			$where .= "
 				AND
-				entry_isSpam = %d";
+				isspam = %d";
 			if ( $args['spam'] == 'spam' ) {
 				$values[] = 1;
 			} else if ( $args['spam'] == 'nospam' ) {
@@ -51,14 +51,14 @@ function gwolle_gb_get_entries($args = array()) {
 			}
 		}
 	}
-	if ( isset($args['deleted']) ) {
-		if ( $args['deleted'] == 'deleted' || $args['deleted'] == 'notdeleted' ) {
+	if ( isset($args['trash']) ) {
+		if ( $args['trash'] == 'trash' || $args['trash'] == 'notrash' ) {
 			$where .= "
 				AND
-				entry_isDeleted = %d";
-			if ( $args['deleted'] == 'deleted' ) {
+				istrash = %d";
+			if ( $args['trash'] == 'trash' ) {
 				$values[] = 1;
-			} else if ( $args['deleted'] == 'notdeleted' ) {
+			} else if ( $args['trash'] == 'notrash' ) {
 				$values[] = 0;
 			}
 		}
@@ -66,7 +66,7 @@ function gwolle_gb_get_entries($args = array()) {
 	if ( isset($args['email']) ) {
 		$where .= "
 			AND
-			entry_author_email = %s";
+			author_email = %s";
 		$values[] = $args['email'];
 	}
 
@@ -89,26 +89,26 @@ function gwolle_gb_get_entries($args = array()) {
 
 	$sql = "
 			SELECT
-				`entry_id`,
-				`entry_author_name`,
-				`entry_authorAdminId`,
-				`entry_author_email`,
-				`entry_author_origin`,
-				`entry_author_website`,
-				`entry_author_ip`,
-				`entry_author_host`,
-				`entry_content`,
-				`entry_date`,
-				`entry_isChecked`,
-				`entry_checkedBy`,
-				`entry_isDeleted`,
-				`entry_isSpam`
+				`id`,
+				`author_name`,
+				`author_id`,
+				`author_email`,
+				`author_origin`,
+				`author_website`,
+				`author_ip`,
+				`author_host`,
+				`content`,
+				`date`,
+				`ischecked`,
+				`checkedby`,
+				`istrash`,
+				`isspam`
 			FROM
 				" . $tablename . "
 			WHERE
 				" . $where . "
 			ORDER BY
-				entry_date DESC
+				date DESC
 			LIMIT
 				" . $limit . "
 			;";
@@ -130,20 +130,20 @@ function gwolle_gb_get_entries($args = array()) {
 
 			// Use the fields that the setter method expects
 			$item = array(
-				'id' => (int) $data['entry_id'],
-				'author_name' => stripslashes($data['entry_author_name']),
-				'authoradminid' => (int) $data['entry_authorAdminId'],
-				'author_email' => stripslashes($data['entry_author_email']),
-				'author_origin' => stripslashes($data['entry_author_origin']),
-				'author_website' => stripslashes($data['entry_author_website']),
-				'author_ip' => $data['entry_author_ip'],
-				'author_host' => $data['entry_author_host'],
-				'content' => stripslashes($data['entry_content']),
-				'date' => $data['entry_date'],
-				'ischecked' => (int) $data['entry_isChecked'],
-				'checkedby' => (int) $data['entry_checkedBy'],
-				'isdeleted' => (int) $data['entry_isDeleted'],
-				'isspam' => (int) $data['entry_isSpam']
+				'id' => (int) $data['id'],
+				'author_name' => stripslashes($data['author_name']),
+				'author_id' => (int) $data['author_id'],
+				'author_email' => stripslashes($data['author_email']),
+				'author_origin' => stripslashes($data['author_origin']),
+				'author_website' => stripslashes($data['author_website']),
+				'author_ip' => $data['author_ip'],
+				'author_host' => $data['author_host'],
+				'content' => stripslashes($data['content']),
+				'date' => $data['date'],
+				'ischecked' => (int) $data['ischecked'],
+				'checkedby' => (int) $data['checkedby'],
+				'istrash' => (int) $data['istrash'],
+				'isspam' => (int) $data['isspam']
 			);
 
 			$entry = new gwolle_gb_entry();

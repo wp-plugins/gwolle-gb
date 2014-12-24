@@ -4,14 +4,14 @@
  * Get the number of entries.
  *
  * Parameter $args is an Array:
- * - checked			string: 'checked' or 'unchecked', List the entries that are checked or not checked
- * - deleted			string: 'deleted' or 'notdeleted', List the entries that are deleted or not deleted
- * - spam				string: 'spam' or 'nospam', List the entries marked as spam or as no spam
- * - all				string: 'all', List all entries
+ * - checked  string: 'checked' or 'unchecked', List the entries that are checked or not checked
+ * - trash    string: 'trash' or 'notrash', List the entries that are deleted or not deleted
+ * - spam     string: 'spam' or 'nospam', List the entries marked as spam or as no spam
+ * - all      string: 'all', List all entries
  *
  * Return:
- * - Array of objects of gwolle_gb_entry
- * - false  if there's an error.
+ * - int with the count of the entries
+ * - false if there's an error.
  */
 
 function gwolle_gb_get_entry_count($args) {
@@ -30,7 +30,7 @@ function gwolle_gb_get_entry_count($args) {
 		if ( $args['checked'] == 'checked' || $args['checked'] == 'unchecked' ) {
 			$where .= "
 				AND
-				entry_isChecked = %d";
+				ischecked = %d";
 			if ( $args['checked'] == 'checked' ) {
 				$values[] = 1;
 			} else if ( $args['checked'] == 'unchecked' ) {
@@ -42,7 +42,7 @@ function gwolle_gb_get_entry_count($args) {
 		if ( $args['spam'] == 'spam' || $args['spam'] == 'nospam' ) {
 			$where .= "
 				AND
-				entry_isSpam = %d";
+				isspam = %d";
 			if ( $args['spam'] == 'spam' ) {
 				$values[] = 1;
 			} else if ( $args['spam'] == 'nospam' ) {
@@ -50,14 +50,14 @@ function gwolle_gb_get_entry_count($args) {
 			}
 		}
 	}
-	if ( isset($args['deleted']) ) {
-		if ( $args['deleted'] == 'deleted' || $args['deleted'] == 'notdeleted' ) {
+	if ( isset($args['trash']) ) {
+		if ( $args['trash'] == 'trash' || $args['trash'] == 'notrash' ) {
 			$where .= "
 				AND
-				entry_isDeleted = %d";
-			if ( $args['deleted'] == 'deleted' ) {
+				istrash = %d";
+			if ( $args['trash'] == 'trash' ) {
 				$values[] = 1;
-			} else if ( $args['deleted'] == 'notdeleted' ) {
+			} else if ( $args['trash'] == 'notrash' ) {
 				$values[] = 0;
 			}
 		}
@@ -67,7 +67,7 @@ function gwolle_gb_get_entry_count($args) {
 
 	$sql = "
 			SELECT
-				COUNT(entry_id) AS entry_count
+				COUNT(id) AS count
 			FROM
 				" . $tablename . "
 			WHERE
@@ -79,7 +79,7 @@ function gwolle_gb_get_entry_count($args) {
 		if ( $args['all'] == 'all' ) {
 			$sql = "
 				SELECT
-					COUNT(entry_id) AS entry_count
+					COUNT(id) AS count
 				FROM
 					" . $tablename . ";";
 		}
@@ -89,7 +89,7 @@ function gwolle_gb_get_entry_count($args) {
 
 	$data = $wpdb->get_results( $sql, ARRAY_A );
 
-	return (int) $data[0]['entry_count'];
+	return (int) $data[0]['count'];
 
 }
 

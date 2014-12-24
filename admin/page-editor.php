@@ -95,14 +95,14 @@ function gwolle_gb_page_editor() {
 				}
 
 				/* Set as trash or not */
-				if ( isset($_POST['isdeleted']) && $_POST['isdeleted'] == 'on' ) {
-					if ( $_POST['isdeleted'] == 'on' && $entry->get_isdeleted() == 0 ) {
-						$entry->set_isdeleted( true );
+				if ( isset($_POST['istrash']) && $_POST['istrash'] == 'on' ) {
+					if ( $_POST['istrash'] == 'on' && $entry->get_istrash() == 0 ) {
+						$entry->set_istrash( true );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-trashed' );
 						$changed = true;
 					}
-				} else if ( $entry->get_isdeleted() == 1 ) {
-					$entry->set_isdeleted( false );
+				} else if ( $entry->get_istrash() == 1 ) {
+					$entry->set_istrash( false );
 					gwolle_gb_add_log_entry( $entry->get_id(), 'entry-untrashed' );
 					$changed = true;
 				}
@@ -148,8 +148,8 @@ function gwolle_gb_page_editor() {
 				}
 
 				/* Remove permanently */
-				if ( isset($_POST['isdeleted']) && $_POST['isdeleted'] == 'on' && isset($_POST['remove']) && $_POST['remove'] == 'on' ) {
-					if ( $entry->get_isdeleted() == 1 ) {
+				if ( isset($_POST['istrash']) && $_POST['istrash'] == 'on' && isset($_POST['remove']) && $_POST['remove'] == 'on' ) {
+					if ( $entry->get_istrash() == 1 ) {
 						$entry->delete();
 						$entry->set_id(0);
 						$changed = true;
@@ -168,7 +168,7 @@ function gwolle_gb_page_editor() {
 				$data['ischecked'] = true;
 				$user_id = get_current_user_id(); // returns 0 if no current user
 				$data['checkedby'] = $user_id;
-				$data['authoradminid'] = $user_id;
+				$data['author_id'] = $user_id;
 
 				/* Set metadata of the admin */
 				$userdata = get_userdata( $user_id );
@@ -188,7 +188,7 @@ function gwolle_gb_page_editor() {
 				$data['isspam'] = false;
 
 				/* Do not set as trash */
-				$data['isdeleted'] = false;
+				$data['istrash'] = false;
 
 				/* Check if the content is filled in, and update accordingly */
 				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
@@ -280,7 +280,7 @@ function gwolle_gb_page_editor() {
 													}
 
 													// Attach 'trash' to class if the entry is in trash
-													if ( $entry->get_isdeleted() === 1 ) {
+													if ( $entry->get_istrash() === 1 ) {
 														$class .= ' trash';
 													}
 
@@ -288,7 +288,7 @@ function gwolle_gb_page_editor() {
 													if ( $entry->get_id() == 0 ) {
 														$class .= ' invisible';
 													} else {
-														if ( $entry->get_isspam() === 1 || $entry->get_isdeleted() === 1 || $entry->get_ischecked() === 0 ) {
+														if ( $entry->get_isspam() === 1 || $entry->get_istrash() === 1 || $entry->get_ischecked() === 0 ) {
 															$class .= ' invisible';
 														} else {
 															$class .= ' visible';
@@ -309,7 +309,7 @@ function gwolle_gb_page_editor() {
 													if ( $entry->get_id() == 0 ) {
 														echo "<h3>" . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . "</h3>";
 													} else {
-														if ($entry->get_ischecked() == 1 && $entry->get_isspam() == 0 && $entry->get_isdeleted() == 0 ) {
+														if ($entry->get_ischecked() == 1 && $entry->get_isspam() == 0 && $entry->get_istrash() == 0 ) {
 															echo "<h3>" . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . "</h3>";
 														} else {
 															echo "<h3>" . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . "</h3>";
@@ -346,14 +346,14 @@ function gwolle_gb_page_editor() {
 													</label>
 
 													<br />
-													<label for="isdeleted" class="selectit">
-														<input id="isdeleted" name="isdeleted" type="checkbox" <?php
-															if ($entry->get_isdeleted() == '1') {
+													<label for="istrash" class="selectit">
+														<input id="istrash" name="istrash" type="checkbox" <?php
+															if ($entry->get_istrash() == '1') {
 																echo 'checked="checked"';
 															}
 															?> />
 														<?php
-														if ($entry->get_isdeleted() == '0') {
+														if ($entry->get_istrash() == '0') {
 															_e('This entry is Not in Trash.', GWOLLE_GB_TEXTDOMAIN);
 														} else {
 															_e('This entry is in Trash', GWOLLE_GB_TEXTDOMAIN);
@@ -361,7 +361,7 @@ function gwolle_gb_page_editor() {
 													</label>
 
 													<?php
-													if ($entry->get_isdeleted() == '1') { ?>
+													if ($entry->get_istrash() == '1') { ?>
 														<br />
 														<label for="remove" class="selectit">
 															<input id="remove" name="remove" type="checkbox" />

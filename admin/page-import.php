@@ -65,7 +65,7 @@ function gwolle_gb_page_import() {
 							/* Set the data in the instance */
 							$entry->set_isspam( $entry_data["spam"] );
 							$entry->set_ischecked( true );
-							$entry->set_isdeleted( $entry_data["flag"] );
+							$entry->set_istrash( $entry_data["flag"] );
 							$entry->set_content( $entry_data["message"] );
 							$entry->set_date( $entry_data["date"] );
 							$entry->set_author_name( $entry_data["name"] );

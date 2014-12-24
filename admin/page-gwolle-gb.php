@@ -15,17 +15,17 @@ function gwolle_gb_overview(){
 	$count = Array();
 	$count['checked']    = gwolle_gb_get_entry_count(array(
 			'checked' => 'checked',
-			'deleted' => 'notdeleted',
+			'trash'   => 'notrash',
 			'spam'    => 'nospam'
 		));
 	$count['unchecked'] = gwolle_gb_get_entry_count(array(
 			'checked' => 'unchecked',
-			'deleted' => 'notdeleted',
+			'trash'   => 'notrash',
 			'spam'    => 'nospam'
 		));
-	$count['spam']    = gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
-	$count['trash']   = gwolle_gb_get_entry_count(array( 'deleted' => 'deleted' ));
-	$count['all']     = gwolle_gb_get_entry_count(array( 'all' => 'all' ));
+	$count['spam']    = gwolle_gb_get_entry_count(array( 'spam'  => 'spam'  ));
+	$count['trash']   = gwolle_gb_get_entry_count(array( 'trash' => 'trash' ));
+	$count['all']     = gwolle_gb_get_entry_count(array( 'all'   => 'all'   ));
 	?>
 
 	<div class="table table_content gwolle_gb">

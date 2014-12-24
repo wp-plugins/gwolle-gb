@@ -160,8 +160,8 @@ function gwolle_gb_page_entries() {
 										}
 									}
 								} else if ( $action == 'trash' ) {
-									if ( $entry->get_isdeleted() == 0 ) {
-										$entry->set_isdeleted( true );
+									if ( $entry->get_istrash() == 0 ) {
+										$entry->set_istrash( true );
 										gwolle_gb_add_log_entry( $entry->get_id(), 'entry-trashed' );
 										$result = $entry->save();
 										if ( $result ) {
@@ -173,8 +173,8 @@ function gwolle_gb_page_entries() {
 										$entries_not_handled++;
 									}
 								} else if ( $action == 'untrash' ) {
-									if ( $entry->get_isdeleted() == 1 ) {
-										$entry->set_isdeleted( false );
+									if ( $entry->get_istrash() == 1 ) {
+										$entry->set_istrash( false );
 										gwolle_gb_add_log_entry( $entry->get_id(), 'entry-untrashed' );
 										$result = $entry->save();
 										if ( $result ) {
@@ -291,18 +291,18 @@ function gwolle_gb_page_entries() {
 		$count['checked'] = gwolle_gb_get_entry_count(
 			array(
 				'checked' => 'checked',
-				'deleted' => 'notdeleted',
+				'trash'   => 'notrash',
 				'spam'    => 'nospam'
 			)
 		);
 		$count['unchecked'] = gwolle_gb_get_entry_count(array(
 				'checked' => 'unchecked',
-				'deleted' => 'notdeleted',
+				'trash'   => 'notrash',
 				'spam'    => 'nospam'
 			));
-		$count['spam']  = gwolle_gb_get_entry_count(array( 'spam' => 'spam' ));
-		$count['trash'] = gwolle_gb_get_entry_count(array( 'deleted' => 'deleted' ));
-		$count['all']   = gwolle_gb_get_entry_count(array( 'all' => 'all' ));
+		$count['spam']  = gwolle_gb_get_entry_count(array( 'spam' => 'spam'  ));
+		$count['trash'] = gwolle_gb_get_entry_count(array( 'trash'=> 'trash' ));
+		$count['all']   = gwolle_gb_get_entry_count(array( 'all'  => 'all'  ));
 
 
 		$show = (isset($_REQUEST['show']) && in_array($_REQUEST['show'], array('checked', 'unchecked', 'spam', 'trash'))) ? $_REQUEST['show'] : 'all';
@@ -352,7 +352,7 @@ function gwolle_gb_page_entries() {
 				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
 				'checked' => 'checked',
-				'deleted' => 'notdeleted',
+				'trash'   => 'notrash',
 				'spam'    => 'nospam'
 			));
 		} else if ( $show == 'unchecked' ) {
@@ -360,20 +360,20 @@ function gwolle_gb_page_entries() {
 				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
 				'checked' => 'unchecked',
-				'deleted' => 'notdeleted',
+				'trash'   => 'notrash',
 				'spam'    => 'nospam'
 			));
 		} else if ( $show == 'spam' ) {
 			$entries = gwolle_gb_get_entries(array(
 				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
-				'spam' => 'spam'
+				'spam'    => 'spam'
 			));
 		} else if ( $show == 'trash' ) {
 			$entries = gwolle_gb_get_entries(array(
 				'num_entries' => $entries_per_page,
 				'offset'  => $mysqlFirstRow,
-				'deleted' => 'deleted'
+				'trash'   => 'trash'
 			));
 		} else {
 			$entries = gwolle_gb_get_entries(array(
@@ -595,12 +595,12 @@ function gwolle_gb_page_entries() {
 									}
 
 									// Attach 'trash' to class if the entry is in trash
-									if ( $entry->get_isdeleted() === 1 ) {
+									if ( $entry->get_istrash() === 1 ) {
 										$class .= ' trash';
 									}
 
 									// Attach 'visible/invisible' to class
-									if ( $entry->get_isspam() === 1 || $entry->get_isdeleted() === 1 || $entry->get_ischecked() === 0 ) {
+									if ( $entry->get_isspam() === 1 || $entry->get_istrash() === 1 || $entry->get_ischecked() === 0 ) {
 										$class .= ' invisible';
 									} else {
 										$class .= ' visible';

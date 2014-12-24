@@ -78,8 +78,8 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 					array(
 						'num_entries' => $num_entries,
 						'checked' => 'checked',
-						'deleted' => 'notdeleted',
-						'spam' => 'nospam'
+						'trash'   => 'notrash',
+						'spam'    => 'nospam'
 						)
 					);
 				if ( is_array( $entries ) && count( $entries ) > 0 ) {

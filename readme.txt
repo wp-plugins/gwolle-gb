@@ -83,7 +83,6 @@ With version 1.0 there have been some changes:
 * Bring AJAX back, this time inside actions.
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
-* Better database structure (e. g. 'id' instead of 'entry_id').
 * 'Thank you' mail to the poster (requested by Joakim from Sweden).
 * Add PHP methods to add an entry.
 
@@ -163,7 +162,8 @@ Yes, it is again actively maintained.
 
 = 1.0.6 =
 * 2014-12-
-* use '...' instead of '&hellip;'.
+* Change database structure for guestbook entries.
+* Use '...' instead of '&hellip;'.
 
 = 1.0.5 =
 * 2014-12-21

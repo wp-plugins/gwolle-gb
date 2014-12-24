@@ -62,8 +62,8 @@ function gwolle_gb_get_author_name_html($entry) {
 	$author_name_html = trim( $entry->get_author_name() );
 
 	// Registered User;
-	$authoradminid = $entry->get_authoradminid();
-	$is_moderator = gwolle_gb_is_moderator( $authoradminid );
+	$author_id = $entry->get_author_id();
+	$is_moderator = gwolle_gb_is_moderator( $author_id );
 	if ( $is_moderator ) {
 		$author_name = $is_moderator; // overwrite name in entry with name of registered user
 		$author_name_html = '<i>' . $is_moderator . '</i>'; // overwrite name in entry with name of registered user

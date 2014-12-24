@@ -11,7 +11,7 @@ function gwolle_gb_dashboard() {
 	$entries = gwolle_gb_get_entries(array(
 			'num_entries' => 5,
 			'checked' => 'unchecked',
-			'deleted' => 'notdeleted',
+			'trash'   => 'nottrash',
 			'spam'    => 'nospam'
 		));
 
@@ -38,20 +38,20 @@ function gwolle_gb_dashboard() {
 			}
 
 			// Attach 'trash' to class if the entry is in trash
-			if ( $entry->get_isdeleted() === 1 ) {
+			if ( $entry->get_istrash() === 1 ) {
 				$class .= ' trash';
 			}
 
 			// Attach 'visible/invisible' to class
-			if ( $entry->get_isspam() === 1 || $entry->get_isdeleted() === 1 || $entry->get_ischecked() === 0 ) {
+			if ( $entry->get_isspam() === 1 || $entry->get_istrash() === 1 || $entry->get_ischecked() === 0 ) {
 				$class .= ' invisible';
 			} else {
 				$class .= ' visible';
 			}
 
 			// Add admin-entry class to an entry from an admin
-			$authoradminid = $entry->get_authoradminid();
-			$is_moderator = gwolle_gb_is_moderator( $authoradminid );
+			$author_id = $entry->get_author_id();
+			$is_moderator = gwolle_gb_is_moderator( $author_id );
 			if ( $is_moderator ) {
 				$class .= ' admin-entry';
 			} ?>
