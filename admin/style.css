@@ -1,5 +1,16 @@
+
+/*
+ * CSS for the admin part of Gwolle GB Guestbook.
+ */
+
+
+.gwolle-gb {
+	clear: both;
+}
+
+/* Menu Icon */
 #icon-gwolle-gb {
-	background-image: url(gfx/icon-gross-hover.png);
+	background-image: url('gfx/icon-gross-hover.png');
 	background-repeat: no-repeat;
 	background-position: 0px 4px;
 	float: left;
@@ -7,44 +18,114 @@
 	height: 46px;
 }
 
-#page-nav {
+/* Welcome page */
+.gwolle_gb_welcome .table_content.gwolle_gb table {
+	margin-left: 10px;
+}
+
+.gwolle_gb_welcome .versions a.button {
+	margin-left: 10px;
+}
+
+/* Page Navigation on entries.php */
+.gwolle_gb #page-nav {
 	display: block;
 	clear: both;
 	width: 100%;
 	text-align: right;
 }
 
-.id, .check {
+.gwolle_gb .id,
+.gwolle_gb .check {
 	width: 12px;
 }
 
-.entry-checked, .entry-unchecked, .entry-loading {
+.gwolle_gb .entry-checked,
+.gwolle_gb .entry-unchecked,
+.gwolle_gb .entry-loading {
 	background-repeat: no-repeat;
 	background-position: 0px 6px;
 	width: 10px;
 	cursor: move;
 }
-.entry-checked { background-image: url(gfx/entry-checked.jpg); }
-.entry-unchecked { background-image: url(gfx/entry-unchecked.jpg); }
-.entry-loading { background-image: url(gfx/loading.gif); }
 
-tr.entry td img {
-  vertical-align: middle;
+/* Icons on entries.php and editor.php */
+.gwolle_gb td.entry-icons {
+	min-width: 50px;
 }
-img.spam {
-  margin-right: 4px;
-  cursor: move;
+.gwolle_gb .visible-icon,
+.gwolle_gb .invisible-icon,
+.gwolle_gb .spam-icon,
+.gwolle_gb .trash-icon {
+	display: none;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
 }
+.gwolle_gb .visible .visible-icon {
+	display: inline-block;
+	background-image: url('gfx/entry-checked.jpg');
+}
+.gwolle_gb .invisible .invisible-icon {
+	display: inline-block;
+	background-image: url('gfx/entry-unchecked.jpg');
+}
+.gwolle_gb .spam .spam-icon {
+	display: inline-block;
+	background-image: url('gfx/entry-spam.jpg');
+}
+
+/* AJAX? */
+.gwolle_gb .entry-loading {
+	background-image: url('gfx/loading.gif');
+}
+
+.gwolle_gb tr.entry td span {
+	vertical-align: middle;
+}
+
+
+/* Dashboard Widget */
 
 #gwolle_gb_dashboard .inside {
-  margin-top: 0px;
+	margin-top: 4px;
 }
+#gwolle_gb_dashboard .date {
+	font-size: 82%;
+}
+#gwolle_gb_dashboard blockquote.excerpt {
+	margin: 0;
+}
+#gwolle_gb_dashboard .excerpt p {
+	margin: 4px 0;
+}
+
+#gwolle_gb_dashboard p.row-actions {
+	margin: 0;
+	padding-bottom: 4px;
+}
+
+/* AJAX */
+span.unapprove,
+span.nospam,
+span.ajax {
+	display: none;
+}
+/* For now, till there is AJAX */
+span.spam,
+span.trash {
+	display: none;
+}
+
 #gwolle_gb_dashboard div.undo {
-  border-top-color:#DFDFDF;
-  background-color:#F4F4F4;
-  border-top-style: solid;
-  border-top-width: 1px;
-  font-size: 11px;
-  margin: 0 -10px;
-  padding: 3px 8px;
+	border-top-color: #DFDFDF;
+	background-color: #F4F4F4;
+	border-top-style: solid;
+	border-top-width: 1px;
+	font-size: 11px;
+	margin: 0 -10px;
+	padding: 3px 8px;
 }
+
+
+
