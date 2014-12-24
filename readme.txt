@@ -161,8 +161,9 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.0.6 =
-* 2014-12-
+* 2014-12-24
 * Change database structure for guestbook entries.
+* Fix install for db and log entries.
 * Use '...' instead of '&hellip;'.
 
 = 1.0.5 =

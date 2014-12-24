@@ -48,7 +48,7 @@ function install_gwolle_gb() {
 			entry_id int(5) NOT NULL,
 			author_id int(5) NOT NULL,
 			date varchar(12) NOT NULL,
-			PRIMARY KEY  (log_id)
+			PRIMARY KEY  (id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
 
