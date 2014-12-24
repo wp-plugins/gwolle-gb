@@ -153,13 +153,17 @@ Yes, it is again actively maintained.
 
 == Screenshots ==
 
-1. Overview panel, so that you easily can see what's the status.
+1. Overview panel, so that you easily can see what's the overall status.
 2. List of the entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
-3. The editor for entries.
-4. Settings panel (showing version 0.9.4.1).
+3. The editor for a single entry.
+4. Settings panel (showing version 1.0.5).
 
 
 == Changelog ==
+
+= 1.0.6 =
+* 2014-12-
+* use '...' instead of '&hellip;'.
 
 = 1.0.5 =
 * 2014-12-21

@@ -133,8 +133,8 @@ function gwolle_gb_dashboard() {
 
 		</div>
 		<p class="textright">
-			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=all" class="button"><?php _e('View all', GWOLLE_GB_TEXTDOMAIN); ?></a>
-			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=unchecked" class="button"><?php _e('View new', GWOLLE_GB_TEXTDOMAIN); ?></a>
+			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=all" class="button button-primary"><?php _e('View all', GWOLLE_GB_TEXTDOMAIN); ?></a>
+			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=unchecked" class="button button-primary"><?php _e('View new', GWOLLE_GB_TEXTDOMAIN); ?></a>
 		</p><?php
 	} else {
 		echo '<p>' . __('No new and unchecked guestbook entries.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
