@@ -463,6 +463,7 @@ function gwolle_gb_page_entries() {
 						if ( is_array($entries) && count($entries) > 0 ) {
 							echo $massEditControls_select . $massEditControls;
 						}
+						// FIXME: add button to delete all spam and trash entries
 						?>
 					</div>
 
