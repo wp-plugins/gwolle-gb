@@ -6,6 +6,9 @@ Description: Gwolle Guestbook is not just another guestbook for WordPress. The g
 Version: 1.0.6
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
+License: GPLv2 or later
+Text Domain: GWGB
+Domain Path: /lang/
 */
 
 /*  Copyright 2009  Wolfgang Timme  (email: gwolle@wolfgangtimme.de)
