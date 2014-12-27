@@ -44,7 +44,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 = Languages =
 
 * cs_CZ [Jan Korous]
-* de_DE [Wolfgang Timme]
+* de_DE [Jenny Gaulke]
 * en_GB [Wolfgang Timme]
 * es_ES [José Luis Sanz Ruiz]
 * fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
@@ -159,6 +159,10 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.0.7 =
+* 2014-12-27
+* Update de_DE (Thanks Jenny Gaulke).
 
 = 1.0.6 =
 * 2014-12-24

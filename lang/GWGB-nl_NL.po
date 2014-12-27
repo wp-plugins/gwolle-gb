@@ -1213,4 +1213,3 @@ msgstr "Bericht is hersteld uit de prullenbak."
 #: functions/function.gwolle_gb_misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Geen inhoud om weer te geven. Het bericht is leeg."
-
