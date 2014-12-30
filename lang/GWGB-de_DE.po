@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: /Users/arnonym/Sites/vhosts/heinegym.de/html/wp-content/"
 "plugins/gwolle-gb/\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:21
@@ -107,7 +107,7 @@ msgstr "Bitte warten..."
 
 #: admin/dashboard-widget.php:125
 msgid "Wait..."
-msgstr ""
+msgstr "Bitte warten.."
 
 #: admin/dashboard-widget.php:136
 msgid "View all"
@@ -115,15 +115,15 @@ msgstr "Alle ansehen"
 
 #: admin/dashboard-widget.php:137
 msgid "View new"
-msgstr ""
+msgstr "Neue Ansicht"
 
 #: admin/dashboard-widget.php:140
 msgid "No new and unchecked guestbook entries."
-msgstr ""
+msgstr "Keine neuen und ungepr&uuml;ften G&auml;stebucheintr&auml;ge."
 
 #: admin/dashboard-widget.php:147
 msgid "Guestbook (new entries)"
-msgstr ""
+msgstr "G&auml;stebuch (neue Eintr&auml;ge)"
 
 #: admin/installSplash.php:14
 msgid "Successfully uninstalled"
@@ -222,7 +222,7 @@ msgstr "Eintrag wurde nicht ge&auml;ndert."
 
 #: admin/page-editor.php:157
 msgid "Entry removed."
-msgstr ""
+msgstr "Eintrag entfernt."
 
 #: admin/page-editor.php:198
 msgid "Entry has no content, even though that is mandatory."
@@ -242,7 +242,7 @@ msgstr "Eintrag wurde nicht gespeichert."
 #: admin/page-import.php:137 admin/page-import.php:198
 #: admin/page-import.php:205
 msgid "Click to open or close"
-msgstr "Klicken zum &Ouml;ffnen oder Schließen"
+msgstr "Klicken zum &Ouml;ffnen oder Schlie&szlig;en"
 
 #: admin/page-editor.php:268
 msgid "Options"
@@ -282,7 +282,7 @@ msgstr "Eintrag wurde in den Papierkorb verschoben."
 
 #: admin/page-editor.php:368
 msgid "Remove this entry Permanently."
-msgstr ""
+msgstr "Dauerhaft entfernen"
 
 #: admin/page-editor.php:379
 msgid "Save"
@@ -481,15 +481,15 @@ msgstr "Keine Eintr&auml;ge wiederhergestellt."
 
 #: admin/page-entries.php:278
 msgid "entry removed permanently."
-msgstr ""
+msgstr "Eintrag dauerhaft entfernt."
 
 #: admin/page-entries.php:280
 msgid "entries removed permanently."
-msgstr ""
+msgstr "Eintr&auml;ge dauerhaft entfernt."
 
 #: admin/page-entries.php:282
 msgid "No entries permanently removed."
-msgstr ""
+msgstr "Keine Eintr& auml;ge dauerhaft entfernt."
 
 #: admin/page-entries.php:314
 msgid "Please activate Akismet if you want to battle spam."
@@ -705,14 +705,16 @@ msgid ""
 "I'm sorry, but I wasn't able to import entries from DMSGuestbook "
 "successfully."
 msgstr ""
+"Sorry, aber es konnten keine Eintr&auml;ge aus dem DMSG&auml;stebuch "
+"importiert werden."
 
 #: admin/page-import.php:88
 msgid "1 entry imported successfully from DMSGuestbook."
-msgstr ""
+msgstr "1 Eintrag wurde erfolgreich vom DMSG&auml;stebuch importiert."
 
 #: admin/page-import.php:90
 msgid "%1 entries imported successfully from DMSGuestbook."
-msgstr ""
+msgstr "%1 Eintr&auml;ge wurden erfolgreich vom DMSG&auml;stebuch importiert."
 
 #: admin/page-import.php:94
 msgid ""
@@ -724,7 +726,7 @@ msgstr ""
 
 #: admin/page-import.php:99
 msgid "I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook."
-msgstr ""
+msgstr "Sorry, die MySQL Datenbank des DMSG&auml;stebuch wurde nicht gefunden."
 
 #: admin/page-import.php:104
 msgid "You haven't chosen a guestbook. Please select one and try again."
@@ -734,7 +736,7 @@ msgstr ""
 
 #: admin/page-import.php:116
 msgid "Import guestbook entries."
-msgstr ""
+msgstr "G&auml;stebuch-Eintr&auml;ge importieren."
 
 #: admin/page-import.php:137
 msgid "Import guestbook entries from DMSGuestbook"
@@ -746,7 +748,7 @@ msgstr "%1 Eintr&auml;ge wurden gefunden und k&ouml;nnen importiert werden."
 
 #: admin/page-import.php:164
 msgid "DMSGuestbook was not found."
-msgstr ""
+msgstr "DMSG&auml;stebuch konnte nicht gefunden werden."
 
 #: admin/page-import.php:169
 msgid "The importer will preserve the following data per entry:"
@@ -789,15 +791,19 @@ msgid ""
 "However, data such as HTML formatting is not supported by Gwolle-GB and "
 "<strong>will not</strong> be imported."
 msgstr ""
+"HTML-Formatierungen werden vom Gwolle-GB <strong> nicht </ strong> "
+"unterst&uuml;tzt und importiert."
 
 #: admin/page-import.php:182
 msgid ""
 "The importer does not delete any data, so you can go back whenever you want."
 msgstr ""
+"Der Assistent l&ouml;scht keine Daten, Du kannst also immer wieder zur&uuml;"
+"ckgehen."
 
 #: admin/page-import.php:188
 msgid "Import all entries from DMSGuestbook."
-msgstr ""
+msgstr "DMSG&auml;stebuch-Eintr&auml;ge importieren"
 
 #: admin/page-import.php:192
 msgid "Start import"
@@ -805,11 +811,11 @@ msgstr "Import starten"
 
 #: admin/page-import.php:198
 msgid "Import guestbook entries from WordPress comments"
-msgstr ""
+msgstr "Importiere G&auml;stebuch-Eintr&auml;ge aus den WordPress Kommentaren "
 
 #: admin/page-import.php:205
 msgid "Import guestbook entries from Gwolle-GB"
-msgstr ""
+msgstr "Importiere G&auml;stebuch-Eintr&auml;ge aus dem Gwolle-GB "
 
 #: admin/page-settings.php:147
 msgid "Moderate Guestbook"
@@ -918,6 +924,8 @@ msgid ""
 "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
 "can enter it at the <a href=\"%1\">Akismet configuration page</a>."
 msgstr ""
+"Sorry, <strong>WordPress API Key konnte nicht lokalisiert werden. Du kannst "
+"ihn auf der <a href=\"%1\">Akismet Konfigurationsseite eingeben</a>."
 
 #: admin/page-settings.php:277
 msgid "Use Akismet"
@@ -1090,16 +1098,16 @@ msgstr "Neuer Eintrag "
 
 #: frontend/read.php:79
 msgid "Previous page"
-msgstr ""
+msgstr "Vorherige Seite"
 
 #: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
 #: frontend/read.php:121 frontend/read.php:132
 msgid "Page"
-msgstr ""
+msgstr "Seite"
 
 #: frontend/read.php:103 frontend/read.php:133
 msgid "Next page"
-msgstr ""
+msgstr "N&auml;chste Seite"
 
 #: frontend/read.php:142
 msgid "(no entries yet)"
@@ -1123,7 +1131,7 @@ msgstr "G&auml;stebuch lesen"
 
 #: frontend/widget.php:112
 msgid "Click here to get to the guestbook."
-msgstr "Klicke hier, um zum Gästebuch zu gelangen."
+msgstr "Klicke hier, um zum G&auml;stebuch zu gelangen."
 
 #: frontend/widget.php:158
 msgid "Title:"
@@ -1135,15 +1143,15 @@ msgstr "Anzahl der Eintr&auml;ge:"
 
 #: frontend/widget.php:180
 msgid "Best entries to show:"
-msgstr ""
+msgstr "Top-Kommentare anzeigen:"
 
 #: frontend/widget.php:182
 msgid "List of entry_id's, comma-separated"
-msgstr ""
+msgstr "Liste der Eintrags-IDs , durch Komma getrennt"
 
 #: frontend/widget.php:186
 msgid "Number of words for each entry:"
-msgstr ""
+msgstr "Wortanzahl pro Eintrag:"
 
 #: frontend/widget.php:202
 msgid "Link text:"
@@ -1151,15 +1159,15 @@ msgstr "Link-Text:"
 
 #: frontend/widget.php:208
 msgid "Select the page of the guestbook:"
-msgstr ""
+msgstr "Seitenauswahl:"
 
 #: frontend/widget.php:210
 msgid "Select page"
-msgstr ""
+msgstr "Seite ausw&auml;hlen"
 
 #: frontend/write.php:81
 msgid "Write a new entry."
-msgstr "Neuer Eintrag"
+msgstr "Neuen Eintrag erstellen"
 
 #: frontend/write.php:92
 msgid "Write a new entry for the Guestbook"
@@ -1238,4 +1246,3 @@ msgstr "Eintrag wurde wiederhergestellt."
 #: functions/function.gwolle_gb_misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Kein Inhalt; dieser Eintrag ist leer."
-

@@ -51,6 +51,8 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * nl_NL [Marcel Pol](http://zenoweb.nl)
 * pl_PL [Daniel Speichert]
 
+Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
+
 
 == Installation ==
 
