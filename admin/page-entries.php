@@ -607,6 +607,13 @@ function gwolle_gb_page_entries() {
 										$class .= ' visible';
 									}
 
+									// Add admin-entry class to an entry from an admin
+									$author_id = $entry->get_author_id();
+									$is_moderator = gwolle_gb_is_moderator( $author_id );
+									if ( $is_moderator ) {
+										$class .= ' admin-entry';
+									}
+
 									// Checkbox and ID columns
 									$html_output .= '
 										<tr id="entry_' . $entry->get_id() . '" class="entry ' . $class . '">
@@ -653,7 +660,27 @@ function gwolle_gb_page_entries() {
 									// Actions column
 									$html_output .= '
 										<td>
-											<a href="' . $_SERVER['PHP_SELF'] . '?page=' . GWOLLE_GB_FOLDER . '/editor.php&amp;entry_id=' . $entry->get_id() . '">' . __('Details', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;&raquo;</a>&nbsp;
+											<span class="gwolle_gb_edit">
+												<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											</span>
+											<span class="gwolle_gb_approve">&nbsp;|&nbsp;
+												<a href="#" id="check_' . $entry->get_id() . '" class="vim-a" title="' . __('Check entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Check', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											</span>
+											<span class="gwolle_gb_unapprove">&nbsp;|&nbsp;
+												<a href="#" id="uncheck_' . $entry->get_id() . '" class="vim-u" title="' . __('Uncheck entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Uncheck', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											</span>
+											<span class="gwolle_gb_spam">&nbsp;|&nbsp;
+												<a id="markspam_' . $entry->get_id() . '" href="#" class="vim-s vim-destructive" title="' . __('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											</span>
+											<span class="gwolle_gb_nospam">&nbsp;|&nbsp;
+												<a id="unmarkspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Not spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											</span>
+											<span class="gwolle_gb_trash">&nbsp;|&nbsp;
+												<a href="#" id="trash_' . $entry->get_id() . '" class="delete vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash') . '</a>
+											</span>
+											<span class="gwolle_gb_ajax">&nbsp;|&nbsp;
+												<a href="#" id="ajax_' . $entry->get_id() . '" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...') . '</a>
+											</span>
 										</td>
 									</tr>';
 								}

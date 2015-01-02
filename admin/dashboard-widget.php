@@ -97,30 +97,30 @@ function gwolle_gb_dashboard() {
 					// Actions, to be made with AJAX
 					?>
 					<p class="row-actions" id="entry-actions-<?php echo $entry->get_id(); ?>">
-						<span class="edit">
+						<span class="gwolle_gb_edit">
 							<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php&entry_id=<?php echo $entry->get_id(); ?>" title="<?php _e('Edit entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Edit', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="approve">
+						<span class="gwolle_gb_approve">
 							&nbsp;|&nbsp;
 							<a href="#" id="check_<?php echo $entry->get_id(); ?>" class="vim-a" title="<?php _e('Check entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Check', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="unapprove">
+						<span class="gwolle_gb_unapprove">
 							&nbsp;|&nbsp;
 							<a href="#" id="uncheck_<?php echo $entry->get_id(); ?>" class="vim-u" title="<?php _e('Uncheck entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Uncheck', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="spam">
+						<span class="gwolle_gb_spam">
 							&nbsp;|&nbsp;
-							<a id="mark-spam-<?php echo $entry->get_id(); ?>" href="#" class="vim-s vim-destructive" title="<?php _e('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							<a id="markspam_<?php echo $entry->get_id(); ?>" href="#" class="vim-s vim-destructive" title="<?php _e('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="nospam">
+						<span class="gwolle_gb_nospam">
 							&nbsp;|&nbsp;
-							<a id="unmark-spam-<?php echo $entry->get_id(); ?>" href="#" class="vim-a" title="<?php _e('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Not spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							<a id="unmarkspam_<?php echo $entry->get_id(); ?>" href="#" class="vim-a" title="<?php _e('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Not spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="trash">
+						<span class="gwolle_gb_trash">
 							&nbsp;|&nbsp;
 							<a href="#" id="trash_<?php echo $entry->get_id(); ?>" class="delete vim-d vim-destructive" title="<?php _e('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Trash'); ?></a>
 						</span>
-						<span class="ajax">
+						<span class="gwolle_gb_ajax">
 							&nbsp;|&nbsp;
 							<a href="#" id="ajax_<?php echo $entry->get_id(); ?>" class="ajax vim-d vim-destructive" title="<?php _e('Please wait...', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Wait...'); ?></a>
 						</span>

@@ -104,18 +104,19 @@
 	padding-bottom: 4px;
 }
 
-/* AJAX */
-span.unapprove,
-span.nospam,
-span.ajax {
-	display: none;
-}
-/* For now, till there is AJAX */
-span.spam,
-span.trash {
+
+/* AJAX on Entries Page and on Dashboard Widget */
+
+span.gwolle_gb_approve,
+span.gwolle_gb_unapprove,
+span.gwolle_gb_spam,
+span.gwolle_gb_nospam,
+span.gwolle_gb_trash,
+span.gwolle_gb_ajax {
 	display: none;
 }
 
+/* ??? */
 #gwolle_gb_dashboard div.undo {
 	border-top-color: #DFDFDF;
 	background-color: #F4F4F4;
