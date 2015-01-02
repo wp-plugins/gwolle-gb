@@ -35,53 +35,6 @@ function gwolle_gb_page_settings() {
 				$saved = true;
 			}
 
-			// E-mail notification option
-			if ( isset($_POST['notify_by_mail']) && $_POST['notify_by_mail'] == 'on' ) {
-				// Turn the notification ON for the current user.
-				$user_id = get_current_user_id();
-				$user_ids = Array();
-
-				$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
-				if ( count($user_ids_old) > 0 ) {
-					$user_ids_old = explode( ",", $user_ids_old );
-					foreach ( $user_ids_old as $user_id_old ) {
-						if ( $user_id_old == $user_id ) {
-							continue; // will be added again below the loop
-						}
-						if ( is_numeric($user_id_old) ) {
-							$user_ids[] = $user_id_old;
-						}
-					}
-				}
-				$user_ids[] = $user_id;
-
-				$user_ids = implode(",", $user_ids);
-				update_option('gwolle_gb-notifyByMail', $user_ids);
-
-				$saved = true;
-			} elseif ( !isset($_POST['notify_by_mail']) ) {
-				// Turn the notification OFF for the current user
-				$user_id = get_current_user_id();
-				$user_ids = Array();
-
-				$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
-				if ( count($user_ids_old) > 0 ) {
-					$user_ids_old = explode( ",", $user_ids_old );
-					foreach ( $user_ids_old as $user_id_old ) {
-						if ( $user_id_old == $user_id ) {
-							continue;
-						}
-						if ( is_numeric($user_id_old) ) {
-							$user_ids[] = $user_id_old;
-						}
-					}
-				}
-
-				$user_ids = implode(",", $user_ids);
-				update_option('gwolle_gb-notifyByMail', $user_ids);
-				$saved = true;
-			}
-
 			// Recaptcha settings
 			// FIXME: sanitize value
 			if ( isset($_POST['recaptcha-active']) && $_POST['recaptcha-active'] == 'on' ) {
@@ -114,12 +67,7 @@ function gwolle_gb_page_settings() {
 				update_option( 'gwolle_gb-entries_per_page', $_POST['entries_per_page']);
 				$saved = true;
 			}
-
-			// Guestbook post ID
-			// update_option('gwolle_gb-post_ID', (int)$_POST['post_ID']);
-
-		}
-		?>
+		} ?>
 
 		<div class="wrap gwolle_gb">
 
@@ -158,68 +106,6 @@ function gwolle_gb_page_settings() {
 								<br />
 								<?php _e("It is recommended that you turn this on, because you are responsible for the content on your website.", GWOLLE_GB_TEXTDOMAIN); ?>
 							</span>
-						</td>
-					</tr>
-
-
-					<tr valign="top">
-						<th scope="row"><label for="blogname"><?php _e('Notification', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
-						<td>
-							<?php
-							// FIXME: use labels, not spans
-							// FIXME: make this into its own menu-page so subscribing can be done with the moderate_comments capability.
-							// FIXME: also make it possible for admins to add editors to the list.
-
-							// Check if function mail() exists. If not, display a hint to the user.
-							if (!function_exists('mail')) {
-								echo '<p class="setting-description">' .
-									__('Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. You might want to install a WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can contact your hosting provider to change this.',GWOLLE_GB_TEXTDOMAIN)
-									. '</p>';
-							}
-							$current_user_id = get_current_user_id();;
-							$currentUserNotification = false;
-							$user_ids = get_option('gwolle_gb-notifyByMail' );
-							if ( count($user_ids) > 0 ) {
-								$user_ids = explode( ",", $user_ids );
-								foreach ( $user_ids as $user_id ) {
-									if ( $user_id == $current_user_id ) {
-										$currentUserNotification = true;
-									}
-								}
-							} ?>
-							<input name="notify_by_mail" type="checkbox" id="notify_by_mail" <?php
-								if ( $currentUserNotification ) {
-									echo 'checked="checked"';
-								} ?> >
-							<span class="setting-description"><?php _e('Send me an e-mail when a new entry has been posted.', GWOLLE_GB_TEXTDOMAIN); ?></span>
-
-							<div>
-								<?php _e('The following users have subscribed to this service:', GWOLLE_GB_TEXTDOMAIN);
-
-
-								if ( count($user_ids) == 0 ) {
-									echo '<br /><i>(' . __('No subscriber yet', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
-								} else {
-									echo '<ul style="font-size:10px;font-style:italic;list-style-type:disc;padding-left:14px;">';
-									foreach ( $user_ids as $user_id ) {
-										$user_info = get_userdata($user_id);
-										if ($user_info === FALSE) {
-											// Invalid $user_id
-											continue;
-										}
-										echo '<li>';
-										if ( $user_info->ID == get_current_user_id() ) {
-											echo '<strong>' . __('You', GWOLLE_GB_TEXTDOMAIN) . '</strong>';
-										} else {
-											echo $user_info->first_name . ' ' . $user_info->last_name;
-										}
-										echo ' (' . $user_info->user_email . ')';
-										echo '</li>';
-									}
-									echo '</ul>';
-								}
-								?>
-							</div>
 						</td>
 					</tr>
 

@@ -101,6 +101,6 @@ function gwolle_gb_activation() {
 }
 register_activation_hook(__FILE__, 'gwolle_gb_activation');
 
-
+?>
 
 

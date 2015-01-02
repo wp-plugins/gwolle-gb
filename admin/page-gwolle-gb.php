@@ -137,6 +137,85 @@ function gwolle_gb_overview(){
 <?php }
 
 
+function gwolle_gb_notification() {
+
+	// FIXME: also make it possible for admins to add editors to the list.
+
+	// Check if function mail() exists. If not, display a hint to the user.
+	if (!function_exists('mail')) {
+		echo '<p class="setting-description">' .
+			__('Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. You might want to install a WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can contact your hosting provider to change this.',GWOLLE_GB_TEXTDOMAIN)
+			. '</p>';
+	}
+	$current_user_id = get_current_user_id();;
+	$currentUserNotification = false;
+	$user_ids = get_option('gwolle_gb-notifyByMail' );
+	if ( strlen($user_ids) > 0 ) {
+		$user_ids = explode( ",", $user_ids );
+		if ( is_array($user_ids) && count($user_ids) > 0 ) {
+			foreach ( $user_ids as $user_id ) {
+				if ( $user_id == $current_user_id ) {
+					$currentUserNotification = true;
+				}
+			}
+		}
+	} ?>
+	<p>
+		<form name="gwolle_gb_welcome" method="post" action="">
+			<?php
+			settings_fields( 'gwolle_gb_options' );
+			do_settings_sections( 'gwolle_gb_options' );
+			?>
+			<input name="notify_by_mail" type="checkbox" id="notify_by_mail" <?php
+				if ( $currentUserNotification ) {
+					echo 'checked="checked"';
+				} ?> >
+			<label for="notify_by_mail" class="setting-description"><?php _e('Send me an e-mail when a new entry has been posted.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+			<div class="submit">
+				<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save setting', GWOLLE_GB_TEXTDOMAIN); ?>" />
+			</div>
+		</form>
+	</p>
+	<div>
+		<?php _e('The following users have subscribed to this service:', GWOLLE_GB_TEXTDOMAIN);
+
+		if ( is_array($user_ids) && count($user_ids) > 0 ) {
+			echo '<ul style="font-size:10px;font-style:italic;list-style-type:disc;padding-left:14px;">';
+			foreach ( $user_ids as $user_id ) {
+				$user_info = get_userdata($user_id);
+				if ($user_info === FALSE) {
+					// Invalid $user_id
+					continue;
+				}
+				echo '<li>';
+				if ( $user_info->ID == get_current_user_id() ) {
+					echo '<strong>' . __('You', GWOLLE_GB_TEXTDOMAIN) . '</strong>';
+				} else {
+					echo $user_info->first_name . ' ' . $user_info->last_name;
+				}
+				echo ' (' . $user_info->user_email . ')';
+				echo '</li>';
+			}
+			echo '</ul>';
+		} else {
+			echo '<br /><i>(' . __('No subscriber yet', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+		}
+		?>
+	</div>
+	<?php
+}
+
+
+function gwolle_gb_overview_thanks() {
+	echo '
+	<ul class="settings">
+		<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>
+		<li><a href="http://philipwilson.de/" target="_blank">'.__('Icons by',GWOLLE_GB_TEXTDOMAIN).' Philip Wilson</a></li>
+		<li><a href="http://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a></li>
+	</ul>';
+}
+
+
 function gwolle_gb_overview_help() {
 	echo '<h3>
 	'.__('This is how you can get your guestbook displayed on your website:', GWOLLE_GB_TEXTDOMAIN).'</h3>
@@ -167,23 +246,72 @@ function gwolle_gb_overview_help_more() {
 }
 
 
-function gwolle_gb_overview_thanks() {
-	echo '
-	<ul class="settings">
-		<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>
-		<li><a href="http://philipwilson.de/" target="_blank">'.__('Icons by',GWOLLE_GB_TEXTDOMAIN).' Philip Wilson</a></li>
-		<li><a href="http://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a></li>
-	</ul>';
-}
-
-
 /* Show the page */
 function gwolle_gb_welcome() {
+
+	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+		die(__('Cheatin&#8217; uh?'));
+	}
+
+	/* Save notification setting */
+	$saved = false;
+	if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) {
+
+		// E-mail notification option
+		if ( isset($_POST['notify_by_mail']) && $_POST['notify_by_mail'] == 'on' ) {
+			// Turn the notification ON for the current user.
+			$user_id = get_current_user_id();
+			$user_ids = Array();
+
+			$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
+			if ( count($user_ids_old) > 0 ) {
+				$user_ids_old = explode( ",", $user_ids_old );
+				foreach ( $user_ids_old as $user_id_old ) {
+					if ( $user_id_old == $user_id ) {
+						continue; // will be added again below the loop
+					}
+					if ( is_numeric($user_id_old) ) {
+						$user_ids[] = $user_id_old;
+					}
+				}
+			}
+			$user_ids[] = $user_id;
+
+			$user_ids = implode(",", $user_ids);
+			update_option('gwolle_gb-notifyByMail', $user_ids);
+
+			$saved = true;
+		} elseif ( !isset($_POST['notify_by_mail']) ) {
+			// Turn the notification OFF for the current user
+			$user_id = get_current_user_id();
+			$user_ids = Array();
+
+			$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
+			if ( count($user_ids_old) > 0 ) {
+				$user_ids_old = explode( ",", $user_ids_old );
+				foreach ( $user_ids_old as $user_id_old ) {
+					if ( $user_id_old == $user_id ) {
+						continue;
+					}
+					if ( is_numeric($user_id_old) ) {
+						$user_ids[] = $user_id_old;
+					}
+				}
+			}
+
+			$user_ids = implode(",", $user_ids);
+			update_option('gwolle_gb-notifyByMail', $user_ids);
+			$saved = true;
+		}
+
+	}
+
 
 	if (get_option('gwolle_gb_version', false) === false) {
 		gwolle_gb_installSplash();
 	} else {
 		add_meta_box('dashboard_right_now', __('Welcome to the Guestbook!',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview', 'gwolle_gb_welcome', 'left', 'core');
+		add_meta_box('gwolle_gb_notification', __('E-mail Notifications', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_notification', 'gwolle_gb_welcome', 'left', 'core');
 		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts/programs/images:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'left', 'core');
 		add_meta_box('gwolle_gb_help', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');
 		add_meta_box('gwolle_gb_help_more', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help_more', 'gwolle_gb_welcome', 'right', 'core');
@@ -192,6 +320,15 @@ function gwolle_gb_welcome() {
 		<div class="wrap gwolle_gb-wrap">
 			<div id="icon-gwolle-gb"><br /></div>
 			<h2><?php _e('Gwolle Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></h2>
+
+			<?php
+			if ( $saved ) {
+				echo '
+					<div id="message" class="updated fade">
+						<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+					</div>';
+			} ?>
+
 			<div id="dashboard-widgets-wrap" class="gwolle_gb_welcome">
 				<div id="dashboard-widgets" class="metabox-holder">
 					<div class="postbox-container" style="width:49%;">

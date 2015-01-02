@@ -162,6 +162,11 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.0.8 =
+* 2015-01-
+* Move notification option to main page so moderators can subscribe.
+* Update de_DE.
+
 = 1.0.7 =
 * 2014-12-27
 * Update de_DE (Thanks Jenny Gaulke).
