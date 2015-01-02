@@ -165,6 +165,7 @@ Yes, it is again actively maintained.
 = 1.0.8 =
 * 2015-01-
 * Move notification option to main page so moderators can subscribe.
+* New option for the From address in notification mail.
 * Update de_DE.
 
 = 1.0.7 =

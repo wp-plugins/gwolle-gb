@@ -54,6 +54,11 @@ function gwolle_gb_page_settings() {
 				$saved = true;
 			}
 
+			if ( isset($_POST['admin_mail_from']) && $_POST['admin_mail_from'] != get_option('gwolle_gb-mail-from') ) {
+				update_option('gwolle_gb-mail-from', $_POST['admin_mail_from']);
+				$saved = true;
+			}
+
 			// Entries per page options for Frontend
 			// FIXME: sanitize value
 			if ( isset($_POST['entriesPerPage']) && is_numeric($_POST['entriesPerPage']) && $_POST['entriesPerPage'] > 0 ) {
@@ -282,6 +287,22 @@ function gwolle_gb_page_settings() {
 									}
 									echo '%' . $mailTags[$i] . '%';
 								}
+								?>
+							</span>
+						</td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row"><label for="admin_mail_from"><?php _e('Admin mail from address', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<input name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" />
+							<br />
+							<span class="setting-description">
+								<?php
+								_e('You can set the email address that is used for the From header of the mail that a notification subscriber gets on new entries.', GWOLLE_GB_TEXTDOMAIN);
+								echo '<br />';
+								_e('By default the main admin address is used from General >> Settings.', GWOLLE_GB_TEXTDOMAIN);
 								?>
 							</span>
 						</td>

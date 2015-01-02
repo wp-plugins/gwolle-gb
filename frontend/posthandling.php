@@ -238,7 +238,11 @@ function gwolle_gb_frontend_posthandling() {
 			// Set the Mail Headers
 			$subject = '[' . get_bloginfo('name') . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
 			$header = "";
-			$header .= "From: Gwolle-GB-Mailer <" . get_bloginfo('admin_email') . ">\r\n";
+			if ( get_option('gwolle_gb-mail-from', false) ) {
+				$header .= "From: " . get_bloginfo('name') . " <" . get_option('gwolle_gb-mail-from') . ">\r\n";
+			} else {
+				$header .= "From: " . get_bloginfo('name') . " <" . get_bloginfo('admin_email') . ">\r\n";
+			}
 			$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
 
 			// Replace the tags from the mailtemplate with real data from the website and entry

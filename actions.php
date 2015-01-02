@@ -119,6 +119,7 @@ function gwolle_gb_register_settings() {
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-defaultMailText',		'strval' );
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-entries_per_page',	'intval' ); // 20
 	register_setting( 'gwolle_gb_options', 'gwolle_gb_version',				'strval' ); // mind the underscore
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-mail-from',			'strval' ); // empty
 }
 
 
