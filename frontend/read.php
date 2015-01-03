@@ -184,7 +184,7 @@ function gwolle_gb_frontend_read() {
 			$output .= '</div>';
 
 			// Main Content
-			$output .= '<div class="entry-content">';
+			$output .= '<div class="gb-entry-content">';
 			$entry_content = gwolle_gb_format_value_for_output( $entry->get_content() );
 			if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 				$entry_content = convert_smilies($entry_content);
