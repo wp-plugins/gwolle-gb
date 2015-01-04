@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam
 Requires at least: 2.8
 Tested up to: 4.1
-Stable tag: 1.0.7
+Stable tag: 1.0.8
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -153,10 +153,11 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.0.8 =
-* 2015-01-
+* 2015-01-04
 * Ajax is back on Dashboard Widget and on Entries page.
 * Move notification option to main page so moderators can subscribe.
 * New option for the From address in notification mail.
+* Small fixes and cleanups.
 * Update de_DE and nl_NL.
 
 = 1.0.7 =
