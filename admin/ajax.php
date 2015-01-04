@@ -151,7 +151,7 @@ function gwolle_gb_ajax_javascript() {
 				if ( response == setter ) { // We got what we wanted
 
 					// Remove entry from widget
-					jQuery( ".gwolle-gb-dashboard div#entry_" + entry_id ).remove();
+					jQuery( ".gwolle-gb-dashboard div#entry_" + entry_id ).slideUp();
 
 					// alert( ' response:' + response + ' setter:' + setter ); // debugging
 				}
