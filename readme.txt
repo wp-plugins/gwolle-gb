@@ -153,10 +153,11 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.0.8 =
-* 2015-01-
+* 2015-01-04
 * Ajax is back on Dashboard Widget and on Entries page.
 * Move notification option to main page so moderators can subscribe.
 * New option for the From address in notification mail.
+* Small fixes and cleanups.
 * Update de_DE and nl_NL.
 
 = 1.0.7 =
