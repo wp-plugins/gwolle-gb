@@ -192,7 +192,7 @@ function gwolle_gb_ajax_callback() {
 		$entry = new gwolle_gb_entry();
 		$result = $entry->load( $id );
 		if ( !$result ) {
-			$response = "error";
+			echo "error";
 			die();
 		}
 
@@ -232,10 +232,10 @@ function gwolle_gb_ajax_callback() {
 				if ( $entry->get_isspam() == 1 ) {
 					$entry->set_isspam( false );
 					$result = $entry->save();
-					gwolle_gb_akismet( $entry, 'submit-ham' );
 					if ($result ) {
 						$response = "unspam";
 						gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
+						gwolle_gb_akismet( $entry, 'submit-ham' );
 					} else {
 						$response = "error";
 					}
@@ -247,10 +247,10 @@ function gwolle_gb_ajax_callback() {
 				if ( $entry->get_isspam() == 0 ) {
 					$entry->set_isspam( true );
 					$result = $entry->save();
-					gwolle_gb_akismet( $entry, 'submit-spam' );
 					if ($result ) {
 						$response = "spam";
 						gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
+						gwolle_gb_akismet( $entry, 'submit-spam' );
 					} else {
 						$response = "error";
 					}
