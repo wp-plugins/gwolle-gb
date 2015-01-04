@@ -123,9 +123,9 @@ You can also use reCAPTCHA. It helps you and your visitors to fight spam at the 
 
 = What capabilities are needed? =
 
-For moderating comments you need the capability moderate_comments.
+For moderating comments you need the capability 'moderate_comments'.
 
-For managing options you need the capability manage_options. For subscribing to notifications, this one is also needed.
+For managing options you need the capability 'manage_options'.
 
 = Should I really not use WordPress comments for a guestbook? =
 
