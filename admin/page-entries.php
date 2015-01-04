@@ -593,11 +593,22 @@ function gwolle_gb_page_entries() {
 									// Attach 'spam' to class if the entry is spam
 									if ( $entry->get_isspam() === 1 ) {
 										$class .= ' spam';
+									} else {
+										$class .= ' nospam';
 									}
 
 									// Attach 'trash' to class if the entry is in trash
 									if ( $entry->get_istrash() === 1 ) {
 										$class .= ' trash';
+									} else {
+										$class .= ' notrash';
+									}
+
+									// Attach 'checked/unchecked' to class
+									if ( $entry->get_ischecked() === 1 ) {
+										$class .= ' checked';
+									} else {
+										$class .= ' unchecked';
 									}
 
 									// Attach 'visible/invisible' to class
@@ -630,6 +641,7 @@ function gwolle_gb_page_entries() {
 												<span class="invisible-icon"></span>
 												<span class="spam-icon"></span>
 												<span class="trash-icon"></span>
+												<span class="gwolle_gb_ajax"></span>
 											</td>';
 									}
 
@@ -659,27 +671,30 @@ function gwolle_gb_page_entries() {
 
 									// Actions column
 									$html_output .= '
-										<td>
+										<td class="gwolle_gb_actions">
 											<span class="gwolle_gb_edit">
 												<a href="admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
-											<span class="gwolle_gb_approve">&nbsp;|&nbsp;
-												<a href="#" id="check_' . $entry->get_id() . '" class="vim-a" title="' . __('Check entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Check', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											<span class="gwolle_gb_check">&nbsp;|&nbsp;
+												<a id="check_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Check entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Check', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
-											<span class="gwolle_gb_unapprove">&nbsp;|&nbsp;
-												<a href="#" id="uncheck_' . $entry->get_id() . '" class="vim-u" title="' . __('Uncheck entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Uncheck', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											<span class="gwolle_gb_uncheck">&nbsp;|&nbsp;
+												<a id="uncheck_' . $entry->get_id() . '" href="#" class="vim-u" title="' . __('Uncheck entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Uncheck', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 											<span class="gwolle_gb_spam">&nbsp;|&nbsp;
-												<a id="markspam_' . $entry->get_id() . '" href="#" class="vim-s vim-destructive" title="' . __('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
+												<a id="spam_' . $entry->get_id() . '" href="#" class="vim-s vim-destructive" title="' . __('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
-											<span class="gwolle_gb_nospam">&nbsp;|&nbsp;
-												<a id="unmarkspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Not spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
+											<span class="gwolle_gb_unspam">&nbsp;|&nbsp;
+												<a id="unspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Not spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 											<span class="gwolle_gb_trash">&nbsp;|&nbsp;
-												<a href="#" id="trash_' . $entry->get_id() . '" class="delete vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash') . '</a>
+												<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash') . '</a>
+											</span>
+											<span class="gwolle_gb_untrash">&nbsp;|&nbsp;
+												<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash') . '</a>
 											</span>
 											<span class="gwolle_gb_ajax">&nbsp;|&nbsp;
-												<a href="#" id="ajax_' . $entry->get_id() . '" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...') . '</a>
+												<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...') . '</a>
 											</span>
 										</td>
 									</tr>';

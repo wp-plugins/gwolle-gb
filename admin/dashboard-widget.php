@@ -7,11 +7,15 @@
 
 function gwolle_gb_dashboard() {
 
+	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+		return;
+	}
+
 	// Only get new and unchecked entries
 	$entries = gwolle_gb_get_entries(array(
 			'num_entries' => 5,
 			'checked' => 'unchecked',
-			'trash'   => 'nottrash',
+			'trash'   => 'notrash',
 			'spam'    => 'nospam'
 		));
 
@@ -21,25 +25,37 @@ function gwolle_gb_dashboard() {
 
 		// List of guestbook entries
 		echo '<div class="gwolle-gb-dashboard gwolle-gb">';
+		$rowOdd = false;
 		foreach ( $entries as $entry ) {
 			$class = '';
-			$rowOdd = false;
 			// rows have a different color.
 			if ($rowOdd) {
 				$rowOdd = false;
-				$class .= ' alternate';
+				$class = ' alternate';
 			} else {
 				$rowOdd = true;
+				$class = '';
 			}
 
 			// Attach 'spam' to class if the entry is spam
 			if ( $entry->get_isspam() === 1 ) {
 				$class .= ' spam';
+			} else {
+				$class .= ' nospam';
 			}
 
 			// Attach 'trash' to class if the entry is in trash
 			if ( $entry->get_istrash() === 1 ) {
 				$class .= ' trash';
+			} else {
+				$class .= ' notrash';
+			}
+
+			// Attach 'checked/unchecked' to class
+			if ( $entry->get_ischecked() === 1 ) {
+				$class .= ' checked';
+			} else {
+				$class .= ' unchecked';
 			}
 
 			// Attach 'visible/invisible' to class
@@ -57,7 +73,7 @@ function gwolle_gb_dashboard() {
 			} ?>
 
 
-			<div id="entry-<?php echo $entry->get_id(); ?>" class="comment depth-1 comment-item <?php echo $class; ?>">
+			<div id="entry_<?php echo $entry->get_id(); ?>" class="comment depth-1 comment-item <?php echo $class; ?>">
 				<div class="dashboard-comment-wrap">
 					<h4 class="comment-meta">
 						<?php // Author info ?>
@@ -73,6 +89,7 @@ function gwolle_gb_dashboard() {
 							<span class="invisible-icon"></span>
 							<span class="spam-icon"></span>
 							<span class="trash-icon"></span>
+							<span class="gwolle_gb_ajax"></span>
 						</div><?php
 					} */
 
@@ -100,29 +117,33 @@ function gwolle_gb_dashboard() {
 						<span class="gwolle_gb_edit">
 							<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php&entry_id=<?php echo $entry->get_id(); ?>" title="<?php _e('Edit entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Edit', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="gwolle_gb_approve">
+						<span class="gwolle_gb_check">
 							&nbsp;|&nbsp;
-							<a href="#" id="check_<?php echo $entry->get_id(); ?>" class="vim-a" title="<?php _e('Check entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Check', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							<a id="check_<?php echo $entry->get_id(); ?>" href="#" class="vim-a" title="<?php _e('Check entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Check', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="gwolle_gb_unapprove">
+						<span class="gwolle_gb_uncheck">
 							&nbsp;|&nbsp;
-							<a href="#" id="uncheck_<?php echo $entry->get_id(); ?>" class="vim-u" title="<?php _e('Uncheck entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Uncheck', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							<a id="uncheck_<?php echo $entry->get_id(); ?>" href="#" class="vim-u" title="<?php _e('Uncheck entry', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Uncheck', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
 						<span class="gwolle_gb_spam">
 							&nbsp;|&nbsp;
-							<a id="markspam_<?php echo $entry->get_id(); ?>" href="#" class="vim-s vim-destructive" title="<?php _e('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							<a id="spam_<?php echo $entry->get_id(); ?>" href="#" class="vim-s vim-destructive" title="<?php _e('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
-						<span class="gwolle_gb_nospam">
+						<span class="gwolle_gb_unspam">
 							&nbsp;|&nbsp;
-							<a id="unmarkspam_<?php echo $entry->get_id(); ?>" href="#" class="vim-a" title="<?php _e('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Not spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							<a id="unspam_<?php echo $entry->get_id(); ?>" href="#" class="vim-a" title="<?php _e('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Not spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
 						<span class="gwolle_gb_trash">
 							&nbsp;|&nbsp;
-							<a href="#" id="trash_<?php echo $entry->get_id(); ?>" class="delete vim-d vim-destructive" title="<?php _e('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Trash'); ?></a>
+							<a id="trash_<?php echo $entry->get_id(); ?>" href="#" class="vim-d vim-destructive" title="<?php _e('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Trash'); ?></a>
+						</span>
+						<span class="gwolle_gb_untrash">
+							&nbsp;|&nbsp;
+							<a id="untrash_<?php echo $entry->get_id(); ?>" href="#" class="vim-d" title="<?php _e('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Untrash'); ?></a>
 						</span>
 						<span class="gwolle_gb_ajax">
 							&nbsp;|&nbsp;
-							<a href="#" id="ajax_<?php echo $entry->get_id(); ?>" class="ajax vim-d vim-destructive" title="<?php _e('Please wait...', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Wait...'); ?></a>
+							<a id="ajax_<?php echo $entry->get_id(); ?>" href="#" class="ajax vim-d vim-destructive" title="<?php _e('Please wait...', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Wait...'); ?></a>
 						</span>
 					</p>
 				</div>
@@ -133,6 +154,7 @@ function gwolle_gb_dashboard() {
 
 		</div>
 		<p class="textright">
+			<a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="button"><?php _e('Refresh', GWOLLE_GB_TEXTDOMAIN); ?></a>
 			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=all" class="button button-primary"><?php _e('View all', GWOLLE_GB_TEXTDOMAIN); ?></a>
 			<a href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=unchecked" class="button button-primary"><?php _e('View new', GWOLLE_GB_TEXTDOMAIN); ?></a>
 		</p><?php

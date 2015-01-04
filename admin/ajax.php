@@ -1,155 +1,299 @@
 <?php
-/**
+/*
  * ajax.php
  * Processes AJAX requests.
  */
 
-// FIXME: Disabled AJAX for now
-exit;
 
-//  Set charset to UTF-8
-header("Content-Type: text/html; charset=utf-8");
+/*
+ * Add JavaScript to the admin Footer so we can do Ajax.
+ */
 
-include ('../../../../wp-load.php');
-
-// Load settings, if not set
-global $gwolle_gb_settings;
-if (!isset($gwolle_gb_settings)) {
-	//  In this case, path must be relative because ajax.php is called without the main gwolle-gb.php
-	include_once ('../functions/gwolle_gb_get_settings.func.php');
-	gwolle_gb_get_settings();
-}
-
-if (!function_exists('set_entry_checked_state')) {
-	function set_entry_checked_state() {
-		global $wpdb;
-		global $current_user;
-		if (!isset($_POST['id']) || !isset($_POST['new_state'])) {
-			return FALSE;
-		}
-		$entry_id = (int) $_POST['id'];
-		if ($entry_id === 0) {
-			return FALSE;
-		}
-		$entry_is_checked = ($_POST['new_state'] == 'checked') ? 1 : 0;
-		$sql = "
-			  UPDATE
-			    " . $wpdb -> gwolle_gb_entries . "
-			  SET
-			    entry_isChecked = " . $entry_is_checked . "
-			  WHERE
-			    entry_id = " . $entry_id . "
-			  LIMIT 1";
-		$result = $wpdb->query($sql);
-		if ($result == 1) {
-			//	Write a log entry on this.
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_add_log_entry.func.php');
-			$log_subject = ($entry_is_checked === 0) ? 'entry-unchecked' : 'entry-checked';
-			return gwolle_gb_add_log_entry(array('subject' => $log_subject, 'subject_id' => $entry_id));
-			return TRUE;
-		}
-		return FALSE;
+add_action( 'admin_footer', 'gwolle_gb_ajax_javascript' );
+function gwolle_gb_ajax_javascript() {
+	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+		return;
 	}
 
-}
+	// Set Your Nonce
+	$ajax_nonce = wp_create_nonce( "gwolle_gb_ajax" ); ?>
 
-include_once (GWOLLE_GB_DIR . '/functions/get_gwolle_gb_post_id.func.php');
+	<script>
+	jQuery( document ).ready( function( $ ) {
 
-global $current_user;
-if (is_user_logged_in() && current_user_can('moderate_comments')) {
-	if (!isset($_POST['func'])) {
-		exit ;
-	}
-	$function = $_POST['func'];
-	switch($function) {
-		case 'trash_entry' :
-			/**
-			 * Echo the HTML of an 'entry has been moved to trash' row
-			 * for the dashboard widget of Gwolle-GB.
-			 */
-			//  Get entry data
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_entries.func.php');
-			$entry = gwolle_gb_get_entries(array('entry_id' => $_POST['entry_id']));
-			if ($entry === FALSE) {
-				echo 'entry-not-found: ' . $_POST['entry_id'];
-			} else {
-				include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_trash_entry.func.php');
-				if (gwolle_gb_trash_entry(array('entry_id' => $_POST['entry_id'])) === FALSE) {
-					echo 'entry-not-trashed';
-				} else {
-					echo '
-					<div class="undo untrash" style="display:none;" id="undo-' . $entry['entry_id'] . '">
-						<div class="trash-undo-inside">
-					    <img width="50" height="50" class="avatar avatar-50 photo avatar-default" src="http://www.gravatar.com/avatar/' . $entry['entry_author_gravatar'] . '?s=50" />
-					    ' . str_replace('%1', '<strong>' . $entry['entry_author_name_html'] . '</strong>', __('Entry by %1 has been moved to trash.', GWOLLE_GB_TEXTDOMAIN)) . '
-					    <span class="undo untrash">
-					      <a id="untrash_entry_' . $_POST['entry_id'] . '" href="javascript:void(0);" class="vim-z vim-destructive">' . __('Undo') . '</a>
-					    </span>
-					  </div>
-					</div>';
+		// Page-entries.php Admin page Click events
+		jQuery( '#gwolle_gb_entries .gwolle_gb_actions a' ).click(function(event) {
+
+
+			// Do not do anything here...
+			var parent_class = jQuery(this).parent().hasClass('gwolle_gb_edit');
+			if (parent_class) {
+				//console.log('gwolle_gb_edit');
+				return;
+			}
+			var parent_class = jQuery(this).parent().hasClass('gwolle_gb_ajax');
+			if (parent_class) {
+				//console.log('gwolle_gb_ajax');
+				return;
+			}
+
+
+			// Set up data to send
+			var a_el_id = jQuery(this).attr('id');
+			var entry_id = a_el_id;
+			entry_id = entry_id.replace(/uncheck_/,'');
+			entry_id = entry_id.replace(/check_/,'');
+			entry_id = entry_id.replace(/unspam_/,'');
+			entry_id = entry_id.replace(/spam_/,'');
+			entry_id = entry_id.replace(/untrash_/,'');
+			entry_id = entry_id.replace(/trash_/,'');
+			var setter = a_el_id.replace(new RegExp( "_" + entry_id, "g"), '');
+
+			var data = {
+				action: 'gwolle_gb_ajax',
+				security: '<?php echo $ajax_nonce; ?>',
+				id: entry_id,
+				setter: setter
+			};
+
+
+			// Set Ajax icon on visible
+			jQuery( "tr#entry_" + entry_id + " .gwolle_gb_ajax" ).css('display', 'inline-block');
+
+
+			// Do the actual request
+			$.post( ajaxurl, data, function( response ) {
+				response = jQuery.trim( response );
+
+				// Set classes accordingly
+				if ( response == setter ) { // We got what we wanted
+
+					switch ( response ) {
+						// possible classes: nospam notrash checked visible spam trash unchecked invisible
+						case 'uncheck':
+							jQuery( "tr#entry_" + entry_id ).addClass('unchecked').removeClass('checked');
+							break;
+						case 'check':
+							jQuery( "tr#entry_" + entry_id ).addClass('checked').removeClass('unchecked');
+							break;
+						case 'unspam':
+							jQuery( "tr#entry_" + entry_id ).addClass('nospam').removeClass('spam');
+							break;
+						case 'spam':
+							jQuery( "tr#entry_" + entry_id ).addClass('spam').removeClass('nospam');
+							break;
+						case 'untrash':
+							jQuery( "tr#entry_" + entry_id ).addClass('notrash').removeClass('trash');
+							break;
+						case 'trash':
+							jQuery( "tr#entry_" + entry_id ).addClass('trash').removeClass('notrash');
+							break;
+					}
+
+					// Set to visible or invisible
+					if ( jQuery( "tr#entry_" + entry_id ).hasClass('checked') && jQuery( "tr#entry_" + entry_id ).hasClass('nospam') && jQuery( "tr#entry_" + entry_id ).hasClass('notrash') ) {
+						jQuery( "tr#entry_" + entry_id ).addClass('visible').removeClass('invisible');
+					} else {
+						jQuery( "tr#entry_" + entry_id ).addClass('invisible').removeClass('visible');
+					}
+
+					//alert( ' response:' + response + ' setter:' + setter ); // debugging
 				}
+
+				// Hide Ajax icon again
+				jQuery( "tr#entry_" + entry_id + " .gwolle_gb_ajax" ).css('display', 'none');
+			});
+
+			event.preventDefault();
+		});
+
+
+		// Dashboard Widget Click events
+		jQuery( '#gwolle_gb_dashboard .row-actions a' ).click(function(event) {
+
+			// Do not do anything here...
+			var parent_class = jQuery(this).parent().hasClass('gwolle_gb_edit');
+			if (parent_class) {
+				//console.log('gwolle_gb_edit');
+				return;
 			}
-			break;
-		case 'untrash_entry' :
-			/**
-			 * Untrash the entry and return the result. (success/error)
-			 */
-			//  Get entry data
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_entries.func.php');
-			$entry = gwolle_gb_get_entries(array('entry_id' => $_POST['entry_id'], 'trash' => TRUE));
-			if ($entry === FALSE) {
-				echo 'error';
-			} else {
-				include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_trash_entry.func.php');
-				if (gwolle_gb_trash_entry(array('entry_id' => $_POST['entry_id'], 'untrash' => TRUE)) === FALSE) {
-					echo 'error';
-				} else {
-					echo 'success';
+			var parent_class = jQuery(this).parent().hasClass('gwolle_gb_ajax');
+			if (parent_class) {
+				//console.log('gwolle_gb_ajax');
+				return;
+			}
+
+
+			// Set up data to send
+			var a_el_id = jQuery(this).attr('id');
+			var entry_id = a_el_id;
+			entry_id = entry_id.replace(/check_/,'');
+			entry_id = entry_id.replace(/spam_/,'');
+			entry_id = entry_id.replace(/trash_/,'');
+			var setter = a_el_id.replace(new RegExp( "_" + entry_id, "g"), '');
+
+			var data = {
+				action: 'gwolle_gb_ajax',
+				security: '<?php echo $ajax_nonce; ?>',
+				id: entry_id,
+				setter: setter
+			};
+
+
+			// Set Ajax icon on visible
+			jQuery( ".gwolle-gb-dashboard div#entry_" + entry_id + " .gwolle_gb_ajax" ).css('display', 'inline-block');
+
+
+			// Do the actual request
+			$.post( ajaxurl, data, function( response ) {
+				response = jQuery.trim( response );
+
+				if ( response == setter ) { // We got what we wanted
+
+					// Remove entry from widget
+					jQuery( ".gwolle-gb-dashboard div#entry_" + entry_id ).remove();
+
+					// alert( ' response:' + response + ' setter:' + setter ); // debugging
 				}
-			}
-			break;
-		case 'set_entry_checked_state' :
-			if (set_entry_checked_state() === TRUE) {
-				echo 'success';
-			} else {
-				echo 'failure';
-			}
-			break;
-		case 'search_gwolle_gb_post_ID' :
-			$gwolle_gb_post_id = get_gwolle_gb_post_id();
-			if ($gwolle_gb_post_id === FALSE) {
-				echo 'failure';
-			} else {
-				echo $gwolle_gb_post_id;
-			}
-			break;
-		case 'mark_spam' :
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_mark_spam.func.php');
-			if (gwolle_gb_mark_spam(array('entry_id' => $_POST['entry_id'])) === TRUE) {
-				echo 'success';
-			} else {
-				echo 'error';
-			}
-			break;
-		case 'unmark_spam' :
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_mark_spam.func.php');
-			if (gwolle_gb_mark_spam(array('entry_id' => $_POST['entry_id'], 'no_spam' => TRUE)) === TRUE) {
-				echo 'success';
-			} else {
-				echo 'error';
-			}
-			break;
-		case 'get_dashboard_widget_row' :
-			//  There are only 3 dashboard widget rows left. Load another one.
-			include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_entries.func.php');
-			$entry = gwolle_gb_get_entries(array('num_entries' => 1, 'offset' => 3));
-			if ($entry === FALSE) {
-				echo 'error';
-			} else {
-				include_once (GWOLLE_GB_DIR . '/functions/gwolle_gb_get_dashboard_widget_row.func.php');
-				gwolle_gb_get_dashboard_widget_row(array('entry' => $entry, 'display' => 'none'));
-			}
-			break;
-	}
+
+			});
+
+			event.preventDefault();
+		});
+	});
+	</script>
+	<?php
 }
-?>
+
+
+/*
+ * Callback function for handling the Ajax requests that are generated from the JavaScript above in gwolle_gb_ajax_javascript
+ */
+
+add_action( 'wp_ajax_gwolle_gb_ajax', 'gwolle_gb_ajax_callback' );
+function gwolle_gb_ajax_callback() {
+
+	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+		echo "error";
+		die();
+	}
+
+	check_ajax_referer( 'gwolle_gb_ajax', 'security' );
+
+	if (isset($_POST['id'])) {
+		$id = intval( $_POST['id'] );
+	}
+	if (isset($_POST['setter'])) {
+		$setter = strval( $_POST['setter'] );
+	}
+
+
+	if ( isset($id) && $id > 0 && isset($setter) && strlen($setter) > 0) {
+		$entry = new gwolle_gb_entry();
+		$result = $entry->load( $id );
+		if ( !$result ) {
+			$response = "error";
+		}
+
+
+		switch ($setter) {
+			case 'uncheck':
+				if ( $entry->get_ischecked() == 1 ) {
+					$entry->set_ischecked( false );
+					$result = $entry->save();
+					if ($result ) {
+						$response = "uncheck";
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-unchecked' );
+					} else {
+						$response = "error";
+					}
+				} else {
+					$response = "nochange";
+				}
+				break;
+			case 'check':
+				if ( $entry->get_ischecked() == 0 ) {
+					$entry->set_ischecked( true );
+					$user_id = get_current_user_id(); // returns 0 if no current user
+					$entry->set_checkedby( $user_id );
+					$result = $entry->save();
+					if ($result ) {
+						$response = "check";
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-checked' );
+					} else {
+						$response = "error";
+					}
+				} else {
+					$response = "nochange";
+				}
+				break;
+			case 'unspam':
+				if ( $entry->get_isspam() == 1 ) {
+					$entry->set_isspam( false );
+					$result = $entry->save();
+					gwolle_gb_akismet( $entry, 'submit-ham' );
+					if ($result ) {
+						$response = "unspam";
+						gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
+					} else {
+						$response = "error";
+					}
+				} else {
+					$response = "nochange";
+				}
+				break;
+			case 'spam':
+				if ( $entry->get_isspam() == 0 ) {
+					$entry->set_isspam( true );
+					$result = $entry->save();
+					gwolle_gb_akismet( $entry, 'submit-spam' );
+					if ($result ) {
+						$response = "spam";
+						gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
+					} else {
+						$response = "error";
+					}
+				} else {
+					$response = "nochange";
+				}
+				break;
+			case 'untrash':
+				if ( $entry->get_istrash() == 1 ) {
+					$entry->set_istrash( false );
+					$result = $entry->save();
+					if ($result ) {
+						$response = "untrash";
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-untrashed' );
+					} else {
+						$response = "error";
+					}
+				} else {
+					$response = "nochange";
+				}
+				break;
+			case 'trash':
+				if ( $entry->get_istrash() == 0 ) {
+					$entry->set_istrash( true );
+					$result = $entry->save();
+					if ($result ) {
+						$response = "trash";
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-trashed' );
+					} else {
+						$response = "error";
+					}
+				} else {
+					$response = "nochange";
+				}
+				break;
+		}
+	} else {
+		$response = "error";
+	}
+
+	echo $response;
+	die(); // this is required to return a proper result
+
+}
+
+
+

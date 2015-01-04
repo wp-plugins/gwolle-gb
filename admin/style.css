@@ -55,7 +55,8 @@
 .gwolle_gb .visible-icon,
 .gwolle_gb .invisible-icon,
 .gwolle_gb .spam-icon,
-.gwolle_gb .trash-icon {
+.gwolle_gb .trash-icon,
+.gwolle_gb .entry-icons .gwolle_gb_ajax {
 	display: none;
 	width: 16px;
 	height: 16px;
@@ -75,7 +76,7 @@
 }
 
 /* AJAX? */
-.gwolle_gb .entry-loading {
+.gwolle_gb .entry-icons .gwolle_gb_ajax {
 	background-image: url('gfx/loading.gif');
 }
 
@@ -88,6 +89,9 @@
 
 #gwolle_gb_dashboard .inside {
 	margin-top: 4px;
+}
+#gwolle_gb_dashboard .comment {
+	padding-top: 3px;
 }
 #gwolle_gb_dashboard .date {
 	font-size: 82%;
@@ -107,14 +111,35 @@
 
 /* AJAX on Entries Page and on Dashboard Widget */
 
-span.gwolle_gb_approve,
-span.gwolle_gb_unapprove,
+span.gwolle_gb_check,
+span.gwolle_gb_uncheck,
 span.gwolle_gb_spam,
-span.gwolle_gb_nospam,
+span.gwolle_gb_unspam,
 span.gwolle_gb_trash,
+span.gwolle_gb_untrash,
 span.gwolle_gb_ajax {
 	display: none;
 }
+.unchecked span.gwolle_gb_check {
+	display: inline;
+}
+.checked span.gwolle_gb_uncheck {
+	display: inline;
+}
+.nospam span.gwolle_gb_spam {
+	display: inline;
+}
+.spam span.gwolle_gb_unspam {
+	display: inline;
+}
+.notrash span.gwolle_gb_trash {
+	display: inline;
+}
+.trash span.gwolle_gb_untrash {
+	display: inline;
+}
+
+
 
 /* ??? */
 #gwolle_gb_dashboard div.undo {
