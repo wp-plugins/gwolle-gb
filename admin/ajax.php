@@ -193,6 +193,7 @@ function gwolle_gb_ajax_callback() {
 		$result = $entry->load( $id );
 		if ( !$result ) {
 			$response = "error";
+			die();
 		}
 
 
