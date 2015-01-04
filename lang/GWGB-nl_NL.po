@@ -375,7 +375,7 @@ msgstr "bericht niet meer vrijgegeven."
 
 #: admin/page-entries.php:219
 msgid "entries unchecked."
-msgstr "berichtenn iet meer vrijgegeven."
+msgstr "berichten niet meer vrijgegeven."
 
 #: admin/page-entries.php:221
 msgid "No entries unchecked."

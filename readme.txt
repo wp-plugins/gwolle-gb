@@ -82,22 +82,12 @@ With version 1.0 there have been some changes:
 * Make Install method more safe.
 * Add more sources for import page. Add export as well.
 * Bring Uninstall back, this time in a separate admin page?
-* Bring AJAX back, this time inside actions.
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
 * 'Thank you' mail to the poster (requested by Joakim from Sweden).
 * Add PHP methods to add an entry.
 
 If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
-
-= Known bugs in 0.9.7 (the old version) =
-
-* Some WP installations with permalinks activated receive a 404-error.
-* Some WP installations don't send the notification mails (currently only known from WP MU installations).
-* Marking multiple entries as spam sometimes takes very long or results in an error message.
-
-Have something to add here? Please add a new thread in the WP.org forums and tag it with "Gwolle-GB". I am subscribed to that forum,
-so I will get your message. Or send me an email: marcel (at) zenoweb (dot) nl. Thanks.
 
 = Licence =
 
@@ -164,9 +154,10 @@ Yes, it is again actively maintained.
 
 = 1.0.8 =
 * 2015-01-
+* Ajax is back on Dashboard Widget and on Entries page.
 * Move notification option to main page so moderators can subscribe.
 * New option for the From address in notification mail.
-* Update de_DE.
+* Update de_DE and nl_NL.
 
 = 1.0.7 =
 * 2014-12-27
