@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam
 Requires at least: 2.8
 Tested up to: 4.1
-Stable tag: 1.0.7
+Stable tag: 1.0.9
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -123,9 +123,9 @@ You can also use reCAPTCHA. It helps you and your visitors to fight spam at the 
 
 = What capabilities are needed? =
 
-For moderating comments you need the capability moderate_comments.
+For moderating comments you need the capability 'moderate_comments'.
 
-For managing options you need the capability manage_options. For subscribing to notifications, this one is also needed.
+For managing options you need the capability 'manage_options'.
 
 = Should I really not use WordPress comments for a guestbook? =
 
@@ -152,11 +152,17 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.0.9 =
+* 2015-01-05
+* Fix small but nasty error, sorry about that.
+* More specific HTML / CSS on Frontend.
+
 = 1.0.8 =
-* 2015-01-
+* 2015-01-04
 * Ajax is back on Dashboard Widget and on Entries page.
 * Move notification option to main page so moderators can subscribe.
 * New option for the From address in notification mail.
+* Small fixes and cleanups.
 * Update de_DE and nl_NL.
 
 = 1.0.7 =
