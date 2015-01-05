@@ -152,6 +152,11 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.0.9 =
+* 2015-01-05
+* Fix small but nasty error, sorry about that.
+* More specific HTML / CSS on Frontend.
+
 = 1.0.8 =
 * 2015-01-04
 * Ajax is back on Dashboard Widget and on Entries page.
