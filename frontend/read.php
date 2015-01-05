@@ -62,6 +62,11 @@ function gwolle_gb_frontend_read() {
 		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
 	}
 
+	/* Make an optional extra page, with a Get-parameter like show_all=true, which shows all the entries.
+	 * This would need a settings option, which is off by default.
+	 * https://wordpress.org/support/topic/show-all-posts-6?replies=1
+	 */
+
 	/* Get the entries for the frontend */
 	$entries = gwolle_gb_get_entries(
 		array(
