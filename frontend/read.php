@@ -62,6 +62,11 @@ function gwolle_gb_frontend_read() {
 		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
 	}
 
+	/* Make an optional extra page, with a Get-parameter like show_all=true, which shows all the entries.
+	 * This would need a settings option, which is off by default.
+	 * https://wordpress.org/support/topic/show-all-posts-6?replies=1
+	 */
+
 	/* Get the entries for the frontend */
 	$entries = gwolle_gb_get_entries(
 		array(
@@ -159,23 +164,23 @@ function gwolle_gb_frontend_read() {
 			$output .= '">';
 
 			// Author Info
-			$output .= '<div class="author-info">';
+			$output .= '<div class="gb-author-info">';
 
 			// Author Avatar
 			if ( get_option('show_avatars') ) {
 				$avatar = get_avatar( $entry->get_author_email(), 32, '', $entry->get_author_name() );
 				if ($avatar) {
-					$output .= '<span class="author-avatar">' . $avatar . '</span>';
+					$output .= '<span class="gb-author-avatar">' . $avatar . '</span>';
 				}
 			}
 
 			$author_name_html = gwolle_gb_get_author_name_html($entry);
-			$output .= '<span class="author-name">' . $author_name_html . '</span>';
+			$output .= '<span class="gb-author-name">' . $author_name_html . '</span>';
 
 			// Author Origin
 			$origin = $entry->get_author_origin();
 			if ( strlen(str_replace(' ', '', $origin)) > 0 ) {
-				$output .= ' ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' <span class="author-origin">' . gwolle_gb_format_value_for_output($origin) . '</span>';
+				$output .= ' ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' <span class="gb-author-origin">' . gwolle_gb_format_value_for_output($origin) . '</span>';
 			}
 
 			// Entry Date and Time

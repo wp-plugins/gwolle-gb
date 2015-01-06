@@ -23,7 +23,6 @@
  * $isspam          isspam           varchar(1)    entry is considered as spam, 0 or 1     required, default 0
  *
  * FIXME: date should be TIMESTAMP
- * FIXME: make id UNIQUE, so we can use SQL REPLACE
  * FIXME: use bool when appropriate (checkedby, istrash, isspam)
  */
 

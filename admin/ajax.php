@@ -90,7 +90,7 @@ function gwolle_gb_ajax_javascript() {
 							break;
 					}
 
-					// Set to visible or invisible
+					// Set to visible or invisible respectively
 					if ( jQuery( "tr#entry_" + entry_id ).hasClass('checked') && jQuery( "tr#entry_" + entry_id ).hasClass('nospam') && jQuery( "tr#entry_" + entry_id ).hasClass('notrash') ) {
 						jQuery( "tr#entry_" + entry_id ).addClass('visible').removeClass('invisible');
 					} else {
@@ -102,6 +102,104 @@ function gwolle_gb_ajax_javascript() {
 
 				// Hide Ajax icon again
 				jQuery( "tr#entry_" + entry_id + " .gwolle_gb_ajax" ).css('display', 'none');
+			});
+
+			event.preventDefault();
+		});
+
+	// Page-editor.php Admin page Click events
+		jQuery( '#gwolle_gb_editor .gwolle_gb_actions a' ).click(function(event) {
+
+			// Do not do anything here...
+			var parent_class = jQuery(this).parent().hasClass('gwolle_gb_ajax');
+			if (parent_class) {
+				//console.log('gwolle_gb_ajax');
+				return;
+			}
+
+
+			// Set up data to send
+			var a_el_id = jQuery(this).attr('id');
+			var entry_id = a_el_id;
+			entry_id = entry_id.replace(/uncheck_/,'');
+			entry_id = entry_id.replace(/check_/,'');
+			entry_id = entry_id.replace(/unspam_/,'');
+			entry_id = entry_id.replace(/spam_/,'');
+			entry_id = entry_id.replace(/untrash_/,'');
+			entry_id = entry_id.replace(/trash_/,'');
+			var setter = a_el_id.replace(new RegExp( "_" + entry_id, "g"), '');
+
+			var data = {
+				action: 'gwolle_gb_ajax',
+				security: '<?php echo $ajax_nonce; ?>',
+				id: entry_id,
+				setter: setter
+			};
+
+
+			// Set Ajax icon on visible
+			jQuery( ".gwolle_gb_ajax" ).css('display', 'inline-block');
+
+
+			// Do the actual request
+			$.post( ajaxurl, data, function( response ) {
+				response = jQuery.trim( response );
+
+				// Set classes accordingly
+				if ( response == setter ) { // We got what we wanted
+
+					switch ( response ) {
+						// possible classes: nospam notrash checked visible spam trash unchecked invisible
+						case 'uncheck':
+							jQuery( ".entry-icons" ).addClass('unchecked').removeClass('checked');
+							jQuery( ".gwolle_gb_actions" ).addClass('unchecked').removeClass('checked');
+							jQuery( "input#ischecked" ).prop('checked', false);
+							break;
+						case 'check':
+							jQuery( ".entry-icons" ).addClass('checked').removeClass('unchecked');
+							jQuery( ".gwolle_gb_actions" ).addClass('checked').removeClass('unchecked');
+							jQuery( "input#ischecked" ).prop('checked', true);
+							break;
+						case 'unspam':
+							jQuery( ".entry-icons" ).addClass('nospam').removeClass('spam');
+							jQuery( ".gwolle_gb_actions" ).addClass('nospam').removeClass('spam');
+							jQuery( "input#isspam" ).prop('checked', false);
+							break;
+						case 'spam':
+							jQuery( ".entry-icons" ).addClass('spam').removeClass('nospam');
+							jQuery( ".gwolle_gb_actions" ).addClass('spam').removeClass('nospam');
+							jQuery( "input#isspam" ).prop('checked', true);
+							break;
+						case 'untrash':
+							jQuery( ".entry-icons" ).addClass('notrash').removeClass('trash');
+							jQuery( ".gwolle_gb_actions" ).addClass('notrash').removeClass('trash');
+							jQuery( "input#istrash" ).prop('checked', false);
+							break;
+						case 'trash':
+							jQuery( ".entry-icons" ).addClass('trash').removeClass('notrash');
+							jQuery( ".gwolle_gb_actions" ).addClass('trash').removeClass('notrash');
+							jQuery( "input#istrash" ).prop('checked', true);
+							break;
+					}
+
+					// Set to visible or invisible respectively
+					if ( jQuery( ".gwolle_gb_actions" ).hasClass('checked') && jQuery( ".gwolle_gb_actions" ).hasClass('nospam') && jQuery( ".gwolle_gb_actions" ).hasClass('notrash') ) {
+						jQuery( ".entry-icons" ).addClass('visible').removeClass('invisible');
+						jQuery( ".gwolle_gb_actions" ).addClass('visible').removeClass('invisible');
+						jQuery( ".h3_invisible" ).css('display', 'none');
+						jQuery( ".h3_visible" ).css('display', 'block');
+					} else {
+						jQuery( ".entry-icons" ).addClass('invisible').removeClass('visible');
+						jQuery( ".gwolle_gb_actions" ).addClass('invisible').removeClass('visible');
+						jQuery( ".h3_visible" ).css('display', 'none');
+						jQuery( ".h3_invisible" ).css('display', 'block');
+					}
+
+					// alert( ' response:' + response + ' setter:' + setter ); // debugging
+				}
+
+				// Hide Ajax icon again
+				jQuery( ".gwolle_gb_ajax" ).css('display', 'none');
 			});
 
 			event.preventDefault();
@@ -192,7 +290,7 @@ function gwolle_gb_ajax_callback() {
 		$entry = new gwolle_gb_entry();
 		$result = $entry->load( $id );
 		if ( !$result ) {
-			$response = "error";
+			echo "error";
 			die();
 		}
 
@@ -232,10 +330,10 @@ function gwolle_gb_ajax_callback() {
 				if ( $entry->get_isspam() == 1 ) {
 					$entry->set_isspam( false );
 					$result = $entry->save();
-					gwolle_gb_akismet( $entry, 'submit-ham' );
 					if ($result ) {
 						$response = "unspam";
 						gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
+						gwolle_gb_akismet( $entry, 'submit-ham' );
 					} else {
 						$response = "error";
 					}
@@ -247,10 +345,10 @@ function gwolle_gb_ajax_callback() {
 				if ( $entry->get_isspam() == 0 ) {
 					$entry->set_isspam( true );
 					$result = $entry->save();
-					gwolle_gb_akismet( $entry, 'submit-spam' );
 					if ($result ) {
 						$response = "spam";
 						gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
+						gwolle_gb_akismet( $entry, 'submit-spam' );
 					} else {
 						$response = "error";
 					}

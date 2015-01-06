@@ -23,7 +23,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No 
  */
 
 function gwolle_gb_frontend_posthandling() {
-	global $wpdb, $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
+	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
 	/*
 	 * Handle $_POST and check and save entry.
