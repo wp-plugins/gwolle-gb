@@ -152,6 +152,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.1.0 =
+* 2015-01-
+* Admin entries page: fix table header and footer (ordering).
+
 = 1.0.9 =
 * 2015-01-05
 * Fix small but nasty error, sorry about that.
