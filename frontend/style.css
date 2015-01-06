@@ -73,6 +73,7 @@
 #gwolle_gb .page-navigation {
 	width: 100%;
 	text-align: right;
+	padding: 8px 0;
 }
 #gwolle_gb .page-navigation a,
 #gwolle_gb .page-navigation span {
