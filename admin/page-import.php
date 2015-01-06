@@ -136,61 +136,60 @@ function gwolle_gb_page_import() {
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside"><?php
-											// Does the table of DMSGuestbook exist?
+										// Does the table of DMSGuestbook exist?
+										$sql = "
+											SHOW
+											TABLES
+											LIKE '" . $wpdb->prefix . "dmsguestbook'";
+										$foundTables = $wpdb->get_results( $sql, ARRAY_A );
+
+										$count = 0;
+										if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) {
+											// Get entry count
 											$sql = "
-												SHOW
-												TABLES
-												LIKE '" . $wpdb->prefix . "dmsguestbook'";
-											$foundTables = $wpdb->get_results( $sql, ARRAY_A );
+												SELECT
+													COUNT(id) AS count
+												FROM
+													" . $wpdb->prefix . "dmsguestbook";
 
-											$count = 0;
-											if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) {
-												// Get entry count
-												$sql = "
-													SELECT
-														COUNT(id) AS count
-													FROM
-														" . $wpdb->prefix . "dmsguestbook";
+											$data = $wpdb->get_results( $sql, ARRAY_A );
 
-												$data = $wpdb->get_results( $sql, ARRAY_A );
+											$count = (int) $data[0]['count'];
+										}
 
-												$count = (int) $data[0]['count'];
-											} ?>
-										<div>
-											<?php
-											if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) {
-												echo str_replace( '%1', $count, __("%1 entries were found and will be imported.", GWOLLE_GB_TEXTDOMAIN) );
-											} else {
-												_e('DMSGuestbook was not found.', GWOLLE_GB_TEXTDOMAIN);
-											}
-											?>
-										</div>
-										<div>
-											<?php _e('The importer will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
-											<ul class="ul-disc">
-												<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('"is spam" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('"is checked" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											</ul>
-											<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', GWOLLE_GB_TEXTDOMAIN); ?>
-											<br />
-											<?php _e('The importer does not delete any data, so you can go back whenever you want.', GWOLLE_GB_TEXTDOMAIN); ?>
-										</div>
+										if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) { ?>
+											<div>
+												<?php echo str_replace( '%1', $count, __("%1 entries were found and will be imported.", GWOLLE_GB_TEXTDOMAIN) ); ?>
+											</div>
+											<div>
+												<?php _e('The importer will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
+												<ul class="ul-disc">
+													<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('"is spam" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('"is checked" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
+												</ul>
+												<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', GWOLLE_GB_TEXTDOMAIN); ?>
+												<br />
+												<?php _e('The importer does not delete any data, so you can go back whenever you want.', GWOLLE_GB_TEXTDOMAIN); ?>
+											</div>
 
-										<p>
-											<label for="dmsguestbook" class="selectit">
-												<input id="dmsguestbook" name="dmsguestbook" type="checkbox" />
-												<?php _e('Import all entries from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN); ?>
-											</label>
-										</p>
-										<p>
-											<input name="start_import_dms" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
-										</p>
+											<p>
+												<label for="dmsguestbook" class="selectit">
+													<input id="dmsguestbook" name="dmsguestbook" type="checkbox" />
+													<?php _e('Import all entries from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN); ?>
+												</label>
+											</p>
+											<p>
+												<input name="start_import_dms" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+											</p><?php
+										} else {
+											echo '<div>' . __('DMSGuestbook was not found.', GWOLLE_GB_TEXTDOMAIN) . '</div>';
+										} ?>
 									</div>
 								</div>
 								<div id="wp_comm_div" class="postbox" >
