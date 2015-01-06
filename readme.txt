@@ -104,8 +104,8 @@ For the licences regarding the use of reCAPTCHA or the icons you may ask the aut
 Starting with version 1.0, the following entries are listed on the Frontend:
 
 * Checked
-* Not in the Trash
 * Not marked as Spam
+* Not in the Trash
 
 Before that, in 0.9.7, all the 'checked' entries were visible.
 
@@ -153,7 +153,7 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.1.0 =
-* 2015-01-
+* 2015-01-06
 * Admin entries page: fix table header and footer (ordering).
 * Auto-fill the form if the user is already logged in.
 * Bring Ajax to the editor page as well.
@@ -180,7 +180,7 @@ Yes, it is again actively maintained.
 * 2014-12-24
 * Change database structure for guestbook entries.
 * Fix install for db and log entries.
-* Use '...' instead of '&hellip;'.
+* Use '...' instead of '& hellip;'.
 
 = 1.0.5 =
 * 2014-12-21
