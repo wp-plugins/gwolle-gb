@@ -421,10 +421,10 @@ function gwolle_gb_page_editor() {
 														</span>
 														<span class="gwolle_gb_untrash">&nbsp;|&nbsp;
 															<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash') . '</a>
-														</span>
-														<span class="gwolle_gb_ajax">&nbsp;|&nbsp;
+														</span><br />
+														<span class="gwolle_gb_ajax">
 															<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...') . '</a>
-														</span>
+														</span><br />
 													</div>
 													'; ?>
 
