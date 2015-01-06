@@ -219,7 +219,7 @@ function gwolle_gb_frontend_write() {
 		<script>
 		jQuery( "#gwolle_gb_write_button" ).click(function() {
 			document.getElementById("gwolle_gb_write_button").style.display = "none";
-			document.getElementById("gwolle_gb_new_entry").style.display = "block";
+			jQuery("#gwolle_gb_new_entry").slideDown(1000);
 			return false;
 		});
 		</script>';
