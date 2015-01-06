@@ -200,8 +200,7 @@ function gwolle_gb_frontend_read() {
 				$output .= $entry_content;
 			}
 
-			$is_moderator = gwolle_gb_is_moderator( get_current_user_id() );
-			if ( $is_moderator ) {
+			if ( function_exists('current_user_can') && current_user_can('moderate_comments') ) {
 				$output .= '
 					<a href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
 			}
