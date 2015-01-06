@@ -156,6 +156,8 @@ Yes, it is again actively maintained.
 * 2015-01-
 * Admin entries page: fix table header and footer (ordering).
 * Auto-fill the form if the user is already logged in.
+* Bring Ajax to the editor page as well.
+* Simplify Options on editor page.
 
 = 1.0.9 =
 * 2015-01-05
