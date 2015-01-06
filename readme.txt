@@ -155,6 +155,7 @@ Yes, it is again actively maintained.
 = 1.1.0 =
 * 2015-01-
 * Admin entries page: fix table header and footer (ordering).
+* Auto-fill the form if the user is already logged in.
 
 = 1.0.9 =
 * 2015-01-05
