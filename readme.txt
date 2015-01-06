@@ -152,6 +152,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.1.1 =
+* 2015-01-
+* Add Edit link to frontend for moderators.
+
 = 1.1.0 =
 * 2015-01-06
 * Admin entries page: fix table header and footer (ordering).
