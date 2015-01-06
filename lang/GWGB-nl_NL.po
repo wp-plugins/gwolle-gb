@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 19:37+0100\n"
+"POT-Creation-Date: 2015-01-06 14:42+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -43,89 +43,103 @@ msgstr "Instellingen"
 msgid "Import"
 msgstr "Importeer"
 
-#: admin/dashboard-widget.php:118 admin/page-entries.php:676
+#: admin/dashboard-widget.php:116 admin/page-entries.php:676
 msgid "Edit entry"
 msgstr "Bewerk bericht"
 
-#: admin/dashboard-widget.php:118 admin/page-entries.php:676
+#: admin/dashboard-widget.php:116 admin/page-entries.php:676
 msgid "Edit"
 msgstr "Bewerken"
 
-#: admin/dashboard-widget.php:122 admin/page-entries.php:679
+#: admin/dashboard-widget.php:120 admin/page-editor.php:408
+#: admin/page-entries.php:679
 msgid "Check entry"
 msgstr "Geen bericht vrij"
 
-#: admin/dashboard-widget.php:122 admin/page-entries.php:679
+#: admin/dashboard-widget.php:120 admin/page-editor.php:408
+#: admin/page-entries.php:679
 msgid "Check"
 msgstr "Vrijgeven"
 
-#: admin/dashboard-widget.php:126 admin/page-entries.php:682
+#: admin/dashboard-widget.php:124 admin/page-editor.php:411
+#: admin/page-entries.php:682
 msgid "Uncheck entry"
 msgstr "Geef bericht niet vrij"
 
-#: admin/dashboard-widget.php:126 admin/page-entries.php:682
+#: admin/dashboard-widget.php:124 admin/page-editor.php:411
+#: admin/page-entries.php:682
 msgid "Uncheck"
 msgstr "Niet vrijgeven"
 
-#: admin/dashboard-widget.php:130 admin/page-entries.php:685
+#: admin/dashboard-widget.php:128 admin/page-editor.php:414
+#: admin/page-entries.php:685
 msgid "Mark entry as spam."
 msgstr "Markeer bericht als spam."
 
-#: admin/dashboard-widget.php:130 admin/page-entries.php:424
+#: admin/dashboard-widget.php:128 admin/page-editor.php:357
+#: admin/page-editor.php:414 admin/page-entries.php:424
 #: admin/page-entries.php:685
 msgid "Spam"
 msgstr "Spam"
 
-#: admin/dashboard-widget.php:134 admin/page-entries.php:688
+#: admin/dashboard-widget.php:132 admin/page-editor.php:417
+#: admin/page-entries.php:688
 msgid "Mark entry as not-spam."
 msgstr "Markeer bericht als niet-spam."
 
-#: admin/dashboard-widget.php:134 admin/page-entries.php:688
+#: admin/dashboard-widget.php:132 admin/page-editor.php:417
+#: admin/page-entries.php:688
 msgid "Not spam"
 msgstr "Geen spam"
 
-#: admin/dashboard-widget.php:138 admin/page-entries.php:691
+#: admin/dashboard-widget.php:136 admin/page-editor.php:420
+#: admin/page-entries.php:691
 msgid "Move entry to trash."
 msgstr "Verplaats bericht naar prullenbak."
 
-#: admin/dashboard-widget.php:138 admin/page-entries.php:428
+#: admin/dashboard-widget.php:136 admin/page-editor.php:367
+#: admin/page-editor.php:420 admin/page-entries.php:428
 #: admin/page-entries.php:691
 msgid "Trash"
 msgstr "Prullenbak"
 
-#: admin/dashboard-widget.php:142 admin/page-entries.php:694
+#: admin/dashboard-widget.php:140 admin/page-editor.php:423
+#: admin/page-entries.php:694
 msgid "Recover entry from trash."
 msgstr "Herstellen uit de prullenbak."
 
-#: admin/dashboard-widget.php:142 admin/page-entries.php:694
+#: admin/dashboard-widget.php:140 admin/page-editor.php:423
+#: admin/page-entries.php:694
 msgid "Untrash"
 msgstr "Herstellen"
 
-#: admin/dashboard-widget.php:146 admin/page-entries.php:697
+#: admin/dashboard-widget.php:144 admin/page-editor.php:426
+#: admin/page-entries.php:697
 msgid "Please wait..."
 msgstr "Even wachten..."
 
-#: admin/dashboard-widget.php:146 admin/page-entries.php:697
+#: admin/dashboard-widget.php:144 admin/page-editor.php:426
+#: admin/page-entries.php:697
 msgid "Wait..."
 msgstr "Wacht even..."
 
-#: admin/dashboard-widget.php:157
+#: admin/dashboard-widget.php:155
 msgid "Refresh"
 msgstr "Verversen"
 
-#: admin/dashboard-widget.php:158
+#: admin/dashboard-widget.php:156
 msgid "View all"
 msgstr "Bekijk alles"
 
-#: admin/dashboard-widget.php:159
+#: admin/dashboard-widget.php:157
 msgid "View new"
 msgstr "Bekijk nieuw"
 
-#: admin/dashboard-widget.php:162
+#: admin/dashboard-widget.php:160
 msgid "No new and unchecked guestbook entries."
 msgstr "Geen nieuwe en ongemodereerde gastenboekberichten."
 
-#: admin/dashboard-widget.php:169
+#: admin/dashboard-widget.php:167
 msgid "Guestbook (new entries)"
 msgstr "Gastenboek (nieuwe berichten)"
 
@@ -242,110 +256,98 @@ msgstr "Bericht opgeslagen."
 msgid "Entry was not saved."
 msgstr "Bericht is niet opgeslagen."
 
-#: admin/page-editor.php:268 admin/page-editor.php:389
-#: admin/page-editor.php:444 admin/page-editor.php:480
-#: admin/page-editor.php:491 admin/page-editor.php:499
-#: admin/page-import.php:137 admin/page-import.php:198
-#: admin/page-import.php:205
+#: admin/page-editor.php:305 admin/page-editor.php:398
+#: admin/page-editor.php:442 admin/page-editor.php:497
+#: admin/page-editor.php:533 admin/page-editor.php:544
+#: admin/page-editor.php:552 admin/page-import.php:137
+#: admin/page-import.php:198 admin/page-import.php:205
 msgid "Click to open or close"
 msgstr "Klik om te openen of te sluiten"
 
-#: admin/page-editor.php:268
+#: admin/page-editor.php:305
 msgid "Options"
 msgstr "Opties"
 
-#: admin/page-editor.php:310 admin/page-editor.php:315
-msgid "This entry is Not Visible."
-msgstr "Dit bericht is Niet Zichtbaar."
+#: admin/page-editor.php:326
+msgid "This entry is not yet visible."
+msgstr "Dit bericht is nog niet zichtbaar."
 
-#: admin/page-editor.php:313
+#: admin/page-editor.php:330 admin/page-editor.php:335
 msgid "This entry is Visible."
 msgstr "Dit bericht is Zichtbaar."
 
-#: admin/page-editor.php:327
-msgid "This entry is Not Checked."
-msgstr "Dit bericht is Niet Vrijgegeven."
+#: admin/page-editor.php:331 admin/page-editor.php:336
+msgid "This entry is Not Visible."
+msgstr "Dit bericht is Niet Zichtbaar."
 
-#: admin/page-editor.php:329
-msgid "This entry is Checked"
-msgstr "Dit bericht is Vrijgegeven."
+#: admin/page-editor.php:347
+msgid "Checked"
+msgstr "Vrijgegeven"
 
-#: admin/page-editor.php:342
-msgid "This entry is Not marked as Spam."
-msgstr "Dit bericht is Niet gemarkeerd als Spam."
-
-#: admin/page-editor.php:344
-msgid "This entry is marked as Spam"
-msgstr "Dit bericht is gemarkeerd als Spam."
-
-#: admin/page-editor.php:357
-msgid "This entry is Not in Trash."
-msgstr "Dit bericht is Niet in de Prullenbak."
-
-#: admin/page-editor.php:359
-msgid "This entry is in Trash"
-msgstr "Dit bericht is in de Prullenbak."
-
-#: admin/page-editor.php:368
+#: admin/page-editor.php:375
 msgid "Remove this entry Permanently."
 msgstr "Verwijder dit bericht Permanent."
 
-#: admin/page-editor.php:379
+#: admin/page-editor.php:386
 msgid "Save"
 msgstr "Opslaan"
 
-#: admin/page-editor.php:389
+#: admin/page-editor.php:398
+msgid "Actions"
+msgstr "Acties"
+
+#: admin/page-editor.php:442
 msgid "Details"
 msgstr "Details"
 
-#: admin/page-editor.php:393 admin/page-entries.php:548
-#: admin/page-entries.php:564
+#: admin/page-editor.php:446 admin/page-entries.php:547
+#: admin/page-entries.php:563
 msgid "Author"
 msgstr "Auteur"
 
-#: admin/page-editor.php:398 admin/page-editor.php:406
-#: admin/page-editor.php:426 admin/page-editor.php:434
+#: admin/page-editor.php:451 admin/page-editor.php:459
+#: admin/page-editor.php:479 admin/page-editor.php:487
 #: functions/function.gwolle_gb_log.php:161
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: admin/page-editor.php:402
+#: admin/page-editor.php:455
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: admin/page-editor.php:410 admin/page-editor.php:454
+#: admin/page-editor.php:463 admin/page-editor.php:507
 msgid "Written"
 msgstr "Geschreven"
 
-#: admin/page-editor.php:415
+#: admin/page-editor.php:468
 msgid "Not yet"
 msgstr "Nog niet"
 
-#: admin/page-editor.php:419
+#: admin/page-editor.php:472
 msgid "Author's IP-address"
 msgstr "IP-adres van auteur"
 
-#: admin/page-editor.php:422
+#: admin/page-editor.php:475
 msgid "Whois search for this IP"
 msgstr "Whois zoeken voor dit IP-adres"
 
-#: admin/page-editor.php:430
+#: admin/page-editor.php:483
 msgid "Host"
 msgstr "Host"
 
-#: admin/page-editor.php:444
+#: admin/page-editor.php:497
 msgid "Entry log"
 msgstr "Bericht log"
 
-#: admin/page-editor.php:463
+#: admin/page-editor.php:516
 msgid "No log yet."
 msgstr "Nog geen log."
 
-#: admin/page-editor.php:480 frontend/write.php:128
+#: admin/page-editor.php:533 frontend/write.php:141
 msgid "Guestbook entry"
 msgstr "Gastenboek bericht"
 
-#: admin/page-editor.php:485
+#: admin/page-editor.php:538
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href="
 "\"%1\">settings</a>."
@@ -353,15 +355,15 @@ msgstr ""
 "Regeleindes zijn niet zichtbaar voor je bezoekers vanwege je <a href="
 "\"%1\">instellingen</a>."
 
-#: admin/page-editor.php:491 frontend/write.php:122 frontend/write.php:123
+#: admin/page-editor.php:544 frontend/write.php:135 frontend/write.php:136
 msgid "Homepage"
 msgstr "Homepage"
 
-#: admin/page-editor.php:494
+#: admin/page-editor.php:547
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "Voorbeeld: <code>http://www.example.com/</code>"
 
-#: admin/page-editor.php:499
+#: admin/page-editor.php:552
 msgid "Origin"
 msgstr "Woonplaats"
 
@@ -573,7 +575,7 @@ msgstr "ID"
 msgid "Date"
 msgstr "Datum"
 
-#: admin/page-entries.php:547 admin/page-entries.php:563
+#: admin/page-entries.php:548 admin/page-entries.php:564
 msgid "Entry (excerpt)"
 msgstr "Bericht (samenvatting)"
 
@@ -796,7 +798,7 @@ msgstr "DMSGuestbook is niet gevonden."
 msgid "The importer will preserve the following data per entry:"
 msgstr "De importeur zal de volgende gegevens behouden van elk bericht:"
 
-#: admin/page-import.php:171 frontend/write.php:95 frontend/write.php:100
+#: admin/page-import.php:171 frontend/write.php:108 frontend/write.php:113
 msgid "Name"
 msgstr "Naam"
 
@@ -1029,6 +1031,8 @@ msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
 msgstr ""
+"Je kunt de inhoud aanpassen van de e-mail die een abonnee op de notificaties "
+"krijgt. De volgende tags worden ondersteund:"
 
 #: admin/page-settings.php:297
 msgid "Admin mail from address"
@@ -1039,10 +1043,13 @@ msgid ""
 "You can set the email address that is used for the From header of the mail "
 "that a notification subscriber gets on new entries."
 msgstr ""
+"Je kunt het e-mail adres opgeven dat gebruikt wordt als afzender voor de "
+"notificatie-e-mails bij nieuwe berichten."
 
 #: admin/page-settings.php:305
 msgid "By default the main admin address is used from General >> Settings."
 msgstr ""
+"Standaard wordt het hoofdadmin adres gebruikt in Instellingen >> Algemeen."
 
 #: admin/page-settings.php:316
 msgid "Save settings"
@@ -1106,28 +1113,28 @@ msgstr "We zullen het bekijken en binnenkort plaatsen."
 msgid "New Guestbook Entry"
 msgstr "Nieuw Gastenboek Bericht"
 
-#: frontend/read.php:79
+#: frontend/read.php:84
 msgid "Previous page"
 msgstr "Vorige pagina"
 
-#: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
-#: frontend/read.php:121 frontend/read.php:132
+#: frontend/read.php:97 frontend/read.php:105 frontend/read.php:111
+#: frontend/read.php:126 frontend/read.php:137
 msgid "Page"
 msgstr "Pagina"
 
-#: frontend/read.php:103 frontend/read.php:133
+#: frontend/read.php:108 frontend/read.php:138
 msgid "Next page"
 msgstr "Volgende pagina"
 
-#: frontend/read.php:142
+#: frontend/read.php:147
 msgid "(no entries yet)"
 msgstr "(nog geen berichten)"
 
-#: frontend/read.php:178
+#: frontend/read.php:183
 msgid "from"
 msgstr "uit"
 
-#: frontend/read.php:182
+#: frontend/read.php:187
 msgid "wrote at"
 msgstr "schreef op"
 
@@ -1175,47 +1182,47 @@ msgstr "Selecteer de pagina van het gastenboek:"
 msgid "Select page"
 msgstr "Selecteer pagina"
 
-#: frontend/write.php:81
+#: frontend/write.php:94
 msgid "Write a new entry."
 msgstr "Schrijf een nieuw bericht."
 
-#: frontend/write.php:92
+#: frontend/write.php:105
 msgid "Write a new entry for the Guestbook"
 msgstr "Schrijf een nieuw bericht voor het Gastenboek"
 
-#: frontend/write.php:105 frontend/write.php:106
+#: frontend/write.php:118 frontend/write.php:119
 msgid "City"
 msgstr "Stad"
 
-#: frontend/write.php:112 frontend/write.php:117
+#: frontend/write.php:125 frontend/write.php:130
 msgid "Email"
 msgstr "E-mail"
 
-#: frontend/write.php:142
+#: frontend/write.php:155
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
-#: frontend/write.php:161
+#: frontend/write.php:174
 msgid "Submit"
 msgstr "Toevoegen"
 
-#: frontend/write.php:166
+#: frontend/write.php:179
 msgid "Fields marked with * are obligatory."
 msgstr "Velden met  een * zijn verplicht."
 
-#: frontend/write.php:168
+#: frontend/write.php:181
 msgid "For security reasons we save the ip address <span id=\"ip\">%1</span>."
 msgstr ""
 "Uit veiligheidsoverwegingen slaan we het ip-adres <span id=\"ip\">%1</span> "
 "op."
 
-#: frontend/write.php:173
+#: frontend/write.php:186
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr ""
 "Je bericht zal zichtbaar zijn in het gastenboek nadat we het beoordeeld "
 "hebben."
 
-#: frontend/write.php:175
+#: frontend/write.php:188
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 "We houden het recht voor om berichten te bewerken, verwijderen of niet te "
@@ -1256,6 +1263,24 @@ msgstr "Bericht is hersteld uit de prullenbak."
 #: functions/function.gwolle_gb_misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Geen inhoud om weer te geven. Het bericht is leeg."
+
+#~ msgid "This entry is Not Checked."
+#~ msgstr "Dit bericht is Niet Vrijgegeven."
+
+#~ msgid "This entry is Checked"
+#~ msgstr "Dit bericht is Vrijgegeven."
+
+#~ msgid "This entry is Not marked as Spam."
+#~ msgstr "Dit bericht is Niet gemarkeerd als Spam."
+
+#~ msgid "This entry is marked as Spam"
+#~ msgstr "Dit bericht is gemarkeerd als Spam."
+
+#~ msgid "This entry is Not in Trash."
+#~ msgstr "Dit bericht is Niet in de Prullenbak."
+
+#~ msgid "This entry is in Trash"
+#~ msgstr "Dit bericht is in de Prullenbak."
 
 #~ msgid "Entry by %1 has been moved to trash."
 #~ msgstr "Bericht door %s is verplaatst naar de prullenbak."

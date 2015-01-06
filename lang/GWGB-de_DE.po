@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-04 19:37+0100\n"
+"POT-Creation-Date: 2015-01-06 14:42+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jenny Gaulke <Jenny.Gaulke@gmail.com>\n"
 "Language-Team: \n"
@@ -45,89 +45,103 @@ msgstr "Einstellungen"
 msgid "Import"
 msgstr "Importieren"
 
-#: admin/dashboard-widget.php:118 admin/page-entries.php:676
+#: admin/dashboard-widget.php:116 admin/page-entries.php:676
 msgid "Edit entry"
 msgstr "Eintrag bearbeiten"
 
-#: admin/dashboard-widget.php:118 admin/page-entries.php:676
+#: admin/dashboard-widget.php:116 admin/page-entries.php:676
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: admin/dashboard-widget.php:122 admin/page-entries.php:679
+#: admin/dashboard-widget.php:120 admin/page-editor.php:408
+#: admin/page-entries.php:679
 msgid "Check entry"
 msgstr "Eintrag freigeben"
 
-#: admin/dashboard-widget.php:122 admin/page-entries.php:679
+#: admin/dashboard-widget.php:120 admin/page-editor.php:408
+#: admin/page-entries.php:679
 msgid "Check"
 msgstr "Freigeben"
 
-#: admin/dashboard-widget.php:126 admin/page-entries.php:682
+#: admin/dashboard-widget.php:124 admin/page-editor.php:411
+#: admin/page-entries.php:682
 msgid "Uncheck entry"
 msgstr "Eintrag sperren"
 
-#: admin/dashboard-widget.php:126 admin/page-entries.php:682
+#: admin/dashboard-widget.php:124 admin/page-editor.php:411
+#: admin/page-entries.php:682
 msgid "Uncheck"
 msgstr "Sperren"
 
-#: admin/dashboard-widget.php:130 admin/page-entries.php:685
+#: admin/dashboard-widget.php:128 admin/page-editor.php:414
+#: admin/page-entries.php:685
 msgid "Mark entry as spam."
 msgstr "Eintrag als Spam einstufen."
 
-#: admin/dashboard-widget.php:130 admin/page-entries.php:424
+#: admin/dashboard-widget.php:128 admin/page-editor.php:357
+#: admin/page-editor.php:414 admin/page-entries.php:424
 #: admin/page-entries.php:685
 msgid "Spam"
 msgstr "Spam"
 
-#: admin/dashboard-widget.php:134 admin/page-entries.php:688
+#: admin/dashboard-widget.php:132 admin/page-editor.php:417
+#: admin/page-entries.php:688
 msgid "Mark entry as not-spam."
 msgstr "Eintrag als Nicht-Spam einstufen."
 
-#: admin/dashboard-widget.php:134 admin/page-entries.php:688
+#: admin/dashboard-widget.php:132 admin/page-editor.php:417
+#: admin/page-entries.php:688
 msgid "Not spam"
 msgstr "Kein Spam"
 
-#: admin/dashboard-widget.php:138 admin/page-entries.php:691
+#: admin/dashboard-widget.php:136 admin/page-editor.php:420
+#: admin/page-entries.php:691
 msgid "Move entry to trash."
 msgstr "Eintrag i. d. Papierkorb verschieben."
 
-#: admin/dashboard-widget.php:138 admin/page-entries.php:428
+#: admin/dashboard-widget.php:136 admin/page-editor.php:367
+#: admin/page-editor.php:420 admin/page-entries.php:428
 #: admin/page-entries.php:691
 msgid "Trash"
 msgstr "Papierkorb"
 
-#: admin/dashboard-widget.php:142 admin/page-entries.php:694
+#: admin/dashboard-widget.php:140 admin/page-editor.php:423
+#: admin/page-entries.php:694
 msgid "Recover entry from trash."
 msgstr ""
 
-#: admin/dashboard-widget.php:142 admin/page-entries.php:694
+#: admin/dashboard-widget.php:140 admin/page-editor.php:423
+#: admin/page-entries.php:694
 msgid "Untrash"
 msgstr ""
 
-#: admin/dashboard-widget.php:146 admin/page-entries.php:697
+#: admin/dashboard-widget.php:144 admin/page-editor.php:426
+#: admin/page-entries.php:697
 msgid "Please wait..."
 msgstr "Bitte warten..."
 
-#: admin/dashboard-widget.php:146 admin/page-entries.php:697
+#: admin/dashboard-widget.php:144 admin/page-editor.php:426
+#: admin/page-entries.php:697
 msgid "Wait..."
 msgstr "Bitte warten.."
 
-#: admin/dashboard-widget.php:157
+#: admin/dashboard-widget.php:155
 msgid "Refresh"
 msgstr ""
 
-#: admin/dashboard-widget.php:158
+#: admin/dashboard-widget.php:156
 msgid "View all"
 msgstr "Alle ansehen"
 
-#: admin/dashboard-widget.php:159
+#: admin/dashboard-widget.php:157
 msgid "View new"
 msgstr "Neue Ansicht"
 
-#: admin/dashboard-widget.php:162
+#: admin/dashboard-widget.php:160
 msgid "No new and unchecked guestbook entries."
 msgstr "Keine neuen und ungepr&uuml;ften G&auml;stebucheintr&auml;ge."
 
-#: admin/dashboard-widget.php:169
+#: admin/dashboard-widget.php:167
 msgid "Guestbook (new entries)"
 msgstr "G&auml;stebuch (neue Eintr&auml;ge)"
 
@@ -244,110 +258,98 @@ msgstr "Eintrag wurde gespeichert."
 msgid "Entry was not saved."
 msgstr "Eintrag wurde nicht gespeichert."
 
-#: admin/page-editor.php:268 admin/page-editor.php:389
-#: admin/page-editor.php:444 admin/page-editor.php:480
-#: admin/page-editor.php:491 admin/page-editor.php:499
-#: admin/page-import.php:137 admin/page-import.php:198
-#: admin/page-import.php:205
+#: admin/page-editor.php:305 admin/page-editor.php:398
+#: admin/page-editor.php:442 admin/page-editor.php:497
+#: admin/page-editor.php:533 admin/page-editor.php:544
+#: admin/page-editor.php:552 admin/page-import.php:137
+#: admin/page-import.php:198 admin/page-import.php:205
 msgid "Click to open or close"
 msgstr "Klicken zum &Ouml;ffnen oder Schlie&szlig;en"
 
-#: admin/page-editor.php:268
+#: admin/page-editor.php:305
 msgid "Options"
 msgstr "Einstellungen"
 
-#: admin/page-editor.php:310 admin/page-editor.php:315
-msgid "This entry is Not Visible."
-msgstr "Eintrag ist nicht sichtbar."
+#: admin/page-editor.php:326
+msgid "This entry is not yet visible."
+msgstr ""
 
-#: admin/page-editor.php:313
+#: admin/page-editor.php:330 admin/page-editor.php:335
 msgid "This entry is Visible."
 msgstr "Eintrag ist sichtbar."
 
-#: admin/page-editor.php:327
-msgid "This entry is Not Checked."
-msgstr "Eintrag ist nicht gepr&uuml;ft."
+#: admin/page-editor.php:331 admin/page-editor.php:336
+msgid "This entry is Not Visible."
+msgstr "Eintrag ist nicht sichtbar."
 
-#: admin/page-editor.php:329
-msgid "This entry is Checked"
-msgstr "Eintrag ist gepr&uuml;ft."
+#: admin/page-editor.php:347
+msgid "Checked"
+msgstr ""
 
-#: admin/page-editor.php:342
-msgid "This entry is Not marked as Spam."
-msgstr "Eintrag wurde nicht als Spam eingestuft."
-
-#: admin/page-editor.php:344
-msgid "This entry is marked as Spam"
-msgstr "Eintrag wurde als Spam eingestuft."
-
-#: admin/page-editor.php:357
-msgid "This entry is Not in Trash."
-msgstr "Eintrag ist nicht im Papierkorb."
-
-#: admin/page-editor.php:359
-msgid "This entry is in Trash"
-msgstr "Eintrag wurde in den Papierkorb verschoben."
-
-#: admin/page-editor.php:368
+#: admin/page-editor.php:375
 msgid "Remove this entry Permanently."
 msgstr "Dauerhaft entfernen"
 
-#: admin/page-editor.php:379
+#: admin/page-editor.php:386
 msgid "Save"
 msgstr "Speichern"
 
-#: admin/page-editor.php:389
+#: admin/page-editor.php:398
+msgid "Actions"
+msgstr ""
+
+#: admin/page-editor.php:442
 msgid "Details"
 msgstr "Details"
 
-#: admin/page-editor.php:393 admin/page-entries.php:548
-#: admin/page-entries.php:564
+#: admin/page-editor.php:446 admin/page-entries.php:547
+#: admin/page-entries.php:563
 msgid "Author"
 msgstr "Autor"
 
-#: admin/page-editor.php:398 admin/page-editor.php:406
-#: admin/page-editor.php:426 admin/page-editor.php:434
+#: admin/page-editor.php:451 admin/page-editor.php:459
+#: admin/page-editor.php:479 admin/page-editor.php:487
 #: functions/function.gwolle_gb_log.php:161
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: admin/page-editor.php:402
+#: admin/page-editor.php:455
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: admin/page-editor.php:410 admin/page-editor.php:454
+#: admin/page-editor.php:463 admin/page-editor.php:507
 msgid "Written"
 msgstr "Geschrieben"
 
-#: admin/page-editor.php:415
+#: admin/page-editor.php:468
 msgid "Not yet"
 msgstr "Bisher keine Eintr&auml;ge"
 
-#: admin/page-editor.php:419
+#: admin/page-editor.php:472
 msgid "Author's IP-address"
 msgstr "IP-Adresse des Autors"
 
-#: admin/page-editor.php:422
+#: admin/page-editor.php:475
 msgid "Whois search for this IP"
 msgstr "WHOIS-Suche f&uuml;r diese IP"
 
-#: admin/page-editor.php:430
+#: admin/page-editor.php:483
 msgid "Host"
 msgstr "Host"
 
-#: admin/page-editor.php:444
+#: admin/page-editor.php:497
 msgid "Entry log"
 msgstr "Logbuch"
 
-#: admin/page-editor.php:463
+#: admin/page-editor.php:516
 msgid "No log yet."
 msgstr "Noch kein Protokoll."
 
-#: admin/page-editor.php:480 frontend/write.php:128
+#: admin/page-editor.php:533 frontend/write.php:141
 msgid "Guestbook entry"
 msgstr "G&auml;stebuch-Eintrag"
 
-#: admin/page-editor.php:485
+#: admin/page-editor.php:538
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href="
 "\"%1\">settings</a>."
@@ -355,15 +357,15 @@ msgstr ""
 "Zeilenumbr&uuml;che werden auf Grund deiner <a href=\"%1\">Einstellungen</a> "
 "nicht f&uuml;r deine Besucher sichtbar sein."
 
-#: admin/page-editor.php:491 frontend/write.php:122 frontend/write.php:123
+#: admin/page-editor.php:544 frontend/write.php:135 frontend/write.php:136
 msgid "Homepage"
 msgstr "Website"
 
-#: admin/page-editor.php:494
+#: admin/page-editor.php:547
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "Beispiel: <code>http://www.beispiel.com/</code>"
 
-#: admin/page-editor.php:499
+#: admin/page-editor.php:552
 msgid "Origin"
 msgstr "Herkunft"
 
@@ -575,7 +577,7 @@ msgstr "ID"
 msgid "Date"
 msgstr "Datum"
 
-#: admin/page-entries.php:547 admin/page-entries.php:563
+#: admin/page-entries.php:548 admin/page-entries.php:564
 msgid "Entry (excerpt)"
 msgstr "Beitrag (Auszug)"
 
@@ -799,7 +801,7 @@ msgstr "DMSG&auml;stebuch konnte nicht gefunden werden."
 msgid "The importer will preserve the following data per entry:"
 msgstr "Der Assistent wird von jedem Eintrag folgende Daten &uuml;bernehmen:"
 
-#: admin/page-import.php:171 frontend/write.php:95 frontend/write.php:100
+#: admin/page-import.php:171 frontend/write.php:108 frontend/write.php:113
 msgid "Name"
 msgstr "Name"
 
@@ -1122,28 +1124,28 @@ msgstr "&Uuml;berpr&uuml;fung und Freigabe folgt."
 msgid "New Guestbook Entry"
 msgstr "Neuer Eintrag "
 
-#: frontend/read.php:79
+#: frontend/read.php:84
 msgid "Previous page"
 msgstr "Vorherige Seite"
 
-#: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
-#: frontend/read.php:121 frontend/read.php:132
+#: frontend/read.php:97 frontend/read.php:105 frontend/read.php:111
+#: frontend/read.php:126 frontend/read.php:137
 msgid "Page"
 msgstr "Seite"
 
-#: frontend/read.php:103 frontend/read.php:133
+#: frontend/read.php:108 frontend/read.php:138
 msgid "Next page"
 msgstr "N&auml;chste Seite"
 
-#: frontend/read.php:142
+#: frontend/read.php:147
 msgid "(no entries yet)"
 msgstr "(keine Eintr&auml;ge bisher)"
 
-#: frontend/read.php:178
+#: frontend/read.php:183
 msgid "from"
 msgstr "aus"
 
-#: frontend/read.php:182
+#: frontend/read.php:187
 msgid "wrote at"
 msgstr "schrieb am"
 
@@ -1191,47 +1193,47 @@ msgstr "Seitenauswahl:"
 msgid "Select page"
 msgstr "Seite ausw&auml;hlen"
 
-#: frontend/write.php:81
+#: frontend/write.php:94
 msgid "Write a new entry."
 msgstr "Neuen Eintrag erstellen"
 
-#: frontend/write.php:92
+#: frontend/write.php:105
 msgid "Write a new entry for the Guestbook"
 msgstr "Neuen Eintrag schreiben"
 
-#: frontend/write.php:105 frontend/write.php:106
+#: frontend/write.php:118 frontend/write.php:119
 msgid "City"
 msgstr "Stadt"
 
-#: frontend/write.php:112 frontend/write.php:117
+#: frontend/write.php:125 frontend/write.php:130
 msgid "Email"
 msgstr "E-Mail"
 
-#: frontend/write.php:142
+#: frontend/write.php:155
 msgid "Anti-spam"
 msgstr "Spam-Schutz"
 
-#: frontend/write.php:161
+#: frontend/write.php:174
 msgid "Submit"
 msgstr "Los gehts!"
 
-#: frontend/write.php:166
+#: frontend/write.php:179
 msgid "Fields marked with * are obligatory."
 msgstr "Felder mit * sind Pflicht-Angaben."
 
-#: frontend/write.php:168
+#: frontend/write.php:181
 msgid "For security reasons we save the ip address <span id=\"ip\">%1</span>."
 msgstr ""
 "Aus Sicherheitsgr&uuml;nden wird Ihre IP-Adresse <span id=\"ip\">%1</span> "
 "gespeichert. "
 
-#: frontend/write.php:173
+#: frontend/write.php:186
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr ""
 "Der Eintrag wird im G&auml;stebuch erscheinen, sobald er gepr&uuml;ft und "
 "freigegeben wurde. "
 
-#: frontend/write.php:175
+#: frontend/write.php:188
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 "Es wird das Recht vorbehalten, Beitr&auml;ge zu k&uuml;rzen, zu l&ouml;schen "
@@ -1272,6 +1274,24 @@ msgstr "Eintrag wurde wiederhergestellt."
 #: functions/function.gwolle_gb_misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Kein Inhalt; dieser Eintrag ist leer."
+
+#~ msgid "This entry is Not Checked."
+#~ msgstr "Eintrag ist nicht gepr&uuml;ft."
+
+#~ msgid "This entry is Checked"
+#~ msgstr "Eintrag ist gepr&uuml;ft."
+
+#~ msgid "This entry is Not marked as Spam."
+#~ msgstr "Eintrag wurde nicht als Spam eingestuft."
+
+#~ msgid "This entry is marked as Spam"
+#~ msgstr "Eintrag wurde als Spam eingestuft."
+
+#~ msgid "This entry is Not in Trash."
+#~ msgstr "Eintrag ist nicht im Papierkorb."
+
+#~ msgid "This entry is in Trash"
+#~ msgstr "Eintrag wurde in den Papierkorb verschoben."
 
 #~ msgid "Entry by %1 has been moved to trash."
 #~ msgstr "Eintrag von %1 wurde i. d. Papierkorb verschoben."
