@@ -147,6 +147,8 @@ function gwolle_gb_frontend_write() {
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
 
+	/* FIXME: Add an optional Custom Security question */
+
 
 	/* reCAPTCHA */
 	if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {

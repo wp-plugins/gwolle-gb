@@ -200,9 +200,10 @@ function gwolle_gb_frontend_read() {
 				$output .= $entry_content;
 			}
 
+			// Edit Link for Moderators
 			if ( function_exists('current_user_can') && current_user_can('moderate_comments') ) {
 				$output .= '
-					<a href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
+					<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
 			}
 			$output .= '</div>';
 
