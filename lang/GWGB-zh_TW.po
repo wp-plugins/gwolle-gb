@@ -4,15 +4,14 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-06 14:42+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Chun-I Lee <clslee@scu.edu.tw>>\n"
+"Last-Translator: Chun-I Lee <clslee@scu.edu.tw>\n"
 "Language-Team: zh_TW\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"plugins/gwolle-gb/\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:21
@@ -267,7 +266,7 @@ msgstr "選項"
 
 #: admin/page-editor.php:326
 msgid "This entry is not yet visible."
-msgstr ""
+msgstr "此留言尚未公開不可見的."
 
 #: admin/page-editor.php:330 admin/page-editor.php:335
 msgid "This entry is Visible."
@@ -279,7 +278,7 @@ msgstr "此留言尚未公開不可見的."
 
 #: admin/page-editor.php:347
 msgid "Checked"
-msgstr ""
+msgstr "核准"
 
 #: admin/page-editor.php:375
 msgid "Remove this entry Permanently."
@@ -291,7 +290,7 @@ msgstr "儲存"
 
 #: admin/page-editor.php:398
 msgid "Actions"
-msgstr ""
+msgstr "動作"
 
 #: admin/page-editor.php:442
 msgid "Details"
@@ -564,7 +563,7 @@ msgstr "之"
 
 #: admin/page-entries.php:540 admin/page-entries.php:556
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #: admin/page-entries.php:546 admin/page-entries.php:562
 msgid "Date"
@@ -634,8 +633,8 @@ msgid ""
 "contact your hosting provider to change this."
 msgstr ""
 "抱歉, 使用郵件通知你需要使用函數 <code>mail()</code> , 但你的 PHP 設定並未啟"
-"用這個函數. 你可能會想要安裝一個使用 SMTP 的 Wordpress 插件來替代 "
-"<code>mail()</code> 或是你的主機服提供商以改變這個狀況."
+"用這個函數. 你可能會想要安裝一個使用 SMTP 的 Wordpress 插件來替代 <code>mail"
+"()</code> 或是你的主機服提供商以改變這個狀況."
 
 #: admin/page-gwolle-gb.php:173
 msgid "Send me an e-mail when a new entry has been posted."
