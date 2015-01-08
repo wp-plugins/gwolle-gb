@@ -50,6 +50,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
 * nl_NL [Marcel Pol](http://zenoweb.nl)
 * pl_PL [Daniel Speichert]
+* zh_TW [Chun-I Lee]
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
 
@@ -155,6 +156,9 @@ Yes, it is again actively maintained.
 = 1.1.1 =
 * 2015-01-
 * Add Edit link to frontend for moderators.
+* Work around old and incompatible other recaptchalib libraries.
+* Add zh_TW (Thanks Chun-I Lee).
+
 
 = 1.1.0 =
 * 2015-01-06

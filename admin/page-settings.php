@@ -122,20 +122,34 @@ function gwolle_gb_page_settings() {
 					<tr valign="top">
 						<th scope="row"><label for="recaptcha-settings">reCAPTCHA</label><br /><span class="setting-description"><a href="http://www.google.com/recaptcha/intro/index.html" title="<?php _e('Learn more about reCAPTCHA...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e("What's that?", GWOLLE_GB_TEXTDOMAIN); ?></a></span></th>
 						<td>
-							<input name="recaptcha-active" <?php
-								if (get_option( 'gwolle_gb-recaptcha-active', 'false' ) === 'true') {
-									echo 'checked="checked" ';
-								}
-								?> id="use-recaptcha" type="checkbox">
-							<?php _e('Use reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>
-							<br />
-							<input name="recaptcha-public-key" type="text" id="recaptcha-public-key"  value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
-							<span class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
-							<br />
-							<input name="recaptcha-private-key" type="text" id="recaptcha-private-key"  value="<?php echo $recaptcha_privateKey; ?>" class="regular-text" />
-							<span class="setting-description"><?php _e('<strong>Secret</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
-							<br />
-							<span class="setting-description"><?php _e('The keys can be found at your', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.google.com/recaptcha/admin/" title="<?php _e('Go to my reCAPTCHA sites...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('reCAPTCHA sites overview', GWOLLE_GB_TEXTDOMAIN); ?></a>.</span>
+							<div
+								<?php
+								if ( !class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) {
+									echo 'style="display:none;"';
+								} ?>
+								>
+								<input name="recaptcha-active" <?php
+									if (get_option( 'gwolle_gb-recaptcha-active', 'false' ) === 'true') {
+										echo 'checked="checked" ';
+									}
+									?> id="use-recaptcha" type="checkbox">
+								<?php _e('Use reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>
+								<br />
+								<input name="recaptcha-public-key" type="text" id="recaptcha-public-key"  value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
+								<span class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
+								<br />
+								<input name="recaptcha-private-key" type="text" id="recaptcha-private-key"  value="<?php echo $recaptcha_privateKey; ?>" class="regular-text" />
+								<span class="setting-description"><?php _e('<strong>Secret</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
+								<br />
+								<span class="setting-description"><?php _e('The keys can be found at your', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.google.com/recaptcha/admin/" title="<?php _e('Go to my reCAPTCHA sites...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('reCAPTCHA sites overview', GWOLLE_GB_TEXTDOMAIN); ?></a>.</span>
+								<br />
+							</div>
+							<?php
+							if ( class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) { ?>
+								<p class="setting-description"><?php _e('<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be loaded, and the found one will be used instead. This might give unexpected results.', GWOLLE_GB_TEXTDOMAIN); ?></p><?php
+							} else if ( !class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) { ?>
+								<p class="setting-description"><?php _e('<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in your theme or another plugin. However, this is an old and incompatible version, so reCAPTCHA will not be used for Gwolle-GB.', GWOLLE_GB_TEXTDOMAIN); ?></p><?php
+							} ?>
 						</td>
 					</tr>
 
