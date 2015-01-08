@@ -122,6 +122,13 @@ Your first option is to use Akismet. It works like a charm. Fighting spam has ne
 
 You can also use reCAPTCHA. It helps you and your visitors to fight spam at the slight cost of usability.
 
+= I get a warning about another reCAPTCHA library =
+
+Apparently you use a theme or other plugin with its own reCAPTCHA library. If you get a warning that it is old and incompatible, please
+ask the maintainer of that theme or plugin to update their version of reCAPTCHA. If the warning is that another version will be used by
+Gwolle-GB, and you experience problems when submitting guestbook entries, please tell me on the forums, and also tell me which other plugin
+you use.
+
 = What capabilities are needed? =
 
 For moderating comments you need the capability 'moderate_comments'.
@@ -156,9 +163,8 @@ Yes, it is again actively maintained.
 = 1.1.1 =
 * 2015-01-
 * Add Edit link to frontend for moderators.
-* Work around old and incompatible other recaptchalib libraries.
+* Work around old and incompatible other recaptcha libraries.
 * Add zh_TW (Thanks Chun-I Lee).
-
 
 = 1.1.0 =
 * 2015-01-06

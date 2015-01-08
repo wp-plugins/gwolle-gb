@@ -152,21 +152,25 @@ function gwolle_gb_frontend_write() {
 
 	/* reCAPTCHA */
 	if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
-		$output .= '
-			<div class="gwolle_gb_recaptcha">
-				<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
-				<div class="input ';
-		if (in_array('recaptcha', $gwolle_gb_error_fields)) {
-			$output .= ' error';
-		}
-		$publickey = get_option('recaptcha-public-key');
-		$output .=
-				' ">
-					<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
+
+		// Don't show it, if we cannot use it, with only the ReCaptchaResponse class available
+		if ( !(!class_exists('ReCaptcha') && class_exists('ReCaptchaResponse')) ) {
+			$output .= '
+				<div class="gwolle_gb_recaptcha">
+					<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
+					<div class="input ';
+			if (in_array('recaptcha', $gwolle_gb_error_fields)) {
+				$output .= ' error';
+			}
+			$publickey = get_option('recaptcha-public-key');
+			$output .=
+					' ">
+						<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
+					</div>
 				</div>
-			</div>
-			<div class="clearBoth">&nbsp;</div>';
-		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
+				<div class="clearBoth">&nbsp;</div>';
+			wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
+		}
 	}
 
 
