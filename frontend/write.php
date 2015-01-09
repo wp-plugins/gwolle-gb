@@ -184,6 +184,8 @@ function gwolle_gb_frontend_write() {
 			<div class="gwolle_gb_notice">
 				' . __('Fields marked with * are obligatory.', GWOLLE_GB_TEXTDOMAIN) . '
 				<br />
+				' . __('We will not publicize the E-mail address.', GWOLLE_GB_TEXTDOMAIN) . '
+				<br />
 				' . str_replace('%1', $_SERVER['REMOTE_ADDR'], __('For security reasons we save the ip address <span id="ip">%1</span>.', GWOLLE_GB_TEXTDOMAIN)) . '
 				<br />';
 
