@@ -187,158 +187,173 @@ function gwolle_gb_page_import() {
 		}?>
 
 
-		<form name="gwolle_gb_import" id="gwolle_gb_import" method="POST" action="#" accept-charset="UTF-8">
-			<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
+		<div id="poststuff" class="metabox-holder">
 
-			<div id="poststuff" class="metabox-holder">
+			<div id="post-body">
+				<div id="post-body-content">
+					<div id='normal-sortables' class='meta-box-sortables'>
 
-					<div id="post-body">
-						<div id="post-body-content">
-							<div id='normal-sortables' class='meta-box-sortables'>
+						<div id="dmsdiv" class="postbox">
+							<div class="handlediv"></div>
+							<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<div class="inside">
+								<form name="gwolle_gb_import_dms" id="gwolle_gb_import_dms" method="POST" action="#" accept-charset="UTF-8">
+									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
 
-								<div id="dmsdiv" class="postbox">
-									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-									<div class="inside"><?php
-										// Does the table of DMSGuestbook exist?
+									<?php
+									// Does the table of DMSGuestbook exist?
+									$sql = "
+										SHOW
+										TABLES
+										LIKE '" . $wpdb->prefix . "dmsguestbook'";
+									$foundTables = $wpdb->get_results( $sql, ARRAY_A );
+
+									$count = 0;
+									if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) {
+										// Get entry count
 										$sql = "
-											SHOW
-											TABLES
-											LIKE '" . $wpdb->prefix . "dmsguestbook'";
-										$foundTables = $wpdb->get_results( $sql, ARRAY_A );
+											SELECT
+												COUNT(id) AS count
+											FROM
+												" . $wpdb->prefix . "dmsguestbook";
 
-										$count = 0;
-										if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) {
-											// Get entry count
-											$sql = "
-												SELECT
-													COUNT(id) AS count
-												FROM
-													" . $wpdb->prefix . "dmsguestbook";
+										$data = $wpdb->get_results( $sql, ARRAY_A );
 
-											$data = $wpdb->get_results( $sql, ARRAY_A );
+										$count = (int) $data[0]['count'];
+									}
 
-											$count = (int) $data[0]['count'];
-										}
-
-										if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) { ?>
-											<div>
-												<?php echo str_replace( '%1', $count, __("%1 entries were found and will be imported.", GWOLLE_GB_TEXTDOMAIN) ); ?>
-											</div>
-											<div>
-												<?php _e('The importer will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
-												<ul class="ul-disc">
-													<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
-													<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-													<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
-													<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
-													<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-													<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
-													<li><?php _e('"is spam" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
-													<li><?php _e('"is checked" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												</ul>
-												<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', GWOLLE_GB_TEXTDOMAIN); ?>
-												<br />
-												<?php _e('The importer does not delete any data, so you can go back whenever you want.', GWOLLE_GB_TEXTDOMAIN); ?>
-											</div>
-
-											<p>
-												<label for="dmsguestbook" class="selectit">
-													<input id="dmsguestbook" name="dmsguestbook" type="checkbox" />
-													<?php _e('Import all entries from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN); ?>
-												</label>
-											</p>
-											<p>
-												<input name="start_import_dms" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
-											</p><?php
-										} else {
-											echo '<div>' . __('DMSGuestbook was not found.', GWOLLE_GB_TEXTDOMAIN) . '</div>';
-										} ?>
-									</div>
-								</div>
-
-								<div id="wp_comm_div" class="postbox">
-									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-									<div class="inside">
+									if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) { ?>
+										<div>
+											<?php echo str_replace( '%1', $count, __("%1 entries were found and will be imported.", GWOLLE_GB_TEXTDOMAIN) ); ?>
+										</div>
 										<div>
 											<?php _e('The importer will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
 											<ul class="ul-disc">
 												<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('User ID', GWOLLE_GB_TEXTDOMAIN); ?></li>
 												<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
 												<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
 												<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
 												<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
 												<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('"approved" status', GWOLLE_GB_TEXTDOMAIN); ?></li>
+												<li><?php _e('"is spam" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
+												<li><?php _e('"is checked" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
 											</ul>
 											<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', GWOLLE_GB_TEXTDOMAIN); ?>
 											<br />
 											<?php _e('The importer does not delete any data, so you can go back whenever you want.', GWOLLE_GB_TEXTDOMAIN); ?>
 										</div>
 
-										<p><label for="gwolle_gb_pageid"><?php _e('Select a page to import the comments from:', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
-											<select id="gwolle_gb_pageid" name="gwolle_gb_pageid">
-											<option value="0"><?php _e('Select', GWOLLE_GB_TEXTDOMAIN); ?></option>
-											<?php
-											$args = array(
-												'post_type'      => 'page',
-												'nopaging'       => true,
-												'posts_per_page' => -1,
-												'order'          => 'ASC',
-												'orderby'        => 'title'
-											);
-
-											$sel_query = new WP_Query( $args );
-											if ( $sel_query->have_posts() ) {
-												while ( $sel_query->have_posts() ) : $sel_query->the_post();
-													$num_comments = get_comments_number( get_the_ID() ); // get_comments_number returns only a numeric value
-
-													if ( $num_comments == 0 ) {
-														$comments = __('No Comments', GWOLLE_GB_TEXTDOMAIN);
-													} elseif ( $num_comments > 1 ) {
-														$comments = $num_comments . __(' Comments', GWOLLE_GB_TEXTDOMAIN);
-													} else {
-														$comments = __('1 Comment', GWOLLE_GB_TEXTDOMAIN);
-													}
-
-													echo '<option value="' . get_the_ID() . '">'. get_the_title() . ' (' . $comments . ')</option>';
-												endwhile;
-											}
-											wp_reset_postdata(); ?>
-											</select>
-										</p>
-
 										<p>
-											<label for="gwolle_gb_wp" class="selectit">
-												<input id="gwolle_gb_wp" name="gwolle_gb_wp" type="checkbox" />
-												<?php _e('Import all entries from this page.', GWOLLE_GB_TEXTDOMAIN); ?>
+											<label for="dmsguestbook" class="selectit">
+												<input id="dmsguestbook" name="dmsguestbook" type="checkbox" />
+												<?php _e('Import all entries from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN); ?>
 											</label>
 										</p>
 										<p>
-											<input name="start_import_wp" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
-										</p>
+											<input name="start_import_dms" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+										</p><?php
+									} else {
+										echo '<div>' . __('DMSGuestbook was not found.', GWOLLE_GB_TEXTDOMAIN) . '</div>';
+									} ?>
+								</form>
+							</div> <!-- inside -->
+						</div> <!-- dmsdiv -->
+
+
+						<div id="wp_comm_div" class="postbox">
+							<div class="handlediv"></div>
+							<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<div class="inside">
+								<form name="gwolle_gb_import_wp" id="gwolle_gb_import_wp" method="POST" action="#" accept-charset="UTF-8">
+									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
+
+									<div>
+										<?php _e('The importer will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
+										<ul class="ul-disc">
+											<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
+											<li><?php _e('User ID', GWOLLE_GB_TEXTDOMAIN); ?></li>
+											<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
+											<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
+											<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
+											<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
+											<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
+											<li><?php _e('"approved" status', GWOLLE_GB_TEXTDOMAIN); ?></li>
+										</ul>
+										<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', GWOLLE_GB_TEXTDOMAIN); ?>
+										<br />
+										<?php _e('The importer does not delete any data, so you can go back whenever you want.', GWOLLE_GB_TEXTDOMAIN); ?>
 									</div>
-								</div>
 
-								<div id="gwollediv" class="postbox">
-									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-									<div class="inside">
+									<p><label for="gwolle_gb_pageid"><?php _e('Select a page to import the comments from:', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+										<select id="gwolle_gb_pageid" name="gwolle_gb_pageid">
+										<option value="0"><?php _e('Select', GWOLLE_GB_TEXTDOMAIN); ?></option>
+										<?php
+										$args = array(
+											'post_type'      => 'page',
+											'nopaging'       => true,
+											'posts_per_page' => -1,
+											'order'          => 'ASC',
+											'orderby'        => 'title'
+										);
 
+										$sel_query = new WP_Query( $args );
+										if ( $sel_query->have_posts() ) {
+											while ( $sel_query->have_posts() ) : $sel_query->the_post();
+												$num_comments = get_comments_number( get_the_ID() ); // get_comments_number returns only a numeric value
 
-									</div>
-								</div>
+												if ( $num_comments == 0 ) {
+													$comments = __('No Comments', GWOLLE_GB_TEXTDOMAIN);
+												} elseif ( $num_comments > 1 ) {
+													$comments = $num_comments . __(' Comments', GWOLLE_GB_TEXTDOMAIN);
+												} else {
+													$comments = __('1 Comment', GWOLLE_GB_TEXTDOMAIN);
+												}
 
-							</div><!-- 'normal-sortables' -->
-						</div><!-- 'post-body-content' -->
+												echo '<option value="' . get_the_ID() . '">'. get_the_title() . ' (' . $comments . ')</option>';
+											endwhile;
+										}
+										wp_reset_postdata(); ?>
+										</select>
+									</p>
 
-					</div><!-- 'post-body' -->
+									<p>
+										<label for="gwolle_gb_wp" class="selectit">
+											<input id="gwolle_gb_wp" name="gwolle_gb_wp" type="checkbox" />
+											<?php _e('Import all entries from this page.', GWOLLE_GB_TEXTDOMAIN); ?>
+										</label>
+									</p>
+									<p>
+										<input name="start_import_wp" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+									</p>
+								</form>
+							</div> <!-- inside -->
+						</div> <!-- wp_comm_div -->
 
-			</div>
-		</form>
-	</div>
+						<div id="gwollediv" class="postbox">
+							<div class="handlediv"></div>
+							<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<div class="inside">
+								<form name="gwolle_gb_import_gwolle" id="gwolle_gb_import_gwolle" method="POST" action="#" accept-charset="UTF-8" enctype="multipart/form-data">
+									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
+
+									<p>
+										<label for="gwolle_gb_gwolle" class="selectit"><?php _e('Select a CSV file with exported entries to import again:', GWOLLE_GB_TEXTDOMAIN); ?><br />
+											<input id="gwolle_gb_gwolle" name="gwolle_gb_gwolle" type="file" />
+										</label>
+									</p>
+									<p>
+										<input name="start_import_gwolle" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+									</p>
+								</form>
+							</div> <!-- inside -->
+						</div> <!-- gwollediv -->
+
+					</div><!-- 'normal-sortables' -->
+				</div><!-- 'post-body-content' -->
+			</div><!-- 'post-body' -->
+
+		</div> <!-- poststuff -->
+	</div> <!-- wrap -->
 
 	<?php
 }
