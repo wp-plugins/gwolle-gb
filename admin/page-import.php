@@ -107,51 +107,49 @@ function gwolle_gb_page_import() {
 
 			if ( isset($_POST['gwolle_gb_wp']) && $_POST['gwolle_gb_wp'] == 'on' ) {
 
-				if ( isset($_POST['gwolle_gb_pageid']) ) {
+				if ( isset($_POST['gwolle_gb_pageid']) && intval($_POST['gwolle_gb_pageid']) > 0 ) {
 					$page_id = intval($_POST['gwolle_gb_pageid']);
 
-					if ( $page_id > 0 ) {
-						$args = array(
-							'status' => 'all',
-							'post_id' => $page_id
-						);
-						$comments = get_comments( $args );
+					$args = array(
+						'status' => 'all',
+						'post_id' => $page_id
+					);
+					$comments = get_comments( $args );
 
-						if ( is_array($comments) && count($comments) > 0 ) {
+					if ( is_array($comments) && count($comments) > 0 ) {
 
-							$saved = 0;
-							foreach ( $comments as $comment ) {
+						$saved = 0;
+						foreach ( $comments as $comment ) {
 
-								/* New Instance of gwolle_gb_entry. */
-								$entry = new gwolle_gb_entry();
+							/* New Instance of gwolle_gb_entry. */
+							$entry = new gwolle_gb_entry();
 
-								/* Set the data in the instance */
+							/* Set the data in the instance */
 
-								$entry->set_ischecked( $comment->comment_approved );
-								$entry->set_content( $comment->comment_content );
-								$entry->set_date( strtotime( $comment->comment_date ) );
-								$entry->set_author_name( $comment->comment_author );
-								$entry->set_author_email( $comment->comment_author_email );
-								$entry->set_author_ip( $comment->comment_author_IP );
-								$entry->set_author_website( $comment->comment_author_url );
-								$entry->set_author_id( $comment->user_id );
+							$entry->set_ischecked( $comment->comment_approved );
+							$entry->set_content( $comment->comment_content );
+							$entry->set_date( strtotime( $comment->comment_date ) );
+							$entry->set_author_name( $comment->comment_author );
+							$entry->set_author_email( $comment->comment_author_email );
+							$entry->set_author_ip( $comment->comment_author_IP );
+							$entry->set_author_website( $comment->comment_author_url );
+							$entry->set_author_id( $comment->user_id );
 
-								/* Save the instance */
-								$save = $entry->save();
-								if ( $save ) {
-									// We have been saved to the Database
-									gwolle_gb_add_log_entry( $entry->get_id(), 'imported-from-wp' );
-									$saved++;
-								}
+							/* Save the instance */
+							$save = $entry->save();
+							if ( $save ) {
+								// We have been saved to the Database
+								gwolle_gb_add_log_entry( $entry->get_id(), 'imported-from-wp' );
+								$saved++;
 							}
-							if ( $saved == 0 ) {
-								$gwolle_gb_errors = 'error';
-								$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import comments from that page successfully.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
-							} else if ( $saved == 1 ) {
-								$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from WordPress comments.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
-							} else if ( $saved > 1 ) {
-								$gwolle_gb_messages .= '<p>' . str_replace('%1', $saved, __('%1 entries imported successfully from WordPress comments.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
-							}
+						}
+						if ( $saved == 0 ) {
+							$gwolle_gb_errors = 'error';
+							$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import comments from that page successfully.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						} else if ( $saved == 1 ) {
+							$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from WordPress comments.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						} else if ( $saved > 1 ) {
+							$gwolle_gb_messages .= '<p>' . str_replace('%1', $saved, __('%1 entries imported successfully from WordPress comments.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
 						}
 					} else {
 						$gwolle_gb_errors = 'error';
