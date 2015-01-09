@@ -310,7 +310,7 @@ function gwolle_gb_page_settings() {
 					<tr valign="top">
 						<th scope="row"><label for="admin_mail_from"><?php _e('Admin mail from address', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
-							<input name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" />
+							<input name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" placeholder="info@example.com" />
 							<br />
 							<span class="setting-description">
 								<?php

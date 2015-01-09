@@ -165,6 +165,11 @@ function gwolle_gb_page_import() {
 				$gwolle_gb_errors = 'error';
 				$gwolle_gb_messages .= '<p>' . __("You haven't chosen a guestbook. Please select one and try again.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
+		} else if (isset($_POST['start_import_gwolle'])) {
+			// file gwolle_gb_gwolle
+
+
+
 
 		}
 	}
