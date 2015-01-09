@@ -297,11 +297,11 @@ function gwolle_gb_page_import() {
 													$num_comments = get_comments_number( get_the_ID() ); // get_comments_number returns only a numeric value
 
 													if ( $num_comments == 0 ) {
-														$comments = __('No Comments');
+														$comments = __('No Comments', GWOLLE_GB_TEXTDOMAIN);
 													} elseif ( $num_comments > 1 ) {
-														$comments = $num_comments . __(' Comments');
+														$comments = $num_comments . __(' Comments', GWOLLE_GB_TEXTDOMAIN);
 													} else {
-														$comments = __('1 Comment');
+														$comments = __('1 Comment', GWOLLE_GB_TEXTDOMAIN);
 													}
 
 													echo '<option value="' . get_the_ID() . '">'. get_the_title() . ' (' . $comments . ')</option>';
