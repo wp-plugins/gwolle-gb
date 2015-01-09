@@ -65,6 +65,7 @@ include_once( GWOLLE_GB_DIR . '/admin/ajax.php' );
 include_once( GWOLLE_GB_DIR . '/admin/installSplash.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-editor.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-entries.php' );
+include_once( GWOLLE_GB_DIR . '/admin/page-export.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-gwolle-gb.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-import.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-settings.php' );

@@ -18,7 +18,7 @@ function gwolle_gb_page_import() {
 
 	//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
-	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
 		die(__('Cheatin&#8217; uh?'));
 	}
 
@@ -103,6 +103,7 @@ function gwolle_gb_page_import() {
 				$gwolle_gb_errors = 'error';
 				$gwolle_gb_messages .= '<p>' . __("You haven't chosen a guestbook. Please select one and try again.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
+
 		} else if (isset($_POST['start_import_wp'])) {
 
 			if ( isset($_POST['gwolle_gb_wp']) && $_POST['gwolle_gb_wp'] == 'on' ) {
@@ -318,7 +319,6 @@ function gwolle_gb_page_import() {
 										<p>
 											<input name="start_import_wp" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
 										</p>
-
 									</div>
 								</div>
 
@@ -327,14 +327,15 @@ function gwolle_gb_page_import() {
 									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside">
 
+
 									</div>
 								</div>
 
 							</div><!-- 'normal-sortables' -->
 						</div><!-- 'post-body-content' -->
 
-					</div>
-				</div>
+					</div><!-- 'post-body' -->
+
 			</div>
 		</form>
 	</div>

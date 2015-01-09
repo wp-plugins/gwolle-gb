@@ -24,7 +24,6 @@ function gwolle_gb_ajax_javascript() {
 		// Page-entries.php Admin page Click events
 		jQuery( '#gwolle_gb_entries .gwolle_gb_actions a' ).click(function(event) {
 
-
 			// Do not do anything here...
 			var parent_class = jQuery(this).parent().hasClass('gwolle_gb_edit');
 			if (parent_class) {
@@ -107,7 +106,8 @@ function gwolle_gb_ajax_javascript() {
 			event.preventDefault();
 		});
 
-	// Page-editor.php Admin page Click events
+
+		// Page-editor.php Admin page Click events
 		jQuery( '#gwolle_gb_editor .gwolle_gb_actions a' ).click(function(event) {
 
 			// Do not do anything here...
@@ -258,6 +258,7 @@ function gwolle_gb_ajax_javascript() {
 
 			event.preventDefault();
 		});
+
 	});
 	</script>
 	<?php
