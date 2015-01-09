@@ -20,7 +20,7 @@ Current features include:
 
 * Easy to use guestbook frontend with a simple form for visitors of your website.
 * Simple and clean admin interface that integrates seamlessly into WordPress admin.
-* Easy import of DMSGuestbook entries into Gwolle-GB.
+* Easy import from other guestbooks into Gwolle-GB.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
@@ -34,9 +34,15 @@ Current features include:
 
 ... and all that integrated in the stylish WordPress look.
 
-You may have "DMSGuestbook" installed - that's great, because since version 0.9.5 Gwolle-GB enables you
-to import DMSGuestbook's entries easily using an assistant. The importer does not delete any of your data,
-so you can go back to DMSGuestbook without loss of data, if you want to. Trying Gwolle-GB is as easy as 1-2-3.
+You may have another guestbook installed. That's great, because Gwolle-GB enables you to import entries easily.
+The importer does not delete any of your data, so you can go back to your previous setup without loss of data, if you want to.
+Trying Gwolle-GB is as easy as 1-2-3.
+
+Import is supported from:
+
+* DMSGuestbook.
+* WordPress comments from a page.
+* (to come) Gwolle-GB itself.
 
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
@@ -164,6 +170,7 @@ Yes, it is again actively maintained.
 * 2015-01-
 * Add Edit link to frontend for moderators.
 * Work around old and incompatible other recaptcha libraries.
+* Import from WordPress comments.
 * Add zh_TW (Thanks Chun-I Lee).
 
 = 1.1.0 =

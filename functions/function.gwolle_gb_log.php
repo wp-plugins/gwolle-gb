@@ -25,6 +25,8 @@ function gwolle_gb_add_log_entry( $entry_id, $subject ) {
 		'marked-as-not-spam',
 		'entry-edited',
 		'imported-from-dmsguestbook',
+		'imported-from-wp',
+		'imported-from-gwolle',
 		'entry-trashed',
 		'entry-untrashed'
 	);
@@ -94,6 +96,8 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 		'marked-as-not-spam'          => __('Entry marked as not spam.', GWOLLE_GB_TEXTDOMAIN),
 		'entry-edited'                => __('Entry has been edited.',    GWOLLE_GB_TEXTDOMAIN),
 		'imported-from-dmsguestbook'  => __('Imported from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN),
+		'imported-from-wp'            => __('Imported from WordPress comments', GWOLLE_GB_TEXTDOMAIN),
+		'imported-from-gwolle'        => __('Imported from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN),
 		'entry-trashed'               => __('Entry has been trashed.',   GWOLLE_GB_TEXTDOMAIN),
 		'entry-untrashed'             => __('Entry has been untrashed.', GWOLLE_GB_TEXTDOMAIN)
 	);
