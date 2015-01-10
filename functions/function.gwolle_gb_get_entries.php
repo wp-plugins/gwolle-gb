@@ -71,7 +71,7 @@ function gwolle_gb_get_entries($args = array()) {
 	}
 
 	// Offset
-	$offset = " OFFSET 0 ";
+	$offset = " OFFSET 0 "; // default
 	if ( isset($args['offset']) && (int) $args['offset'] > 0 ) {
 		$offset = " OFFSET " . (int) $args['offset'];
 	}
@@ -87,8 +87,8 @@ function gwolle_gb_get_entries($args = array()) {
 	if ( isset($args['num_entries']) && (int) $args['num_entries'] > 0 ) {
 		$limit = " LIMIT " . (int) $args['num_entries'];
 	} else if ( isset($args['num_entries']) && (int) $args['num_entries'] == -1 ) {
-		$limit = '';
-		$offset = '';
+		$limit = ' LIMIT 999999999999999 ';
+		$offset = ' OFFSET 0 ';
 	}
 
 

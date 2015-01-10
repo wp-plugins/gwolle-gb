@@ -266,9 +266,9 @@ function gwolle_gb_page_import() {
 								$gwolle_gb_errors = 'error';
 								$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import entries from the CSV file.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 							} else if ( $row == 1 ) {
-								$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from Gwolle-GB.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+								$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from the CSV file.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 							} else if ( $row > 1 ) {
-								$gwolle_gb_messages .= '<p>' . str_replace('%1', $row, __('%1 entries imported successfully from Gwolle-GB.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
+								$gwolle_gb_messages .= '<p>' . str_replace('%1', $row, __('%1 entries imported successfully from the CSV file.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
 							}
 
 							fclose($handle);
