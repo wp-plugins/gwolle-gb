@@ -224,6 +224,12 @@ function gwolle_gb_page_import() {
 									continue;
 								}
 
+								if ( $num != 12 ) {
+									$gwolle_gb_errors = 'error';
+									$gwolle_gb_messages .= '<p>' . __("Your data seems to be corrupt. Import failed.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+									break;
+								}
+
 								/* New Instance of gwolle_gb_entry. */
 								$entry = new gwolle_gb_entry();
 
