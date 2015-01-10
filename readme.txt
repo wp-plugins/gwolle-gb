@@ -181,7 +181,7 @@ Yes, it is again actively maintained.
 * 2015-01-
 * Add Edit link to frontend for moderators.
 * Work around old and incompatible other recaptcha libraries.
-* Get_entries supports limit of -1 (no limit).
+* Get_entries function supports limit of -1 (no limit).
 * Import from WordPress comments.
 * Export/Import from/to Gwolle-GB through a CSV file.
 * Add zh_TW (Thanks Chun-I Lee).
