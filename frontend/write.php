@@ -16,7 +16,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No 
  */
 
 function gwolle_gb_frontend_write() {
-	global $wpdb, $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
+	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
 	$output = '';
 
@@ -26,6 +26,21 @@ function gwolle_gb_frontend_write() {
 	$email = '';
 	$website = '';
 	$content = '';
+
+	// Auto-fill the form if the user is already logged in
+	$user_id = get_current_user_id(); // returns 0 if no current user
+	if ( $user_id > 0 ) {
+		$userdata = get_userdata( $user_id );
+		if (is_object($userdata)) {
+			if ( isset( $userdata->display_name ) ) {
+				$name = $userdata->display_name;
+			} else {
+				$name = $userdata->user_login;
+			}
+			$email = $userdata->user_email;
+			$website = $userdata->user_url;
+		}
+	}
 
 	// Only show old data when there are errors
 	if ( $gwolle_gb_errors ) {
@@ -47,8 +62,6 @@ function gwolle_gb_frontend_write() {
 			}
 		}
 	}
-
-	// FIXME: If user is logged in, auto-fill the form if there's no data yet
 
 	// Initialize errors, if not set
 	if ( empty( $gwolle_gb_error_fields ) ) {
@@ -134,24 +147,30 @@ function gwolle_gb_frontend_write() {
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
 
+	/* FIXME: Add an optional Custom Security question */
+
 
 	/* reCAPTCHA */
 	if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
-		$output .= '
-			<div class="gwolle_gb_recaptcha">
-				<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
-				<div class="input ';
-		if (in_array('recaptcha', $gwolle_gb_error_fields)) {
-			$output .= ' error';
-		}
-		$publickey = get_option('recaptcha-public-key');
-		$output .=
-				' ">
-					<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
+
+		// Don't show it, if we cannot use it, with only the ReCaptchaResponse class available
+		if ( !(!class_exists('ReCaptcha') && class_exists('ReCaptchaResponse')) ) {
+			$output .= '
+				<div class="gwolle_gb_recaptcha">
+					<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
+					<div class="input ';
+			if (in_array('recaptcha', $gwolle_gb_error_fields)) {
+				$output .= ' error';
+			}
+			$publickey = get_option('recaptcha-public-key');
+			$output .=
+					' ">
+						<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
+					</div>
 				</div>
-			</div>
-			<div class="clearBoth">&nbsp;</div>';
-		wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
+				<div class="clearBoth">&nbsp;</div>';
+			wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
+		}
 	}
 
 
@@ -164,6 +183,8 @@ function gwolle_gb_frontend_write() {
 
 			<div class="gwolle_gb_notice">
 				' . __('Fields marked with * are obligatory.', GWOLLE_GB_TEXTDOMAIN) . '
+				<br />
+				' . __('The E-mail address wil not be published.', GWOLLE_GB_TEXTDOMAIN) . '
 				<br />
 				' . str_replace('%1', $_SERVER['REMOTE_ADDR'], __('For security reasons we save the ip address <span id="ip">%1</span>.', GWOLLE_GB_TEXTDOMAIN)) . '
 				<br />';
@@ -206,7 +227,7 @@ function gwolle_gb_frontend_write() {
 		<script>
 		jQuery( "#gwolle_gb_write_button" ).click(function() {
 			document.getElementById("gwolle_gb_write_button").style.display = "none";
-			document.getElementById("gwolle_gb_new_entry").style.display = "block";
+			jQuery("#gwolle_gb_new_entry").slideDown(1000);
 			return false;
 		});
 		</script>';

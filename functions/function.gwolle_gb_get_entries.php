@@ -5,7 +5,7 @@
  * Function to get guestbook entries from the database.
  *
  * Parameter $args is an Array:
- * - num_entries  int: Number of requested entries
+ * - num_entries  int: Number of requested entries. -1 will return all requested entries
  * - offset       int: Start after this entry
  * - checked      string: 'checked' or 'unchecked', List the entries that are checked or not checked
  * - trash        string: 'trash' or 'notrash', List the entries that are deleted or not deleted
@@ -70,18 +70,25 @@ function gwolle_gb_get_entries($args = array()) {
 		$values[] = $args['email'];
 	}
 
+	// Offset
+	$offset = " OFFSET 0 "; // default
+	if ( isset($args['offset']) && (int) $args['offset'] > 0 ) {
+		$offset = " OFFSET " . (int) $args['offset'];
+	}
+
 	// Limit
 	if ( is_admin() ) {
 		$perpage_option = (int) get_option('gwolle_gb-entries_per_page', 20);
 	} else {
 		$perpage_option = (int) get_option('gwolle_gb-entriesPerPage', 20);
 	}
-	$num_entries = (isset($args['num_entries']) && (int)$args['num_entries'] > 0) ? (int)$args['num_entries'] : $perpage_option;
 
-	if ( isset($args['offset']) && (int) $args['offset'] > 0 ) {
-		$limit = $args['offset'] . ", " . $num_entries;
-	} else {
-		$limit = "0, " . $num_entries;
+	$limit = " LIMIT " . $perpage_option; // default
+	if ( isset($args['num_entries']) && (int) $args['num_entries'] > 0 ) {
+		$limit = " LIMIT " . (int) $args['num_entries'];
+	} else if ( isset($args['num_entries']) && (int) $args['num_entries'] == -1 ) {
+		$limit = ' LIMIT 999999999999999 ';
+		$offset = ' OFFSET 0 ';
 	}
 
 
@@ -109,8 +116,7 @@ function gwolle_gb_get_entries($args = array()) {
 				" . $where . "
 			ORDER BY
 				date DESC
-			LIMIT
-				" . $limit . "
+			" . $limit . " " . $offset . "
 			;";
 
 	$sql = $wpdb->prepare( $sql, $values );

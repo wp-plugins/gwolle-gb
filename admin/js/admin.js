@@ -33,3 +33,21 @@ jQuery(document).ready(function($) {
 } );
 
 
+
+/* Export Click Event, submit the form through Ajax and receive a CSV */
+jQuery(document).ready(function($) {
+	jQuery( 'input#gwolle_gb_start_export' ).click(function(event) {
+
+		// Set up data to send
+		var checked = jQuery( "input#gwolle_gb" ).prop('checked');
+
+		if ( checked == true ) {
+			form = jQuery('form#gwolle_gb_export');
+			form.submit();
+		} else {
+			alert('Please select the checkbox if you really want to do an export.');
+		}
+
+		event.preventDefault();
+	});
+});

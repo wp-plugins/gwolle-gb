@@ -73,6 +73,7 @@
 #gwolle_gb .page-navigation {
 	width: 100%;
 	text-align: right;
+	padding: 8px 0;
 }
 #gwolle_gb .page-navigation a,
 #gwolle_gb .page-navigation span {
@@ -109,14 +110,14 @@
 #gwolle_gb .first.gb-entry {
 	border-width: 0px;
 }
-#gwolle_gb .gb-entry .author-info,
-#gwolle_gb .gb-entry .entry-content {
+#gwolle_gb .gb-entry .gb-author-info,
+#gwolle_gb .gb-entry .gb-entry-content {
 	display: block;
 }
-#gwolle_gb .gb-entry .author-info .author-avatar {
+#gwolle_gb .gb-entry .gb-author-info .gb-author-avatar {
 	margin: 0 0 8px 0;
 }
-#gwolle_gb .gb-entry .author-info .author-name {
+#gwolle_gb .gb-entry .gb-author-info .gb-author-name {
 	padding-left: 10px;
 	font-weight: bold;
 }

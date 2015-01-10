@@ -23,7 +23,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No 
  */
 
 function gwolle_gb_frontend_posthandling() {
-	global $wpdb, $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
+	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
 	/*
 	 * Handle $_POST and check and save entry.
@@ -84,34 +84,38 @@ function gwolle_gb_frontend_posthandling() {
 		/* reCAPTCHA */
 		if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
 
-			if (!class_exists('ReCaptcha')) {
+			// Avoid Nasty Crash
+			if (!class_exists('ReCaptcha') && !class_exists('ReCaptchaResponse') ) {
 				require_once "recaptchalib.php";
 			}
 
-			// Register API keys at https://www.google.com/recaptcha/admin
-			//$recaptcha_publicKey = get_option('recaptcha-public-key');
-			$recaptcha_privateKey = get_option('recaptcha-private-key');
+			// We can only use it if it is really loaded.
+			if (class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) {
+				// Register API keys at https://www.google.com/recaptcha/admin
+				//$recaptcha_publicKey = get_option('recaptcha-public-key');
+				$recaptcha_privateKey = get_option('recaptcha-private-key');
 
-			// The response from reCAPTCHA
-			$resp = null;
-			// The error code from reCAPTCHA, if any
-			$error = null;
+				// The response from reCAPTCHA
+				$resp = null;
+				// The error code from reCAPTCHA, if any
+				$error = null;
 
-			$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
+				$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
 
-			// Was there a reCAPTCHA response?
-			if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
-				$resp = $reCaptcha->verifyResponse(
-					$_SERVER["REMOTE_ADDR"],
-					$_POST["g-recaptcha-response"]
-				);
-			}
+				// Was there a reCAPTCHA response?
+				if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
+					$resp = $reCaptcha->verifyResponse(
+						$_SERVER["REMOTE_ADDR"],
+						$_POST["g-recaptcha-response"]
+					);
+				}
 
-			if ( $resp != null && $resp->success ) {
-				//echo "You got it!";
-			} else {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+				if ( $resp != null && $resp->success ) {
+					//echo "You got it!";
+				} else {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+				}
 			}
 		}
 
