@@ -178,7 +178,7 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.1.1 =
-* 2015-01-
+* 2015-01-10
 * Add Edit link to frontend for moderators.
 * Work around old and incompatible other recaptcha libraries.
 * Get_entries function supports limit of -1 (no limit).
