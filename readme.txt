@@ -1,6 +1,6 @@
 === Gwolle-GB ===
 Contributors: Gwolle, mpol
-Tags: guestbook, guest book, comments, feedback, antispam
+Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 2.8
 Tested up to: 4.1
 Stable tag: 1.1.0
@@ -42,7 +42,8 @@ Import is supported from:
 
 * DMSGuestbook.
 * WordPress comments from a page.
-* Gwolle-GB itself, with Export supported as well ofcourse.
+* Gwolle-GB itself, with Export supported as well.
+
 
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
@@ -134,6 +135,17 @@ ask the maintainer of that theme or plugin to update their version of reCAPTCHA.
 Gwolle-GB, and you experience problems when submitting guestbook entries, please tell me on the forums, and also tell me which other plugin
 you use.
 
+= My reCAPTCHA doesn't show up in the form. =
+
+If you did enable reCAPTCHA, but didn't get a warning, in most cases it should show your reCAPTCHA. It might be that you have JavaScript errors.
+You can check this in the Inspector/console of your browser.
+
+= I don't get a notification email. =
+
+First check your spambox in your mailaccount. On the settingspage you can change the From address for the email taht is sent.
+Sometimes there are problems sending it from the default address, so this is a good thing to set first.
+If it still doesn't work, request the maillog at your hosting provider, or ask if they can take a look.
+
 = What capabilities are needed? =
 
 For moderating comments you need the capability 'moderate_comments'.
@@ -169,10 +181,11 @@ Yes, it is again actively maintained.
 * 2015-01-
 * Add Edit link to frontend for moderators.
 * Work around old and incompatible other recaptcha libraries.
-* Get entries supports limit of -1.
+* Get_entries supports limit of -1 (no limit).
 * Import from WordPress comments.
 * Export/Import from/to Gwolle-GB through a CSV file.
 * Add zh_TW (Thanks Chun-I Lee).
+* Remove unmaintained en_GB.
 
 = 1.1.0 =
 * 2015-01-06
