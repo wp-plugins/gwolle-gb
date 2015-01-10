@@ -42,7 +42,7 @@ Import is supported from:
 
 * DMSGuestbook.
 * WordPress comments from a page.
-* (to come) Gwolle-GB itself.
+* Gwolle-GB itself, with Export supported as well ofcourse.
 
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
@@ -87,7 +87,6 @@ With version 1.0 there have been some changes:
 
 * Bughunting (check all the FIXME's in the code).
 * Make Install method more safe.
-* Add more sources for import page. Add export as well.
 * Bring Uninstall back, this time in a separate admin page?
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
@@ -170,7 +169,9 @@ Yes, it is again actively maintained.
 * 2015-01-
 * Add Edit link to frontend for moderators.
 * Work around old and incompatible other recaptcha libraries.
+* Get entries supports limit of -1.
 * Import from WordPress comments.
+* Export/Import from/to Gwolle-GB through a CSV file.
 * Add zh_TW (Thanks Chun-I Lee).
 
 = 1.1.0 =

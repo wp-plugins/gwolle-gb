@@ -111,6 +111,7 @@ function gwolle_gb_export_callback() {
 	}
 
 	$entries = gwolle_gb_get_entries(array(
+				'num_entries' => -1,
 				'all' => 'all'
 			));
 
@@ -121,7 +122,7 @@ function gwolle_gb_export_callback() {
 
 		// output headers so that the file is downloaded rather than displayed
 		header('Content-Type: text/csv; charset=utf-8');
-		header('Content-Disposition: attachment; filename=gwolle_gb_export_' . date('Y-m-d_H-i') . '.csv');
+		header('Content-Disposition: attachment; filename=gwolle_gb_export_' . GWOLLE_GB_VER . '_' . date('Y-m-d_H-i') . '.csv');
 
 		// create a file pointer connected to the output stream
 		$output = fopen('php://output', 'w');

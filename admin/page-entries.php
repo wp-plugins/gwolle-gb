@@ -469,6 +469,7 @@ function gwolle_gb_page_entries() {
 
 					<div class="tablenav-pages">
 						<?php
+						$highDotsMade = false;
 						$pagination = '<span class="displaying-num">' . __('Showing:', GWOLLE_GB_TEXTDOMAIN) .
 							' ' . $firstEntryNum . ' &#8211; ' . $lastEntryNum . ' ' . __('of', GWOLLE_GB_TEXTDOMAIN) . ' ' . $count[$show] . '</span>
 							';

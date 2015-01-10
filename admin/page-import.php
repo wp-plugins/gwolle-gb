@@ -165,12 +165,115 @@ function gwolle_gb_page_import() {
 				$gwolle_gb_errors = 'error';
 				$gwolle_gb_messages .= '<p>' . __("You haven't chosen a guestbook. Please select one and try again.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
+
 		} else if (isset($_POST['start_import_gwolle'])) {
-			// file gwolle_gb_gwolle
 
+			// if they DID upload a file...
+			if($_FILES['gwolle_gb_gwolle']['name']) {
+				if( !$_FILES['gwolle_gb_gwolle']['error'] ) { // if no errors...
+					//now is the time to modify the future file name and validate the file
+					// $new_file_name = strtolower( $_FILES['gwolle_gb_gwolle']['tmp_name'] ); //rename file
+					if( $_FILES['gwolle_gb_gwolle']['size'] > (1024000) ) { //can't be larger than 1 MB
+						$valid_file = false;
+						$gwolle_gb_errors = 'error';
+						$gwolle_gb_messages .= '<p>' . __("Your filesize is too large.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else {
+						// Check MIME Type by yourself.
+						$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
+						$mimetype = finfo_file( $finfo, $_FILES['gwolle_gb_gwolle']['tmp_name'] ) . "\n";
+						finfo_close($finfo);
+						if ( in_array( $mimetype,
+								array(
+									'csv' => 'text/csv',
+									'txt' => 'text/plain',
+									'xls' => 'application/excel',
+									'ms'  => 'application/ms-excel',
+									'vnd' => 'application/vnd.ms-excel',
+								)
+							) ) {
+							$gwolle_gb_errors = 'error';
+							$gwolle_gb_messages .= '<p>' . __("Invalid file format.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						} else {
+							$handle = fopen($_FILES['gwolle_gb_gwolle']['tmp_name'], "r");
+							$row = 0;
 
+							while (($data = fgetcsv($handle, 1000)) !== FALSE) {
+								$num = count($data);
+								if ($row == 0) {
+									// Check the headerrow
+									$testrow = array(
+										'id',
+										'author_name',
+										'author_email',
+										'author_origin',
+										'author_website',
+										'author_ip',
+										'author_host',
+										'content',
+										'date',
+										'isspam',
+										'ischecked',
+										'istrash'
+									);
+									if ( $data != $testrow ) {
+										$gwolle_gb_errors = 'error';
+										$gwolle_gb_messages .= '<p>' . __("It seems your CSV file is from an export that is not compatible with this version of Gwolle-GB.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+										break;
+									}
+									$row++;
+									continue;
+								}
 
+								/* New Instance of gwolle_gb_entry. */
+								$entry = new gwolle_gb_entry();
 
+								/* Set the data in the instance */
+								// $entry->set_id( $data[0] );
+								$entry->set_author_name( $data[1] );
+								$entry->set_author_email( $data[2] );
+								$entry->set_author_origin( $data[3] );
+								$entry->set_author_website( $data[4] );
+								$entry->set_author_ip( $data[5] );
+								$entry->set_author_host( $data[6] );
+								$entry->set_content( $data[7] );
+								$entry->set_date( $data[8] );
+								$entry->set_isspam( $data[9] );
+								$entry->set_ischecked( $data[10] );
+								$entry->set_istrash( $data[11] );
+
+								/* Save the instance */
+								$save = $entry->save();
+								if ( $save ) {
+									// We have been saved to the Database
+									gwolle_gb_add_log_entry( $entry->get_id(), 'imported-from-gwolle' );
+									$row++;
+								} else {
+									$gwolle_gb_errors = 'error';
+									$gwolle_gb_messages .= '<p>' . __("Your data seems to be corrupt. Import failed.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+									break;
+								}
+
+							}
+							$row--; // minus the header
+
+							if ( $row == 0 ) {
+								$gwolle_gb_errors = 'error';
+								$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import entries from the CSV file.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+							} else if ( $row == 1 ) {
+								$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from Gwolle-GB.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+							} else if ( $row > 1 ) {
+								$gwolle_gb_messages .= '<p>' . str_replace('%1', $row, __('%1 entries imported successfully from Gwolle-GB.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
+							}
+
+							fclose($handle);
+						}
+					}
+				} else {
+					// set that to be the returned message
+					$gwolle_gb_errors = 'error';
+					$gwolle_gb_messages .= '<p>' . __("Your upload triggered the following error:", GWOLLE_GB_TEXTDOMAIN) . ' ' . $_FILES['gwolle_gb_gwolle']['error'] . '</p>';
+				}
+			}
 		}
 	}
 
