@@ -46,7 +46,7 @@ msgstr "匯入"
 #. /export.php
 #: actions.php:63
 msgid "Export"
-msgstr ""
+msgstr "匯出"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:677
 #: frontend/read.php:206
@@ -148,7 +148,7 @@ msgstr "留言版中沒有新進和未核准的留言."
 
 #: admin/dashboard-widget.php:167
 msgid "Guestbook (new entries)"
-msgstr "訪客留言版留言版(新留言)"
+msgstr "訪客留言版(新留言)"
 
 #: admin/installSplash.php:14
 msgid "Successfully uninstalled"
@@ -591,19 +591,19 @@ msgstr "沒有發現留言."
 
 #: admin/page-export.php:26
 msgid "Export guestbook entries."
-msgstr ""
+msgstr "訪客留言版匯出留言."
 
 #: admin/page-export.php:39
 msgid "Export guestbook entries from Gwolle-GB"
-msgstr ""
+msgstr "從 Gwolle-GB 訪客留言版匯出所有的留言"
 
 #: admin/page-export.php:45
 msgid "%1 entries were found and will be exported."
-msgstr ""
+msgstr "發現 %1 個留言且將被匯出."
 
 #: admin/page-export.php:48
 msgid "The exporter will preserve the following data per entry:"
-msgstr ""
+msgstr "匯出程式將保留每個留言的下列資料:"
 
 #: admin/page-export.php:51 admin/page-import.php:346
 #: admin/page-import.php:387 frontend/write.php:108 frontend/write.php:113
@@ -632,7 +632,7 @@ msgstr "IP 位址"
 
 #: admin/page-export.php:57
 msgid "Host address"
-msgstr ""
+msgstr "主機位址"
 
 #: admin/page-export.php:58 admin/page-import.php:351
 #: admin/page-import.php:393
@@ -649,19 +649,19 @@ msgstr "\"is spam\" 標籤"
 
 #: admin/page-export.php:61
 msgid "\"is trash\" flag"
-msgstr ""
+msgstr "\"is trash\" 標籤"
 
 #: admin/page-export.php:63
 msgid "The exporter does not delete any data, so your data will still be here."
-msgstr ""
+msgstr "匯出程式不會刪除任何資料, 所以你的資料仍然會在這裡."
 
 #: admin/page-export.php:69
 msgid "Export all entries from this website."
-msgstr ""
+msgstr "從這個網站匯出所有的留言."
 
 #: admin/page-export.php:73
 msgid "Start export"
-msgstr ""
+msgstr "開始匯出"
 
 #: admin/page-gwolle-gb.php:32
 msgid "Overview"
@@ -715,8 +715,8 @@ msgid ""
 "contact your hosting provider to change this."
 msgstr ""
 "抱歉, 使用郵件通知你需要使用函數 <code>mail()</code> , 但你的 PHP 設定並未啟"
-"用這個函數. 你可能會想要安裝一個使用 SMTP 的 Wordpress 插件來替代 "
-"<code>mail()</code> 或是你的主機服提供商以改變這個狀況."
+"用這個函數. 你可能會想要安裝一個使用 SMTP 的 Wordpress 插件來替代 <code>mail"
+"()</code> 或是你的主機服提供商以改變這個狀況."
 
 #: admin/page-gwolle-gb.php:173
 msgid "Send me an e-mail when a new entry has been posted."
@@ -846,59 +846,59 @@ msgstr "你沒有選擇任何一個留言版. 請重新選一個再試一次."
 #: admin/page-import.php:149
 msgid ""
 "I'm sorry, but I wasn't able to import comments from that page successfully."
-msgstr ""
+msgstr "很抱歉, 沒辦法從選擇的頁面中成功匯入迴響."
 
 #: admin/page-import.php:151
 msgid "1 entry imported successfully from WordPress comments."
-msgstr ""
+msgstr "從 WordPress 迴響成功匯入 1 個留言."
 
 #: admin/page-import.php:153
 msgid "%1 entries imported successfully from WordPress comments."
-msgstr ""
+msgstr "從 WordPress 迴響成功匯入 %1 個留言."
 
 #: admin/page-import.php:157
 msgid ""
 "<strong>Nothing to import.</strong> The page you've chosen does not have any "
 "comments."
-msgstr ""
+msgstr "<strong>沒有東西被匯入.</strong> 你選擇的頁面沒有任何的迴響."
 
 #: admin/page-import.php:161
 msgid "You haven't chosen a page. Please select one and try again."
-msgstr ""
+msgstr "你沒有選擇任何頁面. 請選選一個頁面後再試一次."
 
 #: admin/page-import.php:179
 msgid "Your filesize is too large."
-msgstr ""
+msgstr "你的檔案大小太大."
 
 #: admin/page-import.php:195
 msgid "Invalid file format."
-msgstr ""
+msgstr "錯誤的檔案格式."
 
 #: admin/page-import.php:220
 msgid ""
 "It seems your CSV file is from an export that is not compatible with this "
 "version of Gwolle-GB."
-msgstr ""
+msgstr "你的 CSV 檔所包含的匯出資料似乎是跟此版本的 Gwolle-GB 留言版相容."
 
 #: admin/page-import.php:229 admin/page-import.php:258
 msgid "Your data seems to be corrupt. Import failed."
-msgstr ""
+msgstr "匯入失敗. 你的資料似乎已經損壞了."
 
 #: admin/page-import.php:267
 msgid "I'm sorry, but I wasn't able to import entries from the CSV file."
-msgstr ""
+msgstr "很抱歉, 沒辦法從 CSV 檔中成功匯入留言."
 
 #: admin/page-import.php:269
 msgid "1 entry imported successfully from the CSV file."
-msgstr ""
+msgstr "從 CSV 檔成功匯入 1 個留言."
 
 #: admin/page-import.php:271
 msgid "%1 entries imported successfully from the CSV file."
-msgstr ""
+msgstr "從 CSV 檔中成功匯入 %1 個留言."
 
 #: admin/page-import.php:280
 msgid "Your upload triggered the following error:"
-msgstr ""
+msgstr "你上傳的資料造成下列錯誤:"
 
 #: admin/page-import.php:293
 msgid "Import guestbook entries."
@@ -914,7 +914,7 @@ msgstr "發現 %1 個留言, 即將開始匯入."
 
 #: admin/page-import.php:344 admin/page-import.php:385
 msgid "The importer will preserve the following data per entry:"
-msgstr "匯入程式將保留每筆留言的下列數據:"
+msgstr "匯入將保留每個留言的下列資料:"
 
 #: admin/page-import.php:355 admin/page-import.php:396
 msgid ""
@@ -943,39 +943,39 @@ msgstr "DMSGuestbook 未發現."
 
 #: admin/page-import.php:379
 msgid "Import guestbook entries from WordPress comments"
-msgstr "從 WordPress 迴響 匯入留言"
+msgstr "從 WordPress 迴響匯入留言"
 
 #: admin/page-import.php:388
 msgid "User ID"
-msgstr ""
+msgstr "使用者 ID"
 
 #: admin/page-import.php:394
 msgid "\"approved\" status"
-msgstr ""
+msgstr "\"approved\" 狀態"
 
 #: admin/page-import.php:401
 msgid "Select a page to import the comments from:"
-msgstr ""
+msgstr "從那個頁面要匯入迴響:"
 
 #: admin/page-import.php:403
 msgid "Select"
-msgstr ""
+msgstr "選擇"
 
 #: admin/page-import.php:419
 msgid "No Comments"
-msgstr ""
+msgstr "沒有迴響"
 
 #: admin/page-import.php:421
 msgid " Comments"
-msgstr ""
+msgstr "迴響"
 
 #: admin/page-import.php:423
 msgid "1 Comment"
-msgstr ""
+msgstr "1 個迴響"
 
 #: admin/page-import.php:436
 msgid "Import all entries from this page."
-msgstr ""
+msgstr "從這個頁面匯入所有的留言."
 
 #: admin/page-import.php:448
 msgid "Import guestbook entries from Gwolle-GB"
@@ -983,7 +983,7 @@ msgstr "從 Gwolle-GB 匯入留言"
 
 #: admin/page-import.php:454
 msgid "Select a CSV file with exported entries to import again:"
-msgstr ""
+msgstr "選擇有先前匯出留言的 CSV 檔案以再次匯入:"
 
 #: admin/page-settings.php:100
 msgid "Moderate Guestbook"
@@ -1048,6 +1048,9 @@ msgid ""
 "loaded, and the found one will be used instead. This might give unexpected "
 "results."
 msgstr ""
+"<strong>警告:</strong> 顯然你的主題或某些插件已經在使用 reCAPTCHA 函數庫. "
+"Gwolle-GB 留言版  l 中的 reCAPTCHA 函數庫將不會被載入, 而使用原先已經使用中的"
+"那個. 這樣有可能會產生意外的結果."
 
 #: admin/page-settings.php:151
 msgid ""
@@ -1055,6 +1058,8 @@ msgid ""
 "your theme or another plugin. However, this is an old and incompatible "
 "version, so reCAPTCHA will not be used for Gwolle-GB."
 msgstr ""
+"<strong>警告:</strong> 顯然你的主題或某些插件已經在使用 reCAPTCHA 函數庫. 然"
+"而, 那是個舊的而且不兼容的版本, 所以驗證碼將不被用於 Gwolle-GB 留言版."
 
 #: admin/page-settings.php:162
 msgid "Learn more about Akismet..."
@@ -1341,7 +1346,7 @@ msgstr "標有 * 的是必要欄位"
 
 #: frontend/write.php:187
 msgid "The E-mail address wil not be published."
-msgstr ""
+msgstr "這個電子郵件信箱將不會被公開."
 
 #: frontend/write.php:189
 msgid "For security reasons we save the ip address <span id=\"ip\">%1</span>."
@@ -1381,15 +1386,15 @@ msgstr "從 DMSGuestbook 匯入"
 
 #: functions/function.gwolle_gb_log.php:100
 msgid "Imported from WordPress comments"
-msgstr ""
+msgstr "從 WordPress 迴響匯入"
 
 #: functions/function.gwolle_gb_log.php:101
 msgid "Imported from Gwolle-GB"
-msgstr ""
+msgstr "從 Gwolle-GB 訪客留言版匯入"
 
 #: functions/function.gwolle_gb_log.php:102
 msgid "Exported to CSV file"
-msgstr ""
+msgstr "匯出成 CSV 檔"
 
 #: functions/function.gwolle_gb_log.php:103
 msgid "Entry has been trashed."
