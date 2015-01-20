@@ -7,10 +7,10 @@
  * Parameter $args is an Array:
  * - num_entries  int: Number of requested entries. -1 will return all requested entries
  * - offset       int: Start after this entry
- * - checked      string: 'checked' or 'unchecked', List the entries that are checked or not checked
- * - trash        string: 'trash' or 'notrash', List the entries that are deleted or not deleted
+ * - checked      string: 'checked' or 'unchecked', List the entries that are checked or unchecked
+ * - trash        string: 'trash' or 'notrash', List the entries that are in trash or not in trash
  * - spam         string: 'spam' or 'nospam', List the entries marked as spam or as no spam
- * - email        string: The emailaddress to search for
+ * - email        string: All entries associated with this emailaddress
  *
  * Return:
  * - Array of objects of gwolle_gb_entry

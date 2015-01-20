@@ -124,6 +124,7 @@ function gwolle_gb_page_settings() {
 						<td>
 							<div
 								<?php
+								// FIXME: add test for file-get-contents so we can fail and give a warning.
 								if ( !class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) {
 									echo 'style="display:none;"';
 								} ?>

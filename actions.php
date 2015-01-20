@@ -136,9 +136,8 @@ function gwolle_gb_init() {
 }
 
 
-/* Load jQuery */
+/* Always Load jQuery */
 function gwolle_gb_jquery() {
-	// load always
 	wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'gwolle_gb_jquery');

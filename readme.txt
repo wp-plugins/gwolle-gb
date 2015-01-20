@@ -38,10 +38,12 @@ You may have another guestbook installed. That's great, because Gwolle-GB enable
 The importer does not delete any of your data, so you can go back to your previous setup without loss of data, if you want to.
 Trying Gwolle-GB is as easy as 1-2-3.
 
+= Import / Export =
+
 Import is supported from:
 
 * DMSGuestbook.
-* WordPress comments from a page.
+* WordPress comments from a specific page.
 * Gwolle-GB itself, with Export supported as well.
 
 
@@ -146,6 +148,10 @@ First check your spambox in your mailaccount. On the settingspage you can change
 Sometimes there are problems sending it from the default address, so this is a good thing to set first.
 If it still doesn't work, request the maillog at your hosting provider, or ask if they can take a look.
 
+= How do I enable or disable avatars? =
+
+Gwolle-GB uses the default WordPress setting, under Settings / Comments.
+
 = What capabilities are needed? =
 
 For moderating comments you need the capability 'moderate_comments'.
@@ -176,6 +182,11 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.1.2 =
+* 2015-01-
+* Give the CSS file a version in the GET.
+* Update zh_TW.
 
 = 1.1.1 =
 * 2015-01-10
