@@ -150,7 +150,7 @@ If it still doesn't work, request the maillog at your hosting provider, or ask i
 
 = How do I enable or disable avatars? =
 
-Gwolle-GB uses the default WordPress setting, under Settings / Comments.
+Gwolle-GB uses the default WordPress setting, under Settings / Discussion.
 
 = What capabilities are needed? =
 
@@ -186,6 +186,7 @@ Yes, it is again actively maintained.
 = 1.1.2 =
 * 2015-01-
 * Give the CSS file a version in the GET.
+* Put date and time in spans on frontend.
 * Update zh_TW.
 
 = 1.1.1 =
