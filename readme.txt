@@ -192,7 +192,7 @@ Yes, it is again actively maintained.
 * - Don't count arrays when not needed.
 * - Change preg_match to strpos.
 * - Use sprintf for formatting instead of str_replace.
-* Update fr_FR, zh_TW.
+* Update fr_FR, nl_NL, zh_TW.
 
 = 1.1.1 =
 * 2015-01-10
