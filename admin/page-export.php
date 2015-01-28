@@ -115,7 +115,7 @@ function gwolle_gb_export_callback() {
 				'all' => 'all'
 			));
 
-	if ( is_array($entries) && count($entries) > 0 ) {
+	if ( is_array($entries) && !empty($entries) ) {
 
 		// Clean everything before here
 		ob_end_clean();

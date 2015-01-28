@@ -54,7 +54,7 @@ function gwolle_gb_page_import() {
 							date ASC
 						", ARRAY_A);
 
-					if ( is_array($result) && count($result) > 0 ) {
+					if ( is_array($result) && !empty($result) ) {
 
 						$saved = 0;
 						foreach ($result as $entry_data) {
@@ -117,7 +117,7 @@ function gwolle_gb_page_import() {
 					);
 					$comments = get_comments( $args );
 
-					if ( is_array($comments) && count($comments) > 0 ) {
+					if ( is_array($comments) && !empty($comments) ) {
 
 						$saved = 0;
 						foreach ( $comments as $comment ) {

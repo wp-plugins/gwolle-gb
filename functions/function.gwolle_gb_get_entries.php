@@ -127,9 +127,7 @@ function gwolle_gb_get_entries($args = array()) {
 
 	//echo "number of rows: " . $wpdb->num_rows;
 
-	if ( count( $datalist ) == 0 ) {
-		return false;
-	} else {
+	if ( is_array($datalist) && !empty($datalist) ) {
 		$entries = array();
 
 		foreach ( $datalist as $data ) {

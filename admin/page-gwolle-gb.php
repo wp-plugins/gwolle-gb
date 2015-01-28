@@ -152,7 +152,7 @@ function gwolle_gb_notification() {
 	$user_ids = get_option('gwolle_gb-notifyByMail' );
 	if ( strlen($user_ids) > 0 ) {
 		$user_ids = explode( ",", $user_ids );
-		if ( is_array($user_ids) && count($user_ids) > 0 ) {
+		if ( is_array($user_ids) && !empty($user_ids) ) {
 			foreach ( $user_ids as $user_id ) {
 				if ( $user_id == $current_user_id ) {
 					$currentUserNotification = true;
@@ -179,7 +179,7 @@ function gwolle_gb_notification() {
 	<div>
 		<?php _e('The following users have subscribed to this service:', GWOLLE_GB_TEXTDOMAIN);
 
-		if ( is_array($user_ids) && count($user_ids) > 0 ) {
+		if ( is_array($user_ids) && !empty($user_ids) ) {
 			echo '<ul style="font-size:10px;font-style:italic;list-style-type:disc;padding-left:14px;">';
 			foreach ( $user_ids as $user_id ) {
 				$user_info = get_userdata($user_id);
@@ -263,8 +263,8 @@ function gwolle_gb_welcome() {
 			$user_id = get_current_user_id();
 			$user_ids = Array();
 
-			$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
-			if ( count($user_ids_old) > 0 ) {
+			$user_ids_old = get_option('gwolle_gb-notifyByMail' );
+			if ( strlen($user_ids_old) > 0 ) {
 				$user_ids_old = explode( ",", $user_ids_old );
 				foreach ( $user_ids_old as $user_id_old ) {
 					if ( $user_id_old == $user_id ) {
@@ -286,8 +286,8 @@ function gwolle_gb_welcome() {
 			$user_id = get_current_user_id();
 			$user_ids = Array();
 
-			$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
-			if ( count($user_ids_old) > 0 ) {
+			$user_ids_old = get_option('gwolle_gb-notifyByMail' );
+			if ( strlen($user_ids_old) > 0 ) {
 				$user_ids_old = explode( ",", $user_ids_old );
 				foreach ( $user_ids_old as $user_id_old ) {
 					if ( $user_id_old == $user_id ) {

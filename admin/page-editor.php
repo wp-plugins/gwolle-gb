@@ -507,7 +507,7 @@ function gwolle_gb_page_editor() {
 												echo ': ' . __('Written', GWOLLE_GB_TEXTDOMAIN) . '</li>';
 
 												$log_entries = gwolle_gb_get_log_entries( $entry->get_id() );
-												if ( is_array($log_entries) && count($log_entries) > 0 ) {
+												if ( is_array($log_entries) && !empty($log_entries) ) {
 													foreach ($log_entries as $log_entry) {
 														echo '<li class="log_id_' . $log_entry['id'] . '">' . $log_entry['msg_html'] . '</li>';
 													}

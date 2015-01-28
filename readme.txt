@@ -187,6 +187,8 @@ Yes, it is again actively maintained.
 * 2015-01-
 * Give the CSS file a version in the GET.
 * Put date and time in spans on frontend.
+* Code improvements:
+* - Don't count arrays when not needed.
 * Update zh_TW.
 
 = 1.1.1 =

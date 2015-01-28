@@ -460,7 +460,7 @@ function gwolle_gb_page_entries() {
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
 						// Only show controls when there are entries
-						if ( is_array($entries) && count($entries) > 0 ) {
+						if ( is_array($entries) && !empty($entries) ) {
 							echo $massEditControls_select . $massEditControls;
 						}
 						// FIXME: add button to delete all spam and trash entries
@@ -571,7 +571,7 @@ function gwolle_gb_page_entries() {
 						<tbody>
 							<?php $rowOdd = true;
 							$html_output = '';
-							if ( !is_array($entries) || count($entries) === 0 ) {
+							if ( !is_array($entries) || empty($entries) ) {
 								$colspan = (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') ? 7 : 6;
 								$html_output .= '
 									<tr>
@@ -712,7 +712,7 @@ function gwolle_gb_page_entries() {
 							<?php
 							$massEditControls_select = '<select name="massEditAction2">';
 							// Only show controls when there are entries
-							if ( is_array($entries) && count($entries) > 0 ) {
+							if ( is_array($entries) && !empty($entries) ) {
 								echo $massEditControls_select . $massEditControls;
 							}
 							?>

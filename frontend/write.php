@@ -44,7 +44,7 @@ function gwolle_gb_frontend_write() {
 
 	// Only show old data when there are errors
 	if ( $gwolle_gb_errors ) {
-		if ( is_array($gwolle_gb_data) && count($gwolle_gb_data) > 0 ) {
+		if ( is_array($gwolle_gb_data) && !empty($gwolle_gb_data) ) {
 			if (isset($gwolle_gb_data['author_name'])) {
 				$name = $gwolle_gb_data['author_name'];
 			}
@@ -146,6 +146,8 @@ function gwolle_gb_frontend_write() {
 	$output .= '">' . $content . '</textarea></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
+	/* FIXME: add smileys for use in the content textarea */
+
 
 	/* FIXME: Add an optional Custom Security question */
 

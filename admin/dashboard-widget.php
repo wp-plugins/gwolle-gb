@@ -19,7 +19,7 @@ function gwolle_gb_dashboard() {
 			'spam'    => 'nospam'
 		));
 
-	if ( is_array($entries) && count($entries) > 0 ) {
+	if ( is_array($entries) && !empty($entries) ) {
 
 		// List of guestbook entries
 		echo '<div class="gwolle-gb-dashboard gwolle-gb">';

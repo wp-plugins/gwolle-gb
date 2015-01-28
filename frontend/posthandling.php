@@ -121,7 +121,7 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/* If there are errors, stop here and return false */
-		if ( is_array($gwolle_gb_error_fields) && count($gwolle_gb_error_fields) > 0 ) {
+		if ( is_array( $gwolle_gb_error_fields ) && !empty( $gwolle_gb_error_fields ) ) {
 			// There was no data filled in, even though that was mandatory.
 			$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There were errors submitting your guestbook entry.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 			return false; // no need to check and save
@@ -184,7 +184,7 @@ function gwolle_gb_frontend_posthandling() {
 		$entries = gwolle_gb_get_entries(array(
 				'email' => $entry->get_author_email()
 			));
-		if ( is_array( $entries ) && count( $entries ) > 0 ) {
+		if ( is_array( $entries ) && !empty( $entries ) ) {
 			foreach ( $entries as $entry_email ) {
 				if ( $entry_email->get_content() == $entry->get_content() ) {
 					// Match is double entry
@@ -213,7 +213,7 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/*
-		 * Send the Notification Mail(s) only when it is not Spam
+		 * Send the Notification Mail to moderators that have subscribed (only when it is not Spam)
 		 */
 
 		if ( !$isspam ) {
@@ -260,7 +260,7 @@ function gwolle_gb_frontend_posthandling() {
 				$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
 			}
 
-			if ( isset($subscriber) && is_array($subscriber) && count($subscriber) > 0 ) {
+			if ( isset($subscriber) && is_array($subscriber) && !empty($subscriber) ) {
 				for ($i = 0; $i < count($subscriber); $i++) {
 					$mailBody[$i] = $mail_body;
 					$mailBody[$i] = str_replace('%user_email%', $subscriber[$i]['user_email'], $mailBody[$i]);
