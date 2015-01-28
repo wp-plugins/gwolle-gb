@@ -84,6 +84,11 @@
 	vertical-align: middle;
 }
 
+/* Entries actions */
+td.gwolle_gb_actions {
+	width: 120px;
+}
+
 /* Editor Log */
 .gwolle_gb_log {
 	max-height: 400px;

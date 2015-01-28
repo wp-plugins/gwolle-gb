@@ -189,7 +189,7 @@ Yes, it is again actively maintained.
 * Put date and time in spans on frontend.
 * Only show paginaton on frontend when there is more then 1 page.
 * Don't count arrays when not needed.
-* Change preg_match to strpos.
+* Use strpos instead of preg_match.
 * Use sprintf for formatting instead of str_replace.
 * Update fr_FR, nl_NL, zh_TW.
 
