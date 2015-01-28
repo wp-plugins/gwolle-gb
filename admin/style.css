@@ -75,13 +75,19 @@
 	background-image: url('gfx/entry-spam.jpg');
 }
 
-/* AJAX? */
+/* AJAX */
 .gwolle_gb .entry-icons .gwolle_gb_ajax {
 	background-image: url('gfx/loading.gif');
 }
 
 .gwolle_gb tr.entry td span {
 	vertical-align: middle;
+}
+
+/* Editor Log */
+.gwolle_gb_log {
+	max-height: 400px;
+	overflow: auto;
 }
 
 
@@ -137,19 +143,6 @@ span.gwolle_gb_ajax {
 }
 .trash span.gwolle_gb_untrash {
 	display: inline;
-}
-
-
-
-/* ??? */
-#gwolle_gb_dashboard div.undo {
-	border-top-color: #DFDFDF;
-	background-color: #F4F4F4;
-	border-top-style: solid;
-	border-top-width: 1px;
-	font-size: 11px;
-	margin: 0 -10px;
-	padding: 3px 8px;
 }
 
 

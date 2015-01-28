@@ -497,7 +497,7 @@ function gwolle_gb_page_editor() {
 								<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 								<div class="inside">
 									<div class="tagsdiv" id="post_tag">
-										<div id="categories-pop" class="tabs-panel" style="max-height:400px;overflow:auto;"> <?php /* FIXME: place in CSS file */ ?>
+										<div id="categories-pop" class="tabs-panel gwolle_gb_log">
 											<ul>
 											<?php
 											if ($entry->get_date() > 0) {

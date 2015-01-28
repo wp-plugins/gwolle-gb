@@ -344,8 +344,6 @@ function gwolle_gb_page_entries() {
 			$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum - 1) * $entries_per_page) - 1;
 		}
 
-		//if ( WP_DEBUG ) { echo "mysqlFirstRow on $show: "; var_dump($mysqlFirstRow); }
-		// FIXME: buggy paging on page 1 - 4 of "all"
 		// Get the entries
 		if ( $show == 'checked' ) {
 			$entries = gwolle_gb_get_entries(array(
