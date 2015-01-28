@@ -11,8 +11,8 @@ Text Domain: GWGB
 Domain Path: /lang/
 */
 
-/*  Copyright 2009  Wolfgang Timme  (email: gwolle@wolfgangtimme.de)
-	Copyright 2014  Marcel Pol      (email: marcel@zenoweb.nl)
+/*  Copyright 2009       Wolfgang Timme  (email: gwolle@wolfgangtimme.de)
+	Copyright 2014-2015  Marcel Pol      (email: marcel@zenoweb.nl)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -35,10 +35,6 @@ define('GWOLLE_GB_VER', '1.1.1');
 
 
 /*
- * http://maettig.com/code/php/php-performance-benchmarks.php
- * FIXME: change preg_match to strpos
- * FIXME: change count($array) to !empty(array)
- *
  * https://ellislab.com/expressionengine/user-guide/development/guidelines/performance.html
  * FIXME: change str_replace to sprintf
  * FIXME: wrap str_replace inside strpos

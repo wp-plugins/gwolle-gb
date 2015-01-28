@@ -1,7 +1,9 @@
 <?php
 
 // No direct calls to this script
-if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
+if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
+	die('No direct calls allowed!');
+}
 
 
 /*
@@ -15,8 +17,8 @@ function gwolle_gb_frontend_read() {
 
 	// Get permalink of the guestbookpage so we can work with it.
 	$page_link = get_permalink( get_the_ID() );
-	$pattern = '/\?/';
-	if ( !preg_match($pattern, $page_link, $matches, PREG_OFFSET_CAPTURE, 3) ) {
+	$pattern = '?';
+	if ( !strpos($page_link, $pattern) ) {
 		// Append with a slash and questionmark, so we can add parameters
 		$page_link .= '/?';
 	}

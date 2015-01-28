@@ -190,6 +190,7 @@ Yes, it is again actively maintained.
 * Only show paginaton on frontend when there is more then 1 page.
 * Code improvements:
 * - Don't count arrays when not needed.
+* - Change preg_match to strpos.
 * Update fr_FR, zh_TW.
 
 = 1.1.1 =
