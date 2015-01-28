@@ -188,10 +188,9 @@ Yes, it is again actively maintained.
 * Give the CSS file a version in the GET.
 * Put date and time in spans on frontend.
 * Only show paginaton on frontend when there is more then 1 page.
-* Code improvements:
-* - Don't count arrays when not needed.
-* - Change preg_match to strpos.
-* - Use sprintf for formatting instead of str_replace.
+* Don't count arrays when not needed.
+* Change preg_match to strpos.
+* Use sprintf for formatting instead of str_replace.
 * Update fr_FR, nl_NL, zh_TW.
 
 = 1.1.1 =

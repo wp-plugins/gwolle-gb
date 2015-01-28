@@ -219,14 +219,14 @@ function gwolle_gb_frontend_posthandling() {
 		 */
 
 		if ( !$isspam ) {
+			$subscribers = Array();
 			$recipients = get_option('gwolle_gb-notifyByMail', Array() );
 			if ( count($recipients ) > 0 ) {
 				$recipients = explode( ",", $recipients );
 				foreach ( $recipients as $recipient ) {
 					if ( is_numeric($recipient) ) {
 						$userdata = get_userdata( $recipient );
-						$subscriber[]['user_email'] = $userdata->user_email;
-						// FIXME: array in an array. is that needed?
+						$subscribers[] = $userdata->user_email;
 					}
 				}
 			}
@@ -262,13 +262,13 @@ function gwolle_gb_frontend_posthandling() {
 				$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
 			}
 
-			if ( isset($subscriber) && is_array($subscriber) && !empty($subscriber) ) {
-				for ($i = 0; $i < count($subscriber); $i++) {
-					$mailBody[$i] = $mail_body;
-					$mailBody[$i] = str_replace('%user_email%', $subscriber[$i]['user_email'], $mailBody[$i]);
-					$mailBody[$i] = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody[$i]);
+			if ( is_array($subscribers) && !empty($subscribers) ) {
+				foreach ( $subscribers as $subscriber ) {
+					$mailBody = $mail_body;
+					$mailBody = str_replace('%user_email%', $subscriber, $mailBody);
+					$mailBody = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody);
 
-					wp_mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
+					wp_mail($subscriber, $subject, $mailBody, $header);
 				}
 			}
 		}
