@@ -173,7 +173,7 @@ function gwolle_gb_page_settings() {
 								_e("Akismet helps you to fight spam. It's free and easy to install. Download and install it today to stop spam in your guestbook.", GWOLLE_GB_TEXTDOMAIN);
 							} elseif (!$wordpress_api_key) {
 								// Check if a Wordpress API key is defined and set in the database. We just assume it is valid
-								echo str_replace('%1', 'options-general.php?page=akismet-key-config', __("Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You can enter it at the <a href=\"%1\">Akismet configuration page</a>.", GWOLLE_GB_TEXTDOMAIN));
+								echo sprintf( __("Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You can enter it at the <a href=\"%s\">Akismet configuration page</a>.", GWOLLE_GB_TEXTDOMAIN), 'options-general.php?page=akismet-key-config' );
 							} else {
 								// Akismet is installed and a WordPress api key exists
 								echo '<input ';
@@ -265,7 +265,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="showSmilies"><?php _e('Display smilies as images.', GWOLLE_GB_TEXTDOMAIN); ?></label>
 							<br />
-							<span class="setting-description"><?php echo str_replace('%1', convert_smilies(':)'), __("Replaces smilies in entries like :) with their image %1. Uses the WP smiley replacer, so check on that one if you'd like to add new/more smilies.", GWOLLE_GB_TEXTDOMAIN)); ?></span>
+							<span class="setting-description"><?php echo sprintf( __("Replaces smilies in entries like :) with their image %s. Uses the WP smiley replacer, so check on that one if you'd like to add new/more smilies.", GWOLLE_GB_TEXTDOMAIN), convert_smilies(':)')); ?></span>
 							<br />
 
 							<input type="checkbox" id="linkAuthorWebsite" name="linkAuthorWebsite"<?php

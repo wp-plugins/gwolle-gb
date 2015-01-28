@@ -190,7 +190,7 @@ function gwolle_gb_frontend_write() {
 				<br />
 				' . __('The E-mail address wil not be published.', GWOLLE_GB_TEXTDOMAIN) . '
 				<br />
-				' . str_replace('%1', $_SERVER['REMOTE_ADDR'], __('For security reasons we save the ip address <span id="ip">%1</span>.', GWOLLE_GB_TEXTDOMAIN)) . '
+				' . sprintf( __('For security reasons we save the ip address <span id="gwolle_gb_ip">%s</span>.', GWOLLE_GB_TEXTDOMAIN), $_SERVER['REMOTE_ADDR'] ) . '
 				<br />';
 
 

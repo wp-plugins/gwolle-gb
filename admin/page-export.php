@@ -13,7 +13,6 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 
 function gwolle_gb_page_export() {
 
-
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
 		die(__('Cheatin&#8217; uh?'));
 	}
@@ -44,7 +43,7 @@ function gwolle_gb_page_export() {
 											<p>
 												<?php
 												$count = gwolle_gb_get_entry_count(array( 'all'  => 'all'  ));
-												echo str_replace( '%1', $count, __("%1 entries were found and will be exported.", GWOLLE_GB_TEXTDOMAIN) ); ?>
+												echo sprintf( __("%d entries were found and will be exported.", GWOLLE_GB_TEXTDOMAIN), $count ); ?>
 											</p>
 											<p>
 												<?php _e('The exporter will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>

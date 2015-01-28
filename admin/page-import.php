@@ -89,7 +89,7 @@ function gwolle_gb_page_import() {
 						} else if ( $saved == 1 ) {
 							$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from DMSGuestbook.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 						} else if ( $saved > 1 ) {
-							$gwolle_gb_messages .= '<p>' . str_replace('%1', $saved, __('%1 entries imported successfully from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
+							$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN), $saved ) . '</p>';
 						}
 					} else {
 						$gwolle_gb_errors = 'error';
@@ -152,7 +152,7 @@ function gwolle_gb_page_import() {
 						} else if ( $saved == 1 ) {
 							$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from WordPress comments.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 						} else if ( $saved > 1 ) {
-							$gwolle_gb_messages .= '<p>' . str_replace('%1', $saved, __('%1 entries imported successfully from WordPress comments.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
+							$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from WordPress comments.', GWOLLE_GB_TEXTDOMAIN), $saved ) . '</p>';
 						}
 					} else {
 						$gwolle_gb_errors = 'error';
@@ -270,7 +270,7 @@ function gwolle_gb_page_import() {
 							} else if ( $row == 1 ) {
 								$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from the CSV file.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 							} else if ( $row > 1 ) {
-								$gwolle_gb_messages .= '<p>' . str_replace('%1', $row, __('%1 entries imported successfully from the CSV file.', GWOLLE_GB_TEXTDOMAIN)) . '</p>';
+								$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from the CSV file.', GWOLLE_GB_TEXTDOMAIN), $row ) . '</p>';
 							}
 
 							fclose($handle);
@@ -340,7 +340,7 @@ function gwolle_gb_page_import() {
 
 									if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) { ?>
 										<div>
-											<?php echo str_replace( '%1', $count, __("%1 entries were found and will be imported.", GWOLLE_GB_TEXTDOMAIN) ); ?>
+											<?php echo sprintf( __("%d entries were found and will be imported.", GWOLLE_GB_TEXTDOMAIN), $count ); ?>
 										</div>
 										<div>
 											<?php _e('The importer will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>

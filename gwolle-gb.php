@@ -35,13 +35,6 @@ define('GWOLLE_GB_VER', '1.1.1');
 
 
 /*
- * https://ellislab.com/expressionengine/user-guide/development/guidelines/performance.html
- * FIXME: change str_replace to sprintf
- * FIXME: wrap str_replace inside strpos
- */
-
-
-/*
  * Definitions
  */
 define('GWOLLE_GB_FOLDER', plugin_basename(dirname(__FILE__)));
