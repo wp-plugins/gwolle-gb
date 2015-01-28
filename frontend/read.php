@@ -139,8 +139,9 @@ function gwolle_gb_frontend_read() {
 		}
 	}
 	$pagination .= '</div>';
-	$output .= $pagination;
-
+	if ($countPages > 1) {
+		$output .= $pagination;
+	}
 
 	/* Entries */
 	if ( !is_array($entries) || empty($entries) ) {
@@ -212,7 +213,9 @@ function gwolle_gb_frontend_read() {
 		}
 	}
 
-	$output .= $pagination;
+	if ($countPages > 1) {
+		$output .= $pagination;
+	}
 
 	return $output;
 }

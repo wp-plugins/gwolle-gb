@@ -187,9 +187,10 @@ Yes, it is again actively maintained.
 * 2015-01-
 * Give the CSS file a version in the GET.
 * Put date and time in spans on frontend.
+* Only show paginaton on frontend when there is more then 1 page.
 * Code improvements:
 * - Don't count arrays when not needed.
-* Update zh_TW.
+* Update fr_FR, zh_TW.
 
 = 1.1.1 =
 * 2015-01-10
