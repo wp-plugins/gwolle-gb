@@ -18,7 +18,7 @@ function show_gwolle_gb() {
 function get_gwolle_gb() {
 
 	// Load Frontend CSS in Footer, only when it's active
-	wp_enqueue_style('gwolle_gb_frontend_css', plugins_url('style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
+	wp_enqueue_style('gwolle_gb_frontend_css');
 
 	// Define $output
 	$output = '<div id="gwolle_gb">';

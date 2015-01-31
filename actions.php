@@ -133,15 +133,15 @@ function gwolle_gb_init() {
 		// Upgrade, if this version differs from what the database says.
 		upgrade_gwolle_gb();
 	}
-
-	// Register style for frontend. Load it later.
-	//wp_register_style('gwolle_gb_frontend_css', plugins_url('style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
 }
 
 
 /* Always Load jQuery */
 function gwolle_gb_jquery() {
 	wp_enqueue_script('jquery');
+
+	// Register style for frontend. Load it later.
+	wp_register_style('gwolle_gb_frontend_css', plugins_url('frontend/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
 }
 add_action('wp_enqueue_scripts', 'gwolle_gb_jquery');
 

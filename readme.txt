@@ -181,6 +181,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.1.3 =
+* 2015-02-
+* Add CSS for the widget.
+
 = 1.1.2 =
 * 2015-01-31
 * Settingspage uses Tabs.
