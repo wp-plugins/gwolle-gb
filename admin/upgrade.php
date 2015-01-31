@@ -88,8 +88,9 @@ function install_gwolle_gb() {
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
 }
 
+
 function uninstall_gwolle_gb() {
-	//	delete the plugin's tables
+	// Delete the plugin's tables
 	global $wpdb;
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_log . "");
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_entries . "");
@@ -102,7 +103,7 @@ function uninstall_gwolle_gb() {
 				option_name LIKE 'gwolle_gb%'
 		");
 
-	if ($_POST['delete_recaptchaKeys'] == 'on' || (get_option('recaptcha-public-key') == '' && get_option('recaptcha-private-key') == '')) {
+	if (isset($_POST['delete_recaptchaKeys']) && $_POST['delete_recaptchaKeys'] == 'on' || (get_option('recaptcha-public-key') == '' && get_option('recaptcha-private-key') == '')) {
 		// Also delete the reCAPTCHA-keys
 		$wpdb->query("
 				DELETE
@@ -113,7 +114,11 @@ function uninstall_gwolle_gb() {
 					option_name = 'recaptcha-private-key'
 			");
 	}
+
+	// Deactivate ourselves
+	deactivate_plugins( GWOLLE_GB_FOLDER . '/gwolle-gb.php' );
 }
+
 
 function upgrade_gwolle_gb() {
 	global $wpdb;

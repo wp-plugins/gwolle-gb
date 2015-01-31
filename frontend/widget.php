@@ -44,7 +44,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 			$counter = 0;
 
 			// Get the best entries first
-			if ( is_array( $best ) && count( $best ) > 0 ) {
+			if ( is_array( $best ) && !empty( $best ) ) {
 				foreach ($best as $entry_id) {
 					if ( $counter == $num_entries) { break; } // we have enough
 					$entry = new gwolle_gb_entry();
@@ -82,7 +82,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						'spam'    => 'nospam'
 						)
 					);
-				if ( is_array( $entries ) && count( $entries ) > 0 ) {
+				if ( is_array( $entries ) && !empty( $entries ) ) {
 					foreach( $entries as $entry ) {
 						if ( $counter == $num_entries) { break; } // we have enough
 						if ( is_array( $best) && in_array( $entry->get_id(), $best ) ) { continue; } // already listed

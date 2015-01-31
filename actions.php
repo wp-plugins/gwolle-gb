@@ -59,7 +59,8 @@ function gwolle_gb_adminmenu() {
 	// Admin page: admin/import.php
 	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Import', GWOLLE_GB_TEXTDOMAIN), __('Import', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/import.php', 'gwolle_gb_page_import' );
 
-	// FIXME: Admin page: admin/export.php
+	// Admin page: admin/export.php
+	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Export', GWOLLE_GB_TEXTDOMAIN), __('Export', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/export.php', 'gwolle_gb_page_export' );
 
 	// Load Admin CSS
 	wp_enqueue_style( 'gwolle-gb-css', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/style.css', false, GWOLLE_GB_VER, 'all' );
@@ -135,9 +136,8 @@ function gwolle_gb_init() {
 }
 
 
-/* Load jQuery */
+/* Always Load jQuery */
 function gwolle_gb_jquery() {
-	// load always
 	wp_enqueue_script('jquery');
 }
 add_action('wp_enqueue_scripts', 'gwolle_gb_jquery');

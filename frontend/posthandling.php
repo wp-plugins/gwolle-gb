@@ -1,7 +1,9 @@
 <?php
 
 // No direct calls to this script
-if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
+if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
+	die('No direct calls allowed!');
+}
 
 
 /*
@@ -23,7 +25,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No 
  */
 
 function gwolle_gb_frontend_posthandling() {
-	global $wpdb, $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
+	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
 	/*
 	 * Handle $_POST and check and save entry.
@@ -84,39 +86,44 @@ function gwolle_gb_frontend_posthandling() {
 		/* reCAPTCHA */
 		if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
 
-			if (!class_exists('ReCaptcha')) {
+			// Avoid Nasty Crash
+			if (!class_exists('ReCaptcha') && !class_exists('ReCaptchaResponse') ) {
 				require_once "recaptchalib.php";
 			}
 
-			// Register API keys at https://www.google.com/recaptcha/admin
-			//$recaptcha_publicKey = get_option('recaptcha-public-key');
-			$recaptcha_privateKey = get_option('recaptcha-private-key');
+			// We can only use it if it is really loaded.
+			if (class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) {
+				// Register API keys at https://www.google.com/recaptcha/admin
+				//$recaptcha_publicKey = get_option('recaptcha-public-key');
+				$recaptcha_privateKey = get_option('recaptcha-private-key');
 
-			// The response from reCAPTCHA
-			$resp = null;
-			// The error code from reCAPTCHA, if any
-			$error = null;
+				// The response from reCAPTCHA
+				$resp = null;
+				// The error code from reCAPTCHA, if any
+				$error = null;
 
-			$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
+				$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
 
-			// Was there a reCAPTCHA response?
-			if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
-				$resp = $reCaptcha->verifyResponse(
-					$_SERVER["REMOTE_ADDR"],
-					$_POST["g-recaptcha-response"]
-				);
-			}
+				// Was there a reCAPTCHA response?
+				if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
+					$resp = $reCaptcha->verifyResponse(
+						$_SERVER["REMOTE_ADDR"],
+						$_POST["g-recaptcha-response"]
+					);
+				}
 
-			if ( $resp != null && $resp->success ) {
-				//echo "You got it!";
-			} else {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+				if ( $resp != null && $resp->success ) {
+					//echo "You got it!";
+				} else {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+				}
 			}
 		}
 
 
-		if ( is_array($gwolle_gb_error_fields) && count($gwolle_gb_error_fields) > 0 ) {
+		/* If there are errors, stop here and return false */
+		if ( is_array( $gwolle_gb_error_fields ) && !empty( $gwolle_gb_error_fields ) ) {
 			// There was no data filled in, even though that was mandatory.
 			$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There were errors submitting your guestbook entry.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 			return false; // no need to check and save
@@ -179,7 +186,7 @@ function gwolle_gb_frontend_posthandling() {
 		$entries = gwolle_gb_get_entries(array(
 				'email' => $entry->get_author_email()
 			));
-		if ( is_array( $entries ) && count( $entries ) > 0 ) {
+		if ( is_array( $entries ) && !empty( $entries ) ) {
 			foreach ( $entries as $entry_email ) {
 				if ( $entry_email->get_content() == $entry->get_content() ) {
 					// Match is double entry
@@ -208,18 +215,18 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/*
-		 * Send the Notification Mail(s) only when it is not Spam
+		 * Send the Notification Mail to moderators that have subscribed (only when it is not Spam)
 		 */
 
 		if ( !$isspam ) {
+			$subscribers = Array();
 			$recipients = get_option('gwolle_gb-notifyByMail', Array() );
 			if ( count($recipients ) > 0 ) {
 				$recipients = explode( ",", $recipients );
 				foreach ( $recipients as $recipient ) {
 					if ( is_numeric($recipient) ) {
 						$userdata = get_userdata( $recipient );
-						$subscriber[]['user_email'] = $userdata->user_email;
-						// FIXME: array in an array. is that needed?
+						$subscribers[] = $userdata->user_email;
 					}
 				}
 			}
@@ -255,13 +262,13 @@ function gwolle_gb_frontend_posthandling() {
 				$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
 			}
 
-			if ( isset($subscriber) && is_array($subscriber) && count($subscriber) > 0 ) {
-				for ($i = 0; $i < count($subscriber); $i++) {
-					$mailBody[$i] = $mail_body;
-					$mailBody[$i] = str_replace('%user_email%', $subscriber[$i]['user_email'], $mailBody[$i]);
-					$mailBody[$i] = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody[$i]);
+			if ( is_array($subscribers) && !empty($subscribers) ) {
+				foreach ( $subscribers as $subscriber ) {
+					$mailBody = $mail_body;
+					$mailBody = str_replace('%user_email%', $subscriber, $mailBody);
+					$mailBody = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody);
 
-					wp_mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
+					wp_mail($subscriber, $subject, $mailBody, $header);
 				}
 			}
 		}

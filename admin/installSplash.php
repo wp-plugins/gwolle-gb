@@ -1,7 +1,7 @@
 <?php
-	/*
-	 * Page that is shown to the user when the plugin was not installed.
-	 */
+/*
+ * Page that is shown to the user when the plugin was not correctly installed.
+ */
 
 
 function gwolle_gb_installSplash() {
@@ -32,14 +32,14 @@ function gwolle_gb_installSplash() {
 			} elseif ($_REQUEST['msg'] == 'successfully-uninstalled') {
 				_e('You successfully uninstalled Gwolle-GB.',GWOLLE_GB_TEXTDOMAIN);
 				echo '<br /><br />';
-				echo str_replace('%1','plugins.php',__('You now may deactivate the plugin using the <a href="%1" title="Go to the plugin manager...">plugin manager</a> or/and delete the plugin from your webserver.',GWOLLE_GB_TEXTDOMAIN));
+				echo sprintf( __('You now may deactivate the plugin using the <a href="%s" title="Go to the plugin manager...">plugin manager</a> or/and delete the plugin from your webserver.',GWOLLE_GB_TEXTDOMAIN), 'plugins.php' );
 				echo '<br />';
 			} elseif ($_REQUEST['do'] == 'install_gwolle_gb' && !get_option('gwolle_gb_version')) {
 				// perform installation
 				install_gwolle_gb();
-				echo str_replace('%1',$_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page'], __('Allright, we\'re done. <a href="%1">Click here to continue...</a>',GWOLLE_GB_TEXTDOMAIN));
+				echo sprintf( __('Allright, we\'re done. <a href="%s">Click here to continue...</a>', GWOLLE_GB_TEXTDOMAIN), $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page'] );
 			} else {
-				echo str_replace('%1',$_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page'], __('It looks like there has been an error. <a href="%1">Click here to continue...</a>',GWOLLE_GB_TEXTDOMAIN));
+				echo sprintf( __('It looks like there has been an error. <a href="%s">Click here to continue...</a>', GWOLLE_GB_TEXTDOMAIN), $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page'] );
 			}
 			?>
 		</div>
