@@ -21,6 +21,7 @@ function gwolle_gb_page_settings() {
 	} else {
 		$active_tab = "gwolle_gb_forms";
 		$saved = false;
+		$uninstalled = false;
 		//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) {
@@ -128,16 +129,15 @@ function gwolle_gb_page_settings() {
 
 						break;
 					case 'gwolle_gb_uninstall':
-						/*
-						if ($req_action == 'uninstall_gwolle_gb') {
-							if ($_POST['uninstall_confirmed'] == 'on') {
-								// uninstall the plugin -> delete all tables and preferences of the plugin
-								uninstall_gwolle_gb();
-							} else {
-								// Uninstallation not confirmed.
 
-							}
-						}*/
+						if (isset($_POST['uninstall_confirmed']) && $_POST['uninstall_confirmed'] == 'on') {
+							// uninstall the plugin -> delete all tables and preferences of the plugin
+							uninstall_gwolle_gb();
+							$uninstalled = true;
+						} else {
+							// Uninstallation not confirmed.
+						}
+
 						break;
 					default:
 						// Just load the first tab
@@ -160,13 +160,13 @@ function gwolle_gb_page_settings() {
 			}
 			?>
 
-			<?php /* The rel attribute will be that form-class that becomes active */ ?>
+			<?php /* The rel attribute will be the form that becomes active */ ?>
 			<h2 class="nav-tab-wrapper gwolle-nav-tab-wrapper">
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_forms') { echo "nav-tab-active";} ?>" rel="gwolle_gb_forms"><?php _e('Form', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_reading') { echo "nav-tab-active";} ?>" rel="gwolle_gb_reading"><?php _e('Reading', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_admin') { echo "nav-tab-active";} ?>" rel="gwolle_gb_admin"><?php _e('Admin', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_antispam') { echo "nav-tab-active";} ?>" rel="gwolle_gb_antispam"><?php _e('Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_mail') { echo "nav-tab-active";} ?>" rel="gwolle_gb_mail"><?php _e('E-mail', GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_forms')     { echo "nav-tab-active";} ?>" rel="gwolle_gb_forms"><?php _e('Form', GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_reading')   { echo "nav-tab-active";} ?>" rel="gwolle_gb_reading"><?php _e('Reading', GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_admin')     { echo "nav-tab-active";} ?>" rel="gwolle_gb_admin"><?php _e('Admin', GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_antispam')  { echo "nav-tab-active";} ?>" rel="gwolle_gb_antispam"><?php _e('Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_mail')      { echo "nav-tab-active";} ?>" rel="gwolle_gb_mail"><?php _e('E-mail', GWOLLE_GB_TEXTDOMAIN); ?></a>
 				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_uninstall') { echo "nav-tab-active";} ?>" rel="gwolle_gb_uninstall"><?php _e('Uninstall', GWOLLE_GB_TEXTDOMAIN); ?></a>
 			</h2>
 
@@ -179,7 +179,7 @@ function gwolle_gb_page_settings() {
 				<table class="form-table">
 
 					<tr valign="top">
-						<th scope="row"><label for="entriesPerPage">Coming Soon</label></th>
+						<th scope="row">Settings for this Tab will be coming soon.</th>
 						<td>
 
 						</td>
@@ -527,7 +527,22 @@ function gwolle_gb_page_settings() {
 				do_settings_sections( 'gwolle_gb_options' ); ?>
 
 				<table class="form-table">
-					<h3>Coming Soon.</h3>
+
+					<?php
+					if ( $uninstalled == true ) { ?>
+						<tr valign="top">
+							<th scope="row"><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></th>
+							<td>
+								<div id="message" class="updated error fade">
+									<p><?php _e('The entries and settings have been removed.', GWOLLE_GB_TEXTDOMAIN); ?></p>
+									<p><?php _e('The plugin is deactivated.', GWOLLE_GB_TEXTDOMAIN); ?></p>
+									<p><?php echo __('You can now go to your', GWOLLE_GB_TEXTDOMAIN) . ' <a href="' . admin_url() . '">' . __('dashboard.', GWOLLE_GB_TEXTDOMAIN) . '</a>'; ?>
+								</div>
+							</td>
+						</tr>
+						<?php
+					}
+					?>
 
 
 					<tr valign="top">
@@ -546,6 +561,15 @@ function gwolle_gb_page_settings() {
 						<td>
 							<input type="checkbox" name="uninstall_confirmed" id="uninstall_confirmed">
 							<label for="uninstall_confirmed"><?php _e("Yes, I'm absolutely sure of this. Proceed!", GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row" style="color:#FF0000;"><label for="delete_recaptchaKeys"><?php _e('reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<input type="checkbox" name="delete_recaptchaKeys" id="delete_recaptchaKeys">
+							<label for="delete_recaptchaKeys"><?php _e("Also delete the reCAPTCHA keys", GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 					</tr>
 
