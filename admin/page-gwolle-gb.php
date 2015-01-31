@@ -256,9 +256,18 @@ function gwolle_gb_donate() {
 		';
 
 	echo '<p>
-	' . __('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN) . '</p>
-	<p><a href="https://supporters.eff.org/donate" target="_blank" title="' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '</a></p>
-	';
+		' . __('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+		<p><a href="https://supporters.eff.org/donate" target="_blank" title="' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '</a></p>
+		';
+
+	echo '
+		<h3>
+		' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+		';
+	echo '<p>
+		' . __('If you rather want to donate to the maintainer of the plugin, you can donate through Paypal.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+		<p><a href="https://www.paypal.com" target="_blank" title="' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Donate through Paypal', GWOLLE_GB_TEXTDOMAIN) . '</a> to marcel@timelord.nl</p>
+		';
 }
 
 

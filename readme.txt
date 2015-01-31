@@ -90,7 +90,7 @@ With version 1.0 there have been some changes:
 
 * Bughunting (check all the FIXME's in the code).
 * Make Install method more safe.
-* Bring Uninstall back, this time in a separate admin page?
+* Bring Uninstall back, this time in a tab on the settingspage.
 * Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
 * 'Thank you' mail to the poster (requested by Joakim from Sweden).
@@ -188,6 +188,7 @@ Yes, it is again actively maintained.
 * Give the CSS file a version in the GET.
 * Put date and time in spans on frontend.
 * Only show paginaton on frontend when there is more then 1 page.
+* Add Donate link.
 * Don't count arrays when not needed.
 * Use strpos instead of preg_match.
 * Use sprintf for formatting instead of str_replace.
