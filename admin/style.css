@@ -104,6 +104,18 @@ td.gwolle_gb_actions {
 }
 
 
+/* Settings page */
+/* Tabs */
+form.gwolle_gb_options {
+	display: none;
+}
+form.gwolle_gb_options.active {
+	display: block;
+}
+
+
+
+
 /* Dashboard Widget */
 
 #gwolle_gb_dashboard .inside {

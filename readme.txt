@@ -91,7 +91,6 @@ With version 1.0 there have been some changes:
 * Bughunting (check all the FIXME's in the code).
 * Make Install method more safe.
 * Bring Uninstall back, this time in a tab on the settingspage.
-* Redo Settings page with tabs for separate parts.
 * Add an RSS Feed for Guestbook Entries.
 * 'Thank you' mail to the poster (requested by Joakim from Sweden).
 * Add PHP methods to add an entry.
@@ -185,6 +184,7 @@ Yes, it is again actively maintained.
 
 = 1.1.2 =
 * 2015-01-
+* Settingspage uses Tabs.
 * Give the CSS file a version in the GET.
 * Put date and time in spans on frontend.
 * Only show paginaton on frontend when there is more then 1 page.

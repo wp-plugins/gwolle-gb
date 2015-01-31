@@ -51,3 +51,22 @@ jQuery(document).ready(function($) {
 		event.preventDefault();
 	});
 });
+
+
+/*
+ * Select the right tab on the options page
+ *
+ */
+jQuery(document).ready(function($) {
+	jQuery( '.gwolle-nav-tab-wrapper a' ).on('click', function() {
+
+		jQuery( 'form.gwolle_gb_options' ).removeClass( 'active' );
+		jQuery( '.gwolle-nav-tab-wrapper a' ).removeClass( 'nav-tab-active' );
+
+		var rel = jQuery( this ).attr('rel');
+		jQuery( '.' + rel ).addClass( 'active' );
+		jQuery( this ).addClass( 'nav-tab-active' );
+
+		return false;
+	});
+});
