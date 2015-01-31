@@ -54,7 +54,7 @@
 	vertical-align: top;
 }
 #gwolle_gb .label {
-	width: 150px;
+	width: 160px;
 }
 #gwolle_gb .input input[type="text"],
 #gwolle_gb .input textarea {
@@ -123,6 +123,18 @@
 }
 #gwolle_gb .gb-entry .gb-entry-content {
 	padding-left: 10px;
+}
+
+
+/* Widget */
+li.gwolle_gb_widget {
+	border-bottom: 1px dotted #999;
+	padding: 3px 0;
+	margin: 0;
+}
+
+p.gwolle_gb_link {
+	padding: 3px 0;
 }
 
 
