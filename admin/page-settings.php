@@ -358,7 +358,9 @@ function gwolle_gb_page_settings() {
 									echo 'checked="checked"';
 								} ?>
 								type="checkbox" name="moderate-entries" id="moderate-entries">
-							<?php _e('Moderate entries before publishing them.', GWOLLE_GB_TEXTDOMAIN); ?>
+							<label for="moderate-entries">
+								<?php _e('Moderate entries before publishing them.', GWOLLE_GB_TEXTDOMAIN); ?>
+							</label>
 							<br />
 							<span class="setting-description">
 								<?php _e("New entries have to be unlocked by a moderator before they are visible to the public.", GWOLLE_GB_TEXTDOMAIN); ?>
@@ -394,8 +396,10 @@ function gwolle_gb_page_settings() {
 								if ( get_option( 'gwolle_gb-akismet-active', 'false' ) === 'true' ) {
 									echo 'checked="checked" ';
 								}
-								echo 'name="akismet-active" id="akismet-active" type="checkbox" /> ' . __('Use Akismet', GWOLLE_GB_TEXTDOMAIN);
-								echo '<br />';
+								echo 'name="akismet-active" id="akismet-active" type="checkbox" />
+									<label for="akismet-active">
+									' . __('Use Akismet', GWOLLE_GB_TEXTDOMAIN) . '
+									</label><br />';
 								_e("The WordPress API key has been found, so you can start using Akismet right now.", GWOLLE_GB_TEXTDOMAIN);
 							}
 							?>
@@ -421,7 +425,9 @@ function gwolle_gb_page_settings() {
 										echo 'checked="checked" ';
 									}
 									?> id="recaptcha-active" type="checkbox">
-								<?php _e('Use reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>
+								<label for="recaptcha-active">
+									<?php _e('Use reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>
+								</label>
 								<br />
 								<input name="recaptcha-public-key" type="text" id="recaptcha-public-key"  value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
 								<span class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>

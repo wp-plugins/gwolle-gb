@@ -184,6 +184,7 @@ Yes, it is again actively maintained.
 = 1.1.2 =
 * 2015-01-31
 * Settingspage uses Tabs.
+* Settingspage uses more labels.
 * Uninstall is back.
 * Give the CSS file a version in the GET.
 * Put date and time in spans on frontend.
@@ -192,7 +193,7 @@ Yes, it is again actively maintained.
 * Don't count arrays when not needed.
 * Use strpos instead of preg_match.
 * Use sprintf for formatting instead of str_replace.
-* Update fr_FR, nl_NL, zh_TW.
+* Update pot-file, fr_FR, nl_NL, zh_TW.
 
 = 1.1.1 =
 * 2015-01-10
