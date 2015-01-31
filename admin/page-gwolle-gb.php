@@ -248,6 +248,20 @@ function gwolle_gb_overview_help_more() {
 }
 
 
+function gwolle_gb_donate() {
+	echo '
+		<div id="gwolle_gb_eff"></div>
+		<h3>
+		' . __('Donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+		';
+
+	echo '<p>
+	' . __('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+	<p><a href="https://supporters.eff.org/donate" target="_blank" title="' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '</a></p>
+	';
+}
+
+
 /* Show the page */
 function gwolle_gb_welcome() {
 
@@ -317,6 +331,7 @@ function gwolle_gb_welcome() {
 		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts/programs/images:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'left', 'core');
 		add_meta_box('gwolle_gb_help', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');
 		add_meta_box('gwolle_gb_help_more', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help_more', 'gwolle_gb_welcome', 'right', 'core');
+		add_meta_box('gwolle_gb_donate', __('Donate', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_donate', 'gwolle_gb_welcome', 'right', 'core');
 
 		?>
 		<div class="wrap gwolle_gb-wrap">

@@ -26,6 +26,14 @@
 	margin-left: 10px;
 }
 
+#gwolle_gb_eff {
+	float: right;
+	width: 90px;
+	height: 61px;
+	background: url('gfx/logo_eff.png') no-repeat;
+
+}
+
 /* Page Navigation on entries.php */
 .gwolle_gb #page-nav {
 	display: block;
