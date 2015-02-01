@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-31 20:38+0100\n"
+"POT-Creation-Date: 2015-02-01 16:23+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jenny Gaulke <Jenny.Gaulke@gmail.com>\n"
 "Language-Team: \n"
@@ -17,12 +17,12 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:21
-#: frontend/widget.php:140
+#: frontend/widget.php:143
 msgid "Guestbook"
 msgstr "G&auml;stebuch"
 
-#: actions.php:46 actions.php:47 admin/page-settings.php:221
-#: admin/page-settings.php:308
+#: actions.php:46 actions.php:47 admin/page-settings.php:383
+#: admin/page-settings.php:470
 msgid "Entries"
 msgstr "Eintr&auml;ge"
 
@@ -36,7 +36,7 @@ msgid "New entry"
 msgstr "Neuer Eintrag"
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:152
+#: actions.php:57 actions.php:80 admin/page-settings.php:184
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -60,74 +60,74 @@ msgstr "Eintrag bearbeiten"
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:408
+#: admin/dashboard-widget.php:120 admin/page-editor.php:414
 #: admin/page-entries.php:678
 msgid "Check entry"
 msgstr "Eintrag freigeben"
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:408
+#: admin/dashboard-widget.php:120 admin/page-editor.php:414
 #: admin/page-entries.php:678
 msgid "Check"
 msgstr "Freigeben"
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:411
+#: admin/dashboard-widget.php:124 admin/page-editor.php:417
 #: admin/page-entries.php:681
 msgid "Uncheck entry"
 msgstr "Eintrag sperren"
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:411
+#: admin/dashboard-widget.php:124 admin/page-editor.php:417
 #: admin/page-entries.php:681
 msgid "Uncheck"
 msgstr "Sperren"
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:414
+#: admin/dashboard-widget.php:128 admin/page-editor.php:420
 #: admin/page-entries.php:684
 msgid "Mark entry as spam."
 msgstr "Eintrag als Spam einstufen."
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:357
-#: admin/page-editor.php:414 admin/page-entries.php:422
+#: admin/dashboard-widget.php:128 admin/page-editor.php:363
+#: admin/page-editor.php:420 admin/page-entries.php:422
 #: admin/page-entries.php:684
 msgid "Spam"
 msgstr "Spam"
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:417
+#: admin/dashboard-widget.php:132 admin/page-editor.php:423
 #: admin/page-entries.php:687
 msgid "Mark entry as not-spam."
 msgstr "Eintrag als Nicht-Spam einstufen."
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:417
+#: admin/dashboard-widget.php:132 admin/page-editor.php:423
 #: admin/page-entries.php:687
 msgid "Not spam"
 msgstr "Kein Spam"
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:420
+#: admin/dashboard-widget.php:136 admin/page-editor.php:426
 #: admin/page-entries.php:690
 msgid "Move entry to trash."
 msgstr "Eintrag i. d. Papierkorb verschieben."
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:367
-#: admin/page-editor.php:420 admin/page-entries.php:426
+#: admin/dashboard-widget.php:136 admin/page-editor.php:373
+#: admin/page-editor.php:426 admin/page-entries.php:426
 #: admin/page-entries.php:690
 msgid "Trash"
 msgstr "Papierkorb"
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:423
+#: admin/dashboard-widget.php:140 admin/page-editor.php:429
 #: admin/page-entries.php:693
 msgid "Recover entry from trash."
 msgstr ""
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:423
+#: admin/dashboard-widget.php:140 admin/page-editor.php:429
 #: admin/page-entries.php:693
 msgid "Untrash"
 msgstr ""
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:426
+#: admin/dashboard-widget.php:144 admin/page-editor.php:432
 #: admin/page-entries.php:696
 msgid "Please wait..."
 msgstr "Bitte warten..."
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:426
+#: admin/dashboard-widget.php:144 admin/page-editor.php:432
 #: admin/page-entries.php:696
 msgid "Wait..."
 msgstr "Bitte warten.."
@@ -235,11 +235,11 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr "Eingereicht als Ham beim Akismet Service."
 
 #: admin/page-editor.php:140 admin/page-gwolle-gb.php:354
-#: admin/page-settings.php:158
+#: admin/page-settings.php:190
 msgid "Changes saved."
 msgstr "&Auml;nderungen gespeichert."
 
-#: admin/page-editor.php:142 admin/page-editor.php:228
+#: admin/page-editor.php:142 admin/page-editor.php:234
 msgid "Error happened during saving."
 msgstr "Beim Speichern ist ein Fehler unterlaufen."
 
@@ -251,126 +251,127 @@ msgstr "Eintrag wurde nicht ge&auml;ndert."
 msgid "Entry removed."
 msgstr "Eintrag entfernt."
 
-#: admin/page-editor.php:198
+#: admin/page-editor.php:200
 msgid "Entry has no content, even though that is mandatory."
 msgstr "Eintrag enth&auml;lt keinen Inhalt (erforderlich)."
 
-#: admin/page-editor.php:226
+#: admin/page-editor.php:232
 msgid "Entry saved."
 msgstr "Eintrag wurde gespeichert."
 
-#: admin/page-editor.php:232
+#: admin/page-editor.php:238
 msgid "Entry was not saved."
 msgstr "Eintrag wurde nicht gespeichert."
 
-#: admin/page-editor.php:305 admin/page-editor.php:398
-#: admin/page-editor.php:442 admin/page-editor.php:497
-#: admin/page-editor.php:533 admin/page-editor.php:544
-#: admin/page-editor.php:552 admin/page-export.php:40
+#: admin/page-editor.php:311 admin/page-editor.php:404
+#: admin/page-editor.php:448 admin/page-editor.php:503
+#: admin/page-editor.php:539 admin/page-editor.php:550
+#: admin/page-editor.php:558 admin/page-export.php:40
 #: admin/page-import.php:314 admin/page-import.php:381
 #: admin/page-import.php:450
 msgid "Click to open or close"
 msgstr "Klicken zum &Ouml;ffnen oder Schlie&szlig;en"
 
-#: admin/page-editor.php:305
+#: admin/page-editor.php:311
 msgid "Options"
 msgstr "Einstellungen"
 
-#: admin/page-editor.php:326
+#: admin/page-editor.php:332
 msgid "This entry is not yet visible."
 msgstr ""
 
-#: admin/page-editor.php:330 admin/page-editor.php:335
+#: admin/page-editor.php:336 admin/page-editor.php:341
 msgid "This entry is Visible."
 msgstr "Eintrag ist sichtbar."
 
-#: admin/page-editor.php:331 admin/page-editor.php:336
+#: admin/page-editor.php:337 admin/page-editor.php:342
 msgid "This entry is Not Visible."
 msgstr "Eintrag ist nicht sichtbar."
 
-#: admin/page-editor.php:347
+#: admin/page-editor.php:353
 msgid "Checked"
 msgstr ""
 
-#: admin/page-editor.php:375
+#: admin/page-editor.php:381
 msgid "Remove this entry Permanently."
 msgstr "Dauerhaft entfernen"
 
-#: admin/page-editor.php:386
+#: admin/page-editor.php:392
 msgid "Save"
 msgstr "Speichern"
 
-#: admin/page-editor.php:398
+#: admin/page-editor.php:404
 msgid "Actions"
 msgstr ""
 
-#: admin/page-editor.php:442
+#: admin/page-editor.php:448
 msgid "Details"
 msgstr "Details"
 
-#: admin/page-editor.php:446 admin/page-entries.php:546
+#: admin/page-editor.php:452 admin/page-entries.php:546
 #: admin/page-entries.php:562
 msgid "Author"
 msgstr "Autor"
 
-#: admin/page-editor.php:451 admin/page-editor.php:459
-#: admin/page-editor.php:479 admin/page-editor.php:487
+#: admin/page-editor.php:457 admin/page-editor.php:465
+#: admin/page-editor.php:485 admin/page-editor.php:493
 #: functions/function.gwolle_gb_log.php:164
 msgid "Unknown"
 msgstr "Unbekannt"
 
-#: admin/page-editor.php:455
+#: admin/page-editor.php:461
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: admin/page-editor.php:463 admin/page-editor.php:507
+#: admin/page-editor.php:469 admin/page-editor.php:513
 msgid "Written"
 msgstr "Geschrieben"
 
-#: admin/page-editor.php:468
+#: admin/page-editor.php:474
 msgid "Not yet"
 msgstr "Bisher keine Eintr&auml;ge"
 
-#: admin/page-editor.php:472
+#: admin/page-editor.php:478
 msgid "Author's IP-address"
 msgstr "IP-Adresse des Autors"
 
-#: admin/page-editor.php:475
+#: admin/page-editor.php:481
 msgid "Whois search for this IP"
 msgstr "WHOIS-Suche f&uuml;r diese IP"
 
-#: admin/page-editor.php:483
+#: admin/page-editor.php:489
 msgid "Host"
 msgstr "Host"
 
-#: admin/page-editor.php:497
+#: admin/page-editor.php:503
 msgid "Entry log"
 msgstr "Logbuch"
 
-#: admin/page-editor.php:516
+#: admin/page-editor.php:522
 msgid "No log yet."
 msgstr "Noch kein Protokoll."
 
-#: admin/page-editor.php:533 frontend/write.php:143
+#: admin/page-editor.php:539 frontend/write.php:167
 msgid "Guestbook entry"
 msgstr "G&auml;stebuch-Eintrag"
 
-#: admin/page-editor.php:538
+#: admin/page-editor.php:544
 #, php-format
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:544 frontend/write.php:137 frontend/write.php:138
+#: admin/page-editor.php:550 admin/page-settings.php:280
+#: frontend/write.php:153 frontend/write.php:160
 msgid "Homepage"
 msgstr "Website"
 
-#: admin/page-editor.php:547
+#: admin/page-editor.php:553
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "Beispiel: <code>http://www.beispiel.com/</code>"
 
-#: admin/page-editor.php:552 admin/page-export.php:55
+#: admin/page-editor.php:558 admin/page-export.php:55
 msgid "Origin"
 msgstr "Herkunft"
 
@@ -612,7 +613,8 @@ msgid "The exporter will preserve the following data per entry:"
 msgstr ""
 
 #: admin/page-export.php:52 admin/page-import.php:348
-#: admin/page-import.php:389 frontend/write.php:110 frontend/write.php:115
+#: admin/page-import.php:389 admin/page-settings.php:217
+#: frontend/write.php:111 frontend/write.php:118
 msgid "Name"
 msgstr "Name"
 
@@ -641,7 +643,8 @@ msgid "Host address"
 msgstr ""
 
 #: admin/page-export.php:59 admin/page-import.php:353
-#: admin/page-import.php:395 admin/page-settings.php:534
+#: admin/page-import.php:395 admin/page-settings.php:301
+#: admin/page-settings.php:716
 msgid "Message"
 msgstr "Nachricht"
 
@@ -1042,53 +1045,90 @@ msgstr "Importiere G&auml;stebuch-Eintr&auml;ge aus dem Gwolle-GB "
 msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 
-#: admin/page-settings.php:165
+#: admin/page-settings.php:197
 msgid "Form"
 msgstr ""
 
-#: admin/page-settings.php:166
+#: admin/page-settings.php:198
 msgid "Reading"
 msgstr ""
 
-#: admin/page-settings.php:167
+#: admin/page-settings.php:199
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:168 frontend/write.php:164
+#: admin/page-settings.php:200 frontend/write.php:191 frontend/write.php:217
 msgid "Anti-spam"
 msgstr "Spam-Schutz"
 
-#: admin/page-settings.php:169
+#: admin/page-settings.php:201
 msgid "E-mail"
 msgstr ""
 
-#: admin/page-settings.php:170 admin/page-settings.php:549
+#: admin/page-settings.php:202 admin/page-settings.php:731
 msgid "Uninstall"
 msgstr "Deinstallation"
 
-#: admin/page-settings.php:192 admin/page-settings.php:279
-#: admin/page-settings.php:335 admin/page-settings.php:448
-#: admin/page-settings.php:513
+#: admin/page-settings.php:208
+msgid "Configure the form that is shown to visitors."
+msgstr ""
+
+#: admin/page-settings.php:224 admin/page-settings.php:245
+#: admin/page-settings.php:266 admin/page-settings.php:287
+#: admin/page-settings.php:308 admin/page-settings.php:329
+#: admin/page-settings.php:345
+msgid "Enabled"
+msgstr ""
+
+#: admin/page-settings.php:232 admin/page-settings.php:253
+#: admin/page-settings.php:274 admin/page-settings.php:295
+#: admin/page-settings.php:316
+msgid "Mandatory"
+msgstr ""
+
+#: admin/page-settings.php:238 frontend/write.php:125 frontend/write.php:132
+msgid "City"
+msgstr "Stadt"
+
+#: admin/page-settings.php:259 frontend/write.php:139 frontend/write.php:146
+msgid "Email"
+msgstr "E-Mail"
+
+#: admin/page-settings.php:322
+msgid "Custom Anti-spam"
+msgstr ""
+
+#: admin/page-settings.php:332 admin/page-settings.php:348
+msgid "When enabled it is mandatory."
+msgstr ""
+
+#: admin/page-settings.php:338 admin/page-settings.php:751
+msgid "reCAPTCHA"
+msgstr ""
+
+#: admin/page-settings.php:354 admin/page-settings.php:441
+#: admin/page-settings.php:497 admin/page-settings.php:630
+#: admin/page-settings.php:695
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
-#: admin/page-settings.php:211
+#: admin/page-settings.php:373
 msgid "Entries per page on the frontend"
 msgstr "Eintr&auml;ge pro Seite auf dem Frontend."
 
-#: admin/page-settings.php:226
+#: admin/page-settings.php:388
 msgid "Number of entries shown on the frontend."
 msgstr "Anzahl der auf dem Frontend angezeigten Eintr&auml;ge."
 
-#: admin/page-settings.php:232
+#: admin/page-settings.php:394
 msgid "Line breaks"
 msgstr ""
 
-#: admin/page-settings.php:239
+#: admin/page-settings.php:401
 msgid "Show line breaks."
 msgstr "Zeilenumbr&uuml;che anzeigen."
 
-#: admin/page-settings.php:241
+#: admin/page-settings.php:403
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
@@ -1097,30 +1137,30 @@ msgstr ""
 "lange Eintr&auml;ge zur Folge haben, daher standardm&auml;&szlig;ig "
 "ausgeschaltet.)"
 
-#: admin/page-settings.php:247
+#: admin/page-settings.php:409
 msgid "Smileys"
 msgstr ""
 
-#: admin/page-settings.php:254
+#: admin/page-settings.php:416
 msgid "Display smileys as images."
 msgstr ""
 
-#: admin/page-settings.php:256
+#: admin/page-settings.php:418
 #, php-format
 msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smileys."
 msgstr ""
 
-#: admin/page-settings.php:262
+#: admin/page-settings.php:424
 msgid "Links"
 msgstr ""
 
-#: admin/page-settings.php:269
+#: admin/page-settings.php:431
 msgid "Link authors' name to their website."
 msgstr "Verlinke den Autor-Namen mit deren/dessen Website."
 
-#: admin/page-settings.php:271
+#: admin/page-settings.php:433
 msgid ""
 "The author of an entry can set his/her website. If this setting is checked, "
 "his/her name will be a link to that website."
@@ -1129,23 +1169,23 @@ msgstr ""
 "aktiviert ist, wird sein Name sp&auml;ter automatisch mit der Website "
 "verlinkt."
 
-#: admin/page-settings.php:298
+#: admin/page-settings.php:460
 msgid "Entries per page in the admin"
 msgstr "Eintr&auml;ge pro Seite in der Verwaltung."
 
-#: admin/page-settings.php:313
+#: admin/page-settings.php:475
 msgid "Number of entries shown in the admin."
 msgstr "Anzahl der in der Verwaltung angezeigten Eintr&auml;ge."
 
-#: admin/page-settings.php:319
+#: admin/page-settings.php:481
 msgid "Entry icons"
 msgstr "Eintrag-Icons"
 
-#: admin/page-settings.php:325
+#: admin/page-settings.php:487
 msgid "Show entry icons"
 msgstr "Zeige Icons zu den Eintr&auml;gen"
 
-#: admin/page-settings.php:327
+#: admin/page-settings.php:489
 msgid ""
 "These icons are shown in every entry row of the admin list, so that you know "
 "its status (checked, spam and trash)."
@@ -1154,15 +1194,15 @@ msgstr ""
 "dass Du den Status (Spam, &Uuml;berpr&uuml;fen und L&ouml;schen) jederzeit "
 "einsehen kannst."
 
-#: admin/page-settings.php:354
+#: admin/page-settings.php:516
 msgid "Moderate Guestbook"
 msgstr "G&auml;stebuch moderieren"
 
-#: admin/page-settings.php:361
+#: admin/page-settings.php:524
 msgid "Moderate entries before publishing them."
 msgstr "Eintr&auml;ge vor Ver&ouml;ffentlichung erst freischalten."
 
-#: admin/page-settings.php:364
+#: admin/page-settings.php:528
 msgid ""
 "New entries have to be unlocked by a moderator before they are visible to "
 "the public."
@@ -1170,7 +1210,7 @@ msgstr ""
 "Neue Eintr&auml;ge m&uuml;ssen zun&auml;chst durch einen Moderator "
 "freigegeben werden, bevor sie &ouml;ffentlich erscheinen."
 
-#: admin/page-settings.php:366
+#: admin/page-settings.php:530
 msgid ""
 "It is recommended that you turn this on, because you are responsible for the "
 "content on your website."
@@ -1178,15 +1218,15 @@ msgstr ""
 "H&auml;kchen wird empfohlen, da der Seitenbetreiber f&uuml;r die Inhalte der "
 "Website verantwortlich ist."
 
-#: admin/page-settings.php:377
+#: admin/page-settings.php:541
 msgid "Learn more about Akismet..."
 msgstr "Lerne mehr &uuml;ber Akismet..."
 
-#: admin/page-settings.php:377 admin/page-settings.php:411
+#: admin/page-settings.php:541 admin/page-settings.php:599
 msgid "What's that?"
 msgstr "Was ist das?"
 
-#: admin/page-settings.php:387
+#: admin/page-settings.php:551
 msgid ""
 "Akismet helps you to fight spam. It's free and easy to install. Download and "
 "install it today to stop spam in your guestbook."
@@ -1195,18 +1235,18 @@ msgstr ""
 "installieren. Lade es dir noch heute herunter und stoppe so den Spam in "
 "deinem G&auml;stebuch."
 
-#: admin/page-settings.php:390
+#: admin/page-settings.php:554
 #, php-format
 msgid ""
 "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
 "can enter it at the <a href=\"%s\">Akismet configuration page</a>."
 msgstr ""
 
-#: admin/page-settings.php:397
+#: admin/page-settings.php:563
 msgid "Use Akismet"
 msgstr "Akismet benutzen"
 
-#: admin/page-settings.php:399
+#: admin/page-settings.php:565
 msgid ""
 "The WordPress API key has been found, so you can start using Akismet right "
 "now."
@@ -1214,35 +1254,57 @@ msgstr ""
 "Wordpress API-Schl&uuml;ssel erfolgreich gefunden, Akismet kann verwendet "
 "werden."
 
-#: admin/page-settings.php:411
+#: admin/page-settings.php:577
+msgid "Custom Anti-Spam Security Question"
+msgstr ""
+
+#: admin/page-settings.php:580
+msgid "12 + six"
+msgstr ""
+
+#: admin/page-settings.php:581
+msgid "Custom security question to battle spam."
+msgstr ""
+
+#: admin/page-settings.php:583
+msgid "18"
+msgstr ""
+
+#: admin/page-settings.php:584
+msgid "The answer to your security question."
+msgstr ""
+
+#: admin/page-settings.php:586
+msgid ""
+"You can ask your visitors to answer a custom security question, so only real "
+"people can post an entry."
+msgstr ""
+
+#: admin/page-settings.php:599
 msgid "Learn more about reCAPTCHA..."
 msgstr "Lerne mehr &uuml;ber reCAPTCHA..."
 
-#: admin/page-settings.php:424
-msgid "Use reCAPTCHA"
-msgstr "Benutze reCAPTCHA"
-
-#: admin/page-settings.php:427
+#: admin/page-settings.php:610
 msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
 msgstr "<strong>Site (Public)-Key</strong>deines reCAPTCHA-Accounts."
 
-#: admin/page-settings.php:430
+#: admin/page-settings.php:613
 msgid "<strong>Secret</strong> key of your reCAPTCHA account"
 msgstr "<strong>Secret-Key</strong>deines reCAPTCHA-Accounts."
 
-#: admin/page-settings.php:432
+#: admin/page-settings.php:615
 msgid "The keys can be found at your"
 msgstr "Die Schl&uuml;ssel findest Du auf deiner"
 
-#: admin/page-settings.php:432
+#: admin/page-settings.php:615
 msgid "Go to my reCAPTCHA sites..."
 msgstr "Gehe zu meinen reCAPTCHA-Seiten..."
 
-#: admin/page-settings.php:432
+#: admin/page-settings.php:615
 msgid "reCAPTCHA sites overview"
 msgstr "reCAPTCHA-Seiten&uuml;bersicht"
 
-#: admin/page-settings.php:437
+#: admin/page-settings.php:619
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be "
@@ -1250,18 +1312,29 @@ msgid ""
 "results."
 msgstr ""
 
-#: admin/page-settings.php:439
+#: admin/page-settings.php:621
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. However, this is an old and incompatible "
 "version, so reCAPTCHA will not be used for Gwolle-GB."
 msgstr ""
 
-#: admin/page-settings.php:467
+#: admin/page-settings.php:649
 msgid "Admin mail content"
 msgstr "Text der Benachrichtigung"
 
-#: admin/page-settings.php:479
+#: admin/page-settings.php:654 frontend/posthandling.php:304
+msgid ""
+"Hello,\n"
+"\n"
+"There is a new guestbook entry at '%blog_name%'.\n"
+"You can check it at %entry_management_url%.\n"
+"\n"
+"Have a nice day!\n"
+"Your Gwolle-GB-Mailer"
+msgstr ""
+
+#: admin/page-settings.php:661
 msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
@@ -1270,37 +1343,37 @@ msgstr ""
 "Teilnehmer erhalten soll, wenn er Benachrichtigungen f&uuml;r neue "
 "Eintr&auml;ge aktiviert hat. Die folgenden Tags werden unterst&uuml;tzt: "
 
-#: admin/page-settings.php:495
+#: admin/page-settings.php:677
 msgid "Admin mail from address"
 msgstr ""
 
-#: admin/page-settings.php:501
+#: admin/page-settings.php:683
 msgid ""
 "You can set the email address that is used for the From header of the mail "
 "that a notification subscriber gets on new entries."
 msgstr ""
 
-#: admin/page-settings.php:503
+#: admin/page-settings.php:685
 msgid "By default the main admin address is used from General >> Settings."
 msgstr ""
 
-#: admin/page-settings.php:537
+#: admin/page-settings.php:719
 msgid "The entries and settings have been removed."
 msgstr ""
 
-#: admin/page-settings.php:538
+#: admin/page-settings.php:720
 msgid "The plugin is deactivated."
 msgstr ""
 
-#: admin/page-settings.php:539
+#: admin/page-settings.php:721
 msgid "You can now go to your"
 msgstr ""
 
-#: admin/page-settings.php:539
+#: admin/page-settings.php:721
 msgid "dashboard."
 msgstr ""
 
-#: admin/page-settings.php:551
+#: admin/page-settings.php:733
 msgid ""
 "Uninstalling means that all database entries are removed (settings and "
 "entries)."
@@ -1308,49 +1381,45 @@ msgstr ""
 "Deinstallation hei&szlig;t, dass alle Datenbank-Eintr&auml;ge (Einstellungen "
 "und G&auml;stebuch-Eintr&auml;ge) gel&ouml;scht werden."
 
-#: admin/page-settings.php:553
+#: admin/page-settings.php:735
 msgid "This can <strong>not</strong> be undone."
 msgstr "Dies kann <strong>nicht</strong> r&uuml;ckg&auml;ngig gemacht werden."
 
-#: admin/page-settings.php:560
+#: admin/page-settings.php:742
 msgid "Confirm"
 msgstr ""
 
-#: admin/page-settings.php:563
+#: admin/page-settings.php:745
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr "Ja, ich bin mir wirklich 100% sicher. Mach weiter!"
 
-#: admin/page-settings.php:569
-msgid "reCAPTCHA"
-msgstr ""
-
-#: admin/page-settings.php:572
+#: admin/page-settings.php:754
 msgid "Also delete the reCAPTCHA keys"
 msgstr ""
 
-#: admin/page-settings.php:580
+#: admin/page-settings.php:762
 msgid "Uninstall &raquo;"
 msgstr "Deinstallieren &raquo;"
 
-#: frontend/posthandling.php:128 frontend/posthandling.php:142
+#: frontend/posthandling.php:191 frontend/posthandling.php:205
 msgid "There were errors submitting your guestbook entry."
 msgstr "Beim Speichern des G&auml;stebucheintrages sind Fehler aufgetreten."
 
-#: frontend/posthandling.php:194
+#: frontend/posthandling.php:257
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 "Doppel-Post: Ein Eintrag mit dem selben Text wie deinem wurde bereits "
 "gespeichert."
 
-#: frontend/posthandling.php:210
+#: frontend/posthandling.php:273
 msgid "Thank you for your entry."
 msgstr "Vielen Dank f&uuml;r den Eintrag."
 
-#: frontend/posthandling.php:212
+#: frontend/posthandling.php:275
 msgid "We will review it and unlock it in a short while."
 msgstr "&Uuml;berpr&uuml;fung und Freigabe folgt."
 
-#: frontend/posthandling.php:246
+#: frontend/posthandling.php:309
 msgid "New Guestbook Entry"
 msgstr "Neuer Eintrag "
 
@@ -1383,7 +1452,7 @@ msgstr "schrieb am"
 msgid "Displays the recent guestbook entries."
 msgstr "Zeigt die neusten G&auml;stebucheintr&auml;ge an."
 
-#: frontend/widget.php:30 frontend/widget.php:144
+#: frontend/widget.php:30 frontend/widget.php:147
 msgid "Visit guestbook"
 msgstr "G&auml;stebuch lesen"
 
@@ -1391,80 +1460,80 @@ msgstr "G&auml;stebuch lesen"
 msgid "Click here to get to the guestbook."
 msgstr "Klicke hier, um zum G&auml;stebuch zu gelangen."
 
-#: frontend/widget.php:158
+#: frontend/widget.php:161
 msgid "Title:"
 msgstr "&Uuml;berschrift:"
 
-#: frontend/widget.php:164
+#: frontend/widget.php:167
 msgid "Number of entries:"
 msgstr "Anzahl der Eintr&auml;ge:"
 
-#: frontend/widget.php:180
+#: frontend/widget.php:183
 msgid "Best entries to show:"
 msgstr "Top-Kommentare anzeigen:"
 
-#: frontend/widget.php:182
+#: frontend/widget.php:185
 msgid "List of entry_id's, comma-separated"
 msgstr "Liste der Eintrags-IDs , durch Komma getrennt"
 
-#: frontend/widget.php:186
+#: frontend/widget.php:189
 msgid "Number of words for each entry:"
 msgstr "Wortanzahl pro Eintrag:"
 
-#: frontend/widget.php:202
+#: frontend/widget.php:205
 msgid "Link text:"
 msgstr "Link-Text:"
 
-#: frontend/widget.php:208
+#: frontend/widget.php:211
 msgid "Select the page of the guestbook:"
 msgstr "Seitenauswahl:"
 
-#: frontend/widget.php:210
+#: frontend/widget.php:213
 msgid "Select page"
 msgstr "Seite ausw&auml;hlen"
 
-#: frontend/write.php:96
+#: frontend/write.php:93
 msgid "Write a new entry."
 msgstr "Neuen Eintrag erstellen"
 
-#: frontend/write.php:107
+#: frontend/write.php:106
 msgid "Write a new entry for the Guestbook"
 msgstr "Neuen Eintrag schreiben"
 
-#: frontend/write.php:120 frontend/write.php:121
-msgid "City"
-msgstr "Stadt"
+#: frontend/write.php:197
+msgid "Answer"
+msgstr ""
 
-#: frontend/write.php:127 frontend/write.php:132
-msgid "Email"
-msgstr "E-Mail"
+#: frontend/write.php:198
+msgid "Question:"
+msgstr ""
 
-#: frontend/write.php:184
+#: frontend/write.php:237
 msgid "Submit"
 msgstr "Los gehts!"
 
-#: frontend/write.php:189
+#: frontend/write.php:242
 msgid "Fields marked with * are obligatory."
 msgstr "Felder mit * sind Pflicht-Angaben."
 
-#: frontend/write.php:191
+#: frontend/write.php:245
 msgid "The E-mail address wil not be published."
 msgstr ""
 
-#: frontend/write.php:193
+#: frontend/write.php:248
 #, php-format
 msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
 "span>."
 msgstr ""
 
-#: frontend/write.php:198
+#: frontend/write.php:253
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr ""
 "Der Eintrag wird im G&auml;stebuch erscheinen, sobald er gepr&uuml;ft und "
 "freigegeben wurde. "
 
-#: frontend/write.php:200
+#: frontend/write.php:256
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 "Es wird das Recht vorbehalten, Beitr&auml;ge zu k&uuml;rzen, zu l&ouml;schen "
@@ -1517,6 +1586,9 @@ msgstr "Eintrag wurde wiederhergestellt."
 #: functions/function.gwolle_gb_misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Kein Inhalt; dieser Eintrag ist leer."
+
+#~ msgid "Use reCAPTCHA"
+#~ msgstr "Benutze reCAPTCHA"
 
 #~ msgid "Appearance"
 #~ msgstr "Aussehen"

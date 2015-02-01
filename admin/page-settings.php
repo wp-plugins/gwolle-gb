@@ -22,7 +22,7 @@ function gwolle_gb_page_settings() {
 		$active_tab = "gwolle_gb_forms";
 		$saved = false;
 		$uninstalled = false;
-		if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
+		//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) {
 			if ( isset( $_POST['gwolle_gb_tab'] ) ) {

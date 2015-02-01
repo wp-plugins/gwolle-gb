@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-31 20:38+0100\n"
+"POT-Creation-Date: 2015-02-01 16:23+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Chun-I Lee <clslee@scu.edu.tw>\n"
 "Language-Team: zh_TW\n"
@@ -15,12 +15,12 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:21
-#: frontend/widget.php:140
+#: frontend/widget.php:143
 msgid "Guestbook"
 msgstr "訪客留言版"
 
-#: actions.php:46 actions.php:47 admin/page-settings.php:221
-#: admin/page-settings.php:308
+#: actions.php:46 actions.php:47 admin/page-settings.php:383
+#: admin/page-settings.php:470
 msgid "Entries"
 msgstr "留言"
 
@@ -34,7 +34,7 @@ msgid "New entry"
 msgstr "新增留言"
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:152
+#: actions.php:57 actions.php:80 admin/page-settings.php:184
 msgid "Settings"
 msgstr "設定"
 
@@ -58,74 +58,74 @@ msgstr "編輯留言"
 msgid "Edit"
 msgstr "編輯"
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:408
+#: admin/dashboard-widget.php:120 admin/page-editor.php:414
 #: admin/page-entries.php:678
 msgid "Check entry"
 msgstr "核准留言"
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:408
+#: admin/dashboard-widget.php:120 admin/page-editor.php:414
 #: admin/page-entries.php:678
 msgid "Check"
 msgstr "核准"
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:411
+#: admin/dashboard-widget.php:124 admin/page-editor.php:417
 #: admin/page-entries.php:681
 msgid "Uncheck entry"
 msgstr "未審核留言"
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:411
+#: admin/dashboard-widget.php:124 admin/page-editor.php:417
 #: admin/page-entries.php:681
 msgid "Uncheck"
 msgstr "未審核"
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:414
+#: admin/dashboard-widget.php:128 admin/page-editor.php:420
 #: admin/page-entries.php:684
 msgid "Mark entry as spam."
 msgstr "標記成垃圾留言"
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:357
-#: admin/page-editor.php:414 admin/page-entries.php:422
+#: admin/dashboard-widget.php:128 admin/page-editor.php:363
+#: admin/page-editor.php:420 admin/page-entries.php:422
 #: admin/page-entries.php:684
 msgid "Spam"
 msgstr "垃圾留言"
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:417
+#: admin/dashboard-widget.php:132 admin/page-editor.php:423
 #: admin/page-entries.php:687
 msgid "Mark entry as not-spam."
 msgstr "標記成不是垃圾留言"
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:417
+#: admin/dashboard-widget.php:132 admin/page-editor.php:423
 #: admin/page-entries.php:687
 msgid "Not spam"
 msgstr "不是垃圾留言"
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:420
+#: admin/dashboard-widget.php:136 admin/page-editor.php:426
 #: admin/page-entries.php:690
 msgid "Move entry to trash."
 msgstr "把留言移到回收桶."
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:367
-#: admin/page-editor.php:420 admin/page-entries.php:426
+#: admin/dashboard-widget.php:136 admin/page-editor.php:373
+#: admin/page-editor.php:426 admin/page-entries.php:426
 #: admin/page-entries.php:690
 msgid "Trash"
 msgstr "回收桶"
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:423
+#: admin/dashboard-widget.php:140 admin/page-editor.php:429
 #: admin/page-entries.php:693
 msgid "Recover entry from trash."
 msgstr "從回收桶取回留言"
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:423
+#: admin/dashboard-widget.php:140 admin/page-editor.php:429
 #: admin/page-entries.php:693
 msgid "Untrash"
 msgstr "從回收桶取回"
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:426
+#: admin/dashboard-widget.php:144 admin/page-editor.php:432
 #: admin/page-entries.php:696
 msgid "Please wait..."
 msgstr "請稍候..."
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:426
+#: admin/dashboard-widget.php:144 admin/page-editor.php:432
 #: admin/page-entries.php:696
 msgid "Wait..."
 msgstr "請稍候..."
@@ -232,11 +232,11 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr "提交到 Akismet 服務去審核."
 
 #: admin/page-editor.php:140 admin/page-gwolle-gb.php:354
-#: admin/page-settings.php:158
+#: admin/page-settings.php:190
 msgid "Changes saved."
 msgstr "改變已經被儲存了."
 
-#: admin/page-editor.php:142 admin/page-editor.php:228
+#: admin/page-editor.php:142 admin/page-editor.php:234
 msgid "Error happened during saving."
 msgstr "儲存過程中發生錯誤."
 
@@ -248,126 +248,127 @@ msgstr "留言沒有被改變."
 msgid "Entry removed."
 msgstr "留言被移除了."
 
-#: admin/page-editor.php:198
+#: admin/page-editor.php:200
 msgid "Entry has no content, even though that is mandatory."
 msgstr "留言沒有內容, 即使是強制顯示."
 
-#: admin/page-editor.php:226
+#: admin/page-editor.php:232
 msgid "Entry saved."
 msgstr "留言已儲存."
 
-#: admin/page-editor.php:232
+#: admin/page-editor.php:238
 msgid "Entry was not saved."
 msgstr "留言沒有被儲存."
 
-#: admin/page-editor.php:305 admin/page-editor.php:398
-#: admin/page-editor.php:442 admin/page-editor.php:497
-#: admin/page-editor.php:533 admin/page-editor.php:544
-#: admin/page-editor.php:552 admin/page-export.php:40
+#: admin/page-editor.php:311 admin/page-editor.php:404
+#: admin/page-editor.php:448 admin/page-editor.php:503
+#: admin/page-editor.php:539 admin/page-editor.php:550
+#: admin/page-editor.php:558 admin/page-export.php:40
 #: admin/page-import.php:314 admin/page-import.php:381
 #: admin/page-import.php:450
 msgid "Click to open or close"
 msgstr "按這裡開啟或關閉"
 
-#: admin/page-editor.php:305
+#: admin/page-editor.php:311
 msgid "Options"
 msgstr "選項"
 
-#: admin/page-editor.php:326
+#: admin/page-editor.php:332
 msgid "This entry is not yet visible."
 msgstr "此留言尚未公開不可見的."
 
-#: admin/page-editor.php:330 admin/page-editor.php:335
+#: admin/page-editor.php:336 admin/page-editor.php:341
 msgid "This entry is Visible."
 msgstr "此留言是公開可見的."
 
-#: admin/page-editor.php:331 admin/page-editor.php:336
+#: admin/page-editor.php:337 admin/page-editor.php:342
 msgid "This entry is Not Visible."
 msgstr "此留言尚未公開不可見的."
 
-#: admin/page-editor.php:347
+#: admin/page-editor.php:353
 msgid "Checked"
 msgstr "核准"
 
-#: admin/page-editor.php:375
+#: admin/page-editor.php:381
 msgid "Remove this entry Permanently."
 msgstr "永久刪除此留言"
 
-#: admin/page-editor.php:386
+#: admin/page-editor.php:392
 msgid "Save"
 msgstr "儲存"
 
-#: admin/page-editor.php:398
+#: admin/page-editor.php:404
 msgid "Actions"
 msgstr "動作"
 
-#: admin/page-editor.php:442
+#: admin/page-editor.php:448
 msgid "Details"
 msgstr "詳細訊息"
 
-#: admin/page-editor.php:446 admin/page-entries.php:546
+#: admin/page-editor.php:452 admin/page-entries.php:546
 #: admin/page-entries.php:562
 msgid "Author"
 msgstr "發言者"
 
-#: admin/page-editor.php:451 admin/page-editor.php:459
-#: admin/page-editor.php:479 admin/page-editor.php:487
+#: admin/page-editor.php:457 admin/page-editor.php:465
+#: admin/page-editor.php:485 admin/page-editor.php:493
 #: functions/function.gwolle_gb_log.php:164
 msgid "Unknown"
 msgstr "不知道"
 
-#: admin/page-editor.php:455
+#: admin/page-editor.php:461
 msgid "E-Mail"
 msgstr "電子郵件"
 
-#: admin/page-editor.php:463 admin/page-editor.php:507
+#: admin/page-editor.php:469 admin/page-editor.php:513
 msgid "Written"
 msgstr "發表於"
 
-#: admin/page-editor.php:468
+#: admin/page-editor.php:474
 msgid "Not yet"
 msgstr "尚未"
 
-#: admin/page-editor.php:472
+#: admin/page-editor.php:478
 msgid "Author's IP-address"
 msgstr "發言者的 IP 位址"
 
-#: admin/page-editor.php:475
+#: admin/page-editor.php:481
 msgid "Whois search for this IP"
 msgstr "用 Whois 搜尋此 IP"
 
-#: admin/page-editor.php:483
+#: admin/page-editor.php:489
 msgid "Host"
 msgstr "主機"
 
-#: admin/page-editor.php:497
+#: admin/page-editor.php:503
 msgid "Entry log"
 msgstr "留言記錄"
 
-#: admin/page-editor.php:516
+#: admin/page-editor.php:522
 msgid "No log yet."
 msgstr "尚未有記錄."
 
-#: admin/page-editor.php:533 frontend/write.php:143
+#: admin/page-editor.php:539 frontend/write.php:167
 msgid "Guestbook entry"
 msgstr "訪客留言版留言"
 
-#: admin/page-editor.php:538
+#: admin/page-editor.php:544
 #, php-format
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:544 frontend/write.php:137 frontend/write.php:138
+#: admin/page-editor.php:550 admin/page-settings.php:280
+#: frontend/write.php:153 frontend/write.php:160
 msgid "Homepage"
 msgstr "網站"
 
-#: admin/page-editor.php:547
+#: admin/page-editor.php:553
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "例如: <code>http://www.example.com/</code>"
 
-#: admin/page-editor.php:552 admin/page-export.php:55
+#: admin/page-editor.php:558 admin/page-export.php:55
 msgid "Origin"
 msgstr "起源"
 
@@ -609,7 +610,8 @@ msgid "The exporter will preserve the following data per entry:"
 msgstr "匯出程式將保留每個留言的下列資料:"
 
 #: admin/page-export.php:52 admin/page-import.php:348
-#: admin/page-import.php:389 frontend/write.php:110 frontend/write.php:115
+#: admin/page-import.php:389 admin/page-settings.php:217
+#: frontend/write.php:111 frontend/write.php:118
 msgid "Name"
 msgstr "名稱"
 
@@ -638,7 +640,8 @@ msgid "Host address"
 msgstr "主機位址"
 
 #: admin/page-export.php:59 admin/page-import.php:353
-#: admin/page-import.php:395 admin/page-settings.php:534
+#: admin/page-import.php:395 admin/page-settings.php:301
+#: admin/page-settings.php:716
 msgid "Message"
 msgstr "留言訊息"
 
@@ -1024,82 +1027,119 @@ msgstr "從 Gwolle-GB 匯入留言"
 msgid "Select a CSV file with exported entries to import again:"
 msgstr "選擇有先前匯出留言的 CSV 檔案以再次匯入:"
 
-#: admin/page-settings.php:165
+#: admin/page-settings.php:197
 msgid "Form"
 msgstr ""
 
-#: admin/page-settings.php:166
+#: admin/page-settings.php:198
 msgid "Reading"
 msgstr ""
 
-#: admin/page-settings.php:167
+#: admin/page-settings.php:199
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:168 frontend/write.php:164
+#: admin/page-settings.php:200 frontend/write.php:191 frontend/write.php:217
 msgid "Anti-spam"
 msgstr "反垃圾郵件"
 
-#: admin/page-settings.php:169
+#: admin/page-settings.php:201
 msgid "E-mail"
 msgstr ""
 
-#: admin/page-settings.php:170 admin/page-settings.php:549
+#: admin/page-settings.php:202 admin/page-settings.php:731
 msgid "Uninstall"
 msgstr "反安裝"
 
-#: admin/page-settings.php:192 admin/page-settings.php:279
-#: admin/page-settings.php:335 admin/page-settings.php:448
-#: admin/page-settings.php:513
+#: admin/page-settings.php:208
+msgid "Configure the form that is shown to visitors."
+msgstr ""
+
+#: admin/page-settings.php:224 admin/page-settings.php:245
+#: admin/page-settings.php:266 admin/page-settings.php:287
+#: admin/page-settings.php:308 admin/page-settings.php:329
+#: admin/page-settings.php:345
+msgid "Enabled"
+msgstr ""
+
+#: admin/page-settings.php:232 admin/page-settings.php:253
+#: admin/page-settings.php:274 admin/page-settings.php:295
+#: admin/page-settings.php:316
+msgid "Mandatory"
+msgstr ""
+
+#: admin/page-settings.php:238 frontend/write.php:125 frontend/write.php:132
+msgid "City"
+msgstr "城市"
+
+#: admin/page-settings.php:259 frontend/write.php:139 frontend/write.php:146
+msgid "Email"
+msgstr "電子郵件"
+
+#: admin/page-settings.php:322
+msgid "Custom Anti-spam"
+msgstr ""
+
+#: admin/page-settings.php:332 admin/page-settings.php:348
+msgid "When enabled it is mandatory."
+msgstr ""
+
+#: admin/page-settings.php:338 admin/page-settings.php:751
+msgid "reCAPTCHA"
+msgstr ""
+
+#: admin/page-settings.php:354 admin/page-settings.php:441
+#: admin/page-settings.php:497 admin/page-settings.php:630
+#: admin/page-settings.php:695
 msgid "Save settings"
 msgstr "儲存設定"
 
-#: admin/page-settings.php:211
+#: admin/page-settings.php:373
 msgid "Entries per page on the frontend"
 msgstr "前台每頁顯示留言數"
 
-#: admin/page-settings.php:226
+#: admin/page-settings.php:388
 msgid "Number of entries shown on the frontend."
 msgstr "前台每頁顯示的留言數量."
 
-#: admin/page-settings.php:232
+#: admin/page-settings.php:394
 msgid "Line breaks"
 msgstr ""
 
-#: admin/page-settings.php:239
+#: admin/page-settings.php:401
 msgid "Show line breaks."
 msgstr "顯示換行符號."
 
-#: admin/page-settings.php:241
+#: admin/page-settings.php:403
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
 msgstr "顯示換行符號讓新留言者瞭解它. (可能導致留言變的很長. 預設關閉的.)"
 
-#: admin/page-settings.php:247
+#: admin/page-settings.php:409
 msgid "Smileys"
 msgstr ""
 
-#: admin/page-settings.php:254
+#: admin/page-settings.php:416
 msgid "Display smileys as images."
 msgstr ""
 
-#: admin/page-settings.php:256
+#: admin/page-settings.php:418
 #, php-format
 msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smileys."
 msgstr ""
 
-#: admin/page-settings.php:262
+#: admin/page-settings.php:424
 msgid "Links"
 msgstr ""
 
-#: admin/page-settings.php:269
+#: admin/page-settings.php:431
 msgid "Link authors' name to their website."
 msgstr "連結到發言者的網站."
 
-#: admin/page-settings.php:271
+#: admin/page-settings.php:433
 msgid ""
 "The author of an entry can set his/her website. If this setting is checked, "
 "his/her name will be a link to that website."
@@ -1107,23 +1147,23 @@ msgstr ""
 "發言者能在留言時輸入他/她們的網站. 如果這個設定有勾選, 他/她們的名字將被連結"
 "到他們的網站."
 
-#: admin/page-settings.php:298
+#: admin/page-settings.php:460
 msgid "Entries per page in the admin"
 msgstr "管理後台每頁顯示留言數"
 
-#: admin/page-settings.php:313
+#: admin/page-settings.php:475
 msgid "Number of entries shown in the admin."
 msgstr "管理後台每頁顯示的留言數量."
 
-#: admin/page-settings.php:319
+#: admin/page-settings.php:481
 msgid "Entry icons"
 msgstr "留言圖示"
 
-#: admin/page-settings.php:325
+#: admin/page-settings.php:487
 msgid "Show entry icons"
 msgstr "顯示留言圖示"
 
-#: admin/page-settings.php:327
+#: admin/page-settings.php:489
 msgid ""
 "These icons are shown in every entry row of the admin list, so that you know "
 "its status (checked, spam and trash)."
@@ -1131,35 +1171,35 @@ msgstr ""
 "這些圖示會顯示在管理留言頁面的每個留言, 這樣你可以知道它們的狀態 (核准, 垃圾"
 "留言及回收桶)."
 
-#: admin/page-settings.php:354
+#: admin/page-settings.php:516
 msgid "Moderate Guestbook"
 msgstr "節制的訪客留言版"
 
-#: admin/page-settings.php:361
+#: admin/page-settings.php:524
 msgid "Moderate entries before publishing them."
 msgstr "留言公開前必需審核留言是否合適發佈."
 
-#: admin/page-settings.php:364
+#: admin/page-settings.php:528
 msgid ""
 "New entries have to be unlocked by a moderator before they are visible to "
 "the public."
 msgstr "新的留言必需等管理員核准後才會被公開看到."
 
-#: admin/page-settings.php:366
+#: admin/page-settings.php:530
 msgid ""
 "It is recommended that you turn this on, because you are responsible for the "
 "content on your website."
 msgstr "建議你打開這個選項, 因為你有責任確保你的網站上的內容是否合適."
 
-#: admin/page-settings.php:377
+#: admin/page-settings.php:541
 msgid "Learn more about Akismet..."
 msgstr "閱讀更多關於 Akismet..."
 
-#: admin/page-settings.php:377 admin/page-settings.php:411
+#: admin/page-settings.php:541 admin/page-settings.php:599
 msgid "What's that?"
 msgstr "這是什麼?"
 
-#: admin/page-settings.php:387
+#: admin/page-settings.php:551
 msgid ""
 "Akismet helps you to fight spam. It's free and easy to install. Download and "
 "install it today to stop spam in your guestbook."
@@ -1167,56 +1207,78 @@ msgstr ""
 "Akismet 插件幫助你對抗垃圾留言. 它是免費而且容易安裝的. 今天就下載並安裝它, "
 "以阻止垃垃留言在你的留言版留言."
 
-#: admin/page-settings.php:390
+#: admin/page-settings.php:554
 #, php-format
 msgid ""
 "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
 "can enter it at the <a href=\"%s\">Akismet configuration page</a>."
 msgstr ""
 
-#: admin/page-settings.php:397
+#: admin/page-settings.php:563
 msgid "Use Akismet"
 msgstr "使用 Akismet"
 
-#: admin/page-settings.php:399
+#: admin/page-settings.php:565
 msgid ""
 "The WordPress API key has been found, so you can start using Akismet right "
 "now."
 msgstr "發現 WordPress API key, 你現在能開始使用 Akismet."
 
-#: admin/page-settings.php:411
+#: admin/page-settings.php:577
+msgid "Custom Anti-Spam Security Question"
+msgstr ""
+
+#: admin/page-settings.php:580
+msgid "12 + six"
+msgstr ""
+
+#: admin/page-settings.php:581
+msgid "Custom security question to battle spam."
+msgstr ""
+
+#: admin/page-settings.php:583
+msgid "18"
+msgstr ""
+
+#: admin/page-settings.php:584
+msgid "The answer to your security question."
+msgstr ""
+
+#: admin/page-settings.php:586
+msgid ""
+"You can ask your visitors to answer a custom security question, so only real "
+"people can post an entry."
+msgstr ""
+
+#: admin/page-settings.php:599
 msgid "Learn more about reCAPTCHA..."
 msgstr "閱讀更多關於 reCAPTCHA..."
 
-#: admin/page-settings.php:424
-msgid "Use reCAPTCHA"
-msgstr "使用 reCAPTCHA"
-
-#: admin/page-settings.php:427
+#: admin/page-settings.php:610
 msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
 msgstr ""
 "從你的 reCAPTCHA 帳號取得的<strong>公鑰</strong> (<strong>Site (Public) key</"
 "strong>)"
 
-#: admin/page-settings.php:430
+#: admin/page-settings.php:613
 msgid "<strong>Secret</strong> key of your reCAPTCHA account"
 msgstr ""
 "從你的 reCAPTCHA 帳號取得的<strong>私鑰</strong> (<strong>Secret Key</"
 "strong>)"
 
-#: admin/page-settings.php:432
+#: admin/page-settings.php:615
 msgid "The keys can be found at your"
 msgstr "這個金鑰能被發現在你的"
 
-#: admin/page-settings.php:432
+#: admin/page-settings.php:615
 msgid "Go to my reCAPTCHA sites..."
 msgstr "前往我的 reCAPTCHA 網站..."
 
-#: admin/page-settings.php:432
+#: admin/page-settings.php:615
 msgid "reCAPTCHA sites overview"
 msgstr "reCAPTCHA 網站概要"
 
-#: admin/page-settings.php:437
+#: admin/page-settings.php:619
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be "
@@ -1227,7 +1289,7 @@ msgstr ""
 "Gwolle-GB 留言版  l 中的 reCAPTCHA 函數庫將不會被載入, 而使用原先已經使用中的"
 "那個. 這樣有可能會產生意外的結果."
 
-#: admin/page-settings.php:439
+#: admin/page-settings.php:621
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. However, this is an old and incompatible "
@@ -1236,93 +1298,100 @@ msgstr ""
 "<strong>警告:</strong> 顯然你的主題或某些插件已經在使用 reCAPTCHA 函數庫. 然"
 "而, 那是個舊的而且不兼容的版本, 所以驗證碼將不被用於 Gwolle-GB 留言版."
 
-#: admin/page-settings.php:467
+#: admin/page-settings.php:649
 msgid "Admin mail content"
 msgstr "管理員通知郵件內容"
 
-#: admin/page-settings.php:479
+#: admin/page-settings.php:654 frontend/posthandling.php:304
+msgid ""
+"Hello,\n"
+"\n"
+"There is a new guestbook entry at '%blog_name%'.\n"
+"You can check it at %entry_management_url%.\n"
+"\n"
+"Have a nice day!\n"
+"Your Gwolle-GB-Mailer"
+msgstr ""
+
+#: admin/page-settings.php:661
 msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
 msgstr "你可以設定通知用戶有新留言的郵件的內容. 支援以下標籤:"
 
-#: admin/page-settings.php:495
+#: admin/page-settings.php:677
 msgid "Admin mail from address"
 msgstr "通知郵件寄件者帳號"
 
-#: admin/page-settings.php:501
+#: admin/page-settings.php:683
 msgid ""
 "You can set the email address that is used for the From header of the mail "
 "that a notification subscriber gets on new entries."
 msgstr "你可以設定通知用戶有新留言的郵件寄件者的電子郵件帳號."
 
-#: admin/page-settings.php:503
+#: admin/page-settings.php:685
 msgid "By default the main admin address is used from General >> Settings."
 msgstr "預設的主要管理員帳號是使用來自 設定>>一般 中的設定"
 
-#: admin/page-settings.php:537
+#: admin/page-settings.php:719
 msgid "The entries and settings have been removed."
 msgstr ""
 
-#: admin/page-settings.php:538
+#: admin/page-settings.php:720
 msgid "The plugin is deactivated."
 msgstr ""
 
-#: admin/page-settings.php:539
+#: admin/page-settings.php:721
 msgid "You can now go to your"
 msgstr ""
 
-#: admin/page-settings.php:539
+#: admin/page-settings.php:721
 msgid "dashboard."
 msgstr ""
 
-#: admin/page-settings.php:551
+#: admin/page-settings.php:733
 msgid ""
 "Uninstalling means that all database entries are removed (settings and "
 "entries)."
 msgstr "反安裝代表所有的資料庫將被移除 (包括所有設定跟留言)."
 
-#: admin/page-settings.php:553
+#: admin/page-settings.php:735
 msgid "This can <strong>not</strong> be undone."
 msgstr "這個 <strong>不能</strong> 被還原."
 
-#: admin/page-settings.php:560
+#: admin/page-settings.php:742
 msgid "Confirm"
 msgstr ""
 
-#: admin/page-settings.php:563
+#: admin/page-settings.php:745
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr "是的, 我絕對相信這一點. 繼續進行!"
 
-#: admin/page-settings.php:569
-msgid "reCAPTCHA"
-msgstr ""
-
-#: admin/page-settings.php:572
+#: admin/page-settings.php:754
 msgid "Also delete the reCAPTCHA keys"
 msgstr ""
 
-#: admin/page-settings.php:580
+#: admin/page-settings.php:762
 msgid "Uninstall &raquo;"
 msgstr "反安裝 &raquo;"
 
-#: frontend/posthandling.php:128 frontend/posthandling.php:142
+#: frontend/posthandling.php:191 frontend/posthandling.php:205
 msgid "There were errors submitting your guestbook entry."
 msgstr "你的留言送出的過程中發生了一些錯誤."
 
-#: frontend/posthandling.php:194
+#: frontend/posthandling.php:257
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr "重覆留言: 留言已經被儲存過了."
 
-#: frontend/posthandling.php:210
+#: frontend/posthandling.php:273
 msgid "Thank you for your entry."
 msgstr "感謝你的留言."
 
-#: frontend/posthandling.php:212
+#: frontend/posthandling.php:275
 msgid "We will review it and unlock it in a short while."
 msgstr "我們將會檢視它, 並在很短的時間內審核它."
 
-#: frontend/posthandling.php:246
+#: frontend/posthandling.php:309
 msgid "New Guestbook Entry"
 msgstr "新留言版留言"
 
@@ -1355,7 +1424,7 @@ msgstr "發表於"
 msgid "Displays the recent guestbook entries."
 msgstr "顯示最近的留言."
 
-#: frontend/widget.php:30 frontend/widget.php:144
+#: frontend/widget.php:30 frontend/widget.php:147
 msgid "Visit guestbook"
 msgstr "訪問留言版"
 
@@ -1363,78 +1432,78 @@ msgstr "訪問留言版"
 msgid "Click here to get to the guestbook."
 msgstr "按這裡前往留言版."
 
-#: frontend/widget.php:158
+#: frontend/widget.php:161
 msgid "Title:"
 msgstr "標題:"
 
-#: frontend/widget.php:164
+#: frontend/widget.php:167
 msgid "Number of entries:"
 msgstr "顯示留言數量:"
 
-#: frontend/widget.php:180
+#: frontend/widget.php:183
 msgid "Best entries to show:"
 msgstr "顯示最佳留言:"
 
-#: frontend/widget.php:182
+#: frontend/widget.php:185
 msgid "List of entry_id's, comma-separated"
 msgstr "輸入留言的 ID, 用逗號分隔開來"
 
-#: frontend/widget.php:186
+#: frontend/widget.php:189
 msgid "Number of words for each entry:"
 msgstr "每個留言顯示的字數:"
 
-#: frontend/widget.php:202
+#: frontend/widget.php:205
 msgid "Link text:"
 msgstr "連結顯示文字:"
 
-#: frontend/widget.php:208
+#: frontend/widget.php:211
 msgid "Select the page of the guestbook:"
 msgstr "選擇留言版的所在頁面:"
 
-#: frontend/widget.php:210
+#: frontend/widget.php:213
 msgid "Select page"
 msgstr "選擇頁面"
 
-#: frontend/write.php:96
+#: frontend/write.php:93
 msgid "Write a new entry."
 msgstr "輸入新留言."
 
-#: frontend/write.php:107
+#: frontend/write.php:106
 msgid "Write a new entry for the Guestbook"
 msgstr "在訪客留言版上寫一個新留言"
 
-#: frontend/write.php:120 frontend/write.php:121
-msgid "City"
-msgstr "城市"
+#: frontend/write.php:197
+msgid "Answer"
+msgstr ""
 
-#: frontend/write.php:127 frontend/write.php:132
-msgid "Email"
-msgstr "電子郵件"
+#: frontend/write.php:198
+msgid "Question:"
+msgstr ""
 
-#: frontend/write.php:184
+#: frontend/write.php:237
 msgid "Submit"
 msgstr "送出"
 
-#: frontend/write.php:189
+#: frontend/write.php:242
 msgid "Fields marked with * are obligatory."
 msgstr "標有 * 的是必要欄位"
 
-#: frontend/write.php:191
+#: frontend/write.php:245
 msgid "The E-mail address wil not be published."
 msgstr "這個電子郵件信箱將不會被公開."
 
-#: frontend/write.php:193
+#: frontend/write.php:248
 #, php-format
 msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
 "span>."
 msgstr ""
 
-#: frontend/write.php:198
+#: frontend/write.php:253
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr "你的留言將在我們審核過後才可以被看到."
 
-#: frontend/write.php:200
+#: frontend/write.php:256
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr "我們保有編輯, 刪除或不讓留言發表的權利"
 
@@ -1485,6 +1554,9 @@ msgstr "留言從回收桶取回."
 #: functions/function.gwolle_gb_misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "沒有內容可以顯示. 這個留言是空的."
+
+#~ msgid "Use reCAPTCHA"
+#~ msgstr "使用 reCAPTCHA"
 
 #~ msgid "Appearance"
 #~ msgstr "外觀"
