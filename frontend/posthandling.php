@@ -238,7 +238,7 @@ function gwolle_gb_frontend_posthandling() {
 			$mailTags = array('user_email', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url');
 			$mail_body = stripslashes( get_option( 'gwolle_gb-adminMailContent' ) );
 			if (!$mail_body) {
-				$mail_body = get_option( 'gwolle_gb-defaultMailText' );
+				$mail_body = __("Hello,\n\nThere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer", GWOLLE_GB_TEXTDOMAIN);
 			}
 			// FIXME: use more content in the mailbody from the entry, like author_name, email, content
 

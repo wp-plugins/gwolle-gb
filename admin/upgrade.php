@@ -412,6 +412,14 @@ function upgrade_gwolle_gb() {
 			");
 	}
 
+	if (version_compare($installed_ver, '1.1.3', '<')) {
+		/*
+		 * 1.1.2->1.1.3
+		 */
+		delete_option('gwolle_gb-guestbookOnly');
+		delete_option('gwolle_gb-defaultMailText');
+	}
+
 	// Update the plugin version option
 	update_option('gwolle_gb_version', GWOLLE_GB_VER);
 }

@@ -22,7 +22,7 @@ function gwolle_gb_page_settings() {
 		$active_tab = "gwolle_gb_forms";
 		$saved = false;
 		$uninstalled = false;
-		//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
+		if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
 		if ( isset( $_POST['option_page']) &&  $_POST['option_page'] == 'gwolle_gb_options' ) {
 			if ( isset( $_POST['gwolle_gb_tab'] ) ) {
@@ -30,7 +30,33 @@ function gwolle_gb_page_settings() {
 
 				switch ( $active_tab ) {
 					case 'gwolle_gb_forms':
-
+						$list = Array(
+							'form_name_enabled',
+							'form_name_mandatory',
+							'form_city_enabled',
+							'form_city_mandatory',
+							'form_email_enabled',
+							'form_email_mandatory',
+							'form_homepage_enabled',
+							'form_homepage_mandatory',
+							'form_message_enabled',
+							'form_message_mandatory',
+							'form_antispam_enabled',
+							'form_antispam_mandatory',
+							'form_recaptcha_enabled',
+							'form_recaptcha_mandatory'
+							);
+						$form_setting = Array();
+						foreach ( $list as $item ) {
+							if ( isset($_POST[$item]) && $_POST[$item] == 'on' ) {
+								$form_setting[$item] = 'true';
+							} else {
+								$form_setting[$item] = 'false';
+							}
+						}
+						$form_setting = serialize( $form_setting );
+						update_option( 'gwolle_gb-form', $form_setting );
+						$saved = true;
 						break;
 					case 'gwolle_gb_reading':
 
@@ -116,7 +142,7 @@ function gwolle_gb_page_settings() {
 					case 'gwolle_gb_mail':
 
 						// FIXME: sanitize value
-						if ( isset($_POST['adminMailContent']) && $_POST['adminMailContent'] != get_option('gwolle_gb-defaultMailText') ) {
+						if ( isset($_POST['adminMailContent']) ) {
 							update_option('gwolle_gb-adminMailContent', $_POST['adminMailContent']);
 							$saved = true;
 						}
@@ -173,21 +199,161 @@ function gwolle_gb_page_settings() {
 
 			<form name="gwolle_gb_options" class="gwolle_gb_options gwolle_gb_forms <?php if ($active_tab == 'gwolle_gb_forms') { echo "active";} ?>" method="post" action="">
 				<input type="hidden" id="gwolle_gb_tab" name="gwolle_gb_tab" value="gwolle_gb_forms" />
+				<h3><?php _e('Configure the form that is shown to visitors.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 				<?php
 				settings_fields( 'gwolle_gb_options' );
 				do_settings_sections( 'gwolle_gb_options' ); ?>
 				<table class="form-table">
 
-					<tr valign="top">
-						<th scope="row">Settings for this Tab will be coming soon.</th>
-						<td>
+					<?php $form_setting = gwolle_gb_get_setting( 'form' ); ?>
 
+					<tr valign="top">
+						<th scope="row"><label for="form_name_enabled"><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td class="narrow">
+							<input type="checkbox" id="form_name_enabled" name="form_name_enabled"<?php
+								if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_name_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+						<td class="narrow">
+							<input type="checkbox" id="form_name_mandatory" name="form_name_mandatory"<?php
+								if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_name_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 					</tr>
 
 
+					<tr valign="top">
+						<th scope="row"><label for="form_city_enabled"><?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td class="narrow">
+							<input type="checkbox" id="form_city_enabled" name="form_city_enabled"<?php
+								if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_city_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+						<td class="narrow">
+							<input type="checkbox" id="form_city_mandatory" name="form_city_mandatory"<?php
+								if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_city_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row"><label for="form_email_enabled"><?php _e('Email', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td class="narrow">
+							<input type="checkbox" id="form_email_enabled" name="form_email_enabled"<?php
+								if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_email_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+						<td class="narrow">
+							<input type="checkbox" id="form_email_mandatory" name="form_email_mandatory"<?php
+								if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_email_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row"><label for=""form_homepage_enabled><?php _e('Homepage', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td class="narrow">
+							<input type="checkbox" id="form_homepage_enabled" name="form_homepage_enabled"<?php
+								if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_homepage_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+						<td class="narrow">
+							<input type="checkbox" id="form_homepage_mandatory" name="form_homepage_mandatory"<?php
+								if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_homepage_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row"><label for="form_message_enabled"><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td class="narrow">
+							<input type="checkbox" id="form_message_enabled" name="form_message_enabled"<?php
+								if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_message_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+						<td class="narrow">
+							<input type="checkbox" id="form_message_mandatory" name="form_message_mandatory"<?php
+								if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_message_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row"><label for="form_antispam_enabled"><?php _e('Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td class="narrow">
+							<input type="checkbox" id="form_antispam_enabled" name="form_antispam_enabled"<?php
+								if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_antispam_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+						<td class="narrow">
+							<input type="checkbox" id="form_antispam_mandatory" name="form_antispam_mandatory"<?php
+								if ( isset($form_setting['form_antispam_mandatory']) && $form_setting['form_antispam_mandatory']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_antispam_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row"><label for="form_recaptcha_enabled"><?php _e('reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td class="narrow">
+							<input type="checkbox" id="form_recaptcha_enabled" name="form_recaptcha_enabled"<?php
+								if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_recaptcha_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+						<td class="narrow">
+							<input type="checkbox" id="form_recaptcha_mandatory" name="form_recaptcha_mandatory"<?php
+								if ( isset($form_setting['form_recaptcha_mandatory']) && $form_setting['form_recaptcha_mandatory']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="form_recaptcha_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
 					<tr>
-						<td colspan="2">
+						<td colspan="3">
 							<p class="submit">
 								<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
 							</p>
@@ -473,9 +639,9 @@ function gwolle_gb_page_settings() {
 						<th scope="row"><label for="adminMailContent"><?php _e('Admin mail content', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
 							<?php
-							$adminMailContent = get_option('gwolle_gb-adminMailContent');
+							$adminMailContent = get_option('gwolle_gb-adminMailContent', false);
 							if (!$adminMailContent) { // No text set by the user. Use the default text.
-								$mailText = get_option( 'gwolle_gb-defaultMailText' );
+								$mailText = __("Hello,\n\nThere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer", GWOLLE_GB_TEXTDOMAIN);
 							} else {
 								$mailText = stripslashes($adminMailContent);
 							} ?>

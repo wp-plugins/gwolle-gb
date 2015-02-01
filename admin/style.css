@@ -113,7 +113,11 @@ form.gwolle_gb_options.active {
 	display: block;
 }
 
-
+/* Forms tab */
+.gwolle_gb_options th.narrow,
+.gwolle_gb_options td.narrow {
+	width: 100px;
+}
 
 
 /* Dashboard Widget */

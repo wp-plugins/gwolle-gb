@@ -108,19 +108,18 @@ add_action( 'admin_init', 'gwolle_gb_register_settings' );
 function gwolle_gb_register_settings() {
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-adminMailContent',  'strval' );
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-akismet-active',    'strval' ); // 'false'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-entries_per_page',  'intval' ); // 20
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-entriesPerPage',    'intval' ); // 20
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-guestbookOnly',     'strval' ); // to delete
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-form',              'strval' ); // serialized Array, but initially empty
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-linkAuthorWebsite', 'strval' ); // 'true'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-mail-from',         'strval' ); // empty string
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-moderate-entries',  'strval' ); // 'true'
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-notifyByMail',      'strval' ); // array, but empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-notifyByMail',      'strval' ); // array, but initially empty
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-recaptcha-active',  'strval' ); // 'false'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-showEntryIcons',    'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-showLineBreaks',    'strval' ); // 'false'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-showSmilies',       'strval' ); // 'true'
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-showEntryIcons',    'strval' ); // 'true'
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-defaultMailText',   'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-entries_per_page',  'intval' ); // 20
-	register_setting( 'gwolle_gb_options', 'gwolle_gb_version',           'strval' ); // mind the underscore
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-mail-from',         'strval' ); // empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb_version',           'strval' ); // string, mind the underscore
 }
 
 

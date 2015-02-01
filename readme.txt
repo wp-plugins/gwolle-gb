@@ -184,6 +184,8 @@ Yes, it is again actively maintained.
 = 1.1.3 =
 * 2015-02-
 * Add CSS for the widget.
+* Add a simple Form Builder.
+* Fix defaultMailText.
 
 = 1.1.2 =
 * 2015-01-31
