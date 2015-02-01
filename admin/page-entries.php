@@ -5,7 +5,7 @@
  */
 
 // No direct calls to this script
-if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
+if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 	die('No direct calls allowed!');
 }
 
@@ -344,8 +344,6 @@ function gwolle_gb_page_entries() {
 			$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum - 1) * $entries_per_page) - 1;
 		}
 
-		//if ( WP_DEBUG ) { echo "mysqlFirstRow on $show: "; var_dump($mysqlFirstRow); }
-		// FIXME: buggy paging on page 1 - 4 of "all"
 		// Get the entries
 		if ( $show == 'checked' ) {
 			$entries = gwolle_gb_get_entries(array(
@@ -460,7 +458,7 @@ function gwolle_gb_page_entries() {
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
 						// Only show controls when there are entries
-						if ( is_array($entries) && count($entries) > 0 ) {
+						if ( is_array($entries) && !empty($entries) ) {
 							echo $massEditControls_select . $massEditControls;
 						}
 						// FIXME: add button to delete all spam and trash entries
@@ -469,6 +467,7 @@ function gwolle_gb_page_entries() {
 
 					<div class="tablenav-pages">
 						<?php
+						$highDotsMade = false;
 						$pagination = '<span class="displaying-num">' . __('Showing:', GWOLLE_GB_TEXTDOMAIN) .
 							' ' . $firstEntryNum . ' &#8211; ' . $lastEntryNum . ' ' . __('of', GWOLLE_GB_TEXTDOMAIN) . ' ' . $count[$show] . '</span>
 							';
@@ -539,13 +538,13 @@ function gwolle_gb_page_entries() {
 								<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-top" id="check-all-top" type="checkbox"></th>
 								<th scope="col" ><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<?php
-								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true' && $show !== 'trash') { ?>
+								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') { ?>
 									<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 								<?php
 								} ?>
 								<th scope="col" ><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<th scope="col" ><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<th scope="col" ><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
 							</tr>
 						</thead>
@@ -555,13 +554,13 @@ function gwolle_gb_page_entries() {
 								<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-bottom" id="check-all-bottom" type="checkbox"></th>
 								<th scope="col" ><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<?php
-								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true' && $show !== 'trash') { ?>
+								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') { ?>
 									<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 								<?php
 								} ?>
 								<th scope="col" ><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<th scope="col" ><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<th scope="col" ><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
 							</tr>
 						</tfoot>
@@ -570,7 +569,7 @@ function gwolle_gb_page_entries() {
 						<tbody>
 							<?php $rowOdd = true;
 							$html_output = '';
-							if ( !is_array($entries) || count($entries) === 0 ) {
+							if ( !is_array($entries) || empty($entries) ) {
 								$colspan = (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') ? 7 : 6;
 								$html_output .= '
 									<tr>
@@ -711,7 +710,7 @@ function gwolle_gb_page_entries() {
 							<?php
 							$massEditControls_select = '<select name="massEditAction2">';
 							// Only show controls when there are entries
-							if ( is_array($entries) && count($entries) > 0 ) {
+							if ( is_array($entries) && !empty($entries) ) {
 								echo $massEditControls_select . $massEditControls;
 							}
 							?>

@@ -114,5 +114,53 @@ function gwolle_gb_is_moderator($user_id) {
 }
 
 
+/*
+ * Get the setting for Gwolle-GB that is saved as serialized data.
+ *
+ * Args: $request, string with value 'form', 'read' or 'widget'.
+ *
+ * Return:
+ * - Array with settings for that request.
+ * - or false if no setting.
+ */
+function gwolle_gb_get_setting($request) {
+
+	$provided = array('form', 'read', 'widget');
+	if ( in_array( $request, $provided ) ) {
+		switch ( $request ) {
+			case 'form':
+				$defaults = Array(
+					'form_name_enabled'       => 'true',
+					'form_name_mandatory'     => 'true',
+					'form_city_enabled'       => 'true',
+					'form_city_mandatory'     => 'false',
+					'form_email_enabled'      => 'true',
+					'form_email_mandatory'    => 'true',
+					'form_homepage_enabled'   => 'true',
+					'form_homepage_mandatory' => 'false',
+					'form_message_enabled'    => 'true',
+					'form_message_mandatory'  => 'true',
+					'form_antispam_enabled'   => 'false',
+					'form_recaptcha_enabled'  => 'false'
+					);
+				$setting = get_option( 'gwolle_gb-form', Array() );
+				if ( is_string( $setting ) ) {
+					$setting = unserialize( $setting );
+				}
+				$setting = array_merge( $defaults, $setting );
+				return $setting;
+				break;
+			case 'read':
+				// Stub
+				return Array();
+				break;
+			case 'widget':
+				// Stub
+				return Array();
+				break;
+		}
+	}
+	return false;
+}
 
 

@@ -1,7 +1,9 @@
 <?php
 
 // No direct calls to this script
-if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
+if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
+	die('No direct calls allowed!');
+}
 
 
 /*
@@ -15,8 +17,8 @@ function gwolle_gb_frontend_read() {
 
 	// Get permalink of the guestbookpage so we can work with it.
 	$page_link = get_permalink( get_the_ID() );
-	$pattern = '/\?/';
-	if ( !preg_match($pattern, $page_link, $matches, PREG_OFFSET_CAPTURE, 3) ) {
+	$pattern = '?';
+	if ( !strpos($page_link, $pattern) ) {
 		// Append with a slash and questionmark, so we can add parameters
 		$page_link .= '/?';
 	}
@@ -61,6 +63,11 @@ function gwolle_gb_frontend_read() {
 	} elseif ($lastEntryNum > $entriesCount) {
 		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
 	}
+
+	/* Make an optional extra page, with a Get-parameter like show_all=true, which shows all the entries.
+	 * This would need a settings option, which is off by default.
+	 * https://wordpress.org/support/topic/show-all-posts-6?replies=1
+	 */
 
 	/* Get the entries for the frontend */
 	$entries = gwolle_gb_get_entries(
@@ -134,11 +141,12 @@ function gwolle_gb_frontend_read() {
 		}
 	}
 	$pagination .= '</div>';
-	$output .= $pagination;
-
+	if ($countPages > 1) {
+		$output .= $pagination;
+	}
 
 	/* Entries */
-	if ( !is_array($entries) || count($entries) == 0 ) {
+	if ( !is_array($entries) || empty($entries) ) {
 		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
 	} else {
 		$first = true;
@@ -159,28 +167,29 @@ function gwolle_gb_frontend_read() {
 			$output .= '">';
 
 			// Author Info
-			$output .= '<div class="author-info">';
+			$output .= '<div class="gb-author-info">';
 
 			// Author Avatar
 			if ( get_option('show_avatars') ) {
 				$avatar = get_avatar( $entry->get_author_email(), 32, '', $entry->get_author_name() );
 				if ($avatar) {
-					$output .= '<span class="author-avatar">' . $avatar . '</span>';
+					$output .= '<span class="gb-author-avatar">' . $avatar . '</span>';
 				}
 			}
 
 			$author_name_html = gwolle_gb_get_author_name_html($entry);
-			$output .= '<span class="author-name">' . $author_name_html . '</span>';
+			$output .= '<span class="gb-author-name">' . $author_name_html . '</span>';
 
 			// Author Origin
 			$origin = $entry->get_author_origin();
 			if ( strlen(str_replace(' ', '', $origin)) > 0 ) {
-				$output .= ' ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' <span class="author-origin">' . gwolle_gb_format_value_for_output($origin) . '</span>';
+				$output .= '<span class="gb-author-origin"> ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' ' . gwolle_gb_format_value_for_output($origin) . '</span>';
 			}
 
 			// Entry Date and Time
-			$output .= ' ' . __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ' . date_i18n( get_option('date_format'), $entry->get_date() ) . ', ' .
-				trim(date_i18n( get_option('time_format'), $entry->get_date() )) . ': ';
+			$output .= '<span class="gb-datetime"><span class="gb-date"> ' . __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ' . date_i18n( get_option('date_format'), $entry->get_date() ) .
+				'</span><span class="gb-time">, ' .
+				trim(date_i18n( get_option('time_format'), $entry->get_date() )) . '</span></span>: ';
 			$output .= '</div>';
 
 			// Main Content
@@ -194,13 +203,21 @@ function gwolle_gb_frontend_read() {
 			} else {
 				$output .= $entry_content;
 			}
+
+			// Edit Link for Moderators
+			if ( function_exists('current_user_can') && current_user_can('moderate_comments') ) {
+				$output .= '
+					<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
+			}
 			$output .= '</div>';
 
 			$output .= '</div>';
 		}
 	}
 
-	$output .= $pagination;
+	if ($countPages > 1) {
+		$output .= $pagination;
+	}
 
 	return $output;
 }
