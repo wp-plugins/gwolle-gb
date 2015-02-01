@@ -177,7 +177,7 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.1.3 =
-* 2015-02-
+* 2015-02-01
 * Add a simple Form Builder.
 * Add custom Anti-Spam question.
 * Add CSS for the widget.
