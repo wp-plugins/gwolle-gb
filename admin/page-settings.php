@@ -313,7 +313,7 @@ function gwolle_gb_page_settings() {
 
 
 					<tr valign="top">
-						<th scope="row"><label for="form_antispam_enabled"><?php _e('Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<th scope="row"><label for="form_antispam_enabled"><?php _e('Custom Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td class="narrow">
 							<input type="checkbox" id="form_antispam_enabled" name="form_antispam_enabled"<?php
 								if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
