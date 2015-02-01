@@ -121,7 +121,11 @@ function gwolle_gb_frontend_write() {
 					<div class="label"><label for="gwolle_gb_author_origin">' . __('City', GWOLLE_GB_TEXTDOMAIN) . ':';
 		if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) { $output .= ' *';}
 		$output .= '</label></div>
-					<div class="input"><input value="' . $origin . '" type="text" name="gwolle_gb_author_origin" id="gwolle_gb_author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+					<div class="input"><input class="';
+		if (in_array('author_origin', $gwolle_gb_error_fields)) {
+			$output .= ' error';
+		}
+		$output .= '" value="' . $origin . '" type="text" name="gwolle_gb_author_origin" id="gwolle_gb_author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 				</div>
 				<div class="clearBoth">&nbsp;</div>';
 	}
@@ -145,7 +149,11 @@ function gwolle_gb_frontend_write() {
 				<div class="label"><label for="gwolle_gb_author_website">' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . ':';
 		if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) { $output .= ' *';}
 		$output .= '</label></div>
-				<div class="input"><input value="' . $website . '" type="text" name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+				<div class="input"><input class="';
+		if (in_array('author_website', $gwolle_gb_error_fields)) {
+			$output .= ' error';
+		}
+		$output .= '" value="' . $website . '" type="text" name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
 	}

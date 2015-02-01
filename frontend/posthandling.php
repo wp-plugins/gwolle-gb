@@ -37,47 +37,100 @@ function gwolle_gb_frontend_posthandling() {
 		 * Collect data from the Form
 		 */
 		$gwolle_gb_data = array();
-		if (isset($_POST['gwolle_gb_author_name'])) {
-			$gwolle_gb_data['author_name'] = trim($_POST['gwolle_gb_author_name']);
-			if ( $gwolle_gb_data['author_name'] == "" ) {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'name'; // mandatory
+		$form_setting = gwolle_gb_get_setting( 'form' );
+
+		if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_author_name'])) {
+				$gwolle_gb_data['author_name'] = trim($_POST['gwolle_gb_author_name']);
+				if ( $gwolle_gb_data['author_name'] == "" ) {
+					if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'name'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'name'; // mandatory
+				}
 			}
-		} else {
-			$gwolle_gb_errors = true;
-			$gwolle_gb_error_fields[] = 'name'; // mandatory
-		}
-		if (isset($_POST['gwolle_gb_author_origin'])) {
-			$gwolle_gb_data['author_origin'] = trim($_POST['gwolle_gb_author_origin']);
-		}
-		if (isset($_POST['gwolle_gb_author_email'])) {
-			$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
-			if ( $gwolle_gb_data['author_email'] == "" ) {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'author_email'; // mandatory
-			}
-		} else {
-			$gwolle_gb_errors = true;
-			$gwolle_gb_error_fields[] = 'author_email'; // mandatory
-		}
-		if (isset($_POST['gwolle_gb_author_website'])) {
-			$gwolle_gb_data['author_website'] = trim($_POST['gwolle_gb_author_website']);
-		}
-		if (isset($_POST['gwolle_gb_content'])) {
-			$gwolle_gb_data['content'] = trim($_POST['gwolle_gb_content']);
-			if ( $gwolle_gb_data['content'] == "" ) {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'content'; // mandatory
-			}
-		} else {
-			$gwolle_gb_errors = true;
-			$gwolle_gb_error_fields[] = 'content'; // mandatory
 		}
 
+		if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_author_origin'])) {
+				$gwolle_gb_data['author_origin'] = trim($_POST['gwolle_gb_author_origin']);
+				if ( $gwolle_gb_data['author_origin'] == "" ) {
+					if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'author_origin'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'author_origin'; // mandatory
+				}
+			}
+		}
+
+		if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_author_email'])) {
+				$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
+				if ( $gwolle_gb_data['author_email'] == "" ) {
+					if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'author_email'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'author_email'; // mandatory
+				}
+			}
+		}
+
+		if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_author_website'])) {
+				$gwolle_gb_data['author_website'] = trim($_POST['gwolle_gb_author_website']);
+				if ( $gwolle_gb_data['author_website'] == "" ) {
+					if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'author_website'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'author_website'; // mandatory
+				}
+			}
+		}
+
+		if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_content'])) {
+				$gwolle_gb_data['content'] = trim($_POST['gwolle_gb_content']);
+				if ( $gwolle_gb_data['content'] == "" ) {
+					if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'content'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'content'; // mandatory
+				}
+			}
+		}
+
+		/* FIXME: Add an optional Custom Anti-spam question */
+		if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
+
+		}
 
 		/* reCAPTCHA */
-		if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
-
+		if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
 			// Avoid Nasty Crash
 			if (!class_exists('ReCaptcha') && !class_exists('ReCaptchaResponse') ) {
 				require_once "recaptchalib.php";
