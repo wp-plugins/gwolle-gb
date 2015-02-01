@@ -124,9 +124,22 @@ function gwolle_gb_frontend_posthandling() {
 			}
 		}
 
-		/* FIXME: Add an optional Custom Anti-spam question */
+		/* Custom Security Question for Anti-Spam */
 		if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
+			$antispam_question = get_option('gwolle_gb-antispam-question');
+			$antispam_answer   = get_option('gwolle_gb-antispam-answer');
 
+			if ( isset($antispam_question) && strlen($antispam_question) > 0 && isset($antispam_answer) && strlen($antispam_answer) > 0 ) {
+				if ( isset($_POST["gwolle_gb_antispam_answer"]) && trim($_POST["gwolle_gb_antispam_answer"]) == trim($antispam_answer) ) {
+					//echo "You got it!";
+				} else {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'antispam'; // mandatory
+				}
+			}
+			if ( isset($_POST["gwolle_gb_antispam_answer"]) ) {
+				$gwolle_gb_data['antispam'] = trim($_POST['gwolle_gb_antispam_answer']);
+			}
 		}
 
 		/* reCAPTCHA */

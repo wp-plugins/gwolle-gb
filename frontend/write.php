@@ -20,6 +20,7 @@ function gwolle_gb_frontend_write() {
 	$origin = '';
 	$email = '';
 	$website = '';
+	$antispam = '';
 	$content = '';
 
 	// Auto-fill the form if the user is already logged in
@@ -51,6 +52,9 @@ function gwolle_gb_frontend_write() {
 			}
 			if (isset($gwolle_gb_data['author_website'])) {
 				$website = $gwolle_gb_data['author_website'];
+			}
+			if (isset($gwolle_gb_data['antispam'])) {
+				$antispam = $gwolle_gb_data['antispam'];
 			}
 			if (isset($gwolle_gb_data['content'])) {
 				$content = $gwolle_gb_data['content'];
@@ -176,31 +180,53 @@ function gwolle_gb_frontend_write() {
 	/* FIXME: add smileys for use in the content textarea */
 
 
-	/* FIXME: Add an optional Custom Anti-spam question */
 	if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
+		$antispam_question = get_option('gwolle_gb-antispam-question');
+		$antispam_answer   = get_option('gwolle_gb-antispam-answer');
 
+		if ( isset($antispam_question) && strlen($antispam_question) > 0 && isset($antispam_answer) && strlen($antispam_answer) > 0 ) {
+			$output .= '
+				<div class="gwolle_gb_antispam">
+					<div class="label">
+						<label for="gwolle_gb_antispam_answer">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</label>
+					</div>
+					<div class="input"><input class="';
+			if (in_array('antispam', $gwolle_gb_error_fields)) {
+				$output .= ' error';
+			}
+			$output .= '" value="' . $antispam . '" type="text" name="gwolle_gb_antispam_answer" id="gwolle_gb_antispam_answer" placeholder="' . __('Answer', GWOLLE_GB_TEXTDOMAIN) . '" /><br />
+						<label for="gwolle_gb_antispam_answer">' . __('Question:', GWOLLE_GB_TEXTDOMAIN) . " " .  $antispam_question . '</label>
+					</div>
+				</div>
+				<div class="clearBoth">&nbsp;</div>';
+		}
 	}
 
 
 	/* reCAPTCHA */
 	if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
-		// Don't show it, if we cannot use it, with only the ReCaptchaResponse class available
-		if ( !(!class_exists('ReCaptcha') && class_exists('ReCaptchaResponse')) ) {
-			$output .= '
-				<div class="gwolle_gb_recaptcha">
-					<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
-					<div class="input ';
-			if (in_array('recaptcha', $gwolle_gb_error_fields)) {
-				$output .= ' error';
-			}
-			$publickey = get_option('recaptcha-public-key');
-			$output .=
-					' ">
-						<div class="g-recaptcha" data-sitekey="' . $publickey . '"></div>
+		// Register API keys at https://www.google.com/recaptcha/admin
+		$recaptcha_publicKey = get_option('recaptcha-public-key');
+		$recaptcha_privateKey = get_option('recaptcha-private-key');
+
+		if ( isset($recaptcha_publicKey) && strlen($recaptcha_publicKey) > 0 && isset($recaptcha_privateKey) && strlen($recaptcha_privateKey) > 0 ) {
+			// Don't show it, if we cannot use it, with only the ReCaptchaResponse class available
+			if ( !(!class_exists('ReCaptcha') && class_exists('ReCaptchaResponse')) ) {
+				$output .= '
+					<div class="gwolle_gb_recaptcha">
+						<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
+						<div class="input ';
+				if (in_array('recaptcha', $gwolle_gb_error_fields)) {
+					$output .= ' error';
+				}
+				$output .=
+						' ">
+							<div class="g-recaptcha" data-sitekey="' . $recaptcha_publicKey . '"></div>
+						</div>
 					</div>
-				</div>
-				<div class="clearBoth">&nbsp;</div>';
-			wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
+					<div class="clearBoth">&nbsp;</div>';
+				wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
+			}
 		}
 	}
 

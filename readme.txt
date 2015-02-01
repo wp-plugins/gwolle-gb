@@ -179,6 +179,7 @@ Yes, it is again actively maintained.
 = 1.1.3 =
 * 2015-02-
 * Add a simple Form Builder.
+* Add custom Anti-Spam question.
 * Add CSS for the widget.
 * Fix default MailText.
 * Cleanup old options.
