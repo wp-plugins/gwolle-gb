@@ -131,37 +131,42 @@ function gwolle_gb_frontend_posthandling() {
 
 		/* reCAPTCHA */
 		if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
-			// Avoid Nasty Crash
-			if (!class_exists('ReCaptcha') && !class_exists('ReCaptchaResponse') ) {
-				require_once "recaptchalib.php";
-			}
 
-			// We can only use it if it is really loaded.
-			if (class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) {
-				// Register API keys at https://www.google.com/recaptcha/admin
-				//$recaptcha_publicKey = get_option('recaptcha-public-key');
-				$recaptcha_privateKey = get_option('recaptcha-private-key');
+			// Register API keys at https://www.google.com/recaptcha/admin
+			$recaptcha_publicKey = get_option('recaptcha-public-key');
+			$recaptcha_privateKey = get_option('recaptcha-private-key');
 
-				// The response from reCAPTCHA
-				$resp = null;
-				// The error code from reCAPTCHA, if any
-				$error = null;
+			if ( isset($recaptcha_publicKey) && isset($recaptcha_privateKey) ) {
 
-				$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
-
-				// Was there a reCAPTCHA response?
-				if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
-					$resp = $reCaptcha->verifyResponse(
-						$_SERVER["REMOTE_ADDR"],
-						$_POST["g-recaptcha-response"]
-					);
+				// Avoid Nasty Crash
+				if (!class_exists('ReCaptcha') && !class_exists('ReCaptchaResponse') ) {
+					require_once "recaptchalib.php";
 				}
 
-				if ( $resp != null && $resp->success ) {
-					//echo "You got it!";
-				} else {
-					$gwolle_gb_errors = true;
-					$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+				// We can only use it if it is really loaded.
+				if (class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) {
+
+					// The response from reCAPTCHA
+					$resp = null;
+					// The error code from reCAPTCHA, if any
+					$error = null;
+
+					$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
+
+					// Was there a reCAPTCHA response?
+					if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
+						$resp = $reCaptcha->verifyResponse(
+							$_SERVER["REMOTE_ADDR"],
+							$_POST["g-recaptcha-response"]
+						);
+					}
+
+					if ( $resp != null && $resp->success ) {
+						//echo "You got it!";
+					} else {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+					}
 				}
 			}
 		}
