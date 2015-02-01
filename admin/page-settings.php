@@ -42,9 +42,7 @@ function gwolle_gb_page_settings() {
 							'form_message_enabled',
 							'form_message_mandatory',
 							'form_antispam_enabled',
-							'form_antispam_mandatory',
-							'form_recaptcha_enabled',
-							'form_recaptcha_mandatory'
+							'form_recaptcha_enabled'
 							);
 						$form_setting = Array();
 						foreach ( $list as $item ) {
@@ -127,16 +125,14 @@ function gwolle_gb_page_settings() {
 						}
 
 						// FIXME: sanitize values
-						if ( isset($_POST['recaptcha-active']) && $_POST['recaptcha-active'] == 'on' ) {
-							update_option('gwolle_gb-recaptcha-active', 'true');
+						if ( isset($_POST['recaptcha-public-key']) && strlen( $_POST['recaptcha-public-key'] ) > 0 ) {
 							update_option('recaptcha-public-key', $_POST['recaptcha-public-key']);
-							update_option('recaptcha-private-key', $_POST['recaptcha-private-key']);
-							$saved = true;
-						} else {
-							update_option('gwolle_gb-recaptcha-active', 'false');
 							$saved = true;
 						}
-
+						if ( isset($_POST['recaptcha-private-key']) && strlen( $_POST['recaptcha-private-key'] ) > 0 ) {
+							update_option('recaptcha-private-key', $_POST['recaptcha-private-key']);
+							$saved = true;
+						}
 
 						break;
 					case 'gwolle_gb_mail':
@@ -323,12 +319,7 @@ function gwolle_gb_page_settings() {
 							<label for="form_antispam_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 						<td class="narrow">
-							<input type="checkbox" id="form_antispam_mandatory" name="form_antispam_mandatory"<?php
-								if ( isset($form_setting['form_antispam_mandatory']) && $form_setting['form_antispam_mandatory']  === 'true' ) {
-									echo ' checked="checked"';
-								}
-								?> />
-							<label for="form_antispam_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
+							<?php _e('When enabled it is mandatory.', GWOLLE_GB_TEXTDOMAIN); ?>
 						</td>
 					</tr>
 
@@ -344,12 +335,7 @@ function gwolle_gb_page_settings() {
 							<label for="form_recaptcha_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 						<td class="narrow">
-							<input type="checkbox" id="form_recaptcha_mandatory" name="form_recaptcha_mandatory"<?php
-								if ( isset($form_setting['form_recaptcha_mandatory']) && $form_setting['form_recaptcha_mandatory']  === 'true' ) {
-									echo ' checked="checked"';
-								}
-								?> />
-							<label for="form_recaptcha_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
+							<?php _e('When enabled it is mandatory.', GWOLLE_GB_TEXTDOMAIN); ?>
 						</td>
 					</tr>
 					<tr>
@@ -578,7 +564,11 @@ function gwolle_gb_page_settings() {
 					$recaptcha_privateKey = get_option('recaptcha-private-key');
 					?>
 					<tr valign="top">
-						<th scope="row"><label for="recaptcha-active">reCAPTCHA</label><br /><span class="setting-description"><a href="http://www.google.com/recaptcha/intro/index.html" title="<?php _e('Learn more about reCAPTCHA...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e("What's that?", GWOLLE_GB_TEXTDOMAIN); ?></a></span></th>
+						<th scope="row"><label for="recaptcha-public-key">reCAPTCHA</label><br />
+							<span class="setting-description">
+								<a href="http://www.google.com/recaptcha/intro/index.html" title="<?php _e('Learn more about reCAPTCHA...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e("What's that?", GWOLLE_GB_TEXTDOMAIN); ?></a>
+							</span>
+						</th>
 						<td>
 							<div
 								<?php
@@ -586,15 +576,6 @@ function gwolle_gb_page_settings() {
 									echo 'style="display:none;"';
 								} ?>
 								>
-								<input name="recaptcha-active" <?php
-									if (get_option( 'gwolle_gb-recaptcha-active', 'false' ) === 'true') {
-										echo 'checked="checked" ';
-									}
-									?> id="recaptcha-active" type="checkbox">
-								<label for="recaptcha-active">
-									<?php _e('Use reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>
-								</label>
-								<br />
 								<input name="recaptcha-public-key" type="text" id="recaptcha-public-key"  value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
 								<span class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
 								<br />

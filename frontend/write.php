@@ -7,13 +7,6 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 
 
 /*
- * Save new entries to the database, when valid.
- * Obligatory fields:
- * - author_name
- * - author_email
- * - content
- * and a negative Akismet result (= no spam) and a correct captcha; both only when turned on in the settings panel.
- *
  * Build up a form for the user, including possible error_fields
  */
 
@@ -101,62 +94,88 @@ function gwolle_gb_frontend_write() {
 	 * Build up Form including possible error_fields
 	 */
 
+	$form_setting = gwolle_gb_get_setting( 'form' );
+
 	// Form for submitting new entries
 	$output .= '
 		<form id="gwolle_gb_new_entry" action="" method="POST">
 			<h3>' . __('Write a new entry for the Guestbook', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-			<input type="hidden" name="gwolle_gb_function" value="add_entry" />
-			<div class="gwolle_gb_author_name">
-				<div class="label"><label for="gwolle_gb_author_name">' . __('Name', GWOLLE_GB_TEXTDOMAIN) . ': *</label></div>
+			<input type="hidden" name="gwolle_gb_function" value="add_entry" />';
+
+	if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
+		$output .= '<div class="gwolle_gb_author_name">
+				<div class="label"><label for="gwolle_gb_author_name">' . __('Name', GWOLLE_GB_TEXTDOMAIN) . ':';
+		if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) { $output .= ' *';}
+		$output .= '</label></div>
 				<div class="input"><input class="';
-	if (in_array('name', $gwolle_gb_error_fields)) {
-		$output .= ' error';
-	}
-	$output .= '" value="' . $name . '" type="text" name="gwolle_gb_author_name" id="gwolle_gb_author_name" placeholder="' . __('Name', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
-			</div>
-			<div class="clearBoth">&nbsp;</div>
-
-			<div class="gwolle_gb_author_origin">
-				<div class="label"><label for="gwolle_gb_author_origin">' . __('City', GWOLLE_GB_TEXTDOMAIN) . ':</label></div>
-				<div class="input"><input value="' . $origin . '" type="text" name="gwolle_gb_author_origin" id="gwolle_gb_author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
-			</div>
-			<div class="clearBoth">&nbsp;</div>
-
-
-			<div class="gwolle_gb_author_email">
-				<div class="label"><label for="gwolle_gb_author_email">' . __('Email', GWOLLE_GB_TEXTDOMAIN) . ': *</label></div>
-				<div class="input"><input class="';
-	if (in_array('author_email', $gwolle_gb_error_fields)) {
-		$output .= ' error';
-	}
-	$output .= '" value="' . $email . '" type="text" name="gwolle_gb_author_email" id="gwolle_gb_author_email" placeholder="' . __('Email', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
-			</div>
-			<div class="clearBoth">&nbsp;</div>
-
-			<div class="gwolle_gb_author_website">
-				<div class="label"><label for="gwolle_gb_author_website">' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . ':</label></div>
-				<div class="input"><input value="' . $website . '" type="text" name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
-			</div>
-			<div class="clearBoth">&nbsp;</div>
-
-			<div class="gwolle_gb_content">
-				<div class="label"><label for="gwolle_gb_content">' . __('Guestbook entry', GWOLLE_GB_TEXTDOMAIN) . ': *</label></div>
-				<div class="input"><textarea name="gwolle_gb_content" id="gwolle_gb_content" class="';
-	if (in_array('content', $gwolle_gb_error_fields)) {
-		$output .= ' error';
-	}
-	$output .= '">' . $content . '</textarea></div>
+		if (in_array('name', $gwolle_gb_error_fields)) {
+			$output .= ' error';
+		}
+		$output .= '" value="' . $name . '" type="text" name="gwolle_gb_author_name" id="gwolle_gb_author_name" placeholder="' . __('Name', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
+	}
+
+	if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
+		$output .= '<div class="gwolle_gb_author_origin">
+					<div class="label"><label for="gwolle_gb_author_origin">' . __('City', GWOLLE_GB_TEXTDOMAIN) . ':';
+		if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) { $output .= ' *';}
+		$output .= '</label></div>
+					<div class="input"><input value="' . $origin . '" type="text" name="gwolle_gb_author_origin" id="gwolle_gb_author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+				</div>
+				<div class="clearBoth">&nbsp;</div>';
+	}
+
+	if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
+		$output .= '<div class="gwolle_gb_author_email">
+				<div class="label"><label for="gwolle_gb_author_email">' . __('Email', GWOLLE_GB_TEXTDOMAIN) . ':';
+		if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) { $output .= ' *';}
+		$output .= '</label></div>
+				<div class="input"><input class="';
+		if (in_array('author_email', $gwolle_gb_error_fields)) {
+			$output .= ' error';
+		}
+		$output .= '" value="' . $email . '" type="text" name="gwolle_gb_author_email" id="gwolle_gb_author_email" placeholder="' . __('Email', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+			</div>
+			<div class="clearBoth">&nbsp;</div>';
+	}
+
+	if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
+		$output .= '<div class="gwolle_gb_author_website">
+				<div class="label"><label for="gwolle_gb_author_website">' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . ':';
+		if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) { $output .= ' *';}
+		$output .= '</label></div>
+				<div class="input"><input value="' . $website . '" type="text" name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+			</div>
+			<div class="clearBoth">&nbsp;</div>';
+	}
+
+	if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' ) {
+		$output .= '<div class="gwolle_gb_content">
+				<div class="label"><label for="gwolle_gb_content">' . __('Guestbook entry', GWOLLE_GB_TEXTDOMAIN) . ':';
+		if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) { $output .= ' *';}
+		$output .= '</label></div>
+				<div class="input"><textarea name="gwolle_gb_content" id="gwolle_gb_content" class="';
+		if (in_array('content', $gwolle_gb_error_fields)) {
+			$output .= ' error';
+		}
+		$output .= '">' . $content . '</textarea></div>
+			</div>
+			<div class="clearBoth">&nbsp;</div>';
+	}
+
+
 	/* FIXME: add smileys for use in the content textarea */
 
 
-	/* FIXME: Add an optional Custom Security question */
+	/* FIXME: Add an optional Custom Anti-spam question */
+	if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
+
+	}
 
 
 	/* reCAPTCHA */
-	if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
-
+	if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
 		// Don't show it, if we cannot use it, with only the ReCaptchaResponse class available
 		if ( !(!class_exists('ReCaptcha') && class_exists('ReCaptchaResponse')) ) {
 			$output .= '
@@ -187,15 +206,18 @@ function gwolle_gb_frontend_write() {
 
 			<div class="gwolle_gb_notice">
 				' . __('Fields marked with * are obligatory.', GWOLLE_GB_TEXTDOMAIN) . '
-				<br />
-				' . __('The E-mail address wil not be published.', GWOLLE_GB_TEXTDOMAIN) . '
-				<br />
-				' . sprintf( __('For security reasons we save the ip address <span id="gwolle_gb_ip">%s</span>.', GWOLLE_GB_TEXTDOMAIN), $_SERVER['REMOTE_ADDR'] ) . '
+				<br />';
+	if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
+		$output .= __('The E-mail address wil not be published.', GWOLLE_GB_TEXTDOMAIN) . '
+				<br />';
+	}
+	$output .= sprintf( __('For security reasons we save the ip address <span id="gwolle_gb_ip">%s</span>.', GWOLLE_GB_TEXTDOMAIN), $_SERVER['REMOTE_ADDR'] ) . '
 				<br />';
 
 
 	if (get_option('gwolle_gb-moderate-entries', 'true') === 'true') {
-		$output .= __('Your entry will be visible in the guestbook after we reviewed it.', GWOLLE_GB_TEXTDOMAIN) . '&nbsp;';
+		$output .= __('Your entry will be visible in the guestbook after we reviewed it.', GWOLLE_GB_TEXTDOMAIN) . '
+				<br />';
 	}
 	$output .= __('We reserve our right to edit, delete, or not publish entries.', GWOLLE_GB_TEXTDOMAIN) . '
 			</div>

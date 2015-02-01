@@ -9,14 +9,6 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 /*
  * Save new entries to the database, when valid.
  *
- * Mandatory fields:
- * - author_name
- * - author_email
- * - content
- * - negative Akismet result (= no spam)
- * - correct reCAPTCHA
- * (the last two only when turned on in the settings panel)
- *
  * global vars used:
  * $gwolle_gb_errors: false if no errors found, true if errors found
  * $gwolle_gb_error_fields: array of the formfields with errors

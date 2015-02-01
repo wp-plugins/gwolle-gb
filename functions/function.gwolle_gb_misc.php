@@ -141,9 +141,7 @@ function gwolle_gb_get_setting($request) {
 					'form_message_enabled'    => 'true',
 					'form_message_mandatory'  => 'true',
 					'form_antispam_enabled'   => 'false',
-					'form_antispam_mandatory' => 'false',
-					'form_recaptcha_enabled'  => 'false',
-					'form_recaptcha_mandatory'=> 'false'
+					'form_recaptcha_enabled'  => 'false'
 					);
 				$setting = get_option( 'gwolle_gb-form', Array() );
 				if ( is_string( $setting ) ) {
