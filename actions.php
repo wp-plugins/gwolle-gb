@@ -134,14 +134,12 @@ function gwolle_gb_init() {
 }
 
 
-/* Always Load jQuery */
-function gwolle_gb_jquery() {
-	wp_enqueue_script('jquery');
-
+/* Register style for frontend. Load it later. */
+function gwolle_gb_register() {
 	// Register style for frontend. Load it later.
 	wp_register_style('gwolle_gb_frontend_css', plugins_url('frontend/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
 }
-add_action('wp_enqueue_scripts', 'gwolle_gb_jquery');
+add_action('wp_enqueue_scripts', 'gwolle_gb_register');
 
 
 /*
