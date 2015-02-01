@@ -125,6 +125,16 @@ function gwolle_gb_page_settings() {
 						}
 
 						// FIXME: sanitize values
+						if ( isset($_POST['antispam-question']) && strlen( $_POST['antispam-question'] ) > 0 ) {
+							update_option('gwolle_gb-antispam-question', $_POST['antispam-question']);
+							$saved = true;
+						}
+						if ( isset($_POST['antispam-answer']) && strlen( $_POST['antispam-answer'] ) > 0 ) {
+							update_option('gwolle_gb-antispam-answer', $_POST['antispam-answer']);
+							$saved = true;
+						}
+
+						// FIXME: sanitize values
 						if ( isset($_POST['recaptcha-public-key']) && strlen( $_POST['recaptcha-public-key'] ) > 0 ) {
 							update_option('recaptcha-public-key', $_POST['recaptcha-public-key']);
 							$saved = true;
@@ -560,6 +570,26 @@ function gwolle_gb_page_settings() {
 
 
 					<?php
+					$antispam_question = get_option('gwolle_gb-antispam-question');
+					$antispam_answer   = get_option('gwolle_gb-antispam-answer');
+					?>
+					<tr valign="top">
+						<th scope="row"><label for="antispam-question"><?php _e('Custom Anti-Spam Security Question', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<div>
+								<input name="antispam-question" type="text" id="antispam-question" value="<?php echo $antispam_question; ?>" class="regular-text" placeholder="<?php _e('12 + six', GWOLLE_GB_TEXTDOMAIN); ?>" />
+								<label for="antispam-question" class="setting-description"><?php _e('Custom security question to battle spam.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+								<br />
+								<input name="antispam-answer" type="text" id="antispam-answer" value="<?php echo $antispam_answer; ?>" class="regular-text" placeholder="<?php _e('18', GWOLLE_GB_TEXTDOMAIN); ?>" />
+								<label for="antispam-answer" class="setting-description"><?php _e('The answer to your security question.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+								<br />
+								<span class="setting-description"><?php _e('You can ask your visitors to answer a custom security question, so only real people can post an entry.', GWOLLE_GB_TEXTDOMAIN); ?></span>
+							</div>
+						</td>
+					</tr>
+
+
+					<?php
 					$recaptcha_publicKey = get_option('recaptcha-public-key');
 					$recaptcha_privateKey = get_option('recaptcha-private-key');
 					?>
@@ -576,14 +606,13 @@ function gwolle_gb_page_settings() {
 									echo 'style="display:none;"';
 								} ?>
 								>
-								<input name="recaptcha-public-key" type="text" id="recaptcha-public-key"  value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
-								<span class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
+								<input name="recaptcha-public-key" type="text" id="recaptcha-public-key" value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
+								<label for="recaptcha-public-key" class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></label>
 								<br />
-								<input name="recaptcha-private-key" type="text" id="recaptcha-private-key"  value="<?php echo $recaptcha_privateKey; ?>" class="regular-text" />
-								<span class="setting-description"><?php _e('<strong>Secret</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></span>
+								<input name="recaptcha-private-key" type="text" id="recaptcha-private-key" value="<?php echo $recaptcha_privateKey; ?>" class="regular-text" />
+								<label for="recaptcha-private-key" class="setting-description"><?php _e('<strong>Secret</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></label>
 								<br />
 								<span class="setting-description"><?php _e('The keys can be found at your', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.google.com/recaptcha/admin/" title="<?php _e('Go to my reCAPTCHA sites...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('reCAPTCHA sites overview', GWOLLE_GB_TEXTDOMAIN); ?></a>.</span>
-								<br />
 							</div>
 							<?php
 							if ( class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) { ?>

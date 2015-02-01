@@ -419,7 +419,7 @@ function upgrade_gwolle_gb() {
 		delete_option('gwolle_gb-guestbookOnly');
 		delete_option('gwolle_gb-defaultMailText');
 		if ( get_option('gwolle_gb-recaptcha-active', 'false') == 'true' ) {
-			$form_setting = Array( 'form_recaptcha_enabled' => 'true', 'form_recaptcha_mandatory' => 'true' );
+			$form_setting = Array( 'form_recaptcha_enabled' => 'true' );
 			$form_setting = serialize( $form_setting );
 			update_option( 'gwolle_gb-form', $form_setting );
 		}

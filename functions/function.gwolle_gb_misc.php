@@ -117,7 +117,7 @@ function gwolle_gb_is_moderator($user_id) {
 /*
  * Get the setting for Gwolle-GB that is saved as serialized data.
  *
- * Args: $request, string with values 'form', 'read', 'widget'.
+ * Args: $request, string with value 'form', 'read' or 'widget'.
  *
  * Return:
  * - Array with settings for that request.

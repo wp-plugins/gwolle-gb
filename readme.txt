@@ -24,7 +24,8 @@ Current features include:
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
-* reCAPTCHA integration for fighting spam, too.
+* Custom Anti-Spam question for fighting spam, too.
+* reCAPTCHA integration for fighting spam, as well.
 * Localisation. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
@@ -86,15 +87,7 @@ With version 1.0 there have been some changes:
   visible that you want and nothing more.
 * CSS has changed somewhat. If you have custom CSS, you want to check if it still applies.
 
-= Todo/coming up in future releases =
-
-* Bughunting (check all the FIXME's in the code).
-* Make Install method more safe.
-* Add an RSS Feed for Guestbook Entries.
-* 'Thank you' mail to the poster (requested by Joakim from Sweden).
-* Add PHP methods to add an entry.
-
-If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
+If you have a feature request please use the forum on WordPress.org.
 
 = Licence =
 
@@ -126,7 +119,9 @@ The entries that you want visible, select these to be checked.
 
 Your first option is to use Akismet. It works like a charm. Fighting spam has never been easier.
 
-You can also use reCAPTCHA. It helps you and your visitors to fight spam at the slight cost of usability.
+If that doesn't work enough, use the Custom Anti-Spam question.
+
+You can also use reCAPTCHA. It might scare off some visitors, though.
 
 = I get a warning about another reCAPTCHA library =
 
@@ -183,9 +178,10 @@ Yes, it is again actively maintained.
 
 = 1.1.3 =
 * 2015-02-
-* Add CSS for the widget.
 * Add a simple Form Builder.
-* Fix defaultMailText.
+* Add CSS for the widget.
+* Fix default MailText.
+* Cleanup old options.
 
 = 1.1.2 =
 * 2015-01-31
