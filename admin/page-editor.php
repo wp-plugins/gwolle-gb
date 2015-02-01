@@ -195,8 +195,14 @@ function gwolle_gb_page_editor() {
 					$data['content'] = $_POST['gwolle_gb_content'];
 					$saved = true;
 				} else {
-					$gwolle_gb_messages .= '<p>' . __('Entry has no content, even though that is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
-					$gwolle_gb_errors = 'error';
+					$form_setting = gwolle_gb_get_setting( 'form' );
+					if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' && isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
+						$gwolle_gb_messages .= '<p>' . __('Entry has no content, even though that is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_errors = 'error';
+					} else {
+						$data['content'] = '';
+						$saved = true;
+					}
 				}
 
 				/* Check if the website changed, and update accordingly */
