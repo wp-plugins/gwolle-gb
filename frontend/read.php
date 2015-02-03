@@ -131,7 +131,8 @@ function gwolle_gb_frontend_read() {
 			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), get_permalink(get_the_ID()) ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
 		}
 	}
-	$pagination .= '</div>';
+	$pagination .= '</div>
+		';
 	if ($countPages > 1) {
 		$output .= $pagination;
 	}
@@ -200,9 +201,8 @@ function gwolle_gb_frontend_read() {
 				$output .= '
 					<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
 			}
-			$output .= '</div>';
-
-			$output .= '</div>';
+			$output .= '</div></div>
+				';
 		}
 	}
 
