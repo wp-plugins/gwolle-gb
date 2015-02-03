@@ -52,7 +52,7 @@ $wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
 
 
 // Classes
-include_once( GWOLLE_GB_DIR . '/functions/class.gwolle_gb_entry.php' );
+include_once( GWOLLE_GB_DIR . '/functions/class.entry.php' );
 
 // Functions for the frontend
 include_once( GWOLLE_GB_DIR . '/frontend/index.php' );
@@ -72,11 +72,11 @@ include_once( GWOLLE_GB_DIR . '/admin/page-settings.php' );
 include_once( GWOLLE_GB_DIR . '/admin/upgrade.php' );
 
 // General Functions
-include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_akismet.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_get_entries.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_get_entry_count.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_log.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.gwolle_gb_misc.php' );
+include_once( GWOLLE_GB_DIR . '/functions/function.akismet.php' );
+include_once( GWOLLE_GB_DIR . '/functions/function.get_entries.php' );
+include_once( GWOLLE_GB_DIR . '/functions/function.get_entry_count.php' );
+include_once( GWOLLE_GB_DIR . '/functions/function.log.php' );
+include_once( GWOLLE_GB_DIR . '/functions/function.misc.php' );
 
 // Actions
 include_once( GWOLLE_GB_DIR . '/actions.php' );
