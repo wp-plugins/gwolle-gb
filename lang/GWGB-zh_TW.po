@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:21
@@ -184,18 +184,20 @@ msgid ""
 "plugin manager...\">plugin manager</a> or/and delete the plugin from your "
 "webserver."
 msgstr ""
+"你可以使用 <a href=\"%s\" title=\"前往插件管理中心...\">插件管理中心</a> 停用"
+"插件或/且從伺服器上刪除該插件."
 
 #: admin/installSplash.php:40
 #, php-format
 msgid "Allright, we're done. <a href=\"%s\">Click here to continue...</a>"
-msgstr ""
+msgstr "好了, 我們完成了. <a href=\"%s\">按這裡繼續......</a>"
 
 #: admin/installSplash.php:42
 #, php-format
 msgid ""
 "It looks like there has been an error. <a href=\"%s\">Click here to "
 "continue...</a>"
-msgstr ""
+msgstr "它看起來像出現了一個錯誤. <a href=\"%s\">按這裡繼續...</a>"
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
 #: admin/page-gwolle-gb.php:278 admin/page-import.php:24
@@ -357,7 +359,7 @@ msgstr "訪客留言版留言"
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
-msgstr ""
+msgstr "訪客是看不到換行符號的, 因為你的 <a href=\"%s\">設定</a>."
 
 #: admin/page-editor.php:550 admin/page-settings.php:280
 #: frontend/write.php:153 frontend/write.php:160
@@ -603,7 +605,7 @@ msgstr "從 Gwolle-GB 訪客留言版匯出所有的留言"
 #: admin/page-export.php:46
 #, php-format
 msgid "%d entries were found and will be exported."
-msgstr ""
+msgstr "%d 個留言被發現，並將匯出."
 
 #: admin/page-export.php:49
 msgid "The exporter will preserve the following data per entry:"
@@ -803,31 +805,31 @@ msgstr "未被丟到回收桶 (由你決定那些是不要的)"
 
 #: admin/page-gwolle-gb.php:255
 msgid "Donate to the EFF."
-msgstr ""
+msgstr "贊助 EFF."
 
 #: admin/page-gwolle-gb.php:259
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
-msgstr ""
+msgstr "Electronic Frontier Foundation 是少數捍衛網際網路自由的組織之一."
 
 #: admin/page-gwolle-gb.php:260
 msgid "Please donate to the EFF."
-msgstr ""
+msgstr "請贊助 EFF."
 
 #: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:269
 msgid "Donate to the maintainer."
-msgstr ""
+msgstr "贊助維護者."
 
 #: admin/page-gwolle-gb.php:268
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through Paypal."
-msgstr ""
+msgstr "如果您想贊助插件的維護者, 你可以透過 Paypal 贊助."
 
 #: admin/page-gwolle-gb.php:269
 msgid "Donate through Paypal to"
-msgstr ""
+msgstr "透過 Paypal 贊助"
 
 #: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
@@ -847,7 +849,7 @@ msgstr "幫助"
 
 #: admin/page-gwolle-gb.php:343
 msgid "Donate"
-msgstr ""
+msgstr "贊助"
 
 #: admin/page-gwolle-gb.php:348
 msgid "Gwolle Guestbook"
@@ -866,7 +868,7 @@ msgstr "1 個留言成功的從 DMSGuestbook 匯入."
 #: admin/page-import.php:92
 #, php-format
 msgid "%d entries imported successfully from DMSGuestbook."
-msgstr ""
+msgstr "%d 個留言從 DMSGuestbook 成功匯入."
 
 #: admin/page-import.php:96
 msgid ""
@@ -894,7 +896,7 @@ msgstr "從 WordPress 迴響成功匯入 1 個留言."
 #: admin/page-import.php:155
 #, php-format
 msgid "%d entries imported successfully from WordPress comments."
-msgstr ""
+msgstr "%d 個留言從  WordPress 迴響成功匯入."
 
 #: admin/page-import.php:159
 msgid ""
@@ -935,7 +937,7 @@ msgstr "從 CSV 檔成功匯入 1 個留言."
 #: admin/page-import.php:273
 #, php-format
 msgid "%d entries imported successfully from the CSV file."
-msgstr ""
+msgstr "%d 個留言從 CSV 檔成功匯入."
 
 #: admin/page-import.php:282
 msgid "Your upload triggered the following error:"
@@ -952,7 +954,7 @@ msgstr "從 DMSGuestbook 匯入留言"
 #: admin/page-import.php:343
 #, php-format
 msgid "%d entries were found and will be imported."
-msgstr ""
+msgstr "%d 個留言被發現，並將被匯入."
 
 #: admin/page-import.php:346 admin/page-import.php:387
 msgid "The importer will preserve the following data per entry:"
@@ -1029,15 +1031,15 @@ msgstr "選擇有先前匯出留言的 CSV 檔案以再次匯入:"
 
 #: admin/page-settings.php:197
 msgid "Form"
-msgstr ""
+msgstr "格式"
 
 #: admin/page-settings.php:198
 msgid "Reading"
-msgstr ""
+msgstr "讀取"
 
 #: admin/page-settings.php:199
 msgid "Admin"
-msgstr ""
+msgstr "管理"
 
 #: admin/page-settings.php:200 frontend/write.php:191 frontend/write.php:217
 msgid "Anti-spam"
@@ -1045,7 +1047,7 @@ msgstr "反垃圾郵件"
 
 #: admin/page-settings.php:201
 msgid "E-mail"
-msgstr ""
+msgstr "電子郵件"
 
 #: admin/page-settings.php:202 admin/page-settings.php:731
 msgid "Uninstall"
@@ -1053,20 +1055,20 @@ msgstr "反安裝"
 
 #: admin/page-settings.php:208
 msgid "Configure the form that is shown to visitors."
-msgstr ""
+msgstr "設定顯示給訪客的格式."
 
 #: admin/page-settings.php:224 admin/page-settings.php:245
 #: admin/page-settings.php:266 admin/page-settings.php:287
 #: admin/page-settings.php:308 admin/page-settings.php:329
 #: admin/page-settings.php:345
 msgid "Enabled"
-msgstr ""
+msgstr "啟用"
 
 #: admin/page-settings.php:232 admin/page-settings.php:253
 #: admin/page-settings.php:274 admin/page-settings.php:295
 #: admin/page-settings.php:316
 msgid "Mandatory"
-msgstr ""
+msgstr "強制性"
 
 #: admin/page-settings.php:238 frontend/write.php:125 frontend/write.php:132
 msgid "City"
@@ -1078,11 +1080,11 @@ msgstr "電子郵件"
 
 #: admin/page-settings.php:322
 msgid "Custom Anti-spam"
-msgstr ""
+msgstr "自訂反垃圾郵件"
 
 #: admin/page-settings.php:332 admin/page-settings.php:348
 msgid "When enabled it is mandatory."
-msgstr ""
+msgstr "當啟用時它是強制性的."
 
 #: admin/page-settings.php:338 admin/page-settings.php:751
 msgid "reCAPTCHA"
@@ -1104,7 +1106,7 @@ msgstr "前台每頁顯示的留言數量."
 
 #: admin/page-settings.php:394
 msgid "Line breaks"
-msgstr ""
+msgstr "換行符號"
 
 #: admin/page-settings.php:401
 msgid "Show line breaks."
@@ -1118,11 +1120,11 @@ msgstr "顯示換行符號讓新留言者瞭解它. (可能導致留言變的很
 
 #: admin/page-settings.php:409
 msgid "Smileys"
-msgstr ""
+msgstr "表情符號"
 
 #: admin/page-settings.php:416
 msgid "Display smileys as images."
-msgstr ""
+msgstr "表情符號顯示為圖形"
 
 #: admin/page-settings.php:418
 #, php-format
@@ -1130,10 +1132,12 @@ msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smileys."
 msgstr ""
+"替換留言中的表情符號, 像 :) 會顯示為 %s. 如果你想增加新的/更多的表情, 請使用 "
+"WP 表情符號取代程式."
 
 #: admin/page-settings.php:424
 msgid "Links"
-msgstr ""
+msgstr "連結"
 
 #: admin/page-settings.php:431
 msgid "Link authors' name to their website."
@@ -1213,6 +1217,8 @@ msgid ""
 "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
 "can enter it at the <a href=\"%s\">Akismet configuration page</a>."
 msgstr ""
+"抱歉, 無法找到你的 <strong>WordPress API key</strong>. 你可以在 <a href=\"%s"
+"\">Akismet 設置頁</a> 輸入它."
 
 #: admin/page-settings.php:563
 msgid "Use Akismet"
@@ -1226,7 +1232,7 @@ msgstr "發現 WordPress API key, 你現在能開始使用 Akismet."
 
 #: admin/page-settings.php:577
 msgid "Custom Anti-Spam Security Question"
-msgstr ""
+msgstr "自訂反垃圾郵件安全問答題目"
 
 #: admin/page-settings.php:580
 msgid "12 + six"
@@ -1234,7 +1240,7 @@ msgstr ""
 
 #: admin/page-settings.php:581
 msgid "Custom security question to battle spam."
-msgstr ""
+msgstr "自訂安全問答題目以阻擋垃圾郵件"
 
 #: admin/page-settings.php:583
 msgid "18"
@@ -1242,13 +1248,13 @@ msgstr ""
 
 #: admin/page-settings.php:584
 msgid "The answer to your security question."
-msgstr ""
+msgstr "你自訂問答題目的答案."
 
 #: admin/page-settings.php:586
 msgid ""
 "You can ask your visitors to answer a custom security question, so only real "
 "people can post an entry."
-msgstr ""
+msgstr "你可以問訪客回答一個自訂的安全問答題目, 只有真正的人類才可以留言."
 
 #: admin/page-settings.php:599
 msgid "Learn more about reCAPTCHA..."
@@ -1312,6 +1318,13 @@ msgid ""
 "Have a nice day!\n"
 "Your Gwolle-GB-Mailer"
 msgstr ""
+"你好,\n"
+"\n"
+"有一個新的留言在 '%blog_name%'.\n"
+"你可以在 %entry_management_url% 審核它.\n"
+"\n"
+"祝你有一個愉快的一天!\n"
+"你的 Gwolle-GB 訊息者"
 
 #: admin/page-settings.php:661
 msgid ""
@@ -1335,19 +1348,19 @@ msgstr "預設的主要管理員帳號是使用來自 設定>>一般 中的設�
 
 #: admin/page-settings.php:719
 msgid "The entries and settings have been removed."
-msgstr ""
+msgstr "所有留言跟設定將被移除."
 
 #: admin/page-settings.php:720
 msgid "The plugin is deactivated."
-msgstr ""
+msgstr "該插件被停用了."
 
 #: admin/page-settings.php:721
 msgid "You can now go to your"
-msgstr ""
+msgstr "你現在可以前往你的"
 
 #: admin/page-settings.php:721
 msgid "dashboard."
-msgstr ""
+msgstr "控制面板."
 
 #: admin/page-settings.php:733
 msgid ""
@@ -1361,7 +1374,7 @@ msgstr "這個 <strong>不能</strong> 被還原."
 
 #: admin/page-settings.php:742
 msgid "Confirm"
-msgstr ""
+msgstr "確認"
 
 #: admin/page-settings.php:745
 msgid "Yes, I'm absolutely sure of this. Proceed!"
@@ -1369,7 +1382,7 @@ msgstr "是的, 我絕對相信這一點. 繼續進行!"
 
 #: admin/page-settings.php:754
 msgid "Also delete the reCAPTCHA keys"
-msgstr ""
+msgstr "並且刪除 reCAPTCHA 金鑰"
 
 #: admin/page-settings.php:762
 msgid "Uninstall &raquo;"
@@ -1474,11 +1487,11 @@ msgstr "在訪客留言版上寫一個新留言"
 
 #: frontend/write.php:197
 msgid "Answer"
-msgstr ""
+msgstr "答案"
 
 #: frontend/write.php:198
 msgid "Question:"
-msgstr ""
+msgstr "問答題目:"
 
 #: frontend/write.php:237
 msgid "Submit"
@@ -1498,6 +1511,7 @@ msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
 "span>."
 msgstr ""
+"基於安全的理由, 我們記錄了這個 IP 位址 <span id=\"gwolle_gb_ip\">%s</span>."
 
 #: frontend/write.php:253
 msgid "Your entry will be visible in the guestbook after we reviewed it."
