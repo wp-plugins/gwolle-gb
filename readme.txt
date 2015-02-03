@@ -180,7 +180,8 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.1.4 =
-* 2015-02-
+* 2015-02-03
+* Fix pagination links.
 * Slightly improve installsplash. Maybe it just needs to go alltogether.
 * Update zh_TW.
 
