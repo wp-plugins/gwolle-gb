@@ -19,9 +19,7 @@ function gwolle_gb_dashboard() {
 			'spam'    => 'nospam'
 		));
 
-	if ( is_array($entries) && count($entries) > 0 ) {
-		// Dashboard JavaScript
-		wp_enqueue_script( 'gwolle-gb-entries', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/js/dashboard.js', 'jquery', GWOLLE_GB_VER, true );
+	if ( is_array($entries) && !empty($entries) ) {
 
 		// List of guestbook entries
 		echo '<div class="gwolle-gb-dashboard gwolle-gb">';

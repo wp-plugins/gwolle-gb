@@ -54,7 +54,7 @@
 	vertical-align: top;
 }
 #gwolle_gb .label {
-	width: 150px;
+	width: 160px;
 }
 #gwolle_gb .input input[type="text"],
 #gwolle_gb .input textarea {
@@ -73,6 +73,7 @@
 #gwolle_gb .page-navigation {
 	width: 100%;
 	text-align: right;
+	padding: 8px 0;
 }
 #gwolle_gb .page-navigation a,
 #gwolle_gb .page-navigation span {
@@ -109,19 +110,31 @@
 #gwolle_gb .first.gb-entry {
 	border-width: 0px;
 }
-#gwolle_gb .gb-entry .author-info,
-#gwolle_gb .gb-entry .entry-content {
+#gwolle_gb .gb-entry .gb-author-info,
+#gwolle_gb .gb-entry .gb-entry-content {
 	display: block;
 }
-#gwolle_gb .gb-entry .author-info .author-avatar {
+#gwolle_gb .gb-entry .gb-author-info .gb-author-avatar {
 	margin: 0 0 8px 0;
 }
-#gwolle_gb .gb-entry .author-info .author-name {
+#gwolle_gb .gb-entry .gb-author-info .gb-author-name {
 	padding-left: 10px;
 	font-weight: bold;
 }
 #gwolle_gb .gb-entry .gb-entry-content {
 	padding-left: 10px;
+}
+
+
+/* Widget */
+li.gwolle_gb_widget {
+	border-bottom: 1px dotted #999;
+	padding: 3px 0;
+	margin: 0;
+}
+
+p.gwolle_gb_link {
+	padding: 3px 0;
 }
 
 
