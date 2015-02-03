@@ -19,13 +19,16 @@ have a real guestbook.
 Current features include:
 
 * Easy to use guestbook frontend with a simple form for visitors of your website.
+* Widget to display your last or your best entries.
 * Simple and clean admin interface that integrates seamlessly into WordPress admin.
+* Dashboard Widget to easily manage the latest entries from your Admin dashboard.
 * Easy import from other guestbooks into Gwolle-GB.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
 * Custom Anti-Spam question for fighting spam, too.
 * reCAPTCHA integration for fighting spam, as well.
+* Simple Form Builder to select which form-fields you want to use.
 * Localisation. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
@@ -137,7 +140,7 @@ You can check this in the Inspector/console of your browser.
 
 = I don't get a notification email. =
 
-First check your spambox in your mailaccount. On the settingspage you can change the From address for the email taht is sent.
+First check your spambox in your mailaccount. On the settingspage you can change the From address for the email that is sent.
 Sometimes there are problems sending it from the default address, so this is a good thing to set first.
 If it still doesn't work, request the maillog at your hosting provider, or ask if they can take a look.
 
@@ -175,6 +178,11 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.1.4 =
+* 2015-02-
+* Slightly improve installsplash. Maybe it just needs to go alltogether.
+* Update zh_TW.
 
 = 1.1.3 =
 * 2015-02-01

@@ -52,8 +52,7 @@ function install_gwolle_gb() {
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
 
-	// Add reCAPTCHA option
-	add_option('gwolle_gb-recaptcha-active', 'false');
+	// Add reCAPTCHA options
 	add_option('recaptcha-public-key', '');
 	add_option('recaptcha-private-key', '');
 
