@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 16:23+0100\n"
+"POT-Creation-Date: 2015-02-03 13:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Charles-Aurélien PONCET / Brie Informatique <brie."
 "informatique@gmail.com>\n"
@@ -51,12 +51,12 @@ msgid "Export"
 msgstr "Exporter"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit entry"
 msgstr "Editer le message"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit"
 msgstr "Editer"
 
@@ -153,14 +153,10 @@ msgid "Guestbook (new entries)"
 msgstr "Livre d'or (nouveaux messages)"
 
 #: admin/installSplash.php:14
-msgid "Successfully uninstalled"
-msgstr "Désinstallé avec succès"
-
-#: admin/installSplash.php:16
 msgid "Installation"
 msgstr "Installation"
 
-#: admin/installSplash.php:23
+#: admin/installSplash.php:20
 msgid ""
 "Welcome!<br>It seems that either you're using this plugin for the first time "
 "or you've deleted all settings.<br>However, to use this plugin we have to "
@@ -173,28 +169,16 @@ msgstr ""
 "vous, nous avons fait cela aussi simple que possible. <br> Tout ce que vous "
 "avez à faire, c'est de cliquer sur ce bouton ci-dessous, et c'est tout."
 
-#: admin/installSplash.php:28
+#: admin/installSplash.php:26
 msgid "Sure, let's do this!"
 msgstr "Bien sûr, let's do this!"
 
 #: admin/installSplash.php:33
-msgid "You successfully uninstalled Gwolle-GB."
-msgstr "Vous avez désinstallé avec succès Gwolle-GB."
-
-#: admin/installSplash.php:35
-#, php-format
-msgid ""
-"You now may deactivate the plugin using the <a href=\"%s\" title=\"Go to the "
-"plugin manager...\">plugin manager</a> or/and delete the plugin from your "
-"webserver."
-msgstr ""
-
-#: admin/installSplash.php:40
 #, php-format
 msgid "Allright, we're done. <a href=\"%s\">Click here to continue...</a>"
 msgstr ""
 
-#: admin/installSplash.php:42
+#: admin/installSplash.php:35
 #, php-format
 msgid ""
 "It looks like there has been an error. <a href=\"%s\">Click here to "
@@ -316,7 +300,7 @@ msgstr "Auteur"
 
 #: admin/page-editor.php:457 admin/page-editor.php:465
 #: admin/page-editor.php:485 admin/page-editor.php:493
-#: functions/function.gwolle_gb_log.php:164
+#: functions/function.log.php:164
 msgid "Unknown"
 msgstr "inconnu"
 
@@ -743,7 +727,7 @@ msgstr "Sauvegarder les paramètres"
 msgid "The following users have subscribed to this service:"
 msgstr "Les utilisateurs suivants ont souscrit à ce service:"
 
-#: admin/page-gwolle-gb.php:194 functions/function.gwolle_gb_log.php:173
+#: admin/page-gwolle-gb.php:194 functions/function.log.php:173
 msgid "You"
 msgstr "Vous"
 
@@ -1443,28 +1427,28 @@ msgstr "Nous allons réviser et dé-verrouiller cela dans un court moment."
 msgid "New Guestbook Entry"
 msgstr "Nouveau message sur le livre d'or"
 
-#: frontend/read.php:86
+#: frontend/read.php:77
 msgid "Previous page"
 msgstr "Page précédente"
 
-#: frontend/read.php:99 frontend/read.php:107 frontend/read.php:113
-#: frontend/read.php:128 frontend/read.php:139
+#: frontend/read.php:90 frontend/read.php:98 frontend/read.php:104
+#: frontend/read.php:119 frontend/read.php:130
 msgid "Page"
 msgstr "Page"
 
-#: frontend/read.php:110 frontend/read.php:140
+#: frontend/read.php:101 frontend/read.php:131
 msgid "Next page"
 msgstr "Page suivante"
 
-#: frontend/read.php:150
+#: frontend/read.php:141
 msgid "(no entries yet)"
 msgstr "(Pas de message)"
 
-#: frontend/read.php:186
+#: frontend/read.php:177
 msgid "from"
 msgstr "de"
 
-#: frontend/read.php:190
+#: frontend/read.php:181
 msgid "wrote at"
 msgstr "écrit le"
 
@@ -1557,53 +1541,59 @@ msgstr ""
 "Nous nous réservons le droit d'éditer, supprimer ou de ne pas publier votre "
 "message."
 
-#: functions/function.gwolle_gb_log.php:94
+#: functions/function.log.php:94
 msgid "Entry has been locked."
 msgstr "Le message a été verrouillé."
 
-#: functions/function.gwolle_gb_log.php:95
+#: functions/function.log.php:95
 msgid "Entry has been checked."
 msgstr "Le message a été vérifié."
 
-#: functions/function.gwolle_gb_log.php:96
+#: functions/function.log.php:96
 msgid "Entry marked as spam."
 msgstr "Message marqué comme spam."
 
-#: functions/function.gwolle_gb_log.php:97
+#: functions/function.log.php:97
 msgid "Entry marked as not spam."
 msgstr "Messagge marqué comme NON Spam."
 
-#: functions/function.gwolle_gb_log.php:98
+#: functions/function.log.php:98
 msgid "Entry has been edited."
 msgstr "Le message été modifié."
 
-#: functions/function.gwolle_gb_log.php:99
+#: functions/function.log.php:99
 msgid "Imported from DMSGuestbook"
 msgstr "Importé d'DMSGuestbook"
 
-#: functions/function.gwolle_gb_log.php:100
+#: functions/function.log.php:100
 msgid "Imported from WordPress comments"
 msgstr "Importé depuis les commentaires WordPress"
 
-#: functions/function.gwolle_gb_log.php:101
+#: functions/function.log.php:101
 msgid "Imported from Gwolle-GB"
 msgstr "Importé depuis Gwolle-GB"
 
-#: functions/function.gwolle_gb_log.php:102
+#: functions/function.log.php:102
 msgid "Exported to CSV file"
 msgstr "Exporté dans un fichier CSV"
 
-#: functions/function.gwolle_gb_log.php:103
+#: functions/function.log.php:103
 msgid "Entry has been trashed."
 msgstr "Le message a été mis à la corbeille."
 
-#: functions/function.gwolle_gb_log.php:104
+#: functions/function.log.php:104
 msgid "Entry has been untrashed."
 msgstr "Le message a été restauré."
 
-#: functions/function.gwolle_gb_misc.php:46
+#: functions/function.misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Aucun contenu à afficher. Ce message est vide."
+
+#~ msgid "Successfully uninstalled"
+#~ msgstr "Désinstallé avec succès"
+
+#~ msgid "You successfully uninstalled Gwolle-GB."
+#~ msgstr "Vous avez désinstallé avec succès Gwolle-GB."
 
 #~ msgid "Use reCAPTCHA"
 #~ msgstr "Utiliser reCAPTCHA"

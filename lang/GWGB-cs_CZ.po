@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: guestbook\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 16:23+0100\n"
+"POT-Creation-Date: 2015-02-03 13:04+0100\n"
 "PO-Revision-Date: 2014-12-17 07:56+0100\n"
 "Last-Translator: Honya K. <korous.jan@gmail.com>\n"
 "Language-Team: HONYA K. <foto@honya-k.cz>\n"
@@ -53,12 +53,12 @@ msgid "Export"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit entry"
 msgstr "Upravit záznam"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit"
 msgstr "Upravit"
 
@@ -155,14 +155,10 @@ msgid "Guestbook (new entries)"
 msgstr ""
 
 #: admin/installSplash.php:14
-msgid "Successfully uninstalled"
-msgstr "Úspěšně odinstalováno"
-
-#: admin/installSplash.php:16
 msgid "Installation"
 msgstr "Instalace"
 
-#: admin/installSplash.php:23
+#: admin/installSplash.php:20
 msgid ""
 "Welcome!<br>It seems that either you're using this plugin for the first time "
 "or you've deleted all settings.<br>However, to use this plugin we have to "
@@ -175,28 +171,16 @@ msgstr ""
 "jednoduché, jak je to možné. <br> Vše, co musíš udělat, je kliknout na toto "
 "tlačítko níže, a to je vše"
 
-#: admin/installSplash.php:28
+#: admin/installSplash.php:26
 msgid "Sure, let's do this!"
 msgstr "Jasně, pojďme to udělat!"
 
 #: admin/installSplash.php:33
-msgid "You successfully uninstalled Gwolle-GB."
-msgstr "Úspěšně jste odinstalovali Gwolle-GB"
-
-#: admin/installSplash.php:35
-#, php-format
-msgid ""
-"You now may deactivate the plugin using the <a href=\"%s\" title=\"Go to the "
-"plugin manager...\">plugin manager</a> or/and delete the plugin from your "
-"webserver."
-msgstr ""
-
-#: admin/installSplash.php:40
 #, php-format
 msgid "Allright, we're done. <a href=\"%s\">Click here to continue...</a>"
 msgstr ""
 
-#: admin/installSplash.php:42
+#: admin/installSplash.php:35
 #, php-format
 msgid ""
 "It looks like there has been an error. <a href=\"%s\">Click here to "
@@ -318,7 +302,7 @@ msgstr "Text"
 
 #: admin/page-editor.php:457 admin/page-editor.php:465
 #: admin/page-editor.php:485 admin/page-editor.php:493
-#: functions/function.gwolle_gb_log.php:164
+#: functions/function.log.php:164
 msgid "Unknown"
 msgstr "Neznámý"
 
@@ -744,7 +728,7 @@ msgstr ""
 msgid "The following users have subscribed to this service:"
 msgstr "Následující uživatelé odebírají tyto služby:"
 
-#: admin/page-gwolle-gb.php:194 functions/function.gwolle_gb_log.php:173
+#: admin/page-gwolle-gb.php:194 functions/function.log.php:173
 msgid "You"
 msgstr "Vy"
 
@@ -1405,28 +1389,28 @@ msgstr "Zkontroluji to a nechám zobrazit co nejdříve"
 msgid "New Guestbook Entry"
 msgstr "Nový záznam do knihy návštěv"
 
-#: frontend/read.php:86
+#: frontend/read.php:77
 msgid "Previous page"
 msgstr "Předchozí stránka"
 
-#: frontend/read.php:99 frontend/read.php:107 frontend/read.php:113
-#: frontend/read.php:128 frontend/read.php:139
+#: frontend/read.php:90 frontend/read.php:98 frontend/read.php:104
+#: frontend/read.php:119 frontend/read.php:130
 msgid "Page"
 msgstr "Stránka"
 
-#: frontend/read.php:110 frontend/read.php:140
+#: frontend/read.php:101 frontend/read.php:131
 msgid "Next page"
 msgstr "Další stránka"
 
-#: frontend/read.php:150
+#: frontend/read.php:141
 msgid "(no entries yet)"
 msgstr "(žádné záznamy)"
 
-#: frontend/read.php:186
+#: frontend/read.php:177
 msgid "from"
 msgstr "z místa"
 
-#: frontend/read.php:190
+#: frontend/read.php:181
 msgid "wrote at"
 msgstr "napsal(a) dne"
 
@@ -1517,53 +1501,59 @@ msgstr "Váš záznam v knize návštěv bude viditelná až po tom, co jej proh
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr "Rezervuji si právo editovat, smazat nebo nepublikovat Váš záznam"
 
-#: functions/function.gwolle_gb_log.php:94
+#: functions/function.log.php:94
 msgid "Entry has been locked."
 msgstr "Záznam byl uzamčen"
 
-#: functions/function.gwolle_gb_log.php:95
+#: functions/function.log.php:95
 msgid "Entry has been checked."
 msgstr "Záznam byl zkontrolován"
 
-#: functions/function.gwolle_gb_log.php:96
+#: functions/function.log.php:96
 msgid "Entry marked as spam."
 msgstr "Záznam označen jako spam"
 
-#: functions/function.gwolle_gb_log.php:97
+#: functions/function.log.php:97
 msgid "Entry marked as not spam."
 msgstr "Záznam označen jako není spam"
 
-#: functions/function.gwolle_gb_log.php:98
+#: functions/function.log.php:98
 msgid "Entry has been edited."
 msgstr "Záznam byl upraven"
 
-#: functions/function.gwolle_gb_log.php:99
+#: functions/function.log.php:99
 msgid "Imported from DMSGuestbook"
 msgstr "Importováno z DMSGuestbook"
 
-#: functions/function.gwolle_gb_log.php:100
+#: functions/function.log.php:100
 msgid "Imported from WordPress comments"
 msgstr ""
 
-#: functions/function.gwolle_gb_log.php:101
+#: functions/function.log.php:101
 msgid "Imported from Gwolle-GB"
 msgstr ""
 
-#: functions/function.gwolle_gb_log.php:102
+#: functions/function.log.php:102
 msgid "Exported to CSV file"
 msgstr ""
 
-#: functions/function.gwolle_gb_log.php:103
+#: functions/function.log.php:103
 msgid "Entry has been trashed."
 msgstr "Záznam byl přesunut do koše"
 
-#: functions/function.gwolle_gb_log.php:104
+#: functions/function.log.php:104
 msgid "Entry has been untrashed."
 msgstr "Záznam byl obnoven z koše"
 
-#: functions/function.gwolle_gb_misc.php:46
+#: functions/function.misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Nic k zobrazení. Záznam je prázdný"
+
+#~ msgid "Successfully uninstalled"
+#~ msgstr "Úspěšně odinstalováno"
+
+#~ msgid "You successfully uninstalled Gwolle-GB."
+#~ msgstr "Úspěšně jste odinstalovali Gwolle-GB"
 
 #~ msgid "Use reCAPTCHA"
 #~ msgstr "Použít reCAPTCHA"

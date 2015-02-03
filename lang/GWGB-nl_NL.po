@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 16:23+0100\n"
+"POT-Creation-Date: 2015-02-03 13:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -49,12 +49,12 @@ msgid "Export"
 msgstr "Exporteren"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit entry"
 msgstr "Bewerk bericht"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit"
 msgstr "Bewerken"
 
@@ -151,14 +151,10 @@ msgid "Guestbook (new entries)"
 msgstr "Gastenboek (nieuwe berichten)"
 
 #: admin/installSplash.php:14
-msgid "Successfully uninstalled"
-msgstr "Installatie succesvol"
-
-#: admin/installSplash.php:16
 msgid "Installation"
 msgstr "Installatie"
 
-#: admin/installSplash.php:23
+#: admin/installSplash.php:20
 msgid ""
 "Welcome!<br>It seems that either you're using this plugin for the first time "
 "or you've deleted all settings.<br>However, to use this plugin we have to "
@@ -170,31 +166,16 @@ msgstr ""
 "voor je wat tabellen aan de database toegevoegd.<br> Alles wat je nog moet "
 "doen is op de knop hieronder klikken en dat is alles!"
 
-#: admin/installSplash.php:28
+#: admin/installSplash.php:26
 msgid "Sure, let's do this!"
 msgstr "OK, daar gaat ie dan."
 
 #: admin/installSplash.php:33
-msgid "You successfully uninstalled Gwolle-GB."
-msgstr "Je hebt Gwolle-GB succesvol gedeinstalleerd."
-
-#: admin/installSplash.php:35
-#, php-format
-msgid ""
-"You now may deactivate the plugin using the <a href=\"%s\" title=\"Go to the "
-"plugin manager...\">plugin manager</a> or/and delete the plugin from your "
-"webserver."
-msgstr ""
-"Je kunt nu de plugin deactiveren bij <a href=\"%s\" title=\"Ga naar je  "
-"plugin manager...\">plugin manager</a> en/of verwijder de plugin van je "
-"webserver."
-
-#: admin/installSplash.php:40
 #, php-format
 msgid "Allright, we're done. <a href=\"%s\">Click here to continue...</a>"
 msgstr "OK, alles is klaar. <a href=\"%s\">Klik hier om door te gaan...</a>"
 
-#: admin/installSplash.php:42
+#: admin/installSplash.php:35
 #, php-format
 msgid ""
 "It looks like there has been an error. <a href=\"%s\">Click here to "
@@ -318,7 +299,7 @@ msgstr "Auteur"
 
 #: admin/page-editor.php:457 admin/page-editor.php:465
 #: admin/page-editor.php:485 admin/page-editor.php:493
-#: functions/function.gwolle_gb_log.php:164
+#: functions/function.log.php:164
 msgid "Unknown"
 msgstr "Onbekend"
 
@@ -747,7 +728,7 @@ msgstr "Instelling opslaan"
 msgid "The following users have subscribed to this service:"
 msgstr "De volgende gebruikers hebben zich aangemeld voor deze dienst:"
 
-#: admin/page-gwolle-gb.php:194 functions/function.gwolle_gb_log.php:173
+#: admin/page-gwolle-gb.php:194 functions/function.log.php:173
 msgid "You"
 msgstr "Jij"
 
@@ -1451,28 +1432,28 @@ msgstr "We zullen het bekijken en binnenkort plaatsen."
 msgid "New Guestbook Entry"
 msgstr "Nieuw Gastenboek Bericht"
 
-#: frontend/read.php:86
+#: frontend/read.php:77
 msgid "Previous page"
 msgstr "Vorige pagina"
 
-#: frontend/read.php:99 frontend/read.php:107 frontend/read.php:113
-#: frontend/read.php:128 frontend/read.php:139
+#: frontend/read.php:90 frontend/read.php:98 frontend/read.php:104
+#: frontend/read.php:119 frontend/read.php:130
 msgid "Page"
 msgstr "Pagina"
 
-#: frontend/read.php:110 frontend/read.php:140
+#: frontend/read.php:101 frontend/read.php:131
 msgid "Next page"
 msgstr "Volgende pagina"
 
-#: frontend/read.php:150
+#: frontend/read.php:141
 msgid "(no entries yet)"
 msgstr "(nog geen berichten)"
 
-#: frontend/read.php:186
+#: frontend/read.php:177
 msgid "from"
 msgstr "uit"
 
-#: frontend/read.php:190
+#: frontend/read.php:181
 msgid "wrote at"
 msgstr "schreef op"
 
@@ -1569,53 +1550,68 @@ msgstr ""
 "We houden het recht voor om berichten te bewerken, verwijderen of niet te "
 "publiceren."
 
-#: functions/function.gwolle_gb_log.php:94
+#: functions/function.log.php:94
 msgid "Entry has been locked."
 msgstr "Bericht wordt geblokkeerd."
 
-#: functions/function.gwolle_gb_log.php:95
+#: functions/function.log.php:95
 msgid "Entry has been checked."
 msgstr "Bericht is vrijgegeven."
 
-#: functions/function.gwolle_gb_log.php:96
+#: functions/function.log.php:96
 msgid "Entry marked as spam."
 msgstr "Bericht gemarkeerd als spam."
 
-#: functions/function.gwolle_gb_log.php:97
+#: functions/function.log.php:97
 msgid "Entry marked as not spam."
 msgstr "Bericht is gemarkeerd als niet spam."
 
-#: functions/function.gwolle_gb_log.php:98
+#: functions/function.log.php:98
 msgid "Entry has been edited."
 msgstr "Bericht is bewerkt."
 
-#: functions/function.gwolle_gb_log.php:99
+#: functions/function.log.php:99
 msgid "Imported from DMSGuestbook"
 msgstr "Geïmporteerd vanuit DMSGuestbook"
 
-#: functions/function.gwolle_gb_log.php:100
+#: functions/function.log.php:100
 msgid "Imported from WordPress comments"
 msgstr "Geïmporteerd vanuit WordPress reacties"
 
-#: functions/function.gwolle_gb_log.php:101
+#: functions/function.log.php:101
 msgid "Imported from Gwolle-GB"
 msgstr "Geïmporteerd vanuit Gwolle-GB"
 
-#: functions/function.gwolle_gb_log.php:102
+#: functions/function.log.php:102
 msgid "Exported to CSV file"
 msgstr "Geëxporteerd naar CSV bestand"
 
-#: functions/function.gwolle_gb_log.php:103
+#: functions/function.log.php:103
 msgid "Entry has been trashed."
 msgstr "Bericht is verplaatst naar de prullenbak."
 
-#: functions/function.gwolle_gb_log.php:104
+#: functions/function.log.php:104
 msgid "Entry has been untrashed."
 msgstr "Bericht is hersteld uit de prullenbak."
 
-#: functions/function.gwolle_gb_misc.php:46
+#: functions/function.misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Geen inhoud om weer te geven. Het bericht is leeg."
+
+#~ msgid "Successfully uninstalled"
+#~ msgstr "Installatie succesvol"
+
+#~ msgid "You successfully uninstalled Gwolle-GB."
+#~ msgstr "Je hebt Gwolle-GB succesvol gedeinstalleerd."
+
+#~ msgid ""
+#~ "You now may deactivate the plugin using the <a href=\"%s\" title=\"Go to "
+#~ "the plugin manager...\">plugin manager</a> or/and delete the plugin from "
+#~ "your webserver."
+#~ msgstr ""
+#~ "Je kunt nu de plugin deactiveren bij <a href=\"%s\" title=\"Ga naar je  "
+#~ "plugin manager...\">plugin manager</a> en/of verwijder de plugin van je "
+#~ "webserver."
 
 #~ msgid "Use reCAPTCHA"
 #~ msgstr "Gebruik reCAPTCHA"

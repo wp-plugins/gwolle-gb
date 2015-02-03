@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 16:23+0100\n"
+"POT-Creation-Date: 2015-02-03 13:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Chun-I Lee <clslee@scu.edu.tw>\n"
 "Language-Team: zh_TW\n"
@@ -49,12 +49,12 @@ msgid "Export"
 msgstr "匯出"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit entry"
 msgstr "編輯留言"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit"
 msgstr "編輯"
 
@@ -151,14 +151,10 @@ msgid "Guestbook (new entries)"
 msgstr "訪客留言版(新留言)"
 
 #: admin/installSplash.php:14
-msgid "Successfully uninstalled"
-msgstr "成功反安裝"
-
-#: admin/installSplash.php:16
 msgid "Installation"
 msgstr "安裝"
 
-#: admin/installSplash.php:23
+#: admin/installSplash.php:20
 msgid ""
 "Welcome!<br>It seems that either you're using this plugin for the first time "
 "or you've deleted all settings.<br>However, to use this plugin we have to "
@@ -169,30 +165,16 @@ msgstr ""
 "如何, 要使用這個插件就要建立資料表. 好消息是我們已經做出盡可能簡單容易的方法."
 "<br>你所要做的只是按下下面的按鈕, 然後就這樣而已."
 
-#: admin/installSplash.php:28
+#: admin/installSplash.php:26
 msgid "Sure, let's do this!"
 msgstr "就這樣做吧!"
 
 #: admin/installSplash.php:33
-msgid "You successfully uninstalled Gwolle-GB."
-msgstr "你已經成功的反安裝 Gwolle-GB."
-
-#: admin/installSplash.php:35
-#, php-format
-msgid ""
-"You now may deactivate the plugin using the <a href=\"%s\" title=\"Go to the "
-"plugin manager...\">plugin manager</a> or/and delete the plugin from your "
-"webserver."
-msgstr ""
-"你可以使用 <a href=\"%s\" title=\"前往插件管理中心...\">插件管理中心</a> 停用"
-"插件或/且從伺服器上刪除該插件."
-
-#: admin/installSplash.php:40
 #, php-format
 msgid "Allright, we're done. <a href=\"%s\">Click here to continue...</a>"
 msgstr "好了, 我們完成了. <a href=\"%s\">按這裡繼續......</a>"
 
-#: admin/installSplash.php:42
+#: admin/installSplash.php:35
 #, php-format
 msgid ""
 "It looks like there has been an error. <a href=\"%s\">Click here to "
@@ -314,7 +296,7 @@ msgstr "發言者"
 
 #: admin/page-editor.php:457 admin/page-editor.php:465
 #: admin/page-editor.php:485 admin/page-editor.php:493
-#: functions/function.gwolle_gb_log.php:164
+#: functions/function.log.php:164
 msgid "Unknown"
 msgstr "不知道"
 
@@ -738,7 +720,7 @@ msgstr "儲存設定"
 msgid "The following users have subscribed to this service:"
 msgstr "下面的用戶開啟了這項務:"
 
-#: admin/page-gwolle-gb.php:194 functions/function.gwolle_gb_log.php:173
+#: admin/page-gwolle-gb.php:194 functions/function.log.php:173
 msgid "You"
 msgstr "你"
 
@@ -1408,28 +1390,28 @@ msgstr "我們將會檢視它, 並在很短的時間內審核它."
 msgid "New Guestbook Entry"
 msgstr "新留言版留言"
 
-#: frontend/read.php:86
+#: frontend/read.php:77
 msgid "Previous page"
 msgstr "上一頁"
 
-#: frontend/read.php:99 frontend/read.php:107 frontend/read.php:113
-#: frontend/read.php:128 frontend/read.php:139
+#: frontend/read.php:90 frontend/read.php:98 frontend/read.php:104
+#: frontend/read.php:119 frontend/read.php:130
 msgid "Page"
 msgstr "頁"
 
-#: frontend/read.php:110 frontend/read.php:140
+#: frontend/read.php:101 frontend/read.php:131
 msgid "Next page"
 msgstr "下一頁"
 
-#: frontend/read.php:150
+#: frontend/read.php:141
 msgid "(no entries yet)"
 msgstr "(尚未有留言)"
 
-#: frontend/read.php:186
+#: frontend/read.php:177
 msgid "from"
 msgstr "從"
 
-#: frontend/read.php:190
+#: frontend/read.php:181
 msgid "wrote at"
 msgstr "發表於"
 
@@ -1521,53 +1503,67 @@ msgstr "你的留言將在我們審核過後才可以被看到."
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr "我們保有編輯, 刪除或不讓留言發表的權利"
 
-#: functions/function.gwolle_gb_log.php:94
+#: functions/function.log.php:94
 msgid "Entry has been locked."
 msgstr "留言被鎖定."
 
-#: functions/function.gwolle_gb_log.php:95
+#: functions/function.log.php:95
 msgid "Entry has been checked."
 msgstr "留言被審核過."
 
-#: functions/function.gwolle_gb_log.php:96
+#: functions/function.log.php:96
 msgid "Entry marked as spam."
 msgstr "留言被標記為垃圾留言."
 
-#: functions/function.gwolle_gb_log.php:97
+#: functions/function.log.php:97
 msgid "Entry marked as not spam."
 msgstr "留言被標記為不是垃圾留言."
 
-#: functions/function.gwolle_gb_log.php:98
+#: functions/function.log.php:98
 msgid "Entry has been edited."
 msgstr "留言被編輯."
 
-#: functions/function.gwolle_gb_log.php:99
+#: functions/function.log.php:99
 msgid "Imported from DMSGuestbook"
 msgstr "從 DMSGuestbook 匯入"
 
-#: functions/function.gwolle_gb_log.php:100
+#: functions/function.log.php:100
 msgid "Imported from WordPress comments"
 msgstr "從 WordPress 迴響匯入"
 
-#: functions/function.gwolle_gb_log.php:101
+#: functions/function.log.php:101
 msgid "Imported from Gwolle-GB"
 msgstr "從 Gwolle-GB 訪客留言版匯入"
 
-#: functions/function.gwolle_gb_log.php:102
+#: functions/function.log.php:102
 msgid "Exported to CSV file"
 msgstr "匯出成 CSV 檔"
 
-#: functions/function.gwolle_gb_log.php:103
+#: functions/function.log.php:103
 msgid "Entry has been trashed."
 msgstr "留言被移到回收桶."
 
-#: functions/function.gwolle_gb_log.php:104
+#: functions/function.log.php:104
 msgid "Entry has been untrashed."
 msgstr "留言從回收桶取回."
 
-#: functions/function.gwolle_gb_misc.php:46
+#: functions/function.misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "沒有內容可以顯示. 這個留言是空的."
+
+#~ msgid "Successfully uninstalled"
+#~ msgstr "成功反安裝"
+
+#~ msgid "You successfully uninstalled Gwolle-GB."
+#~ msgstr "你已經成功的反安裝 Gwolle-GB."
+
+#~ msgid ""
+#~ "You now may deactivate the plugin using the <a href=\"%s\" title=\"Go to "
+#~ "the plugin manager...\">plugin manager</a> or/and delete the plugin from "
+#~ "your webserver."
+#~ msgstr ""
+#~ "你可以使用 <a href=\"%s\" title=\"前往插件管理中心...\">插件管理中心</a> "
+#~ "停用插件或/且從伺服器上刪除該插件."
 
 #~ msgid "Use reCAPTCHA"
 #~ msgstr "使用 reCAPTCHA"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-01 16:23+0100\n"
+"POT-Creation-Date: 2015-02-03 13:04+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Jenny Gaulke <Jenny.Gaulke@gmail.com>\n"
 "Language-Team: \n"
@@ -51,12 +51,12 @@ msgid "Export"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit entry"
 msgstr "Eintrag bearbeiten"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:210
+#: frontend/read.php:201
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -153,14 +153,10 @@ msgid "Guestbook (new entries)"
 msgstr "G&auml;stebuch (neue Eintr&auml;ge)"
 
 #: admin/installSplash.php:14
-msgid "Successfully uninstalled"
-msgstr "Erfolgreich deinstalliert"
-
-#: admin/installSplash.php:16
 msgid "Installation"
 msgstr "Installation"
 
-#: admin/installSplash.php:23
+#: admin/installSplash.php:20
 msgid ""
 "Welcome!<br>It seems that either you're using this plugin for the first time "
 "or you've deleted all settings.<br>However, to use this plugin we have to "
@@ -172,28 +168,16 @@ msgstr ""
 "zu k&ouml;nnen m&uuml;ssen wir die Tabellen einrichten. Um es dir so einfach "
 "wie m&ouml;glich zu machen musst Du nur noch den Button hier klicken."
 
-#: admin/installSplash.php:28
+#: admin/installSplash.php:26
 msgid "Sure, let's do this!"
 msgstr "Alles klar, los geht's!"
 
 #: admin/installSplash.php:33
-msgid "You successfully uninstalled Gwolle-GB."
-msgstr "Du hast Gwolle-GB erfolgreich deinstalliert."
-
-#: admin/installSplash.php:35
-#, php-format
-msgid ""
-"You now may deactivate the plugin using the <a href=\"%s\" title=\"Go to the "
-"plugin manager...\">plugin manager</a> or/and delete the plugin from your "
-"webserver."
-msgstr ""
-
-#: admin/installSplash.php:40
 #, php-format
 msgid "Allright, we're done. <a href=\"%s\">Click here to continue...</a>"
 msgstr ""
 
-#: admin/installSplash.php:42
+#: admin/installSplash.php:35
 #, php-format
 msgid ""
 "It looks like there has been an error. <a href=\"%s\">Click here to "
@@ -315,7 +299,7 @@ msgstr "Autor"
 
 #: admin/page-editor.php:457 admin/page-editor.php:465
 #: admin/page-editor.php:485 admin/page-editor.php:493
-#: functions/function.gwolle_gb_log.php:164
+#: functions/function.log.php:164
 msgid "Unknown"
 msgstr "Unbekannt"
 
@@ -741,7 +725,7 @@ msgstr ""
 msgid "The following users have subscribed to this service:"
 msgstr "Folgende Benutzer haben diesen Service abonniert:"
 
-#: admin/page-gwolle-gb.php:194 functions/function.gwolle_gb_log.php:173
+#: admin/page-gwolle-gb.php:194 functions/function.log.php:173
 msgid "You"
 msgstr "Du"
 
@@ -1423,28 +1407,28 @@ msgstr "&Uuml;berpr&uuml;fung und Freigabe folgt."
 msgid "New Guestbook Entry"
 msgstr "Neuer Eintrag "
 
-#: frontend/read.php:86
+#: frontend/read.php:77
 msgid "Previous page"
 msgstr "Vorherige Seite"
 
-#: frontend/read.php:99 frontend/read.php:107 frontend/read.php:113
-#: frontend/read.php:128 frontend/read.php:139
+#: frontend/read.php:90 frontend/read.php:98 frontend/read.php:104
+#: frontend/read.php:119 frontend/read.php:130
 msgid "Page"
 msgstr "Seite"
 
-#: frontend/read.php:110 frontend/read.php:140
+#: frontend/read.php:101 frontend/read.php:131
 msgid "Next page"
 msgstr "N&auml;chste Seite"
 
-#: frontend/read.php:150
+#: frontend/read.php:141
 msgid "(no entries yet)"
 msgstr "(keine Eintr&auml;ge bisher)"
 
-#: frontend/read.php:186
+#: frontend/read.php:177
 msgid "from"
 msgstr "aus"
 
-#: frontend/read.php:190
+#: frontend/read.php:181
 msgid "wrote at"
 msgstr "schrieb am"
 
@@ -1539,53 +1523,59 @@ msgstr ""
 "Es wird das Recht vorbehalten, Beitr&auml;ge zu k&uuml;rzen, zu l&ouml;schen "
 "oder sie nicht freizugeben."
 
-#: functions/function.gwolle_gb_log.php:94
+#: functions/function.log.php:94
 msgid "Entry has been locked."
 msgstr "Eintrag wurde gesperrt."
 
-#: functions/function.gwolle_gb_log.php:95
+#: functions/function.log.php:95
 msgid "Entry has been checked."
 msgstr "Der Eintrag wurde gepr&uuml;ft."
 
-#: functions/function.gwolle_gb_log.php:96
+#: functions/function.log.php:96
 msgid "Entry marked as spam."
 msgstr "Eintrag als Spam eingestuft."
 
-#: functions/function.gwolle_gb_log.php:97
+#: functions/function.log.php:97
 msgid "Entry marked as not spam."
 msgstr "Eintrag als Nicht-Spam markiert."
 
-#: functions/function.gwolle_gb_log.php:98
+#: functions/function.log.php:98
 msgid "Entry has been edited."
 msgstr "Eintrag wurde bearbeitet."
 
-#: functions/function.gwolle_gb_log.php:99
+#: functions/function.log.php:99
 msgid "Imported from DMSGuestbook"
 msgstr "Importiere aus DMSGuestbook"
 
-#: functions/function.gwolle_gb_log.php:100
+#: functions/function.log.php:100
 msgid "Imported from WordPress comments"
 msgstr ""
 
-#: functions/function.gwolle_gb_log.php:101
+#: functions/function.log.php:101
 msgid "Imported from Gwolle-GB"
 msgstr ""
 
-#: functions/function.gwolle_gb_log.php:102
+#: functions/function.log.php:102
 msgid "Exported to CSV file"
 msgstr ""
 
-#: functions/function.gwolle_gb_log.php:103
+#: functions/function.log.php:103
 msgid "Entry has been trashed."
 msgstr "Eintrag wurde in den Papierkorb verschoben."
 
-#: functions/function.gwolle_gb_log.php:104
+#: functions/function.log.php:104
 msgid "Entry has been untrashed."
 msgstr "Eintrag wurde wiederhergestellt."
 
-#: functions/function.gwolle_gb_misc.php:46
+#: functions/function.misc.php:46
 msgid "No content to display. This entry is empty."
 msgstr "Kein Inhalt; dieser Eintrag ist leer."
+
+#~ msgid "Successfully uninstalled"
+#~ msgstr "Erfolgreich deinstalliert"
+
+#~ msgid "You successfully uninstalled Gwolle-GB."
+#~ msgstr "Du hast Gwolle-GB erfolgreich deinstalliert."
 
 #~ msgid "Use reCAPTCHA"
 #~ msgstr "Benutze reCAPTCHA"
