@@ -35,6 +35,14 @@ define('GWOLLE_GB_VER', '1.1.4');
 
 
 /*
+ * FIXME: add things to title and description for SEO
+ * https://wordpress.org/support/topic/seo-optimization-4?replies=2#post-6532654
+ * Title meta that looks like: title tag - page number
+ * Description meta, one message of the page would be perfect.
+ */
+
+
+/*
  * Definitions
  */
 define('GWOLLE_GB_FOLDER', plugin_basename(dirname(__FILE__)));
