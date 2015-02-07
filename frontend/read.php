@@ -15,6 +15,8 @@ function gwolle_gb_frontend_read() {
 
 	$output = '';
 
+	$permalink = get_permalink(get_the_ID());
+
 	$entriesPerPage = (int) get_option('gwolle_gb-entriesPerPage', 20);
 
 	$entriesCount = gwolle_gb_get_entry_count(
@@ -74,7 +76,7 @@ function gwolle_gb_frontend_read() {
 	/* Page navigation */
 	$pagination = '<div class="page-navigation">';
 	if ($pageNum > 1) {
-		$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum - 1), get_permalink(get_the_ID()) ) . '" title="' . __('Previous page', GWOLLE_GB_TEXTDOMAIN) . '">&laquo;</a>';
+		$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum - 1), $permalink ) . '" title="' . __('Previous page', GWOLLE_GB_TEXTDOMAIN) . '">&laquo;</a>';
 	}
 	if ($pageNum < 5) {
 		if ($countPages < 5) {
@@ -87,7 +89,7 @@ function gwolle_gb_frontend_read() {
 			if ($i == $pageNum) {
 				$pagination .= '<span>' . $i . '</span>';
 			} else {
-				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, get_permalink(get_the_ID()) ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
+				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
 			}
 		}
 
@@ -95,13 +97,13 @@ function gwolle_gb_frontend_read() {
 			if ( $countPages > 7 && ($pageNum + 3) < $countPages ) {
 				$pagination .= '<span class="page-numbers dots">...</span>';
 			}
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, get_permalink(get_the_ID()) ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
+			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
 		}
 		if ($pageNum < $countPages) {
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), get_permalink(get_the_ID()) ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
+			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
 		}
 	} elseif ($pageNum >= 5) {
-		$pagination .= '<a href="' . add_query_arg( 'pageNum', 1, get_permalink(get_the_ID()) ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . ' 1">1</a>';
+		$pagination .= '<a href="' . add_query_arg( 'pageNum', 1, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . ' 1">1</a>';
 		if ( ($pageNum - 4) > 1) {
 			$pagination .= '<span class="page-numbers dots">...</span>';
 		}
@@ -116,7 +118,7 @@ function gwolle_gb_frontend_read() {
 			if ($i == $pageNum) {
 				$pagination .= '<span>' . $i . '</span>';
 			} else {
-				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, get_permalink(get_the_ID()) ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
+				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
 			}
 		}
 		if ($pageNum == $countPages) {
@@ -127,8 +129,8 @@ function gwolle_gb_frontend_read() {
 			if ( ($pageNum + 3) < $countPages ) {
 				$pagination .= '<span class="page-numbers dots">...</span>';
 			}
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, get_permalink(get_the_ID()) ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), get_permalink(get_the_ID()) ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
+			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
+			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
 		}
 	}
 	$pagination .= '</div>
