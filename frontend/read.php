@@ -203,12 +203,16 @@ function gwolle_gb_frontend_read() {
 			}
 			$output .= '</div></div>
 				';
+
+			// FIXME: add a filter for each entry, so devs can add or remove parts.
 		}
 	}
 
 	if ($countPages > 1) {
 		$output .= $pagination;
 	}
+
+	// FIXME: add filter for the complete output.
 
 	return $output;
 }

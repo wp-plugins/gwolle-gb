@@ -15,6 +15,10 @@ function gwolle_gb_frontend_write() {
 
 	$output = '';
 
+
+	// FIXME: add option to allow only logged-in users to post. Probably don't show the form if not logged-in.
+
+
 	// Set data up for refilling an already submitted form that had errors
 	$name = '';
 	$origin = '';

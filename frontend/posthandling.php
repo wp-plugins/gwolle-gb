@@ -33,6 +33,9 @@ function gwolle_gb_frontend_posthandling() {
 		$gwolle_gb_messages = '';
 
 
+		// FIXME: add option to allow only logged-in users to post.
+
+
 		/*
 		 * Collect data from the Form
 		 */
