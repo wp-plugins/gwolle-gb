@@ -296,6 +296,7 @@ function gwolle_gb_frontend_write() {
 		});
 		</script>';
 
+	// FIXME: Add filter for the form, so devs can manipulate it.
 
 	return $output;
 }
