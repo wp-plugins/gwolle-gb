@@ -183,6 +183,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.1.5 =
+* 2015-02-
+* Fix js when jQuery is loaded in the footer.
+
 = 1.1.4 =
 * 2015-02-03
 * Fix pagination links.
