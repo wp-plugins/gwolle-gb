@@ -138,6 +138,10 @@ you use.
 If you did enable reCAPTCHA, but didn't get a warning, in most cases it should show your reCAPTCHA. It might be that you have JavaScript errors.
 You can check this in the Inspector/console of your browser.
 
+= After submitting a new entry, I get errors about reCAPTCHA. =
+If the form gives you errors, even though you filled in everything correctly, there might be something strange happening.
+On some setups reCAPTCHA doesn't report Succes or Error. If you are able to debug this, and tell me what is happening, I would be happy to hear that.
+
 = I don't get a notification email. =
 
 First check your spambox in your mailaccount. On the settingspage you can change the From address for the email that is sent.
