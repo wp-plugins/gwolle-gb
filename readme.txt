@@ -175,10 +175,12 @@ Yes, it is again actively maintained.
 
 == Screenshots ==
 
-1. Overview panel, so that you easily can see what's the overall status.
-2. List of the entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
-3. The editor for a single entry.
-4. Settings panel (showing version 1.0.5).
+1. Frontend view of the list of guestbook entries. On top the button that will show the form when clicked. Then pagination. Then the list of entries.
+2. Dashboard widget with new and unchecked entries.
+3. Main page with the overview panel, so that you easily can see what's the overall status.
+2. List of guestbook entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
+3. The editor for a single entry. The Actions are using AJAX. There is a log of each entry what happened to this entry.
+4. Settings panel, showing version 1.1.4. This is the first tab where you can select which parts of the form to show and use.
 
 
 == Changelog ==
