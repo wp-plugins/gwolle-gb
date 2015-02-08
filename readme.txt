@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 2.8
 Tested up to: 4.1
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -138,6 +138,10 @@ you use.
 If you did enable reCAPTCHA, but didn't get a warning, in most cases it should show your reCAPTCHA. It might be that you have JavaScript errors.
 You can check this in the Inspector/console of your browser.
 
+= After submitting a new entry, I get errors about reCAPTCHA. =
+If the form gives you errors, even though you filled in everything correctly, there might be something strange happening.
+On some setups reCAPTCHA doesn't report Succes or Error. If you are able to debug this, and tell me what is happening, I would be happy to hear that.
+
 = I don't get a notification email. =
 
 First check your spambox in your mailaccount. On the settingspage you can change the From address for the email that is sent.
@@ -171,10 +175,12 @@ Yes, it is again actively maintained.
 
 == Screenshots ==
 
-1. Overview panel, so that you easily can see what's the overall status.
-2. List of the entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
-3. The editor for a single entry.
-4. Settings panel (showing version 1.0.5).
+1. Frontend view of the list of guestbook entries. On top the button that will show the form when clicked. Then pagination. Then the list of entries.
+2. Dashboard widget with new and unchecked entries.
+3. Main page with the overview panel, so that you easily can see what's the overall status.
+2. List of guestbook entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
+3. The editor for a single entry. The Actions are using AJAX. There is a log of each entry what happened to this entry.
+4. Settings panel, showing version 1.1.4. This is the first tab where you can select which parts of the form to show and use.
 
 
 == Changelog ==
