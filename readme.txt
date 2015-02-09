@@ -60,6 +60,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * de_DE [Jenny Gaulke]
 * en_GB [Wolfgang Timme]
 * es_ES [José Luis Sanz Ruiz]
+* fi_FI (Ilkka Kivelä)
 * fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
 * nl_NL [Marcel Pol](http://zenoweb.nl)
 * pl_PL [Daniel Speichert]
@@ -186,9 +187,11 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.1.5 =
-* 2015-02-
+* 2015-02-09
 * Fix js when jQuery is loaded in the footer.
+* Fix error submitting new entries.
 * Do pagination link a bit cheaper.
+* Add fi_FI (thanks Ilkka Kivelä).
 
 = 1.1.4 =
 * 2015-02-03

@@ -97,7 +97,7 @@ function gwolle_gb_frontend_posthandling() {
 			if (isset($_POST['gwolle_gb_author_website'])) {
 				$gwolle_gb_data['author_website'] = trim($_POST['gwolle_gb_author_website']);
 				if ( $gwolle_gb_data['author_website'] == "" ) {
-					if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
+					if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {
 						$gwolle_gb_errors = true;
 						$gwolle_gb_error_fields[] = 'author_website'; // mandatory
 					}
