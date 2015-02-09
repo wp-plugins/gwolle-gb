@@ -6,9 +6,6 @@
 
 jQuery(document).ready(function($) {
 
-	// Display the "check all"-checkboxes
-	$("#gwolle_gb_entries input[name^='check-all-']").css('display','inline');
-
 	$("#gwolle_gb_entries input[name='check-all-top']").change(function() {
 		gwolle_gb_toggleCheckboxes($("input[name='check-all-top']").is(":checked"));
 	});

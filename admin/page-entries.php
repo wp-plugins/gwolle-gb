@@ -535,33 +535,33 @@ function gwolle_gb_page_entries() {
 					<table class="widefat">
 						<thead>
 							<tr>
-								<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-top" id="check-all-top" type="checkbox"></th>
-								<th scope="col" ><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col" class="manage-column column-cb check-column"><input name="check-all-top" id="check-all-top" type="checkbox"></th>
+								<th scope="col"><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<?php
 								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') { ?>
 									<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 								<?php
 								} ?>
-								<th scope="col" ><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
 							</tr>
 						</thead>
 
 						<tfoot>
 							<tr>
-								<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-bottom" id="check-all-bottom" type="checkbox"></th>
-								<th scope="col" ><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col" class="manage-column column-cb check-column"><input name="check-all-bottom" id="check-all-bottom" type="checkbox"></th>
+								<th scope="col"><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<?php
 								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') { ?>
 									<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 								<?php
 								} ?>
-								<th scope="col" ><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
 							</tr>
 						</tfoot>
 

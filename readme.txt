@@ -186,6 +186,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.1.6 =
+* 2015-02-
+* Fix CSS for check-all checkbox on entrylist in admin.
+
 = 1.1.5 =
 * 2015-02-09
 * Fix js when jQuery is loaded in the footer.
