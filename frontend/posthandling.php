@@ -192,6 +192,7 @@ function gwolle_gb_frontend_posthandling() {
 		if ( is_array( $gwolle_gb_error_fields ) && !empty( $gwolle_gb_error_fields ) ) {
 			// There was no data filled in, even though that was mandatory.
 			$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There were errors submitting your guestbook entry.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+			$gwolle_gb_messages .= '<p class="error_fields" style="display: none;">' . print_r( $gwolle_gb_error_fields, true ) . '</p>';
 			return false; // no need to check and save
 		}
 
