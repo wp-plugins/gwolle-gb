@@ -145,8 +145,8 @@ On some setups reCAPTCHA doesn't report Succes or Error. If you are able to debu
 
 = I don't get a notification email. =
 
-First check your spambox in your mailaccount. On the settingspage you can change the From address for the email that is sent.
-Sometimes there are problems sending it from the default address, so this is a good thing to set first.
+First check your spambox in your mailaccount. Second, on the settingspage you can change the From address for the email that is sent.
+Sometimes there are problems sending it from the default address, so this is a good thing to change to a real address.
 If it still doesn't work, request the maillog at your hosting provider, or ask if they can take a look.
 
 = How do I enable or disable avatars? =
@@ -162,7 +162,7 @@ For managing options you need the capability 'manage_options'.
 = Should I really not use WordPress comments for a guestbook? =
 
 Sure you can if you want to. In my personal opinion however it can be a good thing to keep comments and guestbook entries separated.
-So if you already have a blog with comments, the guestbook entries might get lost in there, and keeping a separatge guestbook can be good.
+So if you already have a blog with comments, the guestbook entries might get lost in there, and keeping a separate guestbook can be good.
 But if you don't use standard comments, you can just as easily use the comment section for a guestbook.
 
 = How do I localize a plugin? =
@@ -189,6 +189,7 @@ Yes, it is again actively maintained.
 = 1.1.6 =
 * 2015-02-
 * Fix CSS for check-all checkbox on entrylist in admin.
+* Better CSS for admin entries, grey instead of pink.
 
 = 1.1.5 =
 * 2015-02-09

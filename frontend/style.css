@@ -99,8 +99,18 @@
 /* Read section */
 
 #gwolle_gb .admin-entry {
-	background-color: #FFF0F5;
+	color: #333;
+	background-color: #e6e6e6;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
 	padding-left: 5px;
+}
+#gwolle_gb .admin-entry a {
+	color: #666;
 }
 #gwolle_gb .gb-entry {
 	border-top: 1px dotted #999;
