@@ -1,19 +1,13 @@
 <?php
 
 // No direct calls to this script
-if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
+if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
+	die('No direct calls allowed!');
+}
 
 
 /*
  * Save new entries to the database, when valid.
- *
- * Mandatory fields:
- * - author_name
- * - author_email
- * - content
- * - negative Akismet result (= no spam)
- * - correct reCAPTCHA
- * (the last two only when turned on in the settings panel)
  *
  * global vars used:
  * $gwolle_gb_errors: false if no errors found, true if errors found
@@ -23,7 +17,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No 
  */
 
 function gwolle_gb_frontend_posthandling() {
-	global $wpdb, $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
+	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
 	/*
 	 * Handle $_POST and check and save entry.
@@ -39,84 +33,163 @@ function gwolle_gb_frontend_posthandling() {
 		$gwolle_gb_messages = '';
 
 
+		// FIXME: add option to allow only logged-in users to post.
+
+
 		/*
 		 * Collect data from the Form
 		 */
 		$gwolle_gb_data = array();
-		if (isset($_POST['gwolle_gb_author_name'])) {
-			$gwolle_gb_data['author_name'] = trim($_POST['gwolle_gb_author_name']);
-			if ( $gwolle_gb_data['author_name'] == "" ) {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'name'; // mandatory
+		$form_setting = gwolle_gb_get_setting( 'form' );
+
+		if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_author_name'])) {
+				$gwolle_gb_data['author_name'] = trim($_POST['gwolle_gb_author_name']);
+				if ( $gwolle_gb_data['author_name'] == "" ) {
+					if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'name'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'name'; // mandatory
+				}
 			}
-		} else {
-			$gwolle_gb_errors = true;
-			$gwolle_gb_error_fields[] = 'name'; // mandatory
-		}
-		if (isset($_POST['gwolle_gb_author_origin'])) {
-			$gwolle_gb_data['author_origin'] = trim($_POST['gwolle_gb_author_origin']);
-		}
-		if (isset($_POST['gwolle_gb_author_email'])) {
-			$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
-			if ( $gwolle_gb_data['author_email'] == "" ) {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'author_email'; // mandatory
-			}
-		} else {
-			$gwolle_gb_errors = true;
-			$gwolle_gb_error_fields[] = 'author_email'; // mandatory
-		}
-		if (isset($_POST['gwolle_gb_author_website'])) {
-			$gwolle_gb_data['author_website'] = trim($_POST['gwolle_gb_author_website']);
-		}
-		if (isset($_POST['gwolle_gb_content'])) {
-			$gwolle_gb_data['content'] = trim($_POST['gwolle_gb_content']);
-			if ( $gwolle_gb_data['content'] == "" ) {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'content'; // mandatory
-			}
-		} else {
-			$gwolle_gb_errors = true;
-			$gwolle_gb_error_fields[] = 'content'; // mandatory
 		}
 
+		if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_author_origin'])) {
+				$gwolle_gb_data['author_origin'] = trim($_POST['gwolle_gb_author_origin']);
+				if ( $gwolle_gb_data['author_origin'] == "" ) {
+					if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'author_origin'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'author_origin'; // mandatory
+				}
+			}
+		}
+
+		if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_author_email'])) {
+				$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
+				if ( $gwolle_gb_data['author_email'] == "" ) {
+					if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'author_email'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'author_email'; // mandatory
+				}
+			}
+		}
+
+		if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_author_website'])) {
+				$gwolle_gb_data['author_website'] = trim($_POST['gwolle_gb_author_website']);
+				if ( $gwolle_gb_data['author_website'] == "" ) {
+					if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'author_website'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'author_website'; // mandatory
+				}
+			}
+		}
+
+		if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' ) {
+			if (isset($_POST['gwolle_gb_content'])) {
+				$gwolle_gb_data['content'] = trim($_POST['gwolle_gb_content']);
+				if ( $gwolle_gb_data['content'] == "" ) {
+					if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'content'; // mandatory
+					}
+				}
+			} else {
+				if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'content'; // mandatory
+				}
+			}
+		}
+
+		/* Custom Security Question for Anti-Spam */
+		if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
+			$antispam_question = get_option('gwolle_gb-antispam-question');
+			$antispam_answer   = get_option('gwolle_gb-antispam-answer');
+
+			if ( isset($antispam_question) && strlen($antispam_question) > 0 && isset($antispam_answer) && strlen($antispam_answer) > 0 ) {
+				if ( isset($_POST["gwolle_gb_antispam_answer"]) && trim($_POST["gwolle_gb_antispam_answer"]) == trim($antispam_answer) ) {
+					//echo "You got it!";
+				} else {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'antispam'; // mandatory
+				}
+			}
+			if ( isset($_POST["gwolle_gb_antispam_answer"]) ) {
+				$gwolle_gb_data['antispam'] = trim($_POST['gwolle_gb_antispam_answer']);
+			}
+		}
 
 		/* reCAPTCHA */
-		if (get_option('gwolle_gb-recaptcha-active', 'false') === 'true' ) {
-
-			if (!class_exists('ReCaptcha')) {
-				require_once "recaptchalib.php";
-			}
+		if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
 
 			// Register API keys at https://www.google.com/recaptcha/admin
-			//$recaptcha_publicKey = get_option('recaptcha-public-key');
+			$recaptcha_publicKey = get_option('recaptcha-public-key');
 			$recaptcha_privateKey = get_option('recaptcha-private-key');
 
-			// The response from reCAPTCHA
-			$resp = null;
-			// The error code from reCAPTCHA, if any
-			$error = null;
+			if ( isset($recaptcha_publicKey) && isset($recaptcha_privateKey) ) {
 
-			$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
+				// Avoid Nasty Crash
+				if (!class_exists('ReCaptcha') && !class_exists('ReCaptchaResponse') ) {
+					require_once "recaptchalib.php";
+				}
 
-			// Was there a reCAPTCHA response?
-			if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
-				$resp = $reCaptcha->verifyResponse(
-					$_SERVER["REMOTE_ADDR"],
-					$_POST["g-recaptcha-response"]
-				);
-			}
+				// We can only use it if it is really loaded.
+				if (class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) {
 
-			if ( $resp != null && $resp->success ) {
-				//echo "You got it!";
-			} else {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+					// The response from reCAPTCHA
+					$resp = null;
+					// The error code from reCAPTCHA, if any
+					$error = null;
+
+					$reCaptcha = new ReCaptcha( $recaptcha_privateKey );
+
+					// Was there a reCAPTCHA response?
+					if ( isset($_POST["g-recaptcha-response"]) && $_POST["g-recaptcha-response"] ) {
+						$resp = $reCaptcha->verifyResponse(
+							$_SERVER["REMOTE_ADDR"],
+							$_POST["g-recaptcha-response"]
+						);
+					}
+
+					if ( $resp != null && $resp->success ) {
+						//echo "You got it!";
+					} else {
+						$gwolle_gb_errors = true;
+						$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
+					}
+				}
 			}
 		}
 
 
-		if ( is_array($gwolle_gb_error_fields) && count($gwolle_gb_error_fields) > 0 ) {
+		/* If there are errors, stop here and return false */
+		if ( is_array( $gwolle_gb_error_fields ) && !empty( $gwolle_gb_error_fields ) ) {
 			// There was no data filled in, even though that was mandatory.
 			$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There were errors submitting your guestbook entry.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 			return false; // no need to check and save
@@ -179,7 +252,7 @@ function gwolle_gb_frontend_posthandling() {
 		$entries = gwolle_gb_get_entries(array(
 				'email' => $entry->get_author_email()
 			));
-		if ( is_array( $entries ) && count( $entries ) > 0 ) {
+		if ( is_array( $entries ) && !empty( $entries ) ) {
 			foreach ( $entries as $entry_email ) {
 				if ( $entry_email->get_content() == $entry->get_content() ) {
 					// Match is double entry
@@ -208,18 +281,18 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/*
-		 * Send the Notification Mail(s) only when it is not Spam
+		 * Send the Notification Mail to moderators that have subscribed (only when it is not Spam)
 		 */
 
 		if ( !$isspam ) {
+			$subscribers = Array();
 			$recipients = get_option('gwolle_gb-notifyByMail', Array() );
 			if ( count($recipients ) > 0 ) {
 				$recipients = explode( ",", $recipients );
 				foreach ( $recipients as $recipient ) {
 					if ( is_numeric($recipient) ) {
 						$userdata = get_userdata( $recipient );
-						$subscriber[]['user_email'] = $userdata->user_email;
-						// FIXME: array in an array. is that needed?
+						$subscribers[] = $userdata->user_email;
 					}
 				}
 			}
@@ -231,7 +304,7 @@ function gwolle_gb_frontend_posthandling() {
 			$mailTags = array('user_email', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url');
 			$mail_body = stripslashes( get_option( 'gwolle_gb-adminMailContent' ) );
 			if (!$mail_body) {
-				$mail_body = get_option( 'gwolle_gb-defaultMailText' );
+				$mail_body = __("Hello,\n\nThere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer", GWOLLE_GB_TEXTDOMAIN);
 			}
 			// FIXME: use more content in the mailbody from the entry, like author_name, email, content
 
@@ -255,13 +328,13 @@ function gwolle_gb_frontend_posthandling() {
 				$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
 			}
 
-			if ( isset($subscriber) && is_array($subscriber) && count($subscriber) > 0 ) {
-				for ($i = 0; $i < count($subscriber); $i++) {
-					$mailBody[$i] = $mail_body;
-					$mailBody[$i] = str_replace('%user_email%', $subscriber[$i]['user_email'], $mailBody[$i]);
-					$mailBody[$i] = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody[$i]);
+			if ( is_array($subscribers) && !empty($subscribers) ) {
+				foreach ( $subscribers as $subscriber ) {
+					$mailBody = $mail_body;
+					$mailBody = str_replace('%user_email%', $subscriber, $mailBody);
+					$mailBody = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody);
 
-					wp_mail($subscriber[$i]['user_email'], $subject, $mailBody[$i], $header);
+					wp_mail($subscriber, $subject, $mailBody, $header);
 				}
 			}
 		}

@@ -7,7 +7,9 @@
  */
 
 // No direct calls to this script
-if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) { die('No direct calls allowed!'); }
+if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
+	die('No direct calls allowed!');
+}
 
 function gwolle_gb_overview(){
 
@@ -152,7 +154,7 @@ function gwolle_gb_notification() {
 	$user_ids = get_option('gwolle_gb-notifyByMail' );
 	if ( strlen($user_ids) > 0 ) {
 		$user_ids = explode( ",", $user_ids );
-		if ( is_array($user_ids) && count($user_ids) > 0 ) {
+		if ( is_array($user_ids) && !empty($user_ids) ) {
 			foreach ( $user_ids as $user_id ) {
 				if ( $user_id == $current_user_id ) {
 					$currentUserNotification = true;
@@ -179,7 +181,7 @@ function gwolle_gb_notification() {
 	<div>
 		<?php _e('The following users have subscribed to this service:', GWOLLE_GB_TEXTDOMAIN);
 
-		if ( is_array($user_ids) && count($user_ids) > 0 ) {
+		if ( is_array($user_ids) && !empty($user_ids) ) {
 			echo '<ul style="font-size:10px;font-style:italic;list-style-type:disc;padding-left:14px;">';
 			foreach ( $user_ids as $user_id ) {
 				$user_info = get_userdata($user_id);
@@ -246,6 +248,29 @@ function gwolle_gb_overview_help_more() {
 }
 
 
+function gwolle_gb_donate() {
+	echo '
+		<div id="gwolle_gb_eff"></div>
+		<h3>
+		' . __('Donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+		';
+
+	echo '<p>
+		' . __('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+		<p><a href="https://supporters.eff.org/donate" target="_blank" title="' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '</a></p>
+		';
+
+	echo '
+		<h3>
+		' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+		';
+	echo '<p>
+		' . __('If you rather want to donate to the maintainer of the plugin, you can donate through Paypal.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+		<p><a href="https://www.paypal.com" target="_blank" title="' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Donate through Paypal to', GWOLLE_GB_TEXTDOMAIN) . '</a> marcel@timelord.nl</p>
+		';
+}
+
+
 /* Show the page */
 function gwolle_gb_welcome() {
 
@@ -263,8 +288,8 @@ function gwolle_gb_welcome() {
 			$user_id = get_current_user_id();
 			$user_ids = Array();
 
-			$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
-			if ( count($user_ids_old) > 0 ) {
+			$user_ids_old = get_option('gwolle_gb-notifyByMail' );
+			if ( strlen($user_ids_old) > 0 ) {
 				$user_ids_old = explode( ",", $user_ids_old );
 				foreach ( $user_ids_old as $user_id_old ) {
 					if ( $user_id_old == $user_id ) {
@@ -286,8 +311,8 @@ function gwolle_gb_welcome() {
 			$user_id = get_current_user_id();
 			$user_ids = Array();
 
-			$user_ids_old = get_option('gwolle_gb-notifyByMail', Array() );
-			if ( count($user_ids_old) > 0 ) {
+			$user_ids_old = get_option('gwolle_gb-notifyByMail' );
+			if ( strlen($user_ids_old) > 0 ) {
 				$user_ids_old = explode( ",", $user_ids_old );
 				foreach ( $user_ids_old as $user_id_old ) {
 					if ( $user_id_old == $user_id ) {
@@ -315,6 +340,7 @@ function gwolle_gb_welcome() {
 		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts/programs/images:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'left', 'core');
 		add_meta_box('gwolle_gb_help', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');
 		add_meta_box('gwolle_gb_help_more', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help_more', 'gwolle_gb_welcome', 'right', 'core');
+		add_meta_box('gwolle_gb_donate', __('Donate', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_donate', 'gwolle_gb_welcome', 'right', 'core');
 
 		?>
 		<div class="wrap gwolle_gb-wrap">
