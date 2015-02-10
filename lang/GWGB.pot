@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-03 13:04+0100\n"
+"POT-Creation-Date: 2015-02-10 13:36+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,12 +52,12 @@ msgid "Export"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:201
+#: frontend/read.php:204
 msgid "Edit entry"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:201
+#: frontend/read.php:204
 msgid "Edit"
 msgstr ""
 
@@ -332,7 +332,7 @@ msgstr ""
 msgid "No log yet."
 msgstr ""
 
-#: admin/page-editor.php:539 frontend/write.php:167
+#: admin/page-editor.php:539 frontend/write.php:171
 msgid "Guestbook entry"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgid ""
 msgstr ""
 
 #: admin/page-editor.php:550 admin/page-settings.php:280
-#: frontend/write.php:153 frontend/write.php:160
+#: frontend/write.php:157 frontend/write.php:164
 msgid "Homepage"
 msgstr ""
 
@@ -587,7 +587,7 @@ msgstr ""
 
 #: admin/page-export.php:52 admin/page-import.php:348
 #: admin/page-import.php:389 admin/page-settings.php:217
-#: frontend/write.php:111 frontend/write.php:118
+#: frontend/write.php:115 frontend/write.php:122
 msgid "Name"
 msgstr ""
 
@@ -794,11 +794,11 @@ msgstr ""
 #: admin/page-gwolle-gb.php:268
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
-"through Paypal."
+"through PayPal."
 msgstr ""
 
 #: admin/page-gwolle-gb.php:269
-msgid "Donate through Paypal to"
+msgid "Donate through PayPal to"
 msgstr ""
 
 #: admin/page-gwolle-gb.php:338
@@ -1010,7 +1010,7 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:200 frontend/write.php:191 frontend/write.php:217
+#: admin/page-settings.php:200 frontend/write.php:195 frontend/write.php:221
 msgid "Anti-spam"
 msgstr ""
 
@@ -1039,11 +1039,11 @@ msgstr ""
 msgid "Mandatory"
 msgstr ""
 
-#: admin/page-settings.php:238 frontend/write.php:125 frontend/write.php:132
+#: admin/page-settings.php:238 frontend/write.php:129 frontend/write.php:136
 msgid "City"
 msgstr ""
 
-#: admin/page-settings.php:259 frontend/write.php:139 frontend/write.php:146
+#: admin/page-settings.php:259 frontend/write.php:143 frontend/write.php:150
 msgid "Email"
 msgstr ""
 
@@ -1258,7 +1258,7 @@ msgstr ""
 msgid "Admin mail content"
 msgstr ""
 
-#: admin/page-settings.php:654 frontend/posthandling.php:304
+#: admin/page-settings.php:654 frontend/posthandling.php:308
 msgid ""
 "Hello,\n"
 "\n"
@@ -1331,48 +1331,48 @@ msgstr ""
 msgid "Uninstall &raquo;"
 msgstr ""
 
-#: frontend/posthandling.php:191 frontend/posthandling.php:205
+#: frontend/posthandling.php:194 frontend/posthandling.php:209
 msgid "There were errors submitting your guestbook entry."
 msgstr ""
 
-#: frontend/posthandling.php:257
+#: frontend/posthandling.php:261
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 
-#: frontend/posthandling.php:273
+#: frontend/posthandling.php:277
 msgid "Thank you for your entry."
 msgstr ""
 
-#: frontend/posthandling.php:275
+#: frontend/posthandling.php:279
 msgid "We will review it and unlock it in a short while."
 msgstr ""
 
-#: frontend/posthandling.php:309
+#: frontend/posthandling.php:313
 msgid "New Guestbook Entry"
 msgstr ""
 
-#: frontend/read.php:77
+#: frontend/read.php:79
 msgid "Previous page"
 msgstr ""
 
-#: frontend/read.php:90 frontend/read.php:98 frontend/read.php:104
-#: frontend/read.php:119 frontend/read.php:130
+#: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
+#: frontend/read.php:121 frontend/read.php:132
 msgid "Page"
 msgstr ""
 
-#: frontend/read.php:101 frontend/read.php:131
+#: frontend/read.php:103 frontend/read.php:133
 msgid "Next page"
 msgstr ""
 
-#: frontend/read.php:141
+#: frontend/read.php:144
 msgid "(no entries yet)"
 msgstr ""
 
-#: frontend/read.php:177
+#: frontend/read.php:180
 msgid "from"
 msgstr ""
 
-#: frontend/read.php:181
+#: frontend/read.php:184
 msgid "wrote at"
 msgstr ""
 
@@ -1420,46 +1420,46 @@ msgstr ""
 msgid "Select page"
 msgstr ""
 
-#: frontend/write.php:93
+#: frontend/write.php:97
 msgid "Write a new entry."
 msgstr ""
 
-#: frontend/write.php:106
+#: frontend/write.php:110
 msgid "Write a new entry for the Guestbook"
 msgstr ""
 
-#: frontend/write.php:197
+#: frontend/write.php:201
 msgid "Answer"
 msgstr ""
 
-#: frontend/write.php:198
+#: frontend/write.php:202
 msgid "Question:"
 msgstr ""
 
-#: frontend/write.php:237
+#: frontend/write.php:241
 msgid "Submit"
 msgstr ""
 
-#: frontend/write.php:242
+#: frontend/write.php:246
 msgid "Fields marked with * are obligatory."
 msgstr ""
 
-#: frontend/write.php:245
+#: frontend/write.php:249
 msgid "The E-mail address wil not be published."
 msgstr ""
 
-#: frontend/write.php:248
+#: frontend/write.php:252
 #, php-format
 msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
 "span>."
 msgstr ""
 
-#: frontend/write.php:253
+#: frontend/write.php:257
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr ""
 
-#: frontend/write.php:256
+#: frontend/write.php:260
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 

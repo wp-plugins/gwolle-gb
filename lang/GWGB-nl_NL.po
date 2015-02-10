@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-03 13:04+0100\n"
+"POT-Creation-Date: 2015-02-10 13:36+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -49,12 +49,12 @@ msgid "Export"
 msgstr "Exporteren"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:201
+#: frontend/read.php:204
 msgid "Edit entry"
 msgstr "Bewerk bericht"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:201
+#: frontend/read.php:204
 msgid "Edit"
 msgstr "Bewerken"
 
@@ -335,7 +335,7 @@ msgstr "Bericht log"
 msgid "No log yet."
 msgstr "Nog geen log."
 
-#: admin/page-editor.php:539 frontend/write.php:167
+#: admin/page-editor.php:539 frontend/write.php:171
 msgid "Guestbook entry"
 msgstr "Gastenboek bericht"
 
@@ -349,7 +349,7 @@ msgstr ""
 "\">instellingen</a>."
 
 #: admin/page-editor.php:550 admin/page-settings.php:280
-#: frontend/write.php:153 frontend/write.php:160
+#: frontend/write.php:157 frontend/write.php:164
 msgid "Homepage"
 msgstr "Homepage"
 
@@ -600,7 +600,7 @@ msgstr "De exporteur zal de volgende gegevens behouden per bericht:"
 
 #: admin/page-export.php:52 admin/page-import.php:348
 #: admin/page-import.php:389 admin/page-settings.php:217
-#: frontend/write.php:111 frontend/write.php:118
+#: frontend/write.php:115 frontend/write.php:122
 msgid "Name"
 msgstr "Naam"
 
@@ -820,14 +820,14 @@ msgstr "Doneren aan de ontwikkelaar."
 #: admin/page-gwolle-gb.php:268
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
-"through Paypal."
+"through PayPal."
 msgstr ""
-"Als je liever aan de ontwikkelaar van de plugin doneert, kun je via Paypal "
+"Als je liever aan de ontwikkelaar van de plugin doneert, kun je via PayPal "
 "doneren."
 
 #: admin/page-gwolle-gb.php:269
-msgid "Donate through Paypal to"
-msgstr "Doneer via Paypal aan"
+msgid "Donate through PayPal to"
+msgstr "Doneer via PayPal aan"
 
 #: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
@@ -1054,7 +1054,7 @@ msgstr "Lezen"
 msgid "Admin"
 msgstr "Admin"
 
-#: admin/page-settings.php:200 frontend/write.php:191 frontend/write.php:217
+#: admin/page-settings.php:200 frontend/write.php:195 frontend/write.php:221
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
@@ -1083,11 +1083,11 @@ msgstr "Aangezet"
 msgid "Mandatory"
 msgstr "Verplicht"
 
-#: admin/page-settings.php:238 frontend/write.php:125 frontend/write.php:132
+#: admin/page-settings.php:238 frontend/write.php:129 frontend/write.php:136
 msgid "City"
 msgstr "Stad"
 
-#: admin/page-settings.php:259 frontend/write.php:139 frontend/write.php:146
+#: admin/page-settings.php:259 frontend/write.php:143 frontend/write.php:150
 msgid "Email"
 msgstr "E-mail"
 
@@ -1324,7 +1324,7 @@ msgstr ""
 msgid "Admin mail content"
 msgstr "Admin mail inhoud"
 
-#: admin/page-settings.php:654 frontend/posthandling.php:304
+#: admin/page-settings.php:654 frontend/posthandling.php:308
 msgid ""
 "Hello,\n"
 "\n"
@@ -1411,49 +1411,49 @@ msgstr "Verwijder ook de reCAPTCHA sleutels"
 msgid "Uninstall &raquo;"
 msgstr "Deïnstalleren &raquo;"
 
-#: frontend/posthandling.php:191 frontend/posthandling.php:205
+#: frontend/posthandling.php:194 frontend/posthandling.php:209
 msgid "There were errors submitting your guestbook entry."
 msgstr "Er waren fouten bij het toevoegen van je gastenboekbericht."
 
-#: frontend/posthandling.php:257
+#: frontend/posthandling.php:261
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 "Dubbel bericht: een bericht met de ingevoerde gegevens was al opgeslagen."
 
-#: frontend/posthandling.php:273
+#: frontend/posthandling.php:277
 msgid "Thank you for your entry."
 msgstr "Bedankt voor je bericht."
 
-#: frontend/posthandling.php:275
+#: frontend/posthandling.php:279
 msgid "We will review it and unlock it in a short while."
 msgstr "We zullen het bekijken en binnenkort plaatsen."
 
-#: frontend/posthandling.php:309
+#: frontend/posthandling.php:313
 msgid "New Guestbook Entry"
 msgstr "Nieuw Gastenboek Bericht"
 
-#: frontend/read.php:77
+#: frontend/read.php:79
 msgid "Previous page"
 msgstr "Vorige pagina"
 
-#: frontend/read.php:90 frontend/read.php:98 frontend/read.php:104
-#: frontend/read.php:119 frontend/read.php:130
+#: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
+#: frontend/read.php:121 frontend/read.php:132
 msgid "Page"
 msgstr "Pagina"
 
-#: frontend/read.php:101 frontend/read.php:131
+#: frontend/read.php:103 frontend/read.php:133
 msgid "Next page"
 msgstr "Volgende pagina"
 
-#: frontend/read.php:141
+#: frontend/read.php:144
 msgid "(no entries yet)"
 msgstr "(nog geen berichten)"
 
-#: frontend/read.php:177
+#: frontend/read.php:180
 msgid "from"
 msgstr "uit"
 
-#: frontend/read.php:181
+#: frontend/read.php:184
 msgid "wrote at"
 msgstr "schreef op"
 
@@ -1501,35 +1501,35 @@ msgstr "Selecteer de pagina van het gastenboek:"
 msgid "Select page"
 msgstr "Selecteer pagina"
 
-#: frontend/write.php:93
+#: frontend/write.php:97
 msgid "Write a new entry."
 msgstr "Schrijf een nieuw bericht."
 
-#: frontend/write.php:106
+#: frontend/write.php:110
 msgid "Write a new entry for the Guestbook"
 msgstr "Schrijf een nieuw bericht voor het Gastenboek"
 
-#: frontend/write.php:197
+#: frontend/write.php:201
 msgid "Answer"
 msgstr "Antwoord"
 
-#: frontend/write.php:198
+#: frontend/write.php:202
 msgid "Question:"
 msgstr "Vraag:"
 
-#: frontend/write.php:237
+#: frontend/write.php:241
 msgid "Submit"
 msgstr "Toevoegen"
 
-#: frontend/write.php:242
+#: frontend/write.php:246
 msgid "Fields marked with * are obligatory."
 msgstr "Velden met  een * zijn verplicht."
 
-#: frontend/write.php:245
+#: frontend/write.php:249
 msgid "The E-mail address wil not be published."
 msgstr "Het E-mailadres wordt niet gepubliceerd."
 
-#: frontend/write.php:248
+#: frontend/write.php:252
 #, php-format
 msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
@@ -1538,13 +1538,13 @@ msgstr ""
 "Uit veiligheidsoverwegingen slaan we het ip-adres <span id=\"gwolle_gb_ip\">"
 "%s</span> op."
 
-#: frontend/write.php:253
+#: frontend/write.php:257
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr ""
 "Je bericht zal zichtbaar zijn in het gastenboek nadat we het beoordeeld "
 "hebben."
 
-#: frontend/write.php:256
+#: frontend/write.php:260
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 "We houden het recht voor om berichten te bewerken, verwijderen of niet te "
