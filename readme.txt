@@ -190,6 +190,7 @@ Yes, it is again actively maintained.
 * 2015-02-10
 * Fix CSS for check-all checkbox on entrylist in admin.
 * Better CSS for admin entries, grey instead of pink.
+* Also style admin entries on admin pages.
 * Always load jQuery, it's just easier.
 * All strings use our text-domain.
 

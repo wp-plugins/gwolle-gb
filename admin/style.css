@@ -56,6 +56,17 @@
 	cursor: move;
 }
 
+.gwolle_gb .admin-entry {
+	color: #333;
+	background-color: #e6e6e6;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
+}
+
 /* Icons on entries.php and editor.php */
 .gwolle_gb td.entry-icons {
 	min-width: 50px;
@@ -141,6 +152,17 @@ form.gwolle_gb_options.active {
 #gwolle_gb_dashboard p.row-actions {
 	margin: 0;
 	padding-bottom: 4px;
+}
+
+#gwolle_gb_dashboard .admin-entry {
+	color: #333;
+	background-color: #e6e6e6;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
 }
 
 
