@@ -265,8 +265,8 @@ function gwolle_gb_donate() {
 		' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
 		';
 	echo '<p>
-		' . __('If you rather want to donate to the maintainer of the plugin, you can donate through Paypal.', GWOLLE_GB_TEXTDOMAIN) . '</p>
-		<p><a href="https://www.paypal.com" target="_blank" title="' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Donate through Paypal to', GWOLLE_GB_TEXTDOMAIN) . '</a> marcel@timelord.nl</p>
+		' . __('If you rather want to donate to the maintainer of the plugin, you can donate through PayPal.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+		<p><a href="https://www.paypal.com" target="_blank" title="' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Donate through PayPal to', GWOLLE_GB_TEXTDOMAIN) . '</a> marcel@timelord.nl</p>
 		';
 }
 
