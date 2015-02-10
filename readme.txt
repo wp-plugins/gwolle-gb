@@ -186,6 +186,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.1.7 =
+* 2015-02-
+
+
 = 1.1.6 =
 * 2015-02-10
 * Fix CSS for check-all checkbox on entrylist in admin.

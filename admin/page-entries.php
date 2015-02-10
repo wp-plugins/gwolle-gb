@@ -423,7 +423,7 @@ function gwolle_gb_page_entries() {
 					</li>
 					<li><a href='admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=trash' <?php
 						if ($show == 'trash') { echo 'class="current"'; }
-						?>><?php _e('Trash'); ?> <span class="count">(<?php echo $count['trash']; ?>)</span></a>
+						?>><?php _e('Trash', GWOLLE_GB_TEXTDOMAIN); ?> <span class="count">(<?php echo $count['trash']; ?>)</span></a>
 					</li>
 				</ul>
 				<div class="tablenav">
