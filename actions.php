@@ -77,7 +77,7 @@ function gwolle_gb_adminmenu() {
 
 function gwolle_gb_links( $links, $file ) {
 	if ( $file == plugin_basename( dirname(__FILE__).'/gwolle-gb.php' ) ) {
-		$links[] = '<a href="' . admin_url( 'admin.php?page=gwolle-gb/settings.php' ) . '">'.__( 'Settings' ).'</a>';
+		$links[] = '<a href="' . admin_url( 'admin.php?page=gwolle-gb/settings.php' ) . '">'.__( 'Settings', GWOLLE_GB_TEXTDOMAIN ).'</a>';
 	}
 	return $links;
 }

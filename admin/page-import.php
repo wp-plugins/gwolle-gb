@@ -21,7 +21,7 @@ function gwolle_gb_page_import() {
 	//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
-		die(__('Cheatin&#8217; uh?'));
+		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
 	}
 
 

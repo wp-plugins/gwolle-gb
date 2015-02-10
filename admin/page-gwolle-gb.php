@@ -275,7 +275,7 @@ function gwolle_gb_donate() {
 function gwolle_gb_welcome() {
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
-		die(__('Cheatin&#8217; uh?'));
+		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
 	}
 
 	/* Save notification setting */
