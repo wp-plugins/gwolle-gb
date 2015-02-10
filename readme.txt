@@ -187,9 +187,11 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.1.6 =
-* 2015-02-
+* 2015-02-10
 * Fix CSS for check-all checkbox on entrylist in admin.
 * Better CSS for admin entries, grey instead of pink.
+* Always load jQuery, it's just easier.
+* All strings use our text-domain.
 
 = 1.1.5 =
 * 2015-02-09
