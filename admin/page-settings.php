@@ -125,21 +125,21 @@ function gwolle_gb_page_settings() {
 						}
 
 						// FIXME: sanitize values
-						if ( isset($_POST['antispam-question']) && strlen( $_POST['antispam-question'] ) > 0 ) {
+						if ( isset($_POST['antispam-question']) ) {
 							update_option('gwolle_gb-antispam-question', $_POST['antispam-question']);
 							$saved = true;
 						}
-						if ( isset($_POST['antispam-answer']) && strlen( $_POST['antispam-answer'] ) > 0 ) {
+						if ( isset($_POST['antispam-answer']) ) {
 							update_option('gwolle_gb-antispam-answer', $_POST['antispam-answer']);
 							$saved = true;
 						}
 
 						// FIXME: sanitize values
-						if ( isset($_POST['recaptcha-public-key']) && strlen( $_POST['recaptcha-public-key'] ) > 0 ) {
+						if ( isset($_POST['recaptcha-public-key']) ) {
 							update_option('recaptcha-public-key', $_POST['recaptcha-public-key']);
 							$saved = true;
 						}
-						if ( isset($_POST['recaptcha-private-key']) && strlen( $_POST['recaptcha-private-key'] ) > 0 ) {
+						if ( isset($_POST['recaptcha-private-key']) ) {
 							update_option('recaptcha-private-key', $_POST['recaptcha-private-key']);
 							$saved = true;
 						}

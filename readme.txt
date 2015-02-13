@@ -188,6 +188,7 @@ Yes, it is again actively maintained.
 
 = 1.1.7 =
 * 2015-02-
+* Settingspage; make it possible to remove anti-spam and reCAPTCHA settings.
 * All strings really use our text-domain.
 * Update de_DE.
 
