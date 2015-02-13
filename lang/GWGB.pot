@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 12:52+0100\n"
+"POT-Creation-Date: 2015-02-13 14:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1194,7 +1194,7 @@ msgid "Custom Anti-Spam Security Question"
 msgstr ""
 
 #: admin/page-settings.php:580
-msgid "12 + six"
+msgid "12 + six ="
 msgstr ""
 
 #: admin/page-settings.php:581

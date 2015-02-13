@@ -577,7 +577,7 @@ function gwolle_gb_page_settings() {
 						<th scope="row"><label for="antispam-question"><?php _e('Custom Anti-Spam Security Question', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
 							<div>
-								<input name="antispam-question" type="text" id="antispam-question" value="<?php echo $antispam_question; ?>" class="regular-text" placeholder="<?php _e('12 + six', GWOLLE_GB_TEXTDOMAIN); ?>" />
+								<input name="antispam-question" type="text" id="antispam-question" value="<?php echo $antispam_question; ?>" class="regular-text" placeholder="<?php _e('12 + six =', GWOLLE_GB_TEXTDOMAIN); ?>" />
 								<label for="antispam-question" class="setting-description"><?php _e('Custom security question to battle spam.', GWOLLE_GB_TEXTDOMAIN); ?></label>
 								<br />
 								<input name="antispam-answer" type="text" id="antispam-answer" value="<?php echo $antispam_answer; ?>" class="regular-text" placeholder="<?php _e('18', GWOLLE_GB_TEXTDOMAIN); ?>" />
