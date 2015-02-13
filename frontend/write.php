@@ -262,6 +262,9 @@ function gwolle_gb_frontend_write() {
 		</form>';
 
 
+	// FIXME: make this notice into a textarea for the admin so it can be changed as desired.
+
+
 	/*
 	 * Add CSS for showing the Form or the Button.
 	 */

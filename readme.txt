@@ -57,7 +57,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 = Languages =
 
 * cs_CZ [Jan Korous]
-* de_DE [Jenny Gaulke]
+* de_DE [Jenny Gaulke and Eckhard Henkel]
 * en_GB [Wolfgang Timme]
 * es_ES [José Luis Sanz Ruiz]
 * fi_FI (Ilkka Kivelä)
@@ -188,6 +188,8 @@ Yes, it is again actively maintained.
 
 = 1.1.7 =
 * 2015-02-
+* All strings really use our text-domain.
+* Update de_DE.
 
 
 = 1.1.6 =
