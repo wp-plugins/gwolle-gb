@@ -212,7 +212,7 @@ function gwolle_gb_frontend_posthandling() {
 							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There is no message, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 							break;
 						case 'antispam':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The anti-spam answer was not answered correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The anti-spam question was not answered correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 							break;
 						case 'recaptcha':
 							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The reCAPTCHA was not filled in correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';

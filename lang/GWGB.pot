@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 14:19+0100\n"
+"POT-Creation-Date: 2015-02-13 15:27+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1258,7 +1258,7 @@ msgstr ""
 msgid "Admin mail content"
 msgstr ""
 
-#: admin/page-settings.php:654 frontend/posthandling.php:308
+#: admin/page-settings.php:654 frontend/posthandling.php:336
 msgid ""
 "Hello,\n"
 "\n"
@@ -1331,23 +1331,53 @@ msgstr ""
 msgid "Uninstall &raquo;"
 msgstr ""
 
-#: frontend/posthandling.php:194 frontend/posthandling.php:209
+#: frontend/posthandling.php:194 frontend/posthandling.php:237
 msgid "There were errors submitting your guestbook entry."
 msgstr ""
 
-#: frontend/posthandling.php:261
+#: frontend/posthandling.php:200
+msgid "Your name is not filled in, even though it is mandatory."
+msgstr ""
+
+#: frontend/posthandling.php:203
+msgid "Your origin is not filled in, even though it is mandatory."
+msgstr ""
+
+#: frontend/posthandling.php:206
+msgid "Your e-mail address is not filled in, even though it is mandatory."
+msgstr ""
+
+#: frontend/posthandling.php:209
+msgid "Your website is not filled in, even though it is mandatory."
+msgstr ""
+
+#: frontend/posthandling.php:212
+msgid "There is no message, even though it is mandatory."
+msgstr ""
+
+#: frontend/posthandling.php:215
+msgid ""
+"The anti-spam question was not answered correctly, even though it is "
+"mandatory."
+msgstr ""
+
+#: frontend/posthandling.php:218
+msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
+msgstr ""
+
+#: frontend/posthandling.php:289
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 
-#: frontend/posthandling.php:277
+#: frontend/posthandling.php:305
 msgid "Thank you for your entry."
 msgstr ""
 
-#: frontend/posthandling.php:279
+#: frontend/posthandling.php:307
 msgid "We will review it and unlock it in a short while."
 msgstr ""
 
-#: frontend/posthandling.php:313
+#: frontend/posthandling.php:341
 msgid "New Guestbook Entry"
 msgstr ""
 
@@ -1428,12 +1458,12 @@ msgstr ""
 msgid "Write a new entry for the Guestbook"
 msgstr ""
 
-#: frontend/write.php:201
-msgid "Answer"
+#: frontend/write.php:196
+msgid "Question:"
 msgstr ""
 
 #: frontend/write.php:202
-msgid "Question:"
+msgid "Answer"
 msgstr ""
 
 #: frontend/write.php:241
