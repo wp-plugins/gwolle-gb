@@ -64,6 +64,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
 * nl_NL [Marcel Pol](http://zenoweb.nl)
 * pl_PL [Daniel Speichert]
+* pt_PT [Jose Quintas]
 * zh_TW [Chun-I Lee]
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
@@ -192,6 +193,7 @@ Yes, it is again actively maintained.
 * Add better error messages to the form.
 * Add autofocus to first formfield with an error.
 * Use validation for the email.
+* Add pt_PT (Only frontend yet).
 
 = 1.1.7 =
 * 2015-02-13
