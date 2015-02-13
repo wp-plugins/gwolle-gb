@@ -26,6 +26,18 @@
 	margin-left: 10px;
 }
 
+body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
+	margin: 1em 0;
+}
+
+#gwolle_gb_eff {
+	float: right;
+	width: 90px;
+	height: 61px;
+	background: url('gfx/logo_eff.png') no-repeat;
+
+}
+
 /* Page Navigation on entries.php */
 .gwolle_gb #page-nav {
 	display: block;
@@ -46,6 +58,17 @@
 	background-position: 0px 6px;
 	width: 10px;
 	cursor: move;
+}
+
+.gwolle_gb .admin-entry {
+	color: #333;
+	background-color: #e6e6e6;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
 }
 
 /* Icons on entries.php and editor.php */
@@ -75,13 +98,40 @@
 	background-image: url('gfx/entry-spam.jpg');
 }
 
-/* AJAX? */
+/* AJAX */
 .gwolle_gb .entry-icons .gwolle_gb_ajax {
 	background-image: url('gfx/loading.gif');
 }
 
 .gwolle_gb tr.entry td span {
 	vertical-align: middle;
+}
+
+/* Entries actions */
+td.gwolle_gb_actions {
+	width: 120px;
+}
+
+/* Editor Log */
+.gwolle_gb_log {
+	max-height: 400px;
+	overflow: auto;
+}
+
+
+/* Settings page */
+/* Tabs */
+form.gwolle_gb_options {
+	display: none;
+}
+form.gwolle_gb_options.active {
+	display: block;
+}
+
+/* Forms tab */
+.gwolle_gb_options th.narrow,
+.gwolle_gb_options td.narrow {
+	width: 100px;
 }
 
 
@@ -106,6 +156,17 @@
 #gwolle_gb_dashboard p.row-actions {
 	margin: 0;
 	padding-bottom: 4px;
+}
+
+#gwolle_gb_dashboard .admin-entry {
+	color: #333;
+	background-color: #e6e6e6;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
 }
 
 
@@ -137,19 +198,6 @@ span.gwolle_gb_ajax {
 }
 .trash span.gwolle_gb_untrash {
 	display: inline;
-}
-
-
-
-/* ??? */
-#gwolle_gb_dashboard div.undo {
-	border-top-color: #DFDFDF;
-	background-color: #F4F4F4;
-	border-top-style: solid;
-	border-top-width: 1px;
-	font-size: 11px;
-	margin: 0 -10px;
-	padding: 3px 8px;
 }
 
 
