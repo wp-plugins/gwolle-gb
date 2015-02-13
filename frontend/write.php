@@ -192,14 +192,14 @@ function gwolle_gb_frontend_write() {
 			$output .= '
 				<div class="gwolle_gb_antispam">
 					<div class="label">
-						<label for="gwolle_gb_antispam_answer">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</label>
+						<label for="gwolle_gb_antispam_answer">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *<br />
+						' . __('Question:', GWOLLE_GB_TEXTDOMAIN) . " " .  $antispam_question . '</label>
 					</div>
 					<div class="input"><input class="';
 			if (in_array('antispam', $gwolle_gb_error_fields)) {
 				$output .= ' error';
 			}
-			$output .= '" value="' . $antispam . '" type="text" name="gwolle_gb_antispam_answer" id="gwolle_gb_antispam_answer" placeholder="' . __('Answer', GWOLLE_GB_TEXTDOMAIN) . '" /><br />
-						<label for="gwolle_gb_antispam_answer">' . __('Question:', GWOLLE_GB_TEXTDOMAIN) . " " .  $antispam_question . '</label>
+			$output .= '" value="' . $antispam . '" type="text" name="gwolle_gb_antispam_answer" id="gwolle_gb_antispam_answer" placeholder="' . __('Answer', GWOLLE_GB_TEXTDOMAIN) . '" />
 					</div>
 				</div>
 				<div class="clearBoth">&nbsp;</div>';

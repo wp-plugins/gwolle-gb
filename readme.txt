@@ -186,12 +186,15 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.1.8 =
+* 2015-02-
+* Move anti-spam question to the label on the left.
+
 = 1.1.7 =
 * 2015-02-13
 * Settingspage; make it possible to remove anti-spam and reCAPTCHA settings.
 * All strings really use our text-domain.
 * Update de_DE.
-
 
 = 1.1.6 =
 * 2015-02-10
