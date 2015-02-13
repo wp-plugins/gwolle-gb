@@ -687,13 +687,13 @@ function gwolle_gb_page_entries() {
 												<a id="unspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Not spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 											<span class="gwolle_gb_trash">&nbsp;|&nbsp;
-												<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash') . '</a>
+												<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 											<span class="gwolle_gb_untrash">&nbsp;|&nbsp;
-												<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash') . '</a>
+												<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 											<span class="gwolle_gb_ajax">&nbsp;|&nbsp;
-												<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...') . '</a>
+												<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 										</td>
 									</tr>';
