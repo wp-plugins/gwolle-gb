@@ -192,6 +192,34 @@ function gwolle_gb_frontend_posthandling() {
 		if ( is_array( $gwolle_gb_error_fields ) && !empty( $gwolle_gb_error_fields ) ) {
 			// There was no data filled in, even though that was mandatory.
 			$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There were errors submitting your guestbook entry.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+
+			if ( isset($gwolle_gb_error_fields) ) {
+				foreach ( $gwolle_gb_error_fields as $field ) {
+					switch ( $field ) {
+						case 'name':
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your name is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							break;
+						case 'author_origin':
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your origin is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							break;
+						case 'author_email':
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your e-mail address is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							break;
+						case 'author_website':
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your website is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							break;
+						case 'content':
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There is no message, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							break;
+						case 'antispam':
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The anti-spam answer was not answered correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							break;
+						case 'recaptcha':
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The reCAPTCHA was not filled in correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							break;
+					}
+				}
+			}
 			$gwolle_gb_messages .= '<p class="error_fields" style="display: none;">' . print_r( $gwolle_gb_error_fields, true ) . '</p>';
 			return false; // no need to check and save
 		}

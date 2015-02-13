@@ -189,6 +189,7 @@ Yes, it is again actively maintained.
 = 1.1.8 =
 * 2015-02-
 * Move anti-spam question to the label on the left.
+* Add better error messages to the form.
 
 = 1.1.7 =
 * 2015-02-13
