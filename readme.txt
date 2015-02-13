@@ -191,6 +191,7 @@ Yes, it is again actively maintained.
 * Move anti-spam question to the label on the left.
 * Add better error messages to the form.
 * Add autofocus to first formfield with an error.
+* Use validation for the email.
 
 = 1.1.7 =
 * 2015-02-13

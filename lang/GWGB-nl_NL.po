@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 15:27+0100\n"
+"POT-Creation-Date: 2015-02-13 19:15+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -335,7 +335,7 @@ msgstr "Bericht log"
 msgid "No log yet."
 msgstr "Nog geen log."
 
-#: admin/page-editor.php:539 frontend/write.php:171
+#: admin/page-editor.php:539 frontend/write.php:192
 msgid "Guestbook entry"
 msgstr "Gastenboek bericht"
 
@@ -349,7 +349,7 @@ msgstr ""
 "\">instellingen</a>."
 
 #: admin/page-editor.php:550 admin/page-settings.php:280
-#: frontend/write.php:157 frontend/write.php:164
+#: frontend/write.php:173 frontend/write.php:180
 msgid "Homepage"
 msgstr "Homepage"
 
@@ -600,7 +600,7 @@ msgstr "De exporteur zal de volgende gegevens behouden per bericht:"
 
 #: admin/page-export.php:52 admin/page-import.php:348
 #: admin/page-import.php:389 admin/page-settings.php:217
-#: frontend/write.php:115 frontend/write.php:122
+#: frontend/write.php:116 frontend/write.php:123
 msgid "Name"
 msgstr "Naam"
 
@@ -1054,7 +1054,7 @@ msgstr "Lezen"
 msgid "Admin"
 msgstr "Admin"
 
-#: admin/page-settings.php:200 frontend/write.php:195 frontend/write.php:221
+#: admin/page-settings.php:200 frontend/write.php:221 frontend/write.php:252
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
@@ -1083,11 +1083,11 @@ msgstr "Aangezet"
 msgid "Mandatory"
 msgstr "Verplicht"
 
-#: admin/page-settings.php:238 frontend/write.php:129 frontend/write.php:136
+#: admin/page-settings.php:238 frontend/write.php:135 frontend/write.php:142
 msgid "City"
 msgstr "Stad"
 
-#: admin/page-settings.php:259 frontend/write.php:143 frontend/write.php:150
+#: admin/page-settings.php:259 frontend/write.php:154 frontend/write.php:161
 msgid "Email"
 msgstr "E-mail"
 
@@ -1432,8 +1432,9 @@ msgid "Your origin is not filled in, even though it is mandatory."
 msgstr "Je stad is niet ingevuld, terwijl dat wel verplicht is."
 
 #: frontend/posthandling.php:206
-msgid "Your e-mail address is not filled in, even though it is mandatory."
-msgstr "Je e-mailadres is niet ingevuld, terwijl dat wel verplicht is."
+msgid ""
+"Your e-mail address is not filled in correctly, even though it is mandatory."
+msgstr "Je e-mailadres is niet correct ingevuld, terwijl dat wel verplicht is."
 
 #: frontend/posthandling.php:209
 msgid "Your website is not filled in, even though it is mandatory."
@@ -1544,31 +1545,31 @@ msgstr "Selecteer pagina"
 msgid "Write a new entry."
 msgstr "Schrijf een nieuw bericht."
 
-#: frontend/write.php:110
+#: frontend/write.php:111
 msgid "Write a new entry for the Guestbook"
 msgstr "Schrijf een nieuw bericht voor het Gastenboek"
 
-#: frontend/write.php:196
+#: frontend/write.php:222
 msgid "Question:"
 msgstr "Vraag:"
 
-#: frontend/write.php:202
+#: frontend/write.php:228
 msgid "Answer"
 msgstr "Antwoord"
 
-#: frontend/write.php:241
+#: frontend/write.php:272
 msgid "Submit"
 msgstr "Toevoegen"
 
-#: frontend/write.php:246
+#: frontend/write.php:277
 msgid "Fields marked with * are obligatory."
 msgstr "Velden met een * zijn verplicht."
 
-#: frontend/write.php:249
+#: frontend/write.php:280
 msgid "The E-mail address wil not be published."
 msgstr "Het E-mailadres wordt niet gepubliceerd."
 
-#: frontend/write.php:252
+#: frontend/write.php:283
 #, php-format
 msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
@@ -1577,13 +1578,13 @@ msgstr ""
 "Uit veiligheidsoverwegingen slaan we het ip-adres <span id=\"gwolle_gb_ip\">"
 "%s</span> op."
 
-#: frontend/write.php:257
+#: frontend/write.php:288
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr ""
 "Je bericht zal zichtbaar zijn in het gastenboek nadat we het beoordeeld "
 "hebben."
 
-#: frontend/write.php:260
+#: frontend/write.php:291
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 "We houden het recht voor om berichten te bewerken, verwijderen of niet te "

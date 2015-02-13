@@ -79,11 +79,11 @@ function gwolle_gb_frontend_posthandling() {
 		if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_author_email'])) {
 				$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
-				if ( $gwolle_gb_data['author_email'] == "" ) {
-					if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
-						$gwolle_gb_errors = true;
-						$gwolle_gb_error_fields[] = 'author_email'; // mandatory
-					}
+				if ( filter_var( $gwolle_gb_data['author_email'], FILTER_VALIDATE_EMAIL ) ) {
+					// echo "This email address is considered valid.";
+				} else if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'author_email'; // mandatory
 				}
 			} else {
 				if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
@@ -203,7 +203,7 @@ function gwolle_gb_frontend_posthandling() {
 							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your origin is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 							break;
 						case 'author_email':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your e-mail address is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your e-mail address is not filled in correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 							break;
 						case 'author_website':
 							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your website is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
