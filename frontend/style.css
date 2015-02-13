@@ -42,9 +42,9 @@
 	padding: 2px;
 }
 
-#gwolle_gb .input.error, /* recaptcha */
-#gwolle_gb input.error,
-#gwolle_gb textarea.error {
+#gwolle_gb form#gwolle_gb_new_entry .input.error, /* recaptcha */
+#gwolle_gb form#gwolle_gb_new_entry input.error,
+#gwolle_gb form#gwolle_gb_new_entry textarea.error {
 	border: 1px solid #dd3d36;
 }
 
