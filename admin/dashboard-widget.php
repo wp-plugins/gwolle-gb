@@ -133,15 +133,15 @@ function gwolle_gb_dashboard() {
 						</span>
 						<span class="gwolle_gb_trash">
 							&nbsp;|&nbsp;
-							<a id="trash_<?php echo $entry->get_id(); ?>" href="#" class="vim-d vim-destructive" title="<?php _e('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Trash'); ?></a>
+							<a id="trash_<?php echo $entry->get_id(); ?>" href="#" class="vim-d vim-destructive" title="<?php _e('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Trash', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
 						<span class="gwolle_gb_untrash">
 							&nbsp;|&nbsp;
-							<a id="untrash_<?php echo $entry->get_id(); ?>" href="#" class="vim-d" title="<?php _e('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Untrash'); ?></a>
+							<a id="untrash_<?php echo $entry->get_id(); ?>" href="#" class="vim-d" title="<?php _e('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Untrash', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
 						<span class="gwolle_gb_ajax">
 							&nbsp;|&nbsp;
-							<a id="ajax_<?php echo $entry->get_id(); ?>" href="#" class="ajax vim-d vim-destructive" title="<?php _e('Please wait...', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Wait...'); ?></a>
+							<a id="ajax_<?php echo $entry->get_id(); ?>" href="#" class="ajax vim-d vim-destructive" title="<?php _e('Please wait...', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Wait...', GWOLLE_GB_TEXTDOMAIN); ?></a>
 						</span>
 					</p>
 				</div>
