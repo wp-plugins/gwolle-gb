@@ -26,6 +26,10 @@
 	margin-left: 10px;
 }
 
+body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
+	margin: 1em 0;
+}
+
 #gwolle_gb_eff {
 	float: right;
 	width: 90px;

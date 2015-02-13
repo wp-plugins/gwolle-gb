@@ -173,9 +173,9 @@ function gwolle_gb_notification() {
 					echo 'checked="checked"';
 				} ?> >
 			<label for="notify_by_mail" class="setting-description"><?php _e('Send me an e-mail when a new entry has been posted.', GWOLLE_GB_TEXTDOMAIN); ?></label>
-			<div class="submit">
+			<p class="submit">
 				<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save setting', GWOLLE_GB_TEXTDOMAIN); ?>" />
-			</div>
+			</p>
 		</form>
 	</p>
 	<div>
