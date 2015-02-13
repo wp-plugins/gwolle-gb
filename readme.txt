@@ -1,7 +1,7 @@
 === Gwolle-GB ===
 Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review
-Requires at least: 2.8
+Requires at least: 3.4
 Tested up to: 4.1
 Stable tag: 1.1.7
 
