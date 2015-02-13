@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 14:10+0100\n"
+"POT-Creation-Date: 2015-02-13 12:38+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -41,7 +41,7 @@ msgstr "Instellingen"
 #. /import.php
 #: actions.php:60
 msgid "Import"
-msgstr "Importeer"
+msgstr "Importeren"
 
 #. /export.php
 #: actions.php:63
@@ -1523,7 +1523,7 @@ msgstr "Toevoegen"
 
 #: frontend/write.php:246
 msgid "Fields marked with * are obligatory."
-msgstr "Velden met  een * zijn verplicht."
+msgstr "Velden met een * zijn verplicht."
 
 #: frontend/write.php:249
 msgid "The E-mail address wil not be published."
