@@ -1,6 +1,16 @@
 <?php
 
 
+/*
+ * Function to sanitize values from input fields for the database.
+ * $input: string
+ */
+function gwolle_gb_sanitize_input($input) {
+	// FIXME: Stub for now...
+	return $input;
+}
+
+
 // Function to format a form value for an input field (strip '<' etc.)
 function gwolle_gb_output_to_input_field($value) {
 	$value = stripslashes($value);
