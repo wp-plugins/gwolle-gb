@@ -144,6 +144,12 @@ You can check this in the Inspector/console of your browser.
 If the form gives you errors, even though you filled in everything correctly, there might be something strange happening.
 On some setups reCAPTCHA doesn't report Succes or Error. If you are able to debug this, and tell me what is happening, I would be happy to hear that.
 
+= I don't see the labels in the form. =
+
+This plugin doesn't apply any CSS to the label elements. It is possible that your label elements have a white color on a white background.
+You can check this with the Inspector in your browser. If that is the case, you have a theme or plugin that is applying that CSS to your
+label elements. Please contact them.
+
 = I don't get a notification email. =
 
 First check your spambox in your mailaccount. Second, on the settingspage you can change the From address for the email that is sent.
