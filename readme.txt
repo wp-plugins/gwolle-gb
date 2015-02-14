@@ -188,11 +188,12 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.1.8 =
-* 2015-02-
+* 2015-02-14
 * Move anti-spam question to the label on the left.
 * Add better error messages to the form.
 * Add autofocus to first formfield with an error.
 * Use validation for the email.
+* Add visibility:visible for tr.invisible.
 * Add pt_PT (Only frontend yet).
 
 = 1.1.7 =

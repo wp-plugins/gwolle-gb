@@ -107,6 +107,11 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	vertical-align: middle;
 }
 
+/* Overwrite CSS rules from other plugins */
+.gwolle_gb .invisible {
+	visibility: visible !important;
+}
+
 /* Entries actions */
 td.gwolle_gb_actions {
 	width: 120px;
