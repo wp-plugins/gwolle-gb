@@ -115,7 +115,7 @@ It is not hard to add an entry in PHP code.
 		$save = $entry->save();
 	?>
 
-The Array $args has the following key/values:
+The Array $args can have the following key/values:
 
 * id, int with the id, leave empty for a new entry.
 * author_name, string with the name of the autor.
