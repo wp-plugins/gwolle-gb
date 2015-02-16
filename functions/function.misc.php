@@ -1,21 +1,33 @@
 <?php
 
 
-// Function to format a form value for an input field (strip '<' etc.)
-function gwolle_gb_output_to_input_field($value) {
-	$value = stripslashes($value);
-	$value = html_entity_decode($value); // the opposite of htmlentities
-	$value = htmlspecialchars($value);
-	return $value;
+/*
+ * Function to sanitize values from input fields for the database.
+ * $input: string
+ */
+function gwolle_gb_sanitize_input($input) {
+	$input = strval($input);
+	$input = trim($input);
+	$input = strip_tags($input);
+	$input = stripslashes($input); // Make sure we're not just adding lots of slashes.
+	$input = htmlentities($input);
+	$input = addslashes($input);
+	return $input;
 }
 
 
-// Function to format entry values for output
-function gwolle_gb_format_value_for_output($value) {
-	$value = html_entity_decode($value);
-	$value = stripslashes($value);
-	$value = htmlspecialchars($value);
-	return $value;
+/*
+ * Function to sanitize values for output in a form or div.
+ * $input: string
+ */
+function gwolle_gb_sanitize_output($output) {
+	$output = strval($output);
+	$output = trim($output);
+	$output = strip_tags($output);
+	$output = stripslashes($output);
+	//$output = htmlentities($output);
+	$output = html_entity_decode($output); // the opposite of htmlentities
+	return $output;
 }
 
 
@@ -41,7 +53,7 @@ function gwolle_gb_format_values_for_mail($value) {
  */
 function gwolle_gb_get_excerpt( $content, $excerpt_length = 20 ) {
 	$excerpt = wp_trim_words( $content, $excerpt_length, '...' );
-	$excerpt = gwolle_gb_format_value_for_output( $excerpt );
+	$excerpt = gwolle_gb_sanitize_output( $excerpt );
 	if (trim($excerpt) == '') {
 		$excerpt = '<i style="color:red;">' . __('No content to display. This entry is empty.', GWOLLE_GB_TEXTDOMAIN) . '</i>';
 	}
@@ -68,7 +80,7 @@ function gwolle_gb_get_author_name_html($entry) {
 		$author_name = $is_moderator; // overwrite name in entry with name of registered user
 		$author_name_html = '<i>' . $is_moderator . '</i>'; // overwrite name in entry with name of registered user
 			} else {
-		$author_name_html = gwolle_gb_format_value_for_output( $author_name_html );
+		$author_name_html = gwolle_gb_sanitize_output( $author_name_html );
 	}
 
 	// Link the author website?
@@ -114,5 +126,53 @@ function gwolle_gb_is_moderator($user_id) {
 }
 
 
+/*
+ * Get the setting for Gwolle-GB that is saved as serialized data.
+ *
+ * Args: $request, string with value 'form', 'read' or 'widget'.
+ *
+ * Return:
+ * - Array with settings for that request.
+ * - or false if no setting.
+ */
+function gwolle_gb_get_setting($request) {
+
+	$provided = array('form', 'read', 'widget');
+	if ( in_array( $request, $provided ) ) {
+		switch ( $request ) {
+			case 'form':
+				$defaults = Array(
+					'form_name_enabled'       => 'true',
+					'form_name_mandatory'     => 'true',
+					'form_city_enabled'       => 'true',
+					'form_city_mandatory'     => 'false',
+					'form_email_enabled'      => 'true',
+					'form_email_mandatory'    => 'true',
+					'form_homepage_enabled'   => 'true',
+					'form_homepage_mandatory' => 'false',
+					'form_message_enabled'    => 'true',
+					'form_message_mandatory'  => 'true',
+					'form_antispam_enabled'   => 'false',
+					'form_recaptcha_enabled'  => 'false'
+					);
+				$setting = get_option( 'gwolle_gb-form', Array() );
+				if ( is_string( $setting ) ) {
+					$setting = unserialize( $setting );
+				}
+				$setting = array_merge( $defaults, $setting );
+				return $setting;
+				break;
+			case 'read':
+				// Stub
+				return Array();
+				break;
+			case 'widget':
+				// Stub
+				return Array();
+				break;
+		}
+	}
+	return false;
+}
 
 
