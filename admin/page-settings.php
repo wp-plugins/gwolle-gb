@@ -124,39 +124,40 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
-						// FIXME: sanitize values
 						if ( isset($_POST['antispam-question']) ) {
-							update_option('gwolle_gb-antispam-question', $_POST['antispam-question']);
+							update_option('gwolle_gb-antispam-question', gwolle_gb_sanitize_input($_POST['antispam-question']));
 							$saved = true;
 						}
 						if ( isset($_POST['antispam-answer']) ) {
-							update_option('gwolle_gb-antispam-answer', $_POST['antispam-answer']);
+							update_option('gwolle_gb-antispam-answer', gwolle_gb_sanitize_input($_POST['antispam-answer']));
 							$saved = true;
 						}
 
-						// FIXME: sanitize values
 						if ( isset($_POST['recaptcha-public-key']) ) {
-							update_option('recaptcha-public-key', $_POST['recaptcha-public-key']);
+							update_option('recaptcha-public-key', gwolle_gb_sanitize_input($_POST['recaptcha-public-key']));
 							$saved = true;
 						}
 						if ( isset($_POST['recaptcha-private-key']) ) {
-							update_option('recaptcha-private-key', $_POST['recaptcha-private-key']);
+							update_option('recaptcha-private-key', gwolle_gb_sanitize_input($_POST['recaptcha-private-key']));
 							$saved = true;
 						}
 
 						break;
 					case 'gwolle_gb_mail':
 
-						// FIXME: sanitize value
 						if ( isset($_POST['adminMailContent']) ) {
-							update_option('gwolle_gb-adminMailContent', $_POST['adminMailContent']);
+							$mail_content = gwolle_gb_sanitize_input( $_POST['adminMailContent'] );
+							update_option('gwolle_gb-adminMailContent', $mail_content);
 							$saved = true;
 						}
 
-						// FIXME: sanitize value
 						if ( isset($_POST['admin_mail_from']) && $_POST['admin_mail_from'] != get_option('gwolle_gb-mail-from') ) {
-							update_option('gwolle_gb-mail-from', $_POST['admin_mail_from']);
-							$saved = true;
+							$admin_mail_from = gwolle_gb_sanitize_input( $_POST['admin_mail_from'] );
+							if ( filter_var( $admin_mail_from, FILTER_VALIDATE_EMAIL ) ) {
+								// Valid Email address.
+								update_option('gwolle_gb-mail-from', $admin_mail_from);
+								$saved = true;
+							}
 						}
 
 						break;

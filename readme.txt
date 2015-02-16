@@ -194,9 +194,10 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.1.9 =
-* 2015-02-
+* 2015-02-16
 * Validate URL for Website as well.
-* Sanitize formdata.
+* Sanitize Formdata.
+* Sanitize Settings.
 * Update de_DE.
 
 = 1.1.8 =
