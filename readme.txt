@@ -101,6 +101,36 @@ in the gwolle-gb.php file at the top.
 
 For the licences regarding the use of reCAPTCHA or the icons you may ask the authors.
 
+= API, add an entry =
+
+It is not hard to add an entry in PHP code.
+
+	<?php
+		$entry = new gwolle_gb_entry();
+
+		// Set the data in the instance, returns true
+		$set_data = $entry->set_data( $args );
+
+		// Save entry, returns the id of the entry
+		$save = $entry->save();
+	?>
+
+The Array $args has the following key/values:
+* id, int with the id, leave empty for a new entry.
+* author_name, string with the name of the autor.
+* author_id, id with the WordPress user ID of the author.
+* author_email, string with the email address of the author.
+* author_origin, string with the city of origin of the author.
+* author_website, string with the website of the author.
+* author_ip, string with the ipaddress of the author.
+* author_host, string with the hostname of that ip.
+* content, string with content of the message.
+* date, timestamp of the entry.
+* ischecked, bool if it is checked by a moderator.
+* checkedby, int with the WordPress ID of that moderator.
+* istrash, bool if it is in trash or not.
+* isspam, bool if it is spam or not.
+
 
 == Frequently Asked Questions ==
 
