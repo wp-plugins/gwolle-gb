@@ -46,22 +46,22 @@ function gwolle_gb_frontend_write() {
 	if ( $gwolle_gb_errors ) {
 		if ( is_array($gwolle_gb_data) && !empty($gwolle_gb_data) ) {
 			if (isset($gwolle_gb_data['author_name'])) {
-				$name = $gwolle_gb_data['author_name'];
+				$name = stripslashes($gwolle_gb_data['author_name']);
 			}
 			if (isset($gwolle_gb_data['author_origin'])) {
-				$origin = $gwolle_gb_data['author_origin'];
+				$origin = stripslashes($gwolle_gb_data['author_origin']);
 			}
 			if (isset($gwolle_gb_data['author_email'])) {
-				$email = $gwolle_gb_data['author_email'];
+				$email = stripslashes($gwolle_gb_data['author_email']);
 			}
 			if (isset($gwolle_gb_data['author_website'])) {
-				$website = $gwolle_gb_data['author_website'];
+				$website = stripslashes($gwolle_gb_data['author_website']);
 			}
 			if (isset($gwolle_gb_data['antispam'])) {
-				$antispam = $gwolle_gb_data['antispam'];
+				$antispam = stripslashes($gwolle_gb_data['antispam']);
 			}
 			if (isset($gwolle_gb_data['content'])) {
-				$content = $gwolle_gb_data['content'];
+				$content = stripslashes($gwolle_gb_data['content']);
 			}
 		}
 	}

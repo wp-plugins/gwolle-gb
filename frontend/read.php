@@ -177,7 +177,7 @@ function gwolle_gb_frontend_read() {
 			// Author Origin
 			$origin = $entry->get_author_origin();
 			if ( strlen(str_replace(' ', '', $origin)) > 0 ) {
-				$output .= '<span class="gb-author-origin"> ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' ' . gwolle_gb_format_value_for_output($origin) . '</span>';
+				$output .= '<span class="gb-author-origin"> ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' ' . gwolle_gb_sanitize_output($origin) . '</span>';
 			}
 
 			// Entry Date and Time
@@ -188,7 +188,7 @@ function gwolle_gb_frontend_read() {
 
 			// Main Content
 			$output .= '<div class="gb-entry-content">';
-			$entry_content = gwolle_gb_format_value_for_output( $entry->get_content() );
+			$entry_content = gwolle_gb_sanitize_output( $entry->get_content() );
 			if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 				$entry_content = convert_smilies($entry_content);
 			}

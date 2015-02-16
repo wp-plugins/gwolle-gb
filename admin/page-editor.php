@@ -452,7 +452,7 @@ function gwolle_gb_page_editor() {
 										<?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
 											// FIXME: use this formatting on frontend as well
 											if ( $entry->get_author_name() ) {
-												echo stripslashes(htmlentities( $entry->get_author_name() ));
+												echo gwolle_gb_sanitize_output( $entry->get_author_name() );
 											} else {
 												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
 											} ?>
@@ -460,7 +460,7 @@ function gwolle_gb_page_editor() {
 										<br />
 										<?php _e('E-Mail', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
 											if (strlen(str_replace( ' ', '', $entry->get_author_email() )) > 0) {
-												echo stripslashes(htmlentities($entry->get_author_email()));
+												echo gwolle_gb_sanitize_output( $entry->get_author_email() );
 											} else {
 												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
 											} ?>
@@ -538,7 +538,7 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<textarea rows="10" cols="56" name="gwolle_gb_content" tabindex="1"><?php echo gwolle_gb_output_to_input_field( $entry->get_content() ); ?></textarea>
+										<textarea rows="10" cols="56" name="gwolle_gb_content" tabindex="1"><?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?></textarea>
 										<?php
 										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
 											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', GWOLLE_GB_TEXTDOMAIN), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
@@ -549,7 +549,7 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Homepage', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<input type="text" name="gwolle_gb_author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_output_to_input_field( $entry->get_author_website() ); ?>" id="author_website" />
+										<input type="text" name="gwolle_gb_author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_website() ); ?>" id="author_website" />
 										<p><?php _e("Example: <code>http://www.example.com/</code>", GWOLLE_GB_TEXTDOMAIN); ?></p>
 									</div>
 								</div>
@@ -557,7 +557,7 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<input type="text" name="gwolle_gb_author_origin" size="58" tabindex="3" value="<?php echo gwolle_gb_output_to_input_field( $entry->get_author_origin() ); ?>" id="author_origin" />
+										<input type="text" name="gwolle_gb_author_origin" size="58" tabindex="3" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_origin() ); ?>" id="author_origin" />
 									</div>
 								</div>
 							</div><!-- 'normal-sortables' -->

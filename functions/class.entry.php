@@ -22,8 +22,6 @@
  * $istrash         istrash          varchar(1)    entry is placed in the trashbin, 0 or 1 required, default 0
  * $isspam          isspam           varchar(1)    entry is considered as spam, 0 or 1     required, default 0
  *
- * FIXME: date should be TIMESTAMP
- * FIXME: use bool when appropriate (checkedby, istrash, isspam)
  */
 
 
@@ -351,9 +349,7 @@ class gwolle_gb_entry {
 	}
 	public function set_author_name($author_name) {
 		// User input
-		$author_name = trim($author_name);
-		$author_name = addslashes($author_name);
-		$author_name = strval($author_name);
+		$author_name = gwolle_gb_sanitize_input($author_name);
 		if ($author_name) {
 			$this->author_name = $author_name;
 		}
@@ -366,9 +362,7 @@ class gwolle_gb_entry {
 	}
 	public function set_author_email($author_email) {
 		// User input
-		$author_email = trim($author_email);
-		$author_email = addslashes($author_email);
-		$author_email = strval($author_email);
+		$author_email = gwolle_gb_sanitize_input($author_email);
 		$author_email = filter_var($author_email, FILTER_VALIDATE_EMAIL);
 		if ($author_email) {
 			$this->author_email = $author_email;
@@ -376,18 +370,14 @@ class gwolle_gb_entry {
 	}
 	public function set_author_origin($author_origin) {
 		// User input
-		$author_origin = trim($author_origin);
-		$author_origin = addslashes($author_origin);
-		$author_origin = strval($author_origin);
+		$author_origin = gwolle_gb_sanitize_input($author_origin);
 		if ($author_origin) {
 			$this->author_origin = $author_origin;
 		}
 	}
 	public function set_author_website($author_website) {
 		// User input
-		$author_website = trim($author_website);
-		$author_website = addslashes($author_website);
-		$author_website = strval($author_website);
+		$author_website = gwolle_gb_sanitize_input($author_website);
 		$pattern = '/^http/';
 		if ( !preg_match($pattern, $author_website, $matches) ) {
 			$author_website = "http://" . $author_website;
@@ -401,16 +391,13 @@ class gwolle_gb_entry {
 		if ( empty($author_ip) ) {
 			$author_ip = $_SERVER['REMOTE_ADDR'];
 		}
-		$author_ip = trim($author_ip);
-		$author_ip = addslashes($author_ip);
-		$author_ip = strval($author_ip);
+		$author_ip = gwolle_gb_sanitize_input($author_ip);
 		if ($author_ip) {
 			$this->author_ip = $author_ip;
 		}
 	}
 	public function set_author_host($author_host = NULL) {
-		$author_host = trim($author_host);
-		$author_host = addslashes($author_host);
+		$author_host = gwolle_gb_sanitize_input($author_host);
 		// Don't use this here, only when it is really needed, like on a new entry
 		// $author_host = gethostbyaddr( $author_ip );
 		if ($author_host) {
@@ -419,18 +406,13 @@ class gwolle_gb_entry {
 	}
 	public function set_content($content) {
 		// User input
-		$content = trim($content);
-		$content = stripslashes($content); // Make sure we're not just adding lots of slashes.
-		$content = addslashes($content);
-		$content = strval($content);
-		$content = strip_tags($content);
+		$content = gwolle_gb_sanitize_input($content);
 		if ( strlen($content) > 0 ) {
 			$this->content = $content;
 		}
 	}
 	public function set_date($date = NULL) {
-		$date = trim($date);
-		$date = addslashes($date);
+		$date = intval($date); // timestamp can be cast to int.
 		if ( !$date ) {
 			$date = current_time( 'timestamp' );
 		}
