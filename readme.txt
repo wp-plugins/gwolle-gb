@@ -116,6 +116,7 @@ It is not hard to add an entry in PHP code.
 	?>
 
 The Array $args has the following key/values:
+
 * id, int with the id, leave empty for a new entry.
 * author_name, string with the name of the autor.
 * author_id, id with the WordPress user ID of the author.
