@@ -25,8 +25,8 @@ function gwolle_gb_sanitize_output($output) {
 	$output = trim($output);
 	$output = strip_tags($output);
 	$output = stripslashes($output);
-	$output = htmlentities($output);
-	//$output = html_entity_decode($output); // the opposite of htmlentities
+	//$output = htmlentities($output);
+	$output = html_entity_decode($output); // the opposite of htmlentities
 	return $output;
 }
 

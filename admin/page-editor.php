@@ -450,7 +450,6 @@ function gwolle_gb_page_editor() {
 									<div class="tagsdiv" id="post_tag">
 										<p>
 										<?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
-											// FIXME: use this formatting on frontend as well
 											if ( $entry->get_author_name() ) {
 												echo gwolle_gb_sanitize_output( $entry->get_author_name() );
 											} else {
@@ -532,7 +531,6 @@ function gwolle_gb_page_editor() {
 
 					<div id="post-body">
 						<div id="post-body-content">
-							<?php // FIXME: add labels ?>
 							<div id='normal-sortables' class='meta-box-sortables'>
 								<div id="contentdiv" class="postbox" >
 									<div class="handlediv"></div>

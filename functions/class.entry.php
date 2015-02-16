@@ -450,19 +450,19 @@ class gwolle_gb_entry {
 		return $this->id;
 	}
 	public function get_author_name() {
-		return $this->author_name;
+		return gwolle_gb_sanitize_output($this->author_name);
 	}
 	public function get_author_id() {
 		return $this->author_id;
 	}
 	public function get_author_email() {
-		return $this->author_email;
+		return gwolle_gb_sanitize_output($this->author_email);
 	}
 	public function get_author_origin() {
-		return $this->author_origin;
+		return gwolle_gb_sanitize_output($this->author_origin);
 	}
 	public function get_author_website() {
-		return $this->author_website;
+		return gwolle_gb_sanitize_output($this->author_website);
 	}
 	public function get_author_ip() {
 		return $this->author_ip;
@@ -471,7 +471,7 @@ class gwolle_gb_entry {
 		return $this->author_host;
 	}
 	public function get_content() {
-		return $this->content;
+		return gwolle_gb_sanitize_output($this->content);
 	}
 	public function get_date() {
 		return $this->date;

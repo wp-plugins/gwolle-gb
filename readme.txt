@@ -195,7 +195,7 @@ Yes, it is again actively maintained.
 
 = 1.1.9 =
 * 2015-02-16
-* Validate URL for Website as well.
+* Validate URL for Website as well, even though most url's validate.
 * Sanitize Formdata.
 * Sanitize Settings.
 * Update de_DE.

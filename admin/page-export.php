@@ -150,13 +150,13 @@ function gwolle_gb_export_callback() {
 			$row = Array();
 
 			$row[] = $entry->get_id();
-			$row[] = $entry->get_author_name();
-			$row[] = $entry->get_author_email();
-			$row[] = $entry->get_author_origin();
-			$row[] = $entry->get_author_website();
+			$row[] = addslashes($entry->get_author_name());
+			$row[] = addslashes($entry->get_author_email());
+			$row[] = addslashes($entry->get_author_origin());
+			$row[] = addslashes($entry->get_author_website());
 			$row[] = $entry->get_author_ip();
 			$row[] = $entry->get_author_host();
-			$row[] = $entry->get_content();
+			$row[] = addslashes($entry->get_content());
 			$row[] = $entry->get_date();
 			$row[] = $entry->get_isspam();
 			$row[] = $entry->get_ischecked();
