@@ -196,6 +196,7 @@ Yes, it is again actively maintained.
 = 1.1.9 =
 * 2015-02-
 * Validate URL for Website as well.
+* Update de_DE.
 
 = 1.1.8 =
 * 2015-02-14

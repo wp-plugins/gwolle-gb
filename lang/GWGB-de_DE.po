@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Gwolle Guestbook v1.1.5\n"
+"Project-Id-Version: Gwolle Guestbook v1.1.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-10 13:36+0100\n"
-"PO-Revision-Date: 2015-02-10 19:05+0100\n"
+"POT-Creation-Date: 2015-02-13 19:15+0100\n"
+"PO-Revision-Date: 2015-02-15 00:41+0100\n"
 "Last-Translator: Eckhard Henkel <eckhard.henkel@t-online.de>\n"
 "Language-Team: Eckhard Henkel <eckhard.henkel@t-online.de>\n"
 "Language: de_DE\n"
@@ -53,7 +53,7 @@ msgstr "Einstellungen"
 #. /import.php
 #: actions.php:60
 msgid "Import"
-msgstr "Importieren"
+msgstr "Import"
 
 # @ GWGB
 #. /export.php
@@ -146,19 +146,19 @@ msgstr "Aus dem Papierkorb wieder herstellen."
 #: admin/dashboard-widget.php:140 admin/page-editor.php:429
 #: admin/page-entries.php:693
 msgid "Untrash"
-msgstr "Papierkorb ausleeren"
+msgstr "Wiederherstellen"
 
 # @ GWGB
 #: admin/dashboard-widget.php:144 admin/page-editor.php:432
 #: admin/page-entries.php:696
 msgid "Please wait..."
-msgstr "Bitte warten ..."
+msgstr "Bitte warten …"
 
 # @ default
 #: admin/dashboard-widget.php:144 admin/page-editor.php:432
 #: admin/page-entries.php:696
 msgid "Wait..."
-msgstr "Bitte warten ..."
+msgstr "Bitte warten …"
 
 # @ GWGB
 #: admin/dashboard-widget.php:155
@@ -212,7 +212,7 @@ msgstr "Alles klar, los geht’s!"
 #: admin/installSplash.php:33
 #, php-format
 msgid "Allright, we're done. <a href=\"%s\">Click here to continue...</a>"
-msgstr "Erledigt. <a href=\"%s\">Klicke hier zum Fortsetzen ...</a>"
+msgstr "Erledigt. <a href=\"%s\">Klicke hier zum Fortsetzen …</a>"
 
 # @ GWGB
 #: admin/installSplash.php:35
@@ -222,7 +222,7 @@ msgid ""
 "continue...</a>"
 msgstr ""
 "Es sieht danach aus, dass ein Fehler auftrat. <a href=\"%s\">Klicke hier zum "
-"Fortsetzen ...</a>"
+"Fortsetzen …</a>"
 
 # @ default
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
@@ -411,7 +411,7 @@ msgid "No log yet."
 msgstr "Noch kein Protokoll."
 
 # @ GWGB
-#: admin/page-editor.php:539 frontend/write.php:171
+#: admin/page-editor.php:539 frontend/write.php:192
 msgid "Guestbook entry"
 msgstr "Gästebuch-Eintrag"
 
@@ -422,12 +422,12 @@ msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
 msgstr ""
-"Aufgrund der  <a href=\"%s\">Einstellungen</a> sind Zeilenumbrüche für "
+"Aufgrund der <a href=\"%s\">Einstellungen</a> sind Zeilenumbrüche für "
 "Besucher nicht sichtbar."
 
 # @ GWGB
 #: admin/page-editor.php:550 admin/page-settings.php:280
-#: frontend/write.php:157 frontend/write.php:164
+#: frontend/write.php:173 frontend/write.php:180
 msgid "Homepage"
 msgstr "Website"
 
@@ -635,7 +635,7 @@ msgstr "Massenbearbeitung"
 # @ GWGB
 #: admin/page-entries.php:436
 msgid "Recover from trash"
-msgstr "Aus Papierkorb wiederherstellen"
+msgstr "Wiederherstellen"
 
 # @ GWGB
 #: admin/page-entries.php:437 admin/page-entries.php:454
@@ -670,7 +670,7 @@ msgstr "Mit Aksimet überprüfen"
 # @ GWGB
 #: admin/page-entries.php:452
 msgid "Move to trash"
-msgstr "In den Papierkorb verschieben"
+msgstr "In Papierkorb verschieben"
 
 # @ GWGB
 #: admin/page-entries.php:459
@@ -736,7 +736,7 @@ msgstr "Die Export-Funktion wird die folgenden Daten pro Eintrag bewahren:"
 # @ GWGB
 #: admin/page-export.php:52 admin/page-import.php:348
 #: admin/page-import.php:389 admin/page-settings.php:217
-#: frontend/write.php:115 frontend/write.php:122
+#: frontend/write.php:116 frontend/write.php:123
 msgid "Name"
 msgstr "Name"
 
@@ -779,17 +779,17 @@ msgstr "Nachricht"
 # @ GWGB
 #: admin/page-export.php:60 admin/page-import.php:355
 msgid "\"is checked\" flag"
-msgstr "\"Freigegeben\"-Kennzeichen"
+msgstr "„Freigegeben“-Kennzeichen"
 
 # @ GWGB
 #: admin/page-export.php:61 admin/page-import.php:354
 msgid "\"is spam\" flag"
-msgstr "\"Als Spam markiert\"-Kennzeichen"
+msgstr "„Als Spam markiert“-Kennzeichen"
 
 # @ GWGB
 #: admin/page-export.php:62
 msgid "\"is trash\" flag"
-msgstr "\"Papierkorb\"-Kennzeichen"
+msgstr "„Papierkorb“-Kennzeichen"
 
 # @ GWGB
 #: admin/page-export.php:64
@@ -1222,7 +1222,7 @@ msgstr "User ID"
 # @ GWGB
 #: admin/page-import.php:396
 msgid "\"approved\" status"
-msgstr "\"Geprüft\"-Status"
+msgstr "„Geprüft“-Status"
 
 # @ GWGB
 #: admin/page-import.php:403
@@ -1281,7 +1281,7 @@ msgid "Admin"
 msgstr "Verwaltung"
 
 # @ GWGB
-#: admin/page-settings.php:200 frontend/write.php:195 frontend/write.php:221
+#: admin/page-settings.php:200 frontend/write.php:221 frontend/write.php:252
 msgid "Anti-spam"
 msgstr "Spam-Schutz"
 
@@ -1316,12 +1316,12 @@ msgid "Mandatory"
 msgstr "Pflichtfeld"
 
 # @ GWGB
-#: admin/page-settings.php:238 frontend/write.php:129 frontend/write.php:136
+#: admin/page-settings.php:238 frontend/write.php:135 frontend/write.php:142
 msgid "City"
 msgstr "Ort"
 
 # @ GWGB
-#: admin/page-settings.php:259 frontend/write.php:143 frontend/write.php:150
+#: admin/page-settings.php:259 frontend/write.php:154 frontend/write.php:161
 msgid "Email"
 msgstr "E-Mail"
 
@@ -1393,8 +1393,8 @@ msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smileys."
 msgstr ""
-"Ersetzt Smileys in Einträgen wie :) mit ihrem Bild %s. Benutzt den \"WP "
-"smiley replacer\", daher prüfe diesen, falls Du neue/weitere Smileys "
+"Ersetzt Smileys in Einträgen wie :) mit ihrem Bild %s. Benutzt den „WP "
+"smiley replacer“, daher prüfe diesen, falls Du neue/weitere Smileys "
 "hinzufügen möchtest."
 
 # @ GWGB
@@ -1476,7 +1476,7 @@ msgstr ""
 # @ GWGB
 #: admin/page-settings.php:541
 msgid "Learn more about Akismet..."
-msgstr "Lerne mehr über Akismet ..."
+msgstr "Lerne mehr über Akismet …"
 
 # @ GWGB
 #: admin/page-settings.php:541 admin/page-settings.php:599
@@ -1515,18 +1515,18 @@ msgid ""
 "The WordPress API key has been found, so you can start using Akismet right "
 "now."
 msgstr ""
-"Der \"Wordpress API ke\" wurde gefunden, daher kannst Du nun Akismet "
+"Der „Wordpress API key“ wurde gefunden, daher kannst Du nun Akismet "
 "verwenden."
 
 # @ GWGB
 #: admin/page-settings.php:577
 msgid "Custom Anti-Spam Security Question"
-msgstr "Benutzerdefinierte Anti-Spam-Sicherheits-Frage"
+msgstr "Benutzerdefiniertes Anti-Spam"
 
 # @ GWGB
 #: admin/page-settings.php:580
-msgid "12 + six"
-msgstr "12 + sechs"
+msgid "12 + six ="
+msgstr "12 + sechs ="
 
 # @ GWGB
 #: admin/page-settings.php:581
@@ -1555,7 +1555,7 @@ msgstr ""
 # @ GWGB
 #: admin/page-settings.php:599
 msgid "Learn more about reCAPTCHA..."
-msgstr "Lerne mehr über reCAPTCHA ..."
+msgstr "Lerne mehr über reCAPTCHA …"
 
 # @ GWGB
 #: admin/page-settings.php:610
@@ -1575,7 +1575,7 @@ msgstr "Die Schlüssel findest Du auf Deiner"
 # @ GWGB
 #: admin/page-settings.php:615
 msgid "Go to my reCAPTCHA sites..."
-msgstr "Gehe zu meinen reCAPTCHA-Seiten ..."
+msgstr "Gehe zu meinen reCAPTCHA-Seiten …"
 
 # @ GWGB
 #: admin/page-settings.php:615
@@ -1613,7 +1613,7 @@ msgid "Admin mail content"
 msgstr "Text der Benachrichtigung"
 
 # @ GWGB
-#: admin/page-settings.php:654 frontend/posthandling.php:308
+#: admin/page-settings.php:654 frontend/posthandling.php:336
 msgid ""
 "Hello,\n"
 "\n"
@@ -1718,29 +1718,73 @@ msgid "Uninstall &raquo;"
 msgstr "Deinstallieren &raquo;"
 
 # @ GWGB
-#: frontend/posthandling.php:194 frontend/posthandling.php:209
+#: frontend/posthandling.php:194 frontend/posthandling.php:237
 msgid "There were errors submitting your guestbook entry."
 msgstr "Beim Speichern des Gästebuch-Eintrags sind Fehler aufgetreten."
 
 # @ GWGB
-#: frontend/posthandling.php:261
+#: frontend/posthandling.php:200
+msgid "Your name is not filled in, even though it is mandatory."
+msgstr "Dein Name ist nicht eingetragen, obwohl er erforderlich ist."
+
+# @ GWGB
+#: frontend/posthandling.php:203
+msgid "Your origin is not filled in, even though it is mandatory."
+msgstr "Der Ort ist nicht eingetragen, obwohl er erforderlich ist."
+
+# @ GWGB
+#: frontend/posthandling.php:206
+msgid ""
+"Your e-mail address is not filled in correctly, even though it is mandatory."
+msgstr ""
+"Deine E-Mail-Adresse ist nicht korrekt eingetragen, obwohl sie erforderlich "
+"ist."
+
+# @ GWGB
+#: frontend/posthandling.php:209
+msgid "Your website is not filled in, even though it is mandatory."
+msgstr "Deine Website ist nicht eingetragen, obwohl sie erforderlich ist."
+
+# @ GWGB
+#: frontend/posthandling.php:212
+msgid "There is no message, even though it is mandatory."
+msgstr "Es gibt keinen Gästebuch-Eintrag, obwohl er erforderlich ist."
+
+# @ GWGB
+#: frontend/posthandling.php:215
+msgid ""
+"The anti-spam question was not answered correctly, even though it is "
+"mandatory."
+msgstr ""
+"Die Spam-Schutz-Frage wurde nicht richtig beantwortet, obwohl sie "
+"erforderlich ist."
+
+# @ GWGB
+#: frontend/posthandling.php:218
+msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
+msgstr ""
+"Der reCAPTCHA-Schlüssel wurde nicht korrekt eingetragen, obwohl er "
+"erforderlich ist."
+
+# @ GWGB
+#: frontend/posthandling.php:289
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 "Doppelter Eintrag: Ein Eintrag mit den Daten Deiner Eingabe wurde bereits "
 "gespeichert."
 
 # @ GWGB
-#: frontend/posthandling.php:277
+#: frontend/posthandling.php:305
 msgid "Thank you for your entry."
 msgstr "Vielen Dank für Deinen Eintrag!"
 
 # @ GWGB
-#: frontend/posthandling.php:279
+#: frontend/posthandling.php:307
 msgid "We will review it and unlock it in a short while."
 msgstr "Wir werden ihn überprüfen und kurzfristig freigeben."
 
 # @ GWGB
-#: frontend/posthandling.php:313
+#: frontend/posthandling.php:341
 msgid "New Guestbook Entry"
 msgstr "Neuer Gästebuch-Eintrag"
 
@@ -1836,37 +1880,37 @@ msgid "Write a new entry."
 msgstr "Schreibe einen neuen Eintrag"
 
 # @ GWGB
-#: frontend/write.php:110
+#: frontend/write.php:111
 msgid "Write a new entry for the Guestbook"
 msgstr "Schreibe einen neuen Eintrag für das Gästebuch"
 
 # @ GWGB
-#: frontend/write.php:201
-msgid "Answer"
-msgstr "Antwort"
-
-# @ GWGB
-#: frontend/write.php:202
+#: frontend/write.php:222
 msgid "Question:"
 msgstr "Frage:"
 
 # @ GWGB
-#: frontend/write.php:241
+#: frontend/write.php:228
+msgid "Answer"
+msgstr "Antwort"
+
+# @ GWGB
+#: frontend/write.php:272
 msgid "Submit"
 msgstr "Absenden"
 
 # @ GWGB
-#: frontend/write.php:246
+#: frontend/write.php:277
 msgid "Fields marked with * are obligatory."
 msgstr "Felder mit * sind Pflicht-Angaben."
 
 # @ GWGB
-#: frontend/write.php:249
+#: frontend/write.php:280
 msgid "The E-mail address wil not be published."
 msgstr "Die E-Mail-Adresse wird nicht veröffentlicht."
 
 # @ GWGB
-#: frontend/write.php:252
+#: frontend/write.php:283
 #, php-format
 msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
@@ -1876,12 +1920,12 @@ msgstr ""
 "\">%s</span>."
 
 # @ GWGB
-#: frontend/write.php:257
+#: frontend/write.php:288
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr "Dein Eintrag wird nach unserer Prüfung im Gästebuch erscheinen."
 
 # @ GWGB
-#: frontend/write.php:260
+#: frontend/write.php:291
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 "Wir behalten uns das Recht vor, Beiträge zu bearbeiten, zu löschen oder "
