@@ -80,7 +80,7 @@ function gwolle_gb_frontend_posthandling() {
 			if (isset($_POST['gwolle_gb_author_email'])) {
 				$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
 				if ( filter_var( $gwolle_gb_data['author_email'], FILTER_VALIDATE_EMAIL ) ) {
-					// echo "This email address is considered valid.";
+					// Valid Email address.
 				} else if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
 					$gwolle_gb_errors = true;
 					$gwolle_gb_error_fields[] = 'author_email'; // mandatory
@@ -96,11 +96,15 @@ function gwolle_gb_frontend_posthandling() {
 		if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_author_website'])) {
 				$gwolle_gb_data['author_website'] = trim($_POST['gwolle_gb_author_website']);
-				if ( $gwolle_gb_data['author_website'] == "" ) {
-					if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {
-						$gwolle_gb_errors = true;
-						$gwolle_gb_error_fields[] = 'author_website'; // mandatory
-					}
+				$pattern = '/^http/';
+				if ( !preg_match($pattern, $gwolle_gb_data['author_website'], $matches) ) {
+					$gwolle_gb_data['author_website'] = "http://" . $gwolle_gb_data['author_website'];
+				}
+				if ( filter_var( $gwolle_gb_data['author_website'], FILTER_VALIDATE_URL ) ) {
+					// Valid Website URL.
+				} else if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'author_website'; // mandatory
 				}
 			} else {
 				if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {

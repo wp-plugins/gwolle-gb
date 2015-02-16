@@ -193,6 +193,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.1.9 =
+* 2015-02-
+* Validate URL for Website as well.
+
 = 1.1.8 =
 * 2015-02-14
 * Move anti-spam question to the label on the left.
