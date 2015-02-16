@@ -60,7 +60,7 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	cursor: move;
 }
 
-.gwolle_gb .admin-entry {
+.gwolle_gb #gwolle_gb_entries .admin-entry {
 	color: #333;
 	background-color: #e6e6e6;
 	background-repeat: repeat-x;
