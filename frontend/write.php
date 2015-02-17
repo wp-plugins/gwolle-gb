@@ -170,14 +170,14 @@ function gwolle_gb_frontend_write() {
 
 	if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_website">
-				<div class="label"><label for="gwolle_gb_author_website">' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . ':';
+				<div class="label"><label for="gwolle_gb_author_website">' . __('Website', GWOLLE_GB_TEXTDOMAIN) . ':';
 		if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) { $output .= ' *';}
 		$output .= '</label></div>
 				<div class="input"><input class="';
 		if (in_array('author_website', $gwolle_gb_error_fields)) {
 			$output .= ' error';
 		}
-		$output .= '" value="' . $website . '" type="text" name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Homepage', GWOLLE_GB_TEXTDOMAIN) . '" ';
+		$output .= '" value="' . $website . '" type="text" name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Website', GWOLLE_GB_TEXTDOMAIN) . '" ';
 		if ( in_array('author_website', $gwolle_gb_error_fields) && isset($autofocus) ) {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.

@@ -232,6 +232,7 @@ Yes, it is again actively maintained.
 = 1.2.0 =
 * 2015-02-
 * Add shortcodes for just the form and the list.
+* s / Homepage / Website
 
 = 1.1.9 =
 * 2015-02-16

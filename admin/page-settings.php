@@ -278,7 +278,7 @@ function gwolle_gb_page_settings() {
 
 
 					<tr valign="top">
-						<th scope="row"><label for=""form_homepage_enabled><?php _e('Homepage', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<th scope="row"><label for=""form_homepage_enabled><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td class="narrow">
 							<input type="checkbox" id="form_homepage_enabled" name="form_homepage_enabled"<?php
 								if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
