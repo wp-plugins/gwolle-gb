@@ -296,41 +296,6 @@ function gwolle_gb_frontend_write() {
 	// FIXME: make this notice into a textarea for the admin so it can be changed as desired.
 
 
-	/*
-	 * Add CSS for showing the Form or the Button.
-	 */
-
-	if ( $gwolle_gb_errors ) {
-		// Errors, show the Form again, not the Button
-		$output .= '
-			<style>
-				div#gwolle_gb_write_button { display:none; }
-			</style>
-		';
-	} else {
-		// No errors, just the Button, not the Form
-		$output .= '
-			<style>
-				form#gwolle_gb_new_entry { display:none; }
-			</style>
-		';
-	}
-
-
-	/*
-	 * Add JavaScript to show or hide the Form or the Button.
-	 */
-
-	$output .= '
-		<script>
-		jQuery(document).ready(function($) {
-			jQuery( "#gwolle_gb_write_button" ).click(function() {
-				document.getElementById("gwolle_gb_write_button").style.display = "none";
-				jQuery("#gwolle_gb_new_entry").slideDown(1000);
-				return false;
-			});
-		});
-		</script>';
 
 	// FIXME: Add filter for the form, so devs can manipulate it.
 

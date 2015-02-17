@@ -187,6 +187,11 @@ First check your spambox in your mailaccount. Second, on the settingspage you ca
 Sometimes there are problems sending it from the default address, so this is a good thing to change to a real address.
 If it still doesn't work, request the maillog at your hosting provider, or ask if they can take a look.
 
+= I want to show the form and the list on different pages =
+
+There are different shortcodes that you can use. Instead of the [gwolle_gb] shortcode, you can use [gwolle_gb_write] for just the form,
+and [gwolle_gb_read] for the list of entries.
+
 = How do I enable or disable avatars? =
 
 Gwolle-GB uses the default WordPress setting, under Settings / Discussion.
@@ -223,6 +228,10 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.2.0 =
+* 2015-02-
+* Add shortcodes for just the form and the list.
 
 = 1.1.9 =
 * 2015-02-16
