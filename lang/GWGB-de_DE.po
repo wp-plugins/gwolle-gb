@@ -1,11 +1,12 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Gwolle Guestbook v1.1.8\n"
+"Project-Id-Version: Gwolle Guestbook v1.1.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-13 19:15+0100\n"
-"PO-Revision-Date: 2015-02-15 00:41+0100\n"
+"PO-Revision-Date: 2015-02-20 20:27+0100\n"
 "Last-Translator: Eckhard Henkel <eckhard.henkel@t-online.de>\n"
-"Language-Team: Eckhard Henkel <eckhard.henkel@t-online.de>\n"
+"Language-Team: Jenny Gaulke <jenny.gaulke@gmail.com>, Eckhard Henkel "
+"<eckhard.henkel@t-online.de>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -422,8 +423,8 @@ msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
 msgstr ""
-"Aufgrund der <a href=\"%s\">Einstellungen</a> sind Zeilenumbrüche für "
-"Besucher nicht sichtbar."
+"Zeilenumbrüche sind für Besucher unsichtbar aufgrund Deiner <a href=\"%s"
+"\">Einstellungen</a>."
 
 # @ GWGB
 #: admin/page-editor.php:550 admin/page-settings.php:280
@@ -700,7 +701,7 @@ msgstr "Datum"
 # @ GWGB
 #: admin/page-entries.php:547 admin/page-entries.php:563
 msgid "Entry (excerpt)"
-msgstr "Beitrag (Auszug)"
+msgstr "Eintrag (Auszug)"
 
 # @ GWGB
 #: admin/page-entries.php:548 admin/page-entries.php:564
@@ -859,7 +860,7 @@ msgstr "Einträge im Papierkorb"
 # @ GWGB
 #: admin/page-gwolle-gb.php:136
 msgid "Write admin entry"
-msgstr "Admininstrator-Beitrag verfassen"
+msgstr "Admininstrator-Eintrag verfassen"
 
 # @ GWGB
 #: admin/page-gwolle-gb.php:149
@@ -869,16 +870,16 @@ msgid ""
 "WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can "
 "contact your hosting provider to change this."
 msgstr ""
-"Es tut uns leid, aber die Funktion <code>mail()</code> ist erforderlich, um "
-"Sie per E-Mail zu benachrichtigen, ist in Ihrer PHP-Konfiguration nicht "
-"aktiviert. Sie könnten ein WordPress-Plugin installieren, das SMTP anstelle "
-"von <code>mail ()</ code> verwendet. Oder Sie können sich an Ihren Hosting-"
-"Provider wenden, um dies zu ändern."
+"Es tut uns leid, aber die Funktion <code>mail()</code>, die erforderlich "
+"ist, um Dich per E-Mail zu benachrichtigen, ist in Deiner PHP-Konfiguration "
+"nicht aktiviert. Du könntest ein WordPress-Plugin installieren, das SMTP "
+"anstelle von <code>mail ()</ code> verwendet. Oder Du kannst Dich an Deinen "
+"Hosting-Provider wenden, um dies zu ändern."
 
 # @ GWGB
 #: admin/page-gwolle-gb.php:175
 msgid "Send me an e-mail when a new entry has been posted."
-msgstr "Sende mir eine E-Mail, wenn ein neuer Beitrag geschrieben wurde"
+msgstr "Sende mir eine E-Mail, wenn ein neuer Eintrag geschrieben wurde"
 
 # @ GWGB
 #: admin/page-gwolle-gb.php:177
@@ -908,7 +909,7 @@ msgstr "Icons von"
 # @ GWGB
 #: admin/page-gwolle-gb.php:223
 msgid "This is how you can get your guestbook displayed on your website:"
-msgstr "So kann das Gästebuch auf der Website eingebunden werden:"
+msgstr "So kann das Gästebuch auf Deiner Website eingebunden werden:"
 
 # @ GWGB
 #: admin/page-gwolle-gb.php:225
@@ -990,7 +991,7 @@ msgstr ""
 # @ GWGB
 #: admin/page-gwolle-gb.php:260
 msgid "Please donate to the EFF."
-msgstr "Bitte spenden Sie an die EFF"
+msgstr "Bitte spende an die EFF"
 
 # @ GWGB
 #: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:269
@@ -1065,8 +1066,8 @@ msgid ""
 "<strong>Nothing to import.</strong> The guestbook you've chosen does not "
 "contain any entries."
 msgstr ""
-"<strong>Nichts zu importieren.</strong> Das ausgewählte Gästebuch enthält "
-"keine Einträge."
+"<strong>Nichts zu importieren.</strong> Das von Dir ausgewählte Gästebuch "
+"enthält keine Einträge."
 
 # @ GWGB
 #: admin/page-import.php:101
@@ -1102,7 +1103,7 @@ msgid ""
 "<strong>Nothing to import.</strong> The page you've chosen does not have any "
 "comments."
 msgstr ""
-"<strong>Nicht zu importieren.</strong> Die Seite, die Du ausgewählt hast, "
+"<strong>Nichts zu importieren.</strong> Die Seite, die Du ausgewählt hast, "
 "hat keine Kommentare."
 
 # @ GWGB
@@ -1114,7 +1115,7 @@ msgstr ""
 # @ GWGB
 #: admin/page-import.php:181
 msgid "Your filesize is too large."
-msgstr "Ihre Datei ist zu groß."
+msgstr "Deine Datei ist zu groß."
 
 # @ GWGB
 #: admin/page-import.php:197
@@ -1227,7 +1228,7 @@ msgstr "„Geprüft“-Status"
 # @ GWGB
 #: admin/page-import.php:403
 msgid "Select a page to import the comments from:"
-msgstr "Wählen Sie eine Seite, aus der Kommentare importiert werden soll:"
+msgstr "Wähle eine Seite, aus der Kommentare importiert werden soll:"
 
 # @ GWGB
 #: admin/page-import.php:405
@@ -1262,8 +1263,7 @@ msgstr "Importiere Gästebuch-Einträge aus dem Gwolle-GB"
 # @ GWGB
 #: admin/page-import.php:456
 msgid "Select a CSV file with exported entries to import again:"
-msgstr ""
-"Wählen Sie eine CSV-Datei mit exportierten Einträgen zum erneuten Import:"
+msgstr "Wähle eine CSV-Datei mit exportierten Einträgen zum erneuten Import:"
 
 # @ GWGB
 #: admin/page-settings.php:197
@@ -1393,7 +1393,7 @@ msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smileys."
 msgstr ""
-"Ersetzt Smileys in Einträgen wie :) mit ihrem Bild %s. Benutzt den „WP "
+"Ersetzt Smileys in Einträgen wie :) mit dessen Bild %s. Benutzt den „WP "
 "smiley replacer“, daher prüfe diesen, falls Du neue/weitere Smileys "
 "hinzufügen möchtest."
 
@@ -1541,7 +1541,7 @@ msgstr "18"
 # @ GWGB
 #: admin/page-settings.php:584
 msgid "The answer to your security question."
-msgstr "Die Antwort auf Ihre Sicherheitsfrage"
+msgstr "Die Antwort auf Deine Sicherheitsfrage"
 
 # @ GWGB
 #: admin/page-settings.php:586
@@ -1626,11 +1626,11 @@ msgstr ""
 "Hallo,\n"
 "\n"
 "es gibt einen neuen Gästebuch-Eintrag auf '%blog_name%'.\n"
-"Du kannst ihn auf  %entry_management_url% prüfen.\n"
+"Du kannst ihn auf %entry_management_url% prüfen.\n"
 "\n"
 "Einen schönen Tag noch!\n"
 "\n"
-"Ihr Gwolle-GB-Mailer"
+"Dein Gwolle-GB-Mailer"
 
 # @ GWGB
 #: admin/page-settings.php:661
@@ -1638,7 +1638,7 @@ msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
 msgstr ""
-"Sie können den Inhalt der E-Mail-Benachrichtigung festlegen, die der "
+"Du kannst den Inhalt der E-Mail-Benachrichtigung festlegen, die der "
 "Teilnehmer erhalten soll, wenn er Benachrichtigungen für neue Einträge "
 "aktiviert hat. Die folgenden Tags werden unterstützt:"
 
@@ -1676,7 +1676,7 @@ msgstr "Das Plugin ist deaktiviert."
 # @ GWGB
 #: admin/page-settings.php:721
 msgid "You can now go to your"
-msgstr "Sie können nun wechseln zu Ihrem"
+msgstr "Du kannst nun wechseln zu Deinem"
 
 # @ GWGB
 #: admin/page-settings.php:721
@@ -1725,7 +1725,7 @@ msgstr "Beim Speichern des Gästebuch-Eintrags sind Fehler aufgetreten."
 # @ GWGB
 #: frontend/posthandling.php:200
 msgid "Your name is not filled in, even though it is mandatory."
-msgstr "Dein Name ist nicht eingetragen, obwohl er erforderlich ist."
+msgstr "Der Name ist nicht eingetragen, obwohl er erforderlich ist."
 
 # @ GWGB
 #: frontend/posthandling.php:203
@@ -1737,13 +1737,13 @@ msgstr "Der Ort ist nicht eingetragen, obwohl er erforderlich ist."
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
 msgstr ""
-"Deine E-Mail-Adresse ist nicht korrekt eingetragen, obwohl sie erforderlich "
+"Die E-Mail-Adresse ist nicht korrekt eingetragen, obwohl sie erforderlich "
 "ist."
 
 # @ GWGB
 #: frontend/posthandling.php:209
 msgid "Your website is not filled in, even though it is mandatory."
-msgstr "Deine Website ist nicht eingetragen, obwohl sie erforderlich ist."
+msgstr "Die Website ist nicht eingetragen, obwohl sie erforderlich ist."
 
 # @ GWGB
 #: frontend/posthandling.php:212
@@ -1770,13 +1770,13 @@ msgstr ""
 #: frontend/posthandling.php:289
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
-"Doppelter Eintrag: Ein Eintrag mit den Daten Deiner Eingabe wurde bereits "
+"Doppelter Eintrag: Ein Eintrag mit diesen Eingabe-Daten wurde bereits "
 "gespeichert."
 
 # @ GWGB
 #: frontend/posthandling.php:305
 msgid "Thank you for your entry."
-msgstr "Vielen Dank für Deinen Eintrag!"
+msgstr "Vielen Dank für diesen Eintrag!"
 
 # @ GWGB
 #: frontend/posthandling.php:307
@@ -1877,12 +1877,12 @@ msgstr "Seite auswählen"
 # @ GWGB
 #: frontend/write.php:97
 msgid "Write a new entry."
-msgstr "Schreibe einen neuen Eintrag"
+msgstr "Neuen Eintrag erstellen"
 
 # @ GWGB
 #: frontend/write.php:111
 msgid "Write a new entry for the Guestbook"
-msgstr "Schreibe einen neuen Eintrag für das Gästebuch"
+msgstr "Neuen Eintrag für das Gästebuch verfassen"
 
 # @ GWGB
 #: frontend/write.php:222
@@ -1922,13 +1922,13 @@ msgstr ""
 # @ GWGB
 #: frontend/write.php:288
 msgid "Your entry will be visible in the guestbook after we reviewed it."
-msgstr "Dein Eintrag wird nach unserer Prüfung im Gästebuch erscheinen."
+msgstr "Der Eintrag wird nach unserer Prüfung im Gästebuch erscheinen."
 
 # @ GWGB
 #: frontend/write.php:291
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
-"Wir behalten uns das Recht vor, Beiträge zu bearbeiten, zu löschen oder "
+"Wir behalten uns das Recht vor, Einträge zu bearbeiten, zu löschen oder "
 "nicht freizugeben."
 
 # @ GWGB

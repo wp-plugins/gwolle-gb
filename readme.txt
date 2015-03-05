@@ -230,9 +230,10 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.0 =
-* 2015-02-
+* 2015-03-
 * Add shortcodes for just the form and the list.
-* s / Homepage / Website
+* s/Homepage/Website.
+* Update de_DE.
 
 = 1.1.9 =
 * 2015-02-16
