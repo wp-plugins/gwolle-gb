@@ -180,10 +180,15 @@ function gwolle_gb_page_import() {
 						$gwolle_gb_errors = 'error';
 						$gwolle_gb_messages .= '<p>' . __("Your filesize is too large.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					} else {
-						// Check MIME Type by yourself.
-						$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
-						$mimetype = finfo_file( $finfo, $_FILES['gwolle_gb_gwolle']['tmp_name'] ) . "\n";
-						finfo_close($finfo);
+						if ( function_exists('finfo_open') ) {
+							// Check MIME Type by yourself. Only PHP >= 5.3.0
+							$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
+							$mimetype = finfo_file( $finfo, $_FILES['gwolle_gb_gwolle']['tmp_name'] ) . "\n";
+							finfo_close($finfo);
+						} else {
+							// PHP 5.2 is insecure anyway?
+							$mimetype = array('csv' => 'text/csv');
+						}
 						if ( in_array( $mimetype,
 								array(
 									'csv' => 'text/csv',
