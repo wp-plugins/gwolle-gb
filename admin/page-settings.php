@@ -30,6 +30,15 @@ function gwolle_gb_page_settings() {
 
 				switch ( $active_tab ) {
 					case 'gwolle_gb_forms':
+
+						if (isset($_POST['require_login']) && $_POST['require_login'] == 'on') {
+							update_option('gwolle_gb-require_login', 'true');
+							$saved = true;
+						} else {
+							update_option('gwolle_gb-require_login', 'false');
+							$saved = true;
+						}
+
 						$list = Array(
 							'form_name_enabled',
 							'form_name_mandatory',
@@ -206,13 +215,32 @@ function gwolle_gb_page_settings() {
 
 			<form name="gwolle_gb_options" class="gwolle_gb_options gwolle_gb_forms <?php if ($active_tab == 'gwolle_gb_forms') { echo "active";} ?>" method="post" action="">
 				<input type="hidden" id="gwolle_gb_tab" name="gwolle_gb_tab" value="gwolle_gb_forms" />
-				<h3><?php _e('Configure the form that is shown to visitors.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 				<?php
 				settings_fields( 'gwolle_gb_options' );
 				do_settings_sections( 'gwolle_gb_options' ); ?>
 				<table class="form-table">
 
+
+					<tr valign="top">
+						<th scope="row"><label for="require_login"><?php _e('Require Login', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td colspan="2">
+							<input type="checkbox" id="require_login" name="require_login" <?php
+								if ( get_option( 'gwolle_gb-require_login', 'false' ) === 'true' ) {
+									echo 'checked="checked"';
+								}
+								?> />
+							<label for="require_login"><?php _e('Require user to be logged in.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+							<br />
+							<span class="setting-description"><?php _e('Only allow logged in users to add a guestbook entry.', GWOLLE_GB_TEXTDOMAIN); ?></span>
+						</td>
+					</tr>
+
+
 					<?php $form_setting = gwolle_gb_get_setting( 'form' ); ?>
+
+					<tr valign="top">
+						<td class="wide" colspan="3"><h3><?php _e('Configure the form that is shown to visitors.', GWOLLE_GB_TEXTDOMAIN); ?></h3></td>
+					</tr>
 
 					<tr valign="top">
 						<th scope="row"><label for="form_name_enabled"><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>

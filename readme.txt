@@ -230,8 +230,9 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.0 =
-* 2015-03-
+* 2015-03-08
 * Add shortcodes for just the form and the list.
+* Add option to only allow logged in users to post an entry.
 * s/Homepage/Website.
 * Update de_DE.
 

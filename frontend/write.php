@@ -16,9 +16,6 @@ function gwolle_gb_frontend_write() {
 	$output = '';
 
 
-	// FIXME: add option to allow only logged-in users to post. Probably don't show the form if not logged-in.
-
-
 	// Set data up for refilling an already submitted form that had errors
 	$name = '';
 	$origin = '';
@@ -85,6 +82,12 @@ function gwolle_gb_frontend_write() {
 		$output .= "<div id='gwolle_gb_messages' class='$class'>";
 		$output .= $gwolle_gb_messages;
 		$output .= "</div>";
+	}
+
+
+	// Option to allow only logged-in users to post. Don't show the form if not logged-in. We still see the messages above.
+	if ( get_option('gwolle_gb-require_login', 'false') == 'true' ) {
+		return $output;
 	}
 
 
