@@ -231,7 +231,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="require_login"><?php _e('Require user to be logged in.', GWOLLE_GB_TEXTDOMAIN); ?></label>
 							<br />
-							<span class="setting-description"><?php _e('Only allow logged in users to add a guestbook entry.', GWOLLE_GB_TEXTDOMAIN); ?></span>
+							<span class="setting-description"><?php _e('Only allow logged-in users to add a guestbook entry.', GWOLLE_GB_TEXTDOMAIN); ?></span>
 						</td>
 					</tr>
 

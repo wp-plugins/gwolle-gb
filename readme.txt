@@ -232,9 +232,9 @@ Yes, it is again actively maintained.
 = 1.2.0 =
 * 2015-03-08
 * Add shortcodes for just the form and the list.
-* Add option to only allow logged in users to post an entry.
+* Add option to only allow logged-in users to post an entry.
 * s/Homepage/Website.
-* Update de_DE.
+* Update pot, de_DE, nl_NL.
 
 = 1.1.9 =
 * 2015-02-16
