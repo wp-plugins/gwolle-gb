@@ -187,7 +187,7 @@ function gwolle_gb_page_import() {
 							finfo_close($finfo);
 						} else {
 							// PHP 5.2 is insecure anyway?
-							$mimetype = array('csv' => 'text/csv');
+							$mimetype = 'text/csv';
 						}
 						if ( !in_array( $mimetype,
 								array(
@@ -199,7 +199,7 @@ function gwolle_gb_page_import() {
 								)
 							) ) {
 							$gwolle_gb_errors = 'error';
-							$gwolle_gb_messages .= '<p>' . __("Invalid file format.", GWOLLE_GB_TEXTDOMAIN) . ' (' . $mimetype . ')</p>';
+							$gwolle_gb_messages .= '<p>' . __("Invalid file format.", GWOLLE_GB_TEXTDOMAIN) . ' (' . print_r($mimetype, true) . ')</p>';
 						} else {
 							$handle = fopen($_FILES['gwolle_gb_gwolle']['tmp_name'], "r");
 							$row = 0;
