@@ -234,6 +234,7 @@ Yes, it is again actively maintained.
 * Add shortcodes for just the form and the list.
 * Add option to only allow logged-in users to post an entry.
 * Add options to configure the shown entries.
+* Import: fix test for mimetype.
 * Import supports PHP 5.2.
 * s/Homepage/Website.
 * Update pot, de_DE, nl_NL.
