@@ -559,7 +559,7 @@ function gwolle_gb_page_settings() {
 								}
 								?> />
 							<label for="read_date"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
-							<span class="setting-description"><?php _e("Setting this will show and the date and the time of the entry. If Date and Time above are enabled, that setting has preference.", GWOLLE_GB_TEXTDOMAIN); ?></span>
+							<span class="setting-description"><?php _e("Setting this will show and the date of the entry. If Date and Time above are enabled, that setting has preference.", GWOLLE_GB_TEXTDOMAIN); ?></span>
 						</td>
 					</tr>
 
