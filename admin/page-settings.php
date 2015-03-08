@@ -97,6 +97,26 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
+						$list = Array(
+							'read_avatar',
+							'read_name',
+							'read_city',
+							'read_datetime',
+							'read_date',
+							'read_content',
+							'read_editlink'
+							);
+						$read_setting = Array();
+						foreach ( $list as $item ) {
+							if ( isset($_POST[$item]) && $_POST[$item] == 'on' ) {
+								$read_setting[$item] = 'true';
+							} else {
+								$read_setting[$item] = 'false';
+							}
+						}
+						$read_setting = serialize( $read_setting );
+						update_option( 'gwolle_gb-read', $read_setting );
+						$saved = true;
 						break;
 					case 'gwolle_gb_admin':
 
@@ -223,7 +243,7 @@ function gwolle_gb_page_settings() {
 
 					<tr valign="top">
 						<th scope="row"><label for="require_login"><?php _e('Require Login', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
-						<td colspan="2">
+						<td>
 							<input type="checkbox" id="require_login" name="require_login" <?php
 								if ( get_option( 'gwolle_gb-require_login', 'false' ) === 'true' ) {
 									echo 'checked="checked"';
@@ -235,16 +255,18 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
+				</table>
+				<table class="form-table">
 
 					<?php $form_setting = gwolle_gb_get_setting( 'form' ); ?>
 
 					<tr valign="top">
-						<td class="wide" colspan="3"><h3><?php _e('Configure the form that is shown to visitors.', GWOLLE_GB_TEXTDOMAIN); ?></h3></td>
+						<td colspan="3"><h3><?php _e('Configure the form that is shown to visitors.', GWOLLE_GB_TEXTDOMAIN); ?></h3></td>
 					</tr>
 
 					<tr valign="top">
 						<th scope="row"><label for="form_name_enabled"><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_name_enabled" name="form_name_enabled"<?php
 								if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
 									echo ' checked="checked"';
@@ -252,7 +274,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="form_name_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_name_mandatory" name="form_name_mandatory"<?php
 								if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) {
 									echo ' checked="checked"';
@@ -265,7 +287,7 @@ function gwolle_gb_page_settings() {
 
 					<tr valign="top">
 						<th scope="row"><label for="form_city_enabled"><?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_city_enabled" name="form_city_enabled"<?php
 								if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
 									echo ' checked="checked"';
@@ -273,7 +295,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="form_city_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_city_mandatory" name="form_city_mandatory"<?php
 								if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) {
 									echo ' checked="checked"';
@@ -286,7 +308,7 @@ function gwolle_gb_page_settings() {
 
 					<tr valign="top">
 						<th scope="row"><label for="form_email_enabled"><?php _e('Email', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_email_enabled" name="form_email_enabled"<?php
 								if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
 									echo ' checked="checked"';
@@ -294,7 +316,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="form_email_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_email_mandatory" name="form_email_mandatory"<?php
 								if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) {
 									echo ' checked="checked"';
@@ -307,7 +329,7 @@ function gwolle_gb_page_settings() {
 
 					<tr valign="top">
 						<th scope="row"><label for=""form_homepage_enabled><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_homepage_enabled" name="form_homepage_enabled"<?php
 								if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
 									echo ' checked="checked"';
@@ -315,7 +337,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="form_homepage_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_homepage_mandatory" name="form_homepage_mandatory"<?php
 								if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) {
 									echo ' checked="checked"';
@@ -328,7 +350,7 @@ function gwolle_gb_page_settings() {
 
 					<tr valign="top">
 						<th scope="row"><label for="form_message_enabled"><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_message_enabled" name="form_message_enabled"<?php
 								if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' ) {
 									echo ' checked="checked"';
@@ -336,7 +358,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="form_message_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_message_mandatory" name="form_message_mandatory"<?php
 								if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
 									echo ' checked="checked"';
@@ -349,7 +371,7 @@ function gwolle_gb_page_settings() {
 
 					<tr valign="top">
 						<th scope="row"><label for="form_antispam_enabled"><?php _e('Custom Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_antispam_enabled" name="form_antispam_enabled"<?php
 								if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
 									echo ' checked="checked"';
@@ -357,7 +379,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="form_antispam_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
-						<td class="narrow">
+						<td>
 							<?php _e('When enabled it is mandatory.', GWOLLE_GB_TEXTDOMAIN); ?>
 						</td>
 					</tr>
@@ -365,7 +387,7 @@ function gwolle_gb_page_settings() {
 
 					<tr valign="top">
 						<th scope="row"><label for="form_recaptcha_enabled"><?php _e('reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
-						<td class="narrow">
+						<td>
 							<input type="checkbox" id="form_recaptcha_enabled" name="form_recaptcha_enabled"<?php
 								if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
 									echo ' checked="checked"';
@@ -373,7 +395,7 @@ function gwolle_gb_page_settings() {
 								?> />
 							<label for="form_recaptcha_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
-						<td class="narrow">
+						<td>
 							<?php _e('When enabled it is mandatory.', GWOLLE_GB_TEXTDOMAIN); ?>
 						</td>
 					</tr>
@@ -460,6 +482,113 @@ function gwolle_gb_page_settings() {
 							<label for="linkAuthorWebsite"><?php _e("Link authors' name to their website.", GWOLLE_GB_TEXTDOMAIN); ?></label>
 							<br />
 							<span class="setting-description"><?php _e("The author of an entry can set his/her website. If this setting is checked, his/her name will be a link to that website.", GWOLLE_GB_TEXTDOMAIN); ?></span>
+						</td>
+					</tr>
+
+
+
+					<?php $read_setting = gwolle_gb_get_setting( 'read' ); ?>
+
+					<tr valign="top">
+						<td colspan="2"><h3><?php _e('Configure the parts of the entries that are shown to visitors.', GWOLLE_GB_TEXTDOMAIN); ?></h3></td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row"><label for="read_avatar"><?php _e('Avatar', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td>
+							<input type="checkbox" id="read_avatar" name="read_avatar"<?php
+								if ( isset($read_setting['read_avatar']) && $read_setting['read_avatar']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="read_avatar"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+					<tr valign="top">
+						<th scope="row"><label for="read_name"><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td>
+							<input type="checkbox" id="read_name" name="read_name"<?php
+								if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="read_name"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+
+					<tr valign="top">
+						<th scope="row"><label for="read_city"><?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td>
+							<input type="checkbox" id="read_city" name="read_city"<?php
+								if ( isset($read_setting['read_city']) && $read_setting['read_city']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="read_city"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+
+					<tr valign="top">
+						<th scope="row"><label for="read_datetime"><?php _e('Date and Time', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td>
+							<input type="checkbox" id="read_datetime" name="read_datetime"<?php
+								if ( isset($read_setting['read_datetime']) && $read_setting['read_datetime']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="read_datetime"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+							<span class="setting-description"><?php _e("Setting this will show and the date and the time of the entry.", GWOLLE_GB_TEXTDOMAIN); ?></span>
+						</td>
+					</tr>
+
+
+
+					<tr valign="top">
+						<th scope="row"><label for="read_date"><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td>
+							<input type="checkbox" id="read_date" name="read_date"<?php
+								if ( isset($read_setting['read_date']) && $read_setting['read_date']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="read_date"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+							<span class="setting-description"><?php _e("Setting this will show and the date and the time of the entry. If Date and Time above are enabled, that setting has preference.", GWOLLE_GB_TEXTDOMAIN); ?></span>
+						</td>
+					</tr>
+
+
+
+					<tr valign="top">
+						<th scope="row"><label for="read_content"><?php _e('Content', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td>
+							<input type="checkbox" id="read_content" name="read_content"<?php
+								if ( isset($read_setting['read_content']) && $read_setting['read_content']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="read_content"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+
+
+					<tr valign="top">
+						<th scope="row"><label for="read_editlink"><?php _e('Edit link', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+						<td>
+							<input type="checkbox" id="read_editlink" name="read_editlink"<?php
+								if ( isset($read_setting['read_editlink']) && $read_setting['read_editlink']  === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="read_editlink"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+							<span class="setting-description"><?php _e("A link to the editor will be added to the content. Only visible for moderators.", GWOLLE_GB_TEXTDOMAIN); ?></span>
 						</td>
 					</tr>
 

@@ -233,6 +233,7 @@ Yes, it is again actively maintained.
 * 2015-03-08
 * Add shortcodes for just the form and the list.
 * Add option to only allow logged-in users to post an entry.
+* Add options to configure the shown entries.
 * s/Homepage/Website.
 * Update pot, de_DE, nl_NL.
 

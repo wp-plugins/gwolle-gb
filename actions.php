@@ -117,6 +117,7 @@ function gwolle_gb_register_settings() {
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-mail-from',         'strval' ); // empty string
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-moderate-entries',  'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-notifyByMail',      'strval' ); // array, but initially empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-read',              'strval' ); // serialized Array, but initially empty
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-require_login',     'strval' ); // 'false'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-showEntryIcons',    'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-showLineBreaks',    'strval' ); // 'false'

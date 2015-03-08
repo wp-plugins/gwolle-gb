@@ -465,6 +465,7 @@ function gwolle_gb_page_editor() {
 											} ?>
 										</span>
 										<br />
+										<?php // FIXME: add option to change the date ?>
 										<?php _e('Written', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
 											if ( $entry->get_date() > 0 ) {
 												echo date_i18n( get_option('date_format'), $entry->get_date() ) . ', ';

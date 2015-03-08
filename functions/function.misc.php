@@ -163,8 +163,27 @@ function gwolle_gb_get_setting($request) {
 				return $setting;
 				break;
 			case 'read':
-				// Stub
-				return Array();
+				if ( get_option('show_avatars') ) {
+					$avatar = 'true';
+				} else {
+					$avatar = 'false';
+				}
+
+				$defaults = Array(
+					'read_avatar'   => $avatar,
+					'read_name'     => 'true',
+					'read_city'     => 'true',
+					'read_datetime' => 'true',
+					'read_date'     => 'false',
+					'read_content'  => 'true',
+					'read_editlink' => 'true'
+					);
+				$setting = get_option( 'gwolle_gb-read', Array() );
+				if ( is_string( $setting ) ) {
+					$setting = unserialize( $setting );
+				}
+				$setting = array_merge( $defaults, $setting );
+				return $setting;
 				break;
 			case 'widget':
 				// Stub
