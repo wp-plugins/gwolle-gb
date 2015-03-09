@@ -229,6 +229,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.1 =
+* 2015-03-
+* Update pot, de_DE and nl_NL.
+
 = 1.2.0 =
 * 2015-03-08
 * Add shortcodes for just the form and the list.

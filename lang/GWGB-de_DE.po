@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Gwolle Guestbook v1.1.10\n"
+"Project-Id-Version: Gwolle Guestbook 1.2.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-13 19:15+0100\n"
-"PO-Revision-Date: 2015-02-20 20:27+0100\n"
+"POT-Creation-Date: 2015-03-08 15:47+0100\n"
+"PO-Revision-Date: 2015-03-09 07:09+0100\n"
 "Last-Translator: Eckhard Henkel <eckhard.henkel@t-online.de>\n"
 "Language-Team: Jenny Gaulke <jenny.gaulke@gmail.com>, Eckhard Henkel "
 "<eckhard.henkel@t-online.de>\n"
@@ -27,8 +27,8 @@ msgid "Guestbook"
 msgstr "Gästebuch"
 
 # @ GWGB
-#: actions.php:46 actions.php:47 admin/page-settings.php:383
-#: admin/page-settings.php:470
+#: actions.php:46 actions.php:47 admin/page-settings.php:434
+#: admin/page-settings.php:628
 msgid "Entries"
 msgstr "Einträge"
 
@@ -46,7 +46,7 @@ msgstr "Neuer Eintrag"
 # @ GWGB
 # @ default
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:184
+#: actions.php:57 actions.php:80 admin/page-settings.php:214
 msgid "Settings"
 msgstr "Einstellungen"
 
@@ -64,13 +64,13 @@ msgstr "Export"
 
 # @ GWGB
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:204
+#: frontend/read.php:223
 msgid "Edit entry"
 msgstr "Eintrag bearbeiten"
 
 # @ GWGB
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
-#: frontend/read.php:204
+#: frontend/read.php:223
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -269,7 +269,7 @@ msgstr "Eingereicht als Ham beim Akismet Service."
 
 # @ GWGB
 #: admin/page-editor.php:140 admin/page-gwolle-gb.php:354
-#: admin/page-settings.php:190
+#: admin/page-settings.php:220
 msgid "Changes saved."
 msgstr "Änderungen gespeichert."
 
@@ -306,8 +306,8 @@ msgstr "Eintrag wurde nicht gespeichert."
 # @ GWGB
 #: admin/page-editor.php:311 admin/page-editor.php:404
 #: admin/page-editor.php:448 admin/page-editor.php:503
-#: admin/page-editor.php:539 admin/page-editor.php:550
-#: admin/page-editor.php:558 admin/page-export.php:40
+#: admin/page-editor.php:538 admin/page-editor.php:549
+#: admin/page-editor.php:557 admin/page-export.php:40
 #: admin/page-import.php:314 admin/page-import.php:381
 #: admin/page-import.php:450
 msgid "Click to open or close"
@@ -365,14 +365,14 @@ msgid "Author"
 msgstr "Autor"
 
 # @ GWGB
-#: admin/page-editor.php:457 admin/page-editor.php:465
+#: admin/page-editor.php:456 admin/page-editor.php:464
 #: admin/page-editor.php:485 admin/page-editor.php:493
 #: functions/function.log.php:164
 msgid "Unknown"
 msgstr "Unbekannt"
 
 # @ GWGB
-#: admin/page-editor.php:461
+#: admin/page-editor.php:460
 msgid "E-Mail"
 msgstr "E-Mail"
 
@@ -412,12 +412,12 @@ msgid "No log yet."
 msgstr "Noch kein Protokoll."
 
 # @ GWGB
-#: admin/page-editor.php:539 frontend/write.php:192
+#: admin/page-editor.php:538 frontend/write.php:195
 msgid "Guestbook entry"
 msgstr "Gästebuch-Eintrag"
 
 # @ GWGB
-#: admin/page-editor.php:544
+#: admin/page-editor.php:543
 #, php-format
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
@@ -427,18 +427,18 @@ msgstr ""
 "\">Einstellungen</a>."
 
 # @ GWGB
-#: admin/page-editor.php:550 admin/page-settings.php:280
-#: frontend/write.php:173 frontend/write.php:180
-msgid "Homepage"
+#: admin/page-editor.php:549 admin/page-settings.php:331
+#: frontend/write.php:176 frontend/write.php:183
+msgid "Website"
 msgstr "Website"
 
 # @ GWGB
-#: admin/page-editor.php:553
+#: admin/page-editor.php:552
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "Beispiel: <code>http://www.beispiel.de</code>"
 
 # @ GWGB
-#: admin/page-editor.php:558 admin/page-export.php:55
+#: admin/page-editor.php:557 admin/page-export.php:55
 msgid "Origin"
 msgstr "Ort"
 
@@ -695,6 +695,7 @@ msgstr "ID"
 
 # @ GWGB
 #: admin/page-entries.php:545 admin/page-entries.php:561
+#: admin/page-settings.php:554
 msgid "Date"
 msgstr "Datum"
 
@@ -736,8 +737,8 @@ msgstr "Die Export-Funktion wird die folgenden Daten pro Eintrag bewahren:"
 
 # @ GWGB
 #: admin/page-export.php:52 admin/page-import.php:348
-#: admin/page-import.php:389 admin/page-settings.php:217
-#: frontend/write.php:116 frontend/write.php:123
+#: admin/page-import.php:389 admin/page-settings.php:268
+#: admin/page-settings.php:511 frontend/write.php:119 frontend/write.php:126
 msgid "Name"
 msgstr "Name"
 
@@ -772,8 +773,8 @@ msgstr "Host-Adresse"
 
 # @ GWGB
 #: admin/page-export.php:59 admin/page-import.php:353
-#: admin/page-import.php:395 admin/page-settings.php:301
-#: admin/page-settings.php:716
+#: admin/page-import.php:395 admin/page-settings.php:352
+#: admin/page-settings.php:874
 msgid "Message"
 msgstr "Nachricht"
 
@@ -1266,109 +1267,126 @@ msgid "Select a CSV file with exported entries to import again:"
 msgstr "Wähle eine CSV-Datei mit exportierten Einträgen zum erneuten Import:"
 
 # @ GWGB
-#: admin/page-settings.php:197
+#: admin/page-settings.php:227
 msgid "Form"
 msgstr "Formular"
 
 # @ GWGB
-#: admin/page-settings.php:198
+#: admin/page-settings.php:228
 msgid "Reading"
 msgstr "Lesen"
 
 # @ GWGB
-#: admin/page-settings.php:199
+#: admin/page-settings.php:229
 msgid "Admin"
 msgstr "Verwaltung"
 
 # @ GWGB
-#: admin/page-settings.php:200 frontend/write.php:221 frontend/write.php:252
+#: admin/page-settings.php:230 frontend/write.php:224 frontend/write.php:255
 msgid "Anti-spam"
 msgstr "Spam-Schutz"
 
 # @ GWGB
-#: admin/page-settings.php:201
+#: admin/page-settings.php:231
 msgid "E-mail"
 msgstr "E-Mail"
 
 # @ GWGB
-#: admin/page-settings.php:202 admin/page-settings.php:731
+#: admin/page-settings.php:232 admin/page-settings.php:889
 msgid "Uninstall"
 msgstr "Deinstallation"
 
+#: admin/page-settings.php:245
+msgid "Require Login"
+msgstr "Erfordert Login"
+
+#: admin/page-settings.php:252
+msgid "Require user to be logged in."
+msgstr "Erfordert angemeldeten Benutzer"
+
+#: admin/page-settings.php:254
+msgid "Only allow logged-in users to add a guestbook entry."
+msgstr ""
+"Nur angemeldeten Benutzern erlauben, einen Gästebuch-Eintrag zu erstellen."
+
 # @ GWGB
-#: admin/page-settings.php:208
+#: admin/page-settings.php:264
 msgid "Configure the form that is shown to visitors."
 msgstr "Gestalte das Formular, das dem Besucher gezeigt wird."
 
 # @ GWGB
-#: admin/page-settings.php:224 admin/page-settings.php:245
-#: admin/page-settings.php:266 admin/page-settings.php:287
-#: admin/page-settings.php:308 admin/page-settings.php:329
-#: admin/page-settings.php:345
+#: admin/page-settings.php:275 admin/page-settings.php:296
+#: admin/page-settings.php:317 admin/page-settings.php:338
+#: admin/page-settings.php:359 admin/page-settings.php:380
+#: admin/page-settings.php:396 admin/page-settings.php:505
+#: admin/page-settings.php:518 admin/page-settings.php:532
+#: admin/page-settings.php:546 admin/page-settings.php:561
+#: admin/page-settings.php:576 admin/page-settings.php:590
 msgid "Enabled"
 msgstr "Aktiviert"
 
 # @ GWGB
-#: admin/page-settings.php:232 admin/page-settings.php:253
-#: admin/page-settings.php:274 admin/page-settings.php:295
-#: admin/page-settings.php:316
+#: admin/page-settings.php:283 admin/page-settings.php:304
+#: admin/page-settings.php:325 admin/page-settings.php:346
+#: admin/page-settings.php:367
 msgid "Mandatory"
 msgstr "Pflichtfeld"
 
 # @ GWGB
-#: admin/page-settings.php:238 frontend/write.php:135 frontend/write.php:142
+#: admin/page-settings.php:289 admin/page-settings.php:525
+#: frontend/write.php:138 frontend/write.php:145
 msgid "City"
 msgstr "Ort"
 
 # @ GWGB
-#: admin/page-settings.php:259 frontend/write.php:154 frontend/write.php:161
+#: admin/page-settings.php:310 frontend/write.php:157 frontend/write.php:164
 msgid "Email"
 msgstr "E-Mail"
 
 # @ GWGB
-#: admin/page-settings.php:322
+#: admin/page-settings.php:373
 msgid "Custom Anti-spam"
 msgstr "Benutzerdefiniertes Anti-Spam"
 
 # @ GWGB
-#: admin/page-settings.php:332 admin/page-settings.php:348
+#: admin/page-settings.php:383 admin/page-settings.php:399
 msgid "When enabled it is mandatory."
 msgstr "Wenn aktiviert, ist es Pflichtfeld"
 
 # @ GWGB
-#: admin/page-settings.php:338 admin/page-settings.php:751
+#: admin/page-settings.php:389 admin/page-settings.php:909
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
 # @ GWGB
-#: admin/page-settings.php:354 admin/page-settings.php:441
-#: admin/page-settings.php:497 admin/page-settings.php:630
-#: admin/page-settings.php:695
+#: admin/page-settings.php:405 admin/page-settings.php:599
+#: admin/page-settings.php:655 admin/page-settings.php:788
+#: admin/page-settings.php:853
 msgid "Save settings"
 msgstr "Einstellungen speichern"
 
 # @ GWGB
-#: admin/page-settings.php:373
+#: admin/page-settings.php:424
 msgid "Entries per page on the frontend"
 msgstr "Einträge pro Seite auf dem Frontend"
 
 # @ GWGB
-#: admin/page-settings.php:388
+#: admin/page-settings.php:439
 msgid "Number of entries shown on the frontend."
-msgstr "Anzahl der auf dem Frontend angezeigten Einträge"
+msgstr "Anzahl der auf dem Frontend angezeigten Einträge."
 
 # @ GWGB
-#: admin/page-settings.php:394
+#: admin/page-settings.php:445
 msgid "Line breaks"
 msgstr "Zeilenumbrüche"
 
 # @ GWGB
-#: admin/page-settings.php:401
+#: admin/page-settings.php:452
 msgid "Show line breaks."
 msgstr "Zeilenumbrüche anzeigen"
 
 # @ GWGB
-#: admin/page-settings.php:403
+#: admin/page-settings.php:454
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
@@ -1377,17 +1395,17 @@ msgstr ""
 "Einträge zur Folge haben, daher standardmäßig ausgeschaltet.)"
 
 # @ GWGB
-#: admin/page-settings.php:409
+#: admin/page-settings.php:460
 msgid "Smileys"
 msgstr "Smileys"
 
 # @ GWGB
-#: admin/page-settings.php:416
+#: admin/page-settings.php:467
 msgid "Display smileys as images."
 msgstr "Zeige Smileys als Bilder"
 
 # @ GWGB
-#: admin/page-settings.php:418
+#: admin/page-settings.php:469
 #, php-format
 msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
@@ -1398,17 +1416,17 @@ msgstr ""
 "hinzufügen möchtest."
 
 # @ GWGB
-#: admin/page-settings.php:424
+#: admin/page-settings.php:475
 msgid "Links"
 msgstr "Links"
 
 # @ GWGB
-#: admin/page-settings.php:431
+#: admin/page-settings.php:482
 msgid "Link authors' name to their website."
 msgstr "Verknüpfe den Namen des Autors mit seiner Website"
 
 # @ GWGB
-#: admin/page-settings.php:433
+#: admin/page-settings.php:484
 msgid ""
 "The author of an entry can set his/her website. If this setting is checked, "
 "his/her name will be a link to that website."
@@ -1417,27 +1435,69 @@ msgstr ""
 "aktiviert ist, wird sein Name mit der Website verknüpft."
 
 # @ GWGB
-#: admin/page-settings.php:460
+#: admin/page-settings.php:493
+msgid "Configure the parts of the entries that are shown to visitors."
+msgstr "Gestalte die Teile der Einträge, die den Besuchern angezeigt werden"
+
+#: admin/page-settings.php:498
+msgid "Avatar"
+msgstr "Avatar"
+
+#: admin/page-settings.php:539
+msgid "Date and Time"
+msgstr "Datum und Uhrzeit"
+
+#: admin/page-settings.php:547
+msgid "Setting this will show and the date and the time of the entry."
+msgstr "Diese Option zeigt das Datum und die Uhrzeit des Eintrags an."
+
+#: admin/page-settings.php:562
+msgid ""
+"Setting this will show and the date of the entry. If Date and Time above are "
+"enabled, that setting has preference."
+msgstr ""
+"Diese Einstellung zeigt das Datum des Eintrags an. Falls oben Datum und "
+"Uhrzeit eingeschaltet sind, wird jene Einstellung bevorzugt."
+
+#: admin/page-settings.php:569
+msgid "Content"
+msgstr "Inhalt"
+
+# @ GWGB
+#: admin/page-settings.php:583
+msgid "Edit link"
+msgstr "Link bearbeiten"
+
+#: admin/page-settings.php:591
+msgid ""
+"A link to the editor will be added to the content. Only visible for "
+"moderators."
+msgstr ""
+"Ein Link zum Bearbeiter wird dem Eintrag hinzugefügt. Nur sichtbar für "
+"Moderatoren."
+
+# @ GWGB
+#: admin/page-settings.php:618
 msgid "Entries per page in the admin"
 msgstr "Einträge pro Seite in der Verwaltung"
 
 # @ GWGB
-#: admin/page-settings.php:475
+#: admin/page-settings.php:633
 msgid "Number of entries shown in the admin."
 msgstr "Anzahl der in der Verwaltung angezeigten Einträge."
 
 # @ GWGB
-#: admin/page-settings.php:481
+#: admin/page-settings.php:639
 msgid "Entry icons"
 msgstr "Eintrag-Icons"
 
 # @ GWGB
-#: admin/page-settings.php:487
+#: admin/page-settings.php:645
 msgid "Show entry icons"
 msgstr "Zeige Icons in den Einträgen"
 
 # @ GWGB
-#: admin/page-settings.php:489
+#: admin/page-settings.php:647
 msgid ""
 "These icons are shown in every entry row of the admin list, so that you know "
 "its status (checked, spam and trash)."
@@ -1446,17 +1506,17 @@ msgstr ""
 "dass Du den Status (Überprüft, Spam und Papierkorb) kennst."
 
 # @ GWGB
-#: admin/page-settings.php:516
+#: admin/page-settings.php:674
 msgid "Moderate Guestbook"
 msgstr "Gästebuch moderieren"
 
 # @ GWGB
-#: admin/page-settings.php:524
+#: admin/page-settings.php:682
 msgid "Moderate entries before publishing them."
 msgstr "Einträge vor Veröffentlichung erst freischalten."
 
 # @ GWGB
-#: admin/page-settings.php:528
+#: admin/page-settings.php:686
 msgid ""
 "New entries have to be unlocked by a moderator before they are visible to "
 "the public."
@@ -1465,7 +1525,7 @@ msgstr ""
 "bevor sie öffentlich erscheinen."
 
 # @ GWGB
-#: admin/page-settings.php:530
+#: admin/page-settings.php:688
 msgid ""
 "It is recommended that you turn this on, because you are responsible for the "
 "content on your website."
@@ -1474,17 +1534,17 @@ msgstr ""
 "verantwortlich bist."
 
 # @ GWGB
-#: admin/page-settings.php:541
+#: admin/page-settings.php:699
 msgid "Learn more about Akismet..."
 msgstr "Lerne mehr über Akismet …"
 
 # @ GWGB
-#: admin/page-settings.php:541 admin/page-settings.php:599
+#: admin/page-settings.php:699 admin/page-settings.php:757
 msgid "What's that?"
 msgstr "Was ist das?"
 
 # @ GWGB
-#: admin/page-settings.php:551
+#: admin/page-settings.php:709
 msgid ""
 "Akismet helps you to fight spam. It's free and easy to install. Download and "
 "install it today to stop spam in your guestbook."
@@ -1494,7 +1554,7 @@ msgstr ""
 "Gästebuch."
 
 # @ GWGB
-#: admin/page-settings.php:554
+#: admin/page-settings.php:712
 #, php-format
 msgid ""
 "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
@@ -1505,12 +1565,12 @@ msgstr ""
 "Seite</a> eingeben."
 
 # @ GWGB
-#: admin/page-settings.php:563
+#: admin/page-settings.php:721
 msgid "Use Akismet"
 msgstr "Akismet benutzen"
 
 # @ GWGB
-#: admin/page-settings.php:565
+#: admin/page-settings.php:723
 msgid ""
 "The WordPress API key has been found, so you can start using Akismet right "
 "now."
@@ -1519,32 +1579,32 @@ msgstr ""
 "verwenden."
 
 # @ GWGB
-#: admin/page-settings.php:577
+#: admin/page-settings.php:735
 msgid "Custom Anti-Spam Security Question"
 msgstr "Benutzerdefiniertes Anti-Spam"
 
 # @ GWGB
-#: admin/page-settings.php:580
+#: admin/page-settings.php:738
 msgid "12 + six ="
 msgstr "12 + sechs ="
 
 # @ GWGB
-#: admin/page-settings.php:581
+#: admin/page-settings.php:739
 msgid "Custom security question to battle spam."
 msgstr "Benutzerdefinierte Sicherheitsfrage, um Spam zu vermeiden"
 
 # @ GWGB
-#: admin/page-settings.php:583
+#: admin/page-settings.php:741
 msgid "18"
 msgstr "18"
 
 # @ GWGB
-#: admin/page-settings.php:584
+#: admin/page-settings.php:742
 msgid "The answer to your security question."
 msgstr "Die Antwort auf Deine Sicherheitsfrage"
 
 # @ GWGB
-#: admin/page-settings.php:586
+#: admin/page-settings.php:744
 msgid ""
 "You can ask your visitors to answer a custom security question, so only real "
 "people can post an entry."
@@ -1553,37 +1613,37 @@ msgstr ""
 "auffordern, so dass nur Menschen einen Eintrag erstellen können."
 
 # @ GWGB
-#: admin/page-settings.php:599
+#: admin/page-settings.php:757
 msgid "Learn more about reCAPTCHA..."
 msgstr "Lerne mehr über reCAPTCHA …"
 
 # @ GWGB
-#: admin/page-settings.php:610
+#: admin/page-settings.php:768
 msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
 msgstr "<strong>Site (Public)</strong>-Schlüssel Deines reCAPTCHA-Accounts"
 
 # @ GWGB
-#: admin/page-settings.php:613
+#: admin/page-settings.php:771
 msgid "<strong>Secret</strong> key of your reCAPTCHA account"
 msgstr "<strong>Secret</strong>-Schlüssel Deines reCAPTCHA-Accounts"
 
 # @ GWGB
-#: admin/page-settings.php:615
+#: admin/page-settings.php:773
 msgid "The keys can be found at your"
 msgstr "Die Schlüssel findest Du auf Deiner"
 
 # @ GWGB
-#: admin/page-settings.php:615
+#: admin/page-settings.php:773
 msgid "Go to my reCAPTCHA sites..."
 msgstr "Gehe zu meinen reCAPTCHA-Seiten …"
 
 # @ GWGB
-#: admin/page-settings.php:615
+#: admin/page-settings.php:773
 msgid "reCAPTCHA sites overview"
 msgstr "reCAPTCHA-Seitenübersicht"
 
 # @ GWGB
-#: admin/page-settings.php:619
+#: admin/page-settings.php:777
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be "
@@ -1596,7 +1656,7 @@ msgstr ""
 "stattdessen benutzt. Das kann unerwartete Ergebnisse zur Folge haben."
 
 # @ GWGB
-#: admin/page-settings.php:621
+#: admin/page-settings.php:779
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. However, this is an old and incompatible "
@@ -1608,12 +1668,12 @@ msgstr ""
 "GB nicht benutzt werden."
 
 # @ GWGB
-#: admin/page-settings.php:649
+#: admin/page-settings.php:807
 msgid "Admin mail content"
 msgstr "Text der Benachrichtigung"
 
 # @ GWGB
-#: admin/page-settings.php:654 frontend/posthandling.php:336
+#: admin/page-settings.php:812 frontend/posthandling.php:345
 msgid ""
 "Hello,\n"
 "\n"
@@ -1633,7 +1693,7 @@ msgstr ""
 "Dein Gwolle-GB-Mailer"
 
 # @ GWGB
-#: admin/page-settings.php:661
+#: admin/page-settings.php:819
 msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
@@ -1643,12 +1703,12 @@ msgstr ""
 "aktiviert hat. Die folgenden Tags werden unterstützt:"
 
 # @ GWGB
-#: admin/page-settings.php:677
+#: admin/page-settings.php:835
 msgid "Admin mail from address"
 msgstr "Absender-E-Mail-Adresse"
 
 # @ GWGB
-#: admin/page-settings.php:683
+#: admin/page-settings.php:841
 msgid ""
 "You can set the email address that is used for the From header of the mail "
 "that a notification subscriber gets on new entries."
@@ -1657,34 +1717,34 @@ msgstr ""
 "benutzt wird, die ein Abonnent bei neuen Einträgen erhält."
 
 # @ GWGB
-#: admin/page-settings.php:685
+#: admin/page-settings.php:843
 msgid "By default the main admin address is used from General >> Settings."
 msgstr ""
 "Standardmäßig wird die Verwalter-E-Mail-Adresse aus Allgemein >> "
 "Einstellungen benutzt."
 
 # @ GWGB
-#: admin/page-settings.php:719
+#: admin/page-settings.php:877
 msgid "The entries and settings have been removed."
 msgstr "Die Einträge und Einstellungen wurden entfernt."
 
 # @ GWGB
-#: admin/page-settings.php:720
+#: admin/page-settings.php:878
 msgid "The plugin is deactivated."
 msgstr "Das Plugin ist deaktiviert."
 
 # @ GWGB
-#: admin/page-settings.php:721
+#: admin/page-settings.php:879
 msgid "You can now go to your"
 msgstr "Du kannst nun wechseln zu Deinem"
 
 # @ GWGB
-#: admin/page-settings.php:721
+#: admin/page-settings.php:879
 msgid "dashboard."
 msgstr "Dashboard."
 
 # @ GWGB
-#: admin/page-settings.php:733
+#: admin/page-settings.php:891
 msgid ""
 "Uninstalling means that all database entries are removed (settings and "
 "entries)."
@@ -1693,47 +1753,53 @@ msgstr ""
 "Gästebuch-Einträge) gelöscht werden."
 
 # @ GWGB
-#: admin/page-settings.php:735
+#: admin/page-settings.php:893
 msgid "This can <strong>not</strong> be undone."
 msgstr "Dies kann <strong>nicht</strong> rückgängig gemacht werden."
 
 # @ GWGB
-#: admin/page-settings.php:742
+#: admin/page-settings.php:900
 msgid "Confirm"
 msgstr "Bestätigung"
 
 # @ GWGB
-#: admin/page-settings.php:745
+#: admin/page-settings.php:903
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr "Ja, ich bin mir darüber absolut sicher. Mach weiter!"
 
 # @ GWGB
-#: admin/page-settings.php:754
+#: admin/page-settings.php:912
 msgid "Also delete the reCAPTCHA keys"
 msgstr "Lösche auch die reCAPTCHA-Schlüssel"
 
 # @ GWGB
-#: admin/page-settings.php:762
+#: admin/page-settings.php:920
 msgid "Uninstall &raquo;"
 msgstr "Deinstallieren &raquo;"
 
+#: frontend/posthandling.php:39
+msgid "Submitting a new guestbook entry is only allowed for logged-in users."
+msgstr ""
+"Das Erstellen eines neuen Gästebuch-Eintrags ist nur für angemeldete "
+"Benutzer erlaubt."
+
 # @ GWGB
-#: frontend/posthandling.php:194 frontend/posthandling.php:237
+#: frontend/posthandling.php:203 frontend/posthandling.php:246
 msgid "There were errors submitting your guestbook entry."
 msgstr "Beim Speichern des Gästebuch-Eintrags sind Fehler aufgetreten."
 
 # @ GWGB
-#: frontend/posthandling.php:200
+#: frontend/posthandling.php:209
 msgid "Your name is not filled in, even though it is mandatory."
 msgstr "Der Name ist nicht eingetragen, obwohl er erforderlich ist."
 
 # @ GWGB
-#: frontend/posthandling.php:203
+#: frontend/posthandling.php:212
 msgid "Your origin is not filled in, even though it is mandatory."
 msgstr "Der Ort ist nicht eingetragen, obwohl er erforderlich ist."
 
 # @ GWGB
-#: frontend/posthandling.php:206
+#: frontend/posthandling.php:215
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
 msgstr ""
@@ -1741,17 +1807,17 @@ msgstr ""
 "ist."
 
 # @ GWGB
-#: frontend/posthandling.php:209
+#: frontend/posthandling.php:218
 msgid "Your website is not filled in, even though it is mandatory."
 msgstr "Die Website ist nicht eingetragen, obwohl sie erforderlich ist."
 
 # @ GWGB
-#: frontend/posthandling.php:212
+#: frontend/posthandling.php:221
 msgid "There is no message, even though it is mandatory."
 msgstr "Es gibt keinen Gästebuch-Eintrag, obwohl er erforderlich ist."
 
 # @ GWGB
-#: frontend/posthandling.php:215
+#: frontend/posthandling.php:224
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
@@ -1760,31 +1826,31 @@ msgstr ""
 "erforderlich ist."
 
 # @ GWGB
-#: frontend/posthandling.php:218
+#: frontend/posthandling.php:227
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr ""
 "Der reCAPTCHA-Schlüssel wurde nicht korrekt eingetragen, obwohl er "
 "erforderlich ist."
 
 # @ GWGB
-#: frontend/posthandling.php:289
+#: frontend/posthandling.php:298
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 "Doppelter Eintrag: Ein Eintrag mit diesen Eingabe-Daten wurde bereits "
 "gespeichert."
 
 # @ GWGB
-#: frontend/posthandling.php:305
+#: frontend/posthandling.php:314
 msgid "Thank you for your entry."
 msgstr "Vielen Dank für diesen Eintrag!"
 
 # @ GWGB
-#: frontend/posthandling.php:307
+#: frontend/posthandling.php:316
 msgid "We will review it and unlock it in a short while."
 msgstr "Wir werden ihn überprüfen und kurzfristig freigeben."
 
 # @ GWGB
-#: frontend/posthandling.php:341
+#: frontend/posthandling.php:350
 msgid "New Guestbook Entry"
 msgstr "Neuer Gästebuch-Eintrag"
 
@@ -1810,14 +1876,23 @@ msgid "(no entries yet)"
 msgstr "(bislang keine Einträge)"
 
 # @ GWGB
-#: frontend/read.php:180
+#: frontend/read.php:186
 msgid "from"
 msgstr "aus"
 
 # @ GWGB
-#: frontend/read.php:184
+#: frontend/read.php:195
 msgid "wrote at"
 msgstr "schrieb am"
+
+# @ GWGB
+#: frontend/read.php:199
+msgid "at"
+msgstr "um"
+
+#: frontend/read.php:199
+msgid "hours"
+msgstr "Uhr"
 
 # @ GWGB
 #: frontend/widget.php:12
@@ -1875,42 +1950,42 @@ msgid "Select page"
 msgstr "Seite auswählen"
 
 # @ GWGB
-#: frontend/write.php:97
+#: frontend/write.php:100
 msgid "Write a new entry."
 msgstr "Neuen Eintrag erstellen"
 
 # @ GWGB
-#: frontend/write.php:111
+#: frontend/write.php:114
 msgid "Write a new entry for the Guestbook"
 msgstr "Neuen Eintrag für das Gästebuch verfassen"
 
 # @ GWGB
-#: frontend/write.php:222
+#: frontend/write.php:225
 msgid "Question:"
 msgstr "Frage:"
 
 # @ GWGB
-#: frontend/write.php:228
+#: frontend/write.php:231
 msgid "Answer"
 msgstr "Antwort"
 
 # @ GWGB
-#: frontend/write.php:272
+#: frontend/write.php:275
 msgid "Submit"
 msgstr "Absenden"
 
 # @ GWGB
-#: frontend/write.php:277
+#: frontend/write.php:280
 msgid "Fields marked with * are obligatory."
 msgstr "Felder mit * sind Pflicht-Angaben."
 
 # @ GWGB
-#: frontend/write.php:280
+#: frontend/write.php:283
 msgid "The E-mail address wil not be published."
 msgstr "Die E-Mail-Adresse wird nicht veröffentlicht."
 
 # @ GWGB
-#: frontend/write.php:283
+#: frontend/write.php:286
 #, php-format
 msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
@@ -1920,12 +1995,12 @@ msgstr ""
 "\">%s</span>."
 
 # @ GWGB
-#: frontend/write.php:288
+#: frontend/write.php:291
 msgid "Your entry will be visible in the guestbook after we reviewed it."
 msgstr "Der Eintrag wird nach unserer Prüfung im Gästebuch erscheinen."
 
 # @ GWGB
-#: frontend/write.php:291
+#: frontend/write.php:294
 msgid "We reserve our right to edit, delete, or not publish entries."
 msgstr ""
 "Wir behalten uns das Recht vor, Einträge zu bearbeiten, zu löschen oder "
@@ -1987,6 +2062,6 @@ msgid "Entry has been untrashed."
 msgstr "Eintrag wurde wiederhergestellt."
 
 # @ GWGB
-#: functions/function.misc.php:46
+#: functions/function.misc.php:58
 msgid "No content to display. This entry is empty."
 msgstr "Kein Inhalt zum Anzeigen. Dieser Eintrag ist leer."
