@@ -154,7 +154,8 @@ The header needs to look like this:
 	)
 	?>
 
-The next lines are made up of the content. Date needs to be a UNIX timestamp. The rest should be somewhat self-explanatory.
+The next lines are made up of the content. Date needs to be a UNIX timestamp.
+You could make a test-entry, export that, and look to see what the importer expects from the CSV.
 
 == Frequently Asked Questions ==
 
