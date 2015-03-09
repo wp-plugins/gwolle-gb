@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 3.4
 Tested up to: 4.1
-Stable tag: 1.1.9
+Stable tag: 1.2.0
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -132,6 +132,29 @@ The Array $args can have the following key/values:
 * istrash, bool if it is in trash or not.
 * isspam, bool if it is spam or not.
 
+= Format for importing through CSV-file =
+
+The importer expects a certain format of the CSV-file. If you need to import from a custom solution, your CSV needs to conform.
+The header needs to look like this:
+
+	<?php
+	array(
+		'id',
+		'author_name',
+		'author_email',
+		'author_origin',
+		'author_website',
+		'author_ip',
+		'author_host',
+		'content',
+		'date',
+		'isspam',
+		'ischecked',
+		'istrash'
+	)
+	?>
+
+The next lines are made up of the content. Date needs to be a UNIX timestamp. The rest should be somewhat self-explanatory.
 
 == Frequently Asked Questions ==
 
@@ -228,6 +251,10 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.2.1 =
+* 2015-03-
+* Update pot, de_DE and nl_NL.
 
 = 1.2.0 =
 * 2015-03-08
