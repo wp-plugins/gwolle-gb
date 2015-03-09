@@ -132,6 +132,29 @@ The Array $args can have the following key/values:
 * istrash, bool if it is in trash or not.
 * isspam, bool if it is spam or not.
 
+= Format for importing through CSV-file =
+
+The importer expects a certain format of the CSV-file. If you need to import from a custom solution, your CSV needs to conform.
+The header needs to look like this:
+
+	<?php
+	array(
+		'id',
+		'author_name',
+		'author_email',
+		'author_origin',
+		'author_website',
+		'author_ip',
+		'author_host',
+		'content',
+		'date',
+		'isspam',
+		'ischecked',
+		'istrash'
+	)
+	?>
+
+The next lines are made up of the content. Date needs to be a UNIX timestamp. The rest should be somewhat self-explanatory.
 
 == Frequently Asked Questions ==
 
