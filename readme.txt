@@ -254,7 +254,7 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.1 =
-* 2015-03-
+* 2015-03-10
 * Frontend entries: class s/first/gwolle_gb_first.
 * Rename fi_FI to fi, so it loads.
 * Update pot, de_DE and nl_NL.
