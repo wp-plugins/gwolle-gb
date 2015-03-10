@@ -151,7 +151,7 @@ function gwolle_gb_frontend_read() {
 			$output .= '<div class="';
 			if ($first == true) {
 				$first = false;
-				$output .= ' first ';
+				$output .= ' gwolle_gb_first ';
 			}
 			$output .= ' gb-entry ';
 			$output .= ' gb-entry_' . $entry->get_id() . ' ';

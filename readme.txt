@@ -255,6 +255,7 @@ Yes, it is again actively maintained.
 
 = 1.2.1 =
 * 2015-03-
+* Frontend entries: class s/first/gwolle_gb_first.
 * Update pot, de_DE and nl_NL.
 
 = 1.2.0 =
