@@ -216,10 +216,6 @@ If it still doesn't work, request the maillog at your hosting provider, or ask i
 There are different shortcodes that you can use. Instead of the [gwolle_gb] shortcode, you can use [gwolle_gb_write] for just the form,
 and [gwolle_gb_read] for the list of entries.
 
-= How do I enable or disable avatars? =
-
-Gwolle-GB uses the default WordPress setting, under Settings / Discussion.
-
 = What capabilities are needed? =
 
 For moderating comments you need the capability 'moderate_comments'.
