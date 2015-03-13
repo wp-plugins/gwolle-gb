@@ -304,7 +304,7 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.2 =
-* 2015-03-
+* 2015-03-13
 * Import, check for timestamp on date, else convert.
 * Add option to have labels float or not.
 * Add option to enable/disable admin entry styling.
