@@ -106,6 +106,7 @@ function gwolle_gb_handle_post() {
 
 add_action( 'admin_init', 'gwolle_gb_register_settings' );
 function gwolle_gb_register_settings() {
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-admin_style',       'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-adminMailContent',  'strval' );
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-akismet-active',    'strval' ); // 'false'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-antispam-question', 'strval' ); // empty string

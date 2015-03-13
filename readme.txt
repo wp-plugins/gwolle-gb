@@ -253,6 +253,7 @@ Yes, it is again actively maintained.
 = 1.2.2 =
 * 2015-03-
 * Import, check for timestamp on date, else convert.
+* Add option to enable/disable admin entry styling.
 
 = 1.2.1 =
 * 2015-03-10

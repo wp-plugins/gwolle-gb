@@ -65,11 +65,11 @@ function gwolle_gb_frontend_read() {
 	/* Get the entries for the frontend */
 	$entries = gwolle_gb_get_entries(
 		array(
-			'offset' => $mysqlFirstRow,
+			'offset'      => $mysqlFirstRow,
 			'num_entries' => $entriesPerPage,
-			'checked' => 'checked',
-			'trash'   => 'notrash',
-			'spam'    => 'nospam'
+			'checked'     => 'checked',
+			'trash'       => 'notrash',
+			'spam'        => 'nospam'
 		)
 	);
 
@@ -155,10 +155,13 @@ function gwolle_gb_frontend_read() {
 			}
 			$output .= ' gb-entry ';
 			$output .= ' gb-entry_' . $entry->get_id() . ' ';
-			$author_id = $entry->get_author_id();
-			$is_moderator = gwolle_gb_is_moderator( $author_id );
-			if ( $is_moderator ) {
-				$output .= ' admin-entry ';
+
+			if ( get_option( 'gwolle_gb-admin_style', 'true' ) === 'true' ) {
+				$author_id = $entry->get_author_id();
+				$is_moderator = gwolle_gb_is_moderator( $author_id );
+				if ( $is_moderator ) {
+					$output .= ' admin-entry ';
+				}
 			}
 			$output .= '">';
 

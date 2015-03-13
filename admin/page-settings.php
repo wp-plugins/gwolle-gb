@@ -97,6 +97,14 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
+						if (isset($_POST['admin_style']) && $_POST['admin_style'] == 'on') {
+							update_option('gwolle_gb-admin_style', 'true');
+							$saved = true;
+						} else {
+							update_option('gwolle_gb-admin_style', 'false');
+							$saved = true;
+						}
+
 						$list = Array(
 							'read_avatar',
 							'read_name',
@@ -485,6 +493,20 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
+
+					<tr valign="top">
+						<th scope="row"><label for="admin_style"><?php _e('Admin Entry Styling', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<input type="checkbox" id="admin_style" name="admin_style"<?php
+								if ( get_option( 'gwolle_gb-admin_style', 'true' ) === 'true' ) {
+									echo ' checked="checked"';
+								}
+								?> />
+							<label for="admin_style"><?php _e("Admin entries get a special CSS styling.", GWOLLE_GB_TEXTDOMAIN); ?></label>
+							<br />
+							<span class="setting-description"><?php _e("Admin entries get a special CSS styling. It will get a lightgrey background.", GWOLLE_GB_TEXTDOMAIN); ?></span>
+						</td>
+					</tr>
 
 
 					<?php $read_setting = gwolle_gb_get_setting( 'read' ); ?>
