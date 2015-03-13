@@ -295,6 +295,16 @@ function gwolle_gb_frontend_write() {
 			</div>
 		</form>';
 
+	if ( get_option( 'gwolle_gb-labels_float', 'true' ) === 'true' ) {
+		?>
+		<style type='text/css'>
+			#gwolle_gb .label,
+			#gwolle_gb .input {
+				float: left;
+			}
+		</style>
+		<?php
+	}
 
 	// FIXME: make this notice into a textarea for the admin so it can be changed as desired.
 

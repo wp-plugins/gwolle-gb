@@ -39,6 +39,14 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
+						if (isset($_POST['labels_float']) && $_POST['labels_float'] == 'on') {
+							update_option('gwolle_gb-labels_float', 'true');
+							$saved = true;
+						} else {
+							update_option('gwolle_gb-labels_float', 'false');
+							$saved = true;
+						}
+
 						$list = Array(
 							'form_name_enabled',
 							'form_name_mandatory',
@@ -260,6 +268,20 @@ function gwolle_gb_page_settings() {
 							<label for="require_login"><?php _e('Require user to be logged in.', GWOLLE_GB_TEXTDOMAIN); ?></label>
 							<br />
 							<span class="setting-description"><?php _e('Only allow logged-in users to add a guestbook entry.', GWOLLE_GB_TEXTDOMAIN); ?></span>
+						</td>
+					</tr>
+
+					<tr valign="top">
+						<th scope="row"><label for="labels_float"><?php _e('Labels float', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<input type="checkbox" id="labels_float" name="labels_float" <?php
+								if ( get_option( 'gwolle_gb-labels_float', 'true' ) === 'true' ) {
+									echo 'checked="checked"';
+								}
+								?> />
+							<label for="labels_float"><?php _e('Labels in the form float to the left.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+							<br />
+							<span class="setting-description"><?php _e('Labels in the form float to the left. Otherwise the labels will be above the input-fields.', GWOLLE_GB_TEXTDOMAIN); ?></span>
 						</td>
 					</tr>
 
