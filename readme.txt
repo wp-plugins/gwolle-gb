@@ -255,6 +255,7 @@ Yes, it is again actively maintained.
 * Import, check for timestamp on date, else convert.
 * Add option to have labels float or not.
 * Add option to enable/disable admin entry styling.
+* Use maybe_unserialize.
 
 = 1.2.1 =
 * 2015-03-10

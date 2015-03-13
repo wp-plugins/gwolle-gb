@@ -157,7 +157,7 @@ function gwolle_gb_get_setting($request) {
 					);
 				$setting = get_option( 'gwolle_gb-form', Array() );
 				if ( is_string( $setting ) ) {
-					$setting = unserialize( $setting );
+					$setting = maybe_unserialize( $setting );
 				}
 				$setting = array_merge( $defaults, $setting );
 				return $setting;
@@ -180,7 +180,7 @@ function gwolle_gb_get_setting($request) {
 					);
 				$setting = get_option( 'gwolle_gb-read', Array() );
 				if ( is_string( $setting ) ) {
-					$setting = unserialize( $setting );
+					$setting = maybe_unserialize( $setting );
 				}
 				$setting = array_merge( $defaults, $setting );
 				return $setting;
