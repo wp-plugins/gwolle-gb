@@ -53,11 +53,14 @@
 	vertical-align: top;
 }
 #gwolle_gb .label {
-	width: 160px;
+	width: 30%;
+}
+#gwolle_gb .input {
+	width: 40%;
 }
 #gwolle_gb .input input[type="text"],
 #gwolle_gb .input textarea {
-	width: 300px;
+	width: 100%;
 }
 #gwolle_gb .input textarea {
 	height: 150px;

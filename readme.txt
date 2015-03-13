@@ -303,6 +303,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.3 =
+* 2015-03-
+* CSS frontend uses % instead of px for width.
+
 = 1.2.2 =
 * 2015-03-13
 * Import, check for timestamp on date, else convert.
