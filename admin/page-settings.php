@@ -247,7 +247,7 @@ function gwolle_gb_page_settings() {
 				settings_fields( 'gwolle_gb_options' );
 				do_settings_sections( 'gwolle_gb_options' ); ?>
 				<table class="form-table">
-
+					<tbody>
 
 					<tr valign="top">
 						<th scope="row"><label for="require_login"><?php _e('Require Login', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -263,8 +263,10 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
+					</tbody>
 				</table>
 				<table class="form-table">
+					<tbody>
 
 					<?php $form_setting = gwolle_gb_get_setting( 'form' ); ?>
 
@@ -415,7 +417,7 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
+					</tbody>
 				</table>
 			</form>
 
@@ -426,7 +428,7 @@ function gwolle_gb_page_settings() {
 				settings_fields( 'gwolle_gb_options' );
 				do_settings_sections( 'gwolle_gb_options' ); ?>
 				<table class="form-table">
-
+					<tbody>
 
 					<tr valign="top">
 						<th scope="row"><label for="entriesPerPage"><?php _e('Entries per page on the frontend', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -623,7 +625,7 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
+					</tbody>
 				</table>
 			</form>
 
@@ -634,7 +636,7 @@ function gwolle_gb_page_settings() {
 				settings_fields( 'gwolle_gb_options' );
 				do_settings_sections( 'gwolle_gb_options' ); ?>
 				<table class="form-table">
-
+					<tbody>
 
 					<tr valign="top">
 						<th scope="row"><label for="entries_per_page"><?php _e('Entries per page in the admin', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -679,7 +681,7 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
+					</tbody>
 				</table>
 			</form>
 
@@ -690,7 +692,7 @@ function gwolle_gb_page_settings() {
 				settings_fields( 'gwolle_gb_options' );
 				do_settings_sections( 'gwolle_gb_options' ); ?>
 				<table class="form-table">
-
+					<tbody>
 
 					<tr valign="top">
 						<th scope="row"><label for="moderate-entries"><?php _e('Moderate Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -812,7 +814,7 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
+					</tbody>
 				</table>
 			</form>
 
@@ -823,7 +825,7 @@ function gwolle_gb_page_settings() {
 				settings_fields( 'gwolle_gb_options' );
 				do_settings_sections( 'gwolle_gb_options' ); ?>
 				<table class="form-table">
-
+					<tbody>
 
 					<tr valign="top">
 						<th scope="row"><label for="adminMailContent"><?php _e('Admin mail content', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -877,7 +879,7 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
+					</tbody>
 				</table>
 			</form>
 
@@ -887,8 +889,8 @@ function gwolle_gb_page_settings() {
 				<?php
 				settings_fields( 'gwolle_gb_options' );
 				do_settings_sections( 'gwolle_gb_options' ); ?>
-
 				<table class="form-table">
+					<tbody>
 
 					<?php
 					if ( $uninstalled == true ) { ?>
@@ -944,6 +946,7 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
+					</tbody>
 				</table>
 			</form>
 
