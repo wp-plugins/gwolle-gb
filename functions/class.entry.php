@@ -147,7 +147,9 @@ class gwolle_gb_entry {
 	public function save() {
 		global $wpdb;
 
-		// FIXME: add filter for the entry before saving, so devs can manipulate it. This is probably the right place.
+		// Add filter for the entry before saving, so devs can manipulate it. This is probably the right place.
+		$data = apply_filters( 'gwolle_gb_entry_save', (array) $this);
+		$this->set_data( $data );
 
 		if ( $this->get_id() ) {
 			// entry exists, use UPDATE

@@ -132,6 +132,59 @@ The Array $args can have the following key/values:
 * istrash, bool if it is in trash or not.
 * isspam, bool if it is spam or not.
 
+= Filter an entry on the frontend =
+
+On the frontend you can filter each entry. You can use a function like:
+
+	<?php
+	function your_custom_function($entry) {
+		// $entry is a string
+		$entry = $entry . " Hi There. ";
+		return $entry;
+	}
+	add_filter( 'gwolle_gb_entry_read', 'your_custom_function');
+	?>
+
+= Filter all the entries on the frontend =
+
+You can also filter the complete list of entries.
+
+	<?php
+	function your_custom_function($entries) {
+		// $entries is a string
+		$entries = $entries . " Hello my friend. ";
+		return $entries;
+	}
+	add_filter( 'gwolle_gb_entries_read', 'your_custom_function');
+	?>
+
+= Filter the form =
+
+The form can be filtered as well:
+
+	<?php
+	function your_custom_function($form) {
+		// $form is a string
+		$form = $form . " Please fill this in. ";
+		return $form;
+	}
+	add_filter( 'gwolle_gb_write', 'your_custom_function');
+	?>
+
+= Filter an entry before saving =
+
+When saving an entry you can filter it like this.
+
+	<?php
+	function your_custom_function($entry) {
+		// $entry is an array.
+		// Example where every entry that gets saved gets the current time
+		$entry['date'] = current_time( 'timestamp' );
+		return $entry;
+	}
+	add_filter( 'gwolle_gb_entry_save', 'your_custom_function');
+	?>
+
 = Format for importing through CSV-file =
 
 The importer expects a certain format of the CSV-file. If you need to import from a custom solution, your CSV needs to conform.
@@ -256,6 +309,7 @@ Yes, it is again actively maintained.
 * Add option to have labels float or not.
 * Add option to enable/disable admin entry styling.
 * Use maybe_unserialize.
+* Add filters to the API.
 
 = 1.2.1 =
 * 2015-03-10

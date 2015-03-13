@@ -310,7 +310,8 @@ function gwolle_gb_frontend_write() {
 
 
 
-	// FIXME: Add filter for the form, so devs can manipulate it.
+	// Add filter for the form, so devs can manipulate it.
+	$output = apply_filters( 'gwolle_gb_write', $output);
 
 	return $output;
 }
