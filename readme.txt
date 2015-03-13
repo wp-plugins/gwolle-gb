@@ -1,9 +1,9 @@
 === Gwolle-GB ===
 Contributors: Gwolle, mpol
-Tags: guestbook, guest book, comments, feedback, antispam
-Requires at least: 2.8
+Tags: guestbook, guest book, comments, feedback, antispam, review
+Requires at least: 3.4
 Tested up to: 4.1
-Stable tag: 1.0.7
+Stable tag: 1.2.1
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -19,12 +19,16 @@ have a real guestbook.
 Current features include:
 
 * Easy to use guestbook frontend with a simple form for visitors of your website.
+* Widget to display your last or your best entries.
 * Simple and clean admin interface that integrates seamlessly into WordPress admin.
-* Easy import of DMSGuestbook entries into Gwolle-GB.
+* Dashboard Widget to easily manage the latest entries from your Admin dashboard.
+* Easy import from other guestbooks into Gwolle-GB.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
-* reCAPTCHA integration for fighting spam, too.
+* Custom Anti-Spam question for fighting spam, too.
+* reCAPTCHA integration for fighting spam, as well.
+* Simple Form Builder to select which form-fields you want to use.
 * Localisation. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
@@ -34,9 +38,18 @@ Current features include:
 
 ... and all that integrated in the stylish WordPress look.
 
-You may have "DMSGuestbook" installed - that's great, because since version 0.9.5 Gwolle-GB enables you
-to import DMSGuestbook's entries easily using an assistant. The importer does not delete any of your data,
-so you can go back to DMSGuestbook without loss of data, if you want to. Trying Gwolle-GB is as easy as 1-2-3.
+You may have another guestbook installed. That's great, because Gwolle-GB enables you to import entries easily.
+The importer does not delete any of your data, so you can go back to your previous setup without loss of data, if you want to.
+Trying Gwolle-GB is as easy as 1-2-3.
+
+= Import / Export =
+
+Import is supported from:
+
+* DMSGuestbook.
+* WordPress comments from a specific page.
+* Gwolle-GB itself, with Export supported as well.
+
 
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
@@ -44,12 +57,15 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 = Languages =
 
 * cs_CZ [Jan Korous]
-* de_DE [Jenny Gaulke]
+* de_DE [Jenny Gaulke and Eckhard Henkel]
 * en_GB [Wolfgang Timme]
 * es_ES [José Luis Sanz Ruiz]
+* fi_FI (Ilkka Kivelä)
 * fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
 * nl_NL [Marcel Pol](http://zenoweb.nl)
 * pl_PL [Daniel Speichert]
+* pt_PT [Jose Quintas]
+* zh_TW [Chun-I Lee]
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
 
@@ -76,18 +92,7 @@ With version 1.0 there have been some changes:
   visible that you want and nothing more.
 * CSS has changed somewhat. If you have custom CSS, you want to check if it still applies.
 
-= Todo/coming up in future releases =
-
-* Bughunting (check all the FIXME's in the code).
-* Make Install method more safe.
-* Add more sources for import page. Add export as well.
-* Bring Uninstall back, this time in a separate admin page?
-* Redo Settings page with tabs for separate parts.
-* Add an RSS Feed for Guestbook Entries.
-* 'Thank you' mail to the poster (requested by Joakim from Sweden).
-* Add PHP methods to add an entry.
-
-If you have a feature request please use the forum on WordPress.org. It may be added to the list then.
+If you have a feature request please use the forum on WordPress.org.
 
 = Licence =
 
@@ -96,6 +101,115 @@ in the gwolle-gb.php file at the top.
 
 For the licences regarding the use of reCAPTCHA or the icons you may ask the authors.
 
+= API, add an entry =
+
+It is not hard to add an entry in PHP code.
+
+	<?php
+		$entry = new gwolle_gb_entry();
+
+		// Set the data in the instance, returns true
+		$set_data = $entry->set_data( $args );
+
+		// Save entry, returns the id of the entry
+		$save = $entry->save();
+	?>
+
+The Array $args can have the following key/values:
+
+* id, int with the id, leave empty for a new entry.
+* author_name, string with the name of the autor.
+* author_id, id with the WordPress user ID of the author.
+* author_email, string with the email address of the author.
+* author_origin, string with the city of origin of the author.
+* author_website, string with the website of the author.
+* author_ip, string with the ipaddress of the author.
+* author_host, string with the hostname of that ip.
+* content, string with content of the message.
+* date, timestamp of the entry.
+* ischecked, bool if it is checked by a moderator.
+* checkedby, int with the WordPress ID of that moderator.
+* istrash, bool if it is in trash or not.
+* isspam, bool if it is spam or not.
+
+= Filter an entry on the frontend =
+
+On the frontend you can filter each entry. You can use a function like:
+
+	<?php
+	function your_custom_function($entry) {
+		// $entry is a string
+		$entry = $entry . " Hi There. ";
+		return $entry;
+	}
+	add_filter( 'gwolle_gb_entry_read', 'your_custom_function');
+	?>
+
+= Filter all the entries on the frontend =
+
+You can also filter the complete list of entries.
+
+	<?php
+	function your_custom_function($entries) {
+		// $entries is a string
+		$entries = $entries . " Hello my friend. ";
+		return $entries;
+	}
+	add_filter( 'gwolle_gb_entries_read', 'your_custom_function');
+	?>
+
+= Filter the form =
+
+The form can be filtered as well:
+
+	<?php
+	function your_custom_function($form) {
+		// $form is a string
+		$form = $form . " Please fill this in. ";
+		return $form;
+	}
+	add_filter( 'gwolle_gb_write', 'your_custom_function');
+	?>
+
+= Filter an entry before saving =
+
+When saving an entry you can filter it like this.
+
+	<?php
+	function your_custom_function($entry) {
+		// $entry is an array.
+		// Example where every entry that gets saved gets the current time
+		$entry['date'] = current_time( 'timestamp' );
+		return $entry;
+	}
+	add_filter( 'gwolle_gb_entry_save', 'your_custom_function');
+	?>
+
+= Format for importing through CSV-file =
+
+The importer expects a certain format of the CSV-file. If you need to import from a custom solution, your CSV needs to conform.
+The header needs to look like this:
+
+	<?php
+	array(
+		'id',
+		'author_name',
+		'author_email',
+		'author_origin',
+		'author_website',
+		'author_ip',
+		'author_host',
+		'content',
+		'date',
+		'isspam',
+		'ischecked',
+		'istrash'
+	)
+	?>
+
+The next lines are made up of the content. Date needs to be a UNIX timestamp.
+You could make a test-entry, export that, and look to see what the importer expects from the CSV.
+Make sure you use UNIX line-endings. Any decent text-editor can transform a textdocument to UNIX line-endings.
 
 == Frequently Asked Questions ==
 
@@ -104,8 +218,8 @@ For the licences regarding the use of reCAPTCHA or the icons you may ask the aut
 Starting with version 1.0, the following entries are listed on the Frontend:
 
 * Checked
-* Not in the Trash
 * Not marked as Spam
+* Not in the Trash
 
 Before that, in 0.9.7, all the 'checked' entries were visible.
 
@@ -119,18 +233,53 @@ The entries that you want visible, select these to be checked.
 
 Your first option is to use Akismet. It works like a charm. Fighting spam has never been easier.
 
-You can also use reCAPTCHA. It helps you and your visitors to fight spam at the slight cost of usability.
+If that doesn't work enough, use the Custom Anti-Spam question.
+
+You can also use reCAPTCHA. It might scare off some visitors, though.
+
+= I get a warning about another reCAPTCHA library =
+
+Apparently you use a theme or other plugin with its own reCAPTCHA library. If you get a warning that it is old and incompatible, please
+ask the maintainer of that theme or plugin to update their version of reCAPTCHA. If the warning is that another version will be used by
+Gwolle-GB, and you experience problems when submitting guestbook entries, please tell me on the forums, and also tell me which other plugin
+you use.
+
+= My reCAPTCHA doesn't show up in the form. =
+
+If you did enable reCAPTCHA, but didn't get a warning, in most cases it should show your reCAPTCHA. It might be that you have JavaScript errors.
+You can check this in the Inspector/console of your browser.
+
+= After submitting a new entry, I get errors about reCAPTCHA. =
+If the form gives you errors, even though you filled in everything correctly, there might be something strange happening.
+On some setups reCAPTCHA doesn't report Succes or Error. If you are able to debug this, and tell me what is happening, I would be happy to hear that.
+
+= I don't see the labels in the form. =
+
+This plugin doesn't apply any CSS to the label elements. It is possible that your label elements have a white color on a white background.
+You can check this with the Inspector in your browser. If that is the case, you have a theme or plugin that is applying that CSS to your
+label elements. Please contact them.
+
+= I don't get a notification email. =
+
+First check your spambox in your mailaccount. Second, on the settingspage you can change the From address for the email that is sent.
+Sometimes there are problems sending it from the default address, so this is a good thing to change to a real address.
+If it still doesn't work, request the maillog at your hosting provider, or ask if they can take a look.
+
+= I want to show the form and the list on different pages =
+
+There are different shortcodes that you can use. Instead of the [gwolle_gb] shortcode, you can use [gwolle_gb_write] for just the form,
+and [gwolle_gb_read] for the list of entries.
 
 = What capabilities are needed? =
 
-For moderating comments you need the capability moderate_comments.
+For moderating comments you need the capability 'moderate_comments'.
 
-For managing options you need the capability manage_options. For subscribing to notifications, this one is also needed.
+For managing options you need the capability 'manage_options'.
 
 = Should I really not use WordPress comments for a guestbook? =
 
 Sure you can if you want to. In my personal opinion however it can be a good thing to keep comments and guestbook entries separated.
-So if you already have a blog with comments, the guestbook entries might get lost in there, and keeping a separatge guestbook can be good.
+So if you already have a blog with comments, the guestbook entries might get lost in there, and keeping a separate guestbook can be good.
 But if you don't use standard comments, you can just as easily use the comment section for a guestbook.
 
 = How do I localize a plugin? =
@@ -144,19 +293,134 @@ Yes, it is again actively maintained.
 
 == Screenshots ==
 
-1. Overview panel, so that you easily can see what's the overall status.
-2. List of the entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
-3. The editor for a single entry.
-4. Settings panel (showing version 1.0.5).
+1. Frontend view of the list of guestbook entries. On top the button that will show the form when clicked. Then pagination. Then the list of entries.
+2. Dashboard widget with new and unchecked entries.
+3. Main page with the overview panel, so that you easily can see what's the overall status.
+2. List of guestbook entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
+3. The editor for a single entry. The Actions are using AJAX. There is a log of each entry what happened to this entry.
+4. Settings panel, showing version 1.1.4. This is the first tab where you can select which parts of the form to show and use.
 
 
 == Changelog ==
 
+= 1.2.2 =
+* 2015-03-13
+* Import, check for timestamp on date, else convert.
+* Add option to have labels float or not.
+* Add option to enable/disable admin entry styling.
+* Use maybe_unserialize.
+* Add filters to the API.
+* Update pot and nl_NL.
+
+= 1.2.1 =
+* 2015-03-10
+* Frontend entries: class s/first/gwolle_gb_first.
+* Rename fi_FI to fi, so it loads.
+* Update pot, de_DE and nl_NL.
+
+= 1.2.0 =
+* 2015-03-08
+* Add shortcodes for just the form and the list.
+* Add option to only allow logged-in users to post an entry.
+* Add options to configure the shown entries.
+* Import: fix test for mimetype.
+* Import supports PHP 5.2.
+* s/Homepage/Website.
+* Update pot, de_DE, nl_NL.
+
+= 1.1.9 =
+* 2015-02-16
+* Validate URL for Website as well, even though most url's validate.
+* Sanitize Formdata.
+* Sanitize Settings.
+* Update de_DE.
+
+= 1.1.8 =
+* 2015-02-14
+* Move anti-spam question to the label on the left.
+* Add better error messages to the form.
+* Add autofocus to first formfield with an error.
+* Use validation for the email.
+* Add visibility:visible for tr.invisible.
+* Add pt_PT (Only frontend yet).
+
+= 1.1.7 =
+* 2015-02-13
+* Settingspage; make it possible to remove anti-spam and reCAPTCHA settings.
+* All strings really use our text-domain.
+* Update de_DE.
+
+= 1.1.6 =
+* 2015-02-10
+* Fix CSS for check-all checkbox on entrylist in admin.
+* Better CSS for admin entries, grey instead of pink.
+* Also style admin entries on admin pages.
+* Always load jQuery, it's just easier.
+* All strings use our text-domain.
+
+= 1.1.5 =
+* 2015-02-09
+* Fix js when jQuery is loaded in the footer.
+* Fix error submitting new entries.
+* Do pagination link a bit cheaper.
+* Add fi_FI (thanks Ilkka Kivelä).
+
+= 1.1.4 =
+* 2015-02-03
+* Fix pagination links.
+* Slightly improve installsplash. Maybe it just needs to go alltogether.
+* Update zh_TW.
+
+= 1.1.3 =
+* 2015-02-01
+* Add a simple Form Builder.
+* Add custom Anti-Spam question.
+* Add CSS for the widget.
+* Fix default MailText.
+* Cleanup old options.
+
+= 1.1.2 =
+* 2015-01-31
+* Settingspage uses Tabs.
+* Settingspage uses more labels.
+* Uninstall is back.
+* Give the CSS file a version in the GET.
+* Put date and time in spans on frontend.
+* Only show paginaton on frontend when there is more then 1 page.
+* Add Donate link.
+* Don't count arrays when not needed.
+* Use strpos instead of preg_match.
+* Use sprintf for formatting instead of str_replace.
+* Update pot-file, fr_FR, nl_NL, zh_TW.
+
+= 1.1.1 =
+* 2015-01-10
+* Add Edit link to frontend for moderators.
+* Work around old and incompatible other recaptcha libraries.
+* Get_entries function supports limit of -1 (no limit).
+* Import from WordPress comments.
+* Export/Import from/to Gwolle-GB through a CSV file.
+* Add zh_TW (Thanks Chun-I Lee).
+* Remove unmaintained en_GB.
+
+= 1.1.0 =
+* 2015-01-06
+* Admin entries page: fix table header and footer (ordering).
+* Auto-fill the form if the user is already logged in.
+* Bring Ajax to the editor page as well.
+* Simplify Options on editor page.
+
+= 1.0.9 =
+* 2015-01-05
+* Fix small but nasty error, sorry about that.
+* More specific HTML / CSS on Frontend.
+
 = 1.0.8 =
-* 2015-01-
+* 2015-01-04
 * Ajax is back on Dashboard Widget and on Entries page.
 * Move notification option to main page so moderators can subscribe.
 * New option for the From address in notification mail.
+* Small fixes and cleanups.
 * Update de_DE and nl_NL.
 
 = 1.0.7 =
@@ -167,7 +431,7 @@ Yes, it is again actively maintained.
 * 2014-12-24
 * Change database structure for guestbook entries.
 * Fix install for db and log entries.
-* Use '...' instead of '&hellip;'.
+* Use '...' instead of '& hellip;'.
 
 = 1.0.5 =
 * 2014-12-21
