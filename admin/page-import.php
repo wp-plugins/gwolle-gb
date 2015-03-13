@@ -240,6 +240,11 @@ function gwolle_gb_page_import() {
 								/* New Instance of gwolle_gb_entry. */
 								$entry = new gwolle_gb_entry();
 
+								/* Check if the date is a timestamp, else convert */
+								if ( !is_numeric($data[8]) ) {
+									$data[8] = strtotime($data[8]);
+								}
+
 								/* Set the data in the instance */
 								// $entry->set_id( $data[0] );
 								$entry->set_author_name( $data[1] );
