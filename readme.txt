@@ -310,6 +310,7 @@ Yes, it is again actively maintained.
 * Add option to enable/disable admin entry styling.
 * Use maybe_unserialize.
 * Add filters to the API.
+* Update pot and nl_NL.
 
 = 1.2.1 =
 * 2015-03-10
