@@ -1594,7 +1594,7 @@ msgstr "schreef op"
 
 #: frontend/read.php:202
 msgid "at"
-msgstr "op"
+msgstr "om"
 
 #: frontend/read.php:202
 msgid "hours"
