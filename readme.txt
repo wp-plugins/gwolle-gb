@@ -63,7 +63,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * fi_FI (Ilkka Kivelä)
 * fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
 * nl_NL [Marcel Pol](http://zenoweb.nl)
-* pl_PL [Daniel Speichert]
+* pl_PL [Andrzej Sobaniec]
 * pt_PT [Jose Quintas]
 * zh_TW [Chun-I Lee]
 
@@ -306,6 +306,7 @@ Yes, it is again actively maintained.
 = 1.2.3 =
 * 2015-03-
 * CSS frontend uses % instead of px for width.
+* Update pl_PL (Thanks Andrzej Sobaniec).
 
 = 1.2.2 =
 * 2015-03-13
