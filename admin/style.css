@@ -10,8 +10,9 @@
 
 /* Menu Icon */
 #icon-gwolle-gb {
-	background-image: url('gfx/icon-gross-hover.png');
+	background-image: url('gfx/icon-45x45.png');
 	background-repeat: no-repeat;
+	margin-right: 10px;
 	float: left;
 	width: 45px;
 	height: 42px;
