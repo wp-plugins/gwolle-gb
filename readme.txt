@@ -29,8 +29,9 @@ Current features include:
 * Custom Anti-Spam question for fighting spam, too.
 * reCAPTCHA integration for fighting spam, as well.
 * Simple Form Builder to select which form-fields you want to use.
+* Option List with the parts of each entry that you want to show.
 * Localisation. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
-* Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin'
+* Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
 * IP-address and host-logging with link to WHOIS query site.
 * Smiley integration (uses the WordPress smiley engine).
@@ -60,7 +61,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * de_DE [Jenny Gaulke and Eckhard Henkel]
 * en_GB [Wolfgang Timme]
 * es_ES [José Luis Sanz Ruiz]
-* fi_FI (Ilkka Kivelä)
+* fi_FI (Ilkka Kivelä and Timo Hintsa)
 * fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
 * nl_NL [Marcel Pol](http://zenoweb.nl)
 * pl_PL [Andrzej Sobaniec]
@@ -307,6 +308,7 @@ Yes, it is again actively maintained.
 * 2015-03-
 * CSS frontend uses % instead of px for width.
 * Update pl_PL (Thanks Andrzej Sobaniec).
+* Update fi (Thanks Timo Hintsa).
 
 = 1.2.2 =
 * 2015-03-13
