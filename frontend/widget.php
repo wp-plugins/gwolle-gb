@@ -18,18 +18,27 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 		function widget($args, $instance) {
 			extract($args);
 
-			$widget_title = (isset($instance['title']) && strlen(trim($instance['title'])) > 0) ? $instance['title'] : __('Guestbook', GWOLLE_GB_TEXTDOMAIN);
+			$default_value = array(
+						"title"       => __('Guestbook', GWOLLE_GB_TEXTDOMAIN),
+						"num_entries" => 5,
+						"best"        => '',
+						"name"        => 1,
+						"date"        => 1,
+						"num_words"   => 10,
+						"link_text"   => __('Visit guestbook', GWOLLE_GB_TEXTDOMAIN),
+						"postid"      => 0
+				);
+			$instance      = wp_parse_args( (array) $instance, $default_value );
 
-			$num_entries = (isset($instance['num_entries']) && (int)$instance['num_entries'] > 0) ? (int)$instance['num_entries'] : 5;
-
-			$best = (isset($instance['best']) && strlen(trim($instance['best'])) > 0) ? $instance['best'] : '';
-			$best = explode(",", $best);
-
-			$num_words = (isset($instance['num_words']) && (int)$instance['num_words'] > 0) ? (int)$instance['num_words'] : 10;
-
-			$link_text = (isset($instance['link_text']) && strlen(trim($instance['link_text'])) > 0) ? $instance['link_text'] : __('Visit guestbook', GWOLLE_GB_TEXTDOMAIN);
-
-			$postid = (isset($instance['postid']) && (int)$instance['postid'] > 0) ? (int)$instance['postid'] : 0;
+			$widget_title  = esc_attr($instance['title']);
+			$num_entries   = (int) esc_attr($instance['num_entries']);
+			$best          = esc_attr($instance['best']);
+			$best          = explode(",", $best);
+			$name          = (int) esc_attr($instance['name']);
+			$date          = (int) esc_attr($instance['date']);
+			$num_words     = (int) esc_attr($instance['num_words']);
+			$link_text     = esc_attr($instance['link_text']);
+			$postid        = (int) esc_attr($instance['postid']);
 
 			// Init
 			$widget_html = '';
@@ -59,11 +68,24 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						$widget_html .= '
 										<li class="gwolle_gb_widget">
 										';
+						if ( $name ) {
+							$widget_html .= '<span class="gb-author-name">' . $entry->get_author_name() . '</span>';
+						}
+						if ( $name && $date ) {
+							$widget_html .= " / ";
+						}
+						if ( $date ) {
+							$widget_html .= '<span class="gb-date">' . date_i18n( get_option('date_format'), $entry->get_date() ) . '</span>';
+						}
+						if ( $name || $date ) {
+							$widget_html .= ":<br />";
+						}
+
 						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), $num_words );
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
-						$widget_html .= $entry_content;
+						$widget_html .= '<span class="gb-entry-content">' . $entry_content . '</span';
 						$widget_html .= '
 										</li>
 										';
@@ -77,9 +99,9 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 				$entries = gwolle_gb_get_entries(
 					array(
 						'num_entries' => $num_entries,
-						'checked' => 'checked',
-						'trash'   => 'notrash',
-						'spam'    => 'nospam'
+						'checked'     => 'checked',
+						'trash'       => 'notrash',
+						'spam'        => 'nospam'
 						)
 					);
 				if ( is_array( $entries ) && !empty( $entries ) ) {
@@ -90,11 +112,24 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						$widget_html .= '
 										<li class="gwolle_gb_widget">
 										';
+						if ( $name ) {
+							$widget_html .= '<span class="gb-author-name">' . $entry->get_author_name() . '</span>';
+						}
+						if ( $name && $date ) {
+							$widget_html .= " / ";
+						}
+						if ( $date ) {
+							$widget_html .= '<span class="gb-date">' . date_i18n( get_option('date_format'), $entry->get_date() ) . '</span>';
+						}
+						if ( $name || $date ) {
+							$widget_html .= ":<br />";
+						}
+
 						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), $num_words );
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
-						$widget_html .= $entry_content;
+						$widget_html .= '<span class="gb-entry-content">' . $entry_content . '</span';
 						$widget_html .= '
 										</li>
 										';
@@ -129,6 +164,16 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 			$instance['title']       = strip_tags($new_instance['title']);
 			$instance['num_entries'] = (int) strip_tags($new_instance['num_entries']);
 			$instance['best']        = strip_tags($new_instance['best']);
+			if ( isset($new_instance['name']) ) {
+				$instance['name']    = (int) strip_tags($new_instance['name']);
+			} else {
+				$instance['name']    = 0;
+			}
+			if ( isset($new_instance['date']) ) {
+				$instance['date']    = (int) strip_tags($new_instance['date']);
+			} else {
+				$instance['date']    = 0;
+			}
 			$instance['num_words']   = (int) strip_tags($new_instance['num_words']);
 			$instance['link_text']   = strip_tags($new_instance['link_text']);
 			$instance['postid']      = (int) strip_tags($new_instance['postid']);
@@ -140,18 +185,22 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 		function form($instance) {
 
 			$default_value = array(
-						"title" => __('Guestbook', GWOLLE_GB_TEXTDOMAIN),
+						"title"       => __('Guestbook', GWOLLE_GB_TEXTDOMAIN),
 						"num_entries" => 5,
-						"best" => '',
-						"num_words" => 10,
-						"link_text" => __('Visit guestbook', GWOLLE_GB_TEXTDOMAIN),
-						"postid" => 0
+						"best"        => '',
+						"name"        => 1,
+						"date"        => 1,
+						"num_words"   => 10,
+						"link_text"   => __('Visit guestbook', GWOLLE_GB_TEXTDOMAIN),
+						"postid"      => 0
 				);
 			$instance      = wp_parse_args( (array) $instance, $default_value );
 
 			$title         = esc_attr($instance['title']);
 			$num_entries   = (int) esc_attr($instance['num_entries']);
 			$best          = esc_attr($instance['best']);
+			$name          = (int) esc_attr($instance['name']);
+			$date          = (int) esc_attr($instance['date']);
 			$num_words     = (int) esc_attr($instance['num_words']);
 			$link_text     = esc_attr($instance['link_text']);
 			$postid        = (int) esc_attr($instance['postid']);
@@ -186,6 +235,18 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 			</p>
 
 			<p>
+				<label for="<?php echo $this->get_field_id('name'); ?>">
+				<input type="checkbox" id="<?php echo $this->get_field_id('name'); ?>" <?php checked(1, $name ); ?> name="<?php echo $this->get_field_name('name'); ?>" value="1" />
+				<?php _e('Show name of author.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+			</p>
+
+			<p>
+				<label for="<?php echo $this->get_field_id('date'); ?>">
+				<input type="checkbox" id="<?php echo $this->get_field_id('date'); ?>" <?php checked(1, $date ); ?> name="<?php echo $this->get_field_name('date'); ?>" value="1" />
+				<?php _e('Show date of entry.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+			</p>
+
+			<p>
 				<label for="<?php echo $this->get_field_id('num_words'); ?>" /><?php _e('Number of words for each entry:', GWOLLE_GB_TEXTDOMAIN); ?></label>
 				<br />
 				<select id="<?php echo $this->get_field_id('num_words'); ?>" name="<?php echo $this->get_field_name('num_words'); ?>">
@@ -214,6 +275,8 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 					<?php
 					$args = array(
 						'post_type'      => 'page',
+						'orderby'        => 'title',
+						'order'          => 'ASC',
 						'nopaging'       => true,
 						'posts_per_page' => -1
 					);

@@ -304,7 +304,8 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.3 =
-* 2015-03-
+* 2015-03-17
+* Add options for widget (changed defaults).
 * CSS frontend uses % instead of px for width.
 * Update pl_PL (Thanks Andrzej Sobaniec).
 * Update fi (Thanks Timo Hintsa).
