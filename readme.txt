@@ -306,6 +306,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.4 =
+* 2015-03
+* Update pl_PL.
+
 = 1.2.3 =
 * 2015-03-17
 * Add options for widget (changed defaults).
