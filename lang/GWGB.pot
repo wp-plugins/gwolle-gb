@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-13 21:29+0100\n"
+"POT-Creation-Date: 2015-03-17 16:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: actions.php:35 actions.php:36 frontend/widget.php:21
-#: frontend/widget.php:143
+#: actions.php:35 actions.php:36 frontend/widget.php:22
+#: frontend/widget.php:188
 msgid "Guestbook"
 msgstr ""
 
@@ -1503,43 +1503,51 @@ msgstr ""
 msgid "Displays the recent guestbook entries."
 msgstr ""
 
-#: frontend/widget.php:30 frontend/widget.php:147
+#: frontend/widget.php:28 frontend/widget.php:194
 msgid "Visit guestbook"
 msgstr ""
 
-#: frontend/widget.php:112
+#: frontend/widget.php:147
 msgid "Click here to get to the guestbook."
 msgstr ""
 
-#: frontend/widget.php:161
+#: frontend/widget.php:210
 msgid "Title:"
 msgstr ""
 
-#: frontend/widget.php:167
+#: frontend/widget.php:216
 msgid "Number of entries:"
 msgstr ""
 
-#: frontend/widget.php:183
+#: frontend/widget.php:232
 msgid "Best entries to show:"
 msgstr ""
 
-#: frontend/widget.php:185
+#: frontend/widget.php:234
 msgid "List of entry_id's, comma-separated"
 msgstr ""
 
-#: frontend/widget.php:189
+#: frontend/widget.php:240
+msgid "Show name of author."
+msgstr ""
+
+#: frontend/widget.php:246
+msgid "Show date of entry."
+msgstr ""
+
+#: frontend/widget.php:250
 msgid "Number of words for each entry:"
 msgstr ""
 
-#: frontend/widget.php:205
+#: frontend/widget.php:266
 msgid "Link text:"
 msgstr ""
 
-#: frontend/widget.php:211
+#: frontend/widget.php:272
 msgid "Select the page of the guestbook:"
 msgstr ""
 
-#: frontend/widget.php:213
+#: frontend/widget.php:274
 msgid "Select page"
 msgstr ""
 
