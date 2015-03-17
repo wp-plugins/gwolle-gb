@@ -57,16 +57,15 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
 = Languages =
 
-* cs_CZ [Jan Korous]
-* de_DE [Jenny Gaulke and Eckhard Henkel]
-* en_GB [Wolfgang Timme]
-* es_ES [José Luis Sanz Ruiz]
-* fi_FI (Ilkka Kivelä and Timo Hintsa)
-* fr_FR [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
-* nl_NL [Marcel Pol](http://zenoweb.nl)
-* pl_PL [Andrzej Sobaniec]
-* pt_PT [Jose Quintas]
-* zh_TW [Chun-I Lee]
+* cs_CZ, Jan Korous
+* de_DE, Jenny Gaulke and Eckhard Henkel
+* es_ES, José Luis Sanz Ruiz
+* fi_FI, Ilkka Kivelä and Timo Hintsa
+* fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/)
+* nl_NL, [Marcel Pol](http://zenoweb.nl)
+* pl_PL, Andrzej Sobaniec
+* pt_PT, Jose Quintas
+* zh_TW, Chun-I Lee
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
 
