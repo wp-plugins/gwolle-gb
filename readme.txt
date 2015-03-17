@@ -261,8 +261,11 @@ label elements. Please contact them.
 
 = I don't get a notification email. =
 
-First check your spambox in your mailaccount. Second, on the settingspage you can change the From address for the email that is sent.
+First check your spambox in your mailaccount.
+
+Second, on the settingspage you can change the From address for the email that is sent.
 Sometimes there are problems sending it from the default address, so this is a good thing to change to a real address.
+
 If it still doesn't work, request the maillog at your hosting provider, or ask if they can take a look.
 
 = I want to show the form and the list on different pages =
