@@ -65,6 +65,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * nl_NL, [Marcel Pol](http://zenoweb.nl)
 * pl_PL, Andrzej Sobaniec
 * pt_PT, Jose Quintas
+* ru_RU, zhonglyor
 * zh_TW, Chun-I Lee
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
@@ -308,6 +309,7 @@ Yes, it is again actively maintained.
 
 = 1.2.4 =
 * 2015-03-
+* Add ru_RU (thanks zhonglyor).
 * Update pl_PL.
 * Update fr_FR (Thanks Florence Bourmault-Gohin).
 
