@@ -52,8 +52,7 @@ function install_gwolle_gb() {
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
 
-	// Add reCAPTCHA option
-	add_option('gwolle_gb-recaptcha-active', 'false');
+	// Add reCAPTCHA options
 	add_option('recaptcha-public-key', '');
 	add_option('recaptcha-private-key', '');
 
@@ -88,8 +87,9 @@ function install_gwolle_gb() {
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
 }
 
+
 function uninstall_gwolle_gb() {
-	//	delete the plugin's tables
+	// Delete the plugin's tables
 	global $wpdb;
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_log . "");
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_entries . "");
@@ -102,7 +102,7 @@ function uninstall_gwolle_gb() {
 				option_name LIKE 'gwolle_gb%'
 		");
 
-	if ($_POST['delete_recaptchaKeys'] == 'on' || (get_option('recaptcha-public-key') == '' && get_option('recaptcha-private-key') == '')) {
+	if (isset($_POST['delete_recaptchaKeys']) && $_POST['delete_recaptchaKeys'] == 'on' || (get_option('recaptcha-public-key') == '' && get_option('recaptcha-private-key') == '')) {
 		// Also delete the reCAPTCHA-keys
 		$wpdb->query("
 				DELETE
@@ -113,7 +113,11 @@ function uninstall_gwolle_gb() {
 					option_name = 'recaptcha-private-key'
 			");
 	}
+
+	// Deactivate ourselves
+	deactivate_plugins( GWOLLE_GB_FOLDER . '/gwolle-gb.php' );
 }
+
 
 function upgrade_gwolle_gb() {
 	global $wpdb;
@@ -405,6 +409,20 @@ function upgrade_gwolle_gb() {
 				CHANGE `entry_isDeleted` `istrash` VARCHAR(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0',
 				CHANGE `entry_isSpam` `isspam` VARCHAR(1) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0'
 			");
+	}
+
+	if (version_compare($installed_ver, '1.1.3', '<')) {
+		/*
+		 * 1.1.2->1.1.3
+		 */
+		delete_option('gwolle_gb-guestbookOnly');
+		delete_option('gwolle_gb-defaultMailText');
+		if ( get_option('gwolle_gb-recaptcha-active', 'false') == 'true' ) {
+			$form_setting = Array( 'form_recaptcha_enabled' => 'true' );
+			$form_setting = serialize( $form_setting );
+			update_option( 'gwolle_gb-form', $form_setting );
+		}
+		delete_option('gwolle_gb-recaptcha-active');
 	}
 
 	// Update the plugin version option

@@ -12,7 +12,7 @@
 /* Write button */
 
 #gwolle_gb_write_button {
-	margin: 20px 0 0;
+	margin: 20px 0 10px;
 }
 
 
@@ -42,23 +42,25 @@
 	padding: 2px;
 }
 
-#gwolle_gb .input.error, /* recaptcha */
-#gwolle_gb input.error,
-#gwolle_gb textarea.error {
+#gwolle_gb form#gwolle_gb_new_entry .input.error, /* recaptcha */
+#gwolle_gb form#gwolle_gb_new_entry input.error,
+#gwolle_gb form#gwolle_gb_new_entry textarea.error {
 	border: 1px solid #dd3d36;
 }
 
 #gwolle_gb .label,
 #gwolle_gb .input {
-	float: left;
 	vertical-align: top;
 }
 #gwolle_gb .label {
-	width: 150px;
+	width: 30%;
+}
+#gwolle_gb .input {
+	width: 40%;
 }
 #gwolle_gb .input input[type="text"],
 #gwolle_gb .input textarea {
-	width: 300px;
+	width: 100%;
 }
 #gwolle_gb .input textarea {
 	height: 150px;
@@ -73,6 +75,7 @@
 #gwolle_gb .page-navigation {
 	width: 100%;
 	text-align: right;
+	padding: 8px 0;
 }
 #gwolle_gb .page-navigation a,
 #gwolle_gb .page-navigation span {
@@ -98,30 +101,52 @@
 /* Read section */
 
 #gwolle_gb .admin-entry {
-	background-color: #FFF0F5;
+	color: #333;
+	background-color: #e6e6e6;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -ms-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -webkit-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
+	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
 	padding-left: 5px;
+}
+#gwolle_gb .admin-entry a {
+	color: #666;
 }
 #gwolle_gb .gb-entry {
 	border-top: 1px dotted #999;
 	padding: 10px 0;
 	margin: 0;
 }
-#gwolle_gb .first.gb-entry {
+#gwolle_gb .gwolle_gb_first {
 	border-width: 0px;
 }
-#gwolle_gb .gb-entry .author-info,
-#gwolle_gb .gb-entry .entry-content {
+#gwolle_gb .gb-entry .gb-author-info,
+#gwolle_gb .gb-entry .gb-entry-content {
 	display: block;
 }
-#gwolle_gb .gb-entry .author-info .author-avatar {
+#gwolle_gb .gb-entry .gb-author-info .gb-author-avatar {
 	margin: 0 0 8px 0;
 }
-#gwolle_gb .gb-entry .author-info .author-name {
+#gwolle_gb .gb-entry .gb-author-info .gb-author-name {
 	padding-left: 10px;
 	font-weight: bold;
 }
 #gwolle_gb .gb-entry .gb-entry-content {
 	padding-left: 10px;
+}
+
+
+/* Widget */
+li.gwolle_gb_widget {
+	border-bottom: 1px dotted #999;
+	padding: 3px 0;
+	margin: 0;
+}
+
+p.gwolle_gb_link {
+	padding: 3px 0;
 }
 
 
