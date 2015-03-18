@@ -113,6 +113,7 @@ function gwolle_gb_register_settings() {
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-antispam-answer',   'strval' ); // empty string
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-entries_per_page',  'intval' ); // 20
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-entriesPerPage',    'intval' ); // 20
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-excerpt_length',    'intval' ); // 0
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-form',              'strval' ); // serialized Array, but initially empty
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-labels_float',      'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-linkAuthorWebsite', 'strval' ); // 'true'

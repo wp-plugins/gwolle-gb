@@ -81,6 +81,12 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
+						if ( isset($_POST['excerpt_length']) && is_numeric($_POST['excerpt_length']) ) {
+							update_option('gwolle_gb-excerpt_length', (int) $_POST['excerpt_length']);
+							$saved = true;
+						}
+
+
 						if (isset($_POST['showLineBreaks']) && $_POST['showLineBreaks'] == 'on') {
 							update_option('gwolle_gb-showLineBreaks', 'true');
 							$saved = true;
@@ -472,6 +478,32 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
+					<tr valign="top">
+						<th scope="row"><label for="excerpt_length"><?php _e('Length of the entry content', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<select name="excerpt_length" id="excerpt_length">
+								<?php
+								$excerpt_length = get_option( 'gwolle_gb-excerpt_length', 0 );
+								$presets = array( 20, 40, 60, 80, 100, 120, 150, 200, 300 );
+								echo '<option value="0"';
+								if ( 0 == $excerpt_length ) {
+									echo ' selected="selected"';
+								}
+								echo '>' . __('Unlimited Words', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+
+								foreach ( $presets as $preset ) {
+									echo '<option value="' . $preset . '"';
+									if ($preset == $excerpt_length) {
+										echo ' selected="selected"';
+									}
+									echo '>' . $preset . ' ' . __('Words', GWOLLE_GB_TEXTDOMAIN) . '</option>';
+								}
+								?>
+							</select>
+							<br />
+							<span class="setting-description"><?php _e('Maximum length of the entry content in words.', GWOLLE_GB_TEXTDOMAIN); ?></span>
+						</td>
+					</tr>
 
 					<tr valign="top">
 						<th scope="row"><label for="showLineBreaks"><?php _e('Line breaks', GWOLLE_GB_TEXTDOMAIN); ?></label></th>

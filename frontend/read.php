@@ -214,10 +214,14 @@ function gwolle_gb_frontend_read() {
 					$entry_content = convert_smilies($entry_content);
 				}
 				if ( get_option( 'gwolle_gb-showLineBreaks', 'false' ) === 'true' ) {
-					$entry_output .= nl2br($entry_content);
-				} else {
-					$entry_output .= $entry_content;
+					$entry_content = nl2br($entry_content);
 				}
+				$excerpt_length = (int) get_option( 'gwolle_gb-excerpt_length', 0 );
+				if ( $excerpt_length > 0 ) {
+					$entry_content = wp_trim_words( $entry_content, $excerpt_length, '...' );
+				}
+				$entry_output .= $entry_content;
+
 
 				// Edit Link for Moderators
 				if ( isset($read_setting['read_content']) && $read_setting['read_content']  === 'true' ) {

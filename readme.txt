@@ -308,7 +308,8 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.4 =
-* 2015-03-
+* 2015-03-18
+* Add option for max words in content.
 * Add ru_RU (thanks zhonglyor).
 * Update pl_PL.
 * Update fr_FR (Thanks Florence Bourmault-Gohin).
