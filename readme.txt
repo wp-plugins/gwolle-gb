@@ -307,6 +307,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.5 =
+* 2015-03-
+* Update ru_RU.
+
 = 1.2.4 =
 * 2015-03-18
 * Add option for max words in content.
