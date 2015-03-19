@@ -4,6 +4,7 @@ Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 3.4
 Tested up to: 4.1
 Stable tag: 1.2.4
+License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
@@ -327,6 +328,7 @@ Yes, it is again actively maintained.
 
 = 1.2.5 =
 * 2015-03-
+* Don't set background-color on error-messages.
 * Update ru_RU.
 
 = 1.2.4 =

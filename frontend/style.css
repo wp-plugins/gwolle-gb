@@ -27,9 +27,8 @@
 /* Messages */
 
 #gwolle_gb #gwolle_gb_messages {
-	background-color: #fff;
 	border-left: 4px solid #7ad03a;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.1);
 	padding: 1px 12px;
 	margin: 5px 0 15px;
 }
