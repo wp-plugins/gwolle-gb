@@ -102,6 +102,24 @@ in the gwolle-gb.php file at the top.
 
 For the licences regarding the use of reCAPTCHA or the icons you may ask the authors.
 
+= Todo list =
+
+The current todolist is slowly getting shorter. If you do have a feature request, please post it on the support forum.
+
+* More translations (send them in).
+* Make options for the title and notice of the form.
+* Extend notification mail.
+* Send author a notification as well.
+* Import from certain post or just all comments.
+* Form: Add smileys to the form, maybe even emoji?
+* Editor: add options to change the date.
+* Entries list: add button to empty spam/trash.
+* Frontend: add option to show only one entry with $_GET entry_id.
+* Frontend: Add pagination link for all entries (optional).
+* Settings: admin can add user to notification list.
+* Form: there is a request for a country dropdown, is it a good idea?
+* SEO: add title and desc of first entry to SEO meta in html (is this possible?).
+
 = API, add an entry =
 
 It is not hard to add an entry in PHP code.
