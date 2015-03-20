@@ -328,6 +328,7 @@ Yes, it is again actively maintained.
 
 = 1.2.5 =
 * 2015-03-
+* Compatibility with PHP 5.3 and Unicode.
 * Don't set background-color on error-messages.
 * Update ru_RU.
 
