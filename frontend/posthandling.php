@@ -268,7 +268,24 @@ function gwolle_gb_frontend_posthandling() {
 				$entry->set_ischecked( false );
 			}
 		} else {
+			// First set to checked
 			$entry->set_ischecked( true );
+
+			// Check for abusive content (too long words). Set it to unchecked, so manual moderation is needed.
+			$maxlength = 100;
+			$words = explode( " ", $entry->get_content() );
+			foreach ( $words as $word ) {
+				if ( strlen($word) > $maxlength ) {
+					$entry->set_ischecked( false );
+				}
+			}
+			$maxlength = 60;
+			$words = explode( " ", $entry->get_author_name() );
+			foreach ( $words as $word ) {
+				if ( strlen($word) > $maxlength ) {
+					$entry->set_ischecked( false );
+				}
+			}
 		}
 
 
@@ -312,7 +329,7 @@ function gwolle_gb_frontend_posthandling() {
 		if ( $save ) {
 			// We have been saved to the Database
 			$gwolle_gb_messages .= '<p class="entry_saved">' . __('Thank you for your entry.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
-			if ( get_option('gwolle_gb-moderate-entries', 'true') === 'true' && !gwolle_gb_is_moderator($user_id) ) {
+			if ( $entry->get_ischecked() == 0 ) {
 				$gwolle_gb_messages .= '<p>' . __('We will review it and unlock it in a short while.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
 		}
