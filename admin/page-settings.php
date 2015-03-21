@@ -848,7 +848,11 @@ function gwolle_gb_page_settings() {
 								<input name="recaptcha-private-key" type="text" id="recaptcha-private-key" value="<?php echo $recaptcha_privateKey; ?>" class="regular-text" />
 								<label for="recaptcha-private-key" class="setting-description"><?php _e('<strong>Secret</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></label>
 								<br />
-								<span class="setting-description"><?php _e('The keys can be found at your', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.google.com/recaptcha/intro/index.html" title="<?php _e('Go to my reCAPTCHA sites...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('reCAPTCHA sites overview', GWOLLE_GB_TEXTDOMAIN); ?></a>.</span>
+								<span class="setting-description">
+									<?php _e('reCAPTCHA is a way to have visitors fill in a field with a few letters or numbers. It is a way to make sure that you have a human visitor and not a spambot. Not every visitor will appreciate it though, some will consider it unfriendly.', GWOLLE_GB_TEXTDOMAIN); ?>
+									<br />
+									<?php _e('The keys can be found at your', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.google.com/recaptcha/intro/index.html" title="<?php _e('Go to my reCAPTCHA sites...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('reCAPTCHA sites overview', GWOLLE_GB_TEXTDOMAIN); ?></a>.
+								</span>
 							</div>
 							<?php
 							if ( class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) { ?>
