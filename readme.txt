@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 3.4
 Tested up to: 4.1
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -292,6 +292,15 @@ If it still doesn't work, request the maillog at your hosting provider, or ask i
 
 There are different shortcodes that you can use. Instead of the [gwolle_gb] shortcode, you can use [gwolle_gb_write] for just the form,
 and [gwolle_gb_read] for the list of entries.
+
+= Moderation is enabled, but my entry is marked as checked =
+
+If a user with capability of 'moderate_comments' posts an entry, it will be marked as checked by default, because he can mark it as checked anyway.
+
+= Moderation is disabled, but some entries are still unchecked =
+
+There is validation of the length of words in the content and author name. If the words are too long and it looks
+abusive, it will be marked as unchecked. A moderator will still be needed to manually edit and check these entries.
 
 = What capabilities are needed? =
 
