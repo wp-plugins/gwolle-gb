@@ -329,6 +329,7 @@ Yes, it is again actively maintained.
 = 1.2.5 =
 * 2015-03-
 * Compatibility with PHP 5.3 and Unicode.
+* Use get_object_vars for casting to an array for the save filter.
 * Don't set background-color on error-messages.
 * Update ru_RU.
 

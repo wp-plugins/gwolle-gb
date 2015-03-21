@@ -79,7 +79,7 @@ function gwolle_gb_get_author_name_html($entry) {
 	if ( $is_moderator ) {
 		$author_name = $is_moderator; // overwrite name in entry with name of registered user
 		$author_name_html = '<i>' . $is_moderator . '</i>'; // overwrite name in entry with name of registered user
-			} else {
+	} else {
 		$author_name_html = gwolle_gb_sanitize_output( $author_name_html );
 	}
 
