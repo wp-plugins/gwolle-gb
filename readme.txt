@@ -293,6 +293,15 @@ If it still doesn't work, request the maillog at your hosting provider, or ask i
 There are different shortcodes that you can use. Instead of the [gwolle_gb] shortcode, you can use [gwolle_gb_write] for just the form,
 and [gwolle_gb_read] for the list of entries.
 
+= Moderation is enabled, but my entry is marked as checked =
+
+If a user with capability of 'moderate_comments' posts an entry, it will be marked as checked by default, because he can mark it as checked anyway.
+
+= Moderation is disabled, but some entries are still unchecked =
+
+There is validation of the length of words in the content and author name. If the words are too long and it looks
+abusive, it will be marked as unchecked. A moderator will still be needed to manually edit and check these entries.
+
 = What capabilities are needed? =
 
 For moderating comments you need the capability 'moderate_comments'.
