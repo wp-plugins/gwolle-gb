@@ -164,6 +164,11 @@ function gwolle_gb_dashboard() {
 
 // Add the widget
 function gwolle_gb_dashboard_setup() {
+
+	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
+		return;
+	}
+
 	wp_add_dashboard_widget('gwolle_gb_dashboard', __('Guestbook (new entries)', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_dashboard');
 }
 add_action('wp_dashboard_setup', 'gwolle_gb_dashboard_setup');
