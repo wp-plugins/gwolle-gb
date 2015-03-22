@@ -335,6 +335,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.6 =
+* 2015-03-
+* Update ru_RU.
+
 = 1.2.5 =
 * 2015-03-21
 * Check for abusive length of words, and mark unchecked.
