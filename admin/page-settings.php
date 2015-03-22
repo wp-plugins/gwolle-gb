@@ -211,6 +211,20 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
+						if (isset($_POST['mail_author']) && $_POST['mail_author'] == 'on') {
+							update_option('gwolle_gb-mail_author', 'true');
+							$saved = true;
+						} else {
+							update_option('gwolle_gb-mail_author', 'false');
+							$saved = true;
+						}
+
+						if ( isset($_POST['authorMailContent']) ) {
+							$mail_content = gwolle_gb_sanitize_input( $_POST['authorMailContent'] );
+							update_option('gwolle_gb-authorMailContent', $mail_content);
+							$saved = true;
+						}
+
 						break;
 					case 'gwolle_gb_uninstall':
 
@@ -912,13 +926,14 @@ Hello,
 There is a new guestbook entry at '%blog_name%'.
 You can check it at %entry_management_url%.
 
-Have a nice day!
+Have a nice day.
 Your Gwolle-GB-Mailer
 
 
 Website address: %blog_url%
 User name: %user_name%
 User email: %user_email%
+Entry status: %status%
 Entry content:
 %entry_content%
 "
@@ -931,10 +946,70 @@ Entry content:
 							<span class="setting-description">
 								<?php _e('You can set the content of the mail that a notification subscriber gets on new entries. The following tags are supported:', GWOLLE_GB_TEXTDOMAIN);
 								echo '<br />';
-								$mailTags = array('user_email', 'user_name', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content');
+								$mailTags = array('user_email', 'user_name', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content', 'status');
 								for ($i = 0; $i < count($mailTags); $i++) {
 									if ($i != 0) {
-										echo '&nbsp;,&nbsp;';
+										echo ', ';
+									}
+									echo '%' . $mailTags[$i] . '%';
+								}
+								?>
+							</span>
+						</td>
+					</tr>
+
+					<tr valign="top">
+						<th scope="row"><label for="mail_author"><?php _e('Mail Author', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<input <?php
+								if (get_option( 'gwolle_gb-mail_author', 'false') == 'true') {
+									echo 'checked="checked"';
+								} ?>
+								type="checkbox" name="mail_author" id="mail_author">
+							<label for="mail_author">
+								<?php _e('Mail the author with a confirmation email.', GWOLLE_GB_TEXTDOMAIN); ?>
+							</label>
+							<br />
+							<span class="setting-description">
+								<?php _e("The author of the guestbook entry will receive an email after posting. It will have a copy of the entry.", GWOLLE_GB_TEXTDOMAIN); ?>
+							</span>
+						</td>
+					</tr>
+
+					<tr valign="top">
+						<th scope="row"><label for="authorMailContent"><?php _e('Author mail content', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<?php
+							$authorMailContent = get_option('gwolle_gb-authorMailContent', false);
+							if (!$authorMailContent) { // No text set by the user. Use the default text.
+								$mailText = __("
+Hello,
+
+You have just posted a new guestbook entry at '%blog_name%'.
+
+Have a nice day.
+The editors at %blog_name%.
+
+
+Website address: %blog_url%
+User name: %user_name%
+User email: %user_email%
+Entry content:
+%entry_content%
+"
+, GWOLLE_GB_TEXTDOMAIN);
+							} else {
+								$mailText = stripslashes($authorMailContent);
+							} ?>
+							<textarea name="authorMailContent" id="authorMailContent" style="width:400px;height:300px;" class="regular-text"><?php echo $mailText; ?></textarea>
+							<br />
+							<span class="setting-description">
+								<?php _e('You can set the content of the mail that the author of the entry will receive. The following tags are supported:', GWOLLE_GB_TEXTDOMAIN);
+								echo '<br />';
+								$mailTags = array('user_email', 'user_name', 'blog_name', 'blog_url', 'entry_content');
+								for ($i = 0; $i < count($mailTags); $i++) {
+									if ($i != 0) {
+										echo ', ';
 									}
 									echo '%' . $mailTags[$i] . '%';
 								}

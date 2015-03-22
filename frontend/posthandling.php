@@ -356,8 +356,8 @@ function gwolle_gb_frontend_posthandling() {
 			@ini_set('sendmail_from', get_bloginfo('admin_mail'));
 
 			// Set the Mail Content
-			$mailTags = array('user_email', 'user_name', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url');
-			$mail_body = stripslashes( get_option( 'gwolle_gb-adminMailContent' ) );
+			$mailTags = array('user_email', 'user_name', 'status', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content');
+			$mail_body = stripslashes( get_option( 'gwolle_gb-adminMailContent', false ) );
 			if (!$mail_body) {
 				$mail_body = __("
 Hello,
@@ -365,19 +365,19 @@ Hello,
 There is a new guestbook entry at '%blog_name%'.
 You can check it at %entry_management_url%.
 
-Have a nice day!
+Have a nice day.
 Your Gwolle-GB-Mailer
 
 
 Website address: %blog_url%
 User name: %user_name%
 User email: %user_email%
+Entry status: %status%
 Entry content:
 %entry_content%
 "
 , GWOLLE_GB_TEXTDOMAIN);
 			}
-			// FIXME: use more content in the mailbody from the entry, like author_name, email, content
 
 			// Set the Mail Headers
 			$subject = '[' . get_bloginfo('name') . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
@@ -391,30 +391,84 @@ Entry content:
 
 			// Replace the tags from the mailtemplate with real data from the website and entry
 			$info['user_name'] = $entry->get_author_name();
+			$info['user_email'] = $entry->get_author_email();
 			$info['blog_name'] = get_bloginfo('name');
 			$info['blog_url'] = get_bloginfo('wpurl');
 			$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
 			$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id();
+			$info['entry_content'] = gwolle_gb_format_values_for_mail($entry->get_content());
+			if ( $entry->get_ischecked() ) {
+				$info['status'] = "Checked";
+			} else {
+				$info['status'] = "Unchecked";
+			}
+
 			// The last tags are bloginfo-based
-			for ($tagNum = 1; $tagNum < count($mailTags); $tagNum++) {
+			for ($tagNum = 0; $tagNum < count($mailTags); $tagNum++) {
 				$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
 			}
 
 			if ( is_array($subscribers) && !empty($subscribers) ) {
 				foreach ( $subscribers as $subscriber ) {
-					$mailBody = $mail_body;
-					$mailBody = str_replace('%user_email%', $subscriber, $mailBody);
-					$mailBody = str_replace('%entry_content%', gwolle_gb_format_values_for_mail($entry->get_content()), $mailBody);
-
-					wp_mail($subscriber, $subject, $mailBody, $header);
+					wp_mail($subscriber, $subject, $mail_body, $header);
 				}
 			}
 		}
 
 
 		/*
-		 * FIXME: Send Notification Mail to the author if set to true in an option
+		 * Send Notification Mail to the author if set to true in an option
 		 */
+
+		if ( !$isspam ) {
+			if ( get_option( 'gwolle_gb-mail_author', 'false' ) == 'true' ) {
+
+				// Set the Mail Content
+				$mailTags = array('user_email', 'user_name', 'blog_name', 'blog_url', 'entry_content');
+				$mail_body = stripslashes( get_option( 'gwolle_gb-authorMailContent', false ) );
+				if (!$mail_body) {
+					$mail_body = __("
+Hello,
+
+You have just posted a new guestbook entry at '%blog_name%'.
+
+Have a nice day.
+The editors at %blog_name%.
+
+
+Website address: %blog_url%
+User name: %user_name%
+User email: %user_email%
+Entry content:
+%entry_content%
+"
+, GWOLLE_GB_TEXTDOMAIN);
+				}
+
+				// Set the Mail Headers
+				$subject = '[' . get_bloginfo('name') . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
+				$header = "";
+				if ( get_option('gwolle_gb-mail-from', false) ) {
+					$header .= "From: " . get_bloginfo('name') . " <" . get_option('gwolle_gb-mail-from') . ">\r\n";
+				} else {
+					$header .= "From: " . get_bloginfo('name') . " <" . get_bloginfo('admin_email') . ">\r\n";
+				}
+				$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
+
+				// Replace the tags from the mailtemplate with real data from the website and entry
+				$info['user_name'] = $entry->get_author_name();
+				$info['user_email'] = $entry->get_author_email();
+				$info['blog_name'] = get_bloginfo('name');
+				$info['blog_url'] = get_bloginfo('wpurl');
+				$info['entry_content'] = gwolle_gb_format_values_for_mail($entry->get_content());
+				for ($tagNum = 0; $tagNum < count($mailTags); $tagNum++) {
+					$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
+				}
+
+				wp_mail($entry->get_author_email(), $subject, $mail_body, $header);
+
+			}
+		}
 
 
 		/*
