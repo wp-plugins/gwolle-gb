@@ -335,6 +335,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.7 =
+* 2015-03-
+
+
 = 1.2.6 =
 * 2015-03-22
 * Extend notification email.
