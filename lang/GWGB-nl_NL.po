@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-18 12:17+0100\n"
+"POT-Creation-Date: 2015-03-22 13:26+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -19,8 +19,8 @@ msgstr ""
 msgid "Guestbook"
 msgstr "Gastenboek"
 
-#: actions.php:46 actions.php:47 admin/page-settings.php:472
-#: admin/page-settings.php:706
+#: actions.php:46 actions.php:47 admin/page-settings.php:486
+#: admin/page-settings.php:720
 msgid "Entries"
 msgstr "Berichten"
 
@@ -34,7 +34,7 @@ msgid "New entry"
 msgstr "Nieuw bericht"
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:236
+#: actions.php:57 actions.php:80 admin/page-settings.php:250
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -219,7 +219,7 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr "Aangemeld als Ham bij de Akismet dienst."
 
 #: admin/page-editor.php:140 admin/page-gwolle-gb.php:353
-#: admin/page-settings.php:242
+#: admin/page-settings.php:256
 msgid "Changes saved."
 msgstr "Wijzigingen opgeslagen."
 
@@ -348,7 +348,7 @@ msgstr ""
 "Regeleindes zijn niet zichtbaar voor je bezoekers vanwege je <a href=\"%s"
 "\">instellingen</a>."
 
-#: admin/page-editor.php:549 admin/page-settings.php:369
+#: admin/page-editor.php:549 admin/page-settings.php:383
 #: frontend/write.php:176 frontend/write.php:183
 msgid "Website"
 msgstr "Website"
@@ -566,7 +566,7 @@ msgid "ID"
 msgstr "ID"
 
 #: admin/page-entries.php:545 admin/page-entries.php:561
-#: admin/page-settings.php:632
+#: admin/page-settings.php:646
 msgid "Date"
 msgstr "Datum"
 
@@ -600,8 +600,8 @@ msgid "The exporter will preserve the following data per entry:"
 msgstr "De exporteur zal de volgende gegevens behouden per bericht:"
 
 #: admin/page-export.php:52 admin/page-import.php:358
-#: admin/page-import.php:399 admin/page-settings.php:306
-#: admin/page-settings.php:589 frontend/write.php:119 frontend/write.php:126
+#: admin/page-import.php:399 admin/page-settings.php:320
+#: admin/page-settings.php:603 frontend/write.php:119 frontend/write.php:126
 msgid "Name"
 msgstr "Naam"
 
@@ -630,8 +630,8 @@ msgid "Host address"
 msgstr "Host adres"
 
 #: admin/page-export.php:59 admin/page-import.php:363
-#: admin/page-import.php:405 admin/page-settings.php:390
-#: admin/page-settings.php:952
+#: admin/page-import.php:405 admin/page-settings.php:404
+#: admin/page-settings.php:1045
 msgid "Message"
 msgstr "Bericht"
 
@@ -1039,52 +1039,52 @@ msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 "Selecteer een CSV bestand met geëxporteerde berichten om te importeren:"
 
-#: admin/page-settings.php:249
+#: admin/page-settings.php:263
 msgid "Form"
 msgstr "Formulier"
 
-#: admin/page-settings.php:250
+#: admin/page-settings.php:264
 msgid "Reading"
 msgstr "Lezen"
 
-#: admin/page-settings.php:251
+#: admin/page-settings.php:265
 msgid "Admin"
 msgstr "Admin"
 
-#: admin/page-settings.php:252 frontend/write.php:224 frontend/write.php:255
+#: admin/page-settings.php:266 frontend/write.php:224 frontend/write.php:255
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
-#: admin/page-settings.php:253
+#: admin/page-settings.php:267
 msgid "E-mail"
 msgstr "E-mail"
 
-#: admin/page-settings.php:254 admin/page-settings.php:967
+#: admin/page-settings.php:268 admin/page-settings.php:1060
 msgid "Uninstall"
 msgstr "Deïnstallatie"
 
-#: admin/page-settings.php:267
+#: admin/page-settings.php:281
 msgid "Require Login"
 msgstr "Inloggen Vereist"
 
-#: admin/page-settings.php:274
+#: admin/page-settings.php:288
 msgid "Require user to be logged in."
 msgstr "Gebruiker is verplicht om in te loggen."
 
-#: admin/page-settings.php:276
+#: admin/page-settings.php:290
 msgid "Only allow logged-in users to add a guestbook entry."
 msgstr ""
 "Sta alleen ingelogde gebruikers toe om een gastenboekbericht te plaatsen."
 
-#: admin/page-settings.php:281
+#: admin/page-settings.php:295
 msgid "Labels float"
 msgstr "Labels vallen opzij"
 
-#: admin/page-settings.php:288
+#: admin/page-settings.php:302
 msgid "Labels in the form float to the left."
 msgstr "Labels in het formulier vallen naar links."
 
-#: admin/page-settings.php:290
+#: admin/page-settings.php:304
 msgid ""
 "Labels in the form float to the left. Otherwise the labels will be above the "
 "input-fields."
@@ -1092,86 +1092,86 @@ msgstr ""
 "Labels in het formulier vallen naar links. Anders zullen de labels boven het "
 "invoerveld geplaatst worden."
 
-#: admin/page-settings.php:302
+#: admin/page-settings.php:316
 msgid "Configure the form that is shown to visitors."
 msgstr "Stel het formulier in dat wordt getoond aan bezoekers."
 
-#: admin/page-settings.php:313 admin/page-settings.php:334
-#: admin/page-settings.php:355 admin/page-settings.php:376
-#: admin/page-settings.php:397 admin/page-settings.php:418
-#: admin/page-settings.php:434 admin/page-settings.php:583
-#: admin/page-settings.php:596 admin/page-settings.php:610
-#: admin/page-settings.php:624 admin/page-settings.php:639
-#: admin/page-settings.php:654 admin/page-settings.php:668
+#: admin/page-settings.php:327 admin/page-settings.php:348
+#: admin/page-settings.php:369 admin/page-settings.php:390
+#: admin/page-settings.php:411 admin/page-settings.php:432
+#: admin/page-settings.php:448 admin/page-settings.php:597
+#: admin/page-settings.php:610 admin/page-settings.php:624
+#: admin/page-settings.php:638 admin/page-settings.php:653
+#: admin/page-settings.php:668 admin/page-settings.php:682
 msgid "Enabled"
 msgstr "Aangezet"
 
-#: admin/page-settings.php:321 admin/page-settings.php:342
-#: admin/page-settings.php:363 admin/page-settings.php:384
-#: admin/page-settings.php:405
+#: admin/page-settings.php:335 admin/page-settings.php:356
+#: admin/page-settings.php:377 admin/page-settings.php:398
+#: admin/page-settings.php:419
 msgid "Mandatory"
 msgstr "Verplicht"
 
-#: admin/page-settings.php:327 admin/page-settings.php:603
+#: admin/page-settings.php:341 admin/page-settings.php:617
 #: frontend/write.php:138 frontend/write.php:145
 msgid "City"
 msgstr "Stad"
 
-#: admin/page-settings.php:348 frontend/write.php:157 frontend/write.php:164
+#: admin/page-settings.php:362 frontend/write.php:157 frontend/write.php:164
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/page-settings.php:411
+#: admin/page-settings.php:425
 msgid "Custom Anti-spam"
 msgstr "Aangepaste Anti-spam"
 
-#: admin/page-settings.php:421 admin/page-settings.php:437
+#: admin/page-settings.php:435 admin/page-settings.php:451
 msgid "When enabled it is mandatory."
 msgstr "Wanneer het aangezet is dan is het ook verplicht."
 
-#: admin/page-settings.php:427 admin/page-settings.php:987
+#: admin/page-settings.php:441 admin/page-settings.php:1080
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
-#: admin/page-settings.php:443 admin/page-settings.php:677
-#: admin/page-settings.php:733 admin/page-settings.php:866
-#: admin/page-settings.php:931
+#: admin/page-settings.php:457 admin/page-settings.php:691
+#: admin/page-settings.php:747 admin/page-settings.php:884
+#: admin/page-settings.php:1024
 msgid "Save settings"
 msgstr "Instellingen opslaan"
 
-#: admin/page-settings.php:462
+#: admin/page-settings.php:476
 msgid "Entries per page on the frontend"
 msgstr "Berichten per pagina aan de voorkant"
 
-#: admin/page-settings.php:477
+#: admin/page-settings.php:491
 msgid "Number of entries shown on the frontend."
 msgstr "Aantal berichten per pagina aan de voorkant."
 
-#: admin/page-settings.php:482
+#: admin/page-settings.php:496
 msgid "Length of the entry content"
 msgstr "Lengte van de inhoud van ieder bericht"
 
-#: admin/page-settings.php:492
+#: admin/page-settings.php:506
 msgid "Unlimited Words"
 msgstr "Onbeperkt Aantal"
 
-#: admin/page-settings.php:499
+#: admin/page-settings.php:513
 msgid "Words"
 msgstr "Woorden"
 
-#: admin/page-settings.php:504
+#: admin/page-settings.php:518
 msgid "Maximum length of the entry content in words."
 msgstr "Maximum lengte van de inhoud van ieder bericht in woorden."
 
-#: admin/page-settings.php:509
+#: admin/page-settings.php:523
 msgid "Line breaks"
 msgstr "Regeleindes"
 
-#: admin/page-settings.php:516
+#: admin/page-settings.php:530
 msgid "Show line breaks."
 msgstr "Toon regeleinden."
 
-#: admin/page-settings.php:518
+#: admin/page-settings.php:532
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
@@ -1179,15 +1179,15 @@ msgstr ""
 "Toon regeleinden zoals de auteurs die ingevoerd hebben. (Dit kan resulteren "
 "in erg lange berichten en staat standaard uit.)"
 
-#: admin/page-settings.php:524
+#: admin/page-settings.php:538
 msgid "Smileys"
 msgstr "Smileys"
 
-#: admin/page-settings.php:531
+#: admin/page-settings.php:545
 msgid "Display smileys as images."
 msgstr "Geef smileys weer als afbeeldingen."
 
-#: admin/page-settings.php:533
+#: admin/page-settings.php:547
 #, php-format
 msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
@@ -1197,15 +1197,15 @@ msgstr ""
 "de WP smiley vervanger, dus kijk daar wanneer je nieuwe/meer smileys wilt "
 "toevoegen."
 
-#: admin/page-settings.php:539
+#: admin/page-settings.php:553
 msgid "Links"
 msgstr "Links"
 
-#: admin/page-settings.php:546
+#: admin/page-settings.php:560
 msgid "Link authors' name to their website."
 msgstr "Laat de auteur zijn naam verwijzen naar zijn website."
 
-#: admin/page-settings.php:548
+#: admin/page-settings.php:562
 msgid ""
 "The author of an entry can set his/her website. If this setting is checked, "
 "his/her name will be a link to that website."
@@ -1213,38 +1213,38 @@ msgstr ""
 "De schrijver van een bericht kan zijn/haar website opgeven. Als deze "
 "instelling aan staat, zal zijn/haar naam doorlinken naar die website."
 
-#: admin/page-settings.php:554
+#: admin/page-settings.php:568
 msgid "Admin Entry Styling"
 msgstr "Admin Bijdrage Opmaak"
 
-#: admin/page-settings.php:561
+#: admin/page-settings.php:575
 msgid "Admin entries get a special CSS styling."
 msgstr "Admin berichten krijgen een eigen opmaak."
 
-#: admin/page-settings.php:563
+#: admin/page-settings.php:577
 msgid ""
 "Admin entries get a special CSS styling. It will get a lightgrey background."
 msgstr ""
 "Admin berichten krijgen een eigen opmaak. Ze krijgen een lichtgrijze "
 "achtergrond."
 
-#: admin/page-settings.php:571
+#: admin/page-settings.php:585
 msgid "Configure the parts of the entries that are shown to visitors."
 msgstr "Stel de delen van de berichten in die worden getoond aan bezoekers."
 
-#: admin/page-settings.php:576
+#: admin/page-settings.php:590
 msgid "Avatar"
 msgstr "Avatar"
 
-#: admin/page-settings.php:617
+#: admin/page-settings.php:631
 msgid "Date and Time"
 msgstr "Datum en Tijd"
 
-#: admin/page-settings.php:625
+#: admin/page-settings.php:639
 msgid "Setting this will show the date and the time of the entry."
 msgstr "Deze instelling toont de datum en tijd van het bericht."
 
-#: admin/page-settings.php:640
+#: admin/page-settings.php:654
 msgid ""
 "Setting this will show the date of the entry. If Date and Time above are "
 "enabled, that setting has preference."
@@ -1252,15 +1252,15 @@ msgstr ""
 "Deze instelling toont de datum van het bericht. Wanneer Datum en Tijd "
 "hierboven aanstaan, dan heeft die instelling voorrang."
 
-#: admin/page-settings.php:647
+#: admin/page-settings.php:661
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/page-settings.php:661
+#: admin/page-settings.php:675
 msgid "Edit link"
 msgstr "Bewerk Link"
 
-#: admin/page-settings.php:669
+#: admin/page-settings.php:683
 msgid ""
 "A link to the editor will be added to the content. Only visible for "
 "moderators."
@@ -1268,23 +1268,23 @@ msgstr ""
 "Een link voor het bewerken wordt toegevoegd aan de inhoud. Alleen zichtbaar "
 "voor beheerders."
 
-#: admin/page-settings.php:696
+#: admin/page-settings.php:710
 msgid "Entries per page in the admin"
 msgstr "Berichten per pagina aan de admin"
 
-#: admin/page-settings.php:711
+#: admin/page-settings.php:725
 msgid "Number of entries shown in the admin."
 msgstr "Aantal berichten per pagina aan de admin."
 
-#: admin/page-settings.php:717
+#: admin/page-settings.php:731
 msgid "Entry icons"
 msgstr "Bericht icons"
 
-#: admin/page-settings.php:723
+#: admin/page-settings.php:737
 msgid "Show entry icons"
 msgstr "Laat bericht icons zien"
 
-#: admin/page-settings.php:725
+#: admin/page-settings.php:739
 msgid ""
 "These icons are shown in every entry row of the admin list, so that you know "
 "its status (checked, spam and trash)."
@@ -1292,15 +1292,15 @@ msgstr ""
 "Deze pictogrammen worden getoond in iedere berichtenrij op de admin-pagina, "
 "zodat je de status makkelijk kunt zien (vrijgegeven, spam en prullenbak)."
 
-#: admin/page-settings.php:752
+#: admin/page-settings.php:766
 msgid "Moderate Guestbook"
 msgstr "Beheer je gastenboek"
 
-#: admin/page-settings.php:760
+#: admin/page-settings.php:774
 msgid "Moderate entries before publishing them."
 msgstr "Beheer je berichten voor het publiceren ervan."
 
-#: admin/page-settings.php:764
+#: admin/page-settings.php:778
 msgid ""
 "New entries have to be unlocked by a moderator before they are visible to "
 "the public."
@@ -1308,7 +1308,7 @@ msgstr ""
 "Nieuwe berichten moeten eerst gemodereerd worden voordat ze zichtbaar zijn "
 "voor bezoekers."
 
-#: admin/page-settings.php:766
+#: admin/page-settings.php:780
 msgid ""
 "It is recommended that you turn this on, because you are responsible for the "
 "content on your website."
@@ -1316,15 +1316,15 @@ msgstr ""
 "Het wordt aangeraden dit te gebruiken, omdat je verantwoordelijk bent voor "
 "de inhoud op je website."
 
-#: admin/page-settings.php:777
+#: admin/page-settings.php:791
 msgid "Learn more about Akismet..."
 msgstr "Meer over Akismet..."
 
-#: admin/page-settings.php:777 admin/page-settings.php:835
+#: admin/page-settings.php:791 admin/page-settings.php:849
 msgid "What's that?"
 msgstr "Wat is dat?"
 
-#: admin/page-settings.php:787
+#: admin/page-settings.php:801
 msgid ""
 "Akismet helps you to fight spam. It's free and easy to install. Download and "
 "install it today to stop spam in your guestbook."
@@ -1333,7 +1333,7 @@ msgstr ""
 "gebruik. Download en installeer het vandaag nog om spam in je gastenboek "
 "tegen te houden."
 
-#: admin/page-settings.php:790
+#: admin/page-settings.php:804
 #, php-format
 msgid ""
 "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
@@ -1343,38 +1343,38 @@ msgstr ""
 "vinden. Je kunt het invoeren bij de <a href=\"%s\">Akismet "
 "instellingenpagina</a>."
 
-#: admin/page-settings.php:799
+#: admin/page-settings.php:813
 msgid "Use Akismet"
 msgstr "Gebruik Akismet."
 
-#: admin/page-settings.php:801
+#: admin/page-settings.php:815
 msgid ""
 "The WordPress API key has been found, so you can start using Akismet right "
 "now."
 msgstr ""
 "De WordPress API sleutel is gevonden, dus je kunt Akismet gelijk gebruiken."
 
-#: admin/page-settings.php:813
+#: admin/page-settings.php:827
 msgid "Custom Anti-Spam Security Question"
 msgstr "Aangepaste Anti-Spam Beveiligingsvraag"
 
-#: admin/page-settings.php:816
+#: admin/page-settings.php:830
 msgid "12 + six ="
 msgstr "12 + zes ="
 
-#: admin/page-settings.php:817
+#: admin/page-settings.php:831
 msgid "Custom security question to battle spam."
 msgstr "Aangepaste beveiligingsvraag tegen spam."
 
-#: admin/page-settings.php:819
+#: admin/page-settings.php:833
 msgid "18"
 msgstr "18"
 
-#: admin/page-settings.php:820
+#: admin/page-settings.php:834
 msgid "The answer to your security question."
 msgstr "Het antwoord op je beveiligingsvraag."
 
-#: admin/page-settings.php:822
+#: admin/page-settings.php:836
 msgid ""
 "You can ask your visitors to answer a custom security question, so only real "
 "people can post an entry."
@@ -1382,31 +1382,39 @@ msgstr ""
 "Je kunt je bezoekers vragen een aangepaste beveiligingsvraag te "
 "beantwoorden, zodat alleen echte mensen een bericht kunnen plaatsen."
 
-#: admin/page-settings.php:835
+#: admin/page-settings.php:849
 msgid "Learn more about reCAPTCHA..."
 msgstr "Leer meer over reCAPTCHA..."
 
-#: admin/page-settings.php:846
+#: admin/page-settings.php:860
 msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
 msgstr "<strong>Site (Publieke)</strong> sleutel van je reCAPTCHA account"
 
-#: admin/page-settings.php:849
+#: admin/page-settings.php:863
 msgid "<strong>Secret</strong> key of your reCAPTCHA account"
 msgstr "<strong>Geheime</strong> sleutel van je reCAPTCHA account"
 
-#: admin/page-settings.php:851
+#: admin/page-settings.php:866
+msgid ""
+"reCAPTCHA is a way to have visitors fill in a field with a few letters or "
+"numbers. It is a way to make sure that you have a human visitor and not a "
+"spambot. Not every visitor will appreciate it though, some will consider it "
+"unfriendly."
+msgstr ""
+
+#: admin/page-settings.php:868
 msgid "The keys can be found at your"
 msgstr "De sleutels kunnen gevonden worden bij je"
 
-#: admin/page-settings.php:851
+#: admin/page-settings.php:868
 msgid "Go to my reCAPTCHA sites..."
 msgstr "Ga naar mijn reCAPTCHA sites..."
 
-#: admin/page-settings.php:851
+#: admin/page-settings.php:868
 msgid "reCAPTCHA sites overview"
 msgstr "reCAPTCHA sites overzicht"
 
-#: admin/page-settings.php:855
+#: admin/page-settings.php:873
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be "
@@ -1418,7 +1426,7 @@ msgstr ""
 "Gwolle-GB zal niet geladen worden, en de gevonden versie zal gebruikt "
 "worden. Dit kan onverwachte resultaten geven."
 
-#: admin/page-settings.php:857
+#: admin/page-settings.php:875
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. However, this is an old and incompatible "
@@ -1429,41 +1437,11 @@ msgstr ""
 "vergelijkbaar werkende versie, dus reCAPTCHA zal niet gebruikt worden door "
 "Gwolle-GB."
 
-#: admin/page-settings.php:885
-msgid "Admin mail content"
-msgstr "Admin mail inhoud"
-
-#: admin/page-settings.php:890 frontend/posthandling.php:345
-msgid ""
-"Hello,\n"
-"\n"
-"There is a new guestbook entry at '%blog_name%'.\n"
-"You can check it at %entry_management_url%.\n"
-"\n"
-"Have a nice day!\n"
-"Your Gwolle-GB-Mailer"
-msgstr ""
-"Hallo,\n"
-"\n"
-"Er is een nieuw gastenboekbericht op '%blog_name%'.\n"
-"Je kunt het bekijken op %entry_management_url%.\n"
-"\n"
-"Een prettige dag gewenst.\n"
-"Je Gwolle-GB-Mailer"
-
-#: admin/page-settings.php:897
-msgid ""
-"You can set the content of the mail that a notification subscriber gets on "
-"new entries. The following tags are supported:"
-msgstr ""
-"Je kunt de inhoud aanpassen van de e-mail die een abonnee op de notificaties "
-"krijgt. De volgende tags worden ondersteund:"
-
-#: admin/page-settings.php:913
+#: admin/page-settings.php:903
 msgid "Admin mail from address"
 msgstr "Admin e-mail afzender-adres"
 
-#: admin/page-settings.php:919
+#: admin/page-settings.php:909
 msgid ""
 "You can set the email address that is used for the From header of the mail "
 "that a notification subscriber gets on new entries."
@@ -1471,28 +1449,135 @@ msgstr ""
 "Je kunt het e-mail adres opgeven dat gebruikt wordt als afzender voor de "
 "notificatie-e-mails bij nieuwe berichten."
 
-#: admin/page-settings.php:921
+#: admin/page-settings.php:911
 msgid "By default the main admin address is used from General >> Settings."
 msgstr ""
 "Standaard wordt het hoofdadmin adres gebruikt in Instellingen >> Algemeen."
 
-#: admin/page-settings.php:955
+#: admin/page-settings.php:918
+msgid "Admin mail content"
+msgstr "Admin mail inhoud"
+
+#: admin/page-settings.php:923 frontend/posthandling.php:362
+msgid ""
+"\n"
+"Hello,\n"
+"\n"
+"There is a new guestbook entry at '%blog_name%'.\n"
+"You can check it at %entry_management_url%.\n"
+"\n"
+"Have a nice day.\n"
+"Your Gwolle-GB-Mailer\n"
+"\n"
+"\n"
+"Website address: %blog_url%\n"
+"User name: %user_name%\n"
+"User email: %user_email%\n"
+"Entry status: %status%\n"
+"Entry content:\n"
+"%entry_content%\n"
+msgstr ""
+"\n"
+"Hallo,\n"
+"\n"
+"Er is een nieuw gastenboekbericht op '%blog_name%'.\n"
+"Je kunt het bekijken op %entry_management_url%.\n"
+"\n"
+"Een prettige dag gewenst.\n"
+"Je Gwolle-GB-Mailer\n"
+"\n"
+"Website adres: %blog_url%\n"
+"Gebruikersnaam: %user_name%\n"
+"Gebruikers e-mail: %user_email%\n"
+"Berichtstatus: %status%\n"
+"Berichtinhoud:\n"
+"%entry_content%\n"
+
+#: admin/page-settings.php:947
+msgid ""
+"You can set the content of the mail that a notification subscriber gets on "
+"new entries. The following tags are supported:"
+msgstr ""
+"Je kunt de inhoud aanpassen van de e-mail die een abonnee op de notificaties "
+"krijgt. De volgende tags worden ondersteund:"
+
+#: admin/page-settings.php:962
+msgid "Mail Author"
+msgstr "Mail Auteur"
+
+#: admin/page-settings.php:970
+msgid "Mail the author with a confirmation email."
+msgstr "Mail de auteur met een e-mail als bevestigings."
+
+#: admin/page-settings.php:974
+msgid ""
+"The author of the guestbook entry will receive an email after posting. It "
+"will have a copy of the entry."
+msgstr ""
+"De auteur van het gastenboekbericht zal een e-mail ter bevestiging "
+"ontvangen. Het bevat een kopie van het bericht."
+
+#: admin/page-settings.php:980
+msgid "Author mail content"
+msgstr "Auteur mail content"
+
+#: admin/page-settings.php:985 frontend/posthandling.php:430
+msgid ""
+"\n"
+"Hello,\n"
+"\n"
+"You have just posted a new guestbook entry at '%blog_name%'.\n"
+"\n"
+"Have a nice day.\n"
+"The editors at %blog_name%.\n"
+"\n"
+"\n"
+"Website address: %blog_url%\n"
+"User name: %user_name%\n"
+"User email: %user_email%\n"
+"Entry content:\n"
+"%entry_content%\n"
+msgstr ""
+"\n"
+"Hallo,\n"
+"\n"
+"Je hebt net een nieuw bericht geplaatst op '%blog_name%'.\n"
+"\n"
+"Een fijne dag gewenst.\n"
+"De redactie van %blog_name%.\n"
+"\n"
+"\n"
+"Website adres: %blog_url%\n"
+"Gebruikersnaam: %user_name%\n"
+"Gebruikers e-mail: %user_email%\n"
+"Berichtinhoud:\n"
+"%entry_content%\n"
+
+#: admin/page-settings.php:1007
+msgid ""
+"You can set the content of the mail that the author of the entry will "
+"receive. The following tags are supported:"
+msgstr ""
+"Je kunt de inhoud aanpassen van de e-mail die de auteur van het bericht als "
+"notificatie krijgt. De volgende tags worden ondersteund:"
+
+#: admin/page-settings.php:1048
 msgid "The entries and settings have been removed."
 msgstr "De berichten en instellingen zijn verwijderd."
 
-#: admin/page-settings.php:956
+#: admin/page-settings.php:1049
 msgid "The plugin is deactivated."
 msgstr "De plugin is gedeactiveerd."
 
-#: admin/page-settings.php:957
+#: admin/page-settings.php:1050
 msgid "You can now go to your"
 msgstr "Je kunt nu gaan naar je"
 
-#: admin/page-settings.php:957
+#: admin/page-settings.php:1050
 msgid "dashboard."
 msgstr "dashboard."
 
-#: admin/page-settings.php:969
+#: admin/page-settings.php:1062
 msgid ""
 "Uninstalling means that all database entries are removed (settings and "
 "entries)."
@@ -1500,23 +1585,23 @@ msgstr ""
 "Verwijderen betekend dat alle gastenboek databasegegevens gewist worden "
 "(instellingen en berichten)."
 
-#: admin/page-settings.php:971
+#: admin/page-settings.php:1064
 msgid "This can <strong>not</strong> be undone."
 msgstr "Dit kan <strong>NIET</strong> ongedaan gemaakt worden."
 
-#: admin/page-settings.php:978
+#: admin/page-settings.php:1071
 msgid "Confirm"
 msgstr "Bevestigen"
 
-#: admin/page-settings.php:981
+#: admin/page-settings.php:1074
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr "Yup, ik weet het absoluut zeker. Doorgaan!"
 
-#: admin/page-settings.php:990
+#: admin/page-settings.php:1083
 msgid "Also delete the reCAPTCHA keys"
 msgstr "Verwijder ook de reCAPTCHA sleutels"
 
-#: admin/page-settings.php:998
+#: admin/page-settings.php:1091
 msgid "Uninstall &raquo;"
 msgstr "Deïnstalleren &raquo;"
 
@@ -1562,20 +1647,20 @@ msgstr ""
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr "De reCAPTCHA is niet goed ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:298
+#: frontend/posthandling.php:315
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 "Dubbel bericht: een bericht met de ingevoerde gegevens was al opgeslagen."
 
-#: frontend/posthandling.php:314
+#: frontend/posthandling.php:331
 msgid "Thank you for your entry."
 msgstr "Bedankt voor je bericht."
 
-#: frontend/posthandling.php:316
+#: frontend/posthandling.php:333
 msgid "We will review it and unlock it in a short while."
 msgstr "We zullen het bekijken en binnenkort plaatsen."
 
-#: frontend/posthandling.php:350
+#: frontend/posthandling.php:383 frontend/posthandling.php:449
 msgid "New Guestbook Entry"
 msgstr "Nieuw Gastenboek Bericht"
 
