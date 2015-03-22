@@ -356,10 +356,26 @@ function gwolle_gb_frontend_posthandling() {
 			@ini_set('sendmail_from', get_bloginfo('admin_mail'));
 
 			// Set the Mail Content
-			$mailTags = array('user_email', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url');
+			$mailTags = array('user_email', 'user_name', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url');
 			$mail_body = stripslashes( get_option( 'gwolle_gb-adminMailContent' ) );
 			if (!$mail_body) {
-				$mail_body = __("Hello,\n\nThere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer", GWOLLE_GB_TEXTDOMAIN);
+				$mail_body = __("
+Hello,
+
+There is a new guestbook entry at '%blog_name%'.
+You can check it at %entry_management_url%.
+
+Have a nice day!
+Your Gwolle-GB-Mailer
+
+
+Website address: %blog_url%
+User name: %user_name%
+User email: %user_email%
+Entry content:
+%entry_content%
+"
+, GWOLLE_GB_TEXTDOMAIN);
 			}
 			// FIXME: use more content in the mailbody from the entry, like author_name, email, content
 
@@ -374,6 +390,7 @@ function gwolle_gb_frontend_posthandling() {
 			$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
 
 			// Replace the tags from the mailtemplate with real data from the website and entry
+			$info['user_name'] = $entry->get_author_name();
 			$info['blog_name'] = get_bloginfo('name');
 			$info['blog_url'] = get_bloginfo('wpurl');
 			$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';

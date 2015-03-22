@@ -337,6 +337,7 @@ Yes, it is again actively maintained.
 
 = 1.2.6 =
 * 2015-03-
+* Extend notification email.
 * Update ru_RU.
 
 = 1.2.5 =

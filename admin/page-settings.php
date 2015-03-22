@@ -906,16 +906,32 @@ function gwolle_gb_page_settings() {
 							<?php
 							$adminMailContent = get_option('gwolle_gb-adminMailContent', false);
 							if (!$adminMailContent) { // No text set by the user. Use the default text.
-								$mailText = __("Hello,\n\nThere is a new guestbook entry at '%blog_name%'.\nYou can check it at %entry_management_url%.\n\nHave a nice day!\nYour Gwolle-GB-Mailer", GWOLLE_GB_TEXTDOMAIN);
+								$mailText = __("
+Hello,
+
+There is a new guestbook entry at '%blog_name%'.
+You can check it at %entry_management_url%.
+
+Have a nice day!
+Your Gwolle-GB-Mailer
+
+
+Website address: %blog_url%
+User name: %user_name%
+User email: %user_email%
+Entry content:
+%entry_content%
+"
+, GWOLLE_GB_TEXTDOMAIN);
 							} else {
 								$mailText = stripslashes($adminMailContent);
 							} ?>
-							<textarea name="adminMailContent" id="adminMailContent" style="width:400px;height:200px;" class="regular-text"><?php echo $mailText; ?></textarea>
+							<textarea name="adminMailContent" id="adminMailContent" style="width:400px;height:300px;" class="regular-text"><?php echo $mailText; ?></textarea>
 							<br />
 							<span class="setting-description">
 								<?php _e('You can set the content of the mail that a notification subscriber gets on new entries. The following tags are supported:', GWOLLE_GB_TEXTDOMAIN);
 								echo '<br />';
-								$mailTags = array('user_email', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content');
+								$mailTags = array('user_email', 'user_name', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content');
 								for ($i = 0; $i < count($mailTags); $i++) {
 									if ($i != 0) {
 										echo '&nbsp;,&nbsp;';
