@@ -59,7 +59,8 @@ function gwolle_gb_adminmenu() {
 	// Admin page: admin/import.php
 	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Import', GWOLLE_GB_TEXTDOMAIN), __('Import', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/import.php', 'gwolle_gb_page_import' );
 
-	// FIXME: Admin page: admin/export.php
+	// Admin page: admin/export.php
+	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Export', GWOLLE_GB_TEXTDOMAIN), __('Export', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/export.php', 'gwolle_gb_page_export' );
 
 	// Load Admin CSS
 	wp_enqueue_style( 'gwolle-gb-css', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/style.css', false, GWOLLE_GB_VER, 'all' );
@@ -76,7 +77,7 @@ function gwolle_gb_adminmenu() {
 
 function gwolle_gb_links( $links, $file ) {
 	if ( $file == plugin_basename( dirname(__FILE__).'/gwolle-gb.php' ) ) {
-		$links[] = '<a href="' . admin_url( 'admin.php?page=gwolle-gb/settings.php' ) . '">'.__( 'Settings' ).'</a>';
+		$links[] = '<a href="' . admin_url( 'admin.php?page=gwolle-gb/settings.php' ) . '">'.__( 'Settings', GWOLLE_GB_TEXTDOMAIN ).'</a>';
 	}
 	return $links;
 }
@@ -105,21 +106,28 @@ function gwolle_gb_handle_post() {
 
 add_action( 'admin_init', 'gwolle_gb_register_settings' );
 function gwolle_gb_register_settings() {
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-adminMailContent',  'strval' );
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-admin_style',       'strval' ); // 'true'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-adminMailContent',  'strval' ); // empty by default
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-akismet-active',    'strval' ); // 'false'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-antispam-question', 'strval' ); // empty string
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-antispam-answer',   'strval' ); // empty string
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-authorMailContent', 'strval' ); // empty by default
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-entries_per_page',  'intval' ); // 20
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-entriesPerPage',    'intval' ); // 20
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-guestbookOnly',     'strval' ); // to delete
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-excerpt_length',    'intval' ); // 0
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-form',              'strval' ); // serialized Array, but initially empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-labels_float',      'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-linkAuthorWebsite', 'strval' ); // 'true'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-mail-from',         'strval' ); // empty string
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-mail_author',       'strval' ); // 'false'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-moderate-entries',  'strval' ); // 'true'
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-notifyByMail',      'strval' ); // array, but empty
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-recaptcha-active',  'strval' ); // 'false'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-notifyByMail',      'strval' ); // array, but initially empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-read',              'strval' ); // serialized Array, but initially empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-require_login',     'strval' ); // 'false'
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-showEntryIcons',    'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-showLineBreaks',    'strval' ); // 'false'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-showSmilies',       'strval' ); // 'true'
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-showEntryIcons',    'strval' ); // 'true'
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-defaultMailText',   'strval' );
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-entries_per_page',  'intval' ); // 20
-	register_setting( 'gwolle_gb_options', 'gwolle_gb_version',           'strval' ); // mind the underscore
-	register_setting( 'gwolle_gb_options', 'gwolle_gb-mail-from',         'strval' ); // empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb_version',           'strval' ); // string, mind the underscore
 }
 
 
@@ -135,12 +143,16 @@ function gwolle_gb_init() {
 }
 
 
-/* Load jQuery */
-function gwolle_gb_jquery() {
-	// load always
+/* Register styles and scripts. */
+function gwolle_gb_register() {
+
+	// Always load jQuery, it's just easier this way.
 	wp_enqueue_script('jquery');
+
+	// Register style for frontend. Load it later.
+	wp_register_style('gwolle_gb_frontend_css', plugins_url('frontend/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
 }
-add_action('wp_enqueue_scripts', 'gwolle_gb_jquery');
+add_action('wp_enqueue_scripts', 'gwolle_gb_register');
 
 
 /*

@@ -1,160 +1,196 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Gwolle-GB\n"
+"Project-Id-Version: Gwolle Guestbook v1.1.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-17 16:00+0100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Flobogo <mon.coin.de.bourgogne@gmail.com>\n"
-"Language-Team: \n"
-"Language: fr_FR\n"
+"POT-Creation-Date: 2015-03-13 21:29+0100\n"
+"PO-Revision-Date: 2015-03-17 11:29+0200\n"
+"Last-Translator: Timo Hintsa <timo.hintsa@gmail.com>\n"
+"Language-Team: Fi\n"
+"Language: fi_FI\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-KeywordsList: __;_e\n"
-"X-Poedit-Basepath: D:\\Wordpress\\MOSAIQUE\\plugins\\gwolle-gb.0.9.5\n"
-"X-Generator: Poedit 1.7.1\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Poedit 1.7.5\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
+"_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: actions.php:35 actions.php:36 frontend/widget.php:22
-#: frontend/widget.php:188
+# @ GWGB
+#: actions.php:35 actions.php:36 frontend/widget.php:21
+#: frontend/widget.php:143
 msgid "Guestbook"
-msgstr "Livre d'or"
+msgstr "Vieraskirja"
 
+# @ GWGB
 #: actions.php:46 actions.php:47 admin/page-settings.php:466
 #: admin/page-settings.php:674
 msgid "Entries"
-msgstr "Messages"
+msgstr "Viestit"
 
+# @ GWGB
 #. /editor.php
 #: actions.php:54
 msgid "Entry editor"
-msgstr "Editeur de message"
+msgstr "Editori"
 
+# @ GWGB
 #: actions.php:54 admin/page-gwolle-gb.php:85
 msgid "New entry"
-msgstr "Nouveau message"
+msgstr "Uusi viesti"
 
+# @ GWGB
+# @ default
 #. /settings.php
 #: actions.php:57 actions.php:80 admin/page-settings.php:230
 msgid "Settings"
-msgstr "Paramètres"
+msgstr "Asetukset"
 
+# @ GWGB
 #. /import.php
 #: actions.php:60
 msgid "Import"
-msgstr "Importer"
+msgstr "Tuonti"
 
+# @ GWGB
 #. /export.php
 #: actions.php:63
 msgid "Export"
-msgstr "Exporter"
+msgstr "Vienti"
 
+# @ GWGB
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
 #: frontend/read.php:226
 msgid "Edit entry"
-msgstr "Editer le message"
+msgstr "Muokkaa viestiä"
 
+# @ GWGB
 #: admin/dashboard-widget.php:116 admin/page-entries.php:675
 #: frontend/read.php:226
 msgid "Edit"
-msgstr "Editer"
+msgstr "Muokkaa"
 
+# @ GWGB
 #: admin/dashboard-widget.php:120 admin/page-editor.php:414
 #: admin/page-entries.php:678
 msgid "Check entry"
-msgstr "Vérifiez/cochez le message"
+msgstr "Hyväksy viesti"
 
+# @ GWGB
 #: admin/dashboard-widget.php:120 admin/page-editor.php:414
 #: admin/page-entries.php:678
 msgid "Check"
-msgstr "Vérifier/Cocher"
+msgstr "Hyväksy"
 
+# @ GWGB
 #: admin/dashboard-widget.php:124 admin/page-editor.php:417
 #: admin/page-entries.php:681
 msgid "Uncheck entry"
-msgstr "Dé-sélectionner le message"
+msgstr "Hylkää viesti"
 
+# @ GWGB
 #: admin/dashboard-widget.php:124 admin/page-editor.php:417
 #: admin/page-entries.php:681
 msgid "Uncheck"
-msgstr "Décocher"
+msgstr "Hylkää"
 
+# @ GWGB
 #: admin/dashboard-widget.php:128 admin/page-editor.php:420
 #: admin/page-entries.php:684
 msgid "Mark entry as spam."
-msgstr "Marquer le message comme Spam."
+msgstr "Merkitse viesti roskapostiksi."
 
+# @ GWGB
 #: admin/dashboard-widget.php:128 admin/page-editor.php:363
 #: admin/page-editor.php:420 admin/page-entries.php:422
 #: admin/page-entries.php:684
 msgid "Spam"
-msgstr "Spam"
+msgstr "Roskaposti"
 
+# @ GWGB
 #: admin/dashboard-widget.php:132 admin/page-editor.php:423
 #: admin/page-entries.php:687
 msgid "Mark entry as not-spam."
-msgstr "Marquer le message comme NON Spam"
+msgstr "Poista roskaposti-merkintä"
 
+# @ GWGB
 #: admin/dashboard-widget.php:132 admin/page-editor.php:423
 #: admin/page-entries.php:687
 msgid "Not spam"
-msgstr "PAS un Spam"
+msgstr "Hyväksytyt"
 
+# @ GWGB
 #: admin/dashboard-widget.php:136 admin/page-editor.php:426
 #: admin/page-entries.php:690
 msgid "Move entry to trash."
-msgstr "Mettre le message à la corbeille."
+msgstr "Siirrä viesti roskakoriin."
 
+# @ default
+# @ GWGB
 #: admin/dashboard-widget.php:136 admin/page-editor.php:373
 #: admin/page-editor.php:426 admin/page-entries.php:426
 #: admin/page-entries.php:690
 msgid "Trash"
-msgstr "Corbeille"
+msgstr "Roskakori"
 
+# @ GWGB
 #: admin/dashboard-widget.php:140 admin/page-editor.php:429
 #: admin/page-entries.php:693
 msgid "Recover entry from trash."
-msgstr "Restaurer depuis la corbeille."
+msgstr "Palauta viestit roskakorista."
 
+# @ default
 #: admin/dashboard-widget.php:140 admin/page-editor.php:429
 #: admin/page-entries.php:693
 msgid "Untrash"
-msgstr "Restaurer"
+msgstr "Palauta roskakorista"
 
+# @ GWGB
 #: admin/dashboard-widget.php:144 admin/page-editor.php:432
 #: admin/page-entries.php:696
 msgid "Please wait..."
-msgstr "Merci de patienter..."
+msgstr "Odota..."
 
+# @ default
 #: admin/dashboard-widget.php:144 admin/page-editor.php:432
 #: admin/page-entries.php:696
 msgid "Wait..."
-msgstr "Patientez..."
+msgstr "Odota..."
 
+# @ GWGB
 #: admin/dashboard-widget.php:155
 msgid "Refresh"
-msgstr "Rafraîchir"
+msgstr "Päivitä"
 
+# @ GWGB
 #: admin/dashboard-widget.php:156
 msgid "View all"
-msgstr "Voir tout"
+msgstr "Näytä kaikki"
 
+# @ GWGB
 #: admin/dashboard-widget.php:157
 msgid "View new"
-msgstr "Voir nouveauté"
+msgstr "Näytä uudet"
 
+# @ GWGB
 #: admin/dashboard-widget.php:160
 msgid "No new and unchecked guestbook entries."
-msgstr "Aucune nouveauté ni message non vérifié"
+msgstr "Ei uusia eikä tarkastamattomia viestejä."
 
+# @ GWGB
 #: admin/dashboard-widget.php:167
 msgid "Guestbook (new entries)"
-msgstr "Livre d'or (nouveaux messages)"
+msgstr "Vieraskirja (uusia viestejä)"
 
+# @ GWGB
 #: admin/installSplash.php:14
 msgid "Installation"
-msgstr "Installation"
+msgstr "Asennus"
 
+# @ GWGB
 #: admin/installSplash.php:20
 msgid ""
 "Welcome!<br>It seems that either you're using this plugin for the first time "
@@ -162,21 +198,21 @@ msgid ""
 "setup the database tables. Good for you, we've made this as easy as possible."
 "<br>All you've got to do is click on that button below, and that's it."
 msgstr ""
-"Bienvenue! <br>Il semble que, soit vous utilisez ce plugin pour la première "
-"fois, soit vous avez supprimé tous les paramètres. <br> Toutefois, pour "
-"utiliser ce plugin, nous devons configurer les tables de la base. Bon pour "
-"vous, nous avons fait cela aussi simple que possible. <br> Tout ce que vous "
-"avez à faire, c'est de cliquer sur ce bouton ci-dessous, et c'est tout."
+"Tervetuloa! <br>Näyttää siltä, että käytät lisäosaa ensimmäistä kertaa tai "
+"olet tuhonnut kaikki asetukset. Ei se haittaa, käyttääksi tätä lisäosaa "
+"meidän pitää luoda tietokantaan uudet taulut. Teimme se niin helpoksi kuin "
+"mahdollista.<br> Sinun ei tarvitse kuin klikata alla olevaa nappia, siinä "
+"kaikki."
 
+# @ GWGB
 #: admin/installSplash.php:26
 msgid "Sure, let's do this!"
-msgstr "Bien sûr, nous allons le faire !"
+msgstr "Luo taulut"
 
 #: admin/installSplash.php:33
 #, php-format
 msgid "Allright, we're done. <a href=\"%s\">Click here to continue...</a>"
-msgstr ""
-"OK, nous avons terminé. <a href=\"%s\">Cliquez ici pour continuer ...  </a>"
+msgstr "Ok, kaikki valmista. <a href=\"%s\">Tästä eteenpäin...</a>"
 
 #: admin/installSplash.php:35
 #, php-format
@@ -184,73 +220,88 @@ msgid ""
 "It looks like there has been an error. <a href=\"%s\">Click here to "
 "continue...</a>"
 msgstr ""
-"Il semble qu'il a eu une erreur. <a href=\"%s\">Cliquez ici pour "
-"continuer ...  </a>"
+"Näyttää siltä että on tapantunut virhe. <a href=\"%s\">Klikkaa tästä "
+"jatkaaksesi....</a>"
 
+# @ default
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
 #: admin/page-gwolle-gb.php:278 admin/page-import.php:24
 #: admin/page-settings.php:15
-#, fuzzy
 msgid "Cheatin&#8217; uh?"
-msgstr "Triché  ?"
+msgstr "Huijaatko?"
 
+# @ GWGB
 #: admin/page-editor.php:26
 msgid "Edit guestbook entry"
-msgstr "Modifier un message du livre d'or"
+msgstr "Muokkaa vieraskirjan viestejä"
 
+# @ GWGB
 #: admin/page-editor.php:39
 msgid "Entry could not be found."
-msgstr "Le message n'a pas pu être trouvé."
+msgstr "Viestiä ei löytynyt"
 
+# @ GWGB
 #: admin/page-editor.php:41
 msgid "Guestbook entry (error)"
-msgstr "Message du livvre d'or (erreur)"
+msgstr "Vieraskirjan viesti (virhe)"
 
+# @ GWGB
 #: admin/page-editor.php:44
 msgid "New guestbook entry"
-msgstr "Nouveau message du livre d'or"
+msgstr "Uusi viesti"
 
+# @ GWGB
 #: admin/page-editor.php:54
 msgid "Something strange happened."
-msgstr "Quelque chose d'imprévu s'est passé."
+msgstr "Jotakin outua tapahtui."
 
+# @ GWGB
 #: admin/page-editor.php:82
 msgid "Submitted as Spam to the Akismet service."
-msgstr "Soumis en tant que spam par le service Akismet."
+msgstr "Viesti merkittiin roskapostiksi ja lähetettiin Akismet-palveluun."
 
+# @ GWGB
 #: admin/page-editor.php:91
 msgid "Submitted as Ham to the Akismet service."
-msgstr "Soumis en tant que faux positif par le service Akismet."
+msgstr "Viesti merkittiin Hamiksi ja lähetettiin Akismet-palveluun."
 
+# @ GWGB
 #: admin/page-editor.php:140 admin/page-gwolle-gb.php:354
 #: admin/page-settings.php:236
 msgid "Changes saved."
-msgstr "Modifications enregistrées."
+msgstr "Muutokset tallennettu."
 
+# @ GWGB
 #: admin/page-editor.php:142 admin/page-editor.php:234
 msgid "Error happened during saving."
-msgstr "Une erreur s'est produite pendant l'enregistrement."
+msgstr "Tallennuksessa tapahtui virhe."
 
+# @ GWGB
 #: admin/page-editor.php:146
 msgid "Entry was not changed."
-msgstr "Le message n'a pas été modifié."
+msgstr "Viestiä ei muutettu."
 
+# @ GWGB
 #: admin/page-editor.php:157
 msgid "Entry removed."
-msgstr "Message supprimé."
+msgstr "Viesti poistettu."
 
+# @ GWGB
 #: admin/page-editor.php:200
 msgid "Entry has no content, even though that is mandatory."
-msgstr "Le message est vide, un contenu est obligatoire."
+msgstr "Viestissä ei ole sisältöä."
 
+# @ GWGB
 #: admin/page-editor.php:232
 msgid "Entry saved."
-msgstr "Message sauvegardé."
+msgstr "Viesti tallennettu."
 
+# @ GWGB
 #: admin/page-editor.php:238
 msgid "Entry was not saved."
-msgstr "Le message n'a pas été sauvegardé."
+msgstr "Viestiä ei tallennettu."
 
+# @ GWGB
 #: admin/page-editor.php:311 admin/page-editor.php:404
 #: admin/page-editor.php:448 admin/page-editor.php:503
 #: admin/page-editor.php:538 admin/page-editor.php:549
@@ -258,90 +309,110 @@ msgstr "Le message n'a pas été sauvegardé."
 #: admin/page-import.php:324 admin/page-import.php:391
 #: admin/page-import.php:460
 msgid "Click to open or close"
-msgstr "Cliquez pour ouvrir ou fermer"
+msgstr "Klikkaa avataksesi tai sulkeaksesi"
 
+# @ GWGB
 #: admin/page-editor.php:311
 msgid "Options"
-msgstr "Options"
+msgstr "Asetukset"
 
+# @ GWGB
 #: admin/page-editor.php:332
 msgid "This entry is not yet visible."
-msgstr "Ce message n'est pas encore publié."
+msgstr "Tämä viesti ei ole vielä näkyvissä."
 
+# @ GWGB
 #: admin/page-editor.php:336 admin/page-editor.php:341
 msgid "This entry is Visible."
-msgstr "Ce message est visible."
+msgstr "Tämä viesti on näkyvillä."
 
+# @ GWGB
 #: admin/page-editor.php:337 admin/page-editor.php:342
 msgid "This entry is Not Visible."
-msgstr "Ce message n'est pas visible."
+msgstr "Tämä viesti ei ole näkyvissä."
 
+# @ GWGB
 #: admin/page-editor.php:353
 msgid "Checked"
-msgstr "Vérifié"
+msgstr "Hyväksytty"
 
+# @ GWGB
 #: admin/page-editor.php:381
 msgid "Remove this entry Permanently."
-msgstr "Supprimer définitivement le message"
+msgstr "Poista tämä viesti lopullisesti."
 
+# @ GWGB
 #: admin/page-editor.php:392
 msgid "Save"
-msgstr "Enregistrer"
+msgstr "Tallenna"
 
+# @ GWGB
 #: admin/page-editor.php:404
 msgid "Actions"
-msgstr "Actions"
+msgstr "Toiminnot"
 
+# @ GWGB
 #: admin/page-editor.php:448
 msgid "Details"
-msgstr "Détails"
+msgstr "Lisätiedot"
 
+# @ GWGB
 #: admin/page-editor.php:452 admin/page-entries.php:546
 #: admin/page-entries.php:562
 msgid "Author"
-msgstr "Auteur"
+msgstr "Nimi"
 
+# @ GWGB
 #: admin/page-editor.php:456 admin/page-editor.php:464
 #: admin/page-editor.php:485 admin/page-editor.php:493
 #: functions/function.log.php:164
 msgid "Unknown"
-msgstr "inconnu"
+msgstr "Ei tiedossa"
 
+# @ GWGB
 #: admin/page-editor.php:460
 msgid "E-Mail"
-msgstr "E-Mail"
+msgstr "Sähköposti"
 
+# @ GWGB
 #: admin/page-editor.php:469 admin/page-editor.php:513
 msgid "Written"
-msgstr "Écrit"
+msgstr "kirjoitettu"
 
+# @ GWGB
 #: admin/page-editor.php:474
 msgid "Not yet"
-msgstr "Pas encore"
+msgstr "Ei vielä"
 
+# @ GWGB
 #: admin/page-editor.php:478
 msgid "Author's IP-address"
-msgstr "IP de l'auteur"
+msgstr "Kirjoittajan IP-osoite"
 
+# @ GWGB
 #: admin/page-editor.php:481
 msgid "Whois search for this IP"
-msgstr "recherche Whois pour cette IP"
+msgstr "Whois-haku tälle IP-osoitteelle"
 
+# @ GWGB
 #: admin/page-editor.php:489
 msgid "Host"
-msgstr "Hôte"
+msgstr "Domain"
 
+# @ GWGB
 #: admin/page-editor.php:503
 msgid "Entry log"
-msgstr "Log des messages"
+msgstr "Viestiloki"
 
+# @ GWGB
 #: admin/page-editor.php:522
 msgid "No log yet."
-msgstr "Aucun journal pour l'instant."
+msgstr "Ei viestejä."
 
+# @ GWGB
 #: admin/page-editor.php:538 frontend/write.php:195
 msgid "Guestbook entry"
-msgstr "Message du livre d'or"
+msgstr "Viesti"
 
 #: admin/page-editor.php:543
 #, php-format
@@ -349,366 +420,447 @@ msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
 msgstr ""
-"Les sauts de ligne ne seront pas visibles pour le visiteur en raison de vos "
-"<a href=\"%s\">réglages</a>."
+"Rivinvaihdot ei ole näkyvissä vieraskirjan lukijoille. Ks <a href=\"%s"
+"\">asetukset</a>"
 
 #: admin/page-editor.php:549 admin/page-settings.php:363
 #: frontend/write.php:176 frontend/write.php:183
 msgid "Website"
-msgstr "Site web"
+msgstr "Nettisivu"
 
+# @ GWGB
 #: admin/page-editor.php:552
 msgid "Example: <code>http://www.example.com/</code>"
-msgstr "Exemple : <code>http://www.exemple.com/</code>"
+msgstr "Esimerkki: <code>http://www.esimerkki.com</code>"
 
+# @ GWGB
 #: admin/page-editor.php:557 admin/page-export.php:55
 msgid "Origin"
-msgstr "Origine"
+msgstr "Lähde"
 
+# @ GWGB
 #: admin/page-entries.php:209
 msgid "entry checked."
-msgstr "message vérifié."
+msgstr "viesti tarkastettu."
 
+# @ GWGB
 #: admin/page-entries.php:211
 msgid "entries checked."
-msgstr "Messages vérifiés."
+msgstr "viestejä tarkastettu."
 
+# @ GWGB
 #: admin/page-entries.php:213
 msgid "No entries checked."
-msgstr "Aucun message vérifié."
+msgstr "Yhtään viestiä ei ole tarkastettu."
 
+# @ GWGB
 #: admin/page-entries.php:217
 msgid "entry unchecked."
-msgstr "Message non vérifié."
+msgstr "tarkastamaton viesti."
 
+# @ GWGB
 #: admin/page-entries.php:219
 msgid "entries unchecked."
-msgstr "Messages non vérifiés."
+msgstr "tarkastamatonta viestiä."
 
+# @ GWGB
 #: admin/page-entries.php:221
 msgid "No entries unchecked."
-msgstr "Aucun message non vérifié."
+msgstr "Ei tarkastamattomia viestejä."
 
+# @ GWGB
 #: admin/page-entries.php:225
 msgid ""
 "entry marked as spam and submitted to Akismet as spam (if Akismet was "
 "enabled)."
 msgstr ""
-"message marqué comme spam et envoyé à Akismet comme spam (si Akismet est "
-"activé)."
+"viesti merkittiin roskapostiksi ja lähetettiin Akismet-palveluun (jos "
+"Akismet on käytössä)."
 
+# @ GWGB
 #: admin/page-entries.php:227
 msgid ""
 "entries marked as spam and submitted to Akismet as spam (if Akismet was "
 "enabled)."
 msgstr ""
-"Message marqués comme spam et soumis à Akismet comme spam (si Akismet est "
-"activé)."
+"viestit merkittiin roskaposteiksi ja lähetettiin Akismet-palveluun (jos "
+"Akismet on käytössä).\t"
 
+# @ GWGB
 #: admin/page-entries.php:229
 msgid "No entries marked as spam."
-msgstr "Aucun message marqué comme spam."
+msgstr "Yhtään viestiä ei ole merkitty roskapostiksi."
 
+# @ GWGB
 #: admin/page-entries.php:233
 msgid ""
 "entry marked as not spam and submitted to Akismet as ham (if Akismet was "
 "enabled)."
 msgstr ""
-"Message marqué valide et soumis à akismet comme valide (si akismet est "
-"activé)."
+"viesti merkittiin ei-roskapostiksi ja lähettiin Akismet-palveluun Ham-"
+"merkattuna (jos Akismet on käytössä)."
 
+# @ GWGB
 #: admin/page-entries.php:235
 msgid ""
 "entries marked as not spam and submitted to Akismet as ham (if Akismet was "
 "enabled)."
 msgstr ""
-"messages marqués comme valides et soumis à Akismet comme valides (si akismet "
-"est activé)."
+"viestit merkittiin ei-roskapostiksi ja lähettiin Akismet-palveluun Ham-"
+"merkattuna (jos Akismet on käytössä)."
 
+# @ GWGB
 #: admin/page-entries.php:237
 msgid "No entries marked as not spam."
-msgstr "Aucun message marqué comme spam."
+msgstr "Ei viestejä merkitty ei-roskapostiksi."
 
+# @ GWGB
 #: admin/page-entries.php:241
 msgid "entry considered spam and marked as such."
-msgstr "Message considéré comme un spam et marqué en tant que tel."
+msgstr "viesti tulkittiin roskapostiksi ja merkittiin"
 
+# @ GWGB
 #: admin/page-entries.php:243
 msgid "entries considered spam and marked as such."
-msgstr "messages considérés comme spam et marqués comme tels."
+msgstr "viestit tulkittiin roskapostiksi ja merkittiin."
 
+# @ GWGB
 #: admin/page-entries.php:246
 msgid "entry not considered spam and marked as such."
-msgstr "message valide et marqué en tant que tel."
+msgstr "viestiä ei tulkittu roskapostiksi."
 
+# @ GWGB
 #: admin/page-entries.php:248
 msgid "entries not considered spam and marked as such."
-msgstr "messages valides et marqués en tant que tels."
+msgstr "viestejä ei tulkittu roskaposteiksi."
 
+# @ GWGB
 #: admin/page-entries.php:251
 msgid "entry already considered spam and not changed."
-msgstr "message déjà considéré comme un spam et pas modifié."
+msgstr "viesti oli jo tulkittu roskapostiksi, eikä sitä muutettu."
 
+# @ GWGB
 #: admin/page-entries.php:253
 msgid "entries already considered spam and not changed."
-msgstr "messages déjà considérés comme des spams et pas modifiés."
+msgstr "viestit oli jo tulkittu roskaposteiksi, eikä niitä muutettu."
 
+# @ GWGB
 #: admin/page-entries.php:256
 msgid "entry already considered not spam and not changed."
-msgstr "message déjà considéré comme spam et non modifié."
+msgstr "viesti tulkittiin oikeaksi, eikä sitä muutettu"
 
+# @ GWGB
 #: admin/page-entries.php:258
 msgid "entries already considered not spam and not changed."
-msgstr "messages déjà considérés comme spam et non modifiés."
+msgstr "viestittulkittiin oikeiksi, eikä niitä muutettu."
 
+# @ GWGB
 #: admin/page-entries.php:262
 msgid "entry moved to trash."
-msgstr "message déplacé dans la corbeille."
+msgstr "viesti siirrettiin roskakoriin."
 
+# @ GWGB
 #: admin/page-entries.php:264
 msgid "entries moved to trash."
-msgstr "messages déplacés dans la corbeille."
+msgstr "viestiä siirrettiin roskakoriin."
 
+# @ GWGB
 #: admin/page-entries.php:266
 msgid "No entries moved to trash."
-msgstr "Aucun messages déplacés dans la corbeille."
+msgstr "Roskakoriin ei siirretty yhtään viestiä."
 
+# @ GWGB
 #: admin/page-entries.php:270
 msgid "entry recovered from trash."
-msgstr "message restauré depuis la corbeille."
+msgstr "viesti palautettiin roskakorista."
 
+# @ GWGB
 #: admin/page-entries.php:272
 msgid "entries recovered from trash."
-msgstr "messages restaurés depuis la corbeille."
+msgstr "viestiä palautettiin roskakorista."
 
+# @ GWGB
 #: admin/page-entries.php:274
 msgid "No entries recovered from trash."
-msgstr "Aucun message restauré depuis la corbeille."
+msgstr "Roskakorista ei palautettu yhtään viestiä."
 
+# @ GWGB
 #: admin/page-entries.php:278
 msgid "entry removed permanently."
-msgstr "message supprimé définitivement."
+msgstr "viesti poistettiin lopullisesti."
 
+# @ GWGB
 #: admin/page-entries.php:280
 msgid "entries removed permanently."
-msgstr "messages supprimés définitivement."
+msgstr "viestiä poistettiin lopullisesti."
 
+# @ GWGB
 #: admin/page-entries.php:282
 msgid "No entries permanently removed."
-msgstr "Aucun message supprimé définitivement."
+msgstr "Yhtään viestiä ei poistettu lopullisesti."
 
+# @ GWGB
 #: admin/page-entries.php:314
 msgid "Please activate Akismet if you want to battle spam."
-msgstr "Merci d'activer Akismet pour lutter contre le spam."
+msgstr "Ole hyvä ja aktivoi Akismet jos haluat estää roskapostin."
 
+# @ GWGB
 #: admin/page-entries.php:387
 msgid "Guestbook entries"
-msgstr "Messages du livre d'or"
+msgstr "Vieraskirjan viestit"
 
+# @ GWGB
 #: admin/page-entries.php:409
 msgid "All"
-msgstr "Tous"
+msgstr "Kaikki"
 
+# @ GWGB
 #: admin/page-entries.php:414
 msgid "Unlocked"
-msgstr "Déverrouillé"
+msgstr "Avoinna"
 
+# @ GWGB
 #: admin/page-entries.php:418
 msgid "New"
-msgstr "Nouveau"
+msgstr "Uudet"
 
+# @ GWGB
 #: admin/page-entries.php:433
 msgid "Mass edit actions"
-msgstr "Actions d'éditions des lignes"
+msgstr "Toiminnot useille viesteille"
 
+# @ GWGB
 #: admin/page-entries.php:436
 msgid "Recover from trash"
-msgstr "Restaurer depuis la corbeille"
+msgstr "Palauta roskakorista"
 
+# @ GWGB
 #: admin/page-entries.php:437 admin/page-entries.php:454
 msgid "Remove permanently"
-msgstr "Supprimez définitivement"
+msgstr "Poista lopullisesti"
 
+# @ GWGB
 #: admin/page-entries.php:440
 msgid "Mark as checked"
-msgstr "Marquer comme vérifié"
+msgstr "Merkitse tarkastetuksi"
 
+# @ GWGB
 #: admin/page-entries.php:443
 msgid "Mark as not checked"
-msgstr "Marquer comme non vérifié"
+msgstr "Merkitse tarkistamattomaksi"
 
+# @ GWGB
 #: admin/page-entries.php:446
 msgid "Mark as spam"
-msgstr "Marquer comme spam"
+msgstr "Merkitse roskapostiksi"
 
+# @ GWGB
 #: admin/page-entries.php:448
 msgid "Mark as not spam"
-msgstr "Marquer comme non spam"
+msgstr "Merkitse ei-roskapostiksi"
 
+# @ GWGB
 #: admin/page-entries.php:450
 msgid "Check with Akismet"
-msgstr "Vérifier avec Akismet"
+msgstr "Tarkista Akismet-palvelussa"
 
+# @ GWGB
 #: admin/page-entries.php:452
 msgid "Move to trash"
-msgstr "Déplacer dans la corbeille"
+msgstr "Siirrä roskakoriin"
 
+# @ GWGB
 #: admin/page-entries.php:459
 msgid "Apply"
-msgstr "Appliquer"
+msgstr "Ota käyttöön"
 
+# @ GWGB
 #: admin/page-entries.php:471
 msgid "Showing:"
-msgstr "Montrer :"
+msgstr "Näytetään:"
 
+# @ GWGB
 #: admin/page-entries.php:472
 msgid "of"
-msgstr "de"
+msgstr " /"
 
+# @ GWGB
 #: admin/page-entries.php:539 admin/page-entries.php:555
 msgid "ID"
 msgstr "ID"
 
+# @ GWGB
 #: admin/page-entries.php:545 admin/page-entries.php:561
 #: admin/page-settings.php:600
 msgid "Date"
-msgstr "Date"
+msgstr "Pvm"
 
+# @ GWGB
 #: admin/page-entries.php:547 admin/page-entries.php:563
 msgid "Entry (excerpt)"
-msgstr "Message (extrait)"
+msgstr "Viesti (selite)"
 
+# @ GWGB
 #: admin/page-entries.php:548 admin/page-entries.php:564
 msgid "Action"
-msgstr "Action"
+msgstr "Toiminto"
 
+# @ GWGB
 #: admin/page-entries.php:577
 msgid "No entries found."
-msgstr "Aucune message trouvé."
+msgstr "Yhtään viestiä ei löytynyt."
 
+# @ GWGB
 #: admin/page-export.php:27
 msgid "Export guestbook entries."
-msgstr "Exporter les messages du livre d'or."
+msgstr "Vie vieraskirjan viestit."
 
+# @ GWGB
 #: admin/page-export.php:40
 msgid "Export guestbook entries from Gwolle-GB"
-msgstr "Exporter le livre d'or de Gwolle-GB"
+msgstr "Vie vieraskirjan viestit tiedostoon."
 
 #: admin/page-export.php:46
 #, php-format
 msgid "%d entries were found and will be exported."
-msgstr "%d messages ont été trouvés et seront exportés."
+msgstr "%d viestiä löydettiin ja viedään tiedostoon."
 
+# @ GWGB
 #: admin/page-export.php:49
 msgid "The exporter will preserve the following data per entry:"
-msgstr "L'export conservera les données suivantes pour chaque message : "
+msgstr "Vienti-toiminto tallentaa seuraavat tiedot:"
 
+# @ GWGB
 #: admin/page-export.php:52 admin/page-import.php:358
 #: admin/page-import.php:399 admin/page-settings.php:300
 #: admin/page-settings.php:557 frontend/write.php:119 frontend/write.php:126
 msgid "Name"
-msgstr "Nom"
+msgstr "Nimi"
 
+# @ GWGB
 #: admin/page-export.php:53 admin/page-import.php:359
 #: admin/page-import.php:401
 msgid "E-Mail address"
-msgstr "Adresse E-Mail"
+msgstr "Sähköpostiosoite"
 
+# @ GWGB
 #: admin/page-export.php:54 admin/page-import.php:360
 #: admin/page-import.php:402
 msgid "URL/Website"
-msgstr "URL/Site Web"
+msgstr "URL/Nettisivu"
 
+# @ GWGB
 #: admin/page-export.php:56 admin/page-import.php:361
 #: admin/page-import.php:403
 msgid "Date of the entry"
-msgstr "Date du message"
+msgstr "Viestin kirjoitusaika"
 
+# @ GWGB
 #: admin/page-export.php:57 admin/page-import.php:362
 #: admin/page-import.php:404
 msgid "IP address"
-msgstr "Adresse IP"
+msgstr "IP osoite"
 
+# @ GWGB
 #: admin/page-export.php:58
 msgid "Host address"
-msgstr "Adresse de l'hôte"
+msgstr "IP-osoite"
 
+# @ GWGB
 #: admin/page-export.php:59 admin/page-import.php:363
 #: admin/page-import.php:405 admin/page-settings.php:384
 #: admin/page-settings.php:920
 msgid "Message"
-msgstr "Message"
+msgstr "Viesti"
 
+# @ GWGB
 #: admin/page-export.php:60 admin/page-import.php:365
 msgid "\"is checked\" flag"
-msgstr "signalé comme \"est cochée\" "
+msgstr "\"tarkastettu\" lippu"
 
+# @ GWGB
 #: admin/page-export.php:61 admin/page-import.php:364
 msgid "\"is spam\" flag"
-msgstr "signalé comme \"est un spam\""
+msgstr "\"roskaposti\" lippu"
 
+# @ GWGB
 #: admin/page-export.php:62
 msgid "\"is trash\" flag"
-msgstr "marqué \"est en corbeille\""
+msgstr "\"roska\" lippu"
 
+# @ GWGB
 #: admin/page-export.php:64
 msgid "The exporter does not delete any data, so your data will still be here."
 msgstr ""
-"L'export ne supprime aucune donnée, donc votre livre d'or sera toujours "
-"présent."
+"Vienti-toiminto ei poista dataa, joten vieraskirjan viestit pysyvät täällä "
+"tallessa."
 
+# @ GWGB
 #: admin/page-export.php:70
 msgid "Export all entries from this website."
-msgstr "Exporter tous les messages de ce site web."
+msgstr "Vie vieraskirjan kaikki merkinnät tiedostoon."
 
+# @ GWGB
 #: admin/page-export.php:74
 msgid "Start export"
-msgstr "Commencer l'export"
+msgstr "Aloita vienti"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:34
 msgid "Overview"
-msgstr "Présentation"
+msgstr "Yleiskatsaus"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:48
 msgid "Entry total"
-msgstr "Total Message"
+msgstr "Viestejä yhteensä"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:51
 msgid "Entries total"
-msgstr "Total des Messages"
+msgstr "Viestit yhteensä"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:67
 msgid "Unlocked entry"
-msgstr "Message déverrouillé"
+msgstr "Lukitsematon viesti"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:69
 msgid "Unlocked entries"
-msgstr "Messages déverrouillés"
+msgstr "Lukitsemattomat viestit"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:87
 msgid "New entries"
-msgstr "Nouveaux messages"
+msgstr "Uudet viestit"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:103
 msgid "Spam entry"
-msgstr "Message Spam"
+msgstr "Roskaviesti"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:105
 msgid "Spam entries"
-msgstr "Messages Spam"
+msgstr "Roskaviestit"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:121
 msgid "Trashed entry"
-msgstr "Message dans la corbeille"
+msgstr "Roskattu viesti"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:123
 msgid "Trashed entries"
-msgstr "Messages dans la corbeille"
+msgstr "Roskatut viestit"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:136
 msgid "Write admin entry"
-msgstr "Ecrire un message en tant qu'admin"
+msgstr "Kirjoita viesti ylläpidolta"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:149
 msgid ""
 "Sorry, but the function <code>mail()</code> required to notify you by mail "
@@ -716,396 +868,445 @@ msgid ""
 "WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can "
 "contact your hosting provider to change this."
 msgstr ""
-"Désolé, la fonction <code>mail()</code> requise pour envoyer des mails n'est "
-"pas activée dans votre configuration PHP. Vous pouvez corriger cela ou "
-"installer un plugin WP qui utilise un serveur SMTP à la place. Sinon vous "
-"pouvez contacter votre hébergeur pour changer cela."
+"Valitettavasti sähköpostiviestien lähettämiseen tarvittava <code>mail()</"
+"code> funktio ei ole käytössä PHP konfiguraatiossa. Voit halutessasi asentaa "
+"Wordpress lisäosan, joka käyttää SMTP protokollaa <code>mail()</code> "
+"funktion sijaan. Voit myös ottaa yhteyttä palvelimen ylläpitäjään "
+"muuttaaksesi asetusta."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:175
 msgid "Send me an e-mail when a new entry has been posted."
-msgstr "Envoyer un e-mail dès qu'un nouveau message a été publié."
+msgstr "Lähetä sähköpostia uuden viestin saapuessa vieraskirjaan."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:177
 msgid "Save setting"
-msgstr "Sauvegarder les paramètres"
+msgstr "Tallenna asetukset"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:182
 msgid "The following users have subscribed to this service:"
-msgstr "Les utilisateurs suivants ont souscrit à ce service :"
+msgstr "Seuraavat käyttäjät ovat tilanneet tämän palvelun:"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:194 functions/function.log.php:173
 msgid "You"
-msgstr "Vous"
+msgstr "Sinä"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:203
 msgid "No subscriber yet"
-msgstr "Aucun souscripteur pour l'instant"
+msgstr "Ei tilaajia"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:215
 msgid "Icons by"
-msgstr "Les icônes par"
+msgstr "Kuvakkeet tarjosi"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:223
 msgid "This is how you can get your guestbook displayed on your website:"
-msgstr "Voici comment vous pouvez afficher le livre d'or sur votre site :"
+msgstr "Näin saat vieraskirjan näkymään sivuillasi:"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:225
 msgid "Create a new page."
-msgstr "Créer une nouvelle page"
+msgstr "Luo uusi sivu."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:226
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
 msgstr ""
-"Choisissez un titre et insérer &quot;[gwolle_gb]&quot; (sans guillemet) dans "
-"le contenu."
+"Valitse sivun nimi ja kirjoita &quot;[gwolle_gb]&quot; (ilman "
+"lainausmerkkejä) sisältö-kenttään."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:227
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
 msgstr ""
-"Nous vous conseillons de désactiver les commentaires sur cette page ; les "
-"visiteurs pourraient les confondre avec le livre d'or."
+"On ehkä hyvä idea poistaa kommentointi vieraskirja-sivulta, muuten "
+"vierailijat saattavat hämmentyä."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:234
 msgid "These entries will be visible for your visitors:"
-msgstr "Ces messages seront visibles par vos visiteurs :"
+msgstr "Nämä viestit näkyvät vierailijoille:"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:236
 msgid "Marked as Checked."
-msgstr "Marqué comme Vérifié"
+msgstr "Merkitty tarkistetuksi."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:237
 msgid "Not marked as Spam."
-msgstr "PAS Marqué comme Spam"
+msgstr "Ei ole merkitty roskapostiksi."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:238
 msgid "Not marked as Trash."
-msgstr "PAS mis à la corbeille"
+msgstr "Ei ole merkitty roskakoriin."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:242
 msgid "The Main Menu counter counts the following entries:"
-msgstr "Le compteur du menu principal dénombre les messages suivants "
+msgstr "Tämän sivun laskuri laskee seuraavat viestit:"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:244
 msgid "Marked as Unchecked (You might want to moderate them)."
-msgstr "Marqué(s) comme NON Vérifié (à modérer)."
+msgstr "Merkitty tarkastamattomaksi (haluat ehkä tarkistaa viestit)."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:245
 msgid "Not marked as Spam (You might want to check them)."
-msgstr "PAS marqué comme Spam (vérifiez-les)."
+msgstr "Ei merkattu roskapostiksi (Saatat haluta tarkistaa viestit)."
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:246
 msgid "Not marked as Trash (You decide what goes to the trash)."
-msgstr "Pas marqué comme Trash (décidez s'il va à la corbeille)."
+msgstr "Ei merkitty roskatuksi (SInä päätät mitä siirretään roskiin)."
 
 #: admin/page-gwolle-gb.php:255
 msgid "Donate to the EFF."
-msgstr "Donner à la EFF."
+msgstr "Lahjoita EFF:lle."
 
 #: admin/page-gwolle-gb.php:259
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
 msgstr ""
-"L'Electronic Frontier Foundation est l'une des rares organisations qui veut "
-"garder l'Internet libre."
+"Electronic Frontier Foundation on yksi harvoista organisaatioista, jotka "
+"haluavat pitää internetin vapaana."
 
 #: admin/page-gwolle-gb.php:260
 msgid "Please donate to the EFF."
-msgstr "S'il vous plaît, donnez pour la EFF."
+msgstr "Lahjoita EFF:lle."
 
 #: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:269
 msgid "Donate to the maintainer."
-msgstr "Faire un don au mainteneur."
+msgstr "Lahjoita pluginin ylläpitäjälle."
 
 #: admin/page-gwolle-gb.php:268
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through PayPal."
 msgstr ""
-"Si vous souhaitez plutôt faire un don au mainteneur du plugin, vous pouvez "
-"faire un don via PayPal."
+"Jos haluat lahjoittaa pluginin ylläpitäjälle voit tehdä sen PayPalin kautta."
 
 #: admin/page-gwolle-gb.php:269
 msgid "Donate through PayPal to"
-msgstr "Faire un don par PayPal à"
+msgstr "Lahjoita PayPalissa käyttäjälle"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
-msgstr "Bienvenue sur le livre d'or !"
+msgstr "Tervetuloa vieraskirjaan!"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:339
 msgid "E-mail Notifications"
-msgstr "Notifications par e-mail"
+msgstr "Sähköposti-ilmoitukset"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:340
 msgid "This plugin uses the following scripts/programs/images:"
-msgstr "Ce plugin utilise les scripts / programmes / images suivants :"
+msgstr "Tämä lisäosa käyttää seuraavia skriptejä/ohjelmia/kuvia:"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:341 admin/page-gwolle-gb.php:342
 msgid "Help"
-msgstr "Aider"
+msgstr "Apua"
 
 #: admin/page-gwolle-gb.php:343
 msgid "Donate"
-msgstr "Faire un don"
+msgstr "Lahjoita"
 
+# @ GWGB
 #: admin/page-gwolle-gb.php:348
 msgid "Gwolle Guestbook"
-msgstr "Livre d'or Gwolle (Gwolle GuestBook)"
+msgstr "Gwolle-vieraskirja"
 
+# @ GWGB
 #: admin/page-import.php:88
 msgid ""
 "I'm sorry, but I wasn't able to import entries from DMSGuestbook "
 "successfully."
-msgstr ""
-"Je suis navré, je n'ai pas réussi à importer les messages provenant de "
-"DMSGuestbook."
+msgstr "Valitan, viestin siirto DMSGuestbookista epäonnistui."
 
+# @ GWGB
 #: admin/page-import.php:90
 msgid "1 entry imported successfully from DMSGuestbook."
-msgstr "1 message importé de DMSGuestbook."
+msgstr "DMSGuestbookista onnistuttiin tuomaan  1 viesti."
 
 #: admin/page-import.php:92
 #, php-format
 msgid "%d entries imported successfully from DMSGuestbook."
-msgstr "%d messages importés avec succès depuis DMSGuestbook."
+msgstr "DMSGuestbookista onnistuttiin tuomaan  %d viestiä."
 
+# @ GWGB
 #: admin/page-import.php:96
 msgid ""
 "<strong>Nothing to import.</strong> The guestbook you've chosen does not "
 "contain any entries."
 msgstr ""
-"<strong>Rien à importer.</strong> Le livre d'or que vous avez choisi ne "
-"contient pas de message."
+"<strong>Ei mitään siirrettävää.</strong> Valitsemasi vieraskirja ei sisällä "
+"viestejä."
 
+# @ GWGB
 #: admin/page-import.php:101
 msgid "I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook."
-msgstr "Désolé, je n'ai pas trouvé la table MySQL de DMSGuestbook."
+msgstr "Valitan, mutta DSMGuestbookin tietokantataulua ei löytynyt."
 
+# @ GWGB
 #: admin/page-import.php:106 admin/page-import.php:168
 msgid "You haven't chosen a guestbook. Please select one and try again."
 msgstr ""
-"Vous n'avez pas choisi de livre d'or. S'il vous plaît sélectionnez en un et "
-"essayez à nouveau."
+"Et ole valinnut vieraskirjaa. Ole hyvä, valitse yksi ja kokeile uudestaan."
 
+# @ GWGB
 #: admin/page-import.php:151
 msgid ""
 "I'm sorry, but I wasn't able to import comments from that page successfully."
-msgstr "Désolé, je n'ai pas réussi à importer les commentaires de cette page."
+msgstr "Valitan, mutta kommentien siirto ko. sivulta epäonnistui."
 
+# @ GWGB
 #: admin/page-import.php:153
 msgid "1 entry imported successfully from WordPress comments."
-msgstr "1 message importé des commentaires Wordpress."
+msgstr "Wordpressin kommenteista siirrettiin 1 viesti."
 
 #: admin/page-import.php:155
 #, php-format
 msgid "%d entries imported successfully from WordPress comments."
-msgstr "%d messages importés avec succès depuis les commentaires WordPress."
+msgstr "Wordpressin kommenteista siirrettiin %d viestiä."
 
+# @ GWGB
 #: admin/page-import.php:159
 msgid ""
 "<strong>Nothing to import.</strong> The page you've chosen does not have any "
 "comments."
 msgstr ""
-"<strong>Il n'y a rien à importer.</strong> La page que vous avez choisie n'a "
-"pas de commentaire."
+"<strong>Ei mitään siirrettävää.</strong> Valitsemasi sivu ei sisällä yhtään "
+"kommenttia."
 
+# @ GWGB
 #: admin/page-import.php:163
 msgid "You haven't chosen a page. Please select one and try again."
-msgstr ""
-"Vous n'avez pas choisi de page. Merci d'en sélectionner une et d'essayer à "
-"nouveau."
+msgstr "Et ole valinnut sivua, Ole hyvä,  valitse yksi ja kokeile uudelleen."
 
+# @ GWGB
 #: admin/page-import.php:181
 msgid "Your filesize is too large."
-msgstr "Fichier trop volumineux."
+msgstr "Tiedosto on liian suuri."
 
+# @ GWGB
 #: admin/page-import.php:202
 msgid "Invalid file format."
-msgstr "Format de fichier invalide."
+msgstr "Tunnistamaton tiedostomuoto."
 
+# @ GWGB
 #: admin/page-import.php:227
 msgid ""
 "It seems your CSV file is from an export that is not compatible with this "
 "version of Gwolle-GB."
 msgstr ""
-"Il semble que votre fichier CSV provienne d'un export qui n'est pas "
-"compatible avec cette version de Gwolle-GB."
+"Näyttää siltä että CSV-tiedosto ei ole yhteensopiva Gwolle-GB:n kanssa."
 
+# @ GWGB
 #: admin/page-import.php:236 admin/page-import.php:270
 msgid "Your data seems to be corrupt. Import failed."
-msgstr "Vos données semblent corrompues. L'import a échoué."
+msgstr "Data näyttää olevan korruptoitunut. Tietojen tuonti epäonnistui."
 
+# @ GWGB
 #: admin/page-import.php:279
 msgid "I'm sorry, but I wasn't able to import entries from the CSV file."
-msgstr "Désolé, je n'arrive pas à importer les messages de ce fichier CSV."
+msgstr "Valitan, mutta tietojen tuonti CSV-tiedostosta epäonnistui."
 
+# @ GWGB
 #: admin/page-import.php:281
 msgid "1 entry imported successfully from the CSV file."
-msgstr "1 message importé avec succès du fichier CSV."
+msgstr "CSV-tiedostosta tuontiin 1 viesti."
 
 #: admin/page-import.php:283
 #, php-format
 msgid "%d entries imported successfully from the CSV file."
-msgstr "%d messages importés avec succès depuis le fichier CSV."
+msgstr "CSV-tiedostosta tuotiin %d viestiä."
 
+# @ GWGB
 #: admin/page-import.php:292
 msgid "Your upload triggered the following error:"
-msgstr "Votre envoi a renvoyé l'erreur suivante : "
+msgstr "Tiedoston lataaminen palvelimelle aiheutti seuraavan virheen:"
 
+# @ GWGB
 #: admin/page-import.php:305
 msgid "Import guestbook entries."
-msgstr "Importer les messages du livre d'or."
+msgstr "Tuo vieraskirjaan viestejä."
 
+# @ GWGB
 #: admin/page-import.php:324
 msgid "Import guestbook entries from DMSGuestbook"
-msgstr "Importer des messages du livre d'or venant de DMSGuestbook"
+msgstr "Tuo viestejä DMSGuestbookista"
 
 #: admin/page-import.php:353
 #, php-format
 msgid "%d entries were found and will be imported."
-msgstr "%d messages ont été trouvés et seront importés"
+msgstr "Löydettin %d viestiä ja tuodaan ne vieraskirjaan."
 
+# @ GWGB
 #: admin/page-import.php:356 admin/page-import.php:397
 msgid "The importer will preserve the following data per entry:"
-msgstr "L'importation préservera les données suivantes pour chaque message : "
+msgstr "Tuonti-toiminto tallentaa seuraavat datat viesteistä:"
 
+# @ GWGB
 #: admin/page-import.php:367 admin/page-import.php:408
 msgid ""
 "However, data such as HTML formatting is not supported by Gwolle-GB and "
 "<strong>will not</strong> be imported."
 msgstr ""
-"Toutefois, les données telles que du format HTML ne sont pas compatibles "
-"avec Gwolle-GB et <strong> ne seront pas importées</strong>."
+"Gwolle-GB ei tue dataa kuten HTML-kieltä, <strong>eikä sitä tuoda</strong> "
+"vieraskirjaan."
 
+# @ GWGB
 #: admin/page-import.php:369 admin/page-import.php:410
 msgid ""
 "The importer does not delete any data, so you can go back whenever you want."
 msgstr ""
-"L'import ne supprime aucune donnée, vous pourrez recommencer quand bon vous "
-"semble."
+"Tuonti-toiminto ei tuhoa dataa, joten voit peruuttaa toiminnon milloin "
+"haluat."
 
+# @ GWGB
 #: admin/page-import.php:375
 msgid "Import all entries from DMSGuestbook."
-msgstr "Importer tous les messages de DMSGuestbook."
+msgstr "Tuo kaikki viestit DMSGuestbookista."
 
+# @ GWGB
 #: admin/page-import.php:379 admin/page-import.php:452
 #: admin/page-import.php:471
 msgid "Start import"
-msgstr "Commencer l'importation"
+msgstr "Aloita tietojen siirto"
 
+# @ GWGB
 #: admin/page-import.php:382
 msgid "DMSGuestbook was not found."
-msgstr "DMSGuestbook n'a pas été trouvé."
+msgstr "DMSGuestbookia ei löytynyt."
 
+# @ GWGB
 #: admin/page-import.php:391
 msgid "Import guestbook entries from WordPress comments"
-msgstr "Importer les messages du livre d'or depuis les commentaires WordPress"
+msgstr "Tuo kaikki viestit Wordpressin kommenteista"
 
+# @ GWGB
 #: admin/page-import.php:400
 msgid "User ID"
-msgstr "ID d'utilisateur"
+msgstr "Käyttäjä ID"
 
+# @ GWGB
 #: admin/page-import.php:406
 msgid "\"approved\" status"
-msgstr "statut \"approuvé\""
+msgstr "\"hyväksytty\" tila"
 
+# @ GWGB
 #: admin/page-import.php:413
 msgid "Select a page to import the comments from:"
-msgstr ""
-"Sélectionnez une page à partir de laquelle importer les commentaires : "
+msgstr "Valitse sivu josta haluat tuoda kommentit:"
 
+# @ GWGB
 #: admin/page-import.php:415
 msgid "Select"
-msgstr "Sélectionnez"
+msgstr "Valitse"
 
+# @ GWGB
 #: admin/page-import.php:431
 msgid "No Comments"
-msgstr "Aucun commentaire"
+msgstr "Ei kommentteja"
 
+# @ GWGB
 #: admin/page-import.php:433
 msgid " Comments"
-msgstr "Commentaires"
+msgstr "Kommentit"
 
+# @ GWGB
 #: admin/page-import.php:435
 msgid "1 Comment"
-msgstr "1 commentaire"
+msgstr "1 kommentti"
 
+# @ GWGB
 #: admin/page-import.php:448
 msgid "Import all entries from this page."
-msgstr "Importer tous les message de cette page."
+msgstr "Tuo kaikki viestit tältä sivulta."
 
+# @ GWGB
 #: admin/page-import.php:460
 msgid "Import guestbook entries from Gwolle-GB"
-msgstr "Importer les messages du livre d'or depuis Gwolle-GB"
+msgstr "Tuo kaikki viestit Gwolle-GB:stä"
 
+# @ GWGB
 #: admin/page-import.php:466
 msgid "Select a CSV file with exported entries to import again:"
-msgstr ""
-"Sélectionnez un fichier CSV avec les messages exportés pour importer de "
-"nouveau : "
+msgstr "Valitse CSV-tiedosto joka sisältää viestit ja tuo:"
 
 #: admin/page-settings.php:243
 msgid "Form"
-msgstr "Formulaire"
+msgstr "Lomake"
 
 #: admin/page-settings.php:244
 msgid "Reading"
-msgstr "Lecture"
+msgstr "Lukeminen"
 
 #: admin/page-settings.php:245
 msgid "Admin"
-msgstr "Admin"
+msgstr "Ylläpito"
 
+# @ GWGB
 #: admin/page-settings.php:246 frontend/write.php:224 frontend/write.php:255
 msgid "Anti-spam"
-msgstr "Anti-spam"
+msgstr "Roskapostin torjunta"
 
 #: admin/page-settings.php:247
 msgid "E-mail"
-msgstr "E-mail"
+msgstr "Sähköposti"
 
+# @ GWGB
 #: admin/page-settings.php:248 admin/page-settings.php:935
 msgid "Uninstall"
-msgstr "Désinstaller"
+msgstr "Asennuksen poisto"
 
 #: admin/page-settings.php:261
 msgid "Require Login"
-msgstr "Besoin de Login"
+msgstr "Vaadi kirjautuminen"
 
 #: admin/page-settings.php:268
 msgid "Require user to be logged in."
-msgstr "Nécessite que les utilisateurs soit connectés"
+msgstr "Vaadi, että käyttäjä on kirjautunut."
 
 #: admin/page-settings.php:270
 msgid "Only allow logged-in users to add a guestbook entry."
-msgstr ""
-"Autoriser uniquement les utilisateurs inscrits à ajouter un message dans le "
-"livre d'or."
+msgstr "Salli viestin jättäminen vain kirjautuneille käyttäjille."
 
 #: admin/page-settings.php:275
 msgid "Labels float"
-msgstr "Etiquettes flottantes"
+msgstr "Kentän otsikon sijainti"
 
 #: admin/page-settings.php:282
 msgid "Labels in the form float to the left."
-msgstr "Etiquettes du formulaire flottantes sur la gauche"
+msgstr "Otsikot vasemmalla."
 
 #: admin/page-settings.php:284
 msgid ""
 "Labels in the form float to the left. Otherwise the labels will be above the "
 "input-fields."
 msgstr ""
-"Etiquettes du formulaire flottantes à gauche. Sinon, les étiquettes seront "
-"au-dessus des champs de saisie."
+"Otsikot kenttien vasemmalla puolella. Muussa tapauksessa otsikot sijoittuvat "
+"kentän yläpuolelle."
 
 #: admin/page-settings.php:296
 msgid "Configure the form that is shown to visitors."
-msgstr "Configurer le formulaire qui est montré aux visiteurs."
+msgstr "Määrittele lomake, joka näytetään kävijöille."
 
 #: admin/page-settings.php:307 admin/page-settings.php:328
 #: admin/page-settings.php:349 admin/page-settings.php:370
@@ -1115,117 +1316,121 @@ msgstr "Configurer le formulaire qui est montré aux visiteurs."
 #: admin/page-settings.php:592 admin/page-settings.php:607
 #: admin/page-settings.php:622 admin/page-settings.php:636
 msgid "Enabled"
-msgstr "Autorisé"
+msgstr "Käytössä"
 
 #: admin/page-settings.php:315 admin/page-settings.php:336
 #: admin/page-settings.php:357 admin/page-settings.php:378
 #: admin/page-settings.php:399
 msgid "Mandatory"
-msgstr "Obligatoire"
+msgstr "Pakollinen"
 
+# @ GWGB
 #: admin/page-settings.php:321 admin/page-settings.php:571
 #: frontend/write.php:138 frontend/write.php:145
 msgid "City"
-msgstr "Ville"
+msgstr "Paikkakunta"
 
+# @ GWGB
 #: admin/page-settings.php:342 frontend/write.php:157 frontend/write.php:164
 msgid "Email"
-msgstr "E-mail"
+msgstr "Sähköpostiosoite"
 
 #: admin/page-settings.php:405
 msgid "Custom Anti-spam"
-msgstr "Anti-spam personnalisé"
+msgstr "Anti-spam"
 
 #: admin/page-settings.php:415 admin/page-settings.php:431
 msgid "When enabled it is mandatory."
-msgstr "Quant autorisé, c'est obligatoire"
+msgstr "Pakollinen kun päällä."
 
 #: admin/page-settings.php:421 admin/page-settings.php:955
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
+# @ GWGB
 #: admin/page-settings.php:437 admin/page-settings.php:645
 #: admin/page-settings.php:701 admin/page-settings.php:834
 #: admin/page-settings.php:899
 msgid "Save settings"
-msgstr "Enregistrer les paramètres"
+msgstr "Tallenna asetukset"
 
+# @ GWGB
 #: admin/page-settings.php:456
 msgid "Entries per page on the frontend"
-msgstr "Message par page sur le frontend"
+msgstr "Viestejä/sivu vieraskirjassa"
 
+# @ GWGB
 #: admin/page-settings.php:471
 msgid "Number of entries shown on the frontend."
-msgstr "Nombre de messages affichés sur le frontend"
+msgstr "Näytettävien viestien lukumäärä vieraskirjassa."
 
 #: admin/page-settings.php:477
 msgid "Line breaks"
-msgstr "Coupure de ligne"
+msgstr "Rivinvaihdot"
 
+# @ GWGB
 #: admin/page-settings.php:484
 msgid "Show line breaks."
-msgstr "Afficher les sauts de ligne."
+msgstr "Näytä rivinvaihdot."
 
+# @ GWGB
 #: admin/page-settings.php:486
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
 msgstr ""
-"Montrer les sauts de ligne tels que l'auteur les a entrés. (Peut affichez "
-"des messages très longs. Désactivé par défaut.)"
+"Näytä rivinvaihdot kuten viestin kirjoittaja kirjoitti ne. (Saattaa "
+"aiheuttaa todella pitkiä viestejä. Tämä on poissa käytössä oletuksena.)"
 
 #: admin/page-settings.php:492
 msgid "Smileys"
-msgstr "Smileys"
+msgstr "Hymiöt"
 
 #: admin/page-settings.php:499
 msgid "Display smileys as images."
-msgstr "Afficher les smileys comme des images."
+msgstr "Näytä hymiöt kuvina."
 
 #: admin/page-settings.php:501
 #, php-format
 msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smileys."
-msgstr ""
-"Remplace les smileys dans une entrée comme :) par leur image %s. Utilise les "
-"smileys WP de remplacement, alors vérifiez ceci si vous voulez ajouter de "
-"nouveaux/plus de smileys."
+msgstr "Korvaa hymiöt, kuten :) niiden kuvilla %s. Käyttää WP hymiönvaihtajaa."
 
 #: admin/page-settings.php:507
 msgid "Links"
-msgstr "Liens"
+msgstr "Linkit"
 
+# @ GWGB
 #: admin/page-settings.php:514
 msgid "Link authors' name to their website."
-msgstr "Affiche le lien du site de l'auteur sur son nom."
+msgstr "Linkki kirjoittajan nimestä heidän kotisivuilleen."
 
+# @ GWGB
 #: admin/page-settings.php:516
 msgid ""
 "The author of an entry can set his/her website. If this setting is checked, "
 "his/her name will be a link to that website."
 msgstr ""
-"L'auteur du message peut renseigner son site web. Si ce paramètre est coché, "
-"son nom sera le lien vers son site web."
+"Viestin kirjoittaja voi syöttää kotisivun osoitteen. Jos tämä asetus on "
+"käytössä, niin nimi muodostaa linkin tälle kotisivulle. "
 
 #: admin/page-settings.php:522
 msgid "Admin Entry Styling"
-msgstr "Style des messages de l'Admin"
+msgstr "Ylläpitäjän viestityyli"
 
 #: admin/page-settings.php:529
 msgid "Admin entries get a special CSS styling."
-msgstr "Les messages de l'Admin utilisent un style CSS spécial."
+msgstr "Ylläpitäjien viestit saavat erillisen CSS tyylin."
 
 #: admin/page-settings.php:531
 msgid ""
 "Admin entries get a special CSS styling. It will get a lightgrey background."
-msgstr ""
-"Les messages de l'Admin utilisent un style CSS spécial. Ils obtiendront un "
-"fond gris clair."
+msgstr "Ylläpitäjien viestit saavat erillisen CSS tyylin, harmaan taustan."
 
 #: admin/page-settings.php:539
 msgid "Configure the parts of the entries that are shown to visitors."
-msgstr "Configurer les parties des entrées qui sont montrées aux visiteurs."
+msgstr "Määrittele kävijöille näkyvät viestinosat."
 
 #: admin/page-settings.php:544
 msgid "Avatar"
@@ -1233,101 +1438,107 @@ msgstr "Avatar"
 
 #: admin/page-settings.php:585
 msgid "Date and Time"
-msgstr "Jour et heure"
+msgstr "Päivämäärä ja aika"
 
 #: admin/page-settings.php:593
 msgid "Setting this will show the date and the time of the entry."
-msgstr "Ce réglage affichera la date et l'heure du message."
+msgstr "Asettamalla tämän viestin aika ja paikka näkyy."
 
 #: admin/page-settings.php:608
 msgid ""
 "Setting this will show the date of the entry. If Date and Time above are "
 "enabled, that setting has preference."
 msgstr ""
-"Ce réglage affichera la date du message. Si date et heure sont autorisés ci-"
-"dessus, ce réglage a la préférence."
+"Asettamalla tämän viestin aika ja paikka näkyy. Jos päivämäärä ja aika -"
+"asetus on päällä se on voimassa tämän sijaan."
 
 #: admin/page-settings.php:615
 msgid "Content"
-msgstr "Contenu"
+msgstr "Sisältö"
 
 #: admin/page-settings.php:629
 msgid "Edit link"
-msgstr "lien d'édition"
+msgstr "Muokkauslinkki"
 
 #: admin/page-settings.php:637
 msgid ""
 "A link to the editor will be added to the content. Only visible for "
 "moderators."
-msgstr ""
-"Un lien vers l'éditeur sera ajouté au contenu. Visible seulement pour les "
-"modérateurs."
+msgstr "Muokkauslinkki näytetään sisällön kanssa. Näkyy vain ylläpitäjille."
 
+# @ GWGB
 #: admin/page-settings.php:664
 msgid "Entries per page in the admin"
-msgstr "Messages par page dans le panneau d'administration"
+msgstr "Viestejä per sivu vieraskirjan hallintasivulla"
 
+# @ GWGB
 #: admin/page-settings.php:679
 msgid "Number of entries shown in the admin."
-msgstr "Nombre de messages affichés sur le panneau d'administration"
+msgstr "Näytettävien viestien lukumäärä vieraskirjan hallintasivulla."
 
+# @ GWGB
 #: admin/page-settings.php:685
 msgid "Entry icons"
-msgstr "Icône de message"
+msgstr "Viestikuvakkeet"
 
+# @ GWGB
 #: admin/page-settings.php:691
 msgid "Show entry icons"
-msgstr "Afficher les icônes de messages"
+msgstr "Näytä kaikki viestikuvakkeet"
 
+# @ GWGB
 #: admin/page-settings.php:693
 msgid ""
 "These icons are shown in every entry row of the admin list, so that you know "
 "its status (checked, spam and trash)."
 msgstr ""
-"Ces icônes apparaissent sur chaque ligne de message de votre liste "
-"d'administration afin que vous connaissiez son statut (vérifié, spam ou "
-"corbeille)."
+"Näitä kuvakkeita käytetään viestilistauksessa, joten näet viestin tilan "
+"(tarkistettu, roskapostia ja tuhottava)."
 
+# @ GWGB
 #: admin/page-settings.php:720
 msgid "Moderate Guestbook"
-msgstr "Modéré Livre d'or"
+msgstr "Hallitse vieraskirjaa"
 
+# @ GWGB
 #: admin/page-settings.php:728
 msgid "Moderate entries before publishing them."
-msgstr "Modérer les messages avant de les publier."
+msgstr "Tarkista viestit ennen niiden julkaisua vieraskirjassa."
 
+# @ GWGB
 #: admin/page-settings.php:732
 msgid ""
 "New entries have to be unlocked by a moderator before they are visible to "
 "the public."
-msgstr ""
-"Les nouveaux messages doivent être déverrouillés par un modérateur avant "
-"qu'ils ne soient visibles par le public."
+msgstr "Uudet viestit tarkistetaan ylläpidon toimesta ennen julkaisua."
 
+# @ GWGB
 #: admin/page-settings.php:734
 msgid ""
 "It is recommended that you turn this on, because you are responsible for the "
 "content on your website."
 msgstr ""
-"Il est recommandé d'activer cette option, parce que vous êtes responsable du "
-"contenu de votre site web."
+"On suositeltavaa asettaa tämä käyttöön, koska olet vastuussa sivujesi "
+"sisällöstä."
 
+# @ GWGB
 #: admin/page-settings.php:745
 msgid "Learn more about Akismet..."
-msgstr "En savoir plus sur Akismet ..."
+msgstr "Lue lisää Akismetista..."
 
+# @ GWGB
 #: admin/page-settings.php:745 admin/page-settings.php:803
 msgid "What's that?"
-msgstr "Qu'est-ce que c'est?"
+msgstr "Mitä tämä on?"
 
+# @ GWGB
 #: admin/page-settings.php:755
 msgid ""
 "Akismet helps you to fight spam. It's free and easy to install. Download and "
 "install it today to stop spam in your guestbook."
 msgstr ""
-"Akismet vous aide à lutter contre le spam. Il est gratuit et facile à "
-"installer. Téléchargez et installez-le dès aujourd'hui pour arrêter le spam "
-"dans vos commentaires."
+"Akismet auttaa roskapostin torjumisessa. Se on ilmainen ja helppo asentaa. "
+"Lataa ja asenna se tänään ja estä roskapostin ilmestyminen vieraskirjaasi."
 
 #: admin/page-settings.php:758
 #, php-format
@@ -1335,33 +1546,33 @@ msgid ""
 "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
 "can enter it at the <a href=\"%s\">Akismet configuration page</a>."
 msgstr ""
-"Désolés, nous n'avons pas été capables de localiser votre <strong>clé API "
-"WordPress</strong>. Vous pouvez l'indiquer dans la <a href=\"%s\">page de "
-"configuration Akismet</a>."
+"<strong>WordPress API avainta</strong> ei löytynyt. Voit syöttää sen <a href="
+"\"%s\">Akismetin asetussivulla</a>."
 
+# @ GWGB
 #: admin/page-settings.php:767
 msgid "Use Akismet"
-msgstr "Utilisez Akismet"
+msgstr "Käytä Akismetia"
 
+# @ GWGB
 #: admin/page-settings.php:769
 msgid ""
 "The WordPress API key has been found, so you can start using Akismet right "
 "now."
 msgstr ""
-"La clé d'API Wordpress a été trouvée, vous pouvez commencer à utiliser "
-"Akismet."
+"Wordpress API -avain on löydetty, joten voit alkaa käyttää Akismetia heti."
 
 #: admin/page-settings.php:781
 msgid "Custom Anti-Spam Security Question"
-msgstr "Question anti-spam personnalisée"
+msgstr "Turvakysymys"
 
 #: admin/page-settings.php:784
 msgid "12 + six ="
-msgstr "12 + six ="
+msgstr "12 + kuusi ="
 
 #: admin/page-settings.php:785
 msgid "Custom security question to battle spam."
-msgstr "Question de sécurité personnalisée pour combattre le spam."
+msgstr "Turvakysymys"
 
 #: admin/page-settings.php:787
 msgid "18"
@@ -1369,40 +1580,47 @@ msgstr "18"
 
 #: admin/page-settings.php:788
 msgid "The answer to your security question."
-msgstr "La réponse à votre question anti-spam personnalisée"
+msgstr "Vastaus turvakysymykseen."
 
 #: admin/page-settings.php:790
 msgid ""
 "You can ask your visitors to answer a custom security question, so only real "
 "people can post an entry."
 msgstr ""
-"Vous pouvez poser à vos visiteurs une question anti-spam personnalisée, "
-"ainsi seuls les vraies personnes pourront poster un message."
+"Voit pyytää kävijöitä vastaamaan turvakysymykseen, jotta vain oikeat ihmiset "
+"voivat jättää viestejä."
 
+# @ GWGB
 #: admin/page-settings.php:803
 msgid "Learn more about reCAPTCHA..."
-msgstr "En savoir plus sur reCAPTCHA..."
+msgstr "Lue lisää reCAPTCHA:sta..."
 
+# @ GWGB
 #: admin/page-settings.php:814
 msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
-msgstr "<strong>clé publique du site </strong> key of your reCAPTCHA account"
+msgstr "reCAPTCHA-tilisi <strong>Site (Public)</strong> -avain"
 
+# @ GWGB
 #: admin/page-settings.php:817
 msgid "<strong>Secret</strong> key of your reCAPTCHA account"
-msgstr "<strong>clé secrète</strong> de votre compte reCAPTCHA"
+msgstr "reCAPTCHA-tilisi <strong>Secret</strong> -avain"
 
+# @ GWGB
 #: admin/page-settings.php:819
 msgid "The keys can be found at your"
-msgstr "Obtenir une clé sur"
+msgstr "Avaimet löydät "
 
+# @ GWGB
 #: admin/page-settings.php:819
 msgid "Go to my reCAPTCHA sites..."
-msgstr "aller vers mes sites reCAPTCHA ..."
+msgstr "Siirry reCAPTCHA sivuillesi..."
 
+# @ GWGB
 #: admin/page-settings.php:819
 msgid "reCAPTCHA sites overview"
-msgstr "le site reCAPTCHA"
+msgstr "reCAPTCHA sivujen yleiskatsaus"
 
+# @ GWGB
 #: admin/page-settings.php:823
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
@@ -1410,25 +1628,26 @@ msgid ""
 "loaded, and the found one will be used instead. This might give unexpected "
 "results."
 msgstr ""
-"<strong>Attention : </strong>Apparemment vous utilisez déjà une librairie "
-"reCAPTCHA dans votre thème ou sur l'un de vos plugins. La librairie "
-"reCAPTCHA dans Gwolle-GB ne sera pas chargée, celle qui a été trouvée sera "
-"utilisée à la place. Ceci peut entraîner des résultats inattendus."
+"<strong>Varoitus:</strong>Ilmeisesti käytät jo reCAPTCHA-kirjastoa "
+"teemassasi tai toisessa lisäosassa. reCAPTCHA kirjastoa Gwolle-GB "
+"asennuspolusta ei ladata, vaan käytetään löydettyä polkua. Tämä saattaa "
+"aiheuttaa ongelmia."
 
+# @ GWGB
 #: admin/page-settings.php:825
 msgid ""
 "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
 "your theme or another plugin. However, this is an old and incompatible "
 "version, so reCAPTCHA will not be used for Gwolle-GB."
 msgstr ""
-"<strong>Attention : </strong>Apparemment vous utilisez déjà une librairie "
-"reCAPTCHA dans votre thème ou sur l'un de vos plugins. Toutefois, il s'agit "
-"d'une ancienne version incompatible, reCAPTCHA ne sera pas utilisé pour "
-"Gwolle-GB."
+"<strong>Varoitus:</strong>Ilmeisesti käytät jo reCAPTCHA-kirjastoa "
+"teemassasi tai toisessa lisäosassa. Löydetty reCAPTCHA kirjasto on kuitenkin "
+"vanhentunut, eikä sitä käytetä Gwolle-GB:ssa."
 
+# @ GWGB
 #: admin/page-settings.php:853
 msgid "Admin mail content"
-msgstr "Contenu du mail à l'administrateur"
+msgstr "Ylläpitoviestin sisältö"
 
 #: admin/page-settings.php:858 frontend/posthandling.php:345
 msgid ""
@@ -1440,261 +1659,278 @@ msgid ""
 "Have a nice day!\n"
 "Your Gwolle-GB-Mailer"
 msgstr ""
-"Bonjour,\n"
+"Hei,\n"
 "\n"
-"Il y a un nouveau message dans le livre d'or de '%blog_name%'.\n"
-"Vous pouvez vérifier cela à %entry_management_url%.\n"
+"Vieraskirjaan '%blog_name%' jätettiin viesti.\n"
+"Voit tarkistaa sen osoitteessa %entry_management_url%.\n"
 "\n"
-"Bonne journée !\n"
-"Votre logiciel de messagerie Gwolle-GB"
+"Terveisin, \n"
+"Gwolle-GB vieraskirjasi"
 
+# @ GWGB
 #: admin/page-settings.php:865
 msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
 msgstr ""
-"Vous pouvez personnaliser le contenu du mail de notification pour un nouveau "
-"message. Les tags suivants sont supportés :"
+"Voit kirjoittaa viestin sisällön sähköposti-ilmoitukseen, jonka tilaajat "
+"saavat uudesta viestistä vieraskirjassa. Seuraavien tagien käyttöä tuetaan: "
 
+# @ GWGB
 #: admin/page-settings.php:881
 msgid "Admin mail from address"
-msgstr "E-mail utilisé comme expéditeur"
+msgstr "Ylläpitoviestin lähettäjän osoite"
 
+# @ GWGB
 #: admin/page-settings.php:887
 msgid ""
 "You can set the email address that is used for the From header of the mail "
 "that a notification subscriber gets on new entries."
 msgstr ""
-"Vous pouvez définir l'adresse e-mail utilisée pour l'expéditeur du mail "
-"qu'un nouveau souscripteur reçoit pour les nouveaux messages."
+"Voit asettaa sähköpostiosoitteen jota käytetään From-kentässä "
+"sähköpostiviestiä, jonka tilaajat saavat uudesta viestistä."
 
+# @ GWGB
 #: admin/page-settings.php:889
 msgid "By default the main admin address is used from General >> Settings."
 msgstr ""
-"Par défaut l'adresse principale de l'administration est celle des réglages "
-"de wordpress."
+"Oletuksena käytetään osoitetta joka on asetettu kohdassa Yleistä  >> "
+"Asetukset"
 
 #: admin/page-settings.php:923
 msgid "The entries and settings have been removed."
-msgstr "Ces messages et les réglages ont été supprimés."
+msgstr "Viestit ja asetukset on poistettu."
 
 #: admin/page-settings.php:924
 msgid "The plugin is deactivated."
-msgstr "Le plugin a été désactivé."
+msgstr "Plugin on deaktivoitu."
 
 #: admin/page-settings.php:925
 msgid "You can now go to your"
-msgstr "Vous pouvez maintenant aller à votre"
+msgstr "Voit nyt mennä"
 
 #: admin/page-settings.php:925
 msgid "dashboard."
-msgstr "tableau de bord."
+msgstr "ohjauspaneeliin."
 
+# @ GWGB
 #: admin/page-settings.php:937
 msgid ""
 "Uninstalling means that all database entries are removed (settings and "
 "entries)."
 msgstr ""
-"Désinstallation signifie que toutes les entrées de la base de données sont "
-"supprimées (les réglages et messages)."
+"Asennuksen poisto tarkoittaa, että kaikki asetukset ja viestit tietokannasta "
+"poistetaan."
 
+# @ GWGB
 #: admin/page-settings.php:939
 msgid "This can <strong>not</strong> be undone."
-msgstr "L'action ne pourra <strong>pas</ strong> être annulée."
+msgstr "Tätä toimintoa <strong>ei voi kumota</strong>."
 
 #: admin/page-settings.php:946
 msgid "Confirm"
-msgstr "Confirmer"
+msgstr "Varmista"
 
+# @ GWGB
 #: admin/page-settings.php:949
 msgid "Yes, I'm absolutely sure of this. Proceed!"
-msgstr "Oui, je suis absolument certain de cela. Procéder !"
+msgstr "Kyllä, olen aivan varma. Jatka!"
 
 #: admin/page-settings.php:958
 msgid "Also delete the reCAPTCHA keys"
-msgstr "Supprimer également les clés reCAPTCHA"
+msgstr "Poista myös reCAPTCHA avaimet"
 
+# @ GWGB
 #: admin/page-settings.php:966
 msgid "Uninstall &raquo;"
-msgstr "Désinstaller &raquo;"
+msgstr "Asennuksen poisto &raquo;"
 
 #: frontend/posthandling.php:39
 msgid "Submitting a new guestbook entry is only allowed for logged-in users."
-msgstr ""
-"Soumettre une nouvelle entrée dans le livre d'or n'est autorisé que pour les "
-"utilisateurs inscrits."
+msgstr "Viestin jättäminen on sallittu vain kirjautuneille käyttäjille."
 
+# @ GWGB
 #: frontend/posthandling.php:203 frontend/posthandling.php:246
 msgid "There were errors submitting your guestbook entry."
-msgstr ""
-"Des erreurs se sont produites lors de la soumission de votre message dans le "
-"livre d'or."
+msgstr "Jättämässäsi viestissä löytyi virheitä"
 
 #: frontend/posthandling.php:209
 msgid "Your name is not filled in, even though it is mandatory."
-msgstr "Votre nom n'est pas indiqué, pourtant c'est obligatoire."
+msgstr "Nimeä ei ole syötetty, vaikka se on pakollinen."
 
 #: frontend/posthandling.php:212
 msgid "Your origin is not filled in, even though it is mandatory."
-msgstr "Votre origine n'est pas indiquée, pourtant c'est obligatoire."
+msgstr "Paikkakuntaa ei olla syotetty, vaikka se on pakollinen."
 
 #: frontend/posthandling.php:215
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
-msgstr ""
-"Votre adresse e-mail n'est pas indiquée correctement, pourtant c'est "
-"obligatoire."
+msgstr "Sähköpostiosoite ei ole syötetty oikein, vaikka se on pakollinen."
 
 #: frontend/posthandling.php:218
 msgid "Your website is not filled in, even though it is mandatory."
-msgstr "Votre site web n'est pas indiqué, pourtant c'est obligatoire."
+msgstr "Nettisivua ei olla syötetty, vaikka se on pakollinen."
 
 #: frontend/posthandling.php:221
 msgid "There is no message, even though it is mandatory."
-msgstr "Il n'y a pas de message, pourtant c'est obligatoire."
+msgstr "Viestiä ei ole, vaikka se on pakollinen."
 
 #: frontend/posthandling.php:224
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
-msgstr ""
-"La question anti-spam n'est pas correctement remplie, pourtant c'est "
-"obligatoire."
+msgstr "Turvakysymykseen ei ole vastattu oikein, vaikka se on pakollinen."
 
 #: frontend/posthandling.php:227
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
-msgstr ""
-"Le reCAPTCHA n'est pas correctement indiqué, pourtant c'est obligatoire."
+msgstr "reCAPTCHAa ei ole täytetty oikein, vaikka se on pakollinen."
 
+# @ GWGB
 #: frontend/posthandling.php:298
 msgid "Double post: An entry with the data you entered has already been saved."
-msgstr ""
-"Double détecté : un message avec les mêmes données a déjà été sauvegardé."
+msgstr "Tuplaposti: Lähettämäsi viesti on jo tallennettu."
 
+# @ GWGB
 #: frontend/posthandling.php:314
 msgid "Thank you for your entry."
-msgstr "Merci pour votre message !"
+msgstr "Kiitos viestistä."
 
+# @ GWGB
 #: frontend/posthandling.php:316
 msgid "We will review it and unlock it in a short while."
-msgstr "Nous allons réviser et dé-verrouiller cela dans un court moment."
+msgstr "Viestisi tarkistetaan ennen julkaisua vieraskirjassa."
 
+# @ GWGB
 #: frontend/posthandling.php:350
 msgid "New Guestbook Entry"
-msgstr "Nouveau message sur le livre d'or"
+msgstr "Uusi vieraskirjan viesti"
 
+# @ GWGB
 #: frontend/read.php:79
 msgid "Previous page"
-msgstr "Page précédente"
+msgstr "Edellinen sivu"
 
+# @ GWGB
 #: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
 #: frontend/read.php:121 frontend/read.php:132
 msgid "Page"
-msgstr "Page"
+msgstr "Sivu"
 
+# @ GWGB
 #: frontend/read.php:103 frontend/read.php:133
 msgid "Next page"
-msgstr "Page suivante"
+msgstr "Seuraava sivu"
 
+# @ GWGB
 #: frontend/read.php:144
 msgid "(no entries yet)"
-msgstr "(Pas de message)"
+msgstr "(ei viestejä)"
 
+# @ GWGB
 #: frontend/read.php:189
 msgid "from"
-msgstr "de"
+msgstr " "
 
+# @ GWGB
 #: frontend/read.php:198
 msgid "wrote at"
-msgstr " a écrit le"
+msgstr "kirjoitti "
 
 #: frontend/read.php:202
 msgid "at"
-msgstr "à"
+msgstr "kello"
 
 #: frontend/read.php:202
 msgid "hours"
-msgstr "heures"
+msgstr " "
 
+# @ GWGB
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."
-msgstr "Affiche les messages récents du livre d'or."
+msgstr "Näyttää viimeisimmät viestit."
 
-#: frontend/widget.php:28 frontend/widget.php:194
+# @ GWGB
+#: frontend/widget.php:30 frontend/widget.php:147
 msgid "Visit guestbook"
-msgstr "Consultez le livre d'or"
+msgstr "Katso vieraskirjaa"
 
-#: frontend/widget.php:147
+# @ GWGB
+#: frontend/widget.php:112
 msgid "Click here to get to the guestbook."
-msgstr "Cliquez ici pour aller sur le livre d'or."
+msgstr "Klikkaa tästä ja siirry vieraskirjaan."
 
-#: frontend/widget.php:210
+# @ GWGB
+#: frontend/widget.php:161
 msgid "Title:"
-msgstr "titre : "
+msgstr "Aihe:"
 
-#: frontend/widget.php:216
+# @ GWGB
+#: frontend/widget.php:167
 msgid "Number of entries:"
-msgstr "Nombre de messages :"
+msgstr "Viestejä:"
 
-#: frontend/widget.php:232
+# @ GWGB
+#: frontend/widget.php:183
 msgid "Best entries to show:"
-msgstr "Meilleurs messages : "
+msgstr "Parhaat viestit näytettäväksi:"
 
-#: frontend/widget.php:234
+# @ GWGB
+#: frontend/widget.php:185
 msgid "List of entry_id's, comma-separated"
-msgstr "Liste des entry_id (id des messages), séparée par virgule"
+msgstr "Anna luettelo viesti-id:stä, pilkulla erotettuna"
 
-#: frontend/widget.php:240
-msgid "Show name of author."
-msgstr "montre le nom de l'auteur."
-
-#: frontend/widget.php:246
-msgid "Show date of entry."
-msgstr "montre la date du message."
-
-#: frontend/widget.php:250
+# @ GWGB
+#: frontend/widget.php:189
 msgid "Number of words for each entry:"
-msgstr "Nombre de mots pour chaque message : "
+msgstr "Sanojen lukumäärä kullekin viestille:"
 
-#: frontend/widget.php:266
+# @ GWGB
+#: frontend/widget.php:205
 msgid "Link text:"
-msgstr "Hyperlien :"
+msgstr "Linkin teksti:"
 
-#: frontend/widget.php:272
+# @ GWGB
+#: frontend/widget.php:211
 msgid "Select the page of the guestbook:"
-msgstr "Choisissez la page du livre d'or : "
+msgstr "Valitse sivu vieraskirjalle:"
 
-#: frontend/widget.php:274
+# @ GWGB
+#: frontend/widget.php:213
 msgid "Select page"
-msgstr "Choisissez une page"
+msgstr "Valitse sivu"
 
+# @ GWGB
 #: frontend/write.php:100
 msgid "Write a new entry."
-msgstr "Ecrire un nouveau message."
+msgstr "Kirjoita uusi viesti"
 
+# @ GWGB
 #: frontend/write.php:114
 msgid "Write a new entry for the Guestbook"
-msgstr "Ecrivez dans le livre d'or"
+msgstr "Kirjoita uusi viesti vieraskirjaan"
 
 #: frontend/write.php:225
 msgid "Question:"
-msgstr "Question :"
+msgstr "Kysymys:"
 
 #: frontend/write.php:231
 msgid "Answer"
-msgstr "Réponse"
+msgstr "Vastaus"
 
+# @ GWGB
 #: frontend/write.php:275
 msgid "Submit"
-msgstr "Envoyer"
+msgstr "Lähetä"
 
+# @ GWGB
 #: frontend/write.php:280
 msgid "Fields marked with * are obligatory."
-msgstr "Les champs marqués d'une * sont obligatoires."
+msgstr "Tähdellä (*) merkityt kentät on täytettävä."
 
+# @ GWGB
 #: frontend/write.php:283
 msgid "The E-mail address wil not be published."
-msgstr "L'adresse e-mail ne sera pas publiée."
+msgstr "Sähköpostiosoitetta ei julkaista sivulla."
 
 #: frontend/write.php:286
 #, php-format
@@ -1702,101 +1938,176 @@ msgid ""
 "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
 "span>."
 msgstr ""
-"Pour des raisons de sécurité, nous sauvegardons l'adresse IP  <span id="
-"\"gwolle_gb_ip\">%s</span>."
+"IP-osoite <span id=\"gwolle_gb_ip\">%s</span> tallennetaan "
+"turvallisuussyistä."
 
+# @ GWGB
 #: frontend/write.php:291
 msgid "Your entry will be visible in the guestbook after we reviewed it."
-msgstr "Votre commentaire sera visible sur le site après modération."
+msgstr "Viestisi näytetään vieraskirjassa tarkistuksen jälkeen."
 
+# @ GWGB
 #: frontend/write.php:294
 msgid "We reserve our right to edit, delete, or not publish entries."
-msgstr ""
-"Nous nous réservons le droit d'éditer, supprimer ou de ne pas publier votre "
-"message."
+msgstr "Pidätämme oikeuden muokata, poistaa tai olla julkaisematta viestejä."
 
+# @ GWGB
 #: functions/function.log.php:94
 msgid "Entry has been locked."
-msgstr "Le message a été verrouillé."
+msgstr "Viesti on lukittu."
 
+# @ GWGB
 #: functions/function.log.php:95
 msgid "Entry has been checked."
-msgstr "Le message a été vérifié."
+msgstr "Viesti on tarkistettu."
 
+# @ GWGB
 #: functions/function.log.php:96
 msgid "Entry marked as spam."
-msgstr "Message marqué comme spam."
+msgstr "Viestin on merkitty roskapostiksi."
 
+# @ GWGB
 #: functions/function.log.php:97
 msgid "Entry marked as not spam."
-msgstr "Message marqué comme NON Spam."
+msgstr "Viesti' ei ole merkitty roskapostiksi."
 
+# @ GWGB
 #: functions/function.log.php:98
 msgid "Entry has been edited."
-msgstr "Le message été modifié."
+msgstr "Viesti' on muokattu."
 
+# @ GWGB
 #: functions/function.log.php:99
 msgid "Imported from DMSGuestbook"
-msgstr "Importé de DMSGuestbook"
+msgstr "Tuotu DMSGuestbook:sta"
 
+# @ GWGB
 #: functions/function.log.php:100
 msgid "Imported from WordPress comments"
-msgstr "Importé depuis les commentaires WordPress"
+msgstr "Tuotu Wordpressin kommenteista"
 
+# @ GWGB
 #: functions/function.log.php:101
 msgid "Imported from Gwolle-GB"
-msgstr "Importé depuis Gwolle-GB"
+msgstr "Tuotu Gwolle-GB:stä"
 
+# @ GWGB
 #: functions/function.log.php:102
 msgid "Exported to CSV file"
-msgstr "Exporté dans un fichier CSV"
+msgstr "Viety CSV tiedostoon"
 
+# @ GWGB
 #: functions/function.log.php:103
 msgid "Entry has been trashed."
-msgstr "Le message a été mis à la corbeille."
+msgstr "Viesti on siirretty roskakoriin"
 
+# @ GWGB
 #: functions/function.log.php:104
 msgid "Entry has been untrashed."
-msgstr "Le message a été restauré."
+msgstr "Viestin on palautettu roskakorista."
 
+# @ GWGB
 #: functions/function.misc.php:58
 msgid "No content to display. This entry is empty."
-msgstr "Aucun contenu à afficher. Ce message est vide."
+msgstr "Tämä viesti on tyhjä."
 
-#~ msgid "Homepage"
-#~ msgstr "Site web"
-
-#~ msgid ""
-#~ "If you rather want to donate to the maintainer of the plugin, you can "
-#~ "donate through Paypal."
-#~ msgstr ""
-#~ "Si vous souhaitez plutôt faire un don au mainteneur du plugin, vous "
-#~ "pouvez faire un don via Paypal."
-
-#~ msgid "Donate through Paypal to"
-#~ msgstr "faire un don via Paypal à "
-
-#~ msgid "12 + six"
-#~ msgstr "12 + six"
-
+# @ GWGB
 #~ msgid "Successfully uninstalled"
-#~ msgstr "Désinstallé avec succès"
+#~ msgstr "Poistettiin onnistuneesti"
 
+# @ GWGB
 #~ msgid "You successfully uninstalled Gwolle-GB."
-#~ msgstr "Vous avez désinstallé avec succès Gwolle-GB."
+#~ msgstr "Gwolle-GB on onnistuneesti poistettu."
 
+# @ GWGB
+#~ msgid ""
+#~ "You now may deactivate the plugin using the <a href=\"%1\" title=\"Go to "
+#~ "the plugin manager...\">plugin manager</a> or/and delete the plugin from "
+#~ "your webserver."
+#~ msgstr ""
+#~ "Voit ottaa lisäosan pois käytöstä valitsemalla <a href=\"%1\" title="
+#~ "\"Mene lisäosin hallintaan...\">Lisäosat</a> ja_/tai poistamalla lisäosan "
+#~ "palvelimelta."
+
+# @ GWGB
+#~ msgid "Allright, we're done. <a href=\"%1\">Click here to continue...</a>"
+#~ msgstr "Ok, kaikki valmista. <a href=\"%1\">Tästä eteenpäin...</a>"
+
+# @ GWGB
+#~ msgid ""
+#~ "It looks like there has been an error. <a href=\"%1\">Click here to "
+#~ "continue...</a>"
+#~ msgstr ""
+#~ "Näyttää siltä että on tapantunut virhe. <a href=\"%1\">Klikkaa tästä "
+#~ "jatkaaksesi....</a>"
+
+# @ GWGB
+#~ msgid ""
+#~ "Line breaks will not be visible to the visitors due to your <a href="
+#~ "\"%1\">settings</a>."
+#~ msgstr ""
+#~ "Rivinvaihdot ei ole näkyvissä vieraskirjan lukijoille. Ks <a href="
+#~ "\"%1\">asetukset</a>"
+
+# @ GWGB
+#~ msgid "Homepage"
+#~ msgstr "Kotisivun osoite"
+
+# @ GWGB
+#~ msgid "%1 entries were found and will be exported."
+#~ msgstr "%1 viestiä löydettiin ja viedään tiedostoon."
+
+# @ GWGB
+#~ msgid "%1 entries imported successfully from DMSGuestbook."
+#~ msgstr "DMSGuestbookista onnistuttiin tuomaan  %1 viestiä."
+
+# @ GWGB
+#~ msgid "%1 entries imported successfully from WordPress comments."
+#~ msgstr "Wordpressin kommenteista siirrettiin %1 viestiä."
+
+# @ GWGB
+#~ msgid "%1 entries imported successfully from the CSV file."
+#~ msgstr "CSV-tiedostosta tuotiin %1 viestiä."
+
+# @ GWGB
+#~ msgid "%1 entries were found and will be imported."
+#~ msgstr "Löydettin %1 viestiä ja tuodaan ne vieraskirjaan."
+
+# @ GWGB
 #~ msgid "Use reCAPTCHA"
-#~ msgstr "Utiliser reCAPTCHA"
+#~ msgstr "Käytä reCAPTCHA:aa"
 
+# @ GWGB
+#~ msgid ""
+#~ "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
+#~ "can enter it at the <a href=\"%1\">Akismet configuration page</a>."
+#~ msgstr ""
+#~ "Valitan, <strong>WordPress API -avaimen</strong> etsintä epäonnistui. Voi "
+#~ "syöttää <a href=\"%1\\\">Akismetin asetussivulla</a>"
+
+# @ GWGB
 #~ msgid "Appearance"
-#~ msgstr "Apparence"
+#~ msgstr "Ulkoasu"
 
+# @ GWGB
 #~ msgid "Display smilies as images."
-#~ msgstr "Affiche les smileys en image."
+#~ msgstr "Korvaa hymiöt kuvilla."
 
+# @ GWGB
+#~ msgid ""
+#~ "Replaces smilies in entries like :) with their image %1. Uses the WP "
+#~ "smiley replacer, so check on that one if you'd like to add new/more "
+#~ "smilies."
+#~ msgstr ""
+#~ "Korvaa hymiöt viesteissä kuten :-) tällaisella kuvalla %1. Toiminto "
+#~ "käyttää WP smiley replacea, joten voit tarkistaa sieltä jos haluat lisätä "
+#~ "uusia hymiötä."
+
+# @ GWGB
 #~ msgid "I'm aware of that, continue!"
-#~ msgstr "Je suis conscient de cela, continue!"
+#~ msgstr "Tiedän sen, jatketaan!"
 
+# @ GWGB
 #~ msgid ""
 #~ "I really don't want to bother you; this page just exists to prevent you "
 #~ "from accidentally deleting all your entries.<br />Please check the "
@@ -1804,131 +2115,23 @@ msgstr "Aucun contenu à afficher. Ce message est vide."
 #~ "rows) and all settings of Gwolle-GB will be deleted.<br /><br />Are you "
 #~ "REALLY sure you wan't to continue? There's no 'undo'."
 #~ msgstr ""
-#~ "Je ne cherche à vous importuner : cette page n'existe que pour vous "
-#~ "empêchez de supprimer accidentellement tous les messages du livre d'or."
-#~ "<br />Merci de cocher 'désinstaller/uninstall' et d'appuyer sur le "
-#~ "bouton. Toutes les tables (et leurs lignes) et tous les paramètres de "
-#~ "Gwolle-DB seront détruits.<br /><br />Êtes-vous certain de vouloir "
-#~ "continuer ? Il n'existe aucune façon de revenir en arrière !"
+#~ "En halua häiritä, tämä sivu olemassa vain että et vahingossa poista "
+#~ "viestejä.<br />Ole hyvä ja ruksaa \\\"Asennuksen poisto\\\" ja paina "
+#~ "nappia. Kaikki taulut ja asetukset Gwolle-GB:stä tuhotaan.<br/><br/>Olet "
+#~ "VARMA että haluat jatkaa? Et voi kumota toimintoa."
 
+# @ GWGB
 #~ msgid ""
-#~ "You now may deactivate the plugin using the <a href=\"%1\" title=\"Go to "
-#~ "the plugin manager...\">plugin manager</a> or/and delete the plugin from "
-#~ "your webserver."
+#~ "For security reasons we save the ip address <span id=\"ip\">%s</span>."
 #~ msgstr ""
-#~ "Vous pouvez désactiver l'extension en utilisant <a href=\"%1\" title="
-#~ "\"Aller sur le gestionnaire d'extensions...\">Gestionnaire d'extensions</"
-#~ "a> et/ou supprimer le plugin de votre site."
+#~ "IP-osoite <span id=\"ip\">%s</span> tallennetaan turvallisuussyistä."
 
-#~ msgid "Allright, we're done. <a href=\"%1\">Click here to continue...</a>"
-#~ msgstr ""
-#~ "Ok, nous avons fini. <a href=\"%1\">Cliquez ici pour continuer ...</a>"
-
+# @ GWGB
 #~ msgid ""
-#~ "It looks like there has been an error. <a href=\"%1\">Click here to "
-#~ "continue...</a>"
+#~ "Gwolle Guestbook is not just another guestbook for WordPress. The goal is "
+#~ "to provide an easy and slim way to integrate a guestbook into your "
+#~ "WordPress powered site. Don't use your 'comment' section the wrong way - "
+#~ "install Gwolle-GB and have a real guestbook."
 #~ msgstr ""
-#~ "On dirait qu'il ya eu une erreur. <a href=\"%1\"> Cliquez ici pour "
-#~ "continuer ...</a>"
-
-#~ msgid ""
-#~ "Line breaks will not be visible to the visitors due to your <a href="
-#~ "\"%1\">settings</a>."
-#~ msgstr ""
-#~ "Les sauts de ligne ne seront pas visibles aux visiteurs en raison de vos "
-#~ "<a href=\"%1\">paramètres</a>."
-
-#~ msgid "%1 entries were found and will be exported."
-#~ msgstr "%1 messages ont été trouvés et seront exportés."
-
-#~ msgid "%1 entries imported successfully from DMSGuestbook."
-#~ msgstr "%1 messages importés de DMSGuestbook."
-
-#~ msgid "%1 entries imported successfully from WordPress comments."
-#~ msgstr "%1 messages importés des commentaires Wordpress."
-
-#~ msgid "%1 entries imported successfully from the CSV file."
-#~ msgstr "%1 messages importés avec succès du fichier CSV."
-
-#~ msgid "%1 entries were found and will be imported."
-#~ msgstr "%1 messages ont été trouvés et seront importés."
-
-#~ msgid ""
-#~ "Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
-#~ "can enter it at the <a href=\"%1\">Akismet configuration page</a>."
-#~ msgstr ""
-#~ "Désolé, impossible de trouver votre <stong>clé d'API Wordpress</strong>. "
-#~ "Vous pouvez la configurer sur <a href=\"%1\">la page de configuration "
-#~ "d'Akismet</a>."
-
-#~ msgid ""
-#~ "Replaces smilies in entries like :) with their image %1. Uses the WP "
-#~ "smiley replacer, so check on that one if you'd like to add new/more "
-#~ "smilies."
-#~ msgstr ""
-#~ "Remplace les smileys dans les messages ( ex : :) par son image %1. "
-#~ "Utilise la fonction WP de traitement des smileys."
-
-#~ msgid ""
-#~ "For security reasons we save the ip address <span id=\"ip\">%1</span>."
-#~ msgstr ""
-#~ "Pour des raisons de sécurité nous gardons votre adresse IP <span id=\"ip"
-#~ "\">%1</span>."
-
-#~ msgid "This entry is Not Checked."
-#~ msgstr "Ce messagge n'a PAS été Vérifié."
-
-#~ msgid "This entry is Checked"
-#~ msgstr "Ce message est Vérifié"
-
-#~ msgid "This entry is Not marked as Spam."
-#~ msgstr "Ce message n'est PAS marqué comme Spam"
-
-#~ msgid "This entry is marked as Spam"
-#~ msgstr "Ce message est marqué comme Spam"
-
-#~ msgid "This entry is Not in Trash."
-#~ msgstr "Ce message n'est pas dans la corbeille"
-
-#~ msgid "This entry is in Trash"
-#~ msgstr "Ce message est dans la corbeille"
-
-#~ msgid "Entry by %1 has been moved to trash."
-#~ msgstr "Le message de %1 a été déplacé dans la corbeille."
-
-#~ msgid "Undo"
-#~ msgstr "Annuler"
-
-#~ msgid "Notification"
-#~ msgstr "Notification"
-
-#~ msgid "No guestbook entries yet."
-#~ msgstr "Aucun message sur le livre d'or pour l'instant."
-
-#~ msgid "Check for import"
-#~ msgstr "Vérifier pour importer"
-
-#~ msgid ""
-#~ "Check if there are other guestbook plugins installed to import their "
-#~ "entries (deprecated, will be refactored)."
-#~ msgstr ""
-#~ "Vérifiez si vous avez d'autres plugin de livre d'or installés afin "
-#~ "d'importer leurs messages (ne fonctionne plus, sera re-développé dans une "
-#~ "future version)."
-
-#~ msgid ""
-#~ "If Gwolle-GB detects another guestbook plugin for WordPress it will "
-#~ "prompt you to import that guestbooks's data."
-#~ msgstr ""
-#~ "Si Gwolle-GB détecte un autre plugin de livre d'or WordPress, il vous "
-#~ "demandera si vous désirez importer leur données."
-
-#~ msgid ""
-#~ "Sorry, but the page you are looking for does not exists. Go back to the "
-#~ "<a href=\"%1\">settings page</a>"
-#~ msgstr ""
-#~ "Désolé, mais la page que vous recherchez n'existe plus. Retournez à la <a "
-#~ "href=\"%1\">page de configuration</a>"
-
-#~ msgid "Unchecked"
-#~ msgstr "NON Vérifié"
+#~ "Gwolle Guestbook on helppokäyttöinen vieraskirja WordPressillä "
+#~ "toteutetulle sivustolle."
