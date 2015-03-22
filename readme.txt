@@ -336,10 +336,10 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.6 =
-* 2015-03-
+* 2015-03-22
 * Extend notification email.
 * Add options for mail to the author.
-* Really disable dashbord widget with too few capabilities.
+* Really disable dashboard widget with too few capabilities.
 * Update pot, nl_NL, ru_RU.
 
 = 1.2.5 =
