@@ -196,12 +196,6 @@ function gwolle_gb_page_settings() {
 						break;
 					case 'gwolle_gb_mail':
 
-						if ( isset($_POST['adminMailContent']) ) {
-							$mail_content = gwolle_gb_sanitize_input( $_POST['adminMailContent'] );
-							update_option('gwolle_gb-adminMailContent', $mail_content);
-							$saved = true;
-						}
-
 						if ( isset($_POST['admin_mail_from']) && $_POST['admin_mail_from'] != get_option('gwolle_gb-mail-from') ) {
 							$admin_mail_from = gwolle_gb_sanitize_input( $_POST['admin_mail_from'] );
 							if ( filter_var( $admin_mail_from, FILTER_VALIDATE_EMAIL ) ) {
@@ -209,6 +203,12 @@ function gwolle_gb_page_settings() {
 								update_option('gwolle_gb-mail-from', $admin_mail_from);
 								$saved = true;
 							}
+						}
+
+						if ( isset($_POST['adminMailContent']) ) {
+							$mail_content = gwolle_gb_sanitize_input( $_POST['adminMailContent'] );
+							update_option('gwolle_gb-adminMailContent', $mail_content);
+							$saved = true;
 						}
 
 						break;
@@ -886,6 +886,21 @@ function gwolle_gb_page_settings() {
 					<tbody>
 
 					<tr valign="top">
+						<th scope="row"><label for="admin_mail_from"><?php _e('Admin mail from address', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<input name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" placeholder="info@example.com" />
+							<br />
+							<span class="setting-description">
+								<?php
+								_e('You can set the email address that is used for the From header of the mail that a notification subscriber gets on new entries.', GWOLLE_GB_TEXTDOMAIN);
+								echo '<br />';
+								_e('By default the main admin address is used from General >> Settings.', GWOLLE_GB_TEXTDOMAIN);
+								?>
+							</span>
+						</td>
+					</tr>
+
+					<tr valign="top">
 						<th scope="row"><label for="adminMailContent"><?php _e('Admin mail content', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
 							<?php
@@ -911,23 +926,6 @@ function gwolle_gb_page_settings() {
 							</span>
 						</td>
 					</tr>
-
-
-					<tr valign="top">
-						<th scope="row"><label for="admin_mail_from"><?php _e('Admin mail from address', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
-						<td>
-							<input name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" placeholder="info@example.com" />
-							<br />
-							<span class="setting-description">
-								<?php
-								_e('You can set the email address that is used for the From header of the mail that a notification subscriber gets on new entries.', GWOLLE_GB_TEXTDOMAIN);
-								echo '<br />';
-								_e('By default the main admin address is used from General >> Settings.', GWOLLE_GB_TEXTDOMAIN);
-								?>
-							</span>
-						</td>
-					</tr>
-
 
 					<tr>
 						<td colspan="2">
