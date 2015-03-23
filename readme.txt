@@ -336,6 +336,7 @@ Yes, it is again actively maintained.
 = 1.2.7 =
 * 2015-03-
 * Add buttons to empty spam and trash.
+* Update pot, nl_NL.
 
 = 1.2.6 =
 * 2015-03-22
