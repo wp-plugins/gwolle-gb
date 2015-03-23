@@ -970,7 +970,7 @@ function gwolle_gb_page_settings() {
 									}
 								} ?>
 							</select><br />
-							<label for="unsubscribe"><?php _e('These users have subscribed to this service.', GWOLLE_GB_TEXTDOMAIN); ?><br />
+							<label for="unsubscribe"><?php _e('These users have subscribed to the notification emails.', GWOLLE_GB_TEXTDOMAIN); ?><br />
 							<?php _e('Select a user if you want that user to unsubscribe from the notification emails.', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 					</tr>
@@ -1022,7 +1022,7 @@ function gwolle_gb_page_settings() {
 									}
 								} ?>
 							</select><br />
-							<label for="subscribe"><?php _e('You can subscribe a moderator to this service.', GWOLLE_GB_TEXTDOMAIN); ?><br />
+							<label for="subscribe"><?php _e('You can subscribe a moderator to the notification emails.', GWOLLE_GB_TEXTDOMAIN); ?><br />
 							<?php _e('Select a user that you want subscribed to the notification emails.', GWOLLE_GB_TEXTDOMAIN); ?>
 							<?php _e("You will only see users with the roles of Administrator, Editor and Author, who have the capability 'moderate_comments' .", GWOLLE_GB_TEXTDOMAIN); ?>
 							</label>
