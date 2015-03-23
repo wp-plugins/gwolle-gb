@@ -163,5 +163,75 @@ function gwolle_gb_get_entries($args = array()) {
 }
 
 
+/*
+ * Function to delete guestbook entries from the database.
+ * Removes the log entries as well.
+ *
+ * Parameter $status is a string:
+ * - spam         string: 'spam',  delete the entries marked as spam
+ * - trash        string: 'trash', delete the entries that are in trash
+ *
+ * Return:
+ * - int: Number of deleted entries
+ * - bool: false if no entries found.
+ */
+
+function gwolle_gb_del_entries( $status ) {
+	global $wpdb;
+
+	// First get all the id's, so we can remove the logs later
+
+	if ( $status == 'spam' ) {
+		$where = "
+			isspam = %d";
+		$values[] = 1;
+	} else if ( $status == 'trash' ) {
+		$where = "
+			istrash = %d";
+		$values[] = 1;
+	} else {
+		return false; // not the right $status
+	}
+
+	$sql = "
+			SELECT
+				`id`
+			FROM
+				$wpdb->gwolle_gb_entries
+			WHERE
+				" . $where . "
+			LIMIT 999999999999999
+			OFFSET 0
+		;";
+
+	$sql = $wpdb->prepare( $sql, $values );
+
+	$datalist = $wpdb->get_results( $sql, ARRAY_A );
+
+	if ( is_array($datalist) && !empty($datalist) ) {
+
+		$sql = "
+			DELETE
+			FROM
+				$wpdb->gwolle_gb_entries
+			WHERE
+				" . $where . "
+			;";
+
+		$result = $wpdb->query(
+			$wpdb->prepare( $sql, $values )
+		);
+
+		if ( $result > 0 ) {
+			// Also remove the log entries
+			foreach ( $datalist as $id ) {
+				gwolle_gb_del_log_entries( $id['id'] );
+			}
+
+			return $result;
+		}
+	}
+	return false;
+}
 
 

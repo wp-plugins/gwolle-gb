@@ -109,8 +109,6 @@ The current todolist is slowly getting shorter. If you do have a feature request
 
 * More translations (send them in).
 * Make options for the title and notice of the form.
-* Extend notification mail.
-* Send author a notification as well.
 * Import from certain post or just all comments.
 * Form: Add smileys to the form, maybe even emoji?
 * Editor: add options to change the date.
@@ -337,7 +335,7 @@ Yes, it is again actively maintained.
 
 = 1.2.7 =
 * 2015-03-
-
+* Add buttons to empty spam and trash.
 
 = 1.2.6 =
 * 2015-03-22

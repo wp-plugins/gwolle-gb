@@ -283,6 +283,22 @@ function gwolle_gb_page_entries() {
 					}
 				}
 			}
+
+			if ( isset( $_POST['delete_all'] ) || isset( $_POST['delete_all2'] ) ) {
+				// Delete all entries in spam or trash
+				if ( isset($_POST['show']) && in_array($_POST['show'], array('spam', 'trash')) ) {
+					$delstatus = $_POST['show'];
+					echo "action: " . $delstatus;
+					$deleted = gwolle_gb_del_entries( $delstatus );
+					if ( $deleted == 1 ) {
+						$gwolle_gb_messages .= '<p>' . $deleted . " " . __('entry removed permanently.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else if ( $deleted > 1 ) {
+						$gwolle_gb_messages .= '<p>' . $deleted . " " . __('entries removed permanently.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else {
+						$gwolle_gb_messages .= '<p>' . __('No entries permanently removed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					}
+				}
+			}
 		}
 
 
@@ -457,11 +473,17 @@ function gwolle_gb_page_entries() {
 						}
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
+						$empty_button = '';
+						if ( $show == 'spam' ) {
+							$empty_button = '<input type="submit" name="delete_all" id="delete_all" class="button apply" value="' . __('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+						} else if ( $show == 'trash' ) {
+							$empty_button = '<input type="submit" name="delete_all" id="delete_all" class="button apply" value="' . __('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+						}
+
 						// Only show controls when there are entries
 						if ( is_array($entries) && !empty($entries) ) {
-							echo $massEditControls_select . $massEditControls;
+							echo $massEditControls_select . $massEditControls . $empty_button;
 						}
-						// FIXME: add button to delete all spam and trash entries
 						?>
 					</div>
 
@@ -709,9 +731,16 @@ function gwolle_gb_page_entries() {
 						<div class="alignleft actions">
 							<?php
 							$massEditControls_select = '<select name="massEditAction2">';
+							$empty_button = '';
+							if ( $show == 'spam' ) {
+								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . __('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+							} else if ( $show == 'trash' ) {
+								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . __('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+							}
+
 							// Only show controls when there are entries
 							if ( is_array($entries) && !empty($entries) ) {
-								echo $massEditControls_select . $massEditControls;
+								echo $massEditControls_select . $massEditControls . $empty_button;
 							}
 							?>
 						</div>
