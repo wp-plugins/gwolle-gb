@@ -141,8 +141,6 @@ function gwolle_gb_overview(){
 
 function gwolle_gb_notification() {
 
-	// FIXME: also make it possible for admins to add editors to the list.
-
 	// Check if function mail() exists. If not, display a hint to the user.
 	if (!function_exists('mail')) {
 		echo '<p class="setting-description">' .
@@ -299,7 +297,7 @@ function gwolle_gb_welcome() {
 					}
 				}
 			}
-			$user_ids[] = $user_id;
+			$user_ids[] = $user_id; // Really add it.
 
 			$user_ids = implode(",", $user_ids);
 			update_option('gwolle_gb-notifyByMail', $user_ids);

@@ -10,6 +10,7 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 
 
 function gwolle_gb_page_settings() {
+	global $wpdb;
 
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
 		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
@@ -30,6 +31,7 @@ function gwolle_gb_page_settings() {
 
 				switch ( $active_tab ) {
 					case 'gwolle_gb_forms':
+						/* Form Settings */
 
 						if (isset($_POST['require_login']) && $_POST['require_login'] == 'on') {
 							update_option('gwolle_gb-require_login', 'true');
@@ -74,8 +76,8 @@ function gwolle_gb_page_settings() {
 						$saved = true;
 						break;
 					case 'gwolle_gb_reading':
+						/* Reading Settings */
 
-						// Entries per page options for Frontend
 						if ( isset($_POST['entriesPerPage']) && is_numeric($_POST['entriesPerPage']) && $_POST['entriesPerPage'] > 0 ) {
 							update_option('gwolle_gb-entriesPerPage', (int) $_POST['entriesPerPage']);
 							$saved = true;
@@ -141,8 +143,8 @@ function gwolle_gb_page_settings() {
 						$saved = true;
 						break;
 					case 'gwolle_gb_admin':
+						/* Admin Settings */
 
-						// Entries per page options for Admin
 						if ( isset($_POST['entries_per_page']) && is_numeric($_POST['entries_per_page']) && $_POST['entries_per_page'] > 0 ) {
 							update_option( 'gwolle_gb-entries_per_page', (int) $_POST['entries_per_page']);
 							$saved = true;
@@ -158,6 +160,7 @@ function gwolle_gb_page_settings() {
 
 						break;
 					case 'gwolle_gb_antispam':
+						/* Anti-Spam Settings */
 
 						if (isset($_POST['moderate-entries']) && $_POST['moderate-entries'] == 'on') {
 							update_option('gwolle_gb-moderate-entries', 'true');
@@ -195,6 +198,7 @@ function gwolle_gb_page_settings() {
 
 						break;
 					case 'gwolle_gb_mail':
+						/* Mail Settings */
 
 						if ( isset($_POST['admin_mail_from']) && $_POST['admin_mail_from'] != get_option('gwolle_gb-mail-from') ) {
 							$admin_mail_from = gwolle_gb_sanitize_input( $_POST['admin_mail_from'] );
@@ -203,6 +207,51 @@ function gwolle_gb_page_settings() {
 								update_option('gwolle_gb-mail-from', $admin_mail_from);
 								$saved = true;
 							}
+						}
+
+						if ( isset($_POST['unsubscribe']) && $_POST['unsubscribe'] > 0 ) {
+							$user_id = (int) $_POST['unsubscribe'];
+							$user_ids = Array();
+
+							$user_ids_old = get_option('gwolle_gb-notifyByMail' );
+							if ( strlen($user_ids_old) > 0 ) {
+								$user_ids_old = explode( ",", $user_ids_old );
+								foreach ( $user_ids_old as $user_id_old ) {
+									if ( $user_id_old == $user_id ) {
+										continue;
+									}
+									if ( is_numeric($user_id_old) ) {
+										$user_ids[] = $user_id_old;
+									}
+								}
+							}
+
+							$user_ids = implode(",", $user_ids);
+							update_option('gwolle_gb-notifyByMail', $user_ids);
+							$saved = true;
+						}
+
+						if ( isset($_POST['subscribe']) && $_POST['subscribe'] > 0 ) {
+							$user_id = (int) $_POST['subscribe'];
+							$user_ids = Array();
+
+							$user_ids_old = get_option('gwolle_gb-notifyByMail' );
+							if ( strlen($user_ids_old) > 0 ) {
+								$user_ids_old = explode( ",", $user_ids_old );
+								foreach ( $user_ids_old as $user_id_old ) {
+									if ( $user_id_old == $user_id ) {
+										continue; // will be added again below the loop
+									}
+									if ( is_numeric($user_id_old) ) {
+										$user_ids[] = $user_id_old;
+									}
+								}
+							}
+							$user_ids[] = $user_id; // Really add it.
+
+							$user_ids = implode(",", $user_ids);
+							update_option('gwolle_gb-notifyByMail', $user_ids);
+							$saved = true;
 						}
 
 						if ( isset($_POST['adminMailContent']) ) {
@@ -227,6 +276,7 @@ function gwolle_gb_page_settings() {
 
 						break;
 					case 'gwolle_gb_uninstall':
+						/* Uninstall */
 
 						if (isset($_POST['uninstall_confirmed']) && $_POST['uninstall_confirmed'] == 'on') {
 							// uninstall the plugin -> delete all tables and preferences of the plugin
@@ -238,7 +288,7 @@ function gwolle_gb_page_settings() {
 
 						break;
 					default:
-						// Just load the first tab
+						/* Just load the first tab */
 						$active_tab = "gwolle_gb_forms";
 				}
 			}
@@ -336,7 +386,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row"><label for="form_city_enabled"><?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td>
@@ -356,7 +405,6 @@ function gwolle_gb_page_settings() {
 							<label for="form_city_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 					</tr>
-
 
 					<tr valign="top">
 						<th scope="row"><label for="form_email_enabled"><?php _e('Email', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
@@ -378,7 +426,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row"><label for=""form_homepage_enabled><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td>
@@ -398,7 +445,6 @@ function gwolle_gb_page_settings() {
 							<label for="form_homepage_mandatory"><?php _e('Mandatory', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 					</tr>
-
 
 					<tr valign="top">
 						<th scope="row"><label for="form_message_enabled"><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
@@ -420,7 +466,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row"><label for="form_antispam_enabled"><?php _e('Custom Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td>
@@ -436,7 +481,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row"><label for="form_recaptcha_enabled"><?php _e('reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td>
@@ -451,6 +495,7 @@ function gwolle_gb_page_settings() {
 							<?php _e('When enabled it is mandatory.', GWOLLE_GB_TEXTDOMAIN); ?>
 						</td>
 					</tr>
+
 					<tr>
 						<td colspan="3">
 							<p class="submit">
@@ -533,7 +578,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row"><label for="showSmilies"><?php _e('Smileys', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
@@ -547,7 +591,6 @@ function gwolle_gb_page_settings() {
 							<span class="setting-description"><?php echo sprintf( __("Replaces smileys in entries like :) with their image %s. Uses the WP smiley replacer, so check on that one if you'd like to add new/more smileys.", GWOLLE_GB_TEXTDOMAIN), convert_smilies(':)')); ?></span>
 						</td>
 					</tr>
-
 
 					<tr valign="top">
 						<th scope="row"><label for="linkAuthorWebsite"><?php _e('Links', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -563,7 +606,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row"><label for="admin_style"><?php _e('Admin Entry Styling', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
@@ -577,7 +619,6 @@ function gwolle_gb_page_settings() {
 							<span class="setting-description"><?php _e("Admin entries get a special CSS styling. It will get a lightgrey background.", GWOLLE_GB_TEXTDOMAIN); ?></span>
 						</td>
 					</tr>
-
 
 					<?php $read_setting = gwolle_gb_get_setting( 'read' ); ?>
 
@@ -598,7 +639,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row"><label for="read_name"><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td>
@@ -611,8 +651,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
-
 					<tr valign="top">
 						<th scope="row"><label for="read_city"><?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td>
@@ -624,8 +662,6 @@ function gwolle_gb_page_settings() {
 							<label for="read_city"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 					</tr>
-
-
 
 					<tr valign="top">
 						<th scope="row"><label for="read_datetime"><?php _e('Date and Time', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
@@ -640,8 +676,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
-
 					<tr valign="top">
 						<th scope="row"><label for="read_date"><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td>
@@ -655,8 +689,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
-
 					<tr valign="top">
 						<th scope="row"><label for="read_content"><?php _e('Content', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 						<td>
@@ -668,8 +700,6 @@ function gwolle_gb_page_settings() {
 							<label for="read_content"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 					</tr>
-
-
 
 					<tr valign="top">
 						<th scope="row"><label for="read_editlink"><?php _e('Edit link', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
@@ -683,7 +713,6 @@ function gwolle_gb_page_settings() {
 							<span class="setting-description"><?php _e("A link to the editor will be added to the content. Only visible for moderators.", GWOLLE_GB_TEXTDOMAIN); ?></span>
 						</td>
 					</tr>
-
 
 					<tr>
 						<td colspan="2">
@@ -726,7 +755,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row"><label for="showEntryIcons"><?php _e('Entry icons', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
@@ -739,7 +767,6 @@ function gwolle_gb_page_settings() {
 							<span class="setting-description"><?php _e('These icons are shown in every entry row of the admin list, so that you know its status (checked, spam and trash).', GWOLLE_GB_TEXTDOMAIN); ?></span>
 						</td>
 					</tr>
-
 
 					<tr>
 						<td colspan="2">
@@ -782,7 +809,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row">
 							<label for="akismet-active">Akismet</label>
@@ -818,7 +844,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<?php
 					$antispam_question = get_option('gwolle_gb-antispam-question');
 					$antispam_answer   = get_option('gwolle_gb-antispam-answer');
@@ -837,7 +862,6 @@ function gwolle_gb_page_settings() {
 							</div>
 						</td>
 					</tr>
-
 
 					<?php
 					$recaptcha_publicKey = get_option('recaptcha-public-key');
@@ -877,7 +901,6 @@ function gwolle_gb_page_settings() {
 						</td>
 					</tr>
 
-
 					<tr>
 						<td colspan="2">
 							<p class="submit">
@@ -911,6 +934,98 @@ function gwolle_gb_page_settings() {
 								_e('By default the main admin address is used from General >> Settings.', GWOLLE_GB_TEXTDOMAIN);
 								?>
 							</span>
+						</td>
+					</tr>
+
+					<tr valign="top">
+						<th scope="row"><label for="unsubscribe"><?php _e('Unsubscribe moderators', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<?php
+							// Check if function mail() exists. If not, display a hint to the user.
+							if (!function_exists('mail')) {
+								echo '<p class="setting-description">' .
+									__('Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. You might want to install a WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can contact your hosting provider to change this.',GWOLLE_GB_TEXTDOMAIN)
+									. '</p>';
+							} ?>
+							<select name="unsubscribe" id="unsubscribe">
+								<option value="0"><?php _e('Unsubscribe User', GWOLLE_GB_TEXTDOMAIN); ?></option>
+								<?php
+								$user_ids = get_option('gwolle_gb-notifyByMail' );
+								if ( strlen($user_ids) > 0 ) {
+									$user_ids = explode( ",", $user_ids );
+									if ( is_array($user_ids) && !empty($user_ids) ) {
+										foreach ( $user_ids as $user_id ) {
+
+											$user_info = get_userdata($user_id);
+											if ($user_info === FALSE) {
+												// Invalid $user_id
+												continue;
+											}
+											$username = $user_info->first_name . ' ' . $user_info->last_name . ' (' . $user_info->user_email . ')';
+											if ( $user_info->ID == get_current_user_id() ) {
+												$username .= ' ' . __('You', GWOLLE_GB_TEXTDOMAIN);
+											}
+											echo '<option value="' . $user_id . '">' . $username . '</option>';
+										}
+									}
+								} ?>
+							</select><br />
+							<label for="unsubscribe"><?php _e('These users have subscribed to this service.', GWOLLE_GB_TEXTDOMAIN); ?><br />
+							<?php _e('Select a user if you want that user to unsubscribe from the notification emails.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+						</td>
+					</tr>
+
+					<tr valign="top">
+						<th scope="row"><label for="subscribe"><?php _e('Subscribe moderators', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+						<td>
+							<select name="subscribe" id="subscribe">
+								<option value="0"><?php _e('Subscribe User', GWOLLE_GB_TEXTDOMAIN); ?></option>
+								<?php
+								$users = array();
+								$roles = array('administrator', 'editor', 'author');
+
+								foreach ($roles as $role) :
+									$users_query = new WP_User_Query( array(
+										'fields' => 'all',
+										'role' => $role,
+										'orderby' => 'display_name'
+										) );
+									$results = $users_query->get_results();
+									if ($results) $users = array_merge($users, $results);
+								endforeach;
+
+								if ( is_array($users) && !empty($users) ) {
+									foreach ( $users as $user_info ) {
+
+										if ($user_info === FALSE) {
+											// Invalid $user_id
+											continue;
+										}
+
+										// Test if already subscribed
+										if ( is_array($user_ids) && !empty($user_ids) ) {
+											if ( in_array($user_info->ID, $user_ids) ) {
+												continue;
+											}
+										}
+
+										// No capability
+										if ( !user_can( $user_info, 'moderate_comments' ) ) {
+											continue;
+										}
+
+										$username = $user_info->first_name . ' ' . $user_info->last_name . ' (' . $user_info->user_email . ')';
+										if ( $user_info->ID == get_current_user_id() ) {
+											$username .= ' ' . __('You', GWOLLE_GB_TEXTDOMAIN);
+										}
+										echo '<option value="' . $user_info->ID . '">' . $username . '</option>';
+									}
+								} ?>
+							</select><br />
+							<label for="subscribe"><?php _e('You can subscribe a moderator to this service.', GWOLLE_GB_TEXTDOMAIN); ?><br />
+							<?php _e('Select a user that you want subscribed to the notification emails.', GWOLLE_GB_TEXTDOMAIN); ?>
+							<?php _e("You will only see users with the roles of Administrator, Editor and Author, who have the capability 'moderate_comments' .", GWOLLE_GB_TEXTDOMAIN); ?>
+							</label>
 						</td>
 					</tr>
 
@@ -1055,7 +1170,6 @@ Entry content:
 					}
 					?>
 
-
 					<tr valign="top">
 						<th scope="row" style="color:#FF0000;"><label for="blogdescription"><?php _e('Uninstall', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
@@ -1066,7 +1180,6 @@ Entry content:
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row" style="color:#FF0000;"><label for="uninstall_confirmed"><?php _e('Confirm', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
@@ -1075,7 +1188,6 @@ Entry content:
 						</td>
 					</tr>
 
-
 					<tr valign="top">
 						<th scope="row" style="color:#FF0000;"><label for="delete_recaptchaKeys"><?php _e('reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 						<td>
@@ -1083,7 +1195,6 @@ Entry content:
 							<label for="delete_recaptchaKeys"><?php _e("Also delete the reCAPTCHA keys", GWOLLE_GB_TEXTDOMAIN); ?></label>
 						</td>
 					</tr>
-
 
 					<tr>
 						<td colspan="2">

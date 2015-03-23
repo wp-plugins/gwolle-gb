@@ -112,10 +112,8 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Import from certain post or just all comments.
 * Form: Add smileys to the form, maybe even emoji?
 * Editor: add options to change the date.
-* Entries list: add button to empty spam/trash.
 * Frontend: add option to show only one entry with $_GET entry_id.
 * Frontend: Add pagination link for all entries (optional).
-* Settings: admin can add user to notification list.
 * Form: there is a request for a country dropdown, is it a good idea?
 * SEO: add title and desc of first entry to SEO meta in html (is this possible?).
 
@@ -335,6 +333,7 @@ Yes, it is again actively maintained.
 
 = 1.2.7 =
 * 2015-03-
+* Add options to (un)subscribe moderators for admins.
 * Add buttons to empty spam and trash.
 * Update pot, nl_NL.
 
