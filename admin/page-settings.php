@@ -10,7 +10,6 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 
 
 function gwolle_gb_page_settings() {
-	global $wpdb;
 
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
 		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
