@@ -330,6 +330,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.8 =
+* 2015-03-
+* Widget uses get_home_url for the pagelink.
+
 = 1.2.7 =
 * 2015-03-24
 * Add options for admins to (un)subscribe moderators to notifications.
