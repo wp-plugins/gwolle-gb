@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-23 22:34+0100\n"
+"POT-Creation-Date: 2015-03-24 12:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,8 +22,8 @@ msgstr ""
 msgid "Guestbook"
 msgstr ""
 
-#: actions.php:46 actions.php:47 admin/page-settings.php:531
-#: admin/page-settings.php:749
+#: actions.php:46 actions.php:47 admin/tabs/admintab.php:36
+#: admin/tabs/readingtab.php:36
 msgid "Entries"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgid "New entry"
 msgstr ""
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:300
+#: actions.php:57 actions.php:80 admin/page-settings.php:299
 msgid "Settings"
 msgstr ""
 
@@ -183,7 +183,10 @@ msgstr ""
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
 #: admin/page-gwolle-gb.php:275 admin/page-import.php:24
-#: admin/page-settings.php:16
+#: admin/page-settings.php:15 admin/tabs/admintab.php:15
+#: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
+#: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
+#: admin/tabs/uninstalltab.php:18
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
@@ -216,7 +219,7 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr ""
 
 #: admin/page-editor.php:140 admin/page-gwolle-gb.php:351
-#: admin/page-settings.php:306
+#: admin/page-settings.php:305
 msgid "Changes saved."
 msgstr ""
 
@@ -343,8 +346,8 @@ msgid ""
 "\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:549 admin/page-settings.php:430
-#: frontend/write.php:176 frontend/write.php:183
+#: admin/page-editor.php:549 frontend/write.php:176 frontend/write.php:183
+#: admin/tabs/formtab.php:125
 msgid "Website"
 msgstr ""
 
@@ -561,7 +564,7 @@ msgid "ID"
 msgstr ""
 
 #: admin/page-entries.php:567 admin/page-entries.php:583
-#: admin/page-settings.php:680
+#: admin/tabs/readingtab.php:185
 msgid "Date"
 msgstr ""
 
@@ -595,8 +598,8 @@ msgid "The exporter will preserve the following data per entry:"
 msgstr ""
 
 #: admin/page-export.php:52 admin/page-import.php:358
-#: admin/page-import.php:399 admin/page-settings.php:370
-#: admin/page-settings.php:643 frontend/write.php:119 frontend/write.php:126
+#: admin/page-import.php:399 frontend/write.php:119 frontend/write.php:126
+#: admin/tabs/formtab.php:65 admin/tabs/readingtab.php:148
 msgid "Name"
 msgstr ""
 
@@ -625,8 +628,8 @@ msgid "Host address"
 msgstr ""
 
 #: admin/page-export.php:59 admin/page-import.php:363
-#: admin/page-import.php:405 admin/page-settings.php:450
-#: admin/page-settings.php:1160
+#: admin/page-import.php:405 admin/tabs/formtab.php:145
+#: admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr ""
 
@@ -698,7 +701,7 @@ msgstr ""
 msgid "Write admin entry"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:147 admin/page-settings.php:947
+#: admin/page-gwolle-gb.php:147 admin/tabs/emailtab.php:47
 msgid ""
 "Sorry, but the function <code>mail()</code> required to notify you by mail "
 "is not enabled in your PHP configuration. You might want to install a "
@@ -718,8 +721,8 @@ msgstr ""
 msgid "The following users have subscribed to this service:"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:192 admin/page-settings.php:966
-#: admin/page-settings.php:1019 functions/function.log.php:173
+#: admin/page-gwolle-gb.php:192 functions/function.log.php:173
+#: admin/tabs/emailtab.php:66 admin/tabs/emailtab.php:119
 msgid "You"
 msgstr ""
 
@@ -1004,531 +1007,28 @@ msgstr ""
 msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 
-#: admin/page-settings.php:313
+#: admin/page-settings.php:311
 msgid "Form"
 msgstr ""
 
-#: admin/page-settings.php:314
+#: admin/page-settings.php:312
 msgid "Reading"
 msgstr ""
 
-#: admin/page-settings.php:315
+#: admin/page-settings.php:313
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:316 frontend/write.php:224 frontend/write.php:255
+#: admin/page-settings.php:314 frontend/write.php:224 frontend/write.php:255
 msgid "Anti-spam"
 msgstr ""
 
-#: admin/page-settings.php:317
+#: admin/page-settings.php:315
 msgid "E-mail"
 msgstr ""
 
-#: admin/page-settings.php:318 admin/page-settings.php:1174
+#: admin/page-settings.php:316 admin/tabs/uninstalltab.php:45
 msgid "Uninstall"
-msgstr ""
-
-#: admin/page-settings.php:331
-msgid "Require Login"
-msgstr ""
-
-#: admin/page-settings.php:338
-msgid "Require user to be logged in."
-msgstr ""
-
-#: admin/page-settings.php:340
-msgid "Only allow logged-in users to add a guestbook entry."
-msgstr ""
-
-#: admin/page-settings.php:345
-msgid "Labels float"
-msgstr ""
-
-#: admin/page-settings.php:352
-msgid "Labels in the form float to the left."
-msgstr ""
-
-#: admin/page-settings.php:354
-msgid ""
-"Labels in the form float to the left. Otherwise the labels will be above the "
-"input-fields."
-msgstr ""
-
-#: admin/page-settings.php:366
-msgid "Configure the form that is shown to visitors."
-msgstr ""
-
-#: admin/page-settings.php:377 admin/page-settings.php:397
-#: admin/page-settings.php:417 admin/page-settings.php:437
-#: admin/page-settings.php:457 admin/page-settings.php:477
-#: admin/page-settings.php:492 admin/page-settings.php:638
-#: admin/page-settings.php:650 admin/page-settings.php:662
-#: admin/page-settings.php:674 admin/page-settings.php:687
-#: admin/page-settings.php:700 admin/page-settings.php:712
-msgid "Enabled"
-msgstr ""
-
-#: admin/page-settings.php:385 admin/page-settings.php:405
-#: admin/page-settings.php:425 admin/page-settings.php:445
-#: admin/page-settings.php:465
-msgid "Mandatory"
-msgstr ""
-
-#: admin/page-settings.php:390 admin/page-settings.php:655
-#: frontend/write.php:138 frontend/write.php:145
-msgid "City"
-msgstr ""
-
-#: admin/page-settings.php:410 frontend/write.php:157 frontend/write.php:164
-msgid "Email"
-msgstr ""
-
-#: admin/page-settings.php:470
-msgid "Custom Anti-spam"
-msgstr ""
-
-#: admin/page-settings.php:480 admin/page-settings.php:495
-msgid "When enabled it is mandatory."
-msgstr ""
-
-#: admin/page-settings.php:485 admin/page-settings.php:1192
-msgid "reCAPTCHA"
-msgstr ""
-
-#: admin/page-settings.php:502 admin/page-settings.php:720
-#: admin/page-settings.php:774 admin/page-settings.php:907
-#: admin/page-settings.php:1139
-msgid "Save settings"
-msgstr ""
-
-#: admin/page-settings.php:521
-msgid "Entries per page on the frontend"
-msgstr ""
-
-#: admin/page-settings.php:536
-msgid "Number of entries shown on the frontend."
-msgstr ""
-
-#: admin/page-settings.php:541
-msgid "Length of the entry content"
-msgstr ""
-
-#: admin/page-settings.php:551
-msgid "Unlimited Words"
-msgstr ""
-
-#: admin/page-settings.php:558
-msgid "Words"
-msgstr ""
-
-#: admin/page-settings.php:563
-msgid "Maximum length of the entry content in words."
-msgstr ""
-
-#: admin/page-settings.php:568
-msgid "Line breaks"
-msgstr ""
-
-#: admin/page-settings.php:575
-msgid "Show line breaks."
-msgstr ""
-
-#: admin/page-settings.php:577
-msgid ""
-"Show line breaks as the entry authors entered them. (May result in very long "
-"entries. Is turned off by default.)"
-msgstr ""
-
-#: admin/page-settings.php:582
-msgid "Smileys"
-msgstr ""
-
-#: admin/page-settings.php:589
-msgid "Display smileys as images."
-msgstr ""
-
-#: admin/page-settings.php:591
-#, php-format
-msgid ""
-"Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
-"replacer, so check on that one if you'd like to add new/more smileys."
-msgstr ""
-
-#: admin/page-settings.php:596
-msgid "Links"
-msgstr ""
-
-#: admin/page-settings.php:603
-msgid "Link authors' name to their website."
-msgstr ""
-
-#: admin/page-settings.php:605
-msgid ""
-"The author of an entry can set his/her website. If this setting is checked, "
-"his/her name will be a link to that website."
-msgstr ""
-
-#: admin/page-settings.php:610
-msgid "Admin Entry Styling"
-msgstr ""
-
-#: admin/page-settings.php:617
-msgid "Admin entries get a special CSS styling."
-msgstr ""
-
-#: admin/page-settings.php:619
-msgid ""
-"Admin entries get a special CSS styling. It will get a lightgrey background."
-msgstr ""
-
-#: admin/page-settings.php:626
-msgid "Configure the parts of the entries that are shown to visitors."
-msgstr ""
-
-#: admin/page-settings.php:631
-msgid "Avatar"
-msgstr ""
-
-#: admin/page-settings.php:667
-msgid "Date and Time"
-msgstr ""
-
-#: admin/page-settings.php:675
-msgid "Setting this will show the date and the time of the entry."
-msgstr ""
-
-#: admin/page-settings.php:688
-msgid ""
-"Setting this will show the date of the entry. If Date and Time above are "
-"enabled, that setting has preference."
-msgstr ""
-
-#: admin/page-settings.php:693
-msgid "Content"
-msgstr ""
-
-#: admin/page-settings.php:705
-msgid "Edit link"
-msgstr ""
-
-#: admin/page-settings.php:713
-msgid ""
-"A link to the editor will be added to the content. Only visible for "
-"moderators."
-msgstr ""
-
-#: admin/page-settings.php:739
-msgid "Entries per page in the admin"
-msgstr ""
-
-#: admin/page-settings.php:754
-msgid "Number of entries shown in the admin."
-msgstr ""
-
-#: admin/page-settings.php:759
-msgid "Entry icons"
-msgstr ""
-
-#: admin/page-settings.php:765
-msgid "Show entry icons"
-msgstr ""
-
-#: admin/page-settings.php:767
-msgid ""
-"These icons are shown in every entry row of the admin list, so that you know "
-"its status (checked, spam and trash)."
-msgstr ""
-
-#: admin/page-settings.php:793
-msgid "Moderate Guestbook"
-msgstr ""
-
-#: admin/page-settings.php:801
-msgid "Moderate entries before publishing them."
-msgstr ""
-
-#: admin/page-settings.php:805
-msgid ""
-"New entries have to be unlocked by a moderator before they are visible to "
-"the public."
-msgstr ""
-
-#: admin/page-settings.php:807
-msgid ""
-"It is recommended that you turn this on, because you are responsible for the "
-"content on your website."
-msgstr ""
-
-#: admin/page-settings.php:817
-msgid "Learn more about Akismet..."
-msgstr ""
-
-#: admin/page-settings.php:817 admin/page-settings.php:873
-msgid "What's that?"
-msgstr ""
-
-#: admin/page-settings.php:827
-msgid ""
-"Akismet helps you to fight spam. It's free and easy to install. Download and "
-"install it today to stop spam in your guestbook."
-msgstr ""
-
-#: admin/page-settings.php:830
-#, php-format
-msgid ""
-"Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
-"can enter it at the <a href=\"%s\">Akismet configuration page</a>."
-msgstr ""
-
-#: admin/page-settings.php:839
-msgid "Use Akismet"
-msgstr ""
-
-#: admin/page-settings.php:841
-msgid ""
-"The WordPress API key has been found, so you can start using Akismet right "
-"now."
-msgstr ""
-
-#: admin/page-settings.php:852
-msgid "Custom Anti-Spam Security Question"
-msgstr ""
-
-#: admin/page-settings.php:855
-msgid "12 + six ="
-msgstr ""
-
-#: admin/page-settings.php:856
-msgid "Custom security question to battle spam."
-msgstr ""
-
-#: admin/page-settings.php:858
-msgid "18"
-msgstr ""
-
-#: admin/page-settings.php:859
-msgid "The answer to your security question."
-msgstr ""
-
-#: admin/page-settings.php:861
-msgid ""
-"You can ask your visitors to answer a custom security question, so only real "
-"people can post an entry."
-msgstr ""
-
-#: admin/page-settings.php:873
-msgid "Learn more about reCAPTCHA..."
-msgstr ""
-
-#: admin/page-settings.php:884
-msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
-msgstr ""
-
-#: admin/page-settings.php:887
-msgid "<strong>Secret</strong> key of your reCAPTCHA account"
-msgstr ""
-
-#: admin/page-settings.php:890
-msgid ""
-"reCAPTCHA is a way to have visitors fill in a field with a few letters or "
-"numbers. It is a way to make sure that you have a human visitor and not a "
-"spambot. Not every visitor will appreciate it though, some will consider it "
-"unfriendly."
-msgstr ""
-
-#: admin/page-settings.php:892
-msgid "The keys can be found at your"
-msgstr ""
-
-#: admin/page-settings.php:892
-msgid "Go to my reCAPTCHA sites..."
-msgstr ""
-
-#: admin/page-settings.php:892
-msgid "reCAPTCHA sites overview"
-msgstr ""
-
-#: admin/page-settings.php:897
-msgid ""
-"<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
-"your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be "
-"loaded, and the found one will be used instead. This might give unexpected "
-"results."
-msgstr ""
-
-#: admin/page-settings.php:899
-msgid ""
-"<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
-"your theme or another plugin. However, this is an old and incompatible "
-"version, so reCAPTCHA will not be used for Gwolle-GB."
-msgstr ""
-
-#: admin/page-settings.php:926
-msgid "Admin mail from address"
-msgstr ""
-
-#: admin/page-settings.php:932
-msgid ""
-"You can set the email address that is used for the From header of the mail "
-"that a notification subscriber gets on new entries."
-msgstr ""
-
-#: admin/page-settings.php:934
-msgid "By default the main admin address is used from General >> Settings."
-msgstr ""
-
-#: admin/page-settings.php:941
-msgid "Unsubscribe moderators"
-msgstr ""
-
-#: admin/page-settings.php:951
-msgid "Unsubscribe User"
-msgstr ""
-
-#: admin/page-settings.php:973
-msgid "These users have subscribed to the notification emails."
-msgstr ""
-
-#: admin/page-settings.php:974
-msgid ""
-"Select a user if you want that user to unsubscribe from the notification "
-"emails."
-msgstr ""
-
-#: admin/page-settings.php:979
-msgid "Subscribe moderators"
-msgstr ""
-
-#: admin/page-settings.php:982
-msgid "Subscribe User"
-msgstr ""
-
-#: admin/page-settings.php:1025
-msgid "You can subscribe a moderator to the notification emails."
-msgstr ""
-
-#: admin/page-settings.php:1026
-msgid "Select a user that you want subscribed to the notification emails."
-msgstr ""
-
-#: admin/page-settings.php:1027
-msgid ""
-"You will only see users with the roles of Administrator, Editor and Author, "
-"who have the capability 'moderate_comments' ."
-msgstr ""
-
-#: admin/page-settings.php:1033
-msgid "Admin mail content"
-msgstr ""
-
-#: admin/page-settings.php:1038 frontend/posthandling.php:362
-msgid ""
-"\n"
-"Hello,\n"
-"\n"
-"There is a new guestbook entry at '%blog_name%'.\n"
-"You can check it at %entry_management_url%.\n"
-"\n"
-"Have a nice day.\n"
-"Your Gwolle-GB-Mailer\n"
-"\n"
-"\n"
-"Website address: %blog_url%\n"
-"User name: %user_name%\n"
-"User email: %user_email%\n"
-"Entry status: %status%\n"
-"Entry content:\n"
-"%entry_content%\n"
-msgstr ""
-
-#: admin/page-settings.php:1062
-msgid ""
-"You can set the content of the mail that a notification subscriber gets on "
-"new entries. The following tags are supported:"
-msgstr ""
-
-#: admin/page-settings.php:1077
-msgid "Mail Author"
-msgstr ""
-
-#: admin/page-settings.php:1085
-msgid "Mail the author with a confirmation email."
-msgstr ""
-
-#: admin/page-settings.php:1089
-msgid ""
-"The author of the guestbook entry will receive an email after posting. It "
-"will have a copy of the entry."
-msgstr ""
-
-#: admin/page-settings.php:1095
-msgid "Author mail content"
-msgstr ""
-
-#: admin/page-settings.php:1100 frontend/posthandling.php:430
-msgid ""
-"\n"
-"Hello,\n"
-"\n"
-"You have just posted a new guestbook entry at '%blog_name%'.\n"
-"\n"
-"Have a nice day.\n"
-"The editors at %blog_name%.\n"
-"\n"
-"\n"
-"Website address: %blog_url%\n"
-"User name: %user_name%\n"
-"User email: %user_email%\n"
-"Entry content:\n"
-"%entry_content%\n"
-msgstr ""
-
-#: admin/page-settings.php:1122
-msgid ""
-"You can set the content of the mail that the author of the entry will "
-"receive. The following tags are supported:"
-msgstr ""
-
-#: admin/page-settings.php:1163
-msgid "The entries and settings have been removed."
-msgstr ""
-
-#: admin/page-settings.php:1164
-msgid "The plugin is deactivated."
-msgstr ""
-
-#: admin/page-settings.php:1165
-msgid "You can now go to your"
-msgstr ""
-
-#: admin/page-settings.php:1165
-msgid "dashboard."
-msgstr ""
-
-#: admin/page-settings.php:1176
-msgid ""
-"Uninstalling means that all database entries are removed (settings and "
-"entries)."
-msgstr ""
-
-#: admin/page-settings.php:1178
-msgid "This can <strong>not</strong> be undone."
-msgstr ""
-
-#: admin/page-settings.php:1184
-msgid "Confirm"
-msgstr ""
-
-#: admin/page-settings.php:1187
-msgid "Yes, I'm absolutely sure of this. Proceed!"
-msgstr ""
-
-#: admin/page-settings.php:1195
-msgid "Also delete the reCAPTCHA keys"
-msgstr ""
-
-#: admin/page-settings.php:1202
-msgid "Uninstall &raquo;"
 msgstr ""
 
 #: frontend/posthandling.php:39
@@ -1570,20 +1070,58 @@ msgstr ""
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:315
+#: frontend/posthandling.php:317
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 
-#: frontend/posthandling.php:331
+#: frontend/posthandling.php:333
 msgid "Thank you for your entry."
 msgstr ""
 
-#: frontend/posthandling.php:333
+#: frontend/posthandling.php:335
 msgid "We will review it and unlock it in a short while."
 msgstr ""
 
-#: frontend/posthandling.php:383 frontend/posthandling.php:449
+#: frontend/posthandling.php:364 admin/tabs/emailtab.php:138
+msgid ""
+"\n"
+"Hello,\n"
+"\n"
+"There is a new guestbook entry at '%blog_name%'.\n"
+"You can check it at %entry_management_url%.\n"
+"\n"
+"Have a nice day.\n"
+"Your Gwolle-GB-Mailer\n"
+"\n"
+"\n"
+"Website address: %blog_url%\n"
+"User name: %user_name%\n"
+"User email: %user_email%\n"
+"Entry status: %status%\n"
+"Entry content:\n"
+"%entry_content%\n"
+msgstr ""
+
+#: frontend/posthandling.php:385 frontend/posthandling.php:451
 msgid "New Guestbook Entry"
+msgstr ""
+
+#: frontend/posthandling.php:432 admin/tabs/emailtab.php:200
+msgid ""
+"\n"
+"Hello,\n"
+"\n"
+"You have just posted a new guestbook entry at '%blog_name%'.\n"
+"\n"
+"Have a nice day.\n"
+"The editors at %blog_name%.\n"
+"\n"
+"\n"
+"Website address: %blog_url%\n"
+"User name: %user_name%\n"
+"User email: %user_email%\n"
+"Entry content:\n"
+"%entry_content%\n"
 msgstr ""
 
 #: frontend/read.php:79
@@ -1679,6 +1217,15 @@ msgstr ""
 msgid "Write a new entry for the Guestbook"
 msgstr ""
 
+#: frontend/write.php:138 frontend/write.php:145 admin/tabs/formtab.php:85
+#: admin/tabs/readingtab.php:160
+msgid "City"
+msgstr ""
+
+#: frontend/write.php:157 frontend/write.php:164 admin/tabs/formtab.php:105
+msgid "Email"
+msgstr ""
+
 #: frontend/write.php:225
 msgid "Question:"
 msgstr ""
@@ -1760,4 +1307,460 @@ msgstr ""
 
 #: functions/function.misc.php:58
 msgid "No content to display. This entry is empty."
+msgstr ""
+
+#: admin/tabs/admintab.php:26
+msgid "Entries per page in the admin"
+msgstr ""
+
+#: admin/tabs/admintab.php:41
+msgid "Number of entries shown in the admin."
+msgstr ""
+
+#: admin/tabs/admintab.php:46
+msgid "Entry icons"
+msgstr ""
+
+#: admin/tabs/admintab.php:52
+msgid "Show entry icons"
+msgstr ""
+
+#: admin/tabs/admintab.php:54
+msgid ""
+"These icons are shown in every entry row of the admin list, so that you know "
+"its status (checked, spam and trash)."
+msgstr ""
+
+#: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
+#: admin/tabs/emailtab.php:239 admin/tabs/formtab.php:197
+#: admin/tabs/readingtab.php:225
+msgid "Save settings"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:26
+msgid "Moderate Guestbook"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:34
+msgid "Moderate entries before publishing them."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:38
+msgid ""
+"New entries have to be unlocked by a moderator before they are visible to "
+"the public."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:40
+msgid ""
+"It is recommended that you turn this on, because you are responsible for the "
+"content on your website."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:50
+msgid "Learn more about Akismet..."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:50 admin/tabs/antispamtab.php:106
+msgid "What's that?"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:60
+msgid ""
+"Akismet helps you to fight spam. It's free and easy to install. Download and "
+"install it today to stop spam in your guestbook."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:63
+#, php-format
+msgid ""
+"Sorry, wasn't able to locate your <strong>WordPress API key</strong>. You "
+"can enter it at the <a href=\"%s\">Akismet configuration page</a>."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:72
+msgid "Use Akismet"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:74
+msgid ""
+"The WordPress API key has been found, so you can start using Akismet right "
+"now."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:85
+msgid "Custom Anti-Spam Security Question"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:88
+msgid "12 + six ="
+msgstr ""
+
+#: admin/tabs/antispamtab.php:89
+msgid "Custom security question to battle spam."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:91
+msgid "18"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:92
+msgid "The answer to your security question."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:94
+msgid ""
+"You can ask your visitors to answer a custom security question, so only real "
+"people can post an entry."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:106
+msgid "Learn more about reCAPTCHA..."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:117
+msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:120
+msgid "<strong>Secret</strong> key of your reCAPTCHA account"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:123
+msgid ""
+"reCAPTCHA is a way to have visitors fill in a field with a few letters or "
+"numbers. It is a way to make sure that you have a human visitor and not a "
+"spambot. Not every visitor will appreciate it though, some will consider it "
+"unfriendly."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:125
+msgid "The keys can be found at your"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:125
+msgid "Go to my reCAPTCHA sites..."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:125
+msgid "reCAPTCHA sites overview"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:130
+msgid ""
+"<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
+"your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be "
+"loaded, and the found one will be used instead. This might give unexpected "
+"results."
+msgstr ""
+
+#: admin/tabs/antispamtab.php:132
+msgid ""
+"<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
+"your theme or another plugin. However, this is an old and incompatible "
+"version, so reCAPTCHA will not be used for Gwolle-GB."
+msgstr ""
+
+#: admin/tabs/emailtab.php:26
+msgid "Admin mail from address"
+msgstr ""
+
+#: admin/tabs/emailtab.php:32
+msgid ""
+"You can set the email address that is used for the From header of the mail "
+"that a notification subscriber gets on new entries."
+msgstr ""
+
+#: admin/tabs/emailtab.php:34
+msgid "By default the main admin address is used from General >> Settings."
+msgstr ""
+
+#: admin/tabs/emailtab.php:41
+msgid "Unsubscribe moderators"
+msgstr ""
+
+#: admin/tabs/emailtab.php:51
+msgid "Unsubscribe User"
+msgstr ""
+
+#: admin/tabs/emailtab.php:73
+msgid "These users have subscribed to the notification emails."
+msgstr ""
+
+#: admin/tabs/emailtab.php:74
+msgid ""
+"Select a user if you want that user to unsubscribe from the notification "
+"emails."
+msgstr ""
+
+#: admin/tabs/emailtab.php:79
+msgid "Subscribe moderators"
+msgstr ""
+
+#: admin/tabs/emailtab.php:82
+msgid "Subscribe User"
+msgstr ""
+
+#: admin/tabs/emailtab.php:125
+msgid "You can subscribe a moderator to the notification emails."
+msgstr ""
+
+#: admin/tabs/emailtab.php:126
+msgid "Select a user that you want subscribed to the notification emails."
+msgstr ""
+
+#: admin/tabs/emailtab.php:127
+msgid ""
+"You will only see users with the roles of Administrator, Editor and Author, "
+"who have the capability 'moderate_comments' ."
+msgstr ""
+
+#: admin/tabs/emailtab.php:133
+msgid "Admin mail content"
+msgstr ""
+
+#: admin/tabs/emailtab.php:162
+msgid ""
+"You can set the content of the mail that a notification subscriber gets on "
+"new entries. The following tags are supported:"
+msgstr ""
+
+#: admin/tabs/emailtab.php:177
+msgid "Mail Author"
+msgstr ""
+
+#: admin/tabs/emailtab.php:185
+msgid "Mail the author with a confirmation email."
+msgstr ""
+
+#: admin/tabs/emailtab.php:189
+msgid ""
+"The author of the guestbook entry will receive an email after posting. It "
+"will have a copy of the entry."
+msgstr ""
+
+#: admin/tabs/emailtab.php:195
+msgid "Author mail content"
+msgstr ""
+
+#: admin/tabs/emailtab.php:222
+msgid ""
+"You can set the content of the mail that the author of the entry will "
+"receive. The following tags are supported:"
+msgstr ""
+
+#: admin/tabs/formtab.php:26
+msgid "Require Login"
+msgstr ""
+
+#: admin/tabs/formtab.php:33
+msgid "Require user to be logged in."
+msgstr ""
+
+#: admin/tabs/formtab.php:35
+msgid "Only allow logged-in users to add a guestbook entry."
+msgstr ""
+
+#: admin/tabs/formtab.php:40
+msgid "Labels float"
+msgstr ""
+
+#: admin/tabs/formtab.php:47
+msgid "Labels in the form float to the left."
+msgstr ""
+
+#: admin/tabs/formtab.php:49
+msgid ""
+"Labels in the form float to the left. Otherwise the labels will be above the "
+"input-fields."
+msgstr ""
+
+#: admin/tabs/formtab.php:61
+msgid "Configure the form that is shown to visitors."
+msgstr ""
+
+#: admin/tabs/formtab.php:72 admin/tabs/formtab.php:92
+#: admin/tabs/formtab.php:112 admin/tabs/formtab.php:132
+#: admin/tabs/formtab.php:152 admin/tabs/formtab.php:172
+#: admin/tabs/formtab.php:187 admin/tabs/readingtab.php:143
+#: admin/tabs/readingtab.php:155 admin/tabs/readingtab.php:167
+#: admin/tabs/readingtab.php:179 admin/tabs/readingtab.php:192
+#: admin/tabs/readingtab.php:205 admin/tabs/readingtab.php:217
+msgid "Enabled"
+msgstr ""
+
+#: admin/tabs/formtab.php:80 admin/tabs/formtab.php:100
+#: admin/tabs/formtab.php:120 admin/tabs/formtab.php:140
+#: admin/tabs/formtab.php:160
+msgid "Mandatory"
+msgstr ""
+
+#: admin/tabs/formtab.php:165
+msgid "Custom Anti-spam"
+msgstr ""
+
+#: admin/tabs/formtab.php:175 admin/tabs/formtab.php:190
+msgid "When enabled it is mandatory."
+msgstr ""
+
+#: admin/tabs/formtab.php:180 admin/tabs/uninstalltab.php:63
+msgid "reCAPTCHA"
+msgstr ""
+
+#: admin/tabs/readingtab.php:26
+msgid "Entries per page on the frontend"
+msgstr ""
+
+#: admin/tabs/readingtab.php:41
+msgid "Number of entries shown on the frontend."
+msgstr ""
+
+#: admin/tabs/readingtab.php:46
+msgid "Length of the entry content"
+msgstr ""
+
+#: admin/tabs/readingtab.php:56
+msgid "Unlimited Words"
+msgstr ""
+
+#: admin/tabs/readingtab.php:63
+msgid "Words"
+msgstr ""
+
+#: admin/tabs/readingtab.php:68
+msgid "Maximum length of the entry content in words."
+msgstr ""
+
+#: admin/tabs/readingtab.php:73
+msgid "Line breaks"
+msgstr ""
+
+#: admin/tabs/readingtab.php:80
+msgid "Show line breaks."
+msgstr ""
+
+#: admin/tabs/readingtab.php:82
+msgid ""
+"Show line breaks as the entry authors entered them. (May result in very long "
+"entries. Is turned off by default.)"
+msgstr ""
+
+#: admin/tabs/readingtab.php:87
+msgid "Smileys"
+msgstr ""
+
+#: admin/tabs/readingtab.php:94
+msgid "Display smileys as images."
+msgstr ""
+
+#: admin/tabs/readingtab.php:96
+#, php-format
+msgid ""
+"Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
+"replacer, so check on that one if you'd like to add new/more smileys."
+msgstr ""
+
+#: admin/tabs/readingtab.php:101
+msgid "Links"
+msgstr ""
+
+#: admin/tabs/readingtab.php:108
+msgid "Link authors' name to their website."
+msgstr ""
+
+#: admin/tabs/readingtab.php:110
+msgid ""
+"The author of an entry can set his/her website. If this setting is checked, "
+"his/her name will be a link to that website."
+msgstr ""
+
+#: admin/tabs/readingtab.php:115
+msgid "Admin Entry Styling"
+msgstr ""
+
+#: admin/tabs/readingtab.php:122
+msgid "Admin entries get a special CSS styling."
+msgstr ""
+
+#: admin/tabs/readingtab.php:124
+msgid ""
+"Admin entries get a special CSS styling. It will get a lightgrey background."
+msgstr ""
+
+#: admin/tabs/readingtab.php:131
+msgid "Configure the parts of the entries that are shown to visitors."
+msgstr ""
+
+#: admin/tabs/readingtab.php:136
+msgid "Avatar"
+msgstr ""
+
+#: admin/tabs/readingtab.php:172
+msgid "Date and Time"
+msgstr ""
+
+#: admin/tabs/readingtab.php:180
+msgid "Setting this will show the date and the time of the entry."
+msgstr ""
+
+#: admin/tabs/readingtab.php:193
+msgid ""
+"Setting this will show the date of the entry. If Date and Time above are "
+"enabled, that setting has preference."
+msgstr ""
+
+#: admin/tabs/readingtab.php:198
+msgid "Content"
+msgstr ""
+
+#: admin/tabs/readingtab.php:210
+msgid "Edit link"
+msgstr ""
+
+#: admin/tabs/readingtab.php:218
+msgid ""
+"A link to the editor will be added to the content. Only visible for "
+"moderators."
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:34
+msgid "The entries and settings have been removed."
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:35
+msgid "The plugin is deactivated."
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:36
+msgid "You can now go to your"
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:36
+msgid "dashboard."
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:47
+msgid ""
+"Uninstalling means that all database entries are removed (settings and "
+"entries)."
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:49
+msgid "This can <strong>not</strong> be undone."
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:55
+msgid "Confirm"
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:58
+msgid "Yes, I'm absolutely sure of this. Proceed!"
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:66
+msgid "Also delete the reCAPTCHA keys"
+msgstr ""
+
+#: admin/tabs/uninstalltab.php:73
+msgid "Uninstall &raquo;"
 msgstr ""
