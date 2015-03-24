@@ -58,6 +58,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
 = Languages =
 
+* bg_BG, Kostadin Petrichkov
 * cs_CZ, Jan Korous
 * de_DE, Jenny Gaulke and Eckhard Henkel
 * es_ES, José Luis Sanz Ruiz
