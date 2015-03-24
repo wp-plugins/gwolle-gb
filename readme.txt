@@ -101,7 +101,7 @@ If you have a feature request please use the forum on WordPress.org.
 The plugin itself is released under the GNU General Public License; a copy of this licence can be found at the licence homepage or
 in the gwolle-gb.php file at the top.
 
-For the licences regarding the use of reCAPTCHA or the icons you may ask the authors.
+For the licences regarding the use of reCAPTCHA you may ask the authors.
 
 = Todo list =
 
@@ -332,10 +332,11 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.7 =
-* 2015-03-
+* 2015-03-24
 * Add options to (un)subscribe moderators for admins.
 * Add buttons to empty spam and trash.
 * Separate settingspage into files with the tabs.
+* Use more sanitizing for output as well.
 * Add stub for bg_BG.
 * Update pot, nl_NL.
 

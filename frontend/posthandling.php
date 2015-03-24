@@ -359,7 +359,7 @@ function gwolle_gb_frontend_posthandling() {
 
 			// Set the Mail Content
 			$mailTags = array('user_email', 'user_name', 'status', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content');
-			$mail_body = stripslashes( get_option( 'gwolle_gb-adminMailContent', false ) );
+			$mail_body = gwolle_gb_sanitize_output( get_option( 'gwolle_gb-adminMailContent', false ) );
 			if (!$mail_body) {
 				$mail_body = __("
 Hello,
@@ -427,7 +427,7 @@ Entry content:
 
 				// Set the Mail Content
 				$mailTags = array('user_email', 'user_name', 'blog_name', 'blog_url', 'entry_content');
-				$mail_body = stripslashes( get_option( 'gwolle_gb-authorMailContent', false ) );
+				$mail_body = gwolle_gb_sanitize_output( get_option( 'gwolle_gb-authorMailContent', false ) );
 				if (!$mail_body) {
 					$mail_body = __("
 Hello,
@@ -451,7 +451,7 @@ Entry content:
 				$subject = '[' . get_bloginfo('name') . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
 				$header = "";
 				if ( get_option('gwolle_gb-mail-from', false) ) {
-					$header .= "From: " . get_bloginfo('name') . " <" . get_option('gwolle_gb-mail-from') . ">\r\n";
+					$header .= "From: " . get_bloginfo('name') . " <" . gwolle_gb_sanitize_output( get_option('gwolle_gb-mail-from') ) . ">\r\n";
 				} else {
 					$header .= "From: " . get_bloginfo('name') . " <" . get_bloginfo('admin_email') . ">\r\n";
 				}
