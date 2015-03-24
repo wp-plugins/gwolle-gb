@@ -133,7 +133,7 @@ function gwolle_gb_page_settingstab_email() {
 			<th scope="row"><label for="adminMailContent"><?php _e('Admin mail content', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td>
 				<?php
-				$mailText = get_option('gwolle_gb-adminMailContent', false);
+				$mailText = gwolle_gb_sanitize_output( get_option('gwolle_gb-adminMailContent', false) );
 				if (!$mailText) { // No text set by the user. Use the default text.
 					$mailText = __("
 Hello,
