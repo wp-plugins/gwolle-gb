@@ -67,7 +67,7 @@ function gwolle_gb_page_settingstab_form() {
 		</tr>
 
 		<tr valign="top">
-			<th scope="row"><label for="notice"><?php _e('Notice text', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+			<th scope="row"><label for="notice"><?php _e('Notice Text', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td>
 				<?php
 				$notice = gwolle_gb_sanitize_output( get_option('gwolle_gb-notice', false) );

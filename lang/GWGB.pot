@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 12:58+0100\n"
+"POT-Creation-Date: 2015-03-24 15:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgid "New entry"
 msgstr ""
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:299
+#: actions.php:57 actions.php:80 admin/page-settings.php:313
 msgid "Settings"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr ""
 
 #: admin/page-editor.php:140 admin/page-gwolle-gb.php:351
-#: admin/page-settings.php:305
+#: admin/page-settings.php:319
 msgid "Changes saved."
 msgstr ""
 
@@ -335,7 +335,7 @@ msgstr ""
 msgid "No log yet."
 msgstr ""
 
-#: admin/page-editor.php:538 frontend/write.php:195
+#: admin/page-editor.php:538 frontend/write.php:200
 msgid "Guestbook entry"
 msgstr ""
 
@@ -346,8 +346,8 @@ msgid ""
 "\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:549 frontend/write.php:176 frontend/write.php:183
-#: admin/tabs/formtab.php:125
+#: admin/page-editor.php:549 frontend/write.php:181 frontend/write.php:188
+#: admin/tabs/formtab.php:166
 msgid "Website"
 msgstr ""
 
@@ -564,7 +564,7 @@ msgid "ID"
 msgstr ""
 
 #: admin/page-entries.php:567 admin/page-entries.php:583
-#: admin/tabs/readingtab.php:185
+#: admin/tabs/readingtab.php:186
 msgid "Date"
 msgstr ""
 
@@ -598,8 +598,8 @@ msgid "The exporter will preserve the following data per entry:"
 msgstr ""
 
 #: admin/page-export.php:52 admin/page-import.php:358
-#: admin/page-import.php:399 frontend/write.php:119 frontend/write.php:126
-#: admin/tabs/formtab.php:65 admin/tabs/readingtab.php:148
+#: admin/page-import.php:399 frontend/write.php:124 frontend/write.php:131
+#: admin/tabs/formtab.php:106 admin/tabs/readingtab.php:149
 msgid "Name"
 msgstr ""
 
@@ -628,7 +628,7 @@ msgid "Host address"
 msgstr ""
 
 #: admin/page-export.php:59 admin/page-import.php:363
-#: admin/page-import.php:405 admin/tabs/formtab.php:145
+#: admin/page-import.php:405 admin/tabs/formtab.php:186
 #: admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr ""
@@ -1007,27 +1007,27 @@ msgstr ""
 msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 
-#: admin/page-settings.php:311
+#: admin/page-settings.php:325
 msgid "Form"
 msgstr ""
 
-#: admin/page-settings.php:312
+#: admin/page-settings.php:326
 msgid "Reading"
 msgstr ""
 
-#: admin/page-settings.php:313
+#: admin/page-settings.php:327
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:314 frontend/write.php:224 frontend/write.php:255
+#: admin/page-settings.php:328 frontend/write.php:229 frontend/write.php:260
 msgid "Anti-spam"
 msgstr ""
 
-#: admin/page-settings.php:315
+#: admin/page-settings.php:329
 msgid "E-mail"
 msgstr ""
 
-#: admin/page-settings.php:316 admin/tabs/uninstalltab.php:45
+#: admin/page-settings.php:330 admin/tabs/uninstalltab.php:45
 msgid "Uninstall"
 msgstr ""
 
@@ -1106,7 +1106,7 @@ msgstr ""
 msgid "New Guestbook Entry"
 msgstr ""
 
-#: frontend/posthandling.php:432 admin/tabs/emailtab.php:200
+#: frontend/posthandling.php:432 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1213,52 +1213,40 @@ msgstr ""
 msgid "Write a new entry."
 msgstr ""
 
-#: frontend/write.php:114
+#: frontend/write.php:114 admin/tabs/formtab.php:59
 msgid "Write a new entry for the Guestbook"
 msgstr ""
 
-#: frontend/write.php:138 frontend/write.php:145 admin/tabs/formtab.php:85
-#: admin/tabs/readingtab.php:160
+#: frontend/write.php:143 frontend/write.php:150 admin/tabs/formtab.php:126
+#: admin/tabs/readingtab.php:161
 msgid "City"
 msgstr ""
 
-#: frontend/write.php:157 frontend/write.php:164 admin/tabs/formtab.php:105
+#: frontend/write.php:162 frontend/write.php:169 admin/tabs/formtab.php:146
 msgid "Email"
 msgstr ""
 
-#: frontend/write.php:225
+#: frontend/write.php:230
 msgid "Question:"
 msgstr ""
 
-#: frontend/write.php:231
+#: frontend/write.php:236
 msgid "Answer"
 msgstr ""
 
-#: frontend/write.php:275
+#: frontend/write.php:280
 msgid "Submit"
 msgstr ""
 
-#: frontend/write.php:280
-msgid "Fields marked with * are obligatory."
-msgstr ""
-
-#: frontend/write.php:283
-msgid "The E-mail address wil not be published."
-msgstr ""
-
-#: frontend/write.php:286
-#, php-format
+#: frontend/write.php:289 admin/tabs/formtab.php:75
 msgid ""
-"For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
-"span>."
-msgstr ""
-
-#: frontend/write.php:291
-msgid "Your entry will be visible in the guestbook after we reviewed it."
-msgstr ""
-
-#: frontend/write.php:294
-msgid "We reserve our right to edit, delete, or not publish entries."
+"\n"
+"Fields marked with * are obligatory.\n"
+"Your E-mail address wil not be published.\n"
+"For security reasons we save the ip address %ip%.\n"
+"It might be that your entry will only be visible in the guestbook after we "
+"reviewed it.\n"
+"We reserve our right to edit, delete, or not publish entries.\n"
 msgstr ""
 
 #: functions/function.log.php:94
@@ -1332,8 +1320,8 @@ msgid ""
 msgstr ""
 
 #: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
-#: admin/tabs/emailtab.php:239 admin/tabs/formtab.php:197
-#: admin/tabs/readingtab.php:225
+#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:238
+#: admin/tabs/readingtab.php:226
 msgid "Save settings"
 msgstr ""
 
@@ -1519,31 +1507,31 @@ msgstr ""
 msgid "Admin mail content"
 msgstr ""
 
-#: admin/tabs/emailtab.php:162
+#: admin/tabs/emailtab.php:160
 msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
 msgstr ""
 
-#: admin/tabs/emailtab.php:177
+#: admin/tabs/emailtab.php:175
 msgid "Mail Author"
 msgstr ""
 
-#: admin/tabs/emailtab.php:185
+#: admin/tabs/emailtab.php:183
 msgid "Mail the author with a confirmation email."
 msgstr ""
 
-#: admin/tabs/emailtab.php:189
+#: admin/tabs/emailtab.php:187
 msgid ""
 "The author of the guestbook entry will receive an email after posting. It "
 "will have a copy of the entry."
 msgstr ""
 
-#: admin/tabs/emailtab.php:195
+#: admin/tabs/emailtab.php:193
 msgid "Author mail content"
 msgstr ""
 
-#: admin/tabs/emailtab.php:222
+#: admin/tabs/emailtab.php:218
 msgid ""
 "You can set the content of the mail that the author of the entry will "
 "receive. The following tags are supported:"
@@ -1575,35 +1563,55 @@ msgid ""
 "input-fields."
 msgstr ""
 
-#: admin/tabs/formtab.php:61
+#: admin/tabs/formtab.php:55
+msgid "Header Text"
+msgstr ""
+
+#: admin/tabs/formtab.php:64
+msgid "You can set the header that is shown on top of the form."
+msgstr ""
+
+#: admin/tabs/formtab.php:70
+msgid "Notice Text"
+msgstr ""
+
+#: admin/tabs/formtab.php:87
+msgid "You can set the content of the notice that gets shown below the form."
+msgstr ""
+
+#: admin/tabs/formtab.php:89
+msgid "You can use the tag %ip% to show the ip address."
+msgstr ""
+
+#: admin/tabs/formtab.php:102
 msgid "Configure the form that is shown to visitors."
 msgstr ""
 
-#: admin/tabs/formtab.php:72 admin/tabs/formtab.php:92
-#: admin/tabs/formtab.php:112 admin/tabs/formtab.php:132
-#: admin/tabs/formtab.php:152 admin/tabs/formtab.php:172
-#: admin/tabs/formtab.php:187 admin/tabs/readingtab.php:143
-#: admin/tabs/readingtab.php:155 admin/tabs/readingtab.php:167
-#: admin/tabs/readingtab.php:179 admin/tabs/readingtab.php:192
-#: admin/tabs/readingtab.php:205 admin/tabs/readingtab.php:217
+#: admin/tabs/formtab.php:113 admin/tabs/formtab.php:133
+#: admin/tabs/formtab.php:153 admin/tabs/formtab.php:173
+#: admin/tabs/formtab.php:193 admin/tabs/formtab.php:213
+#: admin/tabs/formtab.php:228 admin/tabs/readingtab.php:144
+#: admin/tabs/readingtab.php:156 admin/tabs/readingtab.php:168
+#: admin/tabs/readingtab.php:180 admin/tabs/readingtab.php:193
+#: admin/tabs/readingtab.php:206 admin/tabs/readingtab.php:218
 msgid "Enabled"
 msgstr ""
 
-#: admin/tabs/formtab.php:80 admin/tabs/formtab.php:100
-#: admin/tabs/formtab.php:120 admin/tabs/formtab.php:140
-#: admin/tabs/formtab.php:160
+#: admin/tabs/formtab.php:121 admin/tabs/formtab.php:141
+#: admin/tabs/formtab.php:161 admin/tabs/formtab.php:181
+#: admin/tabs/formtab.php:201
 msgid "Mandatory"
 msgstr ""
 
-#: admin/tabs/formtab.php:165
+#: admin/tabs/formtab.php:206
 msgid "Custom Anti-spam"
 msgstr ""
 
-#: admin/tabs/formtab.php:175 admin/tabs/formtab.php:190
+#: admin/tabs/formtab.php:216 admin/tabs/formtab.php:231
 msgid "When enabled it is mandatory."
 msgstr ""
 
-#: admin/tabs/formtab.php:180 admin/tabs/uninstalltab.php:63
+#: admin/tabs/formtab.php:221 admin/tabs/uninstalltab.php:63
 msgid "reCAPTCHA"
 msgstr ""
 
@@ -1687,37 +1695,37 @@ msgid ""
 "Admin entries get a special CSS styling. It will get a lightgrey background."
 msgstr ""
 
-#: admin/tabs/readingtab.php:131
+#: admin/tabs/readingtab.php:132
 msgid "Configure the parts of the entries that are shown to visitors."
 msgstr ""
 
-#: admin/tabs/readingtab.php:136
+#: admin/tabs/readingtab.php:137
 msgid "Avatar"
 msgstr ""
 
-#: admin/tabs/readingtab.php:172
+#: admin/tabs/readingtab.php:173
 msgid "Date and Time"
 msgstr ""
 
-#: admin/tabs/readingtab.php:180
+#: admin/tabs/readingtab.php:181
 msgid "Setting this will show the date and the time of the entry."
 msgstr ""
 
-#: admin/tabs/readingtab.php:193
+#: admin/tabs/readingtab.php:194
 msgid ""
 "Setting this will show the date of the entry. If Date and Time above are "
 "enabled, that setting has preference."
 msgstr ""
 
-#: admin/tabs/readingtab.php:198
+#: admin/tabs/readingtab.php:199
 msgid "Content"
 msgstr ""
 
-#: admin/tabs/readingtab.php:210
+#: admin/tabs/readingtab.php:211
 msgid "Edit link"
 msgstr ""
 
-#: admin/tabs/readingtab.php:218
+#: admin/tabs/readingtab.php:219
 msgid ""
 "A link to the editor will be added to the content. Only visible for "
 "moderators."

@@ -295,6 +295,8 @@ We reserve our right to edit, delete, or not publish entries.
 '
 , GWOLLE_GB_TEXTDOMAIN);
 	}
+
+	$notice = nl2br($notice);
 	$output .= str_replace('%ip%', $_SERVER['REMOTE_ADDR'], $notice);
 
 	$output .= '

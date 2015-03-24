@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 12:58+0100\n"
+"POT-Creation-Date: 2015-03-24 15:21+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -34,7 +34,7 @@ msgid "New entry"
 msgstr "Nieuw bericht"
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:299
+#: actions.php:57 actions.php:80 admin/page-settings.php:313
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -222,7 +222,7 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr "Aangemeld als Ham bij de Akismet dienst."
 
 #: admin/page-editor.php:140 admin/page-gwolle-gb.php:351
-#: admin/page-settings.php:305
+#: admin/page-settings.php:319
 msgid "Changes saved."
 msgstr "Wijzigingen opgeslagen."
 
@@ -338,7 +338,7 @@ msgstr "Bericht log"
 msgid "No log yet."
 msgstr "Nog geen log."
 
-#: admin/page-editor.php:538 frontend/write.php:195
+#: admin/page-editor.php:538 frontend/write.php:200
 msgid "Guestbook entry"
 msgstr "Gastenboek bericht"
 
@@ -351,8 +351,8 @@ msgstr ""
 "Regeleindes zijn niet zichtbaar voor je bezoekers vanwege je <a href=\"%s"
 "\">instellingen</a>."
 
-#: admin/page-editor.php:549 frontend/write.php:176 frontend/write.php:183
-#: admin/tabs/formtab.php:125
+#: admin/page-editor.php:549 frontend/write.php:181 frontend/write.php:188
+#: admin/tabs/formtab.php:166
 msgid "Website"
 msgstr "Website"
 
@@ -577,7 +577,7 @@ msgid "ID"
 msgstr "ID"
 
 #: admin/page-entries.php:567 admin/page-entries.php:583
-#: admin/tabs/readingtab.php:185
+#: admin/tabs/readingtab.php:186
 msgid "Date"
 msgstr "Datum"
 
@@ -611,8 +611,8 @@ msgid "The exporter will preserve the following data per entry:"
 msgstr "De exporteur zal de volgende gegevens behouden per bericht:"
 
 #: admin/page-export.php:52 admin/page-import.php:358
-#: admin/page-import.php:399 frontend/write.php:119 frontend/write.php:126
-#: admin/tabs/formtab.php:65 admin/tabs/readingtab.php:148
+#: admin/page-import.php:399 frontend/write.php:124 frontend/write.php:131
+#: admin/tabs/formtab.php:106 admin/tabs/readingtab.php:149
 msgid "Name"
 msgstr "Naam"
 
@@ -641,7 +641,7 @@ msgid "Host address"
 msgstr "Host adres"
 
 #: admin/page-export.php:59 admin/page-import.php:363
-#: admin/page-import.php:405 admin/tabs/formtab.php:145
+#: admin/page-import.php:405 admin/tabs/formtab.php:186
 #: admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr "Bericht"
@@ -1051,27 +1051,27 @@ msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 "Selecteer een CSV bestand met geëxporteerde berichten om te importeren:"
 
-#: admin/page-settings.php:311
+#: admin/page-settings.php:325
 msgid "Form"
 msgstr "Formulier"
 
-#: admin/page-settings.php:312
+#: admin/page-settings.php:326
 msgid "Reading"
 msgstr "Lezen"
 
-#: admin/page-settings.php:313
+#: admin/page-settings.php:327
 msgid "Admin"
 msgstr "Admin"
 
-#: admin/page-settings.php:314 frontend/write.php:224 frontend/write.php:255
+#: admin/page-settings.php:328 frontend/write.php:229 frontend/write.php:260
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
-#: admin/page-settings.php:315
+#: admin/page-settings.php:329
 msgid "E-mail"
 msgstr "E-mail"
 
-#: admin/page-settings.php:316 admin/tabs/uninstalltab.php:45
+#: admin/page-settings.php:330 admin/tabs/uninstalltab.php:45
 msgid "Uninstall"
 msgstr "Deïnstallatie"
 
@@ -1169,7 +1169,7 @@ msgstr ""
 msgid "New Guestbook Entry"
 msgstr "Nieuw Gastenboek Bericht"
 
-#: frontend/posthandling.php:432 admin/tabs/emailtab.php:200
+#: frontend/posthandling.php:432 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1290,59 +1290,49 @@ msgstr "Selecteer pagina"
 msgid "Write a new entry."
 msgstr "Schrijf een nieuw bericht."
 
-#: frontend/write.php:114
+#: frontend/write.php:114 admin/tabs/formtab.php:59
 msgid "Write a new entry for the Guestbook"
 msgstr "Schrijf een nieuw bericht voor het Gastenboek"
 
-#: frontend/write.php:138 frontend/write.php:145 admin/tabs/formtab.php:85
-#: admin/tabs/readingtab.php:160
+#: frontend/write.php:143 frontend/write.php:150 admin/tabs/formtab.php:126
+#: admin/tabs/readingtab.php:161
 msgid "City"
 msgstr "Stad"
 
-#: frontend/write.php:157 frontend/write.php:164 admin/tabs/formtab.php:105
+#: frontend/write.php:162 frontend/write.php:169 admin/tabs/formtab.php:146
 msgid "Email"
 msgstr "E-mail"
 
-#: frontend/write.php:225
+#: frontend/write.php:230
 msgid "Question:"
 msgstr "Vraag:"
 
-#: frontend/write.php:231
+#: frontend/write.php:236
 msgid "Answer"
 msgstr "Antwoord"
 
-#: frontend/write.php:275
+#: frontend/write.php:280
 msgid "Submit"
 msgstr "Toevoegen"
 
-#: frontend/write.php:280
-msgid "Fields marked with * are obligatory."
-msgstr "Velden met een * zijn verplicht."
-
-#: frontend/write.php:283
-msgid "The E-mail address wil not be published."
-msgstr "Het E-mailadres wordt niet gepubliceerd."
-
-#: frontend/write.php:286
-#, php-format
+#: frontend/write.php:289 admin/tabs/formtab.php:75
 msgid ""
-"For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
-"span>."
+"\n"
+"Fields marked with * are obligatory.\n"
+"Your E-mail address wil not be published.\n"
+"For security reasons we save the ip address %ip%.\n"
+"It might be that your entry will only be visible in the guestbook after we "
+"reviewed it.\n"
+"We reserve our right to edit, delete, or not publish entries.\n"
 msgstr ""
-"Uit veiligheidsoverwegingen slaan we het ip-adres <span id=\"gwolle_gb_ip\">"
-"%s</span> op."
-
-#: frontend/write.php:291
-msgid "Your entry will be visible in the guestbook after we reviewed it."
-msgstr ""
-"Je bericht zal zichtbaar zijn in het gastenboek nadat we het beoordeeld "
-"hebben."
-
-#: frontend/write.php:294
-msgid "We reserve our right to edit, delete, or not publish entries."
-msgstr ""
-"We houden het recht voor om berichten te bewerken, verwijderen of niet te "
-"publiceren."
+"\n"
+"Velden gemarkeerd met * zijn verplicht.\n"
+"Je E-mail adres wordt niet gepubliceerd.\n"
+"Om veiligheidsredenen slaan we je ipadres %ip% op.\n"
+"Het kan zijn dat je bericht pas zichtbaar wordt nadat we het beoordeeld "
+"hebben.\n"
+"We houden het recht om berichten te wijzigen, te verwijderen, of niet te "
+"publiceren.\n"
 
 #: functions/function.log.php:94
 msgid "Entry has been locked."
@@ -1417,8 +1407,8 @@ msgstr ""
 "zodat je de status makkelijk kunt zien (vrijgegeven, spam en prullenbak)."
 
 #: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
-#: admin/tabs/emailtab.php:239 admin/tabs/formtab.php:197
-#: admin/tabs/readingtab.php:225
+#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:238
+#: admin/tabs/readingtab.php:226
 msgid "Save settings"
 msgstr "Instellingen opslaan"
 
@@ -1632,7 +1622,7 @@ msgstr ""
 msgid "Admin mail content"
 msgstr "Admin mail inhoud"
 
-#: admin/tabs/emailtab.php:162
+#: admin/tabs/emailtab.php:160
 msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
 "new entries. The following tags are supported:"
@@ -1640,15 +1630,15 @@ msgstr ""
 "Je kunt de inhoud aanpassen van de e-mail die een abonnee op de notificaties "
 "krijgt. De volgende tags worden ondersteund:"
 
-#: admin/tabs/emailtab.php:177
+#: admin/tabs/emailtab.php:175
 msgid "Mail Author"
 msgstr "Mail Auteur"
 
-#: admin/tabs/emailtab.php:185
+#: admin/tabs/emailtab.php:183
 msgid "Mail the author with a confirmation email."
 msgstr "Mail de auteur met een e-mail als bevestiging."
 
-#: admin/tabs/emailtab.php:189
+#: admin/tabs/emailtab.php:187
 msgid ""
 "The author of the guestbook entry will receive an email after posting. It "
 "will have a copy of the entry."
@@ -1656,11 +1646,11 @@ msgstr ""
 "De auteur van het gastenboekbericht zal een e-mail ter bevestiging "
 "ontvangen. Het bevat een kopie van het bericht."
 
-#: admin/tabs/emailtab.php:195
+#: admin/tabs/emailtab.php:193
 msgid "Author mail content"
 msgstr "Auteur mail content"
 
-#: admin/tabs/emailtab.php:222
+#: admin/tabs/emailtab.php:218
 msgid ""
 "You can set the content of the mail that the author of the entry will "
 "receive. The following tags are supported:"
@@ -1697,35 +1687,57 @@ msgstr ""
 "Labels in het formulier vallen naar links. Anders zullen de labels boven het "
 "invoerveld geplaatst worden."
 
-#: admin/tabs/formtab.php:61
+#: admin/tabs/formtab.php:55
+msgid "Header Text"
+msgstr "Koptekst"
+
+#: admin/tabs/formtab.php:64
+msgid "You can set the header that is shown on top of the form."
+msgstr "Stel de koptekst in die wordt getoond boven het formulier."
+
+#: admin/tabs/formtab.php:70
+msgid "Notice Text"
+msgstr "Notitie Tekst"
+
+#: admin/tabs/formtab.php:87
+msgid "You can set the content of the notice that gets shown below the form."
+msgstr ""
+"Stel de inhoud van de tekst voor de notitie in die wordt getoond onder het "
+"formulier."
+
+#: admin/tabs/formtab.php:89
+msgid "You can use the tag %ip% to show the ip address."
+msgstr "Je kunt de tag %ip% gebruiken om het ipadres te tonen."
+
+#: admin/tabs/formtab.php:102
 msgid "Configure the form that is shown to visitors."
 msgstr "Stel het formulier in dat wordt getoond aan bezoekers."
 
-#: admin/tabs/formtab.php:72 admin/tabs/formtab.php:92
-#: admin/tabs/formtab.php:112 admin/tabs/formtab.php:132
-#: admin/tabs/formtab.php:152 admin/tabs/formtab.php:172
-#: admin/tabs/formtab.php:187 admin/tabs/readingtab.php:143
-#: admin/tabs/readingtab.php:155 admin/tabs/readingtab.php:167
-#: admin/tabs/readingtab.php:179 admin/tabs/readingtab.php:192
-#: admin/tabs/readingtab.php:205 admin/tabs/readingtab.php:217
+#: admin/tabs/formtab.php:113 admin/tabs/formtab.php:133
+#: admin/tabs/formtab.php:153 admin/tabs/formtab.php:173
+#: admin/tabs/formtab.php:193 admin/tabs/formtab.php:213
+#: admin/tabs/formtab.php:228 admin/tabs/readingtab.php:144
+#: admin/tabs/readingtab.php:156 admin/tabs/readingtab.php:168
+#: admin/tabs/readingtab.php:180 admin/tabs/readingtab.php:193
+#: admin/tabs/readingtab.php:206 admin/tabs/readingtab.php:218
 msgid "Enabled"
 msgstr "Aangezet"
 
-#: admin/tabs/formtab.php:80 admin/tabs/formtab.php:100
-#: admin/tabs/formtab.php:120 admin/tabs/formtab.php:140
-#: admin/tabs/formtab.php:160
+#: admin/tabs/formtab.php:121 admin/tabs/formtab.php:141
+#: admin/tabs/formtab.php:161 admin/tabs/formtab.php:181
+#: admin/tabs/formtab.php:201
 msgid "Mandatory"
 msgstr "Verplicht"
 
-#: admin/tabs/formtab.php:165
+#: admin/tabs/formtab.php:206
 msgid "Custom Anti-spam"
 msgstr "Aangepaste Anti-spam"
 
-#: admin/tabs/formtab.php:175 admin/tabs/formtab.php:190
+#: admin/tabs/formtab.php:216 admin/tabs/formtab.php:231
 msgid "When enabled it is mandatory."
 msgstr "Wanneer het aangezet is dan is het ook verplicht."
 
-#: admin/tabs/formtab.php:180 admin/tabs/uninstalltab.php:63
+#: admin/tabs/formtab.php:221 admin/tabs/uninstalltab.php:63
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
@@ -1818,23 +1830,23 @@ msgstr ""
 "Admin berichten krijgen een eigen opmaak. Ze krijgen een lichtgrijze "
 "achtergrond."
 
-#: admin/tabs/readingtab.php:131
+#: admin/tabs/readingtab.php:132
 msgid "Configure the parts of the entries that are shown to visitors."
 msgstr "Stel de delen van de berichten in die worden getoond aan bezoekers."
 
-#: admin/tabs/readingtab.php:136
+#: admin/tabs/readingtab.php:137
 msgid "Avatar"
 msgstr "Avatar"
 
-#: admin/tabs/readingtab.php:172
+#: admin/tabs/readingtab.php:173
 msgid "Date and Time"
 msgstr "Datum en Tijd"
 
-#: admin/tabs/readingtab.php:180
+#: admin/tabs/readingtab.php:181
 msgid "Setting this will show the date and the time of the entry."
 msgstr "Deze instelling toont de datum en tijd van het bericht."
 
-#: admin/tabs/readingtab.php:193
+#: admin/tabs/readingtab.php:194
 msgid ""
 "Setting this will show the date of the entry. If Date and Time above are "
 "enabled, that setting has preference."
@@ -1842,15 +1854,15 @@ msgstr ""
 "Deze instelling toont de datum van het bericht. Wanneer Datum en Tijd "
 "hierboven aanstaan, dan heeft die instelling voorrang."
 
-#: admin/tabs/readingtab.php:198
+#: admin/tabs/readingtab.php:199
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/tabs/readingtab.php:210
+#: admin/tabs/readingtab.php:211
 msgid "Edit link"
 msgstr "Bewerk Link"
 
-#: admin/tabs/readingtab.php:218
+#: admin/tabs/readingtab.php:219
 msgid ""
 "A link to the editor will be added to the content. Only visible for "
 "moderators."
@@ -1901,6 +1913,29 @@ msgstr "Verwijder ook de reCAPTCHA sleutels"
 #: admin/tabs/uninstalltab.php:73
 msgid "Uninstall &raquo;"
 msgstr "Deïnstalleren &raquo;"
+
+#~ msgid "Fields marked with * are obligatory."
+#~ msgstr "Velden met een * zijn verplicht."
+
+#~ msgid "The E-mail address wil not be published."
+#~ msgstr "Het E-mailadres wordt niet gepubliceerd."
+
+#~ msgid ""
+#~ "For security reasons we save the ip address <span id=\"gwolle_gb_ip\">%s</"
+#~ "span>."
+#~ msgstr ""
+#~ "Uit veiligheidsoverwegingen slaan we het ip-adres <span id=\"gwolle_gb_ip"
+#~ "\">%s</span> op."
+
+#~ msgid "Your entry will be visible in the guestbook after we reviewed it."
+#~ msgstr ""
+#~ "Je bericht zal zichtbaar zijn in het gastenboek nadat we het beoordeeld "
+#~ "hebben."
+
+#~ msgid "We reserve our right to edit, delete, or not publish entries."
+#~ msgstr ""
+#~ "We houden het recht voor om berichten te bewerken, verwijderen of niet te "
+#~ "publiceren."
 
 #~ msgid "These users have subscribed to this service."
 #~ msgstr "Deze gebruikers hebben zich aangemeld voor deze dienst."
