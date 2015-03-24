@@ -25,6 +25,9 @@ function gwolle_gb_add_log_entry( $entry_id, $subject ) {
 		'marked-as-not-spam',
 		'entry-edited',
 		'imported-from-dmsguestbook',
+		'imported-from-wp',
+		'imported-from-gwolle',
+		'exported-to-csv',
 		'entry-trashed',
 		'entry-untrashed'
 	);
@@ -86,7 +89,7 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 		return false;
 	}
 
-	//  Message to strings
+	// Message to strings
 	$log_messages = array(
 		'entry-unchecked'             => __('Entry has been locked.',    GWOLLE_GB_TEXTDOMAIN),
 		'entry-checked'               => __('Entry has been checked.',   GWOLLE_GB_TEXTDOMAIN),
@@ -94,6 +97,9 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 		'marked-as-not-spam'          => __('Entry marked as not spam.', GWOLLE_GB_TEXTDOMAIN),
 		'entry-edited'                => __('Entry has been edited.',    GWOLLE_GB_TEXTDOMAIN),
 		'imported-from-dmsguestbook'  => __('Imported from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN),
+		'imported-from-wp'            => __('Imported from WordPress comments', GWOLLE_GB_TEXTDOMAIN),
+		'imported-from-gwolle'        => __('Imported from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN),
+		'exported-to-csv'             => __('Exported to CSV file', GWOLLE_GB_TEXTDOMAIN),
 		'entry-trashed'               => __('Entry has been trashed.',   GWOLLE_GB_TEXTDOMAIN),
 		'entry-untrashed'             => __('Entry has been untrashed.', GWOLLE_GB_TEXTDOMAIN)
 	);
@@ -130,52 +136,51 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 	//$wpdb->print_error();
 	//echo "number of rows: " . $wpdb->num_rows;
 
-	if ( count($entries) == 0 ) {
-		return false;
-	}
+	if ( is_array($entries) && !empty($entries) ) {
 
+		// Array to store the log entries
+		$log_entries = array();
 
-	// Array to store the log entries
-	$log_entries = array();
+		foreach ( $entries as $entry ) {
+			$log_entry = array(
+				'id'        => (int) $entry['id'],
+				'subject'   => stripslashes($entry['subject']),
+				'entry_id'  => (int) $entry['entry_id'],
+				'author_id' => (int) $entry['author_id'],
+				'date'      => stripslashes($entry['date'])
+			);
 
-	foreach ( $entries as $entry ) {
-		$log_entry = array(
-			'id'        => (int) $entry['id'],
-			'subject'   => stripslashes($entry['subject']),
-			'entry_id'  => (int) $entry['entry_id'],
-			'author_id' => (int) $entry['author_id'],
-			'date'      => stripslashes($entry['date'])
-		);
+			$log_entry['msg'] = (isset($log_messages[$log_entry['subject']])) ? $log_messages[$log_entry['subject']] : $log_entry['subject'];
 
-		$log_entry['msg'] = (isset($log_messages[$log_entry['subject']])) ? $log_messages[$log_entry['subject']] : $log_entry['subject'];
-
-		// Get author's display name or login name if not already done.
-		$userdata = get_userdata( $log_entry['author_id'] );
-		if (is_object($userdata)) {
-			if ( isset( $userdata->display_name ) ) {
-				$log_entry['author_login'] = $userdata->display_name;
+			// Get author's display name or login name if not already done.
+			$userdata = get_userdata( $log_entry['author_id'] );
+			if (is_object($userdata)) {
+				if ( isset( $userdata->display_name ) ) {
+					$log_entry['author_login'] = $userdata->display_name;
+				} else {
+					$log_entry['author_login'] = $userdata->user_login;
+				}
 			} else {
-				$log_entry['author_login'] = $userdata->user_login;
+				$log_entry['author_login'] = '<i>' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . '</i>';
 			}
-		} else {
-			$log_entry['author_login'] = '<i>' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . '</i>';
+
+			// Construct the message in HTML
+			$log_entry['msg_html']  = date_i18n( get_option('date_format'), $log_entry['date']) . ", ";
+			$log_entry['msg_html'] .= date_i18n( get_option('time_format'), $log_entry['date']);
+			$log_entry['msg_html'] .= ': ' . $log_entry['msg'];
+
+			if ( $log_entry['author_id'] == get_current_user_id() ) {
+				$log_entry['msg_html'] .= ' (<strong>' . __('You', GWOLLE_GB_TEXTDOMAIN) . '</strong>)';
+			} else {
+				$log_entry['msg_html'] .= ' (' . $log_entry['author_login'] . ')';
+			}
+
+			$log_entries[] = $log_entry;
 		}
 
-		// Construct the message in HTML
-		$log_entry['msg_html']  = date_i18n( get_option('date_format'), $log_entry['date']) . ", ";
-		$log_entry['msg_html'] .= date_i18n( get_option('time_format'), $log_entry['date']);
-		$log_entry['msg_html'] .= ': ' . $log_entry['msg'];
-
-		if ( $log_entry['author_id'] == get_current_user_id() ) {
-			$log_entry['msg_html'] .= ' (<strong>' . __('You', GWOLLE_GB_TEXTDOMAIN) . '</strong>)';
-		} else {
-			$log_entry['msg_html'] .= ' (' . $log_entry['author_login'] . ')';
-		}
-
-		$log_entries[] = $log_entry;
+		return $log_entries;
 	}
-
-	return $log_entries;
+	return false;
 }
 
 
