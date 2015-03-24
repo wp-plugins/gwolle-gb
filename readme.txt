@@ -336,6 +336,7 @@ Yes, it is again actively maintained.
 * Add options to (un)subscribe moderators for admins.
 * Add buttons to empty spam and trash.
 * Separate settingspage into files with the tabs.
+* Add stub for bg_BG.
 * Update pot, nl_NL.
 
 = 1.2.6 =
