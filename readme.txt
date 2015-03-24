@@ -108,7 +108,6 @@ For the licences regarding the use of reCAPTCHA you may ask the authors.
 The current todolist is slowly getting shorter. If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
-* Make options for the title and notice of the form.
 * Import from certain post or just all comments.
 * Form: Add smileys to the form, maybe even emoji?
 * Editor: add options to change the date.

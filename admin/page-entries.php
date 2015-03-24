@@ -288,7 +288,6 @@ function gwolle_gb_page_entries() {
 				// Delete all entries in spam or trash
 				if ( isset($_POST['show']) && in_array($_POST['show'], array('spam', 'trash')) ) {
 					$delstatus = $_POST['show'];
-					echo "action: " . $delstatus;
 					$deleted = gwolle_gb_del_entries( $delstatus );
 					if ( $deleted == 1 ) {
 						$gwolle_gb_messages .= '<p>' . $deleted . " " . __('entry removed permanently.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
