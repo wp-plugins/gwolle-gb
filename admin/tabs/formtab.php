@@ -50,6 +50,47 @@ function gwolle_gb_page_settingstab_form() {
 			</td>
 		</tr>
 
+
+		<tr valign="top">
+			<th scope="row"><label for="header"><?php _e('Header Text', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+			<td><?php
+				$header = gwolle_gb_sanitize_output( get_option('gwolle_gb-header', false) );
+				if ( !$header ) {
+					$header = __('Write a new entry for the Guestbook', GWOLLE_GB_TEXTDOMAIN);
+				} ?>
+				<input name="header" id="header" class="regular-text" type="text" value="<?php echo $header; ?>" />
+				<br />
+				<span class="setting-description">
+					<?php _e('You can set the header that is shown on top of the form.', GWOLLE_GB_TEXTDOMAIN); ?>
+				</span>
+			</td>
+		</tr>
+
+		<tr valign="top">
+			<th scope="row"><label for="notice"><?php _e('Notice text', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+			<td>
+				<?php
+				$notice = gwolle_gb_sanitize_output( get_option('gwolle_gb-notice', false) );
+				if (!$notice) { // No text set by the user. Use the default text.
+					$notice = __('
+Fields marked with * are obligatory.
+Your E-mail address wil not be published.
+For security reasons we save the ip address %ip%.
+It might be that your entry will only be visible in the guestbook after we reviewed it.
+We reserve our right to edit, delete, or not publish entries.
+'
+, GWOLLE_GB_TEXTDOMAIN);
+							} ?>
+				<textarea name="notice" id="notice" style="width:400px;height:180px;" class="regular-text"><?php echo $notice; ?></textarea>
+				<br />
+				<span class="setting-description">
+					<?php _e('You can set the content of the notice that gets shown below the form.', GWOLLE_GB_TEXTDOMAIN);
+					echo '<br />';
+					_e('You can use the tag %ip% to show the ip address.', GWOLLE_GB_TEXTDOMAIN); ?>
+				</span>
+			</td>
+		</tr>
+
 		</tbody>
 	</table>
 	<table class="form-table">

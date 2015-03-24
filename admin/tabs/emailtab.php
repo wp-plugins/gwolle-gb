@@ -25,7 +25,7 @@ function gwolle_gb_page_settingstab_email() {
 		<tr valign="top">
 			<th scope="row"><label for="admin_mail_from"><?php _e('Admin mail from address', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td>
-				<input name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" placeholder="info@example.com" />
+				<input type="text" name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" placeholder="info@example.com" />
 				<br />
 				<span class="setting-description">
 					<?php
@@ -133,8 +133,8 @@ function gwolle_gb_page_settingstab_email() {
 			<th scope="row"><label for="adminMailContent"><?php _e('Admin mail content', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td>
 				<?php
-				$adminMailContent = get_option('gwolle_gb-adminMailContent', false);
-				if (!$adminMailContent) { // No text set by the user. Use the default text.
+				$mailText = get_option('gwolle_gb-adminMailContent', false);
+				if (!$mailText) { // No text set by the user. Use the default text.
 					$mailText = __("
 Hello,
 
@@ -153,8 +153,6 @@ Entry content:
 %entry_content%
 "
 , GWOLLE_GB_TEXTDOMAIN);
-							} else {
-								$mailText = stripslashes($adminMailContent);
 							} ?>
 				<textarea name="adminMailContent" id="adminMailContent" style="width:400px;height:300px;" class="regular-text"><?php echo $mailText; ?></textarea>
 				<br />
@@ -195,8 +193,8 @@ Entry content:
 			<th scope="row"><label for="authorMailContent"><?php _e('Author mail content', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td>
 				<?php
-				$authorMailContent = get_option('gwolle_gb-authorMailContent', false);
-				if (!$authorMailContent) { // No text set by the user. Use the default text.
+				$mailText = gwolle_gb_sanitize_output( get_option('gwolle_gb-authorMailContent', false) );
+				if (!$mailText) { // No text set by the user. Use the default text.
 					$mailText = __("
 Hello,
 
@@ -213,8 +211,6 @@ Entry content:
 %entry_content%
 "
 , GWOLLE_GB_TEXTDOMAIN);
-							} else {
-								$mailText = stripslashes($authorMailContent);
 							} ?>
 				<textarea name="authorMailContent" id="authorMailContent" style="width:400px;height:300px;" class="regular-text"><?php echo $mailText; ?></textarea>
 				<br />

@@ -125,6 +125,7 @@ function gwolle_gb_page_settingstab_reading() {
 			</td>
 		</tr>
 
+
 		<?php $read_setting = gwolle_gb_get_setting( 'read' ); ?>
 
 		<tr valign="top">

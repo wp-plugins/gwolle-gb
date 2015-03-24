@@ -48,6 +48,20 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
+
+						if ( isset($_POST['header']) ) {
+							$header = gwolle_gb_sanitize_input( $_POST['header'] );
+							update_option('gwolle_gb-header', $header);
+							$saved = true;
+						}
+
+
+						if ( isset($_POST['notice']) ) {
+							$notice = gwolle_gb_sanitize_input( $_POST['notice'] );
+							update_option('gwolle_gb-notice', $notice);
+							$saved = true;
+						}
+
 						$list = Array(
 							'form_name_enabled',
 							'form_name_mandatory',

@@ -109,9 +109,14 @@ function gwolle_gb_frontend_write() {
 	$autofocus = 'autofocus="autofocus"';
 
 	// Form for submitting new entries
+	$header = gwolle_gb_sanitize_output( get_option('gwolle_gb-header', false) );
+	if ( !$header ) {
+		$header = __('Write a new entry for the Guestbook', GWOLLE_GB_TEXTDOMAIN);
+	}
+
 	$output .= '
 		<form id="gwolle_gb_new_entry" action="" method="POST">
-			<h3>' . __('Write a new entry for the Guestbook', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+			<h3>' . $header . '</h3>
 			<input type="hidden" name="gwolle_gb_function" value="add_entry" />';
 
 	if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
@@ -277,21 +282,22 @@ function gwolle_gb_frontend_write() {
 			<div class="clearBoth">&nbsp;</div>
 
 			<div class="gwolle_gb_notice">
-				' . __('Fields marked with * are obligatory.', GWOLLE_GB_TEXTDOMAIN) . '
-				<br />';
-	if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
-		$output .= __('The E-mail address wil not be published.', GWOLLE_GB_TEXTDOMAIN) . '
-				<br />';
-	}
-	$output .= sprintf( __('For security reasons we save the ip address <span id="gwolle_gb_ip">%s</span>.', GWOLLE_GB_TEXTDOMAIN), $_SERVER['REMOTE_ADDR'] ) . '
-				<br />';
+				';
 
-
-	if (get_option('gwolle_gb-moderate-entries', 'true') === 'true') {
-		$output .= __('Your entry will be visible in the guestbook after we reviewed it.', GWOLLE_GB_TEXTDOMAIN) . '
-				<br />';
+	$notice = gwolle_gb_sanitize_output( get_option('gwolle_gb-notice', false) );
+	if (!$notice) { // No text set by the user. Use the default text.
+		$notice = __('
+Fields marked with * are obligatory.
+Your E-mail address wil not be published.
+For security reasons we save the ip address %ip%.
+It might be that your entry will only be visible in the guestbook after we reviewed it.
+We reserve our right to edit, delete, or not publish entries.
+'
+, GWOLLE_GB_TEXTDOMAIN);
 	}
-	$output .= __('We reserve our right to edit, delete, or not publish entries.', GWOLLE_GB_TEXTDOMAIN) . '
+	$output .= str_replace('%ip%', $_SERVER['REMOTE_ADDR'], $notice);
+
+	$output .= '
 			</div>
 		</form>';
 
@@ -305,9 +311,6 @@ function gwolle_gb_frontend_write() {
 		</style>
 		<?php
 	}
-
-	// FIXME: make this notice into a textarea for the admin so it can be changed as desired.
-
 
 
 	// Add filter for the form, so devs can manipulate it.

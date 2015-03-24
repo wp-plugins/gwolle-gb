@@ -333,10 +333,11 @@ Yes, it is again actively maintained.
 
 = 1.2.7 =
 * 2015-03-24
-* Add options to (un)subscribe moderators for admins.
+* Add options for admins to (un)subscribe moderators to notifications.
 * Add buttons to empty spam and trash.
-* Separate settingspage into files with the tabs.
-* Use more sanitizing for output as well.
+* Add options to change text around the form.
+* Separate settingspage into more files.
+* Use more sanitizing for output.
 * Add stub for bg_BG.
 * Update pot, nl_NL.
 
