@@ -335,6 +335,7 @@ Yes, it is again actively maintained.
 * 2015-03-
 * Add options to (un)subscribe moderators for admins.
 * Add buttons to empty spam and trash.
+* Separate settingspage into files with the tabs.
 * Update pot, nl_NL.
 
 = 1.2.6 =

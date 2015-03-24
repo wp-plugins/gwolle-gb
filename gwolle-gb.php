@@ -79,6 +79,14 @@ include_once( GWOLLE_GB_DIR . '/admin/page-import.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-settings.php' );
 include_once( GWOLLE_GB_DIR . '/admin/upgrade.php' );
 
+// Tabs for page-settings.php
+include_once( GWOLLE_GB_DIR . '/admin/tabs/formtab.php' );
+include_once( GWOLLE_GB_DIR . '/admin/tabs/readingtab.php' );
+include_once( GWOLLE_GB_DIR . '/admin/tabs/admintab.php' );
+include_once( GWOLLE_GB_DIR . '/admin/tabs/antispamtab.php' );
+include_once( GWOLLE_GB_DIR . '/admin/tabs/emailtab.php' );
+include_once( GWOLLE_GB_DIR . '/admin/tabs/uninstalltab.php' );
+
 // General Functions
 include_once( GWOLLE_GB_DIR . '/functions/function.akismet.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.get_entries.php' );
