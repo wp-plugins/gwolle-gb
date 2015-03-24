@@ -277,6 +277,7 @@ function gwolle_gb_frontend_posthandling() {
 			foreach ( $words as $word ) {
 				if ( strlen($word) > $maxlength ) {
 					$entry->set_ischecked( false );
+					break;
 				}
 			}
 			$maxlength = 60;
@@ -284,6 +285,7 @@ function gwolle_gb_frontend_posthandling() {
 			foreach ( $words as $word ) {
 				if ( strlen($word) > $maxlength ) {
 					$entry->set_ischecked( false );
+					break;
 				}
 			}
 		}
