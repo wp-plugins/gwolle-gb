@@ -2,7 +2,7 @@
 Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 3.4
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: 1.2.7
 License: GPLv2 or later
 
@@ -333,6 +333,7 @@ Yes, it is again actively maintained.
 = 1.2.8 =
 * 2015-03-
 * Widget uses get_home_url for the pagelink.
+* Update bg_BG.
 
 = 1.2.7 =
 * 2015-03-24
