@@ -5,7 +5,7 @@
  */
 
 // No direct calls to this script
-if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
+if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 	die('No direct calls allowed!');
 }
 
@@ -13,7 +13,7 @@ if (preg_match('#' . basename(__FILE__) . '#', $_SERVER['PHP_SELF'])) {
 function gwolle_gb_page_entries() {
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
-		die(__('Cheatin&#8217; uh?'));
+		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
 	}
 
 	if (!get_option('gwolle_gb_version')) {
@@ -283,6 +283,21 @@ function gwolle_gb_page_entries() {
 					}
 				}
 			}
+
+			if ( isset( $_POST['delete_all'] ) || isset( $_POST['delete_all2'] ) ) {
+				// Delete all entries in spam or trash
+				if ( isset($_POST['show']) && in_array($_POST['show'], array('spam', 'trash')) ) {
+					$delstatus = $_POST['show'];
+					$deleted = gwolle_gb_del_entries( $delstatus );
+					if ( $deleted == 1 ) {
+						$gwolle_gb_messages .= '<p>' . $deleted . " " . __('entry removed permanently.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else if ( $deleted > 1 ) {
+						$gwolle_gb_messages .= '<p>' . $deleted . " " . __('entries removed permanently.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else {
+						$gwolle_gb_messages .= '<p>' . __('No entries permanently removed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					}
+				}
+			}
 		}
 
 
@@ -344,8 +359,6 @@ function gwolle_gb_page_entries() {
 			$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum - 1) * $entries_per_page) - 1;
 		}
 
-		//if ( WP_DEBUG ) { echo "mysqlFirstRow on $show: "; var_dump($mysqlFirstRow); }
-		// FIXME: buggy paging on page 1 - 4 of "all"
 		// Get the entries
 		if ( $show == 'checked' ) {
 			$entries = gwolle_gb_get_entries(array(
@@ -425,7 +438,7 @@ function gwolle_gb_page_entries() {
 					</li>
 					<li><a href='admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/entries.php&amp;show=trash' <?php
 						if ($show == 'trash') { echo 'class="current"'; }
-						?>><?php _e('Trash'); ?> <span class="count">(<?php echo $count['trash']; ?>)</span></a>
+						?>><?php _e('Trash', GWOLLE_GB_TEXTDOMAIN); ?> <span class="count">(<?php echo $count['trash']; ?>)</span></a>
 					</li>
 				</ul>
 				<div class="tablenav">
@@ -459,16 +472,23 @@ function gwolle_gb_page_entries() {
 						}
 						$massEditControls .= '</select>';
 						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
-						// Only show controls when there are entries
-						if ( is_array($entries) && count($entries) > 0 ) {
-							echo $massEditControls_select . $massEditControls;
+						$empty_button = '';
+						if ( $show == 'spam' ) {
+							$empty_button = '<input type="submit" name="delete_all" id="delete_all" class="button apply" value="' . __('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+						} else if ( $show == 'trash' ) {
+							$empty_button = '<input type="submit" name="delete_all" id="delete_all" class="button apply" value="' . __('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
 						}
-						// FIXME: add button to delete all spam and trash entries
+
+						// Only show controls when there are entries
+						if ( is_array($entries) && !empty($entries) ) {
+							echo $massEditControls_select . $massEditControls . $empty_button;
+						}
 						?>
 					</div>
 
 					<div class="tablenav-pages">
 						<?php
+						$highDotsMade = false;
 						$pagination = '<span class="displaying-num">' . __('Showing:', GWOLLE_GB_TEXTDOMAIN) .
 							' ' . $firstEntryNum . ' &#8211; ' . $lastEntryNum . ' ' . __('of', GWOLLE_GB_TEXTDOMAIN) . ' ' . $count[$show] . '</span>
 							';
@@ -536,33 +556,33 @@ function gwolle_gb_page_entries() {
 					<table class="widefat">
 						<thead>
 							<tr>
-								<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-top" id="check-all-top" type="checkbox"></th>
-								<th scope="col" ><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col" class="manage-column column-cb check-column"><input name="check-all-top" id="check-all-top" type="checkbox"></th>
+								<th scope="col"><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<?php
-								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true' && $show !== 'trash') { ?>
+								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') { ?>
 									<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 								<?php
 								} ?>
-								<th scope="col" ><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
 							</tr>
 						</thead>
 
 						<tfoot>
 							<tr>
-								<th scope="col" class="manage-column column-cb check-column"><input style="display:none;" name="check-all-bottom" id="check-all-bottom" type="checkbox"></th>
-								<th scope="col" ><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col" class="manage-column column-cb check-column"><input name="check-all-bottom" id="check-all-bottom" type="checkbox"></th>
+								<th scope="col"><?php _e('ID', GWOLLE_GB_TEXTDOMAIN); ?></th>
 								<?php
-								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true' && $show !== 'trash') { ?>
+								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') { ?>
 									<th scope="col">&nbsp;</th><!-- this is the icon-column -->
 								<?php
 								} ?>
-								<th scope="col" ><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
-								<th scope="col" ><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Date', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Entry (excerpt)', GWOLLE_GB_TEXTDOMAIN); ?></th>
+								<th scope="col"><?php _e('Action', GWOLLE_GB_TEXTDOMAIN); ?></th>
 							</tr>
 						</tfoot>
 
@@ -570,7 +590,7 @@ function gwolle_gb_page_entries() {
 						<tbody>
 							<?php $rowOdd = true;
 							$html_output = '';
-							if ( !is_array($entries) || count($entries) === 0 ) {
+							if ( !is_array($entries) || empty($entries) ) {
 								$colspan = (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') ? 7 : 6;
 								$html_output .= '
 									<tr>
@@ -688,13 +708,13 @@ function gwolle_gb_page_entries() {
 												<a id="unspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Not spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 											<span class="gwolle_gb_trash">&nbsp;|&nbsp;
-												<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash') . '</a>
+												<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 											<span class="gwolle_gb_untrash">&nbsp;|&nbsp;
-												<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash') . '</a>
+												<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 											<span class="gwolle_gb_ajax">&nbsp;|&nbsp;
-												<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...') . '</a>
+												<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...', GWOLLE_GB_TEXTDOMAIN) . '</a>
 											</span>
 										</td>
 									</tr>';
@@ -710,9 +730,16 @@ function gwolle_gb_page_entries() {
 						<div class="alignleft actions">
 							<?php
 							$massEditControls_select = '<select name="massEditAction2">';
+							$empty_button = '';
+							if ( $show == 'spam' ) {
+								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . __('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+							} else if ( $show == 'trash' ) {
+								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . __('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+							}
+
 							// Only show controls when there are entries
-							if ( is_array($entries) && count($entries) > 0 ) {
-								echo $massEditControls_select . $massEditControls;
+							if ( is_array($entries) && !empty($entries) ) {
+								echo $massEditControls_select . $massEditControls . $empty_button;
 							}
 							?>
 						</div>
