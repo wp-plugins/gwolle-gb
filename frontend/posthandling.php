@@ -34,7 +34,7 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		// Option to allow only logged-in users to post. Don't show the form if not logged-in.
-		if ( get_option('gwolle_gb-require_login', 'false') == 'true' ) {
+		if ( !is_user_logged_in() && get_option('gwolle_gb-require_login', 'false') == 'true' ) {
 			$gwolle_gb_errors = true;
 			$gwolle_gb_messages .= '<p class="require_login"><strong>' . __('Submitting a new guestbook entry is only allowed for logged-in users.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 			return;
