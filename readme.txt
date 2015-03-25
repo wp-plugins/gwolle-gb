@@ -332,7 +332,8 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.8 =
-* 2015-03-
+* 2015-03-25
+* Do show the form when user is logged in and login is required.
 * Widget uses get_home_url for the pagelink.
 * Update bg_BG (Thanks Kostadin Petrichkov).
 * Add missing es_ES.po from mo-file.

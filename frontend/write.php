@@ -86,7 +86,7 @@ function gwolle_gb_frontend_write() {
 
 
 	// Option to allow only logged-in users to post. Don't show the form if not logged-in. We still see the messages above.
-	if ( get_option('gwolle_gb-require_login', 'false') == 'true' ) {
+	if ( !is_user_logged_in() && get_option('gwolle_gb-require_login', 'false') == 'true' ) {
 		return $output;
 	}
 
