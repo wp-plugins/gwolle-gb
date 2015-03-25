@@ -334,7 +334,8 @@ Yes, it is again actively maintained.
 = 1.2.8 =
 * 2015-03-
 * Widget uses get_home_url for the pagelink.
-* Update bg_BG.
+* Update bg_BG (Thanks Kostadin Petrichkov).
+* Add missing es_ES.po from mo-file.
 
 = 1.2.7 =
 * 2015-03-24
