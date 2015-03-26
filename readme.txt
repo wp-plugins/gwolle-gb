@@ -331,6 +331,11 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.9 =
+* 2015-03-
+* Update fr_FR, remove heures.
+* Update bg_BG.
+
 = 1.2.8 =
 * 2015-03-25
 * Do show the form when user is logged in and login is required.
