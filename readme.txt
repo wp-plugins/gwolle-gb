@@ -334,7 +334,7 @@ Yes, it is again actively maintained.
 = 1.2.9 =
 * 2015-03-
 * Remove "hours" from the entries list. Nobody likes it.
-* Update bg_BG.
+* Update bg_BG, ru_RU.
 
 = 1.2.8 =
 * 2015-03-25
