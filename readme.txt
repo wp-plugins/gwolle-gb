@@ -333,7 +333,7 @@ Yes, it is again actively maintained.
 
 = 1.2.9 =
 * 2015-03-
-* Update fr_FR, remove heures.
+* Remove "hours" from the entries list. Nobody likes it.
 * Update bg_BG.
 
 = 1.2.8 =
