@@ -1224,7 +1224,7 @@ msgstr "à"
 
 #: frontend/read.php:202
 msgid "hours"
-msgstr "heures"
+msgstr " "
 
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."

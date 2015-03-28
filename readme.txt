@@ -331,6 +331,12 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.2.9 =
+* 2015-03-28
+* Sanitize output for notification email.
+* Remove "hours" from the entries list. Nobody likes it.
+* Update bg_BG, ru_RU.
+
 = 1.2.8 =
 * 2015-03-25
 * Do show the form when user is logged in and login is required.

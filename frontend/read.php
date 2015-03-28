@@ -199,7 +199,7 @@ function gwolle_gb_frontend_read() {
 				}
 				$entry_output .=  date_i18n( get_option('date_format'), $entry->get_date() ) . '</span>';
 				if ( isset($read_setting['read_datetime']) && $read_setting['read_datetime']  === 'true' ) {
-					$entry_output .= '<span class="gb-time"> ' . __('at', GWOLLE_GB_TEXTDOMAIN) . ' ' . trim(date_i18n( get_option('time_format'), $entry->get_date() )) . ' ' . __('hours', GWOLLE_GB_TEXTDOMAIN) . '</span>';
+					$entry_output .= '<span class="gb-time"> ' . __('at', GWOLLE_GB_TEXTDOMAIN) . ' ' . trim(date_i18n( get_option('time_format'), $entry->get_date() )) . '</span>';
 				}
 				$entry_output .= ':</span> ';
 			}
