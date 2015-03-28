@@ -392,13 +392,13 @@ Entry content:
 			$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
 
 			// Replace the tags from the mailtemplate with real data from the website and entry
-			$info['user_name'] = $entry->get_author_name();
+			$info['user_name'] = gwolle_gb_sanitize_output( $entry->get_author_name() );
 			$info['user_email'] = $entry->get_author_email();
 			$info['blog_name'] = get_bloginfo('name');
 			$info['blog_url'] = get_bloginfo('wpurl');
 			$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
 			$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id();
-			$info['entry_content'] = gwolle_gb_format_values_for_mail($entry->get_content());
+			$info['entry_content'] = gwolle_gb_format_values_for_mail(gwolle_gb_sanitize_output( $entry->get_content() ));
 			if ( $entry->get_ischecked() ) {
 				$info['status'] = "Checked";
 			} else {
@@ -458,11 +458,11 @@ Entry content:
 				$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
 
 				// Replace the tags from the mailtemplate with real data from the website and entry
-				$info['user_name'] = $entry->get_author_name();
+				$info['user_name'] = gwolle_gb_sanitize_output( $entry->get_author_name() );
 				$info['user_email'] = $entry->get_author_email();
 				$info['blog_name'] = get_bloginfo('name');
 				$info['blog_url'] = get_bloginfo('wpurl');
-				$info['entry_content'] = gwolle_gb_format_values_for_mail($entry->get_content());
+				$info['entry_content'] = gwolle_gb_format_values_for_mail(gwolle_gb_sanitize_output( $entry->get_content() ));
 				for ($tagNum = 0; $tagNum < count($mailTags); $tagNum++) {
 					$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
 				}

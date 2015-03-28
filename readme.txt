@@ -333,6 +333,7 @@ Yes, it is again actively maintained.
 
 = 1.2.9 =
 * 2015-03-
+* Sanitize output for notification email.
 * Remove "hours" from the entries list. Nobody likes it.
 * Update bg_BG, ru_RU.
 
