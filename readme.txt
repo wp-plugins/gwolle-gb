@@ -332,7 +332,7 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.2.9 =
-* 2015-03-
+* 2015-03-28
 * Sanitize output for notification email.
 * Remove "hours" from the entries list. Nobody likes it.
 * Update bg_BG, ru_RU.
