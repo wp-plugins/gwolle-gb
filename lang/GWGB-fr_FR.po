@@ -4,7 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-24 15:21+0100\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
+"Last-Translator: Flobogo <mon.coin.de.bourgogne@gmail.com>\n"
 "Language-Team: \n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: D:\\Wordpress\\MOSAIQUE\\plugins\\gwolle-gb.0.9.5\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.7.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:22
@@ -560,14 +560,12 @@ msgid "Apply"
 msgstr "Appliquer"
 
 #: admin/page-entries.php:478 admin/page-entries.php:736
-#, fuzzy
 msgid "Empty Spam"
-msgstr "Aucun contenu à afficher. Ce message est vide."
+msgstr "Spam vide. "
 
 #: admin/page-entries.php:480 admin/page-entries.php:738
-#, fuzzy
 msgid "Empty Trash"
-msgstr "Aucun contenu à afficher. Ce message est vide."
+msgstr "Corbeille vide."
 
 #: admin/page-entries.php:493
 msgid "Showing:"
@@ -1144,7 +1142,6 @@ msgid "We will review it and unlock it in a short while."
 msgstr "Nous allons réviser et dé-verrouiller cela dans un court moment."
 
 #: frontend/posthandling.php:364 admin/tabs/emailtab.php:138
-#, fuzzy
 msgid ""
 "\n"
 "Hello,\n"
@@ -1163,13 +1160,21 @@ msgid ""
 "Entry content:\n"
 "%entry_content%\n"
 msgstr ""
+"\n"
 "Bonjour,\n"
 "\n"
 "Il y a un nouveau message dans le livre d'or de '%blog_name%'.\n"
 "Vous pouvez vérifier cela à %entry_management_url%.\n"
 "\n"
 "Bonne journée !\n"
-"Votre logiciel de messagerie Gwolle-GB"
+"Votre logiciel de messagerie Gwolle-GB\n"
+"\n"
+"Adresse du site web :  %blog_url%\n"
+"Nom d'utilisateur : %user_name%\n"
+"E-mail d'utilisateur : %user_email%\n"
+"Statut du message :  %status%\n"
+"Contenu du message : \n"
+"%entry_content%\n"
 
 #: frontend/posthandling.php:385 frontend/posthandling.php:451
 msgid "New Guestbook Entry"
@@ -1192,6 +1197,21 @@ msgid ""
 "Entry content:\n"
 "%entry_content%\n"
 msgstr ""
+"\n"
+"Bonjour,\n"
+"\n"
+"Vous venez de poster une nouvelle entrée dans le livre d'or de '%blog_name"
+"%'.\n"
+"\n"
+"Passez une bonne journée.\n"
+"Le webmaster de %blog_name%.\n"
+"\n"
+"\n"
+"Adresse du site : %blog_url%\n"
+"Nom d'utilisateur : %user_name%\n"
+"E-mail de l'utilisateur : %user_email%\n"
+"Contenu du message : \n"
+"%entry_content%\n"
 
 #: frontend/read.php:79
 msgid "Previous page"
@@ -1317,6 +1337,14 @@ msgid ""
 "reviewed it.\n"
 "We reserve our right to edit, delete, or not publish entries.\n"
 msgstr ""
+"\n"
+"Les champs maqués avec * sont obligatoires.\n"
+"Votre adresse e-mail ne sera pas publiée.\n"
+"Pour des raisons de sécurité, nous sauvegardons votre adresse IP %ip%.\n"
+"Il se pourrait que votre message ne soit visible dans le livre d'or qu'après "
+"que nous l'ayons examiné.\n"
+"Nous nous réservons le droit d'éditer, de supprimer, ou de ne pas publier "
+"les messages.\n"
 
 #: functions/function.log.php:94
 msgid "Entry has been locked."
@@ -1507,6 +1535,10 @@ msgid ""
 "spambot. Not every visitor will appreciate it though, some will consider it "
 "unfriendly."
 msgstr ""
+"reCAPTCHA est un moyen d'avoir des visiteurs qui remplissent un champ avec "
+"quelques lettres ou chiffres. C'est une façon de s'assurer que vous avez un "
+"visiteur humain et non pas un spammeur. Cependant, tout  visiteur "
+"n'appréciera pas, certains vont considérer cela comme inamical."
 
 #: admin/tabs/antispamtab.php:125
 msgid "The keys can be found at your"
@@ -1562,48 +1594,50 @@ msgstr ""
 "de wordpress."
 
 #: admin/tabs/emailtab.php:41
-#, fuzzy
 msgid "Unsubscribe moderators"
-msgstr "Aucun souscripteur pour l'instant"
+msgstr "Désinscrire des modérateurs"
 
 #: admin/tabs/emailtab.php:51
-#, fuzzy
 msgid "Unsubscribe User"
-msgstr "ID d'utilisateur"
+msgstr "Désinscription des utilisateurs"
 
 #: admin/tabs/emailtab.php:73
-#, fuzzy
 msgid "These users have subscribed to the notification emails."
-msgstr "Les utilisateurs suivants ont souscrit à ce service:"
+msgstr "Ces utilisateurs ont souscrit aux e-mails de notification."
 
 #: admin/tabs/emailtab.php:74
 msgid ""
 "Select a user if you want that user to unsubscribe from the notification "
 "emails."
 msgstr ""
+"Sélectionnez un utilisateur si vous souhaitez que cet utilisateur soit "
+"désabonné des e-mails de notification."
 
 #: admin/tabs/emailtab.php:79
 msgid "Subscribe moderators"
-msgstr ""
+msgstr "Abonner des modérateurs"
 
 #: admin/tabs/emailtab.php:82
-#, fuzzy
 msgid "Subscribe User"
-msgstr "ID d'utilisateur"
+msgstr "Abonnement d'utilisateur"
 
 #: admin/tabs/emailtab.php:125
 msgid "You can subscribe a moderator to the notification emails."
-msgstr ""
+msgstr "Vous pouvez abonner un modérateur aux e-mails de notification."
 
 #: admin/tabs/emailtab.php:126
 msgid "Select a user that you want subscribed to the notification emails."
 msgstr ""
+"Sélectionnez un utilisateur que vous voulez abonner aux e-mails de "
+"notification."
 
 #: admin/tabs/emailtab.php:127
 msgid ""
 "You will only see users with the roles of Administrator, Editor and Author, "
 "who have the capability 'moderate_comments' ."
 msgstr ""
+"Vous ne verrez que les utilisateurs avec les rôles d'administrateur, éditeur "
+"et auteur, qui ont la capacité  'moderate_comments' ."
 
 #: admin/tabs/emailtab.php:133
 msgid "Admin mail content"
@@ -1618,37 +1652,36 @@ msgstr ""
 "message. Les tags suivants sont supportés :"
 
 #: admin/tabs/emailtab.php:175
-#, fuzzy
 msgid "Mail Author"
-msgstr "Auteur"
+msgstr "Envoyer un mail à l'Auteur"
 
 #: admin/tabs/emailtab.php:183
 msgid "Mail the author with a confirmation email."
-msgstr ""
+msgstr "Envoyez un mail de confirmation à l'auteur."
 
 #: admin/tabs/emailtab.php:187
 msgid ""
 "The author of the guestbook entry will receive an email after posting. It "
 "will have a copy of the entry."
 msgstr ""
+"L'auteur du livre d'or recevra un e-mail après avoir publié. Il aura une "
+"copie du message."
 
 #: admin/tabs/emailtab.php:193
-#, fuzzy
 msgid "Author mail content"
-msgstr "Contenu du mail à l'administrateur"
+msgstr "Contenu du mail à l'auteur"
 
 #: admin/tabs/emailtab.php:218
-#, fuzzy
 msgid ""
 "You can set the content of the mail that the author of the entry will "
 "receive. The following tags are supported:"
 msgstr ""
-"Vous pouvez personnaliser le contenu du mail de notification pour un nouveau "
-"message. Les tags suivants sont supportés :"
+"Vous pouvez personnaliser le contenu du mail que l'auteur du nouveau message "
+"recevra. Les tags suivants sont supportés :"
 
 #: admin/tabs/formtab.php:26
 msgid "Require Login"
-msgstr "Besoin de Login"
+msgstr "Exiger le Login"
 
 #: admin/tabs/formtab.php:33
 msgid "Require user to be logged in."
@@ -1677,28 +1710,26 @@ msgstr ""
 "au-dessus des champs de saisie."
 
 #: admin/tabs/formtab.php:55
-#, fuzzy
 msgid "Header Text"
-msgstr "Hyperlien :"
+msgstr "Texte d'en-tête :"
 
 #: admin/tabs/formtab.php:64
-#, fuzzy
 msgid "You can set the header that is shown on top of the form."
-msgstr "Configurer le formulaire qui est montré aux visiteurs."
+msgstr "Vous pouvez définir l'en-tête qui est montré en haut du formulaire."
 
 #: admin/tabs/formtab.php:70
-#, fuzzy
 msgid "Notice Text"
-msgstr "Hyperlien :"
+msgstr "Texte d'information :"
 
 #: admin/tabs/formtab.php:87
-#, fuzzy
 msgid "You can set the content of the notice that gets shown below the form."
-msgstr "Configurer les parties des entrées qui sont montrées aux visiteurs."
+msgstr ""
+"Vous pouvez définir le contenu de l'information qui est montrée aux "
+"visiteurs en bas du formulaire."
 
 #: admin/tabs/formtab.php:89
 msgid "You can use the tag %ip% to show the ip address."
-msgstr ""
+msgstr "Vous pouvez utiliser le tag %ip%  pour montrer l'adresse IP."
 
 #: admin/tabs/formtab.php:102
 msgid "Configure the form that is shown to visitors."
@@ -1741,23 +1772,20 @@ msgid "Number of entries shown on the frontend."
 msgstr "Nombre de messages affichés sur le frontend"
 
 #: admin/tabs/readingtab.php:46
-#, fuzzy
 msgid "Length of the entry content"
-msgstr "Le message est vide mais obligatoire."
+msgstr "Longueur maximale du contenu de message."
 
 #: admin/tabs/readingtab.php:56
-#, fuzzy
 msgid "Unlimited Words"
-msgstr "Nombre de morts pour chaque message : "
+msgstr "Nombre de mots illimités :"
 
 #: admin/tabs/readingtab.php:63
-#, fuzzy
 msgid "Words"
-msgstr "Nombre de morts pour chaque message : "
+msgstr "Mots"
 
 #: admin/tabs/readingtab.php:68
 msgid "Maximum length of the entry content in words."
-msgstr ""
+msgstr "Longueur maximale du contenu de message en mots."
 
 #: admin/tabs/readingtab.php:73
 msgid "Line breaks"
@@ -1789,9 +1817,9 @@ msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
 "replacer, so check on that one if you'd like to add new/more smileys."
 msgstr ""
-"Remplace les smileys dans une entrée comme :) par leur image %s. Utilise les "
-"smileys WP de remplacement, alors vérifiez ceci si vous voulez ajouter de "
-"nouveaux/plus de smileys."
+"Remplace les smileys dans les messages comme :) par son image %s. Utilise "
+"les smileys WP de remplacement, alors vérifiez ceci si vous voulez ajouter "
+"de nouveaux/plus de smileys."
 
 #: admin/tabs/readingtab.php:101
 msgid "Links"
@@ -1854,7 +1882,7 @@ msgstr "Contenu"
 
 #: admin/tabs/readingtab.php:211
 msgid "Edit link"
-msgstr "lien d'édition"
+msgstr "Lien d'édition "
 
 #: admin/tabs/readingtab.php:219
 msgid ""
@@ -1885,8 +1913,8 @@ msgid ""
 "Uninstalling means that all database entries are removed (settings and "
 "entries)."
 msgstr ""
-"Désinstallation signifie que toutes les entrées de la base de données sont "
-"supprimées (les réglages et messages)."
+"La désinstallation signifie que toutes les entrées de la base de données "
+"sont supprimées (les réglages et messages)."
 
 #: admin/tabs/uninstalltab.php:49
 msgid "This can <strong>not</strong> be undone."
@@ -1898,7 +1926,7 @@ msgstr "Confirmer"
 
 #: admin/tabs/uninstalltab.php:58
 msgid "Yes, I'm absolutely sure of this. Proceed!"
-msgstr "Oui, je suis absolument certain de cela. Procéder !"
+msgstr "Oui, je suis absolument certain de cela. Allez-y !"
 
 #: admin/tabs/uninstalltab.php:66
 msgid "Also delete the reCAPTCHA keys"

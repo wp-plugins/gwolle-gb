@@ -331,6 +331,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.3.0 =
+* 2015-04-
+* Update fr_FR.
+
 = 1.2.9 =
 * 2015-03-28
 * Sanitize output for notification email.
