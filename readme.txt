@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.2.8
+Stable tag: 1.2.9
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -330,6 +330,17 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.3.0 =
+* 2015-04-02
+* Place div around list of entries.
+* Update bg_BG, fr_FR.
+
+= 1.2.9 =
+* 2015-03-28
+* Sanitize output for notification email.
+* Remove "hours" from the entries list. Nobody likes it.
+* Update bg_BG, ru_RU.
 
 = 1.2.8 =
 * 2015-03-25
