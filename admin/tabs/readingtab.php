@@ -65,7 +65,10 @@ function gwolle_gb_page_settingstab_reading() {
 					?>
 				</select>
 				<br />
-				<span class="setting-description"><?php _e('Maximum length of the entry content in words.', GWOLLE_GB_TEXTDOMAIN); ?></span>
+				<span class="setting-description">
+					<?php _e('Maximum length of the entry content in words.', GWOLLE_GB_TEXTDOMAIN); ?><br />
+					<?php _e('Please be aware that this will strip linebreaks as well.', GWOLLE_GB_TEXTDOMAIN); ?><br />
+				</span>
 			</td>
 		</tr>
 

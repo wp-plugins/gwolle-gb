@@ -332,6 +332,11 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.3.1 =
+* 2015-04-
+* Explain interaction between limiting words and linebreaks.
+* Update pot, nl_NL.
+
 = 1.3.0 =
 * 2015-04-02
 * Place div around list of entries.

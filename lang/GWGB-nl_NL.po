@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-24 15:21+0100\n"
+"POT-Creation-Date: 2015-04-02 18:50+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -48,85 +48,85 @@ msgstr "Importeren"
 msgid "Export"
 msgstr "Exporteren"
 
-#: admin/dashboard-widget.php:116 admin/page-entries.php:697
-#: frontend/read.php:230
+#: admin/dashboard-widget.php:116 admin/page-entries.php:696
+#: frontend/read.php:231
 msgid "Edit entry"
 msgstr "Bewerk bericht"
 
-#: admin/dashboard-widget.php:116 admin/page-entries.php:697
-#: frontend/read.php:230
+#: admin/dashboard-widget.php:116 admin/page-entries.php:696
+#: frontend/read.php:231
 msgid "Edit"
 msgstr "Bewerken"
 
 #: admin/dashboard-widget.php:120 admin/page-editor.php:414
-#: admin/page-entries.php:700
+#: admin/page-entries.php:699
 msgid "Check entry"
 msgstr "Geen bericht vrij"
 
 #: admin/dashboard-widget.php:120 admin/page-editor.php:414
-#: admin/page-entries.php:700
+#: admin/page-entries.php:699
 msgid "Check"
 msgstr "Vrijgeven"
 
 #: admin/dashboard-widget.php:124 admin/page-editor.php:417
-#: admin/page-entries.php:703
+#: admin/page-entries.php:702
 msgid "Uncheck entry"
 msgstr "Geef bericht niet vrij"
 
 #: admin/dashboard-widget.php:124 admin/page-editor.php:417
-#: admin/page-entries.php:703
+#: admin/page-entries.php:702
 msgid "Uncheck"
 msgstr "Niet vrijgeven"
 
 #: admin/dashboard-widget.php:128 admin/page-editor.php:420
-#: admin/page-entries.php:706
+#: admin/page-entries.php:705
 msgid "Mark entry as spam."
 msgstr "Markeer bericht als spam."
 
 #: admin/dashboard-widget.php:128 admin/page-editor.php:363
-#: admin/page-editor.php:420 admin/page-entries.php:438
-#: admin/page-entries.php:706
+#: admin/page-editor.php:420 admin/page-entries.php:437
+#: admin/page-entries.php:705
 msgid "Spam"
 msgstr "Spam"
 
 #: admin/dashboard-widget.php:132 admin/page-editor.php:423
-#: admin/page-entries.php:709
+#: admin/page-entries.php:708
 msgid "Mark entry as not-spam."
 msgstr "Markeer bericht als niet-spam."
 
 #: admin/dashboard-widget.php:132 admin/page-editor.php:423
-#: admin/page-entries.php:709
+#: admin/page-entries.php:708
 msgid "Not spam"
 msgstr "Geen spam"
 
 #: admin/dashboard-widget.php:136 admin/page-editor.php:426
-#: admin/page-entries.php:712
+#: admin/page-entries.php:711
 msgid "Move entry to trash."
 msgstr "Verplaats bericht naar prullenbak."
 
 #: admin/dashboard-widget.php:136 admin/page-editor.php:373
-#: admin/page-editor.php:426 admin/page-entries.php:442
-#: admin/page-entries.php:712
+#: admin/page-editor.php:426 admin/page-entries.php:441
+#: admin/page-entries.php:711
 msgid "Trash"
 msgstr "Prullenbak"
 
 #: admin/dashboard-widget.php:140 admin/page-editor.php:429
-#: admin/page-entries.php:715
+#: admin/page-entries.php:714
 msgid "Recover entry from trash."
 msgstr "Herstellen uit de prullenbak."
 
 #: admin/dashboard-widget.php:140 admin/page-editor.php:429
-#: admin/page-entries.php:715
+#: admin/page-entries.php:714
 msgid "Untrash"
 msgstr "Herstellen"
 
 #: admin/dashboard-widget.php:144 admin/page-editor.php:432
-#: admin/page-entries.php:718
+#: admin/page-entries.php:717
 msgid "Please wait..."
 msgstr "Even wachten..."
 
 #: admin/dashboard-widget.php:144 admin/page-editor.php:432
-#: admin/page-entries.php:718
+#: admin/page-entries.php:717
 msgid "Wait..."
 msgstr "Wacht even..."
 
@@ -295,8 +295,8 @@ msgstr "Acties"
 msgid "Details"
 msgstr "Details"
 
-#: admin/page-editor.php:452 admin/page-entries.php:568
-#: admin/page-entries.php:584
+#: admin/page-editor.php:452 admin/page-entries.php:567
+#: admin/page-entries.php:583
 msgid "Author"
 msgstr "Auteur"
 
@@ -484,112 +484,112 @@ msgstr "berichten hersteld uit de prullenbak."
 msgid "No entries recovered from trash."
 msgstr "Geen berichten hersteld uit de prullenbak."
 
-#: admin/page-entries.php:278 admin/page-entries.php:294
+#: admin/page-entries.php:278 admin/page-entries.php:293
 msgid "entry removed permanently."
 msgstr "bericht permanent verwijderd."
 
-#: admin/page-entries.php:280 admin/page-entries.php:296
+#: admin/page-entries.php:280 admin/page-entries.php:295
 msgid "entries removed permanently."
 msgstr "berichten permanent verwijderd."
 
-#: admin/page-entries.php:282 admin/page-entries.php:298
+#: admin/page-entries.php:282 admin/page-entries.php:297
 msgid "No entries permanently removed."
 msgstr "Geen berichten permanent verwijderd."
 
-#: admin/page-entries.php:330
+#: admin/page-entries.php:329
 msgid "Please activate Akismet if you want to battle spam."
 msgstr "Graag Akismet activeren om spam tegen te houden."
 
-#: admin/page-entries.php:403
+#: admin/page-entries.php:402
 msgid "Guestbook entries"
 msgstr "Gastenboek berichten"
 
-#: admin/page-entries.php:425
+#: admin/page-entries.php:424
 msgid "All"
 msgstr "Alles"
 
-#: admin/page-entries.php:430
+#: admin/page-entries.php:429
 msgid "Unlocked"
 msgstr "Vrijgegeven"
 
-#: admin/page-entries.php:434
+#: admin/page-entries.php:433
 msgid "New"
 msgstr "Nieuw"
 
-#: admin/page-entries.php:449
+#: admin/page-entries.php:448
 msgid "Mass edit actions"
 msgstr "Massa bewerk acties"
 
-#: admin/page-entries.php:452
+#: admin/page-entries.php:451
 msgid "Recover from trash"
 msgstr "Herstellen uit de prullenbak"
 
-#: admin/page-entries.php:453 admin/page-entries.php:470
+#: admin/page-entries.php:452 admin/page-entries.php:469
 msgid "Remove permanently"
 msgstr "Permanent verwijderen"
 
-#: admin/page-entries.php:456
+#: admin/page-entries.php:455
 msgid "Mark as checked"
 msgstr "Markeer als vrijgegeven"
 
-#: admin/page-entries.php:459
+#: admin/page-entries.php:458
 msgid "Mark as not checked"
 msgstr "Markeer als niet vrijgegeven"
 
-#: admin/page-entries.php:462
+#: admin/page-entries.php:461
 msgid "Mark as spam"
 msgstr "Markeer als spam"
 
-#: admin/page-entries.php:464
+#: admin/page-entries.php:463
 msgid "Mark as not spam"
 msgstr "Markeer als niet spam"
 
-#: admin/page-entries.php:466
+#: admin/page-entries.php:465
 msgid "Check with Akismet"
 msgstr "Controleer met Akismet"
 
-#: admin/page-entries.php:468
+#: admin/page-entries.php:467
 msgid "Move to trash"
 msgstr "Verplaats naar prullenbak"
 
-#: admin/page-entries.php:475
+#: admin/page-entries.php:474
 msgid "Apply"
 msgstr "Toepassen"
 
-#: admin/page-entries.php:478 admin/page-entries.php:736
+#: admin/page-entries.php:477 admin/page-entries.php:735
 msgid "Empty Spam"
 msgstr "Spam leegmaken"
 
-#: admin/page-entries.php:480 admin/page-entries.php:738
+#: admin/page-entries.php:479 admin/page-entries.php:737
 msgid "Empty Trash"
 msgstr "Prullenbak leegmaken"
 
-#: admin/page-entries.php:493
+#: admin/page-entries.php:492
 msgid "Showing:"
 msgstr "Aantal:"
 
-#: admin/page-entries.php:494
+#: admin/page-entries.php:493
 msgid "of"
 msgstr "van"
 
-#: admin/page-entries.php:561 admin/page-entries.php:577
+#: admin/page-entries.php:560 admin/page-entries.php:576
 msgid "ID"
 msgstr "ID"
 
-#: admin/page-entries.php:567 admin/page-entries.php:583
-#: admin/tabs/readingtab.php:186
+#: admin/page-entries.php:566 admin/page-entries.php:582
+#: admin/tabs/readingtab.php:189
 msgid "Date"
 msgstr "Datum"
 
-#: admin/page-entries.php:569 admin/page-entries.php:585
+#: admin/page-entries.php:568 admin/page-entries.php:584
 msgid "Entry (excerpt)"
 msgstr "Bericht (samenvatting)"
 
-#: admin/page-entries.php:570 admin/page-entries.php:586
+#: admin/page-entries.php:569 admin/page-entries.php:585
 msgid "Action"
 msgstr "Actie"
 
-#: admin/page-entries.php:599
+#: admin/page-entries.php:598
 msgid "No entries found."
 msgstr "Geen berichten gevonden."
 
@@ -612,7 +612,7 @@ msgstr "De exporteur zal de volgende gegevens behouden per bericht:"
 
 #: admin/page-export.php:52 admin/page-import.php:358
 #: admin/page-import.php:399 frontend/write.php:124 frontend/write.php:131
-#: admin/tabs/formtab.php:106 admin/tabs/readingtab.php:149
+#: admin/tabs/formtab.php:106 admin/tabs/readingtab.php:152
 msgid "Name"
 msgstr "Naam"
 
@@ -1218,21 +1218,17 @@ msgstr "Volgende pagina"
 msgid "(no entries yet)"
 msgstr "(nog geen berichten)"
 
-#: frontend/read.php:189
+#: frontend/read.php:190
 msgid "from"
 msgstr "uit"
 
-#: frontend/read.php:198
+#: frontend/read.php:199
 msgid "wrote at"
 msgstr "schreef op"
 
-#: frontend/read.php:202
+#: frontend/read.php:203
 msgid "at"
 msgstr "om"
-
-#: frontend/read.php:202
-msgid "hours"
-msgstr "uur"
 
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."
@@ -1295,7 +1291,7 @@ msgid "Write a new entry for the Guestbook"
 msgstr "Schrijf een nieuw bericht voor het Gastenboek"
 
 #: frontend/write.php:143 frontend/write.php:150 admin/tabs/formtab.php:126
-#: admin/tabs/readingtab.php:161
+#: admin/tabs/readingtab.php:164
 msgid "City"
 msgstr "Stad"
 
@@ -1408,7 +1404,7 @@ msgstr ""
 
 #: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
 #: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:238
-#: admin/tabs/readingtab.php:226
+#: admin/tabs/readingtab.php:229
 msgid "Save settings"
 msgstr "Instellingen opslaan"
 
@@ -1716,10 +1712,10 @@ msgstr "Stel het formulier in dat wordt getoond aan bezoekers."
 #: admin/tabs/formtab.php:113 admin/tabs/formtab.php:133
 #: admin/tabs/formtab.php:153 admin/tabs/formtab.php:173
 #: admin/tabs/formtab.php:193 admin/tabs/formtab.php:213
-#: admin/tabs/formtab.php:228 admin/tabs/readingtab.php:144
-#: admin/tabs/readingtab.php:156 admin/tabs/readingtab.php:168
-#: admin/tabs/readingtab.php:180 admin/tabs/readingtab.php:193
-#: admin/tabs/readingtab.php:206 admin/tabs/readingtab.php:218
+#: admin/tabs/formtab.php:228 admin/tabs/readingtab.php:147
+#: admin/tabs/readingtab.php:159 admin/tabs/readingtab.php:171
+#: admin/tabs/readingtab.php:183 admin/tabs/readingtab.php:196
+#: admin/tabs/readingtab.php:209 admin/tabs/readingtab.php:221
 msgid "Enabled"
 msgstr "Aangezet"
 
@@ -1761,19 +1757,23 @@ msgstr "Onbeperkt Aantal"
 msgid "Words"
 msgstr "Woorden"
 
-#: admin/tabs/readingtab.php:68
+#: admin/tabs/readingtab.php:69
 msgid "Maximum length of the entry content in words."
 msgstr "Maximum lengte van de inhoud van ieder bericht in woorden."
 
-#: admin/tabs/readingtab.php:73
+#: admin/tabs/readingtab.php:70
+msgid "Please be aware that this will strip linebreaks as well."
+msgstr "Wees je er van bewust dat dit de regeleindes ook weghaalt."
+
+#: admin/tabs/readingtab.php:76
 msgid "Line breaks"
 msgstr "Regeleindes"
 
-#: admin/tabs/readingtab.php:80
+#: admin/tabs/readingtab.php:83
 msgid "Show line breaks."
 msgstr "Toon regeleinden."
 
-#: admin/tabs/readingtab.php:82
+#: admin/tabs/readingtab.php:85
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
@@ -1781,15 +1781,15 @@ msgstr ""
 "Toon regeleinden zoals de auteurs die ingevoerd hebben. (Dit kan resulteren "
 "in erg lange berichten en staat standaard uit.)"
 
-#: admin/tabs/readingtab.php:87
+#: admin/tabs/readingtab.php:90
 msgid "Smileys"
 msgstr "Smileys"
 
-#: admin/tabs/readingtab.php:94
+#: admin/tabs/readingtab.php:97
 msgid "Display smileys as images."
 msgstr "Geef smileys weer als afbeeldingen."
 
-#: admin/tabs/readingtab.php:96
+#: admin/tabs/readingtab.php:99
 #, php-format
 msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
@@ -1799,15 +1799,15 @@ msgstr ""
 "de WP smiley vervanger, dus kijk daar wanneer je nieuwe/meer smileys wilt "
 "toevoegen."
 
-#: admin/tabs/readingtab.php:101
+#: admin/tabs/readingtab.php:104
 msgid "Links"
 msgstr "Links"
 
-#: admin/tabs/readingtab.php:108
+#: admin/tabs/readingtab.php:111
 msgid "Link authors' name to their website."
 msgstr "Laat de auteur zijn naam verwijzen naar zijn website."
 
-#: admin/tabs/readingtab.php:110
+#: admin/tabs/readingtab.php:113
 msgid ""
 "The author of an entry can set his/her website. If this setting is checked, "
 "his/her name will be a link to that website."
@@ -1815,38 +1815,38 @@ msgstr ""
 "De schrijver van een bericht kan zijn/haar website opgeven. Als deze "
 "instelling aan staat, zal zijn/haar naam doorlinken naar die website."
 
-#: admin/tabs/readingtab.php:115
+#: admin/tabs/readingtab.php:118
 msgid "Admin Entry Styling"
 msgstr "Admin Bijdrage Opmaak"
 
-#: admin/tabs/readingtab.php:122
+#: admin/tabs/readingtab.php:125
 msgid "Admin entries get a special CSS styling."
 msgstr "Admin berichten krijgen een eigen opmaak."
 
-#: admin/tabs/readingtab.php:124
+#: admin/tabs/readingtab.php:127
 msgid ""
 "Admin entries get a special CSS styling. It will get a lightgrey background."
 msgstr ""
 "Admin berichten krijgen een eigen opmaak. Ze krijgen een lichtgrijze "
 "achtergrond."
 
-#: admin/tabs/readingtab.php:132
+#: admin/tabs/readingtab.php:135
 msgid "Configure the parts of the entries that are shown to visitors."
 msgstr "Stel de delen van de berichten in die worden getoond aan bezoekers."
 
-#: admin/tabs/readingtab.php:137
+#: admin/tabs/readingtab.php:140
 msgid "Avatar"
 msgstr "Avatar"
 
-#: admin/tabs/readingtab.php:173
+#: admin/tabs/readingtab.php:176
 msgid "Date and Time"
 msgstr "Datum en Tijd"
 
-#: admin/tabs/readingtab.php:181
+#: admin/tabs/readingtab.php:184
 msgid "Setting this will show the date and the time of the entry."
 msgstr "Deze instelling toont de datum en tijd van het bericht."
 
-#: admin/tabs/readingtab.php:194
+#: admin/tabs/readingtab.php:197
 msgid ""
 "Setting this will show the date of the entry. If Date and Time above are "
 "enabled, that setting has preference."
@@ -1854,15 +1854,15 @@ msgstr ""
 "Deze instelling toont de datum van het bericht. Wanneer Datum en Tijd "
 "hierboven aanstaan, dan heeft die instelling voorrang."
 
-#: admin/tabs/readingtab.php:199
+#: admin/tabs/readingtab.php:202
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/tabs/readingtab.php:211
+#: admin/tabs/readingtab.php:214
 msgid "Edit link"
 msgstr "Bewerk Link"
 
-#: admin/tabs/readingtab.php:219
+#: admin/tabs/readingtab.php:222
 msgid ""
 "A link to the editor will be added to the content. Only visible for "
 "moderators."
@@ -1913,6 +1913,9 @@ msgstr "Verwijder ook de reCAPTCHA sleutels"
 #: admin/tabs/uninstalltab.php:73
 msgid "Uninstall &raquo;"
 msgstr "Deïnstalleren &raquo;"
+
+#~ msgid "hours"
+#~ msgstr "uur"
 
 #~ msgid "Fields marked with * are obligatory."
 #~ msgstr "Velden met een * zijn verplicht."
