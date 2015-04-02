@@ -145,6 +145,7 @@ function gwolle_gb_frontend_read() {
 	} else {
 		$first = true;
 		$read_setting = gwolle_gb_get_setting( 'read' );
+		$output .= '<div id="gwolle_gb_entries">';
 
 		foreach ($entries as $entry) {
 			// Main Author div
@@ -240,6 +241,7 @@ function gwolle_gb_frontend_read() {
 			// Add a filter for each entry, so devs can add or remove parts.
 			$output .= apply_filters( 'gwolle_gb_entry_read', $entry_output);
 		}
+		$output .= '</div>';
 	}
 
 	if ($countPages > 1) {

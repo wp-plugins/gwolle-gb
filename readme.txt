@@ -332,8 +332,9 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.3.0 =
-* 2015-04-
-* Update fr_FR.
+* 2015-04-02
+* Place div around list of entries.
+* Update bg_BG, fr_FR.
 
 = 1.2.9 =
 * 2015-03-28
