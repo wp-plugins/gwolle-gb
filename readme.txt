@@ -64,6 +64,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * es_ES, José Luis Sanz Ruiz
 * fi, Ilkka Kivelä and Timo Hintsa
 * fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/) and [Florence Bourmault-Gohin](http://www.mon-coin-de-bourgogne.fr)
+* it_IT, Mariachiara Corradini
 * nl_NL, [Marcel Pol](http://zenoweb.nl)
 * pl_PL, Andrzej Sobaniec
 * pt_PT, Jose Quintas
@@ -335,6 +336,7 @@ Yes, it is again actively maintained.
 = 1.3.1 =
 * 2015-04-
 * Explain interaction between limiting words and linebreaks.
+* Add it_IT (thanks Mariachiara Corradini).
 * Update pot, nl_NL.
 
 = 1.3.0 =
