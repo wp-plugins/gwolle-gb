@@ -336,6 +336,7 @@ Yes, it is again actively maintained.
 = 1.3.1 =
 * 2015-04-
 * Explain interaction between limiting words and linebreaks.
+* Make notices (messages) dismissable in WP 4.2.
 * Add it_IT (thanks Mariachiara Corradini).
 * Update pot, nl_NL.
 

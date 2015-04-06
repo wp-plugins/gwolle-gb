@@ -255,7 +255,7 @@ function gwolle_gb_page_editor() {
 			<?php
 			if ( $gwolle_gb_messages ) {
 				echo '
-					<div id="message" class="updated fade ' . $gwolle_gb_errors . ' ">' .
+					<div id="message" class="updated fade notice is-dismissible ' . $gwolle_gb_errors . ' ">' .
 						$gwolle_gb_messages .
 					'</div>';
 			}

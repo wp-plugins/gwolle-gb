@@ -315,7 +315,7 @@ function gwolle_gb_page_settings() {
 			<?php
 			if ( $saved ) {
 				echo '
-					<div id="message" class="updated fade">
+					<div id="message" class="updated fade notice is-dismissible">
 						<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>
 					</div>';
 			} ?>
