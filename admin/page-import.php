@@ -1,9 +1,11 @@
 <?php /*
  *
- *	import.php
- *	Lets the user import guestbook entries from other plugins.
- *  Currently supported:
- *  - DMSGuestbook (http://wordpress.org/plugins/dmsguestbook/)
+ * import.php
+ * Lets the user import guestbook entries from other plugins.
+ * Currently supported:
+ * - DMSGuestbook (http://wordpress.org/plugins/dmsguestbook/).
+ * - WordPress coments from a page, post or just all.
+ * - Gwolle-GB through a CSV-file.
  */
 
 // No direct calls to this script
@@ -428,7 +430,7 @@ function gwolle_gb_page_import() {
 												$num_comments = get_comments_number( get_the_ID() ); // get_comments_number returns only a numeric value
 
 												if ( $num_comments == 0 ) {
-													$comments = __('No Comments', GWOLLE_GB_TEXTDOMAIN);
+													continue;
 												} elseif ( $num_comments > 1 ) {
 													$comments = $num_comments . __(' Comments', GWOLLE_GB_TEXTDOMAIN);
 												} else {
