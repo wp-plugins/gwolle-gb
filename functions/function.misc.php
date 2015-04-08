@@ -10,7 +10,7 @@ function gwolle_gb_sanitize_input($input) {
 	$input = trim($input);
 	$input = strip_tags($input);
 	$input = stripslashes($input); // Make sure we're not just adding lots of slashes.
-	$input = htmlentities($input, ENT_COMPAT, 'UTF-8');
+	$input = htmlspecialchars($input, ENT_COMPAT, 'UTF-8');
 	$input = addslashes($input);
 	return $input;
 }
@@ -25,8 +25,8 @@ function gwolle_gb_sanitize_output($output) {
 	$output = trim($output);
 	$output = strip_tags($output);
 	$output = stripslashes($output);
-	//$output = htmlentities($output);
-	$output = html_entity_decode($output, ENT_COMPAT, 'UTF-8'); // the opposite of htmlentities
+	$output = html_entity_decode($output, ENT_COMPAT, 'UTF-8'); // the opposite of htmlentities, for backwards compat
+	$output = htmlspecialchars_decode($output, ENT_COMPAT);
 	return $output;
 }
 

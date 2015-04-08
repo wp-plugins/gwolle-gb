@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.2.8
+Stable tag: 1.3.0
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -64,6 +64,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * es_ES, José Luis Sanz Ruiz
 * fi, Ilkka Kivelä and Timo Hintsa
 * fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/) and [Florence Bourmault-Gohin](http://www.mon-coin-de-bourgogne.fr)
+* it_IT, Mariachiara Corradini
 * nl_NL, [Marcel Pol](http://zenoweb.nl)
 * pl_PL, Andrzej Sobaniec
 * pt_PT, Jose Quintas
@@ -109,7 +110,6 @@ For the licences regarding the use of reCAPTCHA you may ask the authors.
 The current todolist is slowly getting shorter. If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
-* Import from certain post or just all comments.
 * Form: Add smileys to the form, maybe even emoji?
 * Editor: add options to change the date.
 * Frontend: add option to show only one entry with $_GET entry_id.
@@ -223,7 +223,8 @@ The header needs to look like this:
 	)
 	?>
 
-The next lines are made up of the content. Date needs to be a UNIX timestamp.
+The next lines are made up of the content. Date needs to be a UNIX timestamp. For manually creating a timestamp, look at
+the [timestamp generator](http://www.timestampgenerator.com/).
 You could make a test-entry, export that, and look to see what the importer expects from the CSV.
 Make sure you use UNIX line-endings. Any decent text-editor can transform a textdocument to UNIX line-endings.
 
@@ -330,6 +331,30 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.3.1 =
+* 2015-04-08
+* Explain interaction between limiting words and linebreaks.
+* Make notices (messages) dismissible in WP 4.2.
+* Import from post, or just all comments.
+* Only show pages and posts with comments on import page.
+* Use get_comments everywhere, also for counting, for consistency.
+* Really sanitize everywhere.
+* Use htmlspecialchars instead of htmlentities.
+* Use esc_attr_e for attributes.
+* Add it_IT (thanks Mariachiara Corradini).
+* Update pot, nl_NL.
+
+= 1.3.0 =
+* 2015-04-02
+* Place div around list of entries.
+* Update bg_BG, fr_FR.
+
+= 1.2.9 =
+* 2015-03-28
+* Sanitize output for notification email.
+* Remove "hours" from the entries list. Nobody likes it.
+* Update bg_BG, ru_RU.
 
 = 1.2.8 =
 * 2015-03-25
