@@ -337,7 +337,9 @@ Yes, it is again actively maintained.
 * 2015-04-
 * Explain interaction between limiting words and linebreaks.
 * Make notices (messages) dismissable in WP 4.2.
+* Import from post, or just all comments.
 * Only show pages with comments on import page.
+* Use get_comments everywhere, also for counting, for consistency.
 * Add it_IT (thanks Mariachiara Corradini).
 * Update pot, nl_NL.
 
