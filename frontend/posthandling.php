@@ -138,8 +138,8 @@ function gwolle_gb_frontend_posthandling() {
 
 		/* Custom Security Question for Anti-Spam */
 		if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
-			$antispam_question = get_option('gwolle_gb-antispam-question');
-			$antispam_answer   = get_option('gwolle_gb-antispam-answer');
+			$antispam_question = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-question') );
+			$antispam_answer   = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-answer') );
 
 			if ( isset($antispam_question) && strlen($antispam_question) > 0 && isset($antispam_answer) && strlen($antispam_answer) > 0 ) {
 				if ( isset($_POST["gwolle_gb_antispam_answer"]) && trim($_POST["gwolle_gb_antispam_answer"]) == trim($antispam_answer) ) {
@@ -158,8 +158,8 @@ function gwolle_gb_frontend_posthandling() {
 		if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
 
 			// Register API keys at https://www.google.com/recaptcha/admin
-			$recaptcha_publicKey = get_option('recaptcha-public-key');
-			$recaptcha_privateKey = get_option('recaptcha-private-key');
+			$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
+			$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
 
 			if ( isset($recaptcha_publicKey) && isset($recaptcha_privateKey) ) {
 

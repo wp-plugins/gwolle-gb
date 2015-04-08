@@ -110,7 +110,6 @@ For the licences regarding the use of reCAPTCHA you may ask the authors.
 The current todolist is slowly getting shorter. If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
-* Import from certain post or just all comments.
 * Form: Add smileys to the form, maybe even emoji?
 * Editor: add options to change the date.
 * Frontend: add option to show only one entry with $_GET entry_id.
@@ -336,10 +335,11 @@ Yes, it is again actively maintained.
 = 1.3.1 =
 * 2015-04-
 * Explain interaction between limiting words and linebreaks.
-* Make notices (messages) dismissable in WP 4.2.
+* Make notices (messages) dismissible in WP 4.2.
 * Import from post, or just all comments.
-* Only show pages with comments on import page.
+* Only show pages and posts with comments on import page.
 * Use get_comments everywhere, also for counting, for consistency.
+* Really sanitize everywhere.
 * Add it_IT (thanks Mariachiara Corradini).
 * Update pot, nl_NL.
 

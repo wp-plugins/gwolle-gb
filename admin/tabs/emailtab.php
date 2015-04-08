@@ -25,7 +25,7 @@ function gwolle_gb_page_settingstab_email() {
 		<tr valign="top">
 			<th scope="row"><label for="admin_mail_from"><?php _e('Admin mail from address', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td>
-				<input type="text" name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" placeholder="info@example.com" />
+				<input type="text" name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo gwolle_gb_sanitize_output( get_option('gwolle_gb-mail-from', false) ); ?>" placeholder="info@example.com" />
 				<br />
 				<span class="setting-description">
 					<?php

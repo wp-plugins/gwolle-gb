@@ -213,7 +213,7 @@ function gwolle_gb_page_settings() {
 					case 'gwolle_gb_mail':
 						/* Mail Settings */
 
-						if ( isset($_POST['admin_mail_from']) && $_POST['admin_mail_from'] != get_option('gwolle_gb-mail-from') ) {
+						if ( isset($_POST['admin_mail_from']) && $_POST['admin_mail_from'] != gwolle_gb_sanitize_output( get_option('gwolle_gb-mail-from') ) ) {
 							$admin_mail_from = gwolle_gb_sanitize_input( $_POST['admin_mail_from'] );
 							if ( filter_var( $admin_mail_from, FILTER_VALIDATE_EMAIL ) ) {
 								// Valid Email address.

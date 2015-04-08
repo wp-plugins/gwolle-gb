@@ -78,8 +78,8 @@ function gwolle_gb_page_settingstab_antispam() {
 		</tr>
 
 		<?php
-		$antispam_question = get_option('gwolle_gb-antispam-question');
-		$antispam_answer   = get_option('gwolle_gb-antispam-answer');
+		$antispam_question = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-question') );
+		$antispam_answer   = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-answer') );
 		?>
 		<tr valign="top">
 			<th scope="row"><label for="antispam-question"><?php _e('Custom Anti-Spam Security Question', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -97,8 +97,8 @@ function gwolle_gb_page_settingstab_antispam() {
 		</tr>
 
 		<?php
-		$recaptcha_publicKey = get_option('recaptcha-public-key');
-		$recaptcha_privateKey = get_option('recaptcha-private-key');
+		$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
+		$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
 		?>
 		<tr valign="top">
 			<th scope="row"><label for="recaptcha-public-key">reCAPTCHA</label><br />

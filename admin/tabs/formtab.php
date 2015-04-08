@@ -50,7 +50,6 @@ function gwolle_gb_page_settingstab_form() {
 			</td>
 		</tr>
 
-
 		<tr valign="top">
 			<th scope="row"><label for="header"><?php _e('Header Text', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td><?php
