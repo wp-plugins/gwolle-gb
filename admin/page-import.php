@@ -335,7 +335,7 @@ function gwolle_gb_page_import() {
 
 						<div id="dmsdiv" class="postbox">
 							<div class="handlediv"></div>
-							<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 							<div class="inside">
 								<form name="gwolle_gb_import_dms" id="gwolle_gb_import_dms" method="POST" action="#" accept-charset="UTF-8">
 									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
@@ -390,7 +390,7 @@ function gwolle_gb_page_import() {
 											</label>
 										</p>
 										<p>
-											<input name="start_import_dms" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+											<input name="start_import_dms" type="submit" class="button button-primary" value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
 										</p><?php
 									} else {
 										echo '<div>' . __('DMSGuestbook was not found.', GWOLLE_GB_TEXTDOMAIN) . '</div>';
@@ -402,7 +402,7 @@ function gwolle_gb_page_import() {
 
 						<div id="wp_comm_div" class="postbox">
 							<div class="handlediv"></div>
-							<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 							<div class="inside">
 								<form name="gwolle_gb_import_wp" id="gwolle_gb_import_wp" method="POST" action="#" accept-charset="UTF-8">
 									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
@@ -515,7 +515,7 @@ function gwolle_gb_page_import() {
 									</p>
 
 									<p>
-										<input name="start_import_wp" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+										<input name="start_import_wp" type="submit" class="button button-primary" value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
 									</p>
 								</form>
 							</div> <!-- inside -->
@@ -523,7 +523,7 @@ function gwolle_gb_page_import() {
 
 						<div id="gwollediv" class="postbox">
 							<div class="handlediv"></div>
-							<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 							<div class="inside">
 								<form name="gwolle_gb_import_gwolle" id="gwolle_gb_import_gwolle" method="POST" action="#" accept-charset="UTF-8" enctype="multipart/form-data">
 									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
@@ -534,7 +534,7 @@ function gwolle_gb_page_import() {
 										</label>
 									</p>
 									<p>
-										<input name="start_import_gwolle" type="submit" class="button button-primary" value="<?php _e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+										<input name="start_import_gwolle" type="submit" class="button button-primary" value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
 									</p>
 								</form>
 							</div> <!-- inside -->

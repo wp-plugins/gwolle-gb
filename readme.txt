@@ -340,6 +340,7 @@ Yes, it is again actively maintained.
 * Only show pages and posts with comments on import page.
 * Use get_comments everywhere, also for counting, for consistency.
 * Really sanitize everywhere.
+* Use esc_attr_e for attributes.
 * Add it_IT (thanks Mariachiara Corradini).
 * Update pot, nl_NL.
 

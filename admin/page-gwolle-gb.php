@@ -133,7 +133,7 @@ function gwolle_gb_overview(){
 	</div><!-- Table-DIV -->
 	<div class="versions">
 		<p>
-			<a class="button rbutton button button-primary" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php _e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
+			<a class="button rbutton button button-primary" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php esc_attr_e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
 		</p>
 	</div>
 <?php }
@@ -172,7 +172,7 @@ function gwolle_gb_notification() {
 				} ?> >
 			<label for="notify_by_mail" class="setting-description"><?php _e('Send me an e-mail when a new entry has been posted.', GWOLLE_GB_TEXTDOMAIN); ?></label>
 			<p class="submit">
-				<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save setting', GWOLLE_GB_TEXTDOMAIN); ?>" />
+				<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save setting', GWOLLE_GB_TEXTDOMAIN); ?>" />
 			</p>
 		</form>
 	</p>

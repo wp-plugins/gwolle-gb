@@ -97,7 +97,7 @@ function gwolle_gb_frontend_write() {
 
 	$output .= '
 		<div id="gwolle_gb_write_button">
-			<input type="button" value="&raquo; ' . __('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '" />
+			<input type="button" value="&raquo; ' . esc_attr__('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '" />
 		</div>';
 
 
@@ -277,7 +277,7 @@ function gwolle_gb_frontend_write() {
 	$output .= '
 			<div class="gwolle_gb_submit">
 				<div class="label">&nbsp;</div>
-				<div class="input"><input type="submit" name="gwolle_gb_submit" value="' . __('Submit', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+				<div class="input"><input type="submit" name="gwolle_gb_submit" value="' . esc_attr__('Submit', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>
 
