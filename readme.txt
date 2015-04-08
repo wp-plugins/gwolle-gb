@@ -333,13 +333,14 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.3.1 =
-* 2015-04-
+* 2015-04-08
 * Explain interaction between limiting words and linebreaks.
 * Make notices (messages) dismissible in WP 4.2.
 * Import from post, or just all comments.
 * Only show pages and posts with comments on import page.
 * Use get_comments everywhere, also for counting, for consistency.
 * Really sanitize everywhere.
+* Use htmlspecialchars instead of htmlentities.
 * Use esc_attr_e for attributes.
 * Add it_IT (thanks Mariachiara Corradini).
 * Update pot, nl_NL.
