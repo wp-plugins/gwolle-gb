@@ -74,6 +74,10 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
 
 
+= Demo =
+
+Check out the demo at [http://demo.zenoweb.nl](http://demo.zenoweb.nl/wordpress-plugins/gwolle-gb/)
+
 == Installation ==
 
 = Installation =
