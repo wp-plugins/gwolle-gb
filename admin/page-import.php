@@ -177,7 +177,8 @@ function gwolle_gb_page_import() {
 				}
 			} else {
 				if ( $gwolle_gb_errors != 'error' ) {
-					$gwolle_gb_messages .= '<p>' . __("You haven't chosen a way to import from WordPress comments. Please select one and try again.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_errors = 'error';
+					$gwolle_gb_messages .= '<p>' . __("You haven't chosen how to import from WordPress comments. Please choose and try again.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 				}
 			}
 
