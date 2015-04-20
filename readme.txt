@@ -69,6 +69,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * pl_PL, Andrzej Sobaniec
 * pt_PT, Jose Quintas
 * ru_RU, zhonglyor
+* sk_SK, Marcel Klacan
 * zh_TW, Chun-I Lee
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
@@ -337,8 +338,9 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.3.2 =
-* 2015-0
+* 2015-04-20
 * PageNum is always an int.
+* Add sk_SK (Slovenian) (Thanks Marcel Klacan).
 
 = 1.3.1 =
 * 2015-04-08
