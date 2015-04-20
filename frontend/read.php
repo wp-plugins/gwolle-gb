@@ -31,7 +31,7 @@ function gwolle_gb_frontend_read() {
 
 	$pageNum = 1;
 	if ( isset($_GET['pageNum']) && is_numeric($_GET['pageNum']) ) {
-		$pageNum = $_GET['pageNum'];
+		$pageNum = intval($_GET['pageNum']);
 	}
 
 	if ( $pageNum > $countPages ) {

@@ -116,7 +116,7 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * More translations (send them in).
 * Form: Add smileys to the form, maybe even emoji?
 * Editor: add options to change the date.
-* Frontend: add option to show only one entry with $_GET entry_id.
+* Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
 * Form: there is a request for a country dropdown, is it a good idea?
 * SEO: add title and desc of first entry to SEO meta in html (is this possible?).
@@ -335,6 +335,10 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.3.2 =
+* 2015-0
+* PageNum is always an int.
 
 = 1.3.1 =
 * 2015-04-08

@@ -358,8 +358,10 @@ function gwolle_gb_page_settings() {
 
 			<form name="gwolle_gb_options" class="gwolle_gb_options gwolle_gb_uninstall <?php if ($active_tab == 'gwolle_gb_uninstall') { echo "active";} ?>" method="post" action="">
 				<?php gwolle_gb_page_settingstab_uninstall( $uninstalled ); ?>
+				<?php // FIXME: inactive button, after checkbox, set to active. ?>
 			</form>
 
+		<?php // FIXME: Integrate into 1 form, have 1 submit button on all tabs. ?>
 
 		</div> <!-- wrap -->
 		<?php
