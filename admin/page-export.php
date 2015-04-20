@@ -37,7 +37,7 @@ function gwolle_gb_page_export() {
 
 								<div id="gwolle_gb_export_postbox" class="postbox">
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Export guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Export guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside">
 										<div>
 											<p>
@@ -71,7 +71,7 @@ function gwolle_gb_page_export() {
 											</label>
 										</p>
 										<p>
-											<input name="start_export" id="gwolle_gb_start_export" type="submit" class="button button-primary" value="<?php _e('Start export', GWOLLE_GB_TEXTDOMAIN); ?>">
+											<input name="start_export" id="gwolle_gb_start_export" type="submit" class="button button-primary" value="<?php esc_attr_e('Start export', GWOLLE_GB_TEXTDOMAIN); ?>">
 										</p>
 
 									</div>
