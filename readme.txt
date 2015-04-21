@@ -281,6 +281,19 @@ This plugin doesn't apply any CSS to the label elements. It is possible that you
 You can check this with the Inspector in your browser. If that is the case, you have a theme or plugin that is applying that CSS to your
 label elements. Please contact them.
 
+= I would like to have the form visible by default. =
+
+You could add custom CSS to your website/theme like this:
+
+	body form#gwolle_gb_new_entry {
+		display: block;
+	}
+	body form#gwolle_gb_write_button {
+		display: none;
+	}
+
+That should do the trick.
+
 = I don't get a notification email. =
 
 First check your spambox in your mailaccount.
