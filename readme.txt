@@ -351,6 +351,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.3.3 =
+* 2015-
+* Update ru_RU.
+
 = 1.3.2 =
 * 2015-04-20
 * PageNum is always an int.

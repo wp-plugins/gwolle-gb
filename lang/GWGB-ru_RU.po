@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle Guestbook\n"
-"POT-Creation-Date: 2015-03-26 20:15+0300\n"
-"PO-Revision-Date: 2015-03-26 21:43+0300\n"
+"POT-Creation-Date: 2015-04-21 21:20+0300\n"
+"PO-Revision-Date: 2015-04-21 21:27+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: ru\n"
+"Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
+"X-Generator: Poedit 1.7.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -51,12 +51,12 @@ msgid "Export"
 msgstr "Экспортировать"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/read.php:230
+#: frontend/read.php:231
 msgid "Edit entry"
 msgstr "Редактировать запись"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/read.php:230
+#: frontend/read.php:231
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -94,7 +94,7 @@ msgstr "Спам"
 #: admin/dashboard-widget.php:132 admin/page-editor.php:423
 #: admin/page-entries.php:708
 msgid "Mark entry as not-spam."
-msgstr "Пометить запись, как не спам"
+msgstr "Пометить запись как не спам"
 
 #: admin/dashboard-widget.php:132 admin/page-editor.php:423
 #: admin/page-entries.php:708
@@ -188,7 +188,7 @@ msgstr ""
 "Похоже, возникла ошибка.<a href=\"%s\">Нажимите сюда, чтобы продолжить...</a>"
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
-#: admin/page-gwolle-gb.php:275 admin/page-import.php:24
+#: admin/page-gwolle-gb.php:275 admin/page-import.php:26
 #: admin/page-settings.php:15 admin/tabs/admintab.php:15
 #: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
 #: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
@@ -257,8 +257,8 @@ msgstr "Запись не была сохранена."
 #: admin/page-editor.php:448 admin/page-editor.php:503
 #: admin/page-editor.php:538 admin/page-editor.php:549
 #: admin/page-editor.php:557 admin/page-export.php:40
-#: admin/page-import.php:324 admin/page-import.php:391
-#: admin/page-import.php:460
+#: admin/page-import.php:338 admin/page-import.php:405
+#: admin/page-import.php:526
 msgid "Click to open or close"
 msgstr "Щёлкните, чтобы открыть или закрыть"
 
@@ -354,7 +354,7 @@ msgstr ""
 "Переводы на новую строку не будут видны посетителям из-за Ваших <a href=\"%s"
 "\">настроек</a>."
 
-#: admin/page-editor.php:549 admin/tabs/formtab.php:166 frontend/write.php:181
+#: admin/page-editor.php:549 admin/tabs/formtab.php:165 frontend/write.php:181
 #: frontend/write.php:188
 msgid "Website"
 msgstr "Веб-сайт"
@@ -580,7 +580,7 @@ msgid "ID"
 msgstr "ID"
 
 #: admin/page-entries.php:566 admin/page-entries.php:582
-#: admin/tabs/readingtab.php:186
+#: admin/tabs/readingtab.php:189
 msgid "Date"
 msgstr "Дата"
 
@@ -613,29 +613,29 @@ msgstr "%d записей было найдено и будет экспорти
 msgid "The exporter will preserve the following data per entry:"
 msgstr "Экспортировщик сохранит следующие данные для каждой записи:"
 
-#: admin/page-export.php:52 admin/page-import.php:358
-#: admin/page-import.php:399 admin/tabs/formtab.php:106
-#: admin/tabs/readingtab.php:149 frontend/write.php:124 frontend/write.php:131
+#: admin/page-export.php:52 admin/page-import.php:372
+#: admin/page-import.php:413 admin/tabs/formtab.php:105
+#: admin/tabs/readingtab.php:152 frontend/write.php:124 frontend/write.php:131
 msgid "Name"
 msgstr "Имя"
 
-#: admin/page-export.php:53 admin/page-import.php:359
-#: admin/page-import.php:401
+#: admin/page-export.php:53 admin/page-import.php:373
+#: admin/page-import.php:415
 msgid "E-Mail address"
 msgstr "Адрес e-mail"
 
-#: admin/page-export.php:54 admin/page-import.php:360
-#: admin/page-import.php:402
+#: admin/page-export.php:54 admin/page-import.php:374
+#: admin/page-import.php:416
 msgid "URL/Website"
 msgstr "URL/Веб-сайт"
 
-#: admin/page-export.php:56 admin/page-import.php:361
-#: admin/page-import.php:403
+#: admin/page-export.php:56 admin/page-import.php:375
+#: admin/page-import.php:417
 msgid "Date of the entry"
 msgstr "Дата записи"
 
-#: admin/page-export.php:57 admin/page-import.php:362
-#: admin/page-import.php:404
+#: admin/page-export.php:57 admin/page-import.php:376
+#: admin/page-import.php:418
 msgid "IP address"
 msgstr "IP-адрес"
 
@@ -643,17 +643,17 @@ msgstr "IP-адрес"
 msgid "Host address"
 msgstr "Адрес хоста"
 
-#: admin/page-export.php:59 admin/page-import.php:363
-#: admin/page-import.php:405 admin/tabs/formtab.php:186
+#: admin/page-export.php:59 admin/page-import.php:377
+#: admin/page-import.php:419 admin/tabs/formtab.php:185
 #: admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr "Текст сообщения"
 
-#: admin/page-export.php:60 admin/page-import.php:365
+#: admin/page-export.php:60 admin/page-import.php:379
 msgid "\"is checked\" flag"
 msgstr "флажок «проверено»"
 
-#: admin/page-export.php:61 admin/page-import.php:364
+#: admin/page-export.php:61 admin/page-import.php:378
 msgid "\"is spam\" flag"
 msgstr "флажок «спам»"
 
@@ -866,22 +866,22 @@ msgstr "Оказать финансовую поддержку"
 msgid "Gwolle Guestbook"
 msgstr "Гостевая книга Gwolle"
 
-#: admin/page-import.php:88
+#: admin/page-import.php:90
 msgid ""
 "I'm sorry, but I wasn't able to import entries from DMSGuestbook "
 "successfully."
 msgstr "К сожалению, импортировать записи из DMSGuestbook не удалось."
 
-#: admin/page-import.php:90
+#: admin/page-import.php:92
 msgid "1 entry imported successfully from DMSGuestbook."
 msgstr "Одна запись успешно импортирована из DMSGuestbook."
 
-#: admin/page-import.php:92
+#: admin/page-import.php:94
 #, php-format
 msgid "%d entries imported successfully from DMSGuestbook."
 msgstr "%d записей успешно импортировано из DMSGuestbook."
 
-#: admin/page-import.php:96
+#: admin/page-import.php:98
 msgid ""
 "<strong>Nothing to import.</strong> The guestbook you've chosen does not "
 "contain any entries."
@@ -889,50 +889,54 @@ msgstr ""
 "<strong>Нечего импортировать.</strong> В гостевой книге, которую Вы выбрали, "
 "нет ни одной записи."
 
-#: admin/page-import.php:101
+#: admin/page-import.php:103
 msgid "I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook."
 msgstr "К сожалению, не удалось найти таблицу MySQL от DMSGuestbook."
 
-#: admin/page-import.php:106 admin/page-import.php:168
+#: admin/page-import.php:108
 msgid "You haven't chosen a guestbook. Please select one and try again."
 msgstr ""
 "Вы не выбрали гостевую книгу. Пожалуйста, выберите и попробуйте ещё раз."
 
-#: admin/page-import.php:151
+#: admin/page-import.php:133 admin/page-import.php:181
+msgid ""
+"You haven't chosen how to import from WordPress comments. Please choose and "
+"try again."
+msgstr ""
+"Вы не выбрали, как импортировать из комментариев ВордПресс. Пожалуйста, "
+"выберите, и попробуйте ещё раз."
+
+#: admin/page-import.php:168
 msgid ""
 "I'm sorry, but I wasn't able to import comments from that page successfully."
 msgstr "К сожалению, комментарии с этой страницы импортировать не удалось."
 
-#: admin/page-import.php:153
+#: admin/page-import.php:170
 msgid "1 entry imported successfully from WordPress comments."
 msgstr "1 запись была успешно импортирована из комментариев WordPress."
 
-#: admin/page-import.php:155
+#: admin/page-import.php:172
 #, php-format
 msgid "%d entries imported successfully from WordPress comments."
 msgstr "%d записей было успешно импортировано из комментариев WordPress."
 
-#: admin/page-import.php:159
+#: admin/page-import.php:176
 msgid ""
-"<strong>Nothing to import.</strong> The page you've chosen does not have any "
-"comments."
+"<strong>Nothing to import.</strong> There seem to be no comments on this "
+"page, post or at all."
 msgstr ""
-"<strong>Нечего импортировать.</strong> К странице, которую Вы выбрали, нет "
-"комментариев."
+"<strong>Нечего импортировать.</strong> Похоже, комментариев на этой "
+"странице/ к этому посту/ вообще всех нет ни одного."
 
-#: admin/page-import.php:163
-msgid "You haven't chosen a page. Please select one and try again."
-msgstr "Вы не выбрали страницу. Пожалуйста, выберите и попробуйте ещё раз."
-
-#: admin/page-import.php:181
+#: admin/page-import.php:195
 msgid "Your filesize is too large."
 msgstr "Размер Вашего файла слишком велик."
 
-#: admin/page-import.php:202
+#: admin/page-import.php:216
 msgid "Invalid file format."
 msgstr "Неверный формат файла."
 
-#: admin/page-import.php:227
+#: admin/page-import.php:241
 msgid ""
 "It seems your CSV file is from an export that is not compatible with this "
 "version of Gwolle-GB."
@@ -940,45 +944,45 @@ msgstr ""
 "Похоже, Ваш файл CSV получился путём экспорта, не совместимого с данной "
 "версией Gwolle-GB."
 
-#: admin/page-import.php:236 admin/page-import.php:270
+#: admin/page-import.php:250 admin/page-import.php:284
 msgid "Your data seems to be corrupt. Import failed."
 msgstr "Похоже, Ваши данные повреждены. Импортирование не удалось."
 
-#: admin/page-import.php:279
+#: admin/page-import.php:293
 msgid "I'm sorry, but I wasn't able to import entries from the CSV file."
 msgstr "К сожалению, импортировать записи из файла CSV не удалось."
 
-#: admin/page-import.php:281
+#: admin/page-import.php:295
 msgid "1 entry imported successfully from the CSV file."
 msgstr "1 запись успешно импортирована из файла CSV."
 
-#: admin/page-import.php:283
+#: admin/page-import.php:297
 #, php-format
 msgid "%d entries imported successfully from the CSV file."
 msgstr "%d записей успешно импортировано из файла CSV."
 
-#: admin/page-import.php:292
+#: admin/page-import.php:306
 msgid "Your upload triggered the following error:"
 msgstr "При загрузке возникла следующая ошибка:"
 
-#: admin/page-import.php:305
+#: admin/page-import.php:319
 msgid "Import guestbook entries."
 msgstr "Импортировать записи в гостевую книгу."
 
-#: admin/page-import.php:324
+#: admin/page-import.php:338
 msgid "Import guestbook entries from DMSGuestbook"
 msgstr "Импортировать записи из DMSGuestbook"
 
-#: admin/page-import.php:353
+#: admin/page-import.php:367
 #, php-format
 msgid "%d entries were found and will be imported."
 msgstr "%d записей было найдено и будет импортировано."
 
-#: admin/page-import.php:356 admin/page-import.php:397
+#: admin/page-import.php:370 admin/page-import.php:411
 msgid "The importer will preserve the following data per entry:"
 msgstr "Импортировщик сохранит следующие данные для каждой записи:"
 
-#: admin/page-import.php:367 admin/page-import.php:408
+#: admin/page-import.php:381 admin/page-import.php:422
 msgid ""
 "However, data such as HTML formatting is not supported by Gwolle-GB and "
 "<strong>will not</strong> be imported."
@@ -986,67 +990,83 @@ msgstr ""
 "Однако такие данные как форматирование HTML не поддерживаются плагином "
 "Gwolle-GB и <strong>не будут</strong> импортированы."
 
-#: admin/page-import.php:369 admin/page-import.php:410
+#: admin/page-import.php:383 admin/page-import.php:426
 msgid ""
 "The importer does not delete any data, so you can go back whenever you want."
 msgstr ""
 "Импортировщик не удаляет никакие данные, так что Вы в любой момент сможете "
 "вернуться обратно."
 
-#: admin/page-import.php:375
+#: admin/page-import.php:389
 msgid "Import all entries from DMSGuestbook."
 msgstr "Импортировать все записи из DMSGuestbook."
 
-#: admin/page-import.php:379 admin/page-import.php:452
-#: admin/page-import.php:471
+#: admin/page-import.php:393 admin/page-import.php:518
+#: admin/page-import.php:537
 msgid "Start import"
 msgstr "Начать импортирование"
 
-#: admin/page-import.php:382
+#: admin/page-import.php:396
 msgid "DMSGuestbook was not found."
 msgstr "DMSGuestbook не обнаружена."
 
-#: admin/page-import.php:391
+#: admin/page-import.php:405
 msgid "Import guestbook entries from WordPress comments"
 msgstr "Импортировать записи гостевой книги из комментариев WordPress"
 
-#: admin/page-import.php:400
+#: admin/page-import.php:414
 msgid "User ID"
 msgstr "ID пользователя"
 
-#: admin/page-import.php:406
+#: admin/page-import.php:420
 msgid "\"approved\" status"
 msgstr "статус «одобрено»"
 
-#: admin/page-import.php:413
+#: admin/page-import.php:424
+msgid "Spam comments will not be imported."
+msgstr "Спамовые комментарии импортированы не будут."
+
+#: admin/page-import.php:429
 msgid "Select a page to import the comments from:"
 msgstr "Выберите страницу, с которой нужно импортировать комментарии."
 
-#: admin/page-import.php:415
+#: admin/page-import.php:431 admin/page-import.php:469
 msgid "Select"
 msgstr "Выбрать"
 
-#: admin/page-import.php:431
-msgid "No Comments"
-msgstr "Нет комментариев"
-
-#: admin/page-import.php:433
+#: admin/page-import.php:455 admin/page-import.php:492
 msgid " Comments"
 msgstr " Комментариев"
 
-#: admin/page-import.php:435
+#: admin/page-import.php:457 admin/page-import.php:494
 msgid "1 Comment"
 msgstr "1 Комментарий"
 
-#: admin/page-import.php:448
-msgid "Import all entries from this page."
-msgstr "Импортировать все комментарии с данной страницы."
+#: admin/page-import.php:467
+msgid "Select a post to import the comments from:"
+msgstr "Выберите запись, из которой надо импортировать комментарии:"
 
-#: admin/page-import.php:460
+#: admin/page-import.php:511
+msgid "Select where to import the comments from:"
+msgstr "Выберите, откуда будут импортированы комментарии:"
+
+#: admin/page-import.php:512
+msgid "Comments from selected page."
+msgstr "Комментарии с выбранной страницы."
+
+#: admin/page-import.php:513
+msgid "Comments from selected post."
+msgstr "Комментарии к выбранной записи."
+
+#: admin/page-import.php:514
+msgid "All Comments"
+msgstr "Все комментарии"
+
+#: admin/page-import.php:526
 msgid "Import guestbook entries from Gwolle-GB"
 msgstr "Импортировать записи гостевой книги из Gwolle-GB"
 
-#: admin/page-import.php:466
+#: admin/page-import.php:532
 msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 "Выберите файл CSV с экспортированными записями, чтобы их импортировать:"
@@ -1100,8 +1120,8 @@ msgstr ""
 "что сразу видно её статус (проверена, спам, в урне)."
 
 #: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
-#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:238
-#: admin/tabs/readingtab.php:226
+#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:237
+#: admin/tabs/readingtab.php:229
 msgid "Save settings"
 msgstr "Сохранить настройки"
 
@@ -1459,23 +1479,23 @@ msgstr ""
 "Подписи к полям ввода расположены слева от них. Иначе они будут "
 "располагаться над ними."
 
-#: admin/tabs/formtab.php:55
+#: admin/tabs/formtab.php:54
 msgid "Header Text"
 msgstr "Текст заголовка"
 
-#: admin/tabs/formtab.php:59 frontend/write.php:114
+#: admin/tabs/formtab.php:58 frontend/write.php:114
 msgid "Write a new entry for the Guestbook"
 msgstr "<HR>Оставить новую запись в гостевой книге</BR></BR>"
 
-#: admin/tabs/formtab.php:64
+#: admin/tabs/formtab.php:63
 msgid "You can set the header that is shown on top of the form."
 msgstr "Вы можете установить заголовок, который показывается вверху формы."
 
-#: admin/tabs/formtab.php:70
+#: admin/tabs/formtab.php:69
 msgid "Notice Text"
 msgstr "Текст примечания"
 
-#: admin/tabs/formtab.php:75 frontend/write.php:289
+#: admin/tabs/formtab.php:74 frontend/write.php:289
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1494,52 +1514,52 @@ msgstr ""
 "Мы оставляем за собой право редактировать, удалять или не публиковать записи "
 "в гостевой книге.\n"
 
-#: admin/tabs/formtab.php:87
+#: admin/tabs/formtab.php:86
 msgid "You can set the content of the notice that gets shown below the form."
 msgstr "Вы можете задать текст, который отображается под формой ввода."
 
-#: admin/tabs/formtab.php:89
+#: admin/tabs/formtab.php:88
 msgid "You can use the tag %ip% to show the ip address."
 msgstr "Возможно использование тэга %ip%, который будет показывать IP-адрес."
 
-#: admin/tabs/formtab.php:102
+#: admin/tabs/formtab.php:101
 msgid "Configure the form that is shown to visitors."
 msgstr "Сконфигурировать форму ввода, которая будет показываться посетителям."
 
-#: admin/tabs/formtab.php:113 admin/tabs/formtab.php:133
-#: admin/tabs/formtab.php:153 admin/tabs/formtab.php:173
-#: admin/tabs/formtab.php:193 admin/tabs/formtab.php:213
-#: admin/tabs/formtab.php:228 admin/tabs/readingtab.php:144
-#: admin/tabs/readingtab.php:156 admin/tabs/readingtab.php:168
-#: admin/tabs/readingtab.php:180 admin/tabs/readingtab.php:193
-#: admin/tabs/readingtab.php:206 admin/tabs/readingtab.php:218
+#: admin/tabs/formtab.php:112 admin/tabs/formtab.php:132
+#: admin/tabs/formtab.php:152 admin/tabs/formtab.php:172
+#: admin/tabs/formtab.php:192 admin/tabs/formtab.php:212
+#: admin/tabs/formtab.php:227 admin/tabs/readingtab.php:147
+#: admin/tabs/readingtab.php:159 admin/tabs/readingtab.php:171
+#: admin/tabs/readingtab.php:183 admin/tabs/readingtab.php:196
+#: admin/tabs/readingtab.php:209 admin/tabs/readingtab.php:221
 msgid "Enabled"
 msgstr "Включить"
 
-#: admin/tabs/formtab.php:121 admin/tabs/formtab.php:141
-#: admin/tabs/formtab.php:161 admin/tabs/formtab.php:181
-#: admin/tabs/formtab.php:201
+#: admin/tabs/formtab.php:120 admin/tabs/formtab.php:140
+#: admin/tabs/formtab.php:160 admin/tabs/formtab.php:180
+#: admin/tabs/formtab.php:200
 msgid "Mandatory"
 msgstr "Обязательно"
 
-#: admin/tabs/formtab.php:126 admin/tabs/readingtab.php:161
+#: admin/tabs/formtab.php:125 admin/tabs/readingtab.php:164
 #: frontend/write.php:143 frontend/write.php:150
 msgid "City"
 msgstr "Город"
 
-#: admin/tabs/formtab.php:146 frontend/write.php:162 frontend/write.php:169
+#: admin/tabs/formtab.php:145 frontend/write.php:162 frontend/write.php:169
 msgid "Email"
 msgstr "E-mail"
 
-#: admin/tabs/formtab.php:206
+#: admin/tabs/formtab.php:205
 msgid "Custom Anti-spam"
 msgstr "Пользовательский анти-спам"
 
-#: admin/tabs/formtab.php:216 admin/tabs/formtab.php:231
+#: admin/tabs/formtab.php:215 admin/tabs/formtab.php:230
 msgid "When enabled it is mandatory."
 msgstr "Когда включено, это обязательно."
 
-#: admin/tabs/formtab.php:221 admin/tabs/uninstalltab.php:63
+#: admin/tabs/formtab.php:220 admin/tabs/uninstalltab.php:63
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
@@ -1563,21 +1583,25 @@ msgstr "Неограниченное количество слов"
 msgid "Words"
 msgstr "Слов"
 
-#: admin/tabs/readingtab.php:68
+#: admin/tabs/readingtab.php:69
 msgid "Maximum length of the entry content in words."
 msgstr ""
 "Максимальное количество слов записи в гостевой книге, которое будет "
 "отображаться для посетителей."
 
-#: admin/tabs/readingtab.php:73
+#: admin/tabs/readingtab.php:70
+msgid "Please be aware that this will strip linebreaks as well."
+msgstr "Пожалуйста, имейте в виду, что переходы на новые строки будут убраны."
+
+#: admin/tabs/readingtab.php:76
 msgid "Line breaks"
 msgstr "Переводы на новую строку строк."
 
-#: admin/tabs/readingtab.php:80
+#: admin/tabs/readingtab.php:83
 msgid "Show line breaks."
 msgstr "Показывать переводы на новую строку."
 
-#: admin/tabs/readingtab.php:82
+#: admin/tabs/readingtab.php:85
 msgid ""
 "Show line breaks as the entry authors entered them. (May result in very long "
 "entries. Is turned off by default.)"
@@ -1585,15 +1609,15 @@ msgstr ""
 "Показывать переводы на новую строку, когда автор записи их ввёл. (Может "
 "приводить к очень длинным записям. По умолчанию выключено.)"
 
-#: admin/tabs/readingtab.php:87
+#: admin/tabs/readingtab.php:90
 msgid "Smileys"
 msgstr "Смайлики"
 
-#: admin/tabs/readingtab.php:94
+#: admin/tabs/readingtab.php:97
 msgid "Display smileys as images."
 msgstr "Отображать смайлики как картинки."
 
-#: admin/tabs/readingtab.php:96
+#: admin/tabs/readingtab.php:99
 #, php-format
 msgid ""
 "Replaces smileys in entries like :) with their image %s. Uses the WP smiley "
@@ -1603,15 +1627,15 @@ msgstr ""
 "вордпрессовский заменитель смайликов, поэтому если хотите поменять смайлики "
 "или добавить новые, делайте это там."
 
-#: admin/tabs/readingtab.php:101
+#: admin/tabs/readingtab.php:104
 msgid "Links"
 msgstr "Ссылки"
 
-#: admin/tabs/readingtab.php:108
+#: admin/tabs/readingtab.php:111
 msgid "Link authors' name to their website."
 msgstr "Вставлять в имя автора ссылку на его веб-сайт."
 
-#: admin/tabs/readingtab.php:110
+#: admin/tabs/readingtab.php:113
 msgid ""
 "The author of an entry can set his/her website. If this setting is checked, "
 "his/her name will be a link to that website."
@@ -1619,39 +1643,39 @@ msgstr ""
 "Автор записи может указать свой веб-сайт. Если данная опция включена, имя "
 "автора будет являться ссылкой на указанный сайт."
 
-#: admin/tabs/readingtab.php:115
+#: admin/tabs/readingtab.php:118
 msgid "Admin Entry Styling"
 msgstr "Стиль администраторских записей."
 
-#: admin/tabs/readingtab.php:122
+#: admin/tabs/readingtab.php:125
 msgid "Admin entries get a special CSS styling."
 msgstr "Записи администратора получают свой собственный стиль CSS."
 
-#: admin/tabs/readingtab.php:124
+#: admin/tabs/readingtab.php:127
 msgid ""
 "Admin entries get a special CSS styling. It will get a lightgrey background."
 msgstr ""
 "Записи администратора получают особый стиль CSS. У него будет светло-серый "
 "фон."
 
-#: admin/tabs/readingtab.php:132
+#: admin/tabs/readingtab.php:135
 msgid "Configure the parts of the entries that are shown to visitors."
 msgstr ""
 "Сконфигурировать, какие элементы записей будут показываться посетителям."
 
-#: admin/tabs/readingtab.php:137
+#: admin/tabs/readingtab.php:140
 msgid "Avatar"
 msgstr "Аватар"
 
-#: admin/tabs/readingtab.php:173
+#: admin/tabs/readingtab.php:176
 msgid "Date and Time"
 msgstr "Дата и время"
 
-#: admin/tabs/readingtab.php:181
+#: admin/tabs/readingtab.php:184
 msgid "Setting this will show the date and the time of the entry."
 msgstr "Данная опция будет показывать дату и время, когда сделана запись."
 
-#: admin/tabs/readingtab.php:194
+#: admin/tabs/readingtab.php:197
 msgid ""
 "Setting this will show the date of the entry. If Date and Time above are "
 "enabled, that setting has preference."
@@ -1659,15 +1683,15 @@ msgstr ""
 "Данная опция будет показывать дату, когда сделана запись. Если включена "
 "опция «Дата и время», последняя будет иметь приоритет."
 
-#: admin/tabs/readingtab.php:199
+#: admin/tabs/readingtab.php:202
 msgid "Content"
 msgstr "Текст записи"
 
-#: admin/tabs/readingtab.php:211
+#: admin/tabs/readingtab.php:214
 msgid "Edit link"
 msgstr "Ссылка на редактирование"
 
-#: admin/tabs/readingtab.php:219
+#: admin/tabs/readingtab.php:222
 msgid ""
 "A link to the editor will be added to the content. Only visible for "
 "moderators."
@@ -1795,21 +1819,17 @@ msgstr "Следующая страница"
 msgid "(no entries yet)"
 msgstr "(пока нет записей)"
 
-#: frontend/read.php:189
+#: frontend/read.php:190
 msgid "from"
 msgstr "из города"
 
-#: frontend/read.php:198
+#: frontend/read.php:199
 msgid "wrote at"
 msgstr "написал(а)"
 
-#: frontend/read.php:202
+#: frontend/read.php:203
 msgid "at"
 msgstr "в"
-
-#: frontend/read.php:202
-msgid "hours"
-msgstr "мск"
 
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."
@@ -1926,6 +1946,25 @@ msgstr "Запись извлечена из урны."
 #: functions/function.misc.php:58
 msgid "No content to display. This entry is empty."
 msgstr "Нет содержимого для отображения. Эта запись пустая."
+
+#~ msgid ""
+#~ "<strong>Nothing to import.</strong> The page you've chosen does not have "
+#~ "any comments."
+#~ msgstr ""
+#~ "<strong>Нечего импортировать.</strong> К странице, которую Вы выбрали, "
+#~ "нет комментариев."
+
+#~ msgid "You haven't chosen a page. Please select one and try again."
+#~ msgstr "Вы не выбрали страницу. Пожалуйста, выберите и попробуйте ещё раз."
+
+#~ msgid "No Comments"
+#~ msgstr "Нет комментариев"
+
+#~ msgid "Import all entries from this page."
+#~ msgstr "Импортировать все комментарии с данной страницы."
+
+#~ msgid "hours"
+#~ msgstr "мск"
 
 #~ msgid ""
 #~ "Hello,\n"
