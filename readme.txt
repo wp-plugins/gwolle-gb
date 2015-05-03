@@ -354,6 +354,7 @@ Yes, it is again actively maintained.
 = 1.3.3 =
 * 2015-
 * Only offer to export when there are entries.
+* When login required, show login form.
 * Update ru_RU.
 
 = 1.3.2 =

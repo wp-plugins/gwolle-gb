@@ -85,12 +85,6 @@ function gwolle_gb_frontend_write() {
 	}
 
 
-	// Option to allow only logged-in users to post. Don't show the form if not logged-in. We still see the messages above.
-	if ( !is_user_logged_in() && get_option('gwolle_gb-require_login', 'false') == 'true' ) {
-		return $output;
-	}
-
-
 	/*
 	 * Button 'write a new entry.'
 	 */
@@ -99,6 +93,25 @@ function gwolle_gb_frontend_write() {
 		<div id="gwolle_gb_write_button">
 			<input type="button" value="&raquo; ' . esc_attr__('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '" />
 		</div>';
+
+
+	// Option to allow only logged-in users to post. Don't show the form if not logged-in. We still see the messages above.
+	if ( !is_user_logged_in() && get_option('gwolle_gb-require_login', 'false') == 'true' ) {
+		$output .= '
+			<div id="gwolle_gb_new_entry">
+				<h3>' . __('Log in to post an entry', GWOLLE_GB_TEXTDOMAIN) . '</h3>';
+
+		$args = array(
+			'echo'           => false,
+			'redirect' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+		);
+		$output .= wp_login_form( $args );
+
+		$output .= '</div>';
+
+		return $output;
+	}
+
 
 
 	/*

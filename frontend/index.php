@@ -44,6 +44,7 @@ function get_gwolle_gb() {
 		$output .= '
 			<style>
 				form#gwolle_gb_new_entry { display:none; }
+				div#gwolle_gb_new_entry { display:none; }
 			</style>
 		';
 
