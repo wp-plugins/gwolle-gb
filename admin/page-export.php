@@ -40,40 +40,47 @@ function gwolle_gb_page_export() {
 									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Export guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 									<div class="inside">
 										<div>
-											<p>
+											<?php
+											$count = gwolle_gb_get_entry_count( array( 'all' => 'all' ) );
+											if ( $count == 0 ) { ?>
+												<p>
+													<?php _e("No entries were found.", GWOLLE_GB_TEXTDOMAIN); ?>
+												</p><?php
+											} else {
+												?>
+												<p>
+													<?php echo sprintf( __("%d entries were found and will be exported.", GWOLLE_GB_TEXTDOMAIN), $count ); ?>
+												</p>
+												<p>
+													<?php _e('The exporter will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
+												</p>
+												<ul class="ul-disc">
+													<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('Host address', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('"is checked" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('"is spam" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('"is trash" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
+												</ul>
+												<?php _e('The exporter does not delete any data, so your data will still be here.', GWOLLE_GB_TEXTDOMAIN); ?>
+
+												<p>
+													<label for="gwolle_gb" class="selectit">
+														<input id="gwolle_gb" name="gwolle_gb" type="checkbox" />
+														<?php _e('Export all entries from this website.', GWOLLE_GB_TEXTDOMAIN); ?>
+													</label>
+												</p>
+												<p>
+													<input name="start_export" id="gwolle_gb_start_export" type="submit" class="button button-primary" value="<?php esc_attr_e('Start export', GWOLLE_GB_TEXTDOMAIN); ?>">
+												</p>
 												<?php
-												$count = gwolle_gb_get_entry_count(array( 'all'  => 'all'  ));
-												echo sprintf( __("%d entries were found and will be exported.", GWOLLE_GB_TEXTDOMAIN), $count ); ?>
-											</p>
-											<p>
-												<?php _e('The exporter will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
-											</p>
-											<ul class="ul-disc">
-												<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('Host address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('"is checked" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('"is spam" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('"is trash" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											</ul>
-											<?php _e('The exporter does not delete any data, so your data will still be here.', GWOLLE_GB_TEXTDOMAIN); ?>
+											} ?>
 										</div>
-
-										<p>
-											<label for="gwolle_gb" class="selectit">
-												<input id="gwolle_gb" name="gwolle_gb" type="checkbox" />
-												<?php _e('Export all entries from this website.', GWOLLE_GB_TEXTDOMAIN); ?>
-											</label>
-										</p>
-										<p>
-											<input name="start_export" id="gwolle_gb_start_export" type="submit" class="button button-primary" value="<?php esc_attr_e('Start export', GWOLLE_GB_TEXTDOMAIN); ?>">
-										</p>
-
 									</div>
 								</div>
 
