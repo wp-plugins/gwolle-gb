@@ -119,6 +119,7 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Editor: add options to change the date.
 * Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
+* Frontend: Add RSS feed.
 * Add option for using UBB code.
 * Form: there is a request for a country dropdown, is it a good idea?
 * Settings: save all tabs when saving.
