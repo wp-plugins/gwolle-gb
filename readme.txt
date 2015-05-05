@@ -121,6 +121,7 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Frontend: Add pagination link for all entries (optional).
 * Add option for using UBB code.
 * Form: there is a request for a country dropdown, is it a good idea?
+* Settings: save all tabs when saving.
 * SEO: add title and desc of first entry to SEO meta in html (is this possible?).
 
 = API, add an entry =
@@ -355,6 +356,7 @@ Yes, it is again actively maintained.
 * 2015-
 * Only offer to export when there are entries.
 * When login required, show login form.
+* Also show the register link then.
 * Update ru_RU.
 
 = 1.3.2 =

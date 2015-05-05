@@ -107,6 +107,8 @@ function gwolle_gb_frontend_write() {
 		);
 		$output .= wp_login_form( $args );
 
+		$output .= wp_register('', '', false);
+
 		$output .= '</div>';
 
 		return $output;
