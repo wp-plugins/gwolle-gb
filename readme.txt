@@ -120,8 +120,8 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
 * Frontend: Add RSS feed.
-* Add option for using UBB code.
-* Form: there is a request for a country dropdown, is it a good idea?
+* Frontend: Add option for using UBB code.
+* Frontend: Make it possible for an admin to reply to an entry.
 * Settings: save all tabs when saving.
 * SEO: add title and desc of first entry to SEO meta in html (is this possible?).
 
