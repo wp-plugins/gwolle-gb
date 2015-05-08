@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 12:19+0200\n"
+"POT-Creation-Date: 2015-05-08 21:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -335,7 +335,7 @@ msgstr ""
 msgid "No log yet."
 msgstr ""
 
-#: admin/page-editor.php:538 frontend/write.php:200
+#: admin/page-editor.php:538 frontend/write.php:215
 msgid "Guestbook entry"
 msgstr ""
 
@@ -346,8 +346,8 @@ msgid ""
 "\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:549 frontend/write.php:181 frontend/write.php:188
-#: admin/tabs/formtab.php:166
+#: admin/page-editor.php:549 frontend/write.php:196 frontend/write.php:203
+#: admin/tabs/formtab.php:165
 msgid "Website"
 msgstr ""
 
@@ -355,7 +355,7 @@ msgstr ""
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr ""
 
-#: admin/page-editor.php:557 admin/page-export.php:55
+#: admin/page-editor.php:557 admin/page-export.php:61
 msgid "Origin"
 msgstr ""
 
@@ -588,72 +588,76 @@ msgstr ""
 msgid "Export guestbook entries from Gwolle-GB"
 msgstr ""
 
-#: admin/page-export.php:46
+#: admin/page-export.php:47
+msgid "No entries were found."
+msgstr ""
+
+#: admin/page-export.php:52
 #, php-format
 msgid "%d entries were found and will be exported."
 msgstr ""
 
-#: admin/page-export.php:49
+#: admin/page-export.php:55
 msgid "The exporter will preserve the following data per entry:"
 msgstr ""
 
-#: admin/page-export.php:52 admin/page-import.php:372
-#: admin/page-import.php:413 frontend/write.php:124 frontend/write.php:131
-#: admin/tabs/formtab.php:106 admin/tabs/readingtab.php:152
+#: admin/page-export.php:58 admin/page-import.php:372
+#: admin/page-import.php:413 frontend/write.php:139 frontend/write.php:146
+#: admin/tabs/formtab.php:105 admin/tabs/readingtab.php:152
 msgid "Name"
 msgstr ""
 
-#: admin/page-export.php:53 admin/page-import.php:373
+#: admin/page-export.php:59 admin/page-import.php:373
 #: admin/page-import.php:415
 msgid "E-Mail address"
 msgstr ""
 
-#: admin/page-export.php:54 admin/page-import.php:374
+#: admin/page-export.php:60 admin/page-import.php:374
 #: admin/page-import.php:416
 msgid "URL/Website"
 msgstr ""
 
-#: admin/page-export.php:56 admin/page-import.php:375
+#: admin/page-export.php:62 admin/page-import.php:375
 #: admin/page-import.php:417
 msgid "Date of the entry"
 msgstr ""
 
-#: admin/page-export.php:57 admin/page-import.php:376
+#: admin/page-export.php:63 admin/page-import.php:376
 #: admin/page-import.php:418
 msgid "IP address"
 msgstr ""
 
-#: admin/page-export.php:58
+#: admin/page-export.php:64
 msgid "Host address"
 msgstr ""
 
-#: admin/page-export.php:59 admin/page-import.php:377
-#: admin/page-import.php:419 admin/tabs/formtab.php:186
+#: admin/page-export.php:65 admin/page-import.php:377
+#: admin/page-import.php:419 admin/tabs/formtab.php:185
 #: admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr ""
 
-#: admin/page-export.php:60 admin/page-import.php:379
+#: admin/page-export.php:66 admin/page-import.php:379
 msgid "\"is checked\" flag"
 msgstr ""
 
-#: admin/page-export.php:61 admin/page-import.php:378
+#: admin/page-export.php:67 admin/page-import.php:378
 msgid "\"is spam\" flag"
 msgstr ""
 
-#: admin/page-export.php:62
+#: admin/page-export.php:68
 msgid "\"is trash\" flag"
 msgstr ""
 
-#: admin/page-export.php:64
+#: admin/page-export.php:70
 msgid "The exporter does not delete any data, so your data will still be here."
 msgstr ""
 
-#: admin/page-export.php:70
+#: admin/page-export.php:75
 msgid "Export all entries from this website."
 msgstr ""
 
-#: admin/page-export.php:74
+#: admin/page-export.php:79
 msgid "Start export"
 msgstr ""
 
@@ -1037,7 +1041,7 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:328 frontend/write.php:229 frontend/write.php:260
+#: admin/page-settings.php:328 frontend/write.php:244 frontend/write.php:275
 msgid "Anti-spam"
 msgstr ""
 
@@ -1088,19 +1092,19 @@ msgstr ""
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:317
+#: frontend/posthandling.php:319
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 
-#: frontend/posthandling.php:333
+#: frontend/posthandling.php:336
 msgid "Thank you for your entry."
 msgstr ""
 
-#: frontend/posthandling.php:335
+#: frontend/posthandling.php:338
 msgid "We will review it and unlock it in a short while."
 msgstr ""
 
-#: frontend/posthandling.php:364 admin/tabs/emailtab.php:138
+#: frontend/posthandling.php:367 admin/tabs/emailtab.php:138
 msgid ""
 "\n"
 "Hello,\n"
@@ -1120,11 +1124,11 @@ msgid ""
 "%entry_content%\n"
 msgstr ""
 
-#: frontend/posthandling.php:385 frontend/posthandling.php:451
+#: frontend/posthandling.php:388 frontend/posthandling.php:454
 msgid "New Guestbook Entry"
 msgstr ""
 
-#: frontend/posthandling.php:432 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:435 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1223,36 +1227,40 @@ msgstr ""
 msgid "Select page"
 msgstr ""
 
-#: frontend/write.php:100
+#: frontend/write.php:94
 msgid "Write a new entry."
 msgstr ""
 
-#: frontend/write.php:114 admin/tabs/formtab.php:59
+#: frontend/write.php:102
+msgid "Log in to post an entry"
+msgstr ""
+
+#: frontend/write.php:129 admin/tabs/formtab.php:58
 msgid "Write a new entry for the Guestbook"
 msgstr ""
 
-#: frontend/write.php:143 frontend/write.php:150 admin/tabs/formtab.php:126
+#: frontend/write.php:158 frontend/write.php:165 admin/tabs/formtab.php:125
 #: admin/tabs/readingtab.php:164
 msgid "City"
 msgstr ""
 
-#: frontend/write.php:162 frontend/write.php:169 admin/tabs/formtab.php:146
+#: frontend/write.php:177 frontend/write.php:184 admin/tabs/formtab.php:145
 msgid "Email"
 msgstr ""
 
-#: frontend/write.php:230
+#: frontend/write.php:245
 msgid "Question:"
 msgstr ""
 
-#: frontend/write.php:236
+#: frontend/write.php:251
 msgid "Answer"
 msgstr ""
 
-#: frontend/write.php:280
+#: frontend/write.php:295
 msgid "Submit"
 msgstr ""
 
-#: frontend/write.php:289 admin/tabs/formtab.php:75
+#: frontend/write.php:304 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1334,7 +1342,7 @@ msgid ""
 msgstr ""
 
 #: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
-#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:238
+#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:237
 #: admin/tabs/readingtab.php:229
 msgid "Save settings"
 msgstr ""
@@ -1577,55 +1585,55 @@ msgid ""
 "input-fields."
 msgstr ""
 
-#: admin/tabs/formtab.php:55
+#: admin/tabs/formtab.php:54
 msgid "Header Text"
 msgstr ""
 
-#: admin/tabs/formtab.php:64
+#: admin/tabs/formtab.php:63
 msgid "You can set the header that is shown on top of the form."
 msgstr ""
 
-#: admin/tabs/formtab.php:70
+#: admin/tabs/formtab.php:69
 msgid "Notice Text"
 msgstr ""
 
-#: admin/tabs/formtab.php:87
+#: admin/tabs/formtab.php:86
 msgid "You can set the content of the notice that gets shown below the form."
 msgstr ""
 
-#: admin/tabs/formtab.php:89
+#: admin/tabs/formtab.php:88
 msgid "You can use the tag %ip% to show the ip address."
 msgstr ""
 
-#: admin/tabs/formtab.php:102
+#: admin/tabs/formtab.php:101
 msgid "Configure the form that is shown to visitors."
 msgstr ""
 
-#: admin/tabs/formtab.php:113 admin/tabs/formtab.php:133
-#: admin/tabs/formtab.php:153 admin/tabs/formtab.php:173
-#: admin/tabs/formtab.php:193 admin/tabs/formtab.php:213
-#: admin/tabs/formtab.php:228 admin/tabs/readingtab.php:147
+#: admin/tabs/formtab.php:112 admin/tabs/formtab.php:132
+#: admin/tabs/formtab.php:152 admin/tabs/formtab.php:172
+#: admin/tabs/formtab.php:192 admin/tabs/formtab.php:212
+#: admin/tabs/formtab.php:227 admin/tabs/readingtab.php:147
 #: admin/tabs/readingtab.php:159 admin/tabs/readingtab.php:171
 #: admin/tabs/readingtab.php:183 admin/tabs/readingtab.php:196
 #: admin/tabs/readingtab.php:209 admin/tabs/readingtab.php:221
 msgid "Enabled"
 msgstr ""
 
-#: admin/tabs/formtab.php:121 admin/tabs/formtab.php:141
-#: admin/tabs/formtab.php:161 admin/tabs/formtab.php:181
-#: admin/tabs/formtab.php:201
+#: admin/tabs/formtab.php:120 admin/tabs/formtab.php:140
+#: admin/tabs/formtab.php:160 admin/tabs/formtab.php:180
+#: admin/tabs/formtab.php:200
 msgid "Mandatory"
 msgstr ""
 
-#: admin/tabs/formtab.php:206
+#: admin/tabs/formtab.php:205
 msgid "Custom Anti-spam"
 msgstr ""
 
-#: admin/tabs/formtab.php:216 admin/tabs/formtab.php:231
+#: admin/tabs/formtab.php:215 admin/tabs/formtab.php:230
 msgid "When enabled it is mandatory."
 msgstr ""
 
-#: admin/tabs/formtab.php:221 admin/tabs/uninstalltab.php:63
+#: admin/tabs/formtab.php:220 admin/tabs/uninstalltab.php:63
 msgid "reCAPTCHA"
 msgstr ""
 
