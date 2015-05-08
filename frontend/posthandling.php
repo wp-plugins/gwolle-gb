@@ -304,18 +304,21 @@ function gwolle_gb_frontend_posthandling() {
 
 		/*
 		 * Check for double post using email field and content.
+		 * Only if content is mandatory.
 		 */
 
-		$entries = gwolle_gb_get_entries(array(
-				'email' => $entry->get_author_email()
-			));
-		if ( is_array( $entries ) && !empty( $entries ) ) {
-			foreach ( $entries as $entry_email ) {
-				if ( $entry_email->get_content() == $entry->get_content() ) {
-					// Match is double entry
-					$gwolle_gb_errors = true;
-					$gwolle_gb_messages .= '<p class="double_post"><strong>' . __('Double post: An entry with the data you entered has already been saved.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
-					return false;
+		if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
+			$entries = gwolle_gb_get_entries(array(
+					'email' => $entry->get_author_email()
+				));
+			if ( is_array( $entries ) && !empty( $entries ) ) {
+				foreach ( $entries as $entry_email ) {
+					if ( $entry_email->get_content() == $entry->get_content() ) {
+						// Match is double entry
+						$gwolle_gb_errors = true;
+						$gwolle_gb_messages .= '<p class="double_post"><strong>' . __('Double post: An entry with the data you entered has already been saved.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+						return false;
+					}
 				}
 			}
 		}

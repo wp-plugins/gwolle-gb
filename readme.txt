@@ -354,7 +354,8 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.3.3 =
-* 2015-
+* 2015-05-08
+* Only check for double entry if the content is mandatory.
 * Only offer to export when there are entries.
 * When login required, show login form.
 * Also show the register link then.
