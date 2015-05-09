@@ -148,6 +148,7 @@ function gwolle_gb_frontend_read() {
 		$output .= '<div id="gwolle_gb_entries">';
 
 		foreach ($entries as $entry) {
+			// FIXME: load an alternative template from theme if available.
 			// Main Author div
 			$entry_output = '<div class="';
 			if ($first == true) {

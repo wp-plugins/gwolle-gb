@@ -124,6 +124,7 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Frontend: Make it possible for an admin to reply to an entry.
 * Settings: save all tabs when saving.
 * SEO: add title and desc of first entry to SEO meta in html (is this possible?).
+* Reading: load alternative template from themes for single-entry if available.
 
 = API, add an entry =
 
