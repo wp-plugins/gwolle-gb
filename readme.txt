@@ -123,8 +123,9 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Frontend: Add option for using UBB code.
 * Frontend: Make it possible for an admin to reply to an entry.
 * Settings: save all tabs when saving.
-* SEO: add title and desc of first entry to SEO meta in html (is this possible?).
+* SEO: add title and desc of first entry to SEO meta in html (probably with javascript).
 * Reading: load alternative template from themes for single-entry if available.
+* Posting: trigger most cache plugins to update their cache.
 
 = API, add an entry =
 
