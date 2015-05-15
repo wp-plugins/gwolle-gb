@@ -345,9 +345,7 @@ function gwolle_gb_frontend_posthandling() {
 				$gwolle_gb_messages .= '<p>' . __('We will review it and unlock it in a short while.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
 		}
-var_dump($entry);
 
-var_dump($save);
 
 		/*
 		 * Update Cache plugins
