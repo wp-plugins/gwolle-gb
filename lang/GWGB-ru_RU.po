@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle Guestbook\n"
-"POT-Creation-Date: 2015-04-21 21:20+0300\n"
-"PO-Revision-Date: 2015-04-21 21:27+0300\n"
+"POT-Creation-Date: 2015-05-13 22:47+0300\n"
+"PO-Revision-Date: 2015-05-13 22:49+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
@@ -341,7 +341,7 @@ msgstr "История записи"
 msgid "No log yet."
 msgstr "Пока нет истории."
 
-#: admin/page-editor.php:538 frontend/write.php:200
+#: admin/page-editor.php:538 frontend/write.php:215
 msgid "Guestbook entry"
 msgstr "Текст сообщения"
 
@@ -354,8 +354,8 @@ msgstr ""
 "Переводы на новую строку не будут видны посетителям из-за Ваших <a href=\"%s"
 "\">настроек</a>."
 
-#: admin/page-editor.php:549 admin/tabs/formtab.php:165 frontend/write.php:181
-#: frontend/write.php:188
+#: admin/page-editor.php:549 admin/tabs/formtab.php:165 frontend/write.php:196
+#: frontend/write.php:203
 msgid "Website"
 msgstr "Веб-сайт"
 
@@ -363,7 +363,7 @@ msgstr "Веб-сайт"
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "Пример: <code>http://www.example.com/</code>"
 
-#: admin/page-editor.php:557 admin/page-export.php:55
+#: admin/page-editor.php:557 admin/page-export.php:61
 msgid "Origin"
 msgstr "Откуда (город)"
 
@@ -604,74 +604,78 @@ msgstr "Экспортировать записи из гостевой книг
 msgid "Export guestbook entries from Gwolle-GB"
 msgstr "Экспортировать записи из Gwolle-GB"
 
-#: admin/page-export.php:46
+#: admin/page-export.php:47
+msgid "No entries were found."
+msgstr "Записей не обнаружено."
+
+#: admin/page-export.php:52
 #, php-format
 msgid "%d entries were found and will be exported."
 msgstr "%d записей было найдено и будет экспортировано."
 
-#: admin/page-export.php:49
+#: admin/page-export.php:55
 msgid "The exporter will preserve the following data per entry:"
 msgstr "Экспортировщик сохранит следующие данные для каждой записи:"
 
-#: admin/page-export.php:52 admin/page-import.php:372
+#: admin/page-export.php:58 admin/page-import.php:372
 #: admin/page-import.php:413 admin/tabs/formtab.php:105
-#: admin/tabs/readingtab.php:152 frontend/write.php:124 frontend/write.php:131
+#: admin/tabs/readingtab.php:152 frontend/write.php:139 frontend/write.php:146
 msgid "Name"
 msgstr "Имя"
 
-#: admin/page-export.php:53 admin/page-import.php:373
+#: admin/page-export.php:59 admin/page-import.php:373
 #: admin/page-import.php:415
 msgid "E-Mail address"
 msgstr "Адрес e-mail"
 
-#: admin/page-export.php:54 admin/page-import.php:374
+#: admin/page-export.php:60 admin/page-import.php:374
 #: admin/page-import.php:416
 msgid "URL/Website"
 msgstr "URL/Веб-сайт"
 
-#: admin/page-export.php:56 admin/page-import.php:375
+#: admin/page-export.php:62 admin/page-import.php:375
 #: admin/page-import.php:417
 msgid "Date of the entry"
 msgstr "Дата записи"
 
-#: admin/page-export.php:57 admin/page-import.php:376
+#: admin/page-export.php:63 admin/page-import.php:376
 #: admin/page-import.php:418
 msgid "IP address"
 msgstr "IP-адрес"
 
-#: admin/page-export.php:58
+#: admin/page-export.php:64
 msgid "Host address"
 msgstr "Адрес хоста"
 
-#: admin/page-export.php:59 admin/page-import.php:377
+#: admin/page-export.php:65 admin/page-import.php:377
 #: admin/page-import.php:419 admin/tabs/formtab.php:185
 #: admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr "Текст сообщения"
 
-#: admin/page-export.php:60 admin/page-import.php:379
+#: admin/page-export.php:66 admin/page-import.php:379
 msgid "\"is checked\" flag"
 msgstr "флажок «проверено»"
 
-#: admin/page-export.php:61 admin/page-import.php:378
+#: admin/page-export.php:67 admin/page-import.php:378
 msgid "\"is spam\" flag"
 msgstr "флажок «спам»"
 
-#: admin/page-export.php:62
+#: admin/page-export.php:68
 msgid "\"is trash\" flag"
 msgstr "флажок «в урне»"
 
-#: admin/page-export.php:64
+#: admin/page-export.php:70
 msgid "The exporter does not delete any data, so your data will still be here."
 msgstr ""
 "Экспортировщик ничего не удаляет, так что все Ваши данные останутся в "
 "гостевой книге."
 
-#: admin/page-export.php:70
+#: admin/page-export.php:75
 msgid "Export all entries from this website."
 msgstr "Экспортировать записи с этого веб-сайта."
 
-#: admin/page-export.php:74
+#: admin/page-export.php:79
 msgid "Start export"
 msgstr "Начать экспорт"
 
@@ -1083,7 +1087,7 @@ msgstr "Чтение"
 msgid "Admin"
 msgstr "Администратор"
 
-#: admin/page-settings.php:328 frontend/write.php:229 frontend/write.php:260
+#: admin/page-settings.php:328 frontend/write.php:244 frontend/write.php:275
 msgid "Anti-spam"
 msgstr "Анти-спам"
 
@@ -1344,7 +1348,7 @@ msgstr ""
 msgid "Admin mail content"
 msgstr "Содержимое писем администратору"
 
-#: admin/tabs/emailtab.php:138 frontend/posthandling.php:364
+#: admin/tabs/emailtab.php:138 frontend/posthandling.php:367
 msgid ""
 "\n"
 "Hello,\n"
@@ -1409,7 +1413,7 @@ msgstr ""
 msgid "Author mail content"
 msgstr "Текст письма автору"
 
-#: admin/tabs/emailtab.php:198 frontend/posthandling.php:432
+#: admin/tabs/emailtab.php:198 frontend/posthandling.php:435
 msgid ""
 "\n"
 "Hello,\n"
@@ -1483,7 +1487,7 @@ msgstr ""
 msgid "Header Text"
 msgstr "Текст заголовка"
 
-#: admin/tabs/formtab.php:58 frontend/write.php:114
+#: admin/tabs/formtab.php:58 frontend/write.php:129
 msgid "Write a new entry for the Guestbook"
 msgstr "<HR>Оставить новую запись в гостевой книге</BR></BR>"
 
@@ -1495,7 +1499,7 @@ msgstr "Вы можете установить заголовок, которы�
 msgid "Notice Text"
 msgstr "Текст примечания"
 
-#: admin/tabs/formtab.php:74 frontend/write.php:289
+#: admin/tabs/formtab.php:74 frontend/write.php:304
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1543,11 +1547,11 @@ msgid "Mandatory"
 msgstr "Обязательно"
 
 #: admin/tabs/formtab.php:125 admin/tabs/readingtab.php:164
-#: frontend/write.php:143 frontend/write.php:150
+#: frontend/write.php:158 frontend/write.php:165
 msgid "City"
 msgstr "Город"
 
-#: admin/tabs/formtab.php:145 frontend/write.php:162 frontend/write.php:169
+#: admin/tabs/formtab.php:145 frontend/write.php:177 frontend/write.php:184
 msgid "Email"
 msgstr "E-mail"
 
@@ -1785,20 +1789,20 @@ msgstr ""
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr "Вы не ввели правильный антиспамовый код, а это обязательно."
 
-#: frontend/posthandling.php:317
+#: frontend/posthandling.php:319
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr "Дубль: Запись с в точности такими же данными уже получена и сохранена."
 
-#: frontend/posthandling.php:333
+#: frontend/posthandling.php:336
 msgid "Thank you for your entry."
 msgstr "Спасибо за Ваше сообщение."
 
-#: frontend/posthandling.php:335
+#: frontend/posthandling.php:338
 msgid "We will review it and unlock it in a short while."
 msgstr ""
 "Оно будет рассмотрено модератором и опубликовано, как только он одобрит."
 
-#: frontend/posthandling.php:385 frontend/posthandling.php:451
+#: frontend/posthandling.php:388 frontend/posthandling.php:454
 msgid "New Guestbook Entry"
 msgstr "Новая запись в гостевой книге"
 
@@ -1883,19 +1887,23 @@ msgstr "Выберите страницу гостевой книги:"
 msgid "Select page"
 msgstr "Выберите страницу"
 
-#: frontend/write.php:100
+#: frontend/write.php:94
 msgid "Write a new entry."
 msgstr "Оставить запись"
 
-#: frontend/write.php:230
+#: frontend/write.php:102
+msgid "Log in to post an entry"
+msgstr "Чтобы оставить запись, войдите в систему"
+
+#: frontend/write.php:245
 msgid "Question:"
 msgstr "Вопрос:"
 
-#: frontend/write.php:236
+#: frontend/write.php:251
 msgid "Answer"
 msgstr "Ответ"
 
-#: frontend/write.php:280
+#: frontend/write.php:295
 msgid "Submit"
 msgstr "Отправить"
 
