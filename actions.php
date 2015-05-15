@@ -87,9 +87,10 @@ add_filter( 'plugin_action_links', 'gwolle_gb_links', 10, 2 );
 /*
  * gwolle_gb_handle_post
  * Handle the $_POST for the Frontend.
+ * Use this action, since we have a $post already.
  */
 
-add_action('after_setup_theme', 'gwolle_gb_handle_post');
+add_action('wp', 'gwolle_gb_handle_post');
 function gwolle_gb_handle_post() {
 	if ( !is_admin() ) {
 		// Frontend Handling of $_POST, only one form

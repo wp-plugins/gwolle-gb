@@ -322,6 +322,13 @@ If a user with capability of 'moderate_comments' posts an entry, it will be mark
 There is validation of the length of words in the content and author name. If the words are too long and it looks
 abusive, it will be marked as unchecked. A moderator will still be needed to manually edit and check these entries.
 
+= I use a caching plugin, and my entries are not visible after posting =
+
+When you have moderation disabled, Gwolle-GB will try to refresh the cache. If it doesn't on your setup,
+please let me know which caching plugin you use, and support for it might be added.
+If you use moderation, you check your entries manually. You should also refresh or delete your cache manually.
+Most caching plugins offer support for that.
+
 = What capabilities are needed? =
 
 For moderating comments you need the capability 'moderate_comments'.
@@ -354,6 +361,11 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.3.4 =
+* Update the cache when using cache plugins.
+* Support WP Super Cache.
+* Update ru_RU.
 
 = 1.3.3 =
 * 2015-05-08

@@ -194,3 +194,18 @@ function gwolle_gb_get_setting($request) {
 }
 
 
+/*
+ * Update Cache plugins
+ */
+function gwolle_gb_clear_cache() {
+
+	/* WP Super Cache */
+	if ( function_exists('wp_cache_post_change') ) {
+		$GLOBALS["super_cache_enabled"] = 1;
+		wp_cache_post_change( get_the_ID() );
+	}
+
+}
+
+
+

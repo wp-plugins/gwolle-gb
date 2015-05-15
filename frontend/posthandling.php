@@ -341,6 +341,14 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/*
+		 * Update Cache plugins
+		 */
+		if ( $entry->get_ischecked() == 1 ) {
+			gwolle_gb_clear_cache();
+		}
+
+
+		/*
 		 * Send the Notification Mail to moderators that have subscribed (only when it is not Spam)
 		 */
 
