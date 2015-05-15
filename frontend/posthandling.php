@@ -17,7 +17,7 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
  */
 
 function gwolle_gb_frontend_posthandling() {
-	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
+	global $wpdb, $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
 	/*
 	 * Handle $_POST and check and save entry.
@@ -127,6 +127,12 @@ function gwolle_gb_frontend_posthandling() {
 						$gwolle_gb_errors = true;
 						$gwolle_gb_error_fields[] = 'content'; // mandatory
 					}
+				} else {
+					// Convert to 3byte Emoji, if db-charset is only utf8mb3
+					$charset = $wpdb->get_col_charset( $wpdb->gwolle_gb_entries, 'content' );
+					if ( 'utf8' === $charset && function_exists('wp_encode_emoji') ) {
+						$gwolle_gb_data['content'] = wp_encode_emoji( $gwolle_gb_data['content'] );
+					}
 				}
 			} else {
 				if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
@@ -136,10 +142,11 @@ function gwolle_gb_frontend_posthandling() {
 			}
 		}
 
+
 		/* Custom Security Question for Anti-Spam */
 		if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
-			$antispam_question = get_option('gwolle_gb-antispam-question');
-			$antispam_answer   = get_option('gwolle_gb-antispam-answer');
+			$antispam_question = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-question') );
+			$antispam_answer   = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-answer') );
 
 			if ( isset($antispam_question) && strlen($antispam_question) > 0 && isset($antispam_answer) && strlen($antispam_answer) > 0 ) {
 				if ( isset($_POST["gwolle_gb_antispam_answer"]) && trim($_POST["gwolle_gb_antispam_answer"]) == trim($antispam_answer) ) {
@@ -158,8 +165,8 @@ function gwolle_gb_frontend_posthandling() {
 		if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
 
 			// Register API keys at https://www.google.com/recaptcha/admin
-			$recaptcha_publicKey = get_option('recaptcha-public-key');
-			$recaptcha_privateKey = get_option('recaptcha-private-key');
+			$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
+			$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
 
 			if ( isset($recaptcha_publicKey) && isset($recaptcha_privateKey) ) {
 
@@ -304,18 +311,21 @@ function gwolle_gb_frontend_posthandling() {
 
 		/*
 		 * Check for double post using email field and content.
+		 * Only if content is mandatory.
 		 */
 
-		$entries = gwolle_gb_get_entries(array(
-				'email' => $entry->get_author_email()
-			));
-		if ( is_array( $entries ) && !empty( $entries ) ) {
-			foreach ( $entries as $entry_email ) {
-				if ( $entry_email->get_content() == $entry->get_content() ) {
-					// Match is double entry
-					$gwolle_gb_errors = true;
-					$gwolle_gb_messages .= '<p class="double_post"><strong>' . __('Double post: An entry with the data you entered has already been saved.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
-					return false;
+		if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
+			$entries = gwolle_gb_get_entries(array(
+					'email' => $entry->get_author_email()
+				));
+			if ( is_array( $entries ) && !empty( $entries ) ) {
+				foreach ( $entries as $entry_email ) {
+					if ( $entry_email->get_content() == $entry->get_content() ) {
+						// Match is double entry
+						$gwolle_gb_errors = true;
+						$gwolle_gb_messages .= '<p class="double_post"><strong>' . __('Double post: An entry with the data you entered has already been saved.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+						return false;
+					}
 				}
 			}
 		}
@@ -334,6 +344,16 @@ function gwolle_gb_frontend_posthandling() {
 			if ( $entry->get_ischecked() == 0 ) {
 				$gwolle_gb_messages .= '<p>' . __('We will review it and unlock it in a short while.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
+		}
+var_dump($entry);
+
+var_dump($save);
+
+		/*
+		 * Update Cache plugins
+		 */
+		if ( $entry->get_ischecked() == 1 ) {
+			gwolle_gb_clear_cache();
 		}
 
 
@@ -392,13 +412,13 @@ Entry content:
 			$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
 
 			// Replace the tags from the mailtemplate with real data from the website and entry
-			$info['user_name'] = $entry->get_author_name();
+			$info['user_name'] = gwolle_gb_sanitize_output( $entry->get_author_name() );
 			$info['user_email'] = $entry->get_author_email();
 			$info['blog_name'] = get_bloginfo('name');
 			$info['blog_url'] = get_bloginfo('wpurl');
 			$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
 			$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id();
-			$info['entry_content'] = gwolle_gb_format_values_for_mail($entry->get_content());
+			$info['entry_content'] = gwolle_gb_format_values_for_mail(gwolle_gb_sanitize_output( $entry->get_content() ));
 			if ( $entry->get_ischecked() ) {
 				$info['status'] = "Checked";
 			} else {
@@ -458,11 +478,11 @@ Entry content:
 				$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
 
 				// Replace the tags from the mailtemplate with real data from the website and entry
-				$info['user_name'] = $entry->get_author_name();
+				$info['user_name'] = gwolle_gb_sanitize_output( $entry->get_author_name() );
 				$info['user_email'] = $entry->get_author_email();
 				$info['blog_name'] = get_bloginfo('name');
 				$info['blog_url'] = get_bloginfo('wpurl');
-				$info['entry_content'] = gwolle_gb_format_values_for_mail($entry->get_content());
+				$info['entry_content'] = gwolle_gb_format_values_for_mail(gwolle_gb_sanitize_output( $entry->get_content() ));
 				for ($tagNum = 0; $tagNum < count($mailTags); $tagNum++) {
 					$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
 				}
