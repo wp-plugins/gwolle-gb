@@ -365,6 +365,8 @@ Yes, it is again actively maintained.
 = 1.3.4 =
 * Update the cache when using cache plugins.
 * Support WP Super Cache.
+* Convert our database tables to utf8mb4 if possible, so Emoji are functional.
+* Also support (encode) Emoji on old db-collation.
 * Frontend: Only listen to clicks on the button, not the whole div.
 * Update ru_RU.
 

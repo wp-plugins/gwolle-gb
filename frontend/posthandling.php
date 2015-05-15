@@ -17,7 +17,7 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
  */
 
 function gwolle_gb_frontend_posthandling() {
-	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
+	global $wpdb, $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
 	/*
 	 * Handle $_POST and check and save entry.
@@ -127,6 +127,12 @@ function gwolle_gb_frontend_posthandling() {
 						$gwolle_gb_errors = true;
 						$gwolle_gb_error_fields[] = 'content'; // mandatory
 					}
+				} else {
+					// Convert to 3byte Emoji, if db-charset is only utf8mb3
+					$charset = $wpdb->get_col_charset( $wpdb->gwolle_gb_entries, 'content' );
+					if ( 'utf8' === $charset && function_exists('wp_encode_emoji') ) {
+						$gwolle_gb_data['content'] = wp_encode_emoji( $gwolle_gb_data['content'] );
+					}
 				}
 			} else {
 				if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
@@ -135,6 +141,7 @@ function gwolle_gb_frontend_posthandling() {
 				}
 			}
 		}
+
 
 		/* Custom Security Question for Anti-Spam */
 		if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
@@ -338,7 +345,9 @@ function gwolle_gb_frontend_posthandling() {
 				$gwolle_gb_messages .= '<p>' . __('We will review it and unlock it in a short while.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
 		}
+var_dump($entry);
 
+var_dump($save);
 
 		/*
 		 * Update Cache plugins
