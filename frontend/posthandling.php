@@ -129,9 +129,11 @@ function gwolle_gb_frontend_posthandling() {
 					}
 				} else {
 					// Convert to 3byte Emoji, if db-charset is only utf8mb3
-					$charset = $wpdb->get_col_charset( $wpdb->gwolle_gb_entries, 'content' );
-					if ( 'utf8' === $charset && function_exists('wp_encode_emoji') ) {
-						$gwolle_gb_data['content'] = wp_encode_emoji( $gwolle_gb_data['content'] );
+					if ( method_exists($wpdb, 'get_col_charset') ){
+						$charset = $wpdb->get_col_charset( $wpdb->gwolle_gb_entries, 'content' );
+						if ( 'utf8' === $charset && function_exists('wp_encode_emoji') ) {
+							$gwolle_gb_data['content'] = wp_encode_emoji( $gwolle_gb_data['content'] );
+						}
 					}
 				}
 			} else {

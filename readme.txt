@@ -362,6 +362,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.3.5 =
+* 2015-05-
+* Fix posting an entry on old WP installs.
+
 = 1.3.4 =
 * Update the cache when using cache plugins.
 * Support WP Super Cache.
