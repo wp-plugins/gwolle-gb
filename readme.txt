@@ -364,7 +364,9 @@ Yes, it is again actively maintained.
 
 = 1.3.5 =
 * 2015-05-
+* Support BBcode in editor.
 * Fix posting an entry on old WP installs.
+* Update bg_BG.
 
 = 1.3.4 =
 * Update the cache when using cache plugins.

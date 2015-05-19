@@ -50,6 +50,7 @@ function gwolle_gb_frontend_posthandling() {
 		if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_author_name'])) {
 				$gwolle_gb_data['author_name'] = trim($_POST['gwolle_gb_author_name']);
+				$gwolle_gb_data['author_name'] = gwolle_gb_maybe_encode_emoji( $gwolle_gb_data['author_name'], 'author_name' );
 				if ( $gwolle_gb_data['author_name'] == "" ) {
 					if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) {
 						$gwolle_gb_errors = true;
@@ -67,6 +68,7 @@ function gwolle_gb_frontend_posthandling() {
 		if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_author_origin'])) {
 				$gwolle_gb_data['author_origin'] = trim($_POST['gwolle_gb_author_origin']);
+				$gwolle_gb_data['author_origin'] = gwolle_gb_maybe_encode_emoji( $gwolle_gb_data['author_origin'], 'author_origin' );
 				if ( $gwolle_gb_data['author_origin'] == "" ) {
 					if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) {
 						$gwolle_gb_errors = true;
@@ -128,13 +130,7 @@ function gwolle_gb_frontend_posthandling() {
 						$gwolle_gb_error_fields[] = 'content'; // mandatory
 					}
 				} else {
-					// Convert to 3byte Emoji, if db-charset is only utf8mb3
-					if ( method_exists($wpdb, 'get_col_charset') ){
-						$charset = $wpdb->get_col_charset( $wpdb->gwolle_gb_entries, 'content' );
-						if ( 'utf8' === $charset && function_exists('wp_encode_emoji') ) {
-							$gwolle_gb_data['content'] = wp_encode_emoji( $gwolle_gb_data['content'] );
-						}
-					}
+					$gwolle_gb_data['content'] = gwolle_gb_maybe_encode_emoji( $gwolle_gb_data['content'], 'content' );
 				}
 			} else {
 				if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
