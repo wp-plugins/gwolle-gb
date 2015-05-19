@@ -144,6 +144,7 @@ function gwolle_gb_frontend_read() {
 		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
 	} else {
 		$first = true;
+		$form_setting = gwolle_gb_get_setting( 'form' );
 		$read_setting = gwolle_gb_get_setting( 'read' );
 		$output .= '<div id="gwolle_gb_entries">';
 
@@ -221,6 +222,9 @@ function gwolle_gb_frontend_read() {
 				$excerpt_length = (int) get_option( 'gwolle_gb-excerpt_length', 0 );
 				if ( $excerpt_length > 0 ) {
 					$entry_content = wp_trim_words( $entry_content, $excerpt_length, '...' );
+				}
+				if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
+					$entry_content = gwolle_gb_bbcode_parse($entry_content);
 				}
 				$entry_output .= $entry_content;
 
