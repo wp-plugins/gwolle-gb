@@ -87,9 +87,10 @@ add_filter( 'plugin_action_links', 'gwolle_gb_links', 10, 2 );
 /*
  * gwolle_gb_handle_post
  * Handle the $_POST for the Frontend.
+ * Use this action, since we have a $post already and can use get_the_ID().
  */
 
-add_action('after_setup_theme', 'gwolle_gb_handle_post');
+add_action('wp', 'gwolle_gb_handle_post');
 function gwolle_gb_handle_post() {
 	if ( !is_admin() ) {
 		// Frontend Handling of $_POST, only one form
@@ -133,7 +134,7 @@ function gwolle_gb_register_settings() {
 }
 
 
-add_action('init', 'gwolle_gb_init'); // FIXME: is this the right action, or admin_init?
+add_action('admin_init', 'gwolle_gb_init');
 function gwolle_gb_init() {
 
 	// Check if the plugin is out of date

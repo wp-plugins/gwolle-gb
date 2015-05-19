@@ -73,6 +73,7 @@ function gwolle_gb_page_settings() {
 							'form_homepage_mandatory',
 							'form_message_enabled',
 							'form_message_mandatory',
+							'form_bbcode_enabled',
 							'form_antispam_enabled',
 							'form_recaptcha_enabled'
 							);
@@ -213,7 +214,7 @@ function gwolle_gb_page_settings() {
 					case 'gwolle_gb_mail':
 						/* Mail Settings */
 
-						if ( isset($_POST['admin_mail_from']) && $_POST['admin_mail_from'] != get_option('gwolle_gb-mail-from') ) {
+						if ( isset($_POST['admin_mail_from']) && $_POST['admin_mail_from'] != gwolle_gb_sanitize_output( get_option('gwolle_gb-mail-from') ) ) {
 							$admin_mail_from = gwolle_gb_sanitize_input( $_POST['admin_mail_from'] );
 							if ( filter_var( $admin_mail_from, FILTER_VALIDATE_EMAIL ) ) {
 								// Valid Email address.
@@ -315,7 +316,7 @@ function gwolle_gb_page_settings() {
 			<?php
 			if ( $saved ) {
 				echo '
-					<div id="message" class="updated fade">
+					<div id="message" class="updated fade notice is-dismissible">
 						<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>
 					</div>';
 			} ?>
@@ -358,8 +359,10 @@ function gwolle_gb_page_settings() {
 
 			<form name="gwolle_gb_options" class="gwolle_gb_options gwolle_gb_uninstall <?php if ($active_tab == 'gwolle_gb_uninstall') { echo "active";} ?>" method="post" action="">
 				<?php gwolle_gb_page_settingstab_uninstall( $uninstalled ); ?>
+				<?php // FIXME: inactive button, after checkbox, set to active. ?>
 			</form>
 
+		<?php // FIXME: Integrate into 1 form, have 1 submit button on all tabs. ?>
 
 		</div> <!-- wrap -->
 		<?php

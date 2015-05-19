@@ -31,7 +31,7 @@ function gwolle_gb_frontend_read() {
 
 	$pageNum = 1;
 	if ( isset($_GET['pageNum']) && is_numeric($_GET['pageNum']) ) {
-		$pageNum = $_GET['pageNum'];
+		$pageNum = intval($_GET['pageNum']);
 	}
 
 	if ( $pageNum > $countPages ) {
@@ -144,9 +144,12 @@ function gwolle_gb_frontend_read() {
 		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
 	} else {
 		$first = true;
+		$form_setting = gwolle_gb_get_setting( 'form' );
 		$read_setting = gwolle_gb_get_setting( 'read' );
+		$output .= '<div id="gwolle_gb_entries">';
 
 		foreach ($entries as $entry) {
+			// FIXME: load an alternative template from theme if available.
 			// Main Author div
 			$entry_output = '<div class="';
 			if ($first == true) {
@@ -199,7 +202,7 @@ function gwolle_gb_frontend_read() {
 				}
 				$entry_output .=  date_i18n( get_option('date_format'), $entry->get_date() ) . '</span>';
 				if ( isset($read_setting['read_datetime']) && $read_setting['read_datetime']  === 'true' ) {
-					$entry_output .= '<span class="gb-time"> ' . __('at', GWOLLE_GB_TEXTDOMAIN) . ' ' . trim(date_i18n( get_option('time_format'), $entry->get_date() )) . ' ' . __('hours', GWOLLE_GB_TEXTDOMAIN) . '</span>';
+					$entry_output .= '<span class="gb-time"> ' . __('at', GWOLLE_GB_TEXTDOMAIN) . ' ' . trim(date_i18n( get_option('time_format'), $entry->get_date() )) . '</span>';
 				}
 				$entry_output .= ':</span> ';
 			}
@@ -219,6 +222,9 @@ function gwolle_gb_frontend_read() {
 				$excerpt_length = (int) get_option( 'gwolle_gb-excerpt_length', 0 );
 				if ( $excerpt_length > 0 ) {
 					$entry_content = wp_trim_words( $entry_content, $excerpt_length, '...' );
+				}
+				if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
+					$entry_content = gwolle_gb_bbcode_parse($entry_content);
 				}
 				$entry_output .= $entry_content;
 
@@ -240,6 +246,7 @@ function gwolle_gb_frontend_read() {
 			// Add a filter for each entry, so devs can add or remove parts.
 			$output .= apply_filters( 'gwolle_gb_entry_read', $entry_output);
 		}
+		$output .= '</div>';
 	}
 
 	if ($countPages > 1) {
