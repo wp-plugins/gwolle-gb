@@ -13,8 +13,14 @@ function gwolle_gb_page_editor() {
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
 		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
-	}
+	} ?>
 
+	<!-- Do not replace Emoji with <img> elements in textarea, it screws saving the entry -->
+	<script type="text/javascript">
+		window._wpemojiSettings = '';
+	</script>
+
+	<?php
 	if (!get_option('gwolle_gb_version')) {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();
@@ -110,7 +116,8 @@ function gwolle_gb_page_editor() {
 				/* Check if the content changed, and update accordingly */
 				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
 					if ( $_POST['gwolle_gb_content'] != $entry->get_content() ) {
-						$entry->set_content( $_POST['gwolle_gb_content'] );
+						$entry_content = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_content'], 'content' );
+						$entry->set_content( $entry_content );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
@@ -128,7 +135,8 @@ function gwolle_gb_page_editor() {
 				/* Check if the author_origin changed, and update accordingly */
 				if ( isset($_POST['gwolle_gb_author_origin']) ) {
 					if ( $_POST['gwolle_gb_author_origin'] != $entry->get_author_origin() ) {
-						$entry->set_author_origin( $_POST['gwolle_gb_author_origin'] );
+						$entry_origin = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_author_origin'], 'author_origin' );
+						$entry->set_author_origin( $entry_origin );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
@@ -182,6 +190,7 @@ function gwolle_gb_page_editor() {
 					$author_email = $userdata->user_email;
 				}
 				$data['author_name'] = $author_name;
+				$data['author_name'] = gwolle_gb_maybe_encode_emoji( $data['author_name'], 'author_name' );
 				$data['author_email'] = $author_email;
 
 				/* Set as Not Spam */
@@ -193,6 +202,7 @@ function gwolle_gb_page_editor() {
 				/* Check if the content is filled in, and update accordingly */
 				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
 					$data['content'] = $_POST['gwolle_gb_content'];
+					$data['content'] = gwolle_gb_maybe_encode_emoji( $data['content'], 'content' );
 					$saved = true;
 				} else {
 					$form_setting = gwolle_gb_get_setting( 'form' );
@@ -218,6 +228,7 @@ function gwolle_gb_page_editor() {
 				if ( isset($_POST['gwolle_gb_author_origin']) ) {
 					if ( $_POST['gwolle_gb_author_origin'] != '' ) {
 						$data['author_origin'] = $_POST['gwolle_gb_author_origin'];
+						$data['author_origin'] = gwolle_gb_maybe_encode_emoji( $data['author_origin'], 'author_origin' );
 					}
 				}
 
@@ -537,9 +548,7 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<textarea rows="10" cols="56" name="gwolle_gb_content" id="gwolle_gb_content" tabindex="1">
-											<?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?>
-										</textarea>
+										<textarea rows="10" cols="56" name="gwolle_gb_content" id="gwolle_gb_content" tabindex="1"><?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?></textarea>
 										<?php
 										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
 											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', GWOLLE_GB_TEXTDOMAIN), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
