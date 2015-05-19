@@ -10,6 +10,8 @@ function gwolle_gb_sanitize_input($input) {
 	$input = trim($input);
 	$input = strip_tags($input);
 	$input = stripslashes($input); // Make sure we're not just adding lots of slashes.
+	$input = preg_replace('/"/', '&quot;', $input);
+	$input = preg_replace('/\'/', '&#39;', $input);
 	$input = htmlspecialchars($input, ENT_COMPAT, 'UTF-8');
 	$input = addslashes($input);
 	return $input;
@@ -137,7 +139,7 @@ function gwolle_gb_is_moderator($user_id) {
  */
 function gwolle_gb_get_setting($request) {
 
-	$provided = array('form', 'read', 'widget');
+	$provided = array('form', 'read');
 	if ( in_array( $request, $provided ) ) {
 		switch ( $request ) {
 			case 'form':
@@ -152,6 +154,7 @@ function gwolle_gb_get_setting($request) {
 					'form_homepage_mandatory' => 'false',
 					'form_message_enabled'    => 'true',
 					'form_message_mandatory'  => 'true',
+					'form_bbcode_enabled'     => 'false',
 					'form_antispam_enabled'   => 'false',
 					'form_recaptcha_enabled'  => 'false'
 					);
@@ -205,6 +208,37 @@ function gwolle_gb_clear_cache() {
 		wp_cache_post_change( get_the_ID() );
 	}
 
+}
+
+
+/*
+ * Parse the BBcode into HTML.
+ */
+function gwolle_gb_bbcode_parse( $str ){
+	$bb[] = "#\[b\](.*?)\[/b\]#si";
+	$html[] = "<b>\\1</b>";
+	$bb[] = "#\[i\](.*?)\[/i\]#si";
+	$html[] = "<i>\\1</i>";
+	$bb[] = "#\[u\](.*?)\[/u\]#si";
+	$html[] = "<u>\\1</u>";
+	$bb[] = "#\[ul\](.*?)\[/ul\]#si";
+	$html[] = "<ul>\\1</ul>";
+	$bb[] = "#\[ol\](.*?)\[/ol\]#si";
+	$html[] = "<ol>\\1</ol>";
+	$bb[] = "#\[li\](.*?)\[/li\]#si";
+	$html[] = "<li>\\1</li>";
+	$str = preg_replace($bb, $html, $str);
+
+	$pattern="#\[url href=([^\]]*)\]([^\[]*)\[/url\]#i";
+	$replace='<a href="\\1" target="_blank" rel="nofollow">\\2</a>';
+	$str=preg_replace($pattern, $replace, $str);
+
+	$pattern="#\[img\]([^\[]*)\[/img\]#i";
+	$replace='<img src="\\1" alt=""/>';
+	$str=preg_replace($pattern, $replace, $str);
+
+	//$str=nl2br($str);
+	return $str;
 }
 
 
