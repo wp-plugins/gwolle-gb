@@ -29,6 +29,9 @@ function gwolle_gb_sanitize_output($output) {
 	$output = stripslashes($output);
 	$output = html_entity_decode($output, ENT_COMPAT, 'UTF-8'); // the opposite of htmlentities, for backwards compat
 	$output = htmlspecialchars_decode($output, ENT_COMPAT);
+	// Still wanting this encoded
+	$output = preg_replace('/"/', '&quot;', $output);
+	$output = preg_replace('/\'/', '&#39;', $output);
 	return $output;
 }
 
@@ -239,6 +242,26 @@ function gwolle_gb_bbcode_parse( $str ){
 
 	//$str=nl2br($str);
 	return $str;
+}
+
+
+/*
+ * Convert to 3byte Emoji, if db-charset is only utf8mb3.
+ *
+ * $Args: - string, text string to encode
+ *        - field, the database field that is used for that string, will be checked on charset.
+ *
+ * Return: string, encoded or not.
+ */
+function gwolle_gb_maybe_encode_emoji( $string, $field ) {
+	global $wpdb;
+	if ( method_exists($wpdb, 'get_col_charset') ){
+		$charset = $wpdb->get_col_charset( $wpdb->gwolle_gb_entries, $field );
+		if ( 'utf8' === $charset && function_exists('wp_encode_emoji') ) {
+			$string = wp_encode_emoji( $string );
+		}
+	}
+	return $string;
 }
 
 
