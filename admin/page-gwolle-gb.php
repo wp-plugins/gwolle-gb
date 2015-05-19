@@ -210,6 +210,7 @@ function gwolle_gb_overview_thanks() {
 	echo '
 	<ul class="settings">
 		<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>
+		<li><a href="http://markitup.jaysalvat.com/" target="_blank">MarkItUp</a></li>
 		<li><a href="http://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a></li>
 	</ul>';
 }
