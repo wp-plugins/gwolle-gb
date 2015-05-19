@@ -363,12 +363,14 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.3.5 =
-* 2015-05-
+* 2015-05-19
 * Support BBcode in editor.
+* Improve Emoji support, for name, city and content.
 * Fix posting an entry on old WP installs.
-* Update bg_BG.
+* Update bg_BG, nl_NL, pot.
 
 = 1.3.4 =
+* 2015-05-15
 * Update the cache when using cache plugins.
 * Support WP Super Cache.
 * Convert our database tables to utf8mb4 if possible, so Emoji are functional.
