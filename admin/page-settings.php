@@ -73,6 +73,7 @@ function gwolle_gb_page_settings() {
 							'form_homepage_mandatory',
 							'form_message_enabled',
 							'form_message_mandatory',
+							'form_bbcode_enabled',
 							'form_antispam_enabled',
 							'form_recaptcha_enabled'
 							);
