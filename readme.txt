@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -120,7 +120,6 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
 * Frontend: Add RSS feed.
-* Frontend: Add option for using UBB code.
 * Frontend: Make it possible for an admin to reply to an entry.
 * Settings: save all tabs when saving.
 * SEO: add title and desc of first entry to SEO meta in html (probably with javascript).
