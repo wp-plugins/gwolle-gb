@@ -35,7 +35,7 @@ Current features include:
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
 * IP-address and host-logging with link to WHOIS query site.
-* Smiley integration (uses the WordPress smiley engine).
+* BBcode, Emoji and Smiley integration.
 * Easy uninstall routine for complete removal of all database changes.
 
 ... and all that integrated in the stylish WordPress look.
@@ -49,8 +49,8 @@ Trying Gwolle-GB is as easy as 1-2-3.
 Import is supported from:
 
 * DMSGuestbook.
-* WordPress comments from a specific page.
-* Gwolle-GB itself, with Export supported as well.
+* WordPress comments from a specific post, page or just all comments.
+* Gwolle-GB itself, with Export supported as well (CSV-file).
 
 
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
@@ -325,7 +325,7 @@ abusive, it will be marked as unchecked. A moderator will still be needed to man
 
 When you have moderation disabled, Gwolle-GB will try to refresh the cache. If it doesn't on your setup,
 please let me know which caching plugin you use, and support for it might be added.
-If you use moderation, you check your entries manually. You should also refresh or delete your cache manually.
+If you use moderation, and check your entries manually, then you should also refresh or delete your cache manually.
 Most caching plugins offer support for that.
 
 = What capabilities are needed? =
@@ -360,6 +360,9 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.3.6 =
+* 2015-
 
 = 1.3.5 =
 * 2015-05-19
