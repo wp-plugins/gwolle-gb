@@ -363,6 +363,7 @@ Yes, it is again actively maintained.
 
 = 1.3.6 =
 * 2015-
+* Update ru_RU.
 
 = 1.3.5 =
 * 2015-05-19
