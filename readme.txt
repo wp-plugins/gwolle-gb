@@ -67,6 +67,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * it_IT, Mariachiara Corradini
 * nl_NL, [Marcel Pol](http://zenoweb.nl)
 * pl_PL, Andrzej Sobaniec
+* pt_BR, [Alexandre Rocha](http://alexandre-rocha.com)
 * pt_PT, Jose Quintas
 * ru_RU, zhonglyor
 * sk_SK, Marcel Klacan
@@ -364,6 +365,7 @@ Yes, it is again actively maintained.
 = 1.3.6 =
 * 2015-
 * Close span element in widget.
+* Add pt_BR (Thanks Alexandre Rocha).
 * Update ru_RU.
 
 = 1.3.5 =
