@@ -363,8 +363,9 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.3.6 =
-* 2015-
+* 2015-05-31
 * Close span element in widget.
+* Redo Donate metabox, add Review text.
 * Add pt_BR (Thanks Alexandre Rocha).
 * Update ru_RU.
 
