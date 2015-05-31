@@ -367,7 +367,7 @@ Yes, it is again actively maintained.
 * Close span element in widget.
 * Redo Donate metabox, add Review text.
 * Add pt_BR (Thanks Alexandre Rocha).
-* Update ru_RU.
+* Update pot, nl_NL and ru_RU.
 
 = 1.3.5 =
 * 2015-05-19

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 14:51+0200\n"
+"POT-Creation-Date: 2015-05-31 14:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -185,7 +185,7 @@ msgstr ""
 "verder te gaan...</a>"
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
-#: admin/page-gwolle-gb.php:275 admin/page-import.php:26
+#: admin/page-gwolle-gb.php:278 admin/page-import.php:26
 #: admin/page-settings.php:15 admin/tabs/admintab.php:15
 #: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
 #: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
@@ -221,7 +221,7 @@ msgstr "Aangemeld als Spam bij de Akismet dienst."
 msgid "Submitted as Ham to the Akismet service."
 msgstr "Aangemeld als Ham bij de Akismet dienst."
 
-#: admin/page-editor.php:148 admin/page-gwolle-gb.php:351
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:354
 #: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr "Wijzigingen opgeslagen."
@@ -753,15 +753,15 @@ msgstr "Jij"
 msgid "No subscriber yet"
 msgstr "Nog geen inschrijvingen"
 
-#: admin/page-gwolle-gb.php:220
+#: admin/page-gwolle-gb.php:221
 msgid "This is how you can get your guestbook displayed on your website:"
 msgstr "Dit is hoe je het gastenboek weer kunt geven op je website:"
 
-#: admin/page-gwolle-gb.php:222
+#: admin/page-gwolle-gb.php:223
 msgid "Create a new page."
 msgstr "Maak een nieuwe pagina."
 
-#: admin/page-gwolle-gb.php:223
+#: admin/page-gwolle-gb.php:224
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
@@ -769,7 +769,7 @@ msgstr ""
 "Kies een titel en plaats &quot;[gwolle_gb]&quot; (zonder de quotes) als de "
 "inhoud."
 
-#: admin/page-gwolle-gb.php:224
+#: admin/page-gwolle-gb.php:225
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
@@ -777,44 +777,65 @@ msgstr ""
 "Het is waarschijnlijk een goed idee om reacties op die pagina niet toe te "
 "staan, dit voorkomt verwarring."
 
-#: admin/page-gwolle-gb.php:231
+#: admin/page-gwolle-gb.php:232
 msgid "These entries will be visible for your visitors:"
 msgstr "Deze berichten zijn zichtbaar voor je bezoekers:"
 
-#: admin/page-gwolle-gb.php:233
+#: admin/page-gwolle-gb.php:234
 msgid "Marked as Checked."
 msgstr "Gemarkeerd als Vrijgegeven."
 
-#: admin/page-gwolle-gb.php:234
+#: admin/page-gwolle-gb.php:235
 msgid "Not marked as Spam."
 msgstr "Niet gemarkeerd als Spam."
 
-#: admin/page-gwolle-gb.php:235
+#: admin/page-gwolle-gb.php:236
 msgid "Not marked as Trash."
 msgstr "Niet gemarkeerd als in Prullenbak."
 
-#: admin/page-gwolle-gb.php:239
+#: admin/page-gwolle-gb.php:240
 msgid "The Main Menu counter counts the following entries:"
 msgstr "De teller van het Hoofdmenu telt de volgende berichten:"
 
-#: admin/page-gwolle-gb.php:241
+#: admin/page-gwolle-gb.php:242
 msgid "Marked as Unchecked (You might want to moderate them)."
 msgstr "Gemarkeerd als Niet Vrijgegeven (Je wilt ze modereren)."
 
-#: admin/page-gwolle-gb.php:242
+#: admin/page-gwolle-gb.php:243
 msgid "Not marked as Spam (You might want to check them)."
 msgstr "Niet gemarkeerd als Spam (Je zou ze kunnen controleren)."
 
-#: admin/page-gwolle-gb.php:243
+#: admin/page-gwolle-gb.php:244
 msgid "Not marked as Trash (You decide what goes to the trash)."
 msgstr ""
 "Niet geplaatst in de prullenbak (Jij bepaalt wat de prullenbak in gaat)."
 
-#: admin/page-gwolle-gb.php:252
+#: admin/page-gwolle-gb.php:251
+msgid "This plugin is being maintained by Marcel Pol from"
+msgstr "Deze plugin wordt onderhouden door Marcel Pol van"
+
+#: admin/page-gwolle-gb.php:255
+msgid "Review this plugin."
+msgstr "Review deze plugin."
+
+#: admin/page-gwolle-gb.php:256
+msgid "If this plugin has any value to you, then please leave a review at"
+msgstr ""
+"Als deze plugin enige waarde voor je heeft, laat dan een review achter op"
+
+#: admin/page-gwolle-gb.php:257
+msgid "The plugin page at wordpress.org."
+msgstr "de plugin pagina op wordpress.org."
+
+#: admin/page-gwolle-gb.php:258
+msgid "the plugin page at wordpress.org"
+msgstr "de plugin pagina op wordpress.org"
+
+#: admin/page-gwolle-gb.php:261
 msgid "Donate to the EFF."
 msgstr "Doneren aan de EFF."
 
-#: admin/page-gwolle-gb.php:256
+#: admin/page-gwolle-gb.php:262
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
@@ -822,15 +843,15 @@ msgstr ""
 "De Electronic Frontier Foundation is één van de weinige organisaties die het "
 "internet vrij wil houden."
 
-#: admin/page-gwolle-gb.php:257
+#: admin/page-gwolle-gb.php:263
 msgid "Please donate to the EFF."
 msgstr "Doneer svp. aan de EFF."
 
-#: admin/page-gwolle-gb.php:262 admin/page-gwolle-gb.php:266
+#: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:267
 msgid "Donate to the maintainer."
 msgstr "Doneren aan de ontwikkelaar."
 
-#: admin/page-gwolle-gb.php:265
+#: admin/page-gwolle-gb.php:266
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through PayPal."
@@ -838,31 +859,39 @@ msgstr ""
 "Als je liever aan de ontwikkelaar van de plugin doneert, kun je via PayPal "
 "doneren."
 
-#: admin/page-gwolle-gb.php:266
-msgid "Donate through PayPal to"
-msgstr "Doneer via PayPal aan"
+#: admin/page-gwolle-gb.php:267
+msgid "Donate through"
+msgstr "Doneer via"
 
-#: admin/page-gwolle-gb.php:335
+#: admin/page-gwolle-gb.php:267
+msgid "PayPal"
+msgstr "PayPal"
+
+#: admin/page-gwolle-gb.php:268
+msgid "to"
+msgstr "aan"
+
+#: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
 msgstr "Welkom bij je Gastenboek!"
 
-#: admin/page-gwolle-gb.php:336
+#: admin/page-gwolle-gb.php:339
 msgid "E-mail Notifications"
 msgstr "E-mail Notificaties"
 
-#: admin/page-gwolle-gb.php:337
+#: admin/page-gwolle-gb.php:340
 msgid "This plugin uses the following scripts/programs/images:"
 msgstr "Deze plugin gebruikt de volgende scripts/programma's/afbeeldingen:"
 
-#: admin/page-gwolle-gb.php:338 admin/page-gwolle-gb.php:339
+#: admin/page-gwolle-gb.php:341 admin/page-gwolle-gb.php:342
 msgid "Help"
 msgstr "Hulp"
 
-#: admin/page-gwolle-gb.php:340
-msgid "Donate"
-msgstr "Doneren"
+#: admin/page-gwolle-gb.php:343
+msgid "Review and Donate"
+msgstr "Reviewen en Doneren"
 
-#: admin/page-gwolle-gb.php:345
+#: admin/page-gwolle-gb.php:348
 msgid "Gwolle Guestbook"
 msgstr "Gwolle Gastenboek"
 
@@ -1545,6 +1574,10 @@ msgid ""
 "spambot. Not every visitor will appreciate it though, some will consider it "
 "unfriendly."
 msgstr ""
+"reCAPTCHA is een manier om bezoekers een veld te laten invullen met letters "
+"of cijfers. Het is een manier om zeker te weten dat het een menselijke "
+"bezoeker is en geen spambot. Niet elke bezoeker zal het echter waarderen, en "
+"sommigen zullen het als onvriendelijk ervaren."
 
 #: admin/tabs/antispamtab.php:125
 msgid "The keys can be found at your"
@@ -1951,6 +1984,12 @@ msgstr "Verwijder ook de reCAPTCHA sleutels"
 msgid "Uninstall &raquo;"
 msgstr "Deïnstalleren &raquo;"
 
+#~ msgid "Donate through PayPal to"
+#~ msgstr "Doneer via PayPal aan"
+
+#~ msgid "Donate"
+#~ msgstr "Doneren"
+
 #, fuzzy
 #~ msgid ""
 #~ "You haven't chosen a way to import from WordPress comments. Please select "
@@ -2016,9 +2055,6 @@ msgstr "Deïnstalleren &raquo;"
 
 #~ msgid "Use reCAPTCHA"
 #~ msgstr "Gebruik reCAPTCHA"
-
-#~ msgid "Donate through Paypal"
-#~ msgstr "Doneer via Paypal"
 
 #~ msgid "Appearance"
 #~ msgstr "Weergave"
