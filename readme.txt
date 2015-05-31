@@ -362,6 +362,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.3.7 =
+* 2015-06-
+* Switch place of metaboxes on main admin page.
+
 = 1.3.6 =
 * 2015-05-31
 * Close span element in widget (thanks Ferdinand).
