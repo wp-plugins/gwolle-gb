@@ -85,20 +85,35 @@ function gwolle_gb_frontend_write() {
 	}
 
 
-	// Option to allow only logged-in users to post. Don't show the form if not logged-in. We still see the messages above.
-	if ( !is_user_logged_in() && get_option('gwolle_gb-require_login', 'false') == 'true' ) {
-		return $output;
-	}
-
-
 	/*
 	 * Button 'write a new entry.'
 	 */
 
 	$output .= '
 		<div id="gwolle_gb_write_button">
-			<input type="button" value="&raquo; ' . __('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '" />
+			<input type="button" value="&raquo; ' . esc_attr__('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '" />
 		</div>';
+
+
+	// Option to allow only logged-in users to post. Don't show the form if not logged-in. We still see the messages above.
+	if ( !is_user_logged_in() && get_option('gwolle_gb-require_login', 'false') == 'true' ) {
+		$output .= '
+			<div id="gwolle_gb_new_entry">
+				<h3>' . __('Log in to post an entry', GWOLLE_GB_TEXTDOMAIN) . '</h3>';
+
+		$args = array(
+			'echo'           => false,
+			'redirect' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
+		);
+		$output .= wp_login_form( $args );
+
+		$output .= wp_register('', '', false);
+
+		$output .= '</div>';
+
+		return $output;
+	}
+
 
 
 	/*
@@ -209,8 +224,16 @@ function gwolle_gb_frontend_write() {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.
 		}
-		$output .= ' >' . $content . '</textarea></div>
-			</div>
+		$output .= ' >' . $content . '</textarea></div>';
+
+		if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
+			wp_enqueue_script( 'markitup', plugins_url('markitup/jquery.markitup.js', __FILE__), 'jquery', '1.1.14', false );
+			wp_enqueue_script( 'markitup_set', plugins_url('markitup/set.js', __FILE__), 'jquery', '1.1.14', false );
+			wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('markitup/style.css', __FILE__), false, '1.1.14',  'screen');
+		}
+
+		$output .= '
+				</div>
 			<div class="clearBoth">&nbsp;</div>';
 	}
 
@@ -277,7 +300,7 @@ function gwolle_gb_frontend_write() {
 	$output .= '
 			<div class="gwolle_gb_submit">
 				<div class="label">&nbsp;</div>
-				<div class="input"><input type="submit" name="gwolle_gb_submit" value="' . __('Submit', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+				<div class="input"><input type="submit" name="gwolle_gb_submit" value="' . esc_attr__('Submit', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>
 
