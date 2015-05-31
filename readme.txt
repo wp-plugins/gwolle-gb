@@ -120,8 +120,10 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Editor: add options to change the date.
 * Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
-* Frontend: Add RSS feed.
+* Frontend: Add RSS feed (by using meta_key on shortcode?).
 * Frontend: Make it possible for an admin to reply to an entry.
+* Widget: add option to not show admin entries.
+* Settings: have button disabled with certain options, untill checkbox is clicked.
 * Settings: save all tabs when saving.
 * SEO: add title and desc of first entry to SEO meta in html (probably with javascript).
 * Reading: load alternative template from themes for single-entry if available.
