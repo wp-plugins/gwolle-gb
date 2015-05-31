@@ -364,7 +364,7 @@ Yes, it is again actively maintained.
 
 = 1.3.6 =
 * 2015-05-31
-* Close span element in widget.
+* Close span element in widget (thanks Ferdinand).
 * Redo Donate metabox, add Review text.
 * Add pt_BR (Thanks Alexandre Rocha).
 * Update pot, nl_NL and ru_RU.
