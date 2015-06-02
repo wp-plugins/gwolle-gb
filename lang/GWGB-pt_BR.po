@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle Guestbook v1.1.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-19 14:51+0200\n"
-"PO-Revision-Date: 2015-05-27 11:32+0100\n"
+"POT-Creation-Date: 2015-05-31 14:04+0200\n"
+"PO-Revision-Date: 2015-06-02 21:26+0100\n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: Alexandre Rocha <alexandretchrj@gmail.com>\n"
 "Language: pt_BR\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.7.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;"
 "_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
@@ -225,7 +225,7 @@ msgstr ""
 
 # @ GWGB
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
-#: admin/page-gwolle-gb.php:275 admin/page-import.php:26
+#: admin/page-gwolle-gb.php:278 admin/page-import.php:26
 #: admin/page-settings.php:15 admin/tabs/admintab.php:15
 #: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
 #: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
@@ -269,7 +269,7 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr "Enviada como Ham para o serviço Akismet."
 
 # @ GWGB
-#: admin/page-editor.php:148 admin/page-gwolle-gb.php:351
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:354
 #: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr "Mudanças salvas."
@@ -430,9 +430,8 @@ msgstr ""
 # @ GWGB
 #: admin/page-editor.php:566 frontend/write.php:196 frontend/write.php:203
 #: admin/tabs/formtab.php:165
-#, fuzzy
 msgid "Website"
-msgstr "URL/Site"
+msgstr "Site"
 
 # @ GWGB
 #: admin/page-editor.php:569
@@ -682,13 +681,12 @@ msgstr "Aplicar"
 
 #: admin/page-entries.php:477 admin/page-entries.php:735
 msgid "Empty Spam"
-msgstr ""
+msgstr "Esvaziar Spam"
 
 # @ GWGB
 #: admin/page-entries.php:479 admin/page-entries.php:737
-#, fuzzy
 msgid "Empty Trash"
-msgstr "Lixo"
+msgstr "Esvaziar Lixeira"
 
 # @ GWGB
 #: admin/page-entries.php:492
@@ -738,7 +736,6 @@ msgstr "Exportar entradas do livro de visitas de Gwolle-GB."
 
 # @ GWGB
 #: admin/page-export.php:47
-#, fuzzy
 msgid "No entries were found."
 msgstr "Entradas não encontradas."
 
@@ -923,17 +920,17 @@ msgid "No subscriber yet"
 msgstr "Nenhum inscrito até o momento"
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:220
+#: admin/page-gwolle-gb.php:221
 msgid "This is how you can get your guestbook displayed on your website:"
 msgstr "É assim que você pode ter o livro de visitas visível no seu site:"
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:222
+#: admin/page-gwolle-gb.php:223
 msgid "Create a new page."
 msgstr "Criar uma nova página."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:223
+#: admin/page-gwolle-gb.php:224
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
@@ -942,7 +939,7 @@ msgstr ""
 "conteúdo."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:224
+#: admin/page-gwolle-gb.php:225
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
@@ -951,52 +948,73 @@ msgstr ""
 "visitantes poderão ficar um pouco confusos."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:231
+#: admin/page-gwolle-gb.php:232
 msgid "These entries will be visible for your visitors:"
 msgstr "Essas mensagens estranho visiveís para seus visitantes:"
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:233
+#: admin/page-gwolle-gb.php:234
 msgid "Marked as Checked."
 msgstr "Marcado como Aprovado."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:234
+#: admin/page-gwolle-gb.php:235
 msgid "Not marked as Spam."
 msgstr "Não marcado como Spam."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:235
+#: admin/page-gwolle-gb.php:236
 msgid "Not marked as Trash."
 msgstr "Não marcado como Lixo."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:239
+#: admin/page-gwolle-gb.php:240
 msgid "The Main Menu counter counts the following entries:"
 msgstr "O contador do menu principal conta as seguintes mensagens:"
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:241
+#: admin/page-gwolle-gb.php:242
 msgid "Marked as Unchecked (You might want to moderate them)."
 msgstr "Marcar como Desmarcado (você pode querer moderar)."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:242
+#: admin/page-gwolle-gb.php:243
 msgid "Not marked as Spam (You might want to check them)."
 msgstr "Não marcado como Spam (você talvez queria assinalar ele(s))."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:243
+#: admin/page-gwolle-gb.php:244
 msgid "Not marked as Trash (You decide what goes to the trash)."
 msgstr "Não marcado como Lixo (você decide o que vai para a lixeira)."
 
+#: admin/page-gwolle-gb.php:251
+msgid "This plugin is being maintained by Marcel Pol from"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:255
+#, fuzzy
+msgid "Review this plugin."
+msgstr "O plugin está desativado."
+
+#: admin/page-gwolle-gb.php:256
+msgid "If this plugin has any value to you, then please leave a review at"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:257
+msgid "The plugin page at wordpress.org."
+msgstr ""
+
+#: admin/page-gwolle-gb.php:258
+msgid "the plugin page at wordpress.org"
+msgstr ""
+
 # @ GWGB
-#: admin/page-gwolle-gb.php:252
+#: admin/page-gwolle-gb.php:261
 msgid "Donate to the EFF."
 msgstr "Doar para EFF."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:256
+#: admin/page-gwolle-gb.php:262
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
@@ -1005,17 +1023,17 @@ msgstr ""
 "querem manter a internet um ambiente livre."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:257
+#: admin/page-gwolle-gb.php:263
 msgid "Please donate to the EFF."
 msgstr "Por favor doe para o EFF."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:262 admin/page-gwolle-gb.php:266
+#: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:267
 msgid "Donate to the maintainer."
 msgstr "Doe para o mantenedor."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:265
+#: admin/page-gwolle-gb.php:266
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through PayPal."
@@ -1024,37 +1042,45 @@ msgstr ""
 "PayPal."
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:266
-msgid "Donate through PayPal to"
+#: admin/page-gwolle-gb.php:267
+#, fuzzy
+msgid "Donate through"
 msgstr "Doe através do PayPal por"
 
+#: admin/page-gwolle-gb.php:267
+msgid "PayPal"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:268
+msgid "to"
+msgstr ""
+
 # @ GWGB
-#: admin/page-gwolle-gb.php:335
+#: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
 msgstr "Bem-vindo ao Livro de Visitas!"
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:336
+#: admin/page-gwolle-gb.php:339
 msgid "E-mail Notifications"
 msgstr "Notificações por e-mail"
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:337
+#: admin/page-gwolle-gb.php:340
 msgid "This plugin uses the following scripts/programs/images:"
 msgstr "Este plugin usa os seguintes scripts/programas/imagens:"
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:338 admin/page-gwolle-gb.php:339
+#: admin/page-gwolle-gb.php:341 admin/page-gwolle-gb.php:342
 msgid "Help"
 msgstr "Ajuda"
 
-# @ GWGB
-#: admin/page-gwolle-gb.php:340
-msgid "Donate"
-msgstr "Doar"
+#: admin/page-gwolle-gb.php:343
+msgid "Review and Donate"
+msgstr ""
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:345
+#: admin/page-gwolle-gb.php:348
 msgid "Gwolle Guestbook"
 msgstr "Livro de Visita Gwolle"
 
@@ -1100,12 +1126,12 @@ msgstr ""
 
 # @ GWGB
 #: admin/page-import.php:133 admin/page-import.php:181
-#, fuzzy
 msgid ""
 "You haven't chosen how to import from WordPress comments. Please choose and "
 "try again."
 msgstr ""
-"Você não escolheu uma página. Por favor selecione uma e tente novamente."
+"Você não escolheu como importar dos comentários do Wordpress. Por favor "
+"selecione uma opção e tente novamente."
 
 # @ GWGB
 #: admin/page-import.php:168
@@ -1127,13 +1153,12 @@ msgstr "%d mensagens importadas com sucesso dos comentários do Wordpress."
 
 # @ GWGB
 #: admin/page-import.php:176
-#, fuzzy
 msgid ""
 "<strong>Nothing to import.</strong> There seem to be no comments on this "
 "page, post or at all."
 msgstr ""
-"<strong>Nada para importar.</strong> A página que você escolheu não possui "
-"comentários."
+"<strong>Nada para importar.</strong> A página ou post que você escolheu "
+"parece não possuir comentários."
 
 # @ GWGB
 #: admin/page-import.php:195
@@ -1251,7 +1276,7 @@ msgstr "Status \"aprovado\""
 
 #: admin/page-import.php:424
 msgid "Spam comments will not be imported."
-msgstr ""
+msgstr "Spams nos comentários não serão importados."
 
 # @ GWGB
 #: admin/page-import.php:429
@@ -1275,29 +1300,26 @@ msgstr "1 comentário"
 
 # @ GWGB
 #: admin/page-import.php:467
-#, fuzzy
 msgid "Select a post to import the comments from:"
-msgstr "Selecione a para de onde deseja importar os comentários:"
+msgstr "Selecione o post de onde deseja importar os comentários:"
 
 # @ GWGB
 #: admin/page-import.php:511
-#, fuzzy
 msgid "Select where to import the comments from:"
-msgstr "Selecione a para de onde deseja importar os comentários:"
+msgstr "Selecione para onde deseja importar os comentários:"
 
 #: admin/page-import.php:512
 msgid "Comments from selected page."
-msgstr ""
+msgstr "Comentários da página selecionada."
 
 #: admin/page-import.php:513
 msgid "Comments from selected post."
-msgstr ""
+msgstr "Comentários do post selecionado."
 
 # @ GWGB
 #: admin/page-import.php:514
-#, fuzzy
 msgid "All Comments"
-msgstr "Comentários"
+msgstr "Todos os comentários"
 
 # @ GWGB
 #: admin/page-import.php:526
@@ -1343,6 +1365,7 @@ msgstr "Desinstalar"
 #: frontend/posthandling.php:39
 msgid "Submitting a new guestbook entry is only allowed for logged-in users."
 msgstr ""
+"O envio de novas mensagens são permitidas somente para usuários ligados."
 
 # @ GWGB
 #: frontend/posthandling.php:208 frontend/posthandling.php:251
@@ -1351,48 +1374,45 @@ msgstr "Ouve erros ao enviar sua mensagem."
 
 # @ GWGB
 #: frontend/posthandling.php:214
-#, fuzzy
 msgid "Your name is not filled in, even though it is mandatory."
-msgstr "Mensagem não possui conteúdo, mesmo como obrigatória."
+msgstr "O seu nome não está preenchido, embora seja obrigatório."
 
 # @ GWGB
 #: frontend/posthandling.php:217
-#, fuzzy
 msgid "Your origin is not filled in, even though it is mandatory."
-msgstr "Mensagem não possui conteúdo, mesmo como obrigatória."
+msgstr "Sua origem não está preenchida, embora seja obrigatória."
 
 # @ GWGB
 #: frontend/posthandling.php:220
-#, fuzzy
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
-msgstr "Mensagem não possui conteúdo, mesmo como obrigatória."
+msgstr ""
+"O seu e-mail não está preenchido corretamente, embora seja obrigatório."
 
 # @ GWGB
 #: frontend/posthandling.php:223
-#, fuzzy
 msgid "Your website is not filled in, even though it is mandatory."
-msgstr "Mensagem não possui conteúdo, mesmo como obrigatória."
+msgstr "O seu site não está preenchido, embora seja obrigatório."
 
 # @ GWGB
 #: frontend/posthandling.php:226
-#, fuzzy
 msgid "There is no message, even though it is mandatory."
-msgstr "Mensagem não possui conteúdo, mesmo como obrigatória."
+msgstr "Não há mensagem, embora seja obrigatório."
 
 # @ GWGB
 #: frontend/posthandling.php:229
-#, fuzzy
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
-msgstr "Mensagem não possui conteúdo, mesmo como obrigatória."
+msgstr ""
+"A pergunta anti-spam não foi respondida corretamente, embora seja "
+"obrigatório."
 
 # @ GWGB
 #: frontend/posthandling.php:232
-#, fuzzy
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
-msgstr "Mensagem não possui conteúdo, mesmo como obrigatória."
+msgstr ""
+"O código reCAPTCHA não foi preenchido corretamente, embora seja obrigatório."
 
 # @ GWGB
 #: frontend/posthandling.php:324
@@ -1413,7 +1433,6 @@ msgstr "Nós iremos rever e desbloquear em alguns instantes."
 
 # @ GWGB
 #: frontend/posthandling.php:380 admin/tabs/emailtab.php:138
-#, fuzzy
 msgid ""
 "\n"
 "Hello,\n"
@@ -1432,13 +1451,22 @@ msgid ""
 "Entry content:\n"
 "%entry_content%\n"
 msgstr ""
+"\n"
 "Olá,\n"
 "\n"
 "Há uma nova mensagem no livro de visitas em '%blog_name%'.\n"
 "Você pode verificá-la em %entry_management_url%.\n"
 "\n"
 "Tenha um bom dia!\n"
-"Gwolle-GB-Mailer"
+"Gwolle-GB-Mailer\n"
+"\n"
+"\n"
+"Endereço do site: %blog_url%\n"
+"Nome do usuário: %user_name%\n"
+"E-mail do usuário: %user_email%\n"
+"Status da mensagem: %status%\n"
+"Conteúdo da mensagem:\n"
+"%entry_content%\n"
 
 # @ GWGB
 #: frontend/posthandling.php:401 frontend/posthandling.php:467
@@ -1462,6 +1490,20 @@ msgid ""
 "Entry content:\n"
 "%entry_content%\n"
 msgstr ""
+"\n"
+"Olá,\n"
+"\n"
+"Você acabou de postar uma nova mensagem em '%blog_name%'.\n"
+"\n"
+"Tenha um bom dia.\n"
+"Obrigado. %blog_name%.\n"
+"\n"
+"\n"
+"Endereço do site: %blog_url%\n"
+"Nome do usuário: %user_name%\n"
+"E-mail do usuário: %user_email%\n"
+"Conteúdo da mensagem:\n"
+"%entry_content%\n"
 
 # @ GWGB
 #: frontend/read.php:79
@@ -1496,9 +1538,8 @@ msgstr "escrito em"
 
 # @ GWGB
 #: frontend/read.php:205
-#, fuzzy
 msgid "at"
-msgstr "Data"
+msgstr "em"
 
 # @ GWGB
 #: frontend/widget.php:12
@@ -1537,13 +1578,12 @@ msgstr "Lista de ids de mensagens separados por vírgulas"
 
 #: frontend/widget.php:240
 msgid "Show name of author."
-msgstr ""
+msgstr "Exibir nome do autor."
 
 # @ GWGB
 #: frontend/widget.php:246
-#, fuzzy
 msgid "Show date of entry."
-msgstr "Data da entrada"
+msgstr "Data da mensagem."
 
 # @ GWGB
 #: frontend/widget.php:250
@@ -1572,7 +1612,7 @@ msgstr "Escrever uma nova mensagem."
 
 #: frontend/write.php:102
 msgid "Log in to post an entry"
-msgstr ""
+msgstr "Efetue o login para postar uma mensagem"
 
 # @ GWGB
 #: frontend/write.php:129 admin/tabs/formtab.php:58
@@ -1615,6 +1655,13 @@ msgid ""
 "reviewed it.\n"
 "We reserve our right to edit, delete, or not publish entries.\n"
 msgstr ""
+"\n"
+"Campos marcados com * são obrigatórios.\n"
+"Seu endereço de e-mail não será publicado.\n"
+"Por razões de segurança nós salvamos o seu endereço de IP: %ip%.\n"
+"Pode ser que sua mensagem só se torne visível no livro de visitas depois que "
+"revisarmos. \n"
+"Nos reservamos no direito de editar, deletar ou não publicar as mensagens.\n"
 
 # @ GWGB
 #: functions/function.log.php:94
@@ -1792,9 +1839,8 @@ msgstr "Pergunta de segurança Anti-Spam personalizada"
 
 # @ GWGB
 #: admin/tabs/antispamtab.php:88
-#, fuzzy
 msgid "12 + six ="
-msgstr "12 + seis"
+msgstr "12 + seis ="
 
 # @ GWGB
 #: admin/tabs/antispamtab.php:89
@@ -1842,6 +1888,10 @@ msgid ""
 "spambot. Not every visitor will appreciate it though, some will consider it "
 "unfriendly."
 msgstr ""
+"reCAPTCHA é o preenchimento de um campo com algumas letras e números. É uma "
+"maneira de se certificar de que você tem um visitante humano e não um robô "
+"de spams. Nem todo visitante irá apreciá-lo embora, alguns vão considerá-lo "
+"hostil."
 
 # @ GWGB
 #: admin/tabs/antispamtab.php:125
@@ -1904,51 +1954,53 @@ msgstr ""
 
 # @ GWGB
 #: admin/tabs/emailtab.php:41
-#, fuzzy
 msgid "Unsubscribe moderators"
-msgstr "Nenhum inscrito até o momento"
+msgstr "Desinscrever moderadores"
 
 # @ GWGB
 #: admin/tabs/emailtab.php:51
-#, fuzzy
 msgid "Unsubscribe User"
-msgstr "Nenhum inscrito até o momento"
+msgstr "Desinscrever usuário"
 
 # @ GWGB
 #: admin/tabs/emailtab.php:73
-#, fuzzy
 msgid "These users have subscribed to the notification emails."
-msgstr "Os seguintes usuários se inscreveram nesse serviço:"
+msgstr "Os seguintes usuários se inscreveram na notificação por e-mail:"
 
 #: admin/tabs/emailtab.php:74
 msgid ""
 "Select a user if you want that user to unsubscribe from the notification "
 "emails."
 msgstr ""
+"Selecione um usuário se você quiser que esse usuário seja removido das "
+"notificações de e-mail."
 
 #: admin/tabs/emailtab.php:79
 msgid "Subscribe moderators"
-msgstr ""
+msgstr "Inscrever moderadores"
 
 # @ GWGB
 #: admin/tabs/emailtab.php:82
-#, fuzzy
 msgid "Subscribe User"
-msgstr "Nenhum inscrito até o momento"
+msgstr "Inscrever Usuário"
 
 #: admin/tabs/emailtab.php:125
 msgid "You can subscribe a moderator to the notification emails."
-msgstr ""
+msgstr "Você pode inscrever um moderador para as notificações de e-mails."
 
 #: admin/tabs/emailtab.php:126
 msgid "Select a user that you want subscribed to the notification emails."
 msgstr ""
+"Selecione um usuário que você queira inscrito para as notificações de e-"
+"mails."
 
 #: admin/tabs/emailtab.php:127
 msgid ""
 "You will only see users with the roles of Administrator, Editor and Author, "
 "who have the capability 'moderate_comments' ."
 msgstr ""
+"Você irá ver apenas usuários definidos como Administradores, Editores e "
+"Autores que tiverem a capacidade de moderar comentários."
 
 # @ GWGB
 #: admin/tabs/emailtab.php:133
@@ -1966,87 +2018,87 @@ msgstr ""
 
 # @ GWGB
 #: admin/tabs/emailtab.php:175
-#, fuzzy
 msgid "Mail Author"
-msgstr "Autor"
+msgstr "E-mail do Autor"
 
 #: admin/tabs/emailtab.php:183
 msgid "Mail the author with a confirmation email."
-msgstr ""
+msgstr "Enviar e-mail para autor com confirmação."
 
 #: admin/tabs/emailtab.php:187
 msgid ""
 "The author of the guestbook entry will receive an email after posting. It "
 "will have a copy of the entry."
 msgstr ""
+"O autor da mensagem do livro de visitas irá receber uma mensagem depois de "
+"postar. Ele terá uma cópia da mensagem."
 
 # @ GWGB
 #: admin/tabs/emailtab.php:193
-#, fuzzy
 msgid "Author mail content"
-msgstr "Administrar conteúdo de e-mail"
+msgstr "Conteúdo do e-mail do autor"
 
 # @ GWGB
 #: admin/tabs/emailtab.php:218
-#, fuzzy
 msgid ""
 "You can set the content of the mail that the author of the entry will "
 "receive. The following tags are supported:"
 msgstr ""
-"Você pode definir o conteúdo do e-mail que a pessoa inscrita receberá na "
-"notificação ao colocar novas mensagens. As tags seguintes são suportadas:"
+"Você pode definir o conteúdo do e-mail que o autor da mensagem irá receber. "
+"As seguintes tags são suportadas:"
 
 #: admin/tabs/formtab.php:26
 msgid "Require Login"
-msgstr ""
+msgstr "Requisitar login"
 
 #: admin/tabs/formtab.php:33
 msgid "Require user to be logged in."
-msgstr ""
+msgstr "Requisitar que o usuário esteja logado."
 
 #: admin/tabs/formtab.php:35
 msgid "Only allow logged-in users to add a guestbook entry."
 msgstr ""
+"Permitir apenas usuários ligados para adicionar mensagens no livro de "
+"visitas."
 
 #: admin/tabs/formtab.php:40
 msgid "Labels float"
-msgstr ""
+msgstr "Etiquetas flutuantes"
 
 #: admin/tabs/formtab.php:47
 msgid "Labels in the form float to the left."
-msgstr ""
+msgstr "Etiquetas flutuam na esquerda no formulário."
 
 #: admin/tabs/formtab.php:49
 msgid ""
 "Labels in the form float to the left. Otherwise the labels will be above the "
 "input-fields."
 msgstr ""
+"Etiquetas flutuam na esquerda no formulário. Ou então as etiquetas ficarão "
+"acima dos campos de preenchimento."
 
 #: admin/tabs/formtab.php:54
 msgid "Header Text"
-msgstr ""
+msgstr "Texto do cabeçalho"
 
 # @ GWGB
 #: admin/tabs/formtab.php:63
-#, fuzzy
 msgid "You can set the header that is shown on top of the form."
-msgstr "Configurar o formulário que é exibido para os visitantes."
+msgstr "Você pode definir o cabeçalho para ser exibido no topo do formulário."
 
 #: admin/tabs/formtab.php:69
 msgid "Notice Text"
-msgstr ""
+msgstr "Texto aviso prévio"
 
 # @ GWGB
 #: admin/tabs/formtab.php:86
-#, fuzzy
 msgid "You can set the content of the notice that gets shown below the form."
 msgstr ""
-"Você pode definir o conteúdo do e-mail que a pessoa inscrita receberá na "
-"notificação ao colocar novas mensagens. As tags seguintes são suportadas:"
+"Você pode definir o conteúdo do aviso que será mostrado abaixo do formulário."
 
 #: admin/tabs/formtab.php:88
 msgid "You can use the tag %ip% to show the ip address."
-msgstr ""
+msgstr "Você pode usar a tag %ip% para exibir o endereço de IP."
 
 # @ GWGB
 #: admin/tabs/formtab.php:101
@@ -2074,11 +2126,11 @@ msgstr "Obrigatório"
 
 #: admin/tabs/formtab.php:205
 msgid "BBcode and Emoji"
-msgstr ""
+msgstr "BBCode e Emoji"
 
 #: admin/tabs/formtab.php:215
 msgid "Will only be shown if the Message is enabled."
-msgstr ""
+msgstr "Será exibido apenas se Mensagem estiver habilitado."
 
 # @ GWGB
 #: admin/tabs/formtab.php:220
@@ -2107,25 +2159,25 @@ msgstr "Número de mensagens exibidas no frontend."
 
 # @ GWGB
 #: admin/tabs/readingtab.php:46
-#, fuzzy
 msgid "Length of the entry content"
-msgstr "Data da entrada"
+msgstr "Tamanho do conteúdo da mensagem"
 
 #: admin/tabs/readingtab.php:56
 msgid "Unlimited Words"
-msgstr ""
+msgstr "Palavras ilimitadas"
 
 #: admin/tabs/readingtab.php:63
 msgid "Words"
-msgstr ""
+msgstr "Palavras"
 
 #: admin/tabs/readingtab.php:69
 msgid "Maximum length of the entry content in words."
-msgstr ""
+msgstr "Tamanho máximo do conteúdo da mensagem em palavras."
 
 #: admin/tabs/readingtab.php:70
 msgid "Please be aware that this will strip linebreaks as well."
 msgstr ""
+"Por favor, esteja ciente de que isso irá retirar quebras de linha também."
 
 # @ GWGB
 #: admin/tabs/readingtab.php:76
@@ -2188,56 +2240,60 @@ msgstr ""
 
 #: admin/tabs/readingtab.php:118
 msgid "Admin Entry Styling"
-msgstr ""
+msgstr "Administrar estilos da mensagem"
 
 #: admin/tabs/readingtab.php:125
 msgid "Admin entries get a special CSS styling."
-msgstr ""
+msgstr "Mensagens de administradores ganham um estilo CSS especial."
 
 #: admin/tabs/readingtab.php:127
 msgid ""
 "Admin entries get a special CSS styling. It will get a lightgrey background."
 msgstr ""
+"Mensagens de administradores ganham um estilo CSS especial. Elas terão um "
+"fundo em cinza claro."
 
 # @ GWGB
 #: admin/tabs/readingtab.php:135
-#, fuzzy
 msgid "Configure the parts of the entries that are shown to visitors."
-msgstr "Configurar o formulário que é exibido para os visitantes."
+msgstr "Configurar partes de mensagens que são exibidas para os visitantes."
 
 #: admin/tabs/readingtab.php:140
 msgid "Avatar"
-msgstr ""
+msgstr "Avatar"
 
 #: admin/tabs/readingtab.php:176
 msgid "Date and Time"
-msgstr ""
+msgstr "Dia e hora"
 
 #: admin/tabs/readingtab.php:184
 msgid "Setting this will show the date and the time of the entry."
-msgstr ""
+msgstr "Configurando isso irá mostrar data e horário da mensagem."
 
 #: admin/tabs/readingtab.php:197
 msgid ""
 "Setting this will show the date of the entry. If Date and Time above are "
 "enabled, that setting has preference."
 msgstr ""
+"Configurando isso irá mostrar data e horário da mensagem. Se data e hora "
+"acima estiver habilitado, então essa configuração terá preferência."
 
 #: admin/tabs/readingtab.php:202
 msgid "Content"
-msgstr ""
+msgstr "Conteúdo"
 
 # @ GWGB
 #: admin/tabs/readingtab.php:214
-#, fuzzy
 msgid "Edit link"
-msgstr "Editar Mensagem"
+msgstr "Editar link"
 
 #: admin/tabs/readingtab.php:222
 msgid ""
 "A link to the editor will be added to the content. Only visible for "
 "moderators."
 msgstr ""
+"Um link para o editor será adicionado no conteúdo. Apenas visível para "
+"moderadores."
 
 # @ GWGB
 #: admin/tabs/uninstalltab.php:34
@@ -2292,6 +2348,10 @@ msgstr "Delete também as chaves do reCAPTCHA"
 #: admin/tabs/uninstalltab.php:73
 msgid "Uninstall &raquo;"
 msgstr "Desinstalar &raquo;"
+
+# @ GWGB
+#~ msgid "Donate"
+#~ msgstr "Doar"
 
 # @ GWGB
 #~ msgid "Homepage"

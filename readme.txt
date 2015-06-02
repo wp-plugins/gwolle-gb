@@ -1,6 +1,6 @@
 === Gwolle-GB ===
 Contributors: Gwolle, mpol
-Tags: guestbook, guest book, comments, feedback, antispam, review
+Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.2
 Stable tag: 1.3.6
@@ -121,7 +121,7 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
 * Frontend: Add RSS feed (by using meta_key on shortcode?).
-* Frontend: Make it possible for an admin to reply to an entry.
+* Frontend: Make it possible for an admin to reply to an entry (extra db field).
 * Widget: add option to not show admin entries.
 * Settings: have button disabled with certain options, untill checkbox is clicked.
 * Settings: save all tabs when saving.
@@ -367,6 +367,7 @@ Yes, it is again actively maintained.
 = 1.3.7 =
 * 2015-06-
 * Switch place of metaboxes on main admin page.
+* Update pt_BR.
 
 = 1.3.6 =
 * 2015-05-31
