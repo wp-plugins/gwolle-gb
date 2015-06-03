@@ -71,6 +71,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * pt_PT, Jose Quintas
 * ru_RU, zhonglyor
 * sk_SK, Marcel Klacan
+* sv_SE, [Roffe Bentsen](http://macodesign.se)
 * zh_TW, Chun-I Lee
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
@@ -368,6 +369,7 @@ Yes, it is again actively maintained.
 * 2015-06-
 * Switch place of metaboxes on main admin page.
 * Update pt_BR.
+* Add sv_SE (Swedish) (thanks Roffe Bentsen).
 
 = 1.3.6 =
 * 2015-05-31
