@@ -358,7 +358,7 @@ We reserve our right to edit, delete, or not publish entries.
 
 	if ( get_option( 'gwolle_gb-labels_float', 'true' ) === 'true' ) {
 		?>
-		<style type='text/css'>
+		<style type='text/css' scoped='false'>
 			#gwolle_gb .label,
 			#gwolle_gb .input {
 				float: left;
