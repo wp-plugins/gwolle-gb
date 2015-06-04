@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -40,11 +40,11 @@ Current features include:
 
 ... and all that integrated in the stylish WordPress look.
 
+= Import / Export =
+
 You may have another guestbook installed. That's great, because Gwolle-GB enables you to import entries easily.
 The importer does not delete any of your data, so you can go back to your previous setup without loss of data, if you want to.
 Trying Gwolle-GB is as easy as 1-2-3.
-
-= Import / Export =
 
 Import is supported from:
 
