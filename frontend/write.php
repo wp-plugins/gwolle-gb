@@ -130,7 +130,7 @@ function gwolle_gb_frontend_write() {
 	}
 
 	$output .= '
-		<form id="gwolle_gb_new_entry" action="" method="POST">
+		<form id="gwolle_gb_new_entry" action="#" method="POST">
 			<h3>' . $header . '</h3>
 			<input type="hidden" name="gwolle_gb_function" value="add_entry" />';
 

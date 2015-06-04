@@ -368,6 +368,7 @@ Yes, it is again actively maintained.
 = 1.3.7 =
 * 2015-06-
 * Add Emoji to form.
+* Add action to frontend form for validation.
 * Switch place of metaboxes on main admin page.
 * Add sv_SE (Swedish) (thanks Roffe Bentsen).
 * Update pt_BR.
