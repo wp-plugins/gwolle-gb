@@ -40,11 +40,11 @@ Current features include:
 
 ... and all that integrated in the stylish WordPress look.
 
+= Import / Export =
+
 You may have another guestbook installed. That's great, because Gwolle-GB enables you to import entries easily.
 The importer does not delete any of your data, so you can go back to your previous setup without loss of data, if you want to.
 Trying Gwolle-GB is as easy as 1-2-3.
-
-= Import / Export =
 
 Import is supported from:
 
