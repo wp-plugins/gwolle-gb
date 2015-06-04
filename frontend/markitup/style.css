@@ -57,7 +57,7 @@
 	margin-right:0px;
 }
 .markItUpHeader ul .markItUpSeparator {
-	margin:0 10px;
+	margin:0 5px;
 	width:1px;
 	height:16px;
 	overflow:hidden;
@@ -156,5 +156,7 @@
 .markItUp .markItUpButton7 a {
 	background-image:url(images/clean.png);
 }
-
+.markItUp .markItUpButton8 a {
+	background-image:url(images/emoji.png);
+}
 

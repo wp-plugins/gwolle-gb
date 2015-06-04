@@ -224,13 +224,43 @@ function gwolle_gb_frontend_write() {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.
 		}
-		$output .= ' >' . $content . '</textarea></div>';
+		$output .= ' >' . $content . '</textarea>';
 
 		if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
+			// BBcode and MarkItUp
 			wp_enqueue_script( 'markitup', plugins_url('markitup/jquery.markitup.js', __FILE__), 'jquery', '1.1.14', false );
 			wp_enqueue_script( 'markitup_set', plugins_url('markitup/set.js', __FILE__), 'jquery', '1.1.14', false );
 			wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('markitup/style.css', __FILE__), false, '1.1.14',  'screen');
+			// Emoji symbols
+			$output .= '<div class="gwolle_gb_emoji" style="display:none;">';
+			$output .= '
+				<a title="😄">😄</a><a title="😃">😃</a><a title="😀">😀</a>
+				<a title="😊">😊</a><a title="😉">😉</a><a title="😍">😍</a>
+				<a title="😘">😘</a><a title="😚">😚</a><a title="😗">😗</a>
+				<a title="😜">😜</a><a title="😝">😝</a><a title="😛">😛</a>
+				<a title="😳">😳</a><a title="😁">😁</a><a title="😔">😔</a>
+				<a title="😌">😌</a><a title="😒">😒</a><a title="😞">😞</a>
+				<a title="😣">😣</a><a title="😢">😢</a><a title="😂">😂</a>
+				<a title="😭">😭</a><a title="😪">😪</a><a title="😥">😥</a>
+				<a title="😰">😰</a><a title="😅">😅</a><a title="😓">😓</a>
+				<a title="😩">😩</a><a title="😫">😫</a><a title="😱">😱</a>
+				<a title="😠">😠</a><a title="😡">😡</a><a title="😤">😤</a>
+				<a title="😖">😖</a><a title="😆">😆</a><a title="😋">😋</a>
+				<a title="😷">😷</a><a title="😎">😎</a><a title="😴">😴</a>
+				<a title="😲">😲</a><a title="😧">😧</a><a title="😈">😈</a>
+				<a title="👿">👿</a><a title="😮">😮</a><a title="😬">😬</a>
+				<a title="😐">😐</a><a title="😕">😕</a><a title="😯">😯</a>
+				<a title="😶">😶</a><a title="😇">😇</a><a title="😏">😏</a>
+				<a title="😑">😑</a><a title="👲">👲</a><a title="👮">👮</a>
+				<a title="💂">💂</a><a title="👶">👶</a><a title="❤">❤</a>
+				<a title="💔">💔</a><a title="💕">💕</a><a title="💖">💖</a>
+				<a title="💞">💞</a><a title="💘">💘</a><a title="💌">💌</a>
+				<a title="💋">💋</a><a title="💍">💍</a>
+			';
+			$output .= '</div>';
 		}
+
+		$output .= '</div>'; // .input
 
 		$output .= '
 				</div>
