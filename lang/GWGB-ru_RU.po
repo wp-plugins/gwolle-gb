@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle Guestbook\n"
-"POT-Creation-Date: 2015-05-21 22:35+0300\n"
-"PO-Revision-Date: 2015-05-21 22:54+0300\n"
+"POT-Creation-Date: 2015-06-04 23:12+0300\n"
+"PO-Revision-Date: 2015-06-04 23:24+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -188,7 +188,7 @@ msgstr ""
 "Похоже, возникла ошибка.<a href=\"%s\">Нажимите сюда, чтобы продолжить...</a>"
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
-#: admin/page-gwolle-gb.php:275 admin/page-import.php:26
+#: admin/page-gwolle-gb.php:278 admin/page-import.php:26
 #: admin/page-settings.php:15 admin/tabs/admintab.php:15
 #: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
 #: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
@@ -224,7 +224,7 @@ msgstr "Отправлено как спам в службу Akismet."
 msgid "Submitted as Ham to the Akismet service."
 msgstr "Отправлено как НЕ спам в службу Akismet."
 
-#: admin/page-editor.php:148 admin/page-gwolle-gb.php:351
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:355
 #: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr "Изменения сохранены."
@@ -757,15 +757,15 @@ msgstr "Вы"
 msgid "No subscriber yet"
 msgstr "Пока нет подписчиков"
 
-#: admin/page-gwolle-gb.php:220
+#: admin/page-gwolle-gb.php:221
 msgid "This is how you can get your guestbook displayed on your website:"
 msgstr "Чтобы гостевая книга отображалась на Вашем сайте:"
 
-#: admin/page-gwolle-gb.php:222
+#: admin/page-gwolle-gb.php:223
 msgid "Create a new page."
 msgstr "Создайте новую страницу."
 
-#: admin/page-gwolle-gb.php:223
+#: admin/page-gwolle-gb.php:224
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
@@ -773,7 +773,7 @@ msgstr ""
 "Выберите название и в качестве её содержимого установите «[gwolle_gb]» (без "
 "кавычек)."
 
-#: admin/page-gwolle-gb.php:224
+#: admin/page-gwolle-gb.php:225
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
@@ -781,43 +781,64 @@ msgstr ""
 "Представляется хорошей идеей отключить комментарии на этой странице. В "
 "противном случае пользователи могут испытать лёгкое замешательство."
 
-#: admin/page-gwolle-gb.php:231
+#: admin/page-gwolle-gb.php:232
 msgid "These entries will be visible for your visitors:"
 msgstr "Эти записи будут видны для Ваших посетителей:"
 
-#: admin/page-gwolle-gb.php:233
+#: admin/page-gwolle-gb.php:234
 msgid "Marked as Checked."
 msgstr "Помечены как проверенные."
 
-#: admin/page-gwolle-gb.php:234
+#: admin/page-gwolle-gb.php:235
 msgid "Not marked as Spam."
 msgstr "Не помечены как спам."
 
-#: admin/page-gwolle-gb.php:235
+#: admin/page-gwolle-gb.php:236
 msgid "Not marked as Trash."
 msgstr "Не помечены как находящиеся в урне."
 
-#: admin/page-gwolle-gb.php:239
+#: admin/page-gwolle-gb.php:240
 msgid "The Main Menu counter counts the following entries:"
 msgstr "Счётчик в главном меню считает следующие записи:"
 
-#: admin/page-gwolle-gb.php:241
+#: admin/page-gwolle-gb.php:242
 msgid "Marked as Unchecked (You might want to moderate them)."
 msgstr "Помечены как непроверенные (возможно, Вы захотите их модерировать)."
 
-#: admin/page-gwolle-gb.php:242
+#: admin/page-gwolle-gb.php:243
 msgid "Not marked as Spam (You might want to check them)."
 msgstr "Не помечены как спам (возможно, Вы захотите их проверить)."
 
-#: admin/page-gwolle-gb.php:243
+#: admin/page-gwolle-gb.php:244
 msgid "Not marked as Trash (You decide what goes to the trash)."
 msgstr "Не помечены как находящиеся в урне (что туда отправить, решаете Вы)."
 
-#: admin/page-gwolle-gb.php:252
+#: admin/page-gwolle-gb.php:251
+msgid "This plugin is being maintained by Marcel Pol from"
+msgstr "Разработка и подержка плагина: Marcel Pol из"
+
+#: admin/page-gwolle-gb.php:255
+msgid "Review this plugin."
+msgstr "Написать отзыв об этом плагине."
+
+#: admin/page-gwolle-gb.php:256
+msgid "If this plugin has any value to you, then please leave a review at"
+msgstr ""
+"Если этот плагин Вам как-то пригодился, пожалуйста, напишите о нём отзыв на"
+
+#: admin/page-gwolle-gb.php:257
+msgid "The plugin page at wordpress.org."
+msgstr "Страница плагина на wordpress.org."
+
+#: admin/page-gwolle-gb.php:258
+msgid "the plugin page at wordpress.org"
+msgstr "страница плагина на wordpress.org"
+
+#: admin/page-gwolle-gb.php:261
 msgid "Donate to the EFF."
 msgstr "Оказать финансовую поддержку организации EFF."
 
-#: admin/page-gwolle-gb.php:256
+#: admin/page-gwolle-gb.php:262
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
@@ -826,15 +847,15 @@ msgstr ""
 "немногих организаций, борющаяся за то, чтобы Интернет оставался свободным "
 "местом."
 
-#: admin/page-gwolle-gb.php:257
+#: admin/page-gwolle-gb.php:263
 msgid "Please donate to the EFF."
 msgstr "Пожалуйста, поддержите EFF финансово."
 
-#: admin/page-gwolle-gb.php:262 admin/page-gwolle-gb.php:266
+#: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:267
 msgid "Donate to the maintainer."
 msgstr "Поддержать финансово разработчика."
 
-#: admin/page-gwolle-gb.php:265
+#: admin/page-gwolle-gb.php:266
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through PayPal."
@@ -842,31 +863,39 @@ msgstr ""
 "Если Вам больше по душе оказать финансовую поддержку разработчику плагина, "
 "продолжающему его поддерживать, Вы можете сделать это через PayPal."
 
-#: admin/page-gwolle-gb.php:266
-msgid "Donate through PayPal to"
-msgstr "Оказать финансовую поддержку:"
+#: admin/page-gwolle-gb.php:267
+msgid "Donate through"
+msgstr "Поддержать финансово посредством"
 
-#: admin/page-gwolle-gb.php:335
+#: admin/page-gwolle-gb.php:267
+msgid "PayPal"
+msgstr "PayPal"
+
+#: admin/page-gwolle-gb.php:268
+msgid "to"
+msgstr "на"
+
+#: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
 msgstr "Добро пожаловать в гостевую книгу!"
 
-#: admin/page-gwolle-gb.php:336
+#: admin/page-gwolle-gb.php:339
 msgid "E-mail Notifications"
 msgstr "Оповещения по e-mail"
 
-#: admin/page-gwolle-gb.php:337
-msgid "This plugin uses the following scripts/programs/images:"
-msgstr "Этот плагин использует следующие скрипты/программы/изображения:"
+#: admin/page-gwolle-gb.php:340
+msgid "Review and Donate"
+msgstr "Написать отзыв и оказать финансовую поддержку"
 
-#: admin/page-gwolle-gb.php:338 admin/page-gwolle-gb.php:339
+#: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
 msgid "Help"
 msgstr "Помощь"
 
-#: admin/page-gwolle-gb.php:340
-msgid "Donate"
-msgstr "Оказать финансовую поддержку"
+#: admin/page-gwolle-gb.php:344
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr "Этот плагин использует следующие скрипты/программы/изображения:"
 
-#: admin/page-gwolle-gb.php:345
+#: admin/page-gwolle-gb.php:349
 msgid "Gwolle Guestbook"
 msgstr "Гостевая книга Gwolle"
 
@@ -1087,7 +1116,7 @@ msgstr "Чтение"
 msgid "Admin"
 msgstr "Администратор"
 
-#: admin/page-settings.php:329 frontend/write.php:252 frontend/write.php:283
+#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
 msgid "Anti-spam"
 msgstr "Анти-спам"
 
@@ -1499,7 +1528,7 @@ msgstr "Вы можете установить заголовок, которы�
 msgid "Notice Text"
 msgstr "Текст примечания"
 
-#: admin/tabs/formtab.php:74 frontend/write.php:312
+#: admin/tabs/formtab.php:74 frontend/write.php:342
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1904,15 +1933,15 @@ msgstr "Оставить запись"
 msgid "Log in to post an entry"
 msgstr "Чтобы оставить запись, войдите в систему"
 
-#: frontend/write.php:253
+#: frontend/write.php:283
 msgid "Question:"
 msgstr "Вопрос:"
 
-#: frontend/write.php:259
+#: frontend/write.php:289
 msgid "Answer"
 msgstr "Ответ"
 
-#: frontend/write.php:303
+#: frontend/write.php:333
 msgid "Submit"
 msgstr "Отправить"
 
@@ -1963,6 +1992,12 @@ msgstr "Запись извлечена из урны."
 #: functions/function.misc.php:63
 msgid "No content to display. This entry is empty."
 msgstr "Нет содержимого для отображения. Эта запись пустая."
+
+#~ msgid "Donate through PayPal to"
+#~ msgstr "Оказать финансовую поддержку:"
+
+#~ msgid "Donate"
+#~ msgstr "Оказать финансовую поддержку"
 
 #~ msgid ""
 #~ "<strong>Nothing to import.</strong> The page you've chosen does not have "
