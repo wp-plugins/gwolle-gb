@@ -76,7 +76,7 @@ function gwolle_gb_get_excerpt( $content, $excerpt_length = 20 ) {
 function gwolle_gb_get_author_name_html($entry) {
 
 	$author_name = trim( $entry->get_author_name() );
-	$author_name_html = trim( $entry->get_author_name() );
+	$author_name_html = $author_name;
 
 	// Registered User;
 	$author_id = $entry->get_author_id();

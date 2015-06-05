@@ -66,6 +66,7 @@ include_once( GWOLLE_GB_DIR . '/functions/class.entry.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/index.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/posthandling.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/read.php' );
+include_once( GWOLLE_GB_DIR . '/frontend/rss.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/write.php' );
 
 // Functions and pages for the backend

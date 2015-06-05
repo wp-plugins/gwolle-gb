@@ -324,6 +324,11 @@ If a user with capability of 'moderate_comments' posts an entry, it will be mark
 There is validation of the length of words in the content and author name. If the words are too long and it looks
 abusive, it will be marked as unchecked. A moderator will still be needed to manually edit and check these entries.
 
+= When opening the RSS Feed, I get a Status 404 =
+
+You can refresh your rewrite rules, by going to Settings / Permalinks, and save your permalinks again.
+This will most likely add the rewrite rule for the RSS Feed.
+
 = I use a caching plugin, and my entries are not visible after posting =
 
 When you have moderation disabled, Gwolle-GB will try to refresh the cache. If it doesn't on your setup,
@@ -366,6 +371,7 @@ Yes, it is again actively maintained.
 
 = 1.3.8 =
 * 2015-06-
+* Add RSS Feed.
 * Set scoped properly...
 * Update ru_RU.
 
