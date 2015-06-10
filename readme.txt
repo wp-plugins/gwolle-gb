@@ -370,10 +370,10 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.3.8 =
-* 2015-06-
+* 2015-06-10
 * Add RSS Feed.
-* Set scoped properly...
-* Update ru_RU.
+* Set scoped properly.
+* Update pot, nl_NL, ru_RU.
 
 = 1.3.7 =
 * 2015-06-04

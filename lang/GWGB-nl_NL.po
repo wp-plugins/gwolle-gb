@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-31 14:04+0200\n"
+"POT-Creation-Date: 2015-06-10 12:11+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.7.7\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:22
@@ -47,6 +47,10 @@ msgstr "Importeren"
 #: actions.php:63
 msgid "Export"
 msgstr "Exporteren"
+
+#: actions.php:190 actions.php:194 frontend/rss.php:70 frontend/rss.php:73
+msgid "Guestbook Feed"
+msgstr "Gastenboek Feed"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
 #: frontend/read.php:236
@@ -221,7 +225,7 @@ msgstr "Aangemeld als Spam bij de Akismet dienst."
 msgid "Submitted as Ham to the Akismet service."
 msgstr "Aangemeld als Ham bij de Akismet dienst."
 
-#: admin/page-editor.php:148 admin/page-gwolle-gb.php:354
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:355
 #: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr "Wijzigingen opgeslagen."
@@ -880,18 +884,18 @@ msgid "E-mail Notifications"
 msgstr "E-mail Notificaties"
 
 #: admin/page-gwolle-gb.php:340
-msgid "This plugin uses the following scripts/programs/images:"
-msgstr "Deze plugin gebruikt de volgende scripts/programma's/afbeeldingen:"
-
-#: admin/page-gwolle-gb.php:341 admin/page-gwolle-gb.php:342
-msgid "Help"
-msgstr "Hulp"
-
-#: admin/page-gwolle-gb.php:343
 msgid "Review and Donate"
 msgstr "Reviewen en Doneren"
 
-#: admin/page-gwolle-gb.php:348
+#: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
+msgid "Help"
+msgstr "Hulp"
+
+#: admin/page-gwolle-gb.php:344
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr "Deze plugin gebruikt de volgende scripts/programma's/afbeeldingen:"
+
+#: admin/page-gwolle-gb.php:349
 msgid "Gwolle Guestbook"
 msgstr "Gwolle Gastenboek"
 
@@ -1116,7 +1120,7 @@ msgstr "Lezen"
 msgid "Admin"
 msgstr "Admin"
 
-#: admin/page-settings.php:329 frontend/write.php:252 frontend/write.php:283
+#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
@@ -1283,6 +1287,10 @@ msgstr "schreef op"
 msgid "at"
 msgstr "om"
 
+#: frontend/rss.php:84
+msgid "Guestbook Entry by"
+msgstr "Gastenboek Bericht door"
+
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."
 msgstr "Toont de laatste gastenboek berichten."
@@ -1356,19 +1364,19 @@ msgstr "Stad"
 msgid "Email"
 msgstr "E-mail"
 
-#: frontend/write.php:253
+#: frontend/write.php:283
 msgid "Question:"
 msgstr "Vraag:"
 
-#: frontend/write.php:259
+#: frontend/write.php:289
 msgid "Answer"
 msgstr "Antwoord"
 
-#: frontend/write.php:303
+#: frontend/write.php:333
 msgid "Submit"
 msgstr "Toevoegen"
 
-#: frontend/write.php:312 admin/tabs/formtab.php:74
+#: frontend/write.php:342 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"

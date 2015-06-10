@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-31 14:04+0200\n"
+"POT-Creation-Date: 2015-06-10 12:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,10 @@ msgstr ""
 #. /export.php
 #: actions.php:63
 msgid "Export"
+msgstr ""
+
+#: actions.php:190 actions.php:194 frontend/rss.php:70 frontend/rss.php:73
+msgid "Guestbook Feed"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
@@ -218,7 +222,7 @@ msgstr ""
 msgid "Submitted as Ham to the Akismet service."
 msgstr ""
 
-#: admin/page-editor.php:148 admin/page-gwolle-gb.php:354
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:355
 #: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr ""
@@ -851,18 +855,18 @@ msgid "E-mail Notifications"
 msgstr ""
 
 #: admin/page-gwolle-gb.php:340
-msgid "This plugin uses the following scripts/programs/images:"
-msgstr ""
-
-#: admin/page-gwolle-gb.php:341 admin/page-gwolle-gb.php:342
-msgid "Help"
-msgstr ""
-
-#: admin/page-gwolle-gb.php:343
 msgid "Review and Donate"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:348
+#: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
+msgid "Help"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:344
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:349
 msgid "Gwolle Guestbook"
 msgstr ""
 
@@ -1069,7 +1073,7 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:329 frontend/write.php:252 frontend/write.php:283
+#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
 msgid "Anti-spam"
 msgstr ""
 
@@ -1203,6 +1207,10 @@ msgstr ""
 msgid "at"
 msgstr ""
 
+#: frontend/rss.php:84
+msgid "Guestbook Entry by"
+msgstr ""
+
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."
 msgstr ""
@@ -1276,19 +1284,19 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: frontend/write.php:253
+#: frontend/write.php:283
 msgid "Question:"
 msgstr ""
 
-#: frontend/write.php:259
+#: frontend/write.php:289
 msgid "Answer"
 msgstr ""
 
-#: frontend/write.php:303
+#: frontend/write.php:333
 msgid "Submit"
 msgstr ""
 
-#: frontend/write.php:312 admin/tabs/formtab.php:74
+#: frontend/write.php:342 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
