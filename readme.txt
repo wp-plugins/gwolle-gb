@@ -35,6 +35,7 @@ Current features include:
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
 * IP-address and host-logging with link to WHOIS query site.
+* RSS Feed.
 * BBcode, Emoji and Smiley integration.
 * Easy uninstall routine for complete removal of all database changes.
 
@@ -120,7 +121,6 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Editor: add options to change the date.
 * Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
-* Frontend: Add RSS feed (by using meta_key on shortcode?).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
 * Widget: add option to not show admin entries.
 * Settings: have button disabled with certain options, untill checkbox is clicked.

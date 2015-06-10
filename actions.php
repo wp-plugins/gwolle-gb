@@ -177,13 +177,23 @@ function gwolle_gb_rss_head() {
 	if ( is_singular() ) {
 		$post = get_post( get_the_ID() );
 		if ( has_shortcode( $post->post_content, 'gwolle_gb' ) || has_shortcode( $post->post_content, 'gwolle_gb_read' ) ) {
+
 			// Remove standard RSS links.
 			remove_action( 'wp_head', 'feed_links', 2 );
 			remove_action( 'wp_head', 'feed_links_extra', 3 );
-			// And add our own.
-			?>
-			<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", GWOLLE_GB_TEXTDOMAIN); ?>" href="<?php bloginfo('url'); ?>/feed/gwolle_gb" />
-			<?php
+
+			// And add our own RSS link.
+			global $wp_rewrite;
+			$permalinks = $wp_rewrite->permalink_structure;
+			if ( $permalinks ) {
+				?>
+				<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", GWOLLE_GB_TEXTDOMAIN); ?>" href="<?php bloginfo('url'); ?>/feed/gwolle_gb" />
+				<?php
+			} else {
+				?>
+				<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", GWOLLE_GB_TEXTDOMAIN); ?>" href="<?php bloginfo('url'); ?>/?feed=gwolle_gb" />
+				<?php
+			}
 
 			// Also set a meta_key so we can find the post with the shortcode back.
 			$meta_value = get_post_meta( get_the_ID(), 'gwolle_gb_read', true );
@@ -191,7 +201,7 @@ function gwolle_gb_rss_head() {
 				update_post_meta( get_the_ID(), 'gwolle_gb_read', "true", true );
 			}
 		} else {
-			// Remove the meta_key it it is set.
+			// Remove the meta_key in case it is set.
 			delete_post_meta( get_the_ID(), 'gwolle_gb_read' );
 		}
 	}
