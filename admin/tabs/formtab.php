@@ -50,7 +50,6 @@ function gwolle_gb_page_settingstab_form() {
 			</td>
 		</tr>
 
-
 		<tr valign="top">
 			<th scope="row"><label for="header"><?php _e('Header Text', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td><?php
@@ -203,6 +202,21 @@ We reserve our right to edit, delete, or not publish entries.
 		</tr>
 
 		<tr valign="top">
+			<th scope="row"><label for="form_bbcode_enabled"><?php _e('BBcode and Emoji', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+			<td>
+				<input type="checkbox" id="form_bbcode_enabled" name="form_bbcode_enabled"<?php
+					if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
+						echo ' checked="checked"';
+					}
+					?> />
+				<label for="form_bbcode_enabled"><?php _e('Enabled', GWOLLE_GB_TEXTDOMAIN); ?></label>
+			</td>
+			<td>
+				<?php _e('Will only be shown if the Message is enabled.', GWOLLE_GB_TEXTDOMAIN); ?>
+			</td>
+		</tr>
+
+		<tr valign="top">
 			<th scope="row"><label for="form_antispam_enabled"><?php _e('Custom Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 			<td>
 				<input type="checkbox" id="form_antispam_enabled" name="form_antispam_enabled"<?php
@@ -235,7 +249,7 @@ We reserve our right to edit, delete, or not publish entries.
 		<tr>
 			<td colspan="3">
 				<p class="submit">
-					<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
+					<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
 				</p>
 			</td>
 		</tr>

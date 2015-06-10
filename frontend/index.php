@@ -44,6 +44,7 @@ function get_gwolle_gb() {
 		$output .= '
 			<style>
 				form#gwolle_gb_new_entry { display:none; }
+				div#gwolle_gb_new_entry { display:none; }
 			</style>
 		';
 
@@ -51,7 +52,7 @@ function get_gwolle_gb() {
 		$output .= '
 			<script>
 			jQuery(document).ready(function($) {
-				jQuery( "#gwolle_gb_write_button" ).click(function() {
+				jQuery( "#gwolle_gb_write_button input" ).click(function() {
 					document.getElementById("gwolle_gb_write_button").style.display = "none";
 					jQuery("#gwolle_gb_new_entry").slideDown(1000);
 					return false;
