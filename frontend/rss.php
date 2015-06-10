@@ -10,7 +10,7 @@ add_action('init', 'gwolle_gb_rss_init');
 /* Show the XML Feed */
 function gwolle_gb_rss() {
 
-	// Only show the first page.
+	// Only show the first page of entries.
 	$entriesPerPage = (int) get_option('gwolle_gb-entriesPerPage', 20);
 
 	/* Get the entries for the RSS Feed */
@@ -24,8 +24,9 @@ function gwolle_gb_rss() {
 		)
 	);
 
+	/* Get the time of the last entry, else of the last edited post */
 	if ( is_array($entries) && !empty($entries) ) {
-		$lastbuild = date_i18n( get_option('date_format'), $entries[0]->get_date() ) . " " . trim(date_i18n( get_option('time_format'), $entries[0]->get_date() ));
+		$lastbuild = gmdate( 'D, d M Y H:i:s', $entries[0]->get_date() );
 	} else {
 		$lastbuild = mysql2date('D, d M Y H:i:s +0000', get_lastpostmodified('GMT'), false);
 	}
@@ -41,7 +42,6 @@ function gwolle_gb_rss() {
 			),
 		)
 	));
-
 	if ( $the_query->have_posts() ) {
 		while ( $the_query->have_posts() ) : $the_query->the_post();
 			$permalink = get_the_permalink();
@@ -52,6 +52,7 @@ function gwolle_gb_rss() {
 		$permalink = get_bloginfo('url');
 	}
 
+	/* Build the XML content */
 	header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_option('blog_charset'), true);
 	echo '<?xml version="1.0" encoding="' . get_option('blog_charset') . '"?' . '>';
 	?>
@@ -66,10 +67,10 @@ function gwolle_gb_rss() {
 		<?php do_action('rss2_ns'); ?>>
 
 		<channel>
-			<title><?php bloginfo_rss('name'); ?> - Feed</title>
+			<title><?php bloginfo_rss('name'); echo " - " . __('Guestbook Feed', GWOLLE_GB_TEXTDOMAIN); ?></title>
 			<atom:link href="<?php self_link(); ?>" rel="self" type="application/rss+xml" />
-			<link><?php bloginfo_rss('url') ?></link>
-			<description><?php bloginfo_rss('description'); echo " - "; _e('Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></description>
+			<link><?php echo $permalink; ?></link>
+			<description><?php bloginfo_rss('description'); echo " - " . __('Guestbook Feed', GWOLLE_GB_TEXTDOMAIN); ?></description>
 			<lastBuildDate><?php echo $lastbuild; ?></lastBuildDate>
 			<language><?php echo get_option('rss_language'); ?></language>
 			<sy:updatePeriod><?php echo apply_filters( 'rss_update_period', 'hourly' ); ?></sy:updatePeriod>
@@ -82,7 +83,7 @@ function gwolle_gb_rss() {
 					<item>
 						<title><?php _e('Guestbook Entry by', GWOLLE_GB_TEXTDOMAIN); echo " " . trim( $entry->get_author_name() ); ?></title>
 						<link><?php echo $permalink; ?></link>
-						<pubDate><?php echo date_i18n( get_option('date_format'), $entry->get_date() ) . " " . trim(date_i18n( get_option('time_format'), $entry->get_date() )); ?></pubDate>
+						<pubDate><?php echo gmdate( 'D, d M Y H:i:s', $entry->get_date() ); ?></pubDate>
 						<dc:creator><?php echo trim( $entry->get_author_name() ); ?></dc:creator>
 						<guid isPermaLink="false"><?php echo $permalink; ?></guid>
 						<description><![CDATA[<?php echo wp_trim_words( $entry->get_content(), 12, '...' ) ?>]]></description>

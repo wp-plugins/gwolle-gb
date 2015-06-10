@@ -92,6 +92,10 @@ function install_gwolle_gb() {
 
 	//	Save plugin version to database
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
+
+	// Call flush_rules() as a method of the $wp_rewrite object for the RSS Feed.
+	global $wp_rewrite;
+	$wp_rewrite->flush_rules( false );
 }
 
 
@@ -432,6 +436,14 @@ function upgrade_gwolle_gb() {
 		delete_option('gwolle_gb-recaptcha-active');
 	}
 
+	if (version_compare($installed_ver, '1.3.8', '<')) {
+		/*
+		 * 1.3.7->1.3.8
+		 * Call flush_rules() as a method of the $wp_rewrite object for the RSS Feed.
+		 */
+		global $wp_rewrite;
+		$wp_rewrite->flush_rules( false );
+	}
 
 	/* Upgrade to new shiny db collation. Since WP 4.2 */
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
