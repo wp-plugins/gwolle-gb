@@ -324,7 +324,7 @@ If a user with capability of 'moderate_comments' posts an entry, it will be mark
 There is validation of the length of words in the content and author name. If the words are too long and it looks
 abusive, it will be marked as unchecked. A moderator will still be needed to manually edit and check these entries.
 
-= When opening the RSS Feed, I get a Status 404 =
+= When opening the RSS Feed, I get a Error 404 =
 
 You can refresh your rewrite rules, by going to Settings / Permalinks, and save your permalinks again.
 This will most likely add the rewrite rule for the RSS Feed.
@@ -370,7 +370,8 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.3.9 =
-* 2015-06-
+* 2015-06-13
+* Fix for WP 3.4, which has no function has_shortcode.
 * Change 'at' time to 'on'.
 * Update pot and affected translations.
 

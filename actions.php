@@ -174,7 +174,7 @@ add_action('plugins_loaded', 'gwolle_gb_load_lang');
  * There is no post_content yet, but we do have a get_the_ID().
  */
 function gwolle_gb_rss_head() {
-	if ( is_singular() ) {
+	if ( is_singular() && function_exists('has_shortcode') ) {
 		$post = get_post( get_the_ID() );
 		if ( has_shortcode( $post->post_content, 'gwolle_gb' ) || has_shortcode( $post->post_content, 'gwolle_gb_read' ) ) {
 
