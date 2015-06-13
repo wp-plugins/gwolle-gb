@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle Guestbook\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-08 21:23+0200\n"
-"PO-Revision-Date: 2015-05-19 12:32+0100\n"
+"POT-Creation-Date: 2015-06-13 14:55+0200\n"
+"PO-Revision-Date: 2015-06-13 14:56+0100\n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: bg <bg.example.com>\n"
 "Language: bg_BG\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.6\n"
+"X-Generator: Poedit 1.7.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -41,7 +41,7 @@ msgid "New entry"
 msgstr "Нов запис"
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:313
+#: actions.php:57 actions.php:80 admin/page-settings.php:314
 msgid "Settings"
 msgstr "Настройки"
 
@@ -55,84 +55,89 @@ msgstr "Импортиране"
 msgid "Export"
 msgstr "Експортиране"
 
+#: actions.php:190 actions.php:194 frontend/rss.php:70 frontend/rss.php:73
+#, fuzzy
+msgid "Guestbook Feed"
+msgstr "Книга за гости"
+
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/read.php:231
+#: frontend/read.php:236
 msgid "Edit entry"
 msgstr "Редактиране на запис"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/read.php:231
+#: frontend/read.php:236
 msgid "Edit"
 msgstr "Редактиране"
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:414
+#: admin/dashboard-widget.php:120 admin/page-editor.php:425
 #: admin/page-entries.php:699
 msgid "Check entry"
 msgstr "Селектиране на запис"
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:414
+#: admin/dashboard-widget.php:120 admin/page-editor.php:425
 #: admin/page-entries.php:699
 msgid "Check"
 msgstr "Проверено"
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:417
+#: admin/dashboard-widget.php:124 admin/page-editor.php:428
 #: admin/page-entries.php:702
 msgid "Uncheck entry"
 msgstr "Деселектиране на запис"
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:417
+#: admin/dashboard-widget.php:124 admin/page-editor.php:428
 #: admin/page-entries.php:702
 msgid "Uncheck"
 msgstr "Не проверено"
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:420
+#: admin/dashboard-widget.php:128 admin/page-editor.php:431
 #: admin/page-entries.php:705
 msgid "Mark entry as spam."
 msgstr "Маркирай като спам"
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:363
-#: admin/page-editor.php:420 admin/page-entries.php:437
+#: admin/dashboard-widget.php:128 admin/page-editor.php:374
+#: admin/page-editor.php:431 admin/page-entries.php:437
 #: admin/page-entries.php:705
 msgid "Spam"
 msgstr "Спам"
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:423
+#: admin/dashboard-widget.php:132 admin/page-editor.php:434
 #: admin/page-entries.php:708
 msgid "Mark entry as not-spam."
 msgstr "Отбрлязване, че записът не е спам"
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:423
+#: admin/dashboard-widget.php:132 admin/page-editor.php:434
 #: admin/page-entries.php:708
 msgid "Not spam"
 msgstr "Не е спам"
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:426
+#: admin/dashboard-widget.php:136 admin/page-editor.php:437
 #: admin/page-entries.php:711
 msgid "Move entry to trash."
 msgstr "Преместване на записа в кошчето ."
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:373
-#: admin/page-editor.php:426 admin/page-entries.php:441
+#: admin/dashboard-widget.php:136 admin/page-editor.php:384
+#: admin/page-editor.php:437 admin/page-entries.php:441
 #: admin/page-entries.php:711
 msgid "Trash"
 msgstr "Кошче"
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:429
+#: admin/dashboard-widget.php:140 admin/page-editor.php:440
 #: admin/page-entries.php:714
 msgid "Recover entry from trash."
 msgstr "Възстановяване от кошчето."
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:429
+#: admin/dashboard-widget.php:140 admin/page-editor.php:440
 #: admin/page-entries.php:714
 msgid "Untrash"
 msgstr "Възстановяване от кошчето."
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:432
+#: admin/dashboard-widget.php:144 admin/page-editor.php:443
 #: admin/page-entries.php:717
 msgid "Please wait..."
 msgstr "Моля, изчакайте..."
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:432
+#: admin/dashboard-widget.php:144 admin/page-editor.php:443
 #: admin/page-entries.php:717
 msgid "Wait..."
 msgstr "Изчакайте..."
@@ -194,7 +199,7 @@ msgstr ""
 "</a>"
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
-#: admin/page-gwolle-gb.php:275 admin/page-import.php:26
+#: admin/page-gwolle-gb.php:278 admin/page-import.php:26
 #: admin/page-settings.php:15 admin/tabs/admintab.php:15
 #: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
 #: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
@@ -202,172 +207,172 @@ msgstr ""
 msgid "Cheatin&#8217; uh?"
 msgstr "Мамите, а?!"
 
-#: admin/page-editor.php:26
+#: admin/page-editor.php:32
 msgid "Edit guestbook entry"
 msgstr "Редактиране на запис в книгата за гости"
 
-#: admin/page-editor.php:39
+#: admin/page-editor.php:45
 msgid "Entry could not be found."
 msgstr "Записът не може да бъде намерен."
 
-#: admin/page-editor.php:41
+#: admin/page-editor.php:47
 msgid "Guestbook entry (error)"
 msgstr "Запис в книгата за гости (грешка)"
 
-#: admin/page-editor.php:44
+#: admin/page-editor.php:50
 msgid "New guestbook entry"
 msgstr "Нов запис в книгата за гости"
 
-#: admin/page-editor.php:54
+#: admin/page-editor.php:60
 msgid "Something strange happened."
 msgstr "Случило се е нещо странно."
 
-#: admin/page-editor.php:82
+#: admin/page-editor.php:88
 msgid "Submitted as Spam to the Akismet service."
 msgstr "Отправано като спам към Akismet."
 
-#: admin/page-editor.php:91
+#: admin/page-editor.php:97
 msgid "Submitted as Ham to the Akismet service."
 msgstr "Отправено като НЕ спам към Akismet."
 
-#: admin/page-editor.php:140 admin/page-gwolle-gb.php:351
-#: admin/page-settings.php:319
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:355
+#: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr "Промените са запазени."
 
-#: admin/page-editor.php:142 admin/page-editor.php:234
+#: admin/page-editor.php:150 admin/page-editor.php:245
 msgid "Error happened during saving."
 msgstr "Имаше грешка при записването."
 
-#: admin/page-editor.php:146
+#: admin/page-editor.php:154
 msgid "Entry was not changed."
 msgstr "Записът не е променян."
 
-#: admin/page-editor.php:157
+#: admin/page-editor.php:165
 msgid "Entry removed."
 msgstr "Записът е премахнат."
 
-#: admin/page-editor.php:200
+#: admin/page-editor.php:210
 msgid "Entry has no content, even though that is mandatory."
 msgstr "В записа няма съдържание, въпреки че е задължително."
 
-#: admin/page-editor.php:232
+#: admin/page-editor.php:243
 msgid "Entry saved."
 msgstr "Записът е записан."
 
-#: admin/page-editor.php:238
+#: admin/page-editor.php:249
 msgid "Entry was not saved."
 msgstr "Записът не е записан."
 
-#: admin/page-editor.php:311 admin/page-editor.php:404
-#: admin/page-editor.php:448 admin/page-editor.php:503
-#: admin/page-editor.php:538 admin/page-editor.php:549
-#: admin/page-editor.php:557 admin/page-export.php:40
+#: admin/page-editor.php:322 admin/page-editor.php:415
+#: admin/page-editor.php:459 admin/page-editor.php:514
+#: admin/page-editor.php:549 admin/page-editor.php:566
+#: admin/page-editor.php:574 admin/page-export.php:40
 #: admin/page-import.php:338 admin/page-import.php:405
 #: admin/page-import.php:526
 msgid "Click to open or close"
 msgstr "Натиснете тук за отваряне или затваряне."
 
-#: admin/page-editor.php:311
+#: admin/page-editor.php:322
 msgid "Options"
 msgstr "Опции"
 
-#: admin/page-editor.php:332
+#: admin/page-editor.php:343
 msgid "This entry is not yet visible."
 msgstr "Записът, все още не е видим."
 
-#: admin/page-editor.php:336 admin/page-editor.php:341
+#: admin/page-editor.php:347 admin/page-editor.php:352
 msgid "This entry is Visible."
 msgstr "Записът е видим."
 
-#: admin/page-editor.php:337 admin/page-editor.php:342
+#: admin/page-editor.php:348 admin/page-editor.php:353
 msgid "This entry is Not Visible."
 msgstr "Записът не е видим."
 
-#: admin/page-editor.php:353
+#: admin/page-editor.php:364
 msgid "Checked"
 msgstr "Проверено"
 
-#: admin/page-editor.php:381
+#: admin/page-editor.php:392
 msgid "Remove this entry Permanently."
 msgstr "Изтриите този запис за винаги."
 
-#: admin/page-editor.php:392
+#: admin/page-editor.php:403
 msgid "Save"
 msgstr "Запазване"
 
-#: admin/page-editor.php:404
+#: admin/page-editor.php:415
 msgid "Actions"
 msgstr "Действия"
 
-#: admin/page-editor.php:448
+#: admin/page-editor.php:459
 msgid "Details"
 msgstr "Подробности"
 
-#: admin/page-editor.php:452 admin/page-entries.php:567
+#: admin/page-editor.php:463 admin/page-entries.php:567
 #: admin/page-entries.php:583
 msgid "Author"
 msgstr "Автор"
 
-#: admin/page-editor.php:456 admin/page-editor.php:464
-#: admin/page-editor.php:485 admin/page-editor.php:493
+#: admin/page-editor.php:467 admin/page-editor.php:475
+#: admin/page-editor.php:496 admin/page-editor.php:504
 #: functions/function.log.php:164
 msgid "Unknown"
 msgstr "Неизвестен"
 
-#: admin/page-editor.php:460
+#: admin/page-editor.php:471
 msgid "E-Mail"
 msgstr "E-mail"
 
-#: admin/page-editor.php:469 admin/page-editor.php:513
+#: admin/page-editor.php:480 admin/page-editor.php:524
 msgid "Written"
 msgstr "Написано"
 
-#: admin/page-editor.php:474
+#: admin/page-editor.php:485
 msgid "Not yet"
 msgstr "Все още"
 
-#: admin/page-editor.php:478
+#: admin/page-editor.php:489
 msgid "Author's IP-address"
 msgstr "IP-адрес на автора"
 
-#: admin/page-editor.php:481
+#: admin/page-editor.php:492
 msgid "Whois search for this IP"
 msgstr "Whois търсене по IP"
 
-#: admin/page-editor.php:489
+#: admin/page-editor.php:500
 msgid "Host"
 msgstr "Хост"
 
-#: admin/page-editor.php:503
+#: admin/page-editor.php:514
 msgid "Entry log"
 msgstr "История на записи"
 
-#: admin/page-editor.php:522
+#: admin/page-editor.php:533
 msgid "No log yet."
 msgstr "Все още няма история."
 
-#: admin/page-editor.php:538 frontend/write.php:215
+#: admin/page-editor.php:549 frontend/write.php:215
 msgid "Guestbook entry"
 msgstr "Съобщение в книгата за гости"
 
-#: admin/page-editor.php:543
+#: admin/page-editor.php:554
 #, php-format
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
 msgstr "Нови редове няма да бъдат видими заради <a href=\"%s\">настройка</a>."
 
-#: admin/page-editor.php:549 frontend/write.php:196 frontend/write.php:203
+#: admin/page-editor.php:566 frontend/write.php:196 frontend/write.php:203
 #: admin/tabs/formtab.php:165
 msgid "Website"
 msgstr "Уеб-сайт"
 
-#: admin/page-editor.php:552
+#: admin/page-editor.php:569
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "Пример: <code>http://www.example.com/</code>"
 
-#: admin/page-editor.php:557 admin/page-export.php:61
+#: admin/page-editor.php:574 admin/page-export.php:61
 msgid "Origin"
 msgstr "От къде съм"
 
@@ -612,7 +617,7 @@ msgstr "Експортиране на записите от Gwolle-GB"
 #: admin/page-export.php:47
 #, fuzzy
 msgid "No entries were found."
-msgstr "%d berichten zijn gevonden en zullen worden geëxporteerd."
+msgstr "%d брой записи намерени ще бъдат експортирани."
 
 #: admin/page-export.php:52
 #, php-format
@@ -763,21 +768,21 @@ msgstr "Вие"
 msgid "No subscriber yet"
 msgstr "Все още няма абонирани"
 
-#: admin/page-gwolle-gb.php:220
+#: admin/page-gwolle-gb.php:221
 msgid "This is how you can get your guestbook displayed on your website:"
 msgstr "Така можете да покажете книгата за гости в уеб-сайта си:"
 
-#: admin/page-gwolle-gb.php:222
+#: admin/page-gwolle-gb.php:223
 msgid "Create a new page."
 msgstr "Създаване на нова страница."
 
-#: admin/page-gwolle-gb.php:223
+#: admin/page-gwolle-gb.php:224
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
 msgstr "Изберете име и задайте като текст «[gwolle_gb]» (без кавичките)."
 
-#: admin/page-gwolle-gb.php:224
+#: admin/page-gwolle-gb.php:225
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
@@ -785,43 +790,64 @@ msgstr ""
 "Най- вероятно е добра идея да изкючите коментарите на тази страница. В "
 "противен случай, потребителите Ви може да се объркат...малко."
 
-#: admin/page-gwolle-gb.php:231
+#: admin/page-gwolle-gb.php:232
 msgid "These entries will be visible for your visitors:"
 msgstr "Тези записи ще бъдат видими за вашите потребители:"
 
-#: admin/page-gwolle-gb.php:233
+#: admin/page-gwolle-gb.php:234
 msgid "Marked as Checked."
 msgstr "Маркирано като Проверено."
 
-#: admin/page-gwolle-gb.php:234
+#: admin/page-gwolle-gb.php:235
 msgid "Not marked as Spam."
 msgstr "Не е маркирано като спам."
 
-#: admin/page-gwolle-gb.php:235
+#: admin/page-gwolle-gb.php:236
 msgid "Not marked as Trash."
 msgstr "Не е маркирано като местено в коша."
 
-#: admin/page-gwolle-gb.php:239
+#: admin/page-gwolle-gb.php:240
 msgid "The Main Menu counter counts the following entries:"
 msgstr "Брояча в главното меню, изброи следния брой записи:"
 
-#: admin/page-gwolle-gb.php:241
+#: admin/page-gwolle-gb.php:242
 msgid "Marked as Unchecked (You might want to moderate them)."
 msgstr "Маркирано като НЕ проверено (възможно е да искате да проверите)."
 
-#: admin/page-gwolle-gb.php:242
+#: admin/page-gwolle-gb.php:243
 msgid "Not marked as Spam (You might want to check them)."
 msgstr "Не е маркирано като спам (възможно е да искате да проверите)."
 
-#: admin/page-gwolle-gb.php:243
+#: admin/page-gwolle-gb.php:244
 msgid "Not marked as Trash (You decide what goes to the trash)."
 msgstr "Не е маркирано като Кошче (Вие решавате какво да се премести там)."
 
-#: admin/page-gwolle-gb.php:252
+#: admin/page-gwolle-gb.php:251
+msgid "This plugin is being maintained by Marcel Pol from"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:255
+#, fuzzy
+msgid "Review this plugin."
+msgstr "Разширението е деактивирано."
+
+#: admin/page-gwolle-gb.php:256
+msgid "If this plugin has any value to you, then please leave a review at"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:257
+msgid "The plugin page at wordpress.org."
+msgstr ""
+
+#: admin/page-gwolle-gb.php:258
+msgid "the plugin page at wordpress.org"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:261
 msgid "Donate to the EFF."
 msgstr "Дарете на EFF."
 
-#: admin/page-gwolle-gb.php:256
+#: admin/page-gwolle-gb.php:262
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
@@ -829,15 +855,15 @@ msgstr ""
 "The Electronic Frontier Foundation – е една от малкото организации, които "
 "искат да запазят интеренета свободен. "
 
-#: admin/page-gwolle-gb.php:257
+#: admin/page-gwolle-gb.php:263
 msgid "Please donate to the EFF."
 msgstr "Моля, дарете на EFF."
 
-#: admin/page-gwolle-gb.php:262 admin/page-gwolle-gb.php:266
+#: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:267
 msgid "Donate to the maintainer."
 msgstr "Дарете на разработчика."
 
-#: admin/page-gwolle-gb.php:265
+#: admin/page-gwolle-gb.php:266
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through PayPal."
@@ -845,31 +871,40 @@ msgstr ""
 "Ако искате да направите дарение на разработчика, може да го направите чрез "
 "PayPal."
 
-#: admin/page-gwolle-gb.php:266
-msgid "Donate through PayPal to"
+#: admin/page-gwolle-gb.php:267
+#, fuzzy
+msgid "Donate through"
 msgstr "Дарете чрез PayPal на:"
 
-#: admin/page-gwolle-gb.php:335
+#: admin/page-gwolle-gb.php:267
+msgid "PayPal"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:268
+msgid "to"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
 msgstr "Добре дошли в книгата за гости!"
 
-#: admin/page-gwolle-gb.php:336
+#: admin/page-gwolle-gb.php:339
 msgid "E-mail Notifications"
 msgstr "Известия по e-mail"
 
-#: admin/page-gwolle-gb.php:337
-msgid "This plugin uses the following scripts/programs/images:"
-msgstr "Това разширение използва следните скриптове/програми/изображения:"
+#: admin/page-gwolle-gb.php:340
+msgid "Review and Donate"
+msgstr ""
 
-#: admin/page-gwolle-gb.php:338 admin/page-gwolle-gb.php:339
+#: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
 msgid "Help"
 msgstr "Помощ"
 
-#: admin/page-gwolle-gb.php:340
-msgid "Donate"
-msgstr "Дарете"
+#: admin/page-gwolle-gb.php:344
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr "Това разширение използва следните скриптове/програми/изображения:"
 
-#: admin/page-gwolle-gb.php:345
+#: admin/page-gwolle-gb.php:349
 msgid "Gwolle Guestbook"
 msgstr "Книга за гости Gwolle"
 
@@ -1051,16 +1086,17 @@ msgstr "1 Коментар"
 #: admin/page-import.php:467
 #, fuzzy
 msgid "Select a post to import the comments from:"
-msgstr "Выберите страницу, с которой нужно импортировать комментарии."
+msgstr "Изберете страница, от която да импортирате коментари ."
 
 #: admin/page-import.php:511
 #, fuzzy
 msgid "Select where to import the comments from:"
-msgstr "Selecteer een pagina om reacties van te importeren:"
+msgstr "Изберете страница, от която да импортирате коментари ."
 
 #: admin/page-import.php:512
+#, fuzzy
 msgid "Comments from selected page."
-msgstr ""
+msgstr "Selecteer een pagina om reacties van te importeren:"
 
 #: admin/page-import.php:513
 msgid "Comments from selected post."
@@ -1079,27 +1115,27 @@ msgstr "Импортиране на записи от Gwolle-GB"
 msgid "Select a CSV file with exported entries to import again:"
 msgstr "Изберете CSV файл експортирани данни за импортиране:"
 
-#: admin/page-settings.php:325
+#: admin/page-settings.php:326
 msgid "Form"
 msgstr "Форма"
 
-#: admin/page-settings.php:326
+#: admin/page-settings.php:327
 msgid "Reading"
 msgstr "Четене"
 
-#: admin/page-settings.php:327
+#: admin/page-settings.php:328
 msgid "Admin"
 msgstr "Администратор"
 
-#: admin/page-settings.php:328 frontend/write.php:244 frontend/write.php:275
+#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
 msgid "Anti-spam"
 msgstr "СПАМ защита"
 
-#: admin/page-settings.php:329
+#: admin/page-settings.php:330
 msgid "E-mail"
 msgstr "E-mail"
 
-#: admin/page-settings.php:330 admin/tabs/uninstalltab.php:45
+#: admin/page-settings.php:331 admin/tabs/uninstalltab.php:45
 msgid "Uninstall"
 msgstr "Деинсталация"
 
@@ -1107,54 +1143,54 @@ msgstr "Деинсталация"
 msgid "Submitting a new guestbook entry is only allowed for logged-in users."
 msgstr "Публикуването е позволено само за логнати потребители "
 
-#: frontend/posthandling.php:203 frontend/posthandling.php:246
+#: frontend/posthandling.php:208 frontend/posthandling.php:251
 msgid "There were errors submitting your guestbook entry."
 msgstr "Имаше грешка при приемането на вашият коментар."
 
-#: frontend/posthandling.php:209
+#: frontend/posthandling.php:214
 msgid "Your name is not filled in, even though it is mandatory."
 msgstr "Полето за Име е задължително"
 
-#: frontend/posthandling.php:212
+#: frontend/posthandling.php:217
 msgid "Your origin is not filled in, even though it is mandatory."
 msgstr "Не сте указали къде живеете, е задължително."
 
-#: frontend/posthandling.php:215
+#: frontend/posthandling.php:220
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
 msgstr "Моля попълнете полето за имейл правилно."
 
-#: frontend/posthandling.php:218
+#: frontend/posthandling.php:223
 msgid "Your website is not filled in, even though it is mandatory."
 msgstr "Моля попълнете полето за уеб сайт правилно."
 
-#: frontend/posthandling.php:221
+#: frontend/posthandling.php:226
 msgid "There is no message, even though it is mandatory."
 msgstr "Не сте въвели съобщение за изпращане."
 
-#: frontend/posthandling.php:224
+#: frontend/posthandling.php:229
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
 msgstr "Полето за защита срещу спам не е попълнено правилно."
 
-#: frontend/posthandling.php:227
+#: frontend/posthandling.php:232
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr "Полето за защита срещу спам не е попълнено правилно."
 
-#: frontend/posthandling.php:319
+#: frontend/posthandling.php:324
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr "Идентичен запис вече е записан в базата данни."
 
-#: frontend/posthandling.php:336
+#: frontend/posthandling.php:341
 msgid "Thank you for your entry."
 msgstr "Благодарим за вашият отзив."
 
-#: frontend/posthandling.php:338
+#: frontend/posthandling.php:343
 msgid "We will review it and unlock it in a short while."
 msgstr "Скоро ще прегледаме и публикуваме."
 
-#: frontend/posthandling.php:367 admin/tabs/emailtab.php:138
+#: frontend/posthandling.php:380 admin/tabs/emailtab.php:138
 #, fuzzy
 msgid ""
 "\n"
@@ -1190,11 +1226,11 @@ msgstr ""
 "Berichtinhoud:\n"
 "%entry_content%\n"
 
-#: frontend/posthandling.php:388 frontend/posthandling.php:454
+#: frontend/posthandling.php:401 frontend/posthandling.php:467
 msgid "New Guestbook Entry"
 msgstr "Нов запис в книгата за гости"
 
-#: frontend/posthandling.php:435 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:448 admin/tabs/emailtab.php:198
 #, fuzzy
 msgid ""
 "\n"
@@ -1244,17 +1280,22 @@ msgstr "Следваща страница"
 msgid "(no entries yet)"
 msgstr "(Все още няма мнения)"
 
-#: frontend/read.php:190
+#: frontend/read.php:192
 msgid "from"
 msgstr "от"
 
-#: frontend/read.php:199
-msgid "wrote at"
+#: frontend/read.php:201
+msgid "wrote on"
 msgstr "написал(а)"
 
-#: frontend/read.php:203
-msgid "at"
+#: frontend/read.php:205
+msgid "on"
 msgstr "в"
+
+#: frontend/rss.php:84
+#, fuzzy
+msgid "Guestbook Entry by"
+msgstr "Съобщение в книгата за гости"
 
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."
@@ -1329,19 +1370,19 @@ msgstr "Град"
 msgid "Email"
 msgstr "E-mail"
 
-#: frontend/write.php:245
+#: frontend/write.php:283
 msgid "Question:"
 msgstr "Въпрос:"
 
-#: frontend/write.php:251
+#: frontend/write.php:289
 msgid "Answer"
 msgstr "Отговор"
 
-#: frontend/write.php:295
+#: frontend/write.php:333
 msgid "Submit"
 msgstr "Изпращане"
 
-#: frontend/write.php:304 admin/tabs/formtab.php:74
+#: frontend/write.php:342 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1402,7 +1443,7 @@ msgstr "Записът е преместен в кошчето."
 msgid "Entry has been untrashed."
 msgstr "Записът е махнат от кошчето."
 
-#: functions/function.misc.php:58
+#: functions/function.misc.php:63
 msgid "No content to display. This entry is empty."
 msgstr "Няма съдържание, което да бъде показано. Записът е празен."
 
@@ -1431,7 +1472,7 @@ msgstr ""
 "статуса(проверен, спам или кошче)"
 
 #: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
-#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:237
+#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:252
 #: admin/tabs/readingtab.php:229
 msgid "Save settings"
 msgstr "Съхранение на настройките "
@@ -1755,10 +1796,11 @@ msgstr "Настройки на формата, показана на потре
 #: admin/tabs/formtab.php:112 admin/tabs/formtab.php:132
 #: admin/tabs/formtab.php:152 admin/tabs/formtab.php:172
 #: admin/tabs/formtab.php:192 admin/tabs/formtab.php:212
-#: admin/tabs/formtab.php:227 admin/tabs/readingtab.php:147
-#: admin/tabs/readingtab.php:159 admin/tabs/readingtab.php:171
-#: admin/tabs/readingtab.php:183 admin/tabs/readingtab.php:196
-#: admin/tabs/readingtab.php:209 admin/tabs/readingtab.php:221
+#: admin/tabs/formtab.php:227 admin/tabs/formtab.php:242
+#: admin/tabs/readingtab.php:147 admin/tabs/readingtab.php:159
+#: admin/tabs/readingtab.php:171 admin/tabs/readingtab.php:183
+#: admin/tabs/readingtab.php:196 admin/tabs/readingtab.php:209
+#: admin/tabs/readingtab.php:221
 msgid "Enabled"
 msgstr "Включено"
 
@@ -1769,14 +1811,22 @@ msgid "Mandatory"
 msgstr "Задължително"
 
 #: admin/tabs/formtab.php:205
+msgid "BBcode and Emoji"
+msgstr ""
+
+#: admin/tabs/formtab.php:215
+msgid "Will only be shown if the Message is enabled."
+msgstr ""
+
+#: admin/tabs/formtab.php:220
 msgid "Custom Anti-spam"
 msgstr "Персонализиран анти-спам"
 
-#: admin/tabs/formtab.php:215 admin/tabs/formtab.php:230
+#: admin/tabs/formtab.php:230 admin/tabs/formtab.php:245
 msgid "When enabled it is mandatory."
 msgstr "Когато е отбелязано е задължително."
 
-#: admin/tabs/formtab.php:220 admin/tabs/uninstalltab.php:63
+#: admin/tabs/formtab.php:235 admin/tabs/uninstalltab.php:63
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
@@ -1953,6 +2003,9 @@ msgstr "Също изтриване на reCAPTCHA"
 #: admin/tabs/uninstalltab.php:73
 msgid "Uninstall &raquo;"
 msgstr "Деинсталиране &raquo;"
+
+#~ msgid "Donate"
+#~ msgstr "Дарете"
 
 #~ msgid "No Comments"
 #~ msgstr "Няма коментари"

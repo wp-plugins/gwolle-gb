@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-02 13:27+0100\n"
-"PO-Revision-Date: 2015-06-03 12:47+0100\n"
+"POT-Creation-Date: 2015-06-13 14:55+0200\n"
+"PO-Revision-Date: 2015-06-13 15:01+0100\n"
+"Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.7.7\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: sv_SE\n"
-"Last-Translator: \n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:22
 #: frontend/widget.php:188
@@ -51,6 +51,11 @@ msgstr "Importera"
 #: actions.php:63
 msgid "Export"
 msgstr "Exportera"
+
+#: actions.php:190 actions.php:194 frontend/rss.php:70 frontend/rss.php:73
+#, fuzzy
+msgid "Guestbook Feed"
+msgstr "Gästbok"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
 #: frontend/read.php:236
@@ -190,7 +195,7 @@ msgstr ""
 "fortsätta ... </a>"
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
-#: admin/page-gwolle-gb.php:275 admin/page-import.php:26
+#: admin/page-gwolle-gb.php:278 admin/page-import.php:26
 #: admin/page-settings.php:15 admin/tabs/admintab.php:15
 #: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
 #: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
@@ -226,7 +231,7 @@ msgstr "Inskickat som spam till Akismet tjänsten."
 msgid "Submitted as Ham to the Akismet service."
 msgstr "Inskickat som Ham till Akismet tjänsten."
 
-#: admin/page-editor.php:148 admin/page-gwolle-gb.php:351
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:355
 #: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr "Ändringar sparade"
@@ -756,15 +761,15 @@ msgstr "Du"
 msgid "No subscriber yet"
 msgstr "Inga medlemmar ännu"
 
-#: admin/page-gwolle-gb.php:220
+#: admin/page-gwolle-gb.php:221
 msgid "This is how you can get your guestbook displayed on your website:"
 msgstr "Så här kan du visa din gästbok på din webbplats:"
 
-#: admin/page-gwolle-gb.php:222
+#: admin/page-gwolle-gb.php:223
 msgid "Create a new page."
 msgstr "Skapa en ny sida."
 
-#: admin/page-gwolle-gb.php:223
+#: admin/page-gwolle-gb.php:224
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
@@ -772,7 +777,7 @@ msgstr ""
 "Välj en titel och ange &quot;[gwolle_gb]&quot; (utan citattecken) som "
 "innehåll."
 
-#: admin/page-gwolle-gb.php:224
+#: admin/page-gwolle-gb.php:225
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
@@ -780,44 +785,65 @@ msgstr ""
 "Det är förmodligen en bra idé att inaktivera kommentarer på denna sida; "
 "annars kan besökarna bli lite förvirrade."
 
-#: admin/page-gwolle-gb.php:231
+#: admin/page-gwolle-gb.php:232
 msgid "These entries will be visible for your visitors:"
 msgstr "Dessa poster kommer att vara synliga för dina besökare:"
 
-#: admin/page-gwolle-gb.php:233
+#: admin/page-gwolle-gb.php:234
 msgid "Marked as Checked."
 msgstr "Markera som godkänd."
 
-#: admin/page-gwolle-gb.php:234
+#: admin/page-gwolle-gb.php:235
 msgid "Not marked as Spam."
 msgstr "Inte markerad som spam."
 
-#: admin/page-gwolle-gb.php:235
+#: admin/page-gwolle-gb.php:236
 msgid "Not marked as Trash."
 msgstr "Inte markerad som skräp."
 
-#: admin/page-gwolle-gb.php:239
+#: admin/page-gwolle-gb.php:240
 msgid "The Main Menu counter counts the following entries:"
 msgstr "Huvudmeny räknaren räknar följande uppgifter:"
 
-#: admin/page-gwolle-gb.php:241
+#: admin/page-gwolle-gb.php:242
 msgid "Marked as Unchecked (You might want to moderate them)."
 msgstr "Markerade som Omarkerade (Du kanske vill moderera dem)."
 
-#: admin/page-gwolle-gb.php:242
+#: admin/page-gwolle-gb.php:243
 msgid "Not marked as Spam (You might want to check them)."
 msgstr "Ej markerat som skräppost (Du kanske vill kontrollera dem)."
 
-#: admin/page-gwolle-gb.php:243
+#: admin/page-gwolle-gb.php:244
 msgid "Not marked as Trash (You decide what goes to the trash)."
 msgstr ""
 "Inte markerats som skräp (Du bestämmer vad som ska till papperskorgen)."
 
-#: admin/page-gwolle-gb.php:252
+#: admin/page-gwolle-gb.php:251
+msgid "This plugin is being maintained by Marcel Pol from"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:255
+#, fuzzy
+msgid "Review this plugin."
+msgstr "Insticksprogrammet är avaktiverat."
+
+#: admin/page-gwolle-gb.php:256
+msgid "If this plugin has any value to you, then please leave a review at"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:257
+msgid "The plugin page at wordpress.org."
+msgstr ""
+
+#: admin/page-gwolle-gb.php:258
+msgid "the plugin page at wordpress.org"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:261
 msgid "Donate to the EFF."
 msgstr "Donera till EFF."
 
-#: admin/page-gwolle-gb.php:256
+#: admin/page-gwolle-gb.php:262
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
@@ -825,15 +851,15 @@ msgstr ""
 "Electronic Frontier Foundation är en av de få organisationer som vill "
 "behålla internet fritt."
 
-#: admin/page-gwolle-gb.php:257
+#: admin/page-gwolle-gb.php:263
 msgid "Please donate to the EFF."
 msgstr "Var snäll och gör en donation till EFF."
 
-#: admin/page-gwolle-gb.php:262 admin/page-gwolle-gb.php:266
+#: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:267
 msgid "Donate to the maintainer."
 msgstr "Donera till den ansvarige."
 
-#: admin/page-gwolle-gb.php:265
+#: admin/page-gwolle-gb.php:266
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through PayPal."
@@ -841,31 +867,40 @@ msgstr ""
 "Om du hellre vill donera till den som utvecklar pluginnet, kan du göra detta "
 "via PayPal."
 
-#: admin/page-gwolle-gb.php:266
-msgid "Donate through PayPal to"
+#: admin/page-gwolle-gb.php:267
+#, fuzzy
+msgid "Donate through"
 msgstr "Donera via PayPal till"
 
-#: admin/page-gwolle-gb.php:335
+#: admin/page-gwolle-gb.php:267
+msgid "PayPal"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:268
+msgid "to"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
 msgstr "Välkommen till gästboken!"
 
-#: admin/page-gwolle-gb.php:336
+#: admin/page-gwolle-gb.php:339
 msgid "E-mail Notifications"
 msgstr "Meddelande om e-post"
 
-#: admin/page-gwolle-gb.php:337
-msgid "This plugin uses the following scripts/programs/images:"
-msgstr "Denna plugin använder följande scripts/program/bilder:"
+#: admin/page-gwolle-gb.php:340
+msgid "Review and Donate"
+msgstr ""
 
-#: admin/page-gwolle-gb.php:338 admin/page-gwolle-gb.php:339
+#: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
 msgid "Help"
 msgstr "Hjälp"
 
-#: admin/page-gwolle-gb.php:340
-msgid "Donate"
-msgstr "Donera"
+#: admin/page-gwolle-gb.php:344
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr "Denna plugin använder följande scripts/program/bilder:"
 
-#: admin/page-gwolle-gb.php:345
+#: admin/page-gwolle-gb.php:349
 msgid "Gwolle Guestbook"
 msgstr "Gwolle gästbok"
 
@@ -1088,7 +1123,7 @@ msgstr "Läsa"
 msgid "Admin"
 msgstr "Admin"
 
-#: admin/page-settings.php:329 frontend/write.php:252 frontend/write.php:283
+#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
@@ -1249,12 +1284,17 @@ msgid "from"
 msgstr "från"
 
 #: frontend/read.php:201
-msgid "wrote at"
+msgid "wrote on"
 msgstr "skrev på"
 
 #: frontend/read.php:205
-msgid "at"
+msgid "on"
 msgstr "på"
+
+#: frontend/rss.php:84
+#, fuzzy
+msgid "Guestbook Entry by"
+msgstr "Gästboks inlägg"
 
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."
@@ -1329,19 +1369,19 @@ msgstr "Stad"
 msgid "Email"
 msgstr "E-post"
 
-#: frontend/write.php:253
+#: frontend/write.php:283
 msgid "Question:"
 msgstr "Fråga:"
 
-#: frontend/write.php:259
+#: frontend/write.php:289
 msgid "Answer"
 msgstr "Svar"
 
-#: frontend/write.php:303
+#: frontend/write.php:333
 msgid "Submit"
 msgstr "Skicka"
 
-#: frontend/write.php:312 admin/tabs/formtab.php:74
+#: frontend/write.php:342 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1951,3 +1991,6 @@ msgstr "Tag också bort reCAPTCHA nycklar"
 #: admin/tabs/uninstalltab.php:73
 msgid "Uninstall &raquo;"
 msgstr "Avinstallera &raquo;"
+
+#~ msgid "Donate"
+#~ msgstr "Donera"

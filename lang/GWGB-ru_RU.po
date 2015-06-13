@@ -1,15 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle Guestbook\n"
-"POT-Creation-Date: 2015-06-04 23:12+0300\n"
-"PO-Revision-Date: 2015-06-04 23:24+0300\n"
-"Last-Translator: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-06-13 14:55+0200\n"
+"PO-Revision-Date: 2015-06-13 15:00+0100\n"
+"Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
 "Language: ru_RU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.7.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
@@ -30,6 +31,7 @@ msgstr "Гостевая книга"
 msgid "Entries"
 msgstr "Записи"
 
+#. /editor.php
 #: actions.php:54
 msgid "Entry editor"
 msgstr "Редактор записей"
@@ -38,17 +40,25 @@ msgstr "Редактор записей"
 msgid "New entry"
 msgstr "Новая запись"
 
+#. /settings.php
 #: actions.php:57 actions.php:80 admin/page-settings.php:314
 msgid "Settings"
 msgstr "Настройки"
 
+#. /import.php
 #: actions.php:60
 msgid "Import"
 msgstr "Импортировать"
 
+#. /export.php
 #: actions.php:63
 msgid "Export"
 msgstr "Экспортировать"
+
+#: actions.php:190 actions.php:194 frontend/rss.php:70 frontend/rss.php:73
+#, fuzzy
+msgid "Guestbook Feed"
+msgstr "Гостевая книга"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
 #: frontend/read.php:236
@@ -354,8 +364,8 @@ msgstr ""
 "Переводы на новую строку не будут видны посетителям из-за Ваших <a href=\"%s"
 "\">настроек</a>."
 
-#: admin/page-editor.php:566 admin/tabs/formtab.php:165 frontend/write.php:196
-#: frontend/write.php:203
+#: admin/page-editor.php:566 frontend/write.php:196 frontend/write.php:203
+#: admin/tabs/formtab.php:165
 msgid "Website"
 msgstr "Веб-сайт"
 
@@ -618,8 +628,8 @@ msgid "The exporter will preserve the following data per entry:"
 msgstr "Экспортировщик сохранит следующие данные для каждой записи:"
 
 #: admin/page-export.php:58 admin/page-import.php:372
-#: admin/page-import.php:413 admin/tabs/formtab.php:105
-#: admin/tabs/readingtab.php:152 frontend/write.php:139 frontend/write.php:146
+#: admin/page-import.php:413 frontend/write.php:139 frontend/write.php:146
+#: admin/tabs/formtab.php:105 admin/tabs/readingtab.php:152
 msgid "Name"
 msgstr "Имя"
 
@@ -748,8 +758,8 @@ msgstr "Сохранить настройки"
 msgid "The following users have subscribed to this service:"
 msgstr "Следующие пользователи подписаны на данный сервис:"
 
-#: admin/page-gwolle-gb.php:192 admin/tabs/emailtab.php:66
-#: admin/tabs/emailtab.php:119 functions/function.log.php:173
+#: admin/page-gwolle-gb.php:192 functions/function.log.php:173
+#: admin/tabs/emailtab.php:66 admin/tabs/emailtab.php:119
 msgid "You"
 msgstr "Вы"
 
@@ -1128,6 +1138,319 @@ msgstr "E-mail"
 msgid "Uninstall"
 msgstr "Деинсталляция"
 
+#: frontend/posthandling.php:39
+msgid "Submitting a new guestbook entry is only allowed for logged-in users."
+msgstr ""
+"Отправлять записи в гостевую книгу разрешено только залогиненным "
+"пользователям."
+
+#: frontend/posthandling.php:208 frontend/posthandling.php:251
+msgid "There were errors submitting your guestbook entry."
+msgstr "При отправке записи в гостевую книгу возникли ошибки:"
+
+#: frontend/posthandling.php:214
+msgid "Your name is not filled in, even though it is mandatory."
+msgstr "Вы не указали имя, а это обязательно."
+
+#: frontend/posthandling.php:217
+msgid "Your origin is not filled in, even though it is mandatory."
+msgstr "Вы не указали, откуда Вы, а это обязательно."
+
+#: frontend/posthandling.php:220
+msgid ""
+"Your e-mail address is not filled in correctly, even though it is mandatory."
+msgstr "Вы не указали корректный адрес e-mail, а это обязательно."
+
+#: frontend/posthandling.php:223
+msgid "Your website is not filled in, even though it is mandatory."
+msgstr "Вы не указали адрес веб-сайта, а это обязательно."
+
+#: frontend/posthandling.php:226
+msgid "There is no message, even though it is mandatory."
+msgstr "Вы не ввели текст сообщения, а это обязательно."
+
+#: frontend/posthandling.php:229
+msgid ""
+"The anti-spam question was not answered correctly, even though it is "
+"mandatory."
+msgstr ""
+"Вы не дали правильного ответа на антиспамовый вопрос, а это обязательно."
+
+#: frontend/posthandling.php:232
+msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
+msgstr "Вы не ввели правильный антиспамовый код, а это обязательно."
+
+#: frontend/posthandling.php:324
+msgid "Double post: An entry with the data you entered has already been saved."
+msgstr "Дубль: Запись с в точности такими же данными уже получена и сохранена."
+
+#: frontend/posthandling.php:341
+msgid "Thank you for your entry."
+msgstr "Спасибо за Ваше сообщение."
+
+#: frontend/posthandling.php:343
+msgid "We will review it and unlock it in a short while."
+msgstr ""
+"Оно будет рассмотрено модератором и опубликовано, как только он одобрит."
+
+#: frontend/posthandling.php:380 admin/tabs/emailtab.php:138
+msgid ""
+"\n"
+"Hello,\n"
+"\n"
+"There is a new guestbook entry at '%blog_name%'.\n"
+"You can check it at %entry_management_url%.\n"
+"\n"
+"Have a nice day.\n"
+"Your Gwolle-GB-Mailer\n"
+"\n"
+"\n"
+"Website address: %blog_url%\n"
+"User name: %user_name%\n"
+"User email: %user_email%\n"
+"Entry status: %status%\n"
+"Entry content:\n"
+"%entry_content%\n"
+msgstr ""
+"\n"
+"Здравствуйте,\n"
+"\n"
+"В гостевой книге блога «%blog_name%» появилась новая запись.\n"
+"Вы можете проверить её по данной ссылке: %entry_management_url%.\n"
+"\n"
+"Хорошего Вам дня!\n"
+"Ваш Gwolle-GB-Mailer\n"
+"\n"
+"\n"
+"Адрес веб-сайта: %blog_url%\n"
+"Имя пользователя: %user_name%\n"
+"E-mail пользователяl: %user_email%\n"
+"Статус записи: %status%\n"
+"Текст записи:\n"
+"%entry_content%\n"
+
+#: frontend/posthandling.php:401 frontend/posthandling.php:467
+msgid "New Guestbook Entry"
+msgstr "Новая запись в гостевой книге"
+
+#: frontend/posthandling.php:448 admin/tabs/emailtab.php:198
+msgid ""
+"\n"
+"Hello,\n"
+"\n"
+"You have just posted a new guestbook entry at '%blog_name%'.\n"
+"\n"
+"Have a nice day.\n"
+"The editors at %blog_name%.\n"
+"\n"
+"\n"
+"Website address: %blog_url%\n"
+"User name: %user_name%\n"
+"User email: %user_email%\n"
+"Entry content:\n"
+"%entry_content%\n"
+msgstr ""
+"\n"
+"Здравствуйте,\n"
+"\n"
+"Вы только что оставили запись в гостевой книге на сайте «%blog_name%».\n"
+"\n"
+"Хорошего Вам дня.\n"
+"Редакторы сайта «%blog_name%».\n"
+"\n"
+"\n"
+"Адрес сайта: %blog_url%\n"
+"Имя пользователя: %user_name%\n"
+"E-mail пользователя: %user_email%\n"
+"Текст записи:\n"
+"%entry_content%\n"
+
+#: frontend/read.php:79
+msgid "Previous page"
+msgstr "Предыдущая страница"
+
+#: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
+#: frontend/read.php:121 frontend/read.php:132
+msgid "Page"
+msgstr "Страница"
+
+#: frontend/read.php:103 frontend/read.php:133
+msgid "Next page"
+msgstr "Следующая страница"
+
+#: frontend/read.php:144
+msgid "(no entries yet)"
+msgstr "(пока нет записей)"
+
+#: frontend/read.php:192
+msgid "from"
+msgstr "из города"
+
+#: frontend/read.php:201
+msgid "wrote on"
+msgstr "написал(а)"
+
+#: frontend/read.php:205
+msgid "on"
+msgstr "в"
+
+#: frontend/rss.php:84
+#, fuzzy
+msgid "Guestbook Entry by"
+msgstr "Текст сообщения"
+
+#: frontend/widget.php:12
+msgid "Displays the recent guestbook entries."
+msgstr "Показывает последние записи в гостевой книге."
+
+#: frontend/widget.php:28 frontend/widget.php:194
+msgid "Visit guestbook"
+msgstr "Посетите гостевую книгу"
+
+#: frontend/widget.php:147
+msgid "Click here to get to the guestbook."
+msgstr "Щёлкните сюда, чтобы попасть в гостевую книгу."
+
+#: frontend/widget.php:210
+msgid "Title:"
+msgstr "Название:"
+
+#: frontend/widget.php:216
+msgid "Number of entries:"
+msgstr "Количество записей:"
+
+#: frontend/widget.php:232
+msgid "Best entries to show:"
+msgstr "Лучшие записи для показа:"
+
+#: frontend/widget.php:234
+msgid "List of entry_id's, comma-separated"
+msgstr "ID записей через запятую"
+
+#: frontend/widget.php:240
+msgid "Show name of author."
+msgstr "Показывать имя автора."
+
+#: frontend/widget.php:246
+msgid "Show date of entry."
+msgstr "Показывать дату записи."
+
+#: frontend/widget.php:250
+msgid "Number of words for each entry:"
+msgstr "Количество слов в каждой записи:"
+
+#: frontend/widget.php:266
+msgid "Link text:"
+msgstr "Текст ссылки:"
+
+#: frontend/widget.php:272
+msgid "Select the page of the guestbook:"
+msgstr "Выберите страницу гостевой книги:"
+
+#: frontend/widget.php:274
+msgid "Select page"
+msgstr "Выберите страницу"
+
+#: frontend/write.php:94
+msgid "Write a new entry."
+msgstr "Оставить запись"
+
+#: frontend/write.php:102
+msgid "Log in to post an entry"
+msgstr "Чтобы оставить запись, войдите в систему"
+
+#: frontend/write.php:129 admin/tabs/formtab.php:58
+msgid "Write a new entry for the Guestbook"
+msgstr "<HR>Оставить новую запись в гостевой книге</BR></BR>"
+
+#: frontend/write.php:158 frontend/write.php:165 admin/tabs/formtab.php:125
+#: admin/tabs/readingtab.php:164
+msgid "City"
+msgstr "Город"
+
+#: frontend/write.php:177 frontend/write.php:184 admin/tabs/formtab.php:145
+msgid "Email"
+msgstr "E-mail"
+
+#: frontend/write.php:283
+msgid "Question:"
+msgstr "Вопрос:"
+
+#: frontend/write.php:289
+msgid "Answer"
+msgstr "Ответ"
+
+#: frontend/write.php:333
+msgid "Submit"
+msgstr "Отправить"
+
+#: frontend/write.php:342 admin/tabs/formtab.php:74
+msgid ""
+"\n"
+"Fields marked with * are obligatory.\n"
+"Your E-mail address wil not be published.\n"
+"For security reasons we save the ip address %ip%.\n"
+"It might be that your entry will only be visible in the guestbook after we "
+"reviewed it.\n"
+"We reserve our right to edit, delete, or not publish entries.\n"
+msgstr ""
+"\n"
+"Поля, помеченные звёздочкой, обязательны для заполнения.\n"
+"Ваш адрес e-mail опубликован не будет.\n"
+"По соображениям безопасности мы запишем IP-адрес %ip%.\n"
+"Ваша запись в гостевой книге может быть показана не сразу, а только после "
+"предварительной проверки администрацией сайта.\n"
+"Мы оставляем за собой право редактировать, удалять или не публиковать записи "
+"в гостевой книге.\n"
+
+#: functions/function.log.php:94
+msgid "Entry has been locked."
+msgstr "Запись заблокирована."
+
+#: functions/function.log.php:95
+msgid "Entry has been checked."
+msgstr "Запись помечена как проверенная."
+
+#: functions/function.log.php:96
+msgid "Entry marked as spam."
+msgstr "Запись помечена как спам."
+
+#: functions/function.log.php:97
+msgid "Entry marked as not spam."
+msgstr "Запись помечена как НЕ спам."
+
+#: functions/function.log.php:98
+msgid "Entry has been edited."
+msgstr "Запись отредактирована."
+
+#: functions/function.log.php:99
+msgid "Imported from DMSGuestbook"
+msgstr "Импортировано из DMSGuestbook"
+
+#: functions/function.log.php:100
+msgid "Imported from WordPress comments"
+msgstr "Импортировано из комментариев WordPress"
+
+#: functions/function.log.php:101
+msgid "Imported from Gwolle-GB"
+msgstr "Импортировано из Gwolle-GB"
+
+#: functions/function.log.php:102
+msgid "Exported to CSV file"
+msgstr "Экспортировано в файл CSV"
+
+#: functions/function.log.php:103
+msgid "Entry has been trashed."
+msgstr "Запись помещена в урну."
+
+#: functions/function.log.php:104
+msgid "Entry has been untrashed."
+msgstr "Запись извлечена из урны."
+
+#: functions/function.misc.php:63
+msgid "No content to display. This entry is empty."
+msgstr "Нет содержимого для отображения. Эта запись пустая."
+
 #: admin/tabs/admintab.php:26
 msgid "Entries per page in the admin"
 msgstr "Записей на странице в администраторской области"
@@ -1377,42 +1700,6 @@ msgstr ""
 msgid "Admin mail content"
 msgstr "Содержимое писем администратору"
 
-#: admin/tabs/emailtab.php:138 frontend/posthandling.php:380
-msgid ""
-"\n"
-"Hello,\n"
-"\n"
-"There is a new guestbook entry at '%blog_name%'.\n"
-"You can check it at %entry_management_url%.\n"
-"\n"
-"Have a nice day.\n"
-"Your Gwolle-GB-Mailer\n"
-"\n"
-"\n"
-"Website address: %blog_url%\n"
-"User name: %user_name%\n"
-"User email: %user_email%\n"
-"Entry status: %status%\n"
-"Entry content:\n"
-"%entry_content%\n"
-msgstr ""
-"\n"
-"Здравствуйте,\n"
-"\n"
-"В гостевой книге блога «%blog_name%» появилась новая запись.\n"
-"Вы можете проверить её по данной ссылке: %entry_management_url%.\n"
-"\n"
-"Хорошего Вам дня!\n"
-"Ваш Gwolle-GB-Mailer\n"
-"\n"
-"\n"
-"Адрес веб-сайта: %blog_url%\n"
-"Имя пользователя: %user_name%\n"
-"E-mail пользователяl: %user_email%\n"
-"Статус записи: %status%\n"
-"Текст записи:\n"
-"%entry_content%\n"
-
 #: admin/tabs/emailtab.php:160
 msgid ""
 "You can set the content of the mail that a notification subscriber gets on "
@@ -1441,38 +1728,6 @@ msgstr ""
 #: admin/tabs/emailtab.php:193
 msgid "Author mail content"
 msgstr "Текст письма автору"
-
-#: admin/tabs/emailtab.php:198 frontend/posthandling.php:448
-msgid ""
-"\n"
-"Hello,\n"
-"\n"
-"You have just posted a new guestbook entry at '%blog_name%'.\n"
-"\n"
-"Have a nice day.\n"
-"The editors at %blog_name%.\n"
-"\n"
-"\n"
-"Website address: %blog_url%\n"
-"User name: %user_name%\n"
-"User email: %user_email%\n"
-"Entry content:\n"
-"%entry_content%\n"
-msgstr ""
-"\n"
-"Здравствуйте,\n"
-"\n"
-"Вы только что оставили запись в гостевой книге на сайте «%blog_name%».\n"
-"\n"
-"Хорошего Вам дня.\n"
-"Редакторы сайта «%blog_name%».\n"
-"\n"
-"\n"
-"Адрес сайта: %blog_url%\n"
-"Имя пользователя: %user_name%\n"
-"E-mail пользователя: %user_email%\n"
-"Текст записи:\n"
-"%entry_content%\n"
 
 #: admin/tabs/emailtab.php:218
 msgid ""
@@ -1516,10 +1771,6 @@ msgstr ""
 msgid "Header Text"
 msgstr "Текст заголовка"
 
-#: admin/tabs/formtab.php:58 frontend/write.php:129
-msgid "Write a new entry for the Guestbook"
-msgstr "<HR>Оставить новую запись в гостевой книге</BR></BR>"
-
 #: admin/tabs/formtab.php:63
 msgid "You can set the header that is shown on top of the form."
 msgstr "Вы можете установить заголовок, который показывается вверху формы."
@@ -1527,25 +1778,6 @@ msgstr "Вы можете установить заголовок, которы�
 #: admin/tabs/formtab.php:69
 msgid "Notice Text"
 msgstr "Текст примечания"
-
-#: admin/tabs/formtab.php:74 frontend/write.php:342
-msgid ""
-"\n"
-"Fields marked with * are obligatory.\n"
-"Your E-mail address wil not be published.\n"
-"For security reasons we save the ip address %ip%.\n"
-"It might be that your entry will only be visible in the guestbook after we "
-"reviewed it.\n"
-"We reserve our right to edit, delete, or not publish entries.\n"
-msgstr ""
-"\n"
-"Поля, помеченные звёздочкой, обязательны для заполнения.\n"
-"Ваш адрес e-mail опубликован не будет.\n"
-"По соображениям безопасности мы запишем IP-адрес %ip%.\n"
-"Ваша запись в гостевой книге может быть показана не сразу, а только после "
-"предварительной проверки администрацией сайта.\n"
-"Мы оставляем за собой право редактировать, удалять или не публиковать записи "
-"в гостевой книге.\n"
 
 #: admin/tabs/formtab.php:86
 msgid "You can set the content of the notice that gets shown below the form."
@@ -1575,15 +1807,6 @@ msgstr "Включить"
 #: admin/tabs/formtab.php:200
 msgid "Mandatory"
 msgstr "Обязательно"
-
-#: admin/tabs/formtab.php:125 admin/tabs/readingtab.php:164
-#: frontend/write.php:158 frontend/write.php:165
-msgid "City"
-msgstr "Город"
-
-#: admin/tabs/formtab.php:145 frontend/write.php:177 frontend/write.php:184
-msgid "Email"
-msgstr "E-mail"
 
 #: admin/tabs/formtab.php:205
 msgid "BBcode and Emoji"
@@ -1784,214 +2007,6 @@ msgstr "Также удалить ключи reCAPTCHA"
 #: admin/tabs/uninstalltab.php:73
 msgid "Uninstall &raquo;"
 msgstr "Деинсталлировать &raquo;"
-
-#: frontend/posthandling.php:39
-msgid "Submitting a new guestbook entry is only allowed for logged-in users."
-msgstr ""
-"Отправлять записи в гостевую книгу разрешено только залогиненным "
-"пользователям."
-
-#: frontend/posthandling.php:208 frontend/posthandling.php:251
-msgid "There were errors submitting your guestbook entry."
-msgstr "При отправке записи в гостевую книгу возникли ошибки:"
-
-#: frontend/posthandling.php:214
-msgid "Your name is not filled in, even though it is mandatory."
-msgstr "Вы не указали имя, а это обязательно."
-
-#: frontend/posthandling.php:217
-msgid "Your origin is not filled in, even though it is mandatory."
-msgstr "Вы не указали, откуда Вы, а это обязательно."
-
-#: frontend/posthandling.php:220
-msgid ""
-"Your e-mail address is not filled in correctly, even though it is mandatory."
-msgstr "Вы не указали корректный адрес e-mail, а это обязательно."
-
-#: frontend/posthandling.php:223
-msgid "Your website is not filled in, even though it is mandatory."
-msgstr "Вы не указали адрес веб-сайта, а это обязательно."
-
-#: frontend/posthandling.php:226
-msgid "There is no message, even though it is mandatory."
-msgstr "Вы не ввели текст сообщения, а это обязательно."
-
-#: frontend/posthandling.php:229
-msgid ""
-"The anti-spam question was not answered correctly, even though it is "
-"mandatory."
-msgstr ""
-"Вы не дали правильного ответа на антиспамовый вопрос, а это обязательно."
-
-#: frontend/posthandling.php:232
-msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
-msgstr "Вы не ввели правильный антиспамовый код, а это обязательно."
-
-#: frontend/posthandling.php:324
-msgid "Double post: An entry with the data you entered has already been saved."
-msgstr "Дубль: Запись с в точности такими же данными уже получена и сохранена."
-
-#: frontend/posthandling.php:341
-msgid "Thank you for your entry."
-msgstr "Спасибо за Ваше сообщение."
-
-#: frontend/posthandling.php:343
-msgid "We will review it and unlock it in a short while."
-msgstr ""
-"Оно будет рассмотрено модератором и опубликовано, как только он одобрит."
-
-#: frontend/posthandling.php:401 frontend/posthandling.php:467
-msgid "New Guestbook Entry"
-msgstr "Новая запись в гостевой книге"
-
-#: frontend/read.php:79
-msgid "Previous page"
-msgstr "Предыдущая страница"
-
-#: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
-#: frontend/read.php:121 frontend/read.php:132
-msgid "Page"
-msgstr "Страница"
-
-#: frontend/read.php:103 frontend/read.php:133
-msgid "Next page"
-msgstr "Следующая страница"
-
-#: frontend/read.php:144
-msgid "(no entries yet)"
-msgstr "(пока нет записей)"
-
-#: frontend/read.php:192
-msgid "from"
-msgstr "из города"
-
-#: frontend/read.php:201
-msgid "wrote at"
-msgstr "написал(а)"
-
-#: frontend/read.php:205
-msgid "at"
-msgstr "в"
-
-#: frontend/widget.php:12
-msgid "Displays the recent guestbook entries."
-msgstr "Показывает последние записи в гостевой книге."
-
-#: frontend/widget.php:28 frontend/widget.php:194
-msgid "Visit guestbook"
-msgstr "Посетите гостевую книгу"
-
-#: frontend/widget.php:147
-msgid "Click here to get to the guestbook."
-msgstr "Щёлкните сюда, чтобы попасть в гостевую книгу."
-
-#: frontend/widget.php:210
-msgid "Title:"
-msgstr "Название:"
-
-#: frontend/widget.php:216
-msgid "Number of entries:"
-msgstr "Количество записей:"
-
-#: frontend/widget.php:232
-msgid "Best entries to show:"
-msgstr "Лучшие записи для показа:"
-
-#: frontend/widget.php:234
-msgid "List of entry_id's, comma-separated"
-msgstr "ID записей через запятую"
-
-#: frontend/widget.php:240
-msgid "Show name of author."
-msgstr "Показывать имя автора."
-
-#: frontend/widget.php:246
-msgid "Show date of entry."
-msgstr "Показывать дату записи."
-
-#: frontend/widget.php:250
-msgid "Number of words for each entry:"
-msgstr "Количество слов в каждой записи:"
-
-#: frontend/widget.php:266
-msgid "Link text:"
-msgstr "Текст ссылки:"
-
-#: frontend/widget.php:272
-msgid "Select the page of the guestbook:"
-msgstr "Выберите страницу гостевой книги:"
-
-#: frontend/widget.php:274
-msgid "Select page"
-msgstr "Выберите страницу"
-
-#: frontend/write.php:94
-msgid "Write a new entry."
-msgstr "Оставить запись"
-
-#: frontend/write.php:102
-msgid "Log in to post an entry"
-msgstr "Чтобы оставить запись, войдите в систему"
-
-#: frontend/write.php:283
-msgid "Question:"
-msgstr "Вопрос:"
-
-#: frontend/write.php:289
-msgid "Answer"
-msgstr "Ответ"
-
-#: frontend/write.php:333
-msgid "Submit"
-msgstr "Отправить"
-
-#: functions/function.log.php:94
-msgid "Entry has been locked."
-msgstr "Запись заблокирована."
-
-#: functions/function.log.php:95
-msgid "Entry has been checked."
-msgstr "Запись помечена как проверенная."
-
-#: functions/function.log.php:96
-msgid "Entry marked as spam."
-msgstr "Запись помечена как спам."
-
-#: functions/function.log.php:97
-msgid "Entry marked as not spam."
-msgstr "Запись помечена как НЕ спам."
-
-#: functions/function.log.php:98
-msgid "Entry has been edited."
-msgstr "Запись отредактирована."
-
-#: functions/function.log.php:99
-msgid "Imported from DMSGuestbook"
-msgstr "Импортировано из DMSGuestbook"
-
-#: functions/function.log.php:100
-msgid "Imported from WordPress comments"
-msgstr "Импортировано из комментариев WordPress"
-
-#: functions/function.log.php:101
-msgid "Imported from Gwolle-GB"
-msgstr "Импортировано из Gwolle-GB"
-
-#: functions/function.log.php:102
-msgid "Exported to CSV file"
-msgstr "Экспортировано в файл CSV"
-
-#: functions/function.log.php:103
-msgid "Entry has been trashed."
-msgstr "Запись помещена в урну."
-
-#: functions/function.log.php:104
-msgid "Entry has been untrashed."
-msgstr "Запись извлечена из урны."
-
-#: functions/function.misc.php:63
-msgid "No content to display. This entry is empty."
-msgstr "Нет содержимого для отображения. Эта запись пустая."
 
 #~ msgid "Donate through PayPal to"
 #~ msgstr "Оказать финансовую поддержку:"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: guestbook\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-08 12:19+0200\n"
-"PO-Revision-Date: 2015-04-20 21:03+0100\n"
+"POT-Creation-Date: 2015-06-13 14:55+0200\n"
+"PO-Revision-Date: 2015-06-13 15:01+0100\n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: HONYA K. <foto@honya-k.cz>\n"
 "Language: cs_CZ\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.10\n"
+"X-Generator: Poedit 1.7.7\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: actions.php:35 actions.php:36 frontend/widget.php:22
@@ -38,7 +38,7 @@ msgid "New entry"
 msgstr "Nový záznam"
 
 #. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:313
+#: actions.php:57 actions.php:80 admin/page-settings.php:314
 msgid "Settings"
 msgstr "Nastavenia"
 
@@ -52,84 +52,89 @@ msgstr "Import"
 msgid "Export"
 msgstr "Export"
 
+#: actions.php:190 actions.php:194 frontend/rss.php:70 frontend/rss.php:73
+#, fuzzy
+msgid "Guestbook Feed"
+msgstr "Návštevná kniha"
+
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/read.php:231
+#: frontend/read.php:236
 msgid "Edit entry"
 msgstr "Upraviť záznam"
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/read.php:231
+#: frontend/read.php:236
 msgid "Edit"
 msgstr "Upraviť"
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:414
+#: admin/dashboard-widget.php:120 admin/page-editor.php:425
 #: admin/page-entries.php:699
 msgid "Check entry"
 msgstr "Skontrolovať záznam"
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:414
+#: admin/dashboard-widget.php:120 admin/page-editor.php:425
 #: admin/page-entries.php:699
 msgid "Check"
 msgstr "Označit"
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:417
+#: admin/dashboard-widget.php:124 admin/page-editor.php:428
 #: admin/page-entries.php:702
 msgid "Uncheck entry"
 msgstr "Odznačit záznam"
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:417
+#: admin/dashboard-widget.php:124 admin/page-editor.php:428
 #: admin/page-entries.php:702
 msgid "Uncheck"
 msgstr "Odznačit"
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:420
+#: admin/dashboard-widget.php:128 admin/page-editor.php:431
 #: admin/page-entries.php:705
 msgid "Mark entry as spam."
 msgstr "Označit záznam ako spam"
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:363
-#: admin/page-editor.php:420 admin/page-entries.php:437
+#: admin/dashboard-widget.php:128 admin/page-editor.php:374
+#: admin/page-editor.php:431 admin/page-entries.php:437
 #: admin/page-entries.php:705
 msgid "Spam"
 msgstr "Nevyžiadané"
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:423
+#: admin/dashboard-widget.php:132 admin/page-editor.php:434
 #: admin/page-entries.php:708
 msgid "Mark entry as not-spam."
 msgstr "Označit ako nieje spam"
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:423
+#: admin/dashboard-widget.php:132 admin/page-editor.php:434
 #: admin/page-entries.php:708
 msgid "Not spam"
 msgstr "Nieje spam"
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:426
+#: admin/dashboard-widget.php:136 admin/page-editor.php:437
 #: admin/page-entries.php:711
 msgid "Move entry to trash."
 msgstr "Presunúť záznam do koša"
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:373
-#: admin/page-editor.php:426 admin/page-entries.php:441
+#: admin/dashboard-widget.php:136 admin/page-editor.php:384
+#: admin/page-editor.php:437 admin/page-entries.php:441
 #: admin/page-entries.php:711
 msgid "Trash"
 msgstr "Odstránené"
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:429
+#: admin/dashboard-widget.php:140 admin/page-editor.php:440
 #: admin/page-entries.php:714
 msgid "Recover entry from trash."
 msgstr "Obnoviť záznam z koša."
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:429
+#: admin/dashboard-widget.php:140 admin/page-editor.php:440
 #: admin/page-entries.php:714
 msgid "Untrash"
 msgstr "Obnoviť"
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:432
+#: admin/dashboard-widget.php:144 admin/page-editor.php:443
 #: admin/page-entries.php:717
 msgid "Please wait..."
 msgstr "Prosím počkajte..."
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:432
+#: admin/dashboard-widget.php:144 admin/page-editor.php:443
 #: admin/page-entries.php:717
 msgid "Wait..."
 msgstr "Počkajte..."
@@ -191,7 +196,7 @@ msgstr ""
 "pokračovanie...</a>"
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
-#: admin/page-gwolle-gb.php:275 admin/page-import.php:26
+#: admin/page-gwolle-gb.php:278 admin/page-import.php:26
 #: admin/page-settings.php:15 admin/tabs/admintab.php:15
 #: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
 #: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
@@ -199,156 +204,156 @@ msgstr ""
 msgid "Cheatin&#8217; uh?"
 msgstr "Cheatin&#8217; uh?"
 
-#: admin/page-editor.php:26
+#: admin/page-editor.php:32
 msgid "Edit guestbook entry"
 msgstr "Upraviť záznam v knihe návštev"
 
-#: admin/page-editor.php:39
+#: admin/page-editor.php:45
 msgid "Entry could not be found."
 msgstr "Záznam nebol nájdený"
 
-#: admin/page-editor.php:41
+#: admin/page-editor.php:47
 msgid "Guestbook entry (error)"
 msgstr "Záznam v knihe návštev (Chyba)"
 
-#: admin/page-editor.php:44
+#: admin/page-editor.php:50
 msgid "New guestbook entry"
 msgstr "Nový záznam do knihy návštev"
 
-#: admin/page-editor.php:54
+#: admin/page-editor.php:60
 msgid "Something strange happened."
 msgstr "Stalo sa niečo zvláštne."
 
-#: admin/page-editor.php:82
+#: admin/page-editor.php:88
 msgid "Submitted as Spam to the Akismet service."
 msgstr "Vložené ako spam do služby Akismet"
 
-#: admin/page-editor.php:91
+#: admin/page-editor.php:97
 msgid "Submitted as Ham to the Akismet service."
 msgstr "Vložené ako HAM do služby Akismet"
 
-#: admin/page-editor.php:140 admin/page-gwolle-gb.php:351
-#: admin/page-settings.php:319
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:355
+#: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr "Zmeny uložené"
 
-#: admin/page-editor.php:142 admin/page-editor.php:234
+#: admin/page-editor.php:150 admin/page-editor.php:245
 msgid "Error happened during saving."
 msgstr "Stala sa chyba pri ukladaní"
 
-#: admin/page-editor.php:146
+#: admin/page-editor.php:154
 msgid "Entry was not changed."
 msgstr "Záznam nebol zmenený"
 
-#: admin/page-editor.php:157
+#: admin/page-editor.php:165
 msgid "Entry removed."
 msgstr "Záznam zmazaný."
 
-#: admin/page-editor.php:200
+#: admin/page-editor.php:210
 msgid "Entry has no content, even though that is mandatory."
 msgstr "Položka nemá žiadny obsah, aj keď je to povinné."
 
-#: admin/page-editor.php:232
+#: admin/page-editor.php:243
 msgid "Entry saved."
 msgstr "Záznam uložený"
 
-#: admin/page-editor.php:238
+#: admin/page-editor.php:249
 msgid "Entry was not saved."
 msgstr "Záznam nebol uložený"
 
-#: admin/page-editor.php:311 admin/page-editor.php:404
-#: admin/page-editor.php:448 admin/page-editor.php:503
-#: admin/page-editor.php:538 admin/page-editor.php:549
-#: admin/page-editor.php:557 admin/page-export.php:40
+#: admin/page-editor.php:322 admin/page-editor.php:415
+#: admin/page-editor.php:459 admin/page-editor.php:514
+#: admin/page-editor.php:549 admin/page-editor.php:566
+#: admin/page-editor.php:574 admin/page-export.php:40
 #: admin/page-import.php:338 admin/page-import.php:405
 #: admin/page-import.php:526
 msgid "Click to open or close"
 msgstr "Klikni pre otvorenie alebo zatvorenie"
 
-#: admin/page-editor.php:311
+#: admin/page-editor.php:322
 msgid "Options"
 msgstr "Možnosti"
 
-#: admin/page-editor.php:332
+#: admin/page-editor.php:343
 msgid "This entry is not yet visible."
 msgstr "Tento záznam ešte nieje viditeľný."
 
-#: admin/page-editor.php:336 admin/page-editor.php:341
+#: admin/page-editor.php:347 admin/page-editor.php:352
 msgid "This entry is Visible."
 msgstr "Tento záznam je viditelný"
 
-#: admin/page-editor.php:337 admin/page-editor.php:342
+#: admin/page-editor.php:348 admin/page-editor.php:353
 msgid "This entry is Not Visible."
 msgstr "Tento záznam nieje viditelný"
 
-#: admin/page-editor.php:353
+#: admin/page-editor.php:364
 msgid "Checked"
 msgstr "Skontrolované."
 
-#: admin/page-editor.php:381
+#: admin/page-editor.php:392
 msgid "Remove this entry Permanently."
 msgstr "Trvale odstraňte túto položku."
 
-#: admin/page-editor.php:392
+#: admin/page-editor.php:403
 msgid "Save"
 msgstr "Uložiť"
 
-#: admin/page-editor.php:404
+#: admin/page-editor.php:415
 msgid "Actions"
 msgstr "Akcie"
 
-#: admin/page-editor.php:448
+#: admin/page-editor.php:459
 msgid "Details"
 msgstr "Detaily"
 
-#: admin/page-editor.php:452 admin/page-entries.php:567
+#: admin/page-editor.php:463 admin/page-entries.php:567
 #: admin/page-entries.php:583
 msgid "Author"
 msgstr "Text"
 
-#: admin/page-editor.php:456 admin/page-editor.php:464
-#: admin/page-editor.php:485 admin/page-editor.php:493
+#: admin/page-editor.php:467 admin/page-editor.php:475
+#: admin/page-editor.php:496 admin/page-editor.php:504
 #: functions/function.log.php:164
 msgid "Unknown"
 msgstr "Neznámy"
 
-#: admin/page-editor.php:460
+#: admin/page-editor.php:471
 msgid "E-Mail"
 msgstr "Email"
 
-#: admin/page-editor.php:469 admin/page-editor.php:513
+#: admin/page-editor.php:480 admin/page-editor.php:524
 msgid "Written"
 msgstr "Napísal(a)"
 
-#: admin/page-editor.php:474
+#: admin/page-editor.php:485
 msgid "Not yet"
 msgstr "Zatiaľ nič"
 
-#: admin/page-editor.php:478
+#: admin/page-editor.php:489
 msgid "Author's IP-address"
 msgstr "Autorova IP adresa"
 
-#: admin/page-editor.php:481
+#: admin/page-editor.php:492
 msgid "Whois search for this IP"
 msgstr "Hladať IP adresu pomocou Whois"
 
-#: admin/page-editor.php:489
+#: admin/page-editor.php:500
 msgid "Host"
 msgstr "Hosť"
 
-#: admin/page-editor.php:503
+#: admin/page-editor.php:514
 msgid "Entry log"
 msgstr "Log záznamov"
 
-#: admin/page-editor.php:522
+#: admin/page-editor.php:533
 msgid "No log yet."
 msgstr "Žiadne záznamy"
 
-#: admin/page-editor.php:538 frontend/write.php:200
+#: admin/page-editor.php:549 frontend/write.php:215
 msgid "Guestbook entry"
 msgstr "Text príspevku"
 
-#: admin/page-editor.php:543
+#: admin/page-editor.php:554
 #, php-format
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
@@ -357,17 +362,17 @@ msgstr ""
 "Zalomenia riadkov nebudú pre návštevníkov viditeľné, skontrolujte <a href="
 "\"%s\">nastavenia</a>."
 
-#: admin/page-editor.php:549 frontend/write.php:181 frontend/write.php:188
-#: admin/tabs/formtab.php:166
+#: admin/page-editor.php:566 frontend/write.php:196 frontend/write.php:203
+#: admin/tabs/formtab.php:165
 #, fuzzy
 msgid "Website"
-msgstr "URL / Webová stránka"
+msgstr "Odkaz na autorovi webové stránky"
 
-#: admin/page-editor.php:552
+#: admin/page-editor.php:569
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "Příklad: <code>http://www.example.com/</code>"
 
-#: admin/page-editor.php:557 admin/page-export.php:55
+#: admin/page-editor.php:574 admin/page-export.php:61
 msgid "Origin"
 msgstr "Mesto"
 
@@ -610,72 +615,77 @@ msgstr "Exportovať záznamy z knihy návštev."
 msgid "Export guestbook entries from Gwolle-GB"
 msgstr "Exportovať záznamy z knihny návštev Gwolle-GB"
 
-#: admin/page-export.php:46
+#: admin/page-export.php:47
+#, fuzzy
+msgid "No entries were found."
+msgstr "%1 záznamy (ů) bylo nalezeno a budou importovány"
+
+#: admin/page-export.php:52
 #, php-format
 msgid "%d entries were found and will be exported."
 msgstr "%d záznamov bolo nájdených a budú exportované."
 
-#: admin/page-export.php:49
+#: admin/page-export.php:55
 msgid "The exporter will preserve the following data per entry:"
 msgstr "Exportovač zachoval tieto dáta pre každý záznam:"
 
-#: admin/page-export.php:52 admin/page-import.php:372
-#: admin/page-import.php:413 frontend/write.php:124 frontend/write.php:131
-#: admin/tabs/formtab.php:106 admin/tabs/readingtab.php:152
+#: admin/page-export.php:58 admin/page-import.php:372
+#: admin/page-import.php:413 frontend/write.php:139 frontend/write.php:146
+#: admin/tabs/formtab.php:105 admin/tabs/readingtab.php:152
 msgid "Name"
 msgstr "Meno"
 
-#: admin/page-export.php:53 admin/page-import.php:373
+#: admin/page-export.php:59 admin/page-import.php:373
 #: admin/page-import.php:415
 msgid "E-Mail address"
 msgstr "Emailová adresa"
 
-#: admin/page-export.php:54 admin/page-import.php:374
+#: admin/page-export.php:60 admin/page-import.php:374
 #: admin/page-import.php:416
 msgid "URL/Website"
 msgstr "URL / Webová stránka"
 
-#: admin/page-export.php:56 admin/page-import.php:375
+#: admin/page-export.php:62 admin/page-import.php:375
 #: admin/page-import.php:417
 msgid "Date of the entry"
 msgstr "Čas záznamu"
 
-#: admin/page-export.php:57 admin/page-import.php:376
+#: admin/page-export.php:63 admin/page-import.php:376
 #: admin/page-import.php:418
 msgid "IP address"
 msgstr "IP adresa"
 
-#: admin/page-export.php:58
+#: admin/page-export.php:64
 msgid "Host address"
 msgstr "Host adresa"
 
-#: admin/page-export.php:59 admin/page-import.php:377
-#: admin/page-import.php:419 admin/tabs/formtab.php:186
+#: admin/page-export.php:65 admin/page-import.php:377
+#: admin/page-import.php:419 admin/tabs/formtab.php:185
 #: admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr "Správa"
 
-#: admin/page-export.php:60 admin/page-import.php:379
+#: admin/page-export.php:66 admin/page-import.php:379
 msgid "\"is checked\" flag"
 msgstr "\"je označené\" vlajka"
 
-#: admin/page-export.php:61 admin/page-import.php:378
+#: admin/page-export.php:67 admin/page-import.php:378
 msgid "\"is spam\" flag"
 msgstr "\"je spam\" vlajka"
 
-#: admin/page-export.php:62
+#: admin/page-export.php:68
 msgid "\"is trash\" flag"
 msgstr "\"je odpad\" vlajka"
 
-#: admin/page-export.php:64
+#: admin/page-export.php:70
 msgid "The exporter does not delete any data, so your data will still be here."
 msgstr "Exportovač nezmazal žiadne dáta, takže vaše dáta budú stále tu."
 
-#: admin/page-export.php:70
+#: admin/page-export.php:75
 msgid "Export all entries from this website."
 msgstr "Exportovať všetky dáta z tejto webstránky."
 
-#: admin/page-export.php:74
+#: admin/page-export.php:79
 msgid "Start export"
 msgstr "Zahájiť export"
 
@@ -757,22 +767,22 @@ msgstr "Vy"
 msgid "No subscriber yet"
 msgstr "Zatial žiadny odoberatel"
 
-#: admin/page-gwolle-gb.php:220
+#: admin/page-gwolle-gb.php:221
 msgid "This is how you can get your guestbook displayed on your website:"
 msgstr "Ako zobraziť vašu knihu návštev na svojom webe:"
 
-#: admin/page-gwolle-gb.php:222
+#: admin/page-gwolle-gb.php:223
 msgid "Create a new page."
 msgstr "Vytvoriť novú stránku:"
 
-#: admin/page-gwolle-gb.php:223
+#: admin/page-gwolle-gb.php:224
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
 msgstr ""
 "Nastavte názov a do obsahu vpište &quot;[gwolle_gb]&quot; (bez úvodzoviek)"
 
-#: admin/page-gwolle-gb.php:224
+#: admin/page-gwolle-gb.php:225
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
@@ -780,57 +790,78 @@ msgstr ""
 "Pravdepodobne je dobrý nápad zakázať komentáre pre túto stránku; inak budú "
 "návštevníci dosť zmätení."
 
-#: admin/page-gwolle-gb.php:231
+#: admin/page-gwolle-gb.php:232
 msgid "These entries will be visible for your visitors:"
 msgstr "Tieto položky budú viditeľné pre vašich návštevníkov:"
 
-#: admin/page-gwolle-gb.php:233
+#: admin/page-gwolle-gb.php:234
 msgid "Marked as Checked."
 msgstr "Označený ako skontrolovaný."
 
-#: admin/page-gwolle-gb.php:234
+#: admin/page-gwolle-gb.php:235
 msgid "Not marked as Spam."
 msgstr "Nebol označený ako Spam."
 
-#: admin/page-gwolle-gb.php:235
+#: admin/page-gwolle-gb.php:236
 msgid "Not marked as Trash."
 msgstr "Nebol označený ako odpad."
 
-#: admin/page-gwolle-gb.php:239
+#: admin/page-gwolle-gb.php:240
 msgid "The Main Menu counter counts the following entries:"
 msgstr "Čítač v hlavnom menu počíta následujúce záznamy:"
 
-#: admin/page-gwolle-gb.php:241
+#: admin/page-gwolle-gb.php:242
 msgid "Marked as Unchecked (You might want to moderate them)."
 msgstr "Označené ako neskontrolované (Možno s nimi chcete pracovať)."
 
-#: admin/page-gwolle-gb.php:242
+#: admin/page-gwolle-gb.php:243
 msgid "Not marked as Spam (You might want to check them)."
 msgstr "Neoznačené ako Spam (Možno by ste ich mali skontrolovať)."
 
-#: admin/page-gwolle-gb.php:243
+#: admin/page-gwolle-gb.php:244
 msgid "Not marked as Trash (You decide what goes to the trash)."
 msgstr "Neoznačené ako odstránené (Rozhodnite sa, čo ide do koša)."
 
-#: admin/page-gwolle-gb.php:252
+#: admin/page-gwolle-gb.php:251
+msgid "This plugin is being maintained by Marcel Pol from"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:255
+#, fuzzy
+msgid "Review this plugin."
+msgstr "Přehled záznamů"
+
+#: admin/page-gwolle-gb.php:256
+msgid "If this plugin has any value to you, then please leave a review at"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:257
+msgid "The plugin page at wordpress.org."
+msgstr ""
+
+#: admin/page-gwolle-gb.php:258
+msgid "the plugin page at wordpress.org"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:261
 msgid "Donate to the EFF."
 msgstr "Darovať EFF."
 
-#: admin/page-gwolle-gb.php:256
+#: admin/page-gwolle-gb.php:262
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:257
+#: admin/page-gwolle-gb.php:263
 msgid "Please donate to the EFF."
 msgstr "Prosím darujte EFF."
 
-#: admin/page-gwolle-gb.php:262 admin/page-gwolle-gb.php:266
+#: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:267
 msgid "Donate to the maintainer."
 msgstr "Darujte tvorcovi."
 
-#: admin/page-gwolle-gb.php:265
+#: admin/page-gwolle-gb.php:266
 #, fuzzy
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
@@ -839,32 +870,41 @@ msgstr ""
 "Ak chcete radšej darovať peniaze tvorcovi tohto pluginu, môžete to urobiť "
 "cez Paypal."
 
-#: admin/page-gwolle-gb.php:266
+#: admin/page-gwolle-gb.php:267
 #, fuzzy
-msgid "Donate through PayPal to"
+msgid "Donate through"
 msgstr "Darujte cez Paypal"
 
-#: admin/page-gwolle-gb.php:335
+#: admin/page-gwolle-gb.php:267
+msgid "PayPal"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:268
+msgid "to"
+msgstr ""
+
+#: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
 msgstr "Vitajte v knihe návštev!"
 
-#: admin/page-gwolle-gb.php:336
+#: admin/page-gwolle-gb.php:339
 msgid "E-mail Notifications"
 msgstr "E-mail upozornenia"
 
-#: admin/page-gwolle-gb.php:337
-msgid "This plugin uses the following scripts/programs/images:"
-msgstr "Tento plugin používa následujúce skripty/programy/obrázky:"
+#: admin/page-gwolle-gb.php:340
+#, fuzzy
+msgid "Review and Donate"
+msgstr "Přehled záznamů"
 
-#: admin/page-gwolle-gb.php:338 admin/page-gwolle-gb.php:339
+#: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
 msgid "Help"
 msgstr "Nápoveda"
 
-#: admin/page-gwolle-gb.php:340
-msgid "Donate"
-msgstr "Darovať"
+#: admin/page-gwolle-gb.php:344
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr "Tento plugin používa následujúce skripty/programy/obrázky:"
 
-#: admin/page-gwolle-gb.php:345
+#: admin/page-gwolle-gb.php:349
 msgid "Gwolle Guestbook"
 msgstr "Kniha návštev Gwolle"
 
@@ -1059,13 +1099,14 @@ msgid "Comments from selected page."
 msgstr ""
 
 #: admin/page-import.php:513
+#, fuzzy
 msgid "Comments from selected post."
-msgstr ""
+msgstr "Vyberte stránku z ktorej chcete importovať komenty:"
 
 #: admin/page-import.php:514
 #, fuzzy
 msgid "All Comments"
-msgstr "Vše"
+msgstr "Komenty"
 
 #: admin/page-import.php:526
 msgid "Import guestbook entries from Gwolle-GB"
@@ -1075,27 +1116,27 @@ msgstr "Importovať záznamy z Gwolle-GB"
 msgid "Select a CSV file with exported entries to import again:"
 msgstr "Vyberte CSV súbor s exportovanými záznamami k opätovnému importu:"
 
-#: admin/page-settings.php:325
+#: admin/page-settings.php:326
 msgid "Form"
 msgstr "Formulár"
 
-#: admin/page-settings.php:326
+#: admin/page-settings.php:327
 msgid "Reading"
 msgstr "Čítanie"
 
-#: admin/page-settings.php:327
+#: admin/page-settings.php:328
 msgid "Admin"
 msgstr "Správca"
 
-#: admin/page-settings.php:328 frontend/write.php:229 frontend/write.php:260
+#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
-#: admin/page-settings.php:329
+#: admin/page-settings.php:330
 msgid "E-mail"
 msgstr "E-mail"
 
-#: admin/page-settings.php:330 admin/tabs/uninstalltab.php:45
+#: admin/page-settings.php:331 admin/tabs/uninstalltab.php:45
 msgid "Uninstall"
 msgstr "Odinštalovať"
 
@@ -1103,62 +1144,62 @@ msgstr "Odinštalovať"
 msgid "Submitting a new guestbook entry is only allowed for logged-in users."
 msgstr ""
 
-#: frontend/posthandling.php:203 frontend/posthandling.php:246
+#: frontend/posthandling.php:208 frontend/posthandling.php:251
 msgid "There were errors submitting your guestbook entry."
 msgstr "Došlo k chybám pri odoslaní záznamu do vašej knihy návštev."
 
-#: frontend/posthandling.php:209
+#: frontend/posthandling.php:214
 #, fuzzy
 msgid "Your name is not filled in, even though it is mandatory."
 msgstr "Položka nemá žiadny obsah, aj keď je to povinné."
 
-#: frontend/posthandling.php:212
+#: frontend/posthandling.php:217
 #, fuzzy
 msgid "Your origin is not filled in, even though it is mandatory."
 msgstr "Položka nemá žiadny obsah, aj keď je to povinné."
 
-#: frontend/posthandling.php:215
+#: frontend/posthandling.php:220
 #, fuzzy
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
 msgstr "Položka nemá žiadny obsah, aj keď je to povinné."
 
-#: frontend/posthandling.php:218
+#: frontend/posthandling.php:223
 #, fuzzy
 msgid "Your website is not filled in, even though it is mandatory."
 msgstr "Položka nemá žiadny obsah, aj keď je to povinné."
 
-#: frontend/posthandling.php:221
+#: frontend/posthandling.php:226
 #, fuzzy
 msgid "There is no message, even though it is mandatory."
 msgstr "Položka nemá žádný obsah, i když je to povinné."
 
-#: frontend/posthandling.php:224
+#: frontend/posthandling.php:229
 #, fuzzy
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
 msgstr "Položka nemá žiadny obsah, aj keď je to povinné."
 
-#: frontend/posthandling.php:227
+#: frontend/posthandling.php:232
 #, fuzzy
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr "Položka nemá žiadny obsah, aj keď je to povinné."
 
-#: frontend/posthandling.php:317
+#: frontend/posthandling.php:324
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 "Dvojitý príspevok: Položka s dátumom, kterú ste zadali už bola uložená."
 
-#: frontend/posthandling.php:333
+#: frontend/posthandling.php:341
 msgid "Thank you for your entry."
 msgstr "Ďakujem za príspevok."
 
-#: frontend/posthandling.php:335
+#: frontend/posthandling.php:343
 msgid "We will review it and unlock it in a short while."
 msgstr "Preskúmame a odomkneme to čím skor."
 
-#: frontend/posthandling.php:364 admin/tabs/emailtab.php:138
+#: frontend/posthandling.php:380 admin/tabs/emailtab.php:138
 #, fuzzy
 msgid ""
 "\n"
@@ -1186,11 +1227,11 @@ msgstr ""
 "pekný deň!\n"
 "Tvoj Gwolle-GB správca."
 
-#: frontend/posthandling.php:385 frontend/posthandling.php:451
+#: frontend/posthandling.php:401 frontend/posthandling.php:467
 msgid "New Guestbook Entry"
 msgstr "Nový záznam do knihy návštev"
 
-#: frontend/posthandling.php:432 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:448 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1225,18 +1266,23 @@ msgstr "Daľšia stránka"
 msgid "(no entries yet)"
 msgstr "(žiadne záznamy)"
 
-#: frontend/read.php:190
+#: frontend/read.php:192
 msgid "from"
 msgstr "z miesta"
 
-#: frontend/read.php:199
-msgid "wrote at"
+#: frontend/read.php:201
+msgid "wrote on"
 msgstr "napisal(a) dňa"
 
-#: frontend/read.php:203
+#: frontend/read.php:205
 #, fuzzy
-msgid "at"
+msgid "on"
 msgstr "Dátum"
+
+#: frontend/rss.php:84
+#, fuzzy
+msgid "Guestbook Entry by"
+msgstr "Text záznamu"
 
 #: frontend/widget.php:12
 msgid "Displays the recent guestbook entries."
@@ -1269,7 +1315,7 @@ msgstr ""
 #: frontend/widget.php:240
 #, fuzzy
 msgid "Show name of author."
-msgstr "Text"
+msgstr "Jméno"
 
 #: frontend/widget.php:246
 #, fuzzy
@@ -1292,36 +1338,40 @@ msgstr "Vyberte stránku knihy návštev:"
 msgid "Select page"
 msgstr "Vybrať stránku"
 
-#: frontend/write.php:100
+#: frontend/write.php:94
 msgid "Write a new entry."
 msgstr "Napíšte nový príspevok"
 
-#: frontend/write.php:114 admin/tabs/formtab.php:59
+#: frontend/write.php:102
+msgid "Log in to post an entry"
+msgstr ""
+
+#: frontend/write.php:129 admin/tabs/formtab.php:58
 msgid "Write a new entry for the Guestbook"
 msgstr "Napište nový záznam do knihy návštev"
 
-#: frontend/write.php:143 frontend/write.php:150 admin/tabs/formtab.php:126
+#: frontend/write.php:158 frontend/write.php:165 admin/tabs/formtab.php:125
 #: admin/tabs/readingtab.php:164
 msgid "City"
 msgstr "Mesto"
 
-#: frontend/write.php:162 frontend/write.php:169 admin/tabs/formtab.php:146
+#: frontend/write.php:177 frontend/write.php:184 admin/tabs/formtab.php:145
 msgid "Email"
 msgstr "Email"
 
-#: frontend/write.php:230
+#: frontend/write.php:283
 msgid "Question:"
 msgstr "Otázka"
 
-#: frontend/write.php:236
+#: frontend/write.php:289
 msgid "Answer"
 msgstr "Odpoveď"
 
-#: frontend/write.php:280
+#: frontend/write.php:333
 msgid "Submit"
 msgstr "Odoslať"
 
-#: frontend/write.php:289 admin/tabs/formtab.php:75
+#: frontend/write.php:342 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1376,7 +1426,7 @@ msgstr "Záznam bol presunutý do koša."
 msgid "Entry has been untrashed."
 msgstr "Záznam bol obnovený z koša."
 
-#: functions/function.misc.php:58
+#: functions/function.misc.php:63
 msgid "No content to display. This entry is empty."
 msgstr "Nič k zobrazeniu. Tento záznam je prázdny."
 
@@ -1405,7 +1455,7 @@ msgstr ""
 "takže poznáte ich stav (spam, skontrolované a odpad)."
 
 #: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
-#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:238
+#: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:252
 #: admin/tabs/readingtab.php:229
 msgid "Save settings"
 msgstr "Uložit nastavenia"
@@ -1680,61 +1730,70 @@ msgid ""
 "input-fields."
 msgstr ""
 
-#: admin/tabs/formtab.php:55
+#: admin/tabs/formtab.php:54
 #, fuzzy
 msgid "Header Text"
 msgstr "Text odkazu:"
 
-#: admin/tabs/formtab.php:64
+#: admin/tabs/formtab.php:63
 #, fuzzy
 msgid "You can set the header that is shown on top of the form."
 msgstr "Konfigurovať formulár ktorý má byť viditeľný pre návštevníkov."
 
-#: admin/tabs/formtab.php:70
+#: admin/tabs/formtab.php:69
 #, fuzzy
 msgid "Notice Text"
 msgstr "Text odkazu:"
 
-#: admin/tabs/formtab.php:87
+#: admin/tabs/formtab.php:86
 #, fuzzy
 msgid "You can set the content of the notice that gets shown below the form."
 msgstr ""
 "Môžete nastaviť obsah e-mailu, ktorý účastník dostane pri zadaní nové "
 "položky. Následujúce tagy sú podporované:"
 
-#: admin/tabs/formtab.php:89
+#: admin/tabs/formtab.php:88
 msgid "You can use the tag %ip% to show the ip address."
 msgstr ""
 
-#: admin/tabs/formtab.php:102
+#: admin/tabs/formtab.php:101
 msgid "Configure the form that is shown to visitors."
 msgstr "Konfigurovať formulár ktorý má byť viditeľný pre návštevníkov."
 
-#: admin/tabs/formtab.php:113 admin/tabs/formtab.php:133
-#: admin/tabs/formtab.php:153 admin/tabs/formtab.php:173
-#: admin/tabs/formtab.php:193 admin/tabs/formtab.php:213
-#: admin/tabs/formtab.php:228 admin/tabs/readingtab.php:147
-#: admin/tabs/readingtab.php:159 admin/tabs/readingtab.php:171
-#: admin/tabs/readingtab.php:183 admin/tabs/readingtab.php:196
-#: admin/tabs/readingtab.php:209 admin/tabs/readingtab.php:221
+#: admin/tabs/formtab.php:112 admin/tabs/formtab.php:132
+#: admin/tabs/formtab.php:152 admin/tabs/formtab.php:172
+#: admin/tabs/formtab.php:192 admin/tabs/formtab.php:212
+#: admin/tabs/formtab.php:227 admin/tabs/formtab.php:242
+#: admin/tabs/readingtab.php:147 admin/tabs/readingtab.php:159
+#: admin/tabs/readingtab.php:171 admin/tabs/readingtab.php:183
+#: admin/tabs/readingtab.php:196 admin/tabs/readingtab.php:209
+#: admin/tabs/readingtab.php:221
 msgid "Enabled"
 msgstr "Povolené"
 
-#: admin/tabs/formtab.php:121 admin/tabs/formtab.php:141
-#: admin/tabs/formtab.php:161 admin/tabs/formtab.php:181
-#: admin/tabs/formtab.php:201
+#: admin/tabs/formtab.php:120 admin/tabs/formtab.php:140
+#: admin/tabs/formtab.php:160 admin/tabs/formtab.php:180
+#: admin/tabs/formtab.php:200
 msgid "Mandatory"
 msgstr "Povinné"
 
-#: admin/tabs/formtab.php:206
+#: admin/tabs/formtab.php:205
+msgid "BBcode and Emoji"
+msgstr ""
+
+#: admin/tabs/formtab.php:215
+msgid "Will only be shown if the Message is enabled."
+msgstr ""
+
+#: admin/tabs/formtab.php:220
 msgid "Custom Anti-spam"
 msgstr "Vlastný Anti-Spam"
 
-#: admin/tabs/formtab.php:216 admin/tabs/formtab.php:231
+#: admin/tabs/formtab.php:230 admin/tabs/formtab.php:245
 msgid "When enabled it is mandatory."
 msgstr "Keď je to povolené, je to povinné."
 
-#: admin/tabs/formtab.php:221 admin/tabs/uninstalltab.php:63
+#: admin/tabs/formtab.php:235 admin/tabs/uninstalltab.php:63
 msgid "reCAPTCHA"
 msgstr "reCAPTCHA"
 
@@ -1857,7 +1916,7 @@ msgstr ""
 #: admin/tabs/readingtab.php:202
 #, fuzzy
 msgid "Content"
-msgstr "Záznam nemá žádný obsah, a to je povinné"
+msgstr "Položka nemá žádný obsah, i když je to povinné."
 
 #: admin/tabs/readingtab.php:214
 #, fuzzy
@@ -1913,6 +1972,9 @@ msgstr "Tiež zmazať reCAPTCHA kľúče"
 #: admin/tabs/uninstalltab.php:73
 msgid "Uninstall &raquo;"
 msgstr "Odinštalácia &raquo;"
+
+#~ msgid "Donate"
+#~ msgstr "Darovať"
 
 #~ msgid "Homepage"
 #~ msgstr "Webová stránka"
@@ -2115,9 +2177,6 @@ msgstr "Odinštalácia &raquo;"
 
 #~ msgid "Click here to view the entries of this guestbook..."
 #~ msgstr "Knikněte pro zobrazení záznamů v této knize..."
-
-#~ msgid "Review entries"
-#~ msgstr "Přehled záznamů"
 
 #~ msgid ""
 #~ "However, data such as HTML formating and gravatars are not supported by "

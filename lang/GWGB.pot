@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 12:11+0200\n"
+"POT-Creation-Date: 2015-06-13 14:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1200,11 +1200,11 @@ msgid "from"
 msgstr ""
 
 #: frontend/read.php:201
-msgid "wrote at"
+msgid "wrote on"
 msgstr ""
 
 #: frontend/read.php:205
-msgid "at"
+msgid "on"
 msgstr ""
 
 #: frontend/rss.php:84

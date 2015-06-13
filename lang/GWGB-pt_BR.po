@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle Guestbook v1.1.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-31 14:04+0200\n"
-"PO-Revision-Date: 2015-06-02 21:26+0100\n"
+"POT-Creation-Date: 2015-06-13 14:55+0200\n"
+"PO-Revision-Date: 2015-06-13 15:00+0100\n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: Alexandre Rocha <alexandretchrj@gmail.com>\n"
 "Language: pt_BR\n"
@@ -59,6 +59,12 @@ msgstr "Importar"
 #: actions.php:63
 msgid "Export"
 msgstr "Exportar"
+
+# @ GWGB
+#: actions.php:190 actions.php:194 frontend/rss.php:70 frontend/rss.php:73
+#, fuzzy
+msgid "Guestbook Feed"
+msgstr "Gwolle-GB - Livro de Visitas"
 
 # @ GWGB
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
@@ -269,7 +275,7 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr "Enviada como Ham para o serviço Akismet."
 
 # @ GWGB
-#: admin/page-editor.php:148 admin/page-gwolle-gb.php:354
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:355
 #: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr "Mudanças salvas."
@@ -1065,22 +1071,22 @@ msgstr "Bem-vindo ao Livro de Visitas!"
 msgid "E-mail Notifications"
 msgstr "Notificações por e-mail"
 
-# @ GWGB
 #: admin/page-gwolle-gb.php:340
-msgid "This plugin uses the following scripts/programs/images:"
-msgstr "Este plugin usa os seguintes scripts/programas/imagens:"
-
-# @ GWGB
-#: admin/page-gwolle-gb.php:341 admin/page-gwolle-gb.php:342
-msgid "Help"
-msgstr "Ajuda"
-
-#: admin/page-gwolle-gb.php:343
 msgid "Review and Donate"
 msgstr ""
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:348
+#: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
+msgid "Help"
+msgstr "Ajuda"
+
+# @ GWGB
+#: admin/page-gwolle-gb.php:344
+msgid "This plugin uses the following scripts/programs/images:"
+msgstr "Este plugin usa os seguintes scripts/programas/imagens:"
+
+# @ GWGB
+#: admin/page-gwolle-gb.php:349
 msgid "Gwolle Guestbook"
 msgstr "Livro de Visita Gwolle"
 
@@ -1348,7 +1354,7 @@ msgid "Admin"
 msgstr "Adminstração"
 
 # @ GWGB
-#: admin/page-settings.php:329 frontend/write.php:252 frontend/write.php:283
+#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
 msgid "Anti-spam"
 msgstr "Anti-Spam"
 
@@ -1533,13 +1539,19 @@ msgstr "desde"
 
 # @ GWGB
 #: frontend/read.php:201
-msgid "wrote at"
+msgid "wrote on"
 msgstr "escrito em"
 
 # @ GWGB
 #: frontend/read.php:205
-msgid "at"
+msgid "on"
 msgstr "em"
+
+# @ GWGB
+#: frontend/rss.php:84
+#, fuzzy
+msgid "Guestbook Entry by"
+msgstr "Mensagem"
 
 # @ GWGB
 #: frontend/widget.php:12
@@ -1631,21 +1643,21 @@ msgid "Email"
 msgstr "E-mail"
 
 # @ GWGB
-#: frontend/write.php:253
+#: frontend/write.php:283
 msgid "Question:"
 msgstr "Questão: "
 
 # @ GWGB
-#: frontend/write.php:259
+#: frontend/write.php:289
 msgid "Answer"
 msgstr "Resposta"
 
 # @ GWGB
-#: frontend/write.php:303
+#: frontend/write.php:333
 msgid "Submit"
 msgstr "Enviar"
 
-#: frontend/write.php:312 admin/tabs/formtab.php:74
+#: frontend/write.php:342 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"

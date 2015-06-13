@@ -369,6 +369,11 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.3.9 =
+* 2015-06-
+* Change 'at' time to 'on'.
+* Update pot and affected translations.
+
 = 1.3.8 =
 * 2015-06-10
 * Add RSS Feed.

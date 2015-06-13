@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-10 12:11+0200\n"
+"POT-Creation-Date: 2015-06-13 14:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -1280,11 +1280,11 @@ msgid "from"
 msgstr "uit"
 
 #: frontend/read.php:201
-msgid "wrote at"
+msgid "wrote on"
 msgstr "schreef op"
 
 #: frontend/read.php:205
-msgid "at"
+msgid "on"
 msgstr "om"
 
 #: frontend/rss.php:84
