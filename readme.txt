@@ -1,9 +1,9 @@
 === Gwolle-GB ===
 Contributors: Gwolle, mpol
-Tags: guestbook, guest book, comments, feedback, antispam, review
+Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.2.8
+Stable tag: 1.3.9
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -35,22 +35,23 @@ Current features include:
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
 * IP-address and host-logging with link to WHOIS query site.
-* Smiley integration (uses the WordPress smiley engine).
+* RSS Feed.
+* BBcode, Emoji and Smiley integration.
 * Easy uninstall routine for complete removal of all database changes.
 
 ... and all that integrated in the stylish WordPress look.
+
+= Import / Export =
 
 You may have another guestbook installed. That's great, because Gwolle-GB enables you to import entries easily.
 The importer does not delete any of your data, so you can go back to your previous setup without loss of data, if you want to.
 Trying Gwolle-GB is as easy as 1-2-3.
 
-= Import / Export =
-
 Import is supported from:
 
 * DMSGuestbook.
-* WordPress comments from a specific page.
-* Gwolle-GB itself, with Export supported as well.
+* WordPress comments from a specific post, page or just all comments.
+* Gwolle-GB itself, with Export supported as well (CSV-file).
 
 
 Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
@@ -64,14 +65,22 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * es_ES, José Luis Sanz Ruiz
 * fi, Ilkka Kivelä and Timo Hintsa
 * fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/) and [Florence Bourmault-Gohin](http://www.mon-coin-de-bourgogne.fr)
+* it_IT, Mariachiara Corradini
 * nl_NL, [Marcel Pol](http://zenoweb.nl)
 * pl_PL, Andrzej Sobaniec
+* pt_BR, [Alexandre Rocha](http://alexandre-rocha.com)
 * pt_PT, Jose Quintas
 * ru_RU, zhonglyor
+* sk_SK, Marcel Klacan
+* sv_SE, [Roffe Bentsen](http://macodesign.se)
 * zh_TW, Chun-I Lee
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
 
+
+= Demo =
+
+Check out the demo at [http://demo.zenoweb.nl](http://demo.zenoweb.nl/wordpress-plugins/gwolle-gb/)
 
 == Installation ==
 
@@ -109,13 +118,16 @@ For the licences regarding the use of reCAPTCHA you may ask the authors.
 The current todolist is slowly getting shorter. If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
-* Import from certain post or just all comments.
-* Form: Add smileys to the form, maybe even emoji?
 * Editor: add options to change the date.
-* Frontend: add option to show only one entry with $_GET entry_id.
+* Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
-* Form: there is a request for a country dropdown, is it a good idea?
-* SEO: add title and desc of first entry to SEO meta in html (is this possible?).
+* Frontend: Make it possible for an admin to reply to an entry (extra db field).
+* Widget: add option to not show admin entries.
+* Settings: have button disabled with certain options, untill checkbox is clicked.
+* Settings: save all tabs when saving.
+* SEO: add title and desc of first entry to SEO meta in html (probably with javascript).
+* Reading: load alternative template from themes for single-entry if available.
+* Posting: trigger most cache plugins to update their cache.
 
 = API, add an entry =
 
@@ -223,7 +235,8 @@ The header needs to look like this:
 	)
 	?>
 
-The next lines are made up of the content. Date needs to be a UNIX timestamp.
+The next lines are made up of the content. Date needs to be a UNIX timestamp. For manually creating a timestamp, look at
+the [timestamp generator](http://www.timestampgenerator.com/).
 You could make a test-entry, export that, and look to see what the importer expects from the CSV.
 Make sure you use UNIX line-endings. Any decent text-editor can transform a textdocument to UNIX line-endings.
 
@@ -275,6 +288,19 @@ This plugin doesn't apply any CSS to the label elements. It is possible that you
 You can check this with the Inspector in your browser. If that is the case, you have a theme or plugin that is applying that CSS to your
 label elements. Please contact them.
 
+= I would like to have the form visible by default. =
+
+You could add custom CSS to your website/theme like this:
+
+	body form#gwolle_gb_new_entry {
+		display: block;
+	}
+	body form#gwolle_gb_write_button {
+		display: none;
+	}
+
+That should do the trick.
+
 = I don't get a notification email. =
 
 First check your spambox in your mailaccount.
@@ -297,6 +323,18 @@ If a user with capability of 'moderate_comments' posts an entry, it will be mark
 
 There is validation of the length of words in the content and author name. If the words are too long and it looks
 abusive, it will be marked as unchecked. A moderator will still be needed to manually edit and check these entries.
+
+= When opening the RSS Feed, I get a Error 404 =
+
+You can refresh your rewrite rules, by going to Settings / Permalinks, and save your permalinks again.
+This will most likely add the rewrite rule for the RSS Feed.
+
+= I use a caching plugin, and my entries are not visible after posting =
+
+When you have moderation disabled, Gwolle-GB will try to refresh the cache. If it doesn't on your setup,
+please let me know which caching plugin you use, and support for it might be added.
+If you use moderation, and check your entries manually, then you should also refresh or delete your cache manually.
+Most caching plugins offer support for that.
 
 = What capabilities are needed? =
 
@@ -324,12 +362,93 @@ Yes, it is again actively maintained.
 1. Frontend view of the list of guestbook entries. On top the button that will show the form when clicked. Then pagination. Then the list of entries.
 2. Dashboard widget with new and unchecked entries.
 3. Main page with the overview panel, so that you easily can see what's the overall status.
-2. List of guestbook entries. Notice the icons displaying the status of an entry (Can be turned off in the settings panel).
+2. List of guestbook entries. The icons display the status of an entry.
 3. The editor for a single entry. The Actions are using AJAX. There is a log of each entry what happened to this entry.
-4. Settings panel, showing version 1.1.4. This is the first tab where you can select which parts of the form to show and use.
+4. Settings panel. This is the first tab where you can select which parts of the form to show and use.
 
 
 == Changelog ==
+
+= 1.3.9 =
+* 2015-06-13
+* Fix for WP 3.4, which has no function has_shortcode.
+* Change 'at' time to 'on'.
+* Update pot and affected translations.
+
+= 1.3.8 =
+* 2015-06-10
+* Add RSS Feed.
+* Set scoped properly.
+* Update pot, nl_NL, ru_RU.
+
+= 1.3.7 =
+* 2015-06-04
+* Add Emoji to form.
+* Add action to frontend form for validation.
+* Add scoped attribute to style element.
+* Switch place of metaboxes on main admin page.
+* Add sv_SE (Swedish) (thanks Roffe Bentsen).
+* Update pt_BR.
+
+= 1.3.6 =
+* 2015-05-31
+* Close span element in widget (thanks Ferdinand).
+* Redo Donate metabox, add Review text.
+* Add pt_BR (Thanks Alexandre Rocha).
+* Update pot, nl_NL and ru_RU.
+
+= 1.3.5 =
+* 2015-05-19
+* Support BBcode in editor.
+* Improve Emoji support, for name, city and content.
+* Fix posting an entry on old WP installs.
+* Update bg_BG, nl_NL, pot.
+
+= 1.3.4 =
+* 2015-05-15
+* Update the cache when using cache plugins.
+* Support WP Super Cache.
+* Convert our database tables to utf8mb4 if possible, so Emoji are functional.
+* Also support (encode) Emoji on old db-collation.
+* Frontend: Only listen to clicks on the button, not the whole div.
+* Update ru_RU.
+
+= 1.3.3 =
+* 2015-05-08
+* Only check for double entry if the content is mandatory.
+* Only offer to export when there are entries.
+* When login required, show login form.
+* Also show the register link then.
+* Update ru_RU.
+
+= 1.3.2 =
+* 2015-04-20
+* PageNum is always an int.
+* Add sk_SK (Slovenian) (Thanks Marcel Klacan).
+
+= 1.3.1 =
+* 2015-04-08
+* Explain interaction between limiting words and linebreaks.
+* Make notices (messages) dismissible in WP 4.2.
+* Import from post, or just all comments.
+* Only show pages and posts with comments on import page.
+* Use get_comments everywhere, also for counting, for consistency.
+* Really sanitize everywhere.
+* Use htmlspecialchars instead of htmlentities.
+* Use esc_attr_e for attributes.
+* Add it_IT (thanks Mariachiara Corradini).
+* Update pot, nl_NL.
+
+= 1.3.0 =
+* 2015-04-02
+* Place div around list of entries.
+* Update bg_BG, fr_FR.
+
+= 1.2.9 =
+* 2015-03-28
+* Sanitize output for notification email.
+* Remove "hours" from the entries list. Nobody likes it.
+* Update bg_BG, ru_RU.
 
 = 1.2.8 =
 * 2015-03-25

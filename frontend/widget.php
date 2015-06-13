@@ -129,7 +129,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
-						$widget_html .= '<span class="gb-entry-content">' . $entry_content . '</span';
+						$widget_html .= '<span class="gb-entry-content">' . $entry_content . '</span>';
 						$widget_html .= '
 										</li>
 										';

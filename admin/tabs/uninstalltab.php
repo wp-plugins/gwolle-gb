@@ -70,7 +70,7 @@ function gwolle_gb_page_settingstab_uninstall( $uninstalled ) {
 		<tr>
 			<td colspan="2">
 				<p class="submit">
-					<input type="submit" name="Submit" class="button-primary" value="<?php _e('Uninstall &raquo;', GWOLLE_GB_TEXTDOMAIN); ?>" />
+					<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Uninstall &raquo;', GWOLLE_GB_TEXTDOMAIN); ?>" />
 				</p>
 			</td>
 		</tr>
