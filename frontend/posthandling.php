@@ -424,6 +424,7 @@ Entry content:
 			// The last tags are bloginfo-based
 			for ($tagNum = 0; $tagNum < count($mailTags); $tagNum++) {
 				$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
+				$mail_body = gwolle_gb_format_values_for_mail( $mail_body );
 			}
 
 			if ( is_array($subscribers) && !empty($subscribers) ) {
@@ -481,6 +482,7 @@ Entry content:
 				$info['entry_content'] = gwolle_gb_format_values_for_mail(gwolle_gb_sanitize_output( $entry->get_content() ));
 				for ($tagNum = 0; $tagNum < count($mailTags); $tagNum++) {
 					$mail_body = str_replace('%' . $mailTags[$tagNum] . '%', $info[$mailTags[$tagNum]], $mail_body);
+					$mail_body = gwolle_gb_format_values_for_mail( $mail_body );
 				}
 
 				wp_mail($entry->get_author_email(), $subject, $mail_body, $header);

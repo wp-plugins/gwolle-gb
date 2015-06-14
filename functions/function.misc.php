@@ -44,6 +44,8 @@ function gwolle_gb_sanitize_output($output) {
 function gwolle_gb_format_values_for_mail($value) {
 	$value = str_replace('<', '{', $value);
 	$value = str_replace('>', '}', $value);
+	$value = str_replace('&quot;','\"', $value);
+	$value = str_replace('&#39;', '\'', $value);
 	return $value;
 }
 

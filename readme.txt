@@ -369,6 +369,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.4.0 =
+* 2015-06-
+* Fix quoting issues in notification email.
+
 = 1.3.9 =
 * 2015-06-13
 * Fix for WP 3.4, which has no function has_shortcode.
