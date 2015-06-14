@@ -357,14 +357,14 @@ We reserve our right to edit, delete, or not publish entries.
 		</form>';
 
 	if ( get_option( 'gwolle_gb-labels_float', 'true' ) === 'true' ) {
-		?>
-		<style type='text/css' scoped>
+		$output .= '
+		<style type="text/css" scoped>
 			#gwolle_gb .label,
 			#gwolle_gb .input {
 				float: left;
 			}
 		</style>
-		<?php
+		';
 	}
 
 

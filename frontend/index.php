@@ -35,14 +35,14 @@ function get_gwolle_gb() {
 	if ( $gwolle_gb_errors ) {
 		// Errors, show the Form again, not the Button
 		$output .= '
-			<style>
+			<style type="text/css" scoped>
 				div#gwolle_gb_write_button { display:none; }
 			</style>
 		';
 	} else {
 		// No errors, just the Button, not the Form
 		$output .= '
-			<style>
+			<style type="text/css" scoped>
 				form#gwolle_gb_new_entry { display:none; }
 				div#gwolle_gb_new_entry { display:none; }
 			</style>
@@ -88,7 +88,7 @@ function get_gwolle_gb_write() {
 	$output .= '</div>';
 
 	$output .= '
-		<style>
+		<style type="text/css" scoped>
 			div#gwolle_gb_write_button { display:none; }
 		</style>
 	';

@@ -372,6 +372,8 @@ Yes, it is again actively maintained.
 = 1.4.0 =
 * 2015-06-
 * Fix quoting issues in notification email.
+* Fix sending headers in write.php.
+* Set scoped attribute for more CSS.
 
 = 1.3.9 =
 * 2015-06-13
