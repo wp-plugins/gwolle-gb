@@ -374,7 +374,7 @@ function gwolle_gb_frontend_posthandling() {
 			@ini_set('sendmail_from', get_bloginfo('admin_mail'));
 
 			// Set the Mail Content
-			$mailTags = array('user_email', 'user_name', 'status', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content');
+			$mailTags = array('user_email', 'user_name', 'status', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content', 'author_ip');
 			$mail_body = gwolle_gb_sanitize_output( get_option( 'gwolle_gb-adminMailContent', false ) );
 			if (!$mail_body) {
 				$mail_body = __("
@@ -415,6 +415,7 @@ Entry content:
 			$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
 			$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id();
 			$info['entry_content'] = gwolle_gb_format_values_for_mail(gwolle_gb_sanitize_output( $entry->get_content() ));
+			$info['author_ip'] = $_SERVER['REMOTE_ADDR'];
 			if ( $entry->get_ischecked() ) {
 				$info['status'] = "Checked";
 			} else {

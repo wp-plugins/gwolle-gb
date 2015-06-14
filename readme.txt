@@ -374,6 +374,10 @@ Yes, it is again actively maintained.
 
 == Changelog ==
 
+= 1.4.1 =
+* 2015-06-
+* Add author_ip to possible fields in notification mail.
+
 = 1.4.0 =
 * 2015-06-14
 * Add template for single entry.
