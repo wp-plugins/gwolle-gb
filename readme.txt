@@ -370,7 +370,8 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.4.0 =
-* 2015-06-
+* 2015-06-14
+* Add template for single entry.
 * Fix quoting issues in notification email.
 * Fix sending headers in write.php.
 * Set scoped attribute for more CSS.
