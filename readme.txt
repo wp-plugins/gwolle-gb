@@ -374,6 +374,7 @@ Yes, it is again actively maintained.
 * Fix quoting issues in notification email.
 * Fix sending headers in write.php.
 * Set scoped attribute for more CSS.
+* Set language for RSS Feed.
 
 = 1.3.9 =
 * 2015-06-13

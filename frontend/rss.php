@@ -52,6 +52,17 @@ function gwolle_gb_rss() {
 		$permalink = get_bloginfo('url');
 	}
 
+	/* Get the Language setting */
+	$WPLANG = get_option('WPLANG', false);
+	if ( !$WPLANG ) {
+		$WPLANG = WPLANG;
+	}
+	if ( !$WPLANG ) {
+		$WPLANG = 'en-us';
+	}
+	$WPLANG = str_replace( '_', '-', $WPLANG );
+	$WPLANG = strtolower( $WPLANG );
+
 	/* Build the XML content */
 	header('Content-Type: ' . feed_content_type('rss-http') . '; charset=' . get_option('blog_charset'), true);
 	echo '<?xml version="1.0" encoding="' . get_option('blog_charset') . '"?' . '>';
@@ -72,7 +83,7 @@ function gwolle_gb_rss() {
 			<link><?php echo $permalink; ?></link>
 			<description><?php bloginfo_rss('description'); echo " - " . __('Guestbook Feed', GWOLLE_GB_TEXTDOMAIN); ?></description>
 			<lastBuildDate><?php echo $lastbuild; ?></lastBuildDate>
-			<language><?php echo get_option('rss_language'); ?></language>
+			<language><?php echo $WPLANG; ?></language>
 			<sy:updatePeriod><?php echo apply_filters( 'rss_update_period', 'hourly' ); ?></sy:updatePeriod>
 			<sy:updateFrequency><?php echo apply_filters( 'rss_update_frequency', '1' ); ?></sy:updateFrequency>
 			<?php do_action('rss2_head'); ?>
