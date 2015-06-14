@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.3.9
+Stable tag: 1.4.0
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -341,6 +341,11 @@ Most caching plugins offer support for that.
 For moderating comments you need the capability 'moderate_comments'.
 
 For managing options you need the capability 'manage_options'.
+
+= Can I override a template? =
+
+You can look at frontend/gwolle_gb-entry.php, and copy it to your theme folder. Then it will be loaded by the plugin.
+Make sure you keep track of changes in the default templatefile though.
 
 = Should I really not use WordPress comments for a guestbook? =
 
