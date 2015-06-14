@@ -417,9 +417,9 @@ Entry content:
 			$info['entry_content'] = gwolle_gb_format_values_for_mail(gwolle_gb_sanitize_output( $entry->get_content() ));
 			$info['author_ip'] = $_SERVER['REMOTE_ADDR'];
 			if ( $entry->get_ischecked() ) {
-				$info['status'] = "Checked";
+				$info['status'] = __('Checked', GWOLLE_GB_TEXTDOMAIN);
 			} else {
-				$info['status'] = "Unchecked";
+				$info['status'] = __('Unchecked', GWOLLE_GB_TEXTDOMAIN);
 			}
 
 			// The last tags are bloginfo-based
