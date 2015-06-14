@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-13 14:55+0200\n"
+"POT-Creation-Date: 2015-06-14 19:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,17 +51,17 @@ msgstr ""
 msgid "Export"
 msgstr ""
 
-#: actions.php:190 actions.php:194 frontend/rss.php:70 frontend/rss.php:73
+#: actions.php:190 actions.php:194 frontend/rss.php:81 frontend/rss.php:84
 msgid "Guestbook Feed"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/read.php:236
+#: frontend/gwolle_gb-entry.php:107
 msgid "Edit entry"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/read.php:236
+#: frontend/gwolle_gb-entry.php:107
 msgid "Edit"
 msgstr ""
 
@@ -1085,6 +1085,18 @@ msgstr ""
 msgid "Uninstall"
 msgstr ""
 
+#: frontend/gwolle_gb-entry.php:63
+msgid "from"
+msgstr ""
+
+#: frontend/gwolle_gb-entry.php:72
+msgid "wrote on"
+msgstr ""
+
+#: frontend/gwolle_gb-entry.php:76
+msgid "on"
+msgstr ""
+
 #: frontend/posthandling.php:39
 msgid "Submitting a new guestbook entry is only allowed for logged-in users."
 msgstr ""
@@ -1156,11 +1168,11 @@ msgid ""
 "%entry_content%\n"
 msgstr ""
 
-#: frontend/posthandling.php:401 frontend/posthandling.php:467
+#: frontend/posthandling.php:401 frontend/posthandling.php:468
 msgid "New Guestbook Entry"
 msgstr ""
 
-#: frontend/posthandling.php:448 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:449 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1195,19 +1207,7 @@ msgstr ""
 msgid "(no entries yet)"
 msgstr ""
 
-#: frontend/read.php:192
-msgid "from"
-msgstr ""
-
-#: frontend/read.php:201
-msgid "wrote on"
-msgstr ""
-
-#: frontend/read.php:205
-msgid "on"
-msgstr ""
-
-#: frontend/rss.php:84
+#: frontend/rss.php:95
 msgid "Guestbook Entry by"
 msgstr ""
 
@@ -1351,7 +1351,7 @@ msgstr ""
 msgid "Entry has been untrashed."
 msgstr ""
 
-#: functions/function.misc.php:63
+#: functions/function.misc.php:65
 msgid "No content to display. This entry is empty."
 msgstr ""
 
