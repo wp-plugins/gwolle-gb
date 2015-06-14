@@ -52,6 +52,13 @@ function install_gwolle_gb() {
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
 
+	/* Upgrade to new shiny db collation. Since WP 4.2 */
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	if ( function_exists('maybe_convert_table_to_utf8mb4') ) {
+		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_entries );
+		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_log );
+	}
+
 	// Add reCAPTCHA options
 	add_option('recaptcha-public-key', '');
 	add_option('recaptcha-private-key', '');
@@ -85,6 +92,10 @@ function install_gwolle_gb() {
 
 	//	Save plugin version to database
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
+
+	// Call flush_rules() as a method of the $wp_rewrite object for the RSS Feed.
+	global $wp_rewrite;
+	$wp_rewrite->flush_rules( false );
 }
 
 
@@ -425,7 +436,26 @@ function upgrade_gwolle_gb() {
 		delete_option('gwolle_gb-recaptcha-active');
 	}
 
-	// Update the plugin version option
+	if (version_compare($installed_ver, '1.3.8', '<')) {
+		/*
+		 * 1.3.7->1.3.8
+		 * Call flush_rules() as a method of the $wp_rewrite object for the RSS Feed.
+		 */
+		global $wp_rewrite;
+		$wp_rewrite->flush_rules( false );
+	}
+
+	/* Upgrade to new shiny db collation. Since WP 4.2 */
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	if ( function_exists('maybe_convert_table_to_utf8mb4') ) {
+		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_entries );
+		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_log );
+	}
+
+
+	/* Update the plugin version option */
 	update_option('gwolle_gb_version', GWOLLE_GB_VER);
 }
+
+
 
