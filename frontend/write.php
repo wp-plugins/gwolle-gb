@@ -228,9 +228,9 @@ function gwolle_gb_frontend_write() {
 
 		if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
 			// BBcode and MarkItUp
-			wp_enqueue_script( 'markitup', plugins_url('markitup/jquery.markitup.js', __FILE__), 'jquery', '1.1.14', false );
-			wp_enqueue_script( 'markitup_set', plugins_url('markitup/set.js', __FILE__), 'jquery', '1.1.14', false );
-			wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('markitup/style.css', __FILE__), false, '1.1.14',  'screen');
+			wp_enqueue_script( 'markitup', plugins_url('markitup/jquery.markitup.js', __FILE__), 'jquery', GWOLLE_GB_VER, false );
+			wp_enqueue_script( 'markitup_set', plugins_url('markitup/set.js', __FILE__), 'jquery', GWOLLE_GB_VER, false );
+			wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('markitup/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
 			// Emoji symbols
 			$output .= '<div class="gwolle_gb_emoji" style="display:none;">';
 			$output .= '

@@ -377,6 +377,8 @@ Yes, it is again actively maintained.
 = 1.4.1 =
 * 2015-06-
 * Add author_ip to possible fields in notification mail.
+* Use Gwolle version for enqueue of markitup css and js.
+* Add a bit of reset-CSS to markitup CSS.
 
 = 1.4.0 =
 * 2015-06-14
