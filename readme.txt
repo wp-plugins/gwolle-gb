@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.2
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -377,10 +377,10 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.4.1 =
-* 2015-06-
+* 2015-06-17
 * Add author_ip to possible fields in notification mail.
-* Use Gwolle version for enqueue of markitup css and js.
-* Add a bit of reset-CSS to markitup CSS.
+* Use Gwolle version for enqueue of Markitup css and js.
+* Add a bit of reset-CSS to Markitup CSS so themes are less conflicting.
 * Show author name as it was put in by the author, not from the user profile.
 * Add da_DK (thanks Bo Fischer Nielsen).
 
