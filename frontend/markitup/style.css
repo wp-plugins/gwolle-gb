@@ -39,6 +39,11 @@
 /***************************************************************************************/
 /* first row of buttons */
 .markItUpHeader ul li	{
+	/* Reset for theme's CSS */
+	margin: 0;
+	padding: 0;
+	content: '';
+	/* End of reset */
 	list-style:none;
 	float:left;
 	position:relative;
