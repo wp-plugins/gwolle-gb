@@ -61,6 +61,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
 * bg_BG, Kostadin Petrichkov
 * cs_CZ, Jan Korous
+* da_DK, [Bo Fischer Nielsen](http://bfn.dk)
 * de_DE, Jenny Gaulke and Eckhard Henkel
 * es_ES, José Luis Sanz Ruiz
 * fi, Ilkka Kivelä and Timo Hintsa
@@ -381,6 +382,7 @@ Yes, it is again actively maintained.
 * Use Gwolle version for enqueue of markitup css and js.
 * Add a bit of reset-CSS to markitup CSS.
 * Show author name as it was put in by the author, not from the user profile.
+* Add da_DK (thanks Bo Fischer Nielsen).
 
 = 1.4.0 =
 * 2015-06-14
