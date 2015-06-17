@@ -118,16 +118,17 @@ For the licences regarding the use of reCAPTCHA you may ask the authors.
 The current todolist is slowly getting shorter. If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
-* Editor: add options to change the date.
-* Frontend: add option to show only one entry with $_GET entry_id (use no-follow links).
+* Editor: Add options to change the date.
+* Editor: Add option to change the name.
+* Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
-* Widget: add option to not show admin entries.
-* Settings: have button disabled with certain options, untill checkbox is clicked.
-* Settings: save all tabs when saving.
-* SEO: add title and desc of first entry to SEO meta in html (probably with javascript).
-* Reading: load alternative template from themes for single-entry if available.
-* Posting: trigger most cache plugins to update their cache.
+* Widget: Add option to not show admin entries.
+* Settings: Have button disabled with certain options, untill checkbox is clicked.
+* Settings: Save all tabs when saving.
+* SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
+* Reading: Load alternative template from themes for single-entry if available.
+* Posting: Trigger most cache plugins to update their cache.
 
 = API, add an entry =
 
