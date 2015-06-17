@@ -13,8 +13,14 @@ function gwolle_gb_page_editor() {
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
 		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
-	}
+	} ?>
 
+	<!-- Do not replace Emoji with <img> elements in textarea, it screws saving the entry -->
+	<script type="text/javascript">
+		window._wpemojiSettings = '';
+	</script>
+
+	<?php
 	if (!get_option('gwolle_gb_version')) {
 		// FIXME: do this on activation
 		gwolle_gb_installSplash();
@@ -110,7 +116,8 @@ function gwolle_gb_page_editor() {
 				/* Check if the content changed, and update accordingly */
 				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
 					if ( $_POST['gwolle_gb_content'] != $entry->get_content() ) {
-						$entry->set_content( $_POST['gwolle_gb_content'] );
+						$entry_content = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_content'], 'content' );
+						$entry->set_content( $entry_content );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
@@ -128,7 +135,8 @@ function gwolle_gb_page_editor() {
 				/* Check if the author_origin changed, and update accordingly */
 				if ( isset($_POST['gwolle_gb_author_origin']) ) {
 					if ( $_POST['gwolle_gb_author_origin'] != $entry->get_author_origin() ) {
-						$entry->set_author_origin( $_POST['gwolle_gb_author_origin'] );
+						$entry_origin = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_author_origin'], 'author_origin' );
+						$entry->set_author_origin( $entry_origin );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
@@ -182,6 +190,7 @@ function gwolle_gb_page_editor() {
 					$author_email = $userdata->user_email;
 				}
 				$data['author_name'] = $author_name;
+				$data['author_name'] = gwolle_gb_maybe_encode_emoji( $data['author_name'], 'author_name' );
 				$data['author_email'] = $author_email;
 
 				/* Set as Not Spam */
@@ -193,6 +202,7 @@ function gwolle_gb_page_editor() {
 				/* Check if the content is filled in, and update accordingly */
 				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
 					$data['content'] = $_POST['gwolle_gb_content'];
+					$data['content'] = gwolle_gb_maybe_encode_emoji( $data['content'], 'content' );
 					$saved = true;
 				} else {
 					$form_setting = gwolle_gb_get_setting( 'form' );
@@ -218,6 +228,7 @@ function gwolle_gb_page_editor() {
 				if ( isset($_POST['gwolle_gb_author_origin']) ) {
 					if ( $_POST['gwolle_gb_author_origin'] != '' ) {
 						$data['author_origin'] = $_POST['gwolle_gb_author_origin'];
+						$data['author_origin'] = gwolle_gb_maybe_encode_emoji( $data['author_origin'], 'author_origin' );
 					}
 				}
 
@@ -255,7 +266,7 @@ function gwolle_gb_page_editor() {
 			<?php
 			if ( $gwolle_gb_messages ) {
 				echo '
-					<div id="message" class="updated fade ' . $gwolle_gb_errors . ' ">' .
+					<div id="message" class="updated fade notice is-dismissible ' . $gwolle_gb_errors . ' ">' .
 						$gwolle_gb_messages .
 					'</div>';
 			}
@@ -308,7 +319,7 @@ function gwolle_gb_page_editor() {
 
 							<div id="submitdiv" class="postbox">
 								<div class="handlediv"></div>
-								<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Options', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Options', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 								<div class="inside">
 									<div class="submitbox" id="submitpost">
 										<div id="minor-publishing">
@@ -389,7 +400,7 @@ function gwolle_gb_page_editor() {
 
 										<div id="major-publishing-actions">
 											<div id="publishing-action">
-												<input name="save" type="submit" class="button-primary" id="publish" tabindex="4" accesskey="p" value="<?php _e('Save', GWOLLE_GB_TEXTDOMAIN); ?>" />
+												<input name="save" type="submit" class="button-primary" id="publish" tabindex="4" accesskey="p" value="<?php esc_attr_e('Save', GWOLLE_GB_TEXTDOMAIN); ?>" />
 											</div> <!-- publishing-action -->
 											<div class="clear"></div>
 										</div><!-- 'major-publishing-actions' -->
@@ -401,7 +412,7 @@ function gwolle_gb_page_editor() {
 							if ( $entry->get_id() > 0 ) { ?>
 							<div id="submitdiv" class="postbox">
 								<div class="handlediv"></div>
-								<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Actions', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Actions', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 								<div class="inside">
 									<div class="submitbox" id="submitpost">
 										<div id="minor-publishing">
@@ -445,7 +456,7 @@ function gwolle_gb_page_editor() {
 
 							<div id="gwolle_gb-entry-details" class="postbox " >
 								<div class="handlediv"></div>
-								<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Details', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Details', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 								<div class="inside">
 									<div class="tagsdiv" id="post_tag">
 										<p>
@@ -500,7 +511,7 @@ function gwolle_gb_page_editor() {
 
 							<div id="tagsdiv-post_tag" class="postbox">
 								<div class="handlediv"></div>
-								<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 								<div class="inside">
 									<div class="tagsdiv" id="post_tag">
 										<div id="categories-pop" class="tabs-panel gwolle_gb_log">
@@ -535,18 +546,24 @@ function gwolle_gb_page_editor() {
 							<div id='normal-sortables' class='meta-box-sortables'>
 								<div id="contentdiv" class="postbox" >
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<textarea rows="10" cols="56" name="gwolle_gb_content" tabindex="1"><?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?></textarea>
+										<textarea rows="10" cols="56" name="gwolle_gb_content" id="gwolle_gb_content" tabindex="1"><?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?></textarea>
 										<?php
 										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
 											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', GWOLLE_GB_TEXTDOMAIN), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
+										}
+										$form_setting = gwolle_gb_get_setting( 'form' );
+										if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
+											wp_enqueue_script( 'markitup', plugins_url('../frontend/markitup/jquery.markitup.js', __FILE__), 'jquery', '1.1.14', false );
+											wp_enqueue_script( 'markitup_set', plugins_url('../frontend/markitup/set.js', __FILE__), 'jquery', '1.1.14', false );
+											wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('../frontend/markitup/style.css', __FILE__), false, '1.1.14',  'screen');
 										} ?>
 									</div>
 								</div>
 								<div id="authordiv" class="postbox " >
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
 										<input type="text" name="gwolle_gb_author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_website() ); ?>" id="author_website" />
 										<p><?php _e("Example: <code>http://www.example.com/</code>", GWOLLE_GB_TEXTDOMAIN); ?></p>
@@ -554,7 +571,7 @@ function gwolle_gb_page_editor() {
 								</div>
 								<div id="authordiv" class="postbox ">
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php _e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
 										<input type="text" name="gwolle_gb_author_origin" size="58" tabindex="3" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_origin() ); ?>" id="author_origin" />
 									</div>

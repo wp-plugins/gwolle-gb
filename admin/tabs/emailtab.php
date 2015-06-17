@@ -25,7 +25,7 @@ function gwolle_gb_page_settingstab_email() {
 		<tr valign="top">
 			<th scope="row"><label for="admin_mail_from"><?php _e('Admin mail from address', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td>
-				<input type="text" name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo get_option('gwolle_gb-mail-from', false); ?>" placeholder="info@example.com" />
+				<input type="text" name="admin_mail_from" id="admin_mail_from" class="regular-text" value="<?php echo gwolle_gb_sanitize_output( get_option('gwolle_gb-mail-from', false) ); ?>" placeholder="info@example.com" />
 				<br />
 				<span class="setting-description">
 					<?php
@@ -159,14 +159,14 @@ Entry content:
 				<span class="setting-description">
 					<?php _e('You can set the content of the mail that a notification subscriber gets on new entries. The following tags are supported:', GWOLLE_GB_TEXTDOMAIN);
 					echo '<br />';
-					$mailTags = array('user_email', 'user_name', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content', 'status');
+					$mailTags = array('user_email', 'user_name', 'entry_management_url', 'blog_name', 'blog_url', 'wp_admin_url', 'entry_content', 'status', 'author_ip');
 					for ($i = 0; $i < count($mailTags); $i++) {
 						if ($i != 0) {
 							echo ', ';
 						}
 						echo '%' . $mailTags[$i] . '%';
 					}
-					?>
+					echo "."; ?>
 				</span>
 			</td>
 		</tr>
@@ -232,7 +232,7 @@ Entry content:
 		<tr>
 			<td colspan="2">
 				<p class="submit">
-					<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
+					<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
 				</p>
 			</td>
 		</tr>

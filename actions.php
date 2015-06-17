@@ -87,9 +87,10 @@ add_filter( 'plugin_action_links', 'gwolle_gb_links', 10, 2 );
 /*
  * gwolle_gb_handle_post
  * Handle the $_POST for the Frontend.
+ * Use this action, since we have a $post already and can use get_the_ID().
  */
 
-add_action('after_setup_theme', 'gwolle_gb_handle_post');
+add_action('wp', 'gwolle_gb_handle_post');
 function gwolle_gb_handle_post() {
 	if ( !is_admin() ) {
 		// Frontend Handling of $_POST, only one form
@@ -133,7 +134,7 @@ function gwolle_gb_register_settings() {
 }
 
 
-add_action('init', 'gwolle_gb_init'); // FIXME: is this the right action, or admin_init?
+add_action('admin_init', 'gwolle_gb_init');
 function gwolle_gb_init() {
 
 	// Check if the plugin is out of date
@@ -167,5 +168,44 @@ function gwolle_gb_load_lang() {
 }
 add_action('plugins_loaded', 'gwolle_gb_load_lang');
 
+
+/*
+ * Add the RSS link to the html head.
+ * There is no post_content yet, but we do have a get_the_ID().
+ */
+function gwolle_gb_rss_head() {
+	if ( is_singular() && function_exists('has_shortcode') ) {
+		$post = get_post( get_the_ID() );
+		if ( has_shortcode( $post->post_content, 'gwolle_gb' ) || has_shortcode( $post->post_content, 'gwolle_gb_read' ) ) {
+
+			// Remove standard RSS links.
+			remove_action( 'wp_head', 'feed_links', 2 );
+			remove_action( 'wp_head', 'feed_links_extra', 3 );
+
+			// And add our own RSS link.
+			global $wp_rewrite;
+			$permalinks = $wp_rewrite->permalink_structure;
+			if ( $permalinks ) {
+				?>
+				<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", GWOLLE_GB_TEXTDOMAIN); ?>" href="<?php bloginfo('url'); ?>/feed/gwolle_gb" />
+				<?php
+			} else {
+				?>
+				<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", GWOLLE_GB_TEXTDOMAIN); ?>" href="<?php bloginfo('url'); ?>/?feed=gwolle_gb" />
+				<?php
+			}
+
+			// Also set a meta_key so we can find the post with the shortcode back.
+			$meta_value = get_post_meta( get_the_ID(), 'gwolle_gb_read', true );
+			if ( $meta_value != "true" ) {
+				update_post_meta( get_the_ID(), 'gwolle_gb_read', "true", true );
+			}
+		} else {
+			// Remove the meta_key in case it is set.
+			delete_post_meta( get_the_ID(), 'gwolle_gb_read' );
+		}
+	}
+}
+add_action('wp_head', 'gwolle_gb_rss_head', 1);
 
 
