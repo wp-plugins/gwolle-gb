@@ -380,6 +380,7 @@ Yes, it is again actively maintained.
 * Add author_ip to possible fields in notification mail.
 * Use Gwolle version for enqueue of markitup css and js.
 * Add a bit of reset-CSS to markitup CSS.
+* Show author name as it was put in by the author, not from the user profile.
 
 = 1.4.0 =
 * 2015-06-14
