@@ -45,6 +45,7 @@ function gwolle_gb_format_values_for_mail($value) {
 	$value = str_replace('<', '{', $value);
 	$value = str_replace('>', '}', $value);
 	$value = str_replace('&quot;','\"', $value);
+	$value = str_replace('&#039;', '\'', $value);
 	$value = str_replace('&#39;', '\'', $value);
 	return $value;
 }

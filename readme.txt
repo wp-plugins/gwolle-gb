@@ -128,7 +128,6 @@ The current todolist is slowly getting shorter. If you do have a feature request
 * Settings: Have button disabled with certain options, untill checkbox is clicked.
 * Settings: Save all tabs when saving.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
-* Reading: Load alternative template from themes for single-entry if available.
 * Posting: Trigger most cache plugins to update their cache.
 
 = API, add an entry =
@@ -375,6 +374,10 @@ Yes, it is again actively maintained.
 
 
 == Changelog ==
+
+= 1.4.2 =
+* 2015-
+* Fix quotes in subjectline of emails.
 
 = 1.4.1 =
 * 2015-06-17
