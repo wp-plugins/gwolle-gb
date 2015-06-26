@@ -297,7 +297,7 @@ You could add custom CSS to your website/theme like this:
 	body form#gwolle_gb_new_entry {
 		display: block;
 	}
-	body form#gwolle_gb_write_button {
+	body div#gwolle_gb_write_button {
 		display: none;
 	}
 
