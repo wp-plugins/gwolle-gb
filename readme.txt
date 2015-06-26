@@ -114,9 +114,10 @@ in the gwolle-gb.php file at the top.
 
 For the licences regarding the use of reCAPTCHA you may ask the authors.
 
-= Todo list =
+= Coming Soon =
 
-The current todolist is slowly getting shorter. If you do have a feature request, please post it on the support forum.
+These features are planned. There is no particular timeframe or order for when it will be added.
+If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
 * Editor: Add options to change the date.
@@ -296,7 +297,7 @@ You could add custom CSS to your website/theme like this:
 	body form#gwolle_gb_new_entry {
 		display: block;
 	}
-	body form#gwolle_gb_write_button {
+	body div#gwolle_gb_write_button {
 		display: none;
 	}
 
