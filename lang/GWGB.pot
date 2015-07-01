@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-14 19:52+0200\n"
+"POT-Creation-Date: 2015-07-01 14:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,6 +53,14 @@ msgstr ""
 
 #: actions.php:190 actions.php:194 frontend/rss.php:81 frontend/rss.php:84
 msgid "Guestbook Feed"
+msgstr ""
+
+#: gwolle-gb.php:126
+msgid ""
+"Gwolle Guestbook is not just another guestbook for WordPress. The goal is to "
+"provide an easy and slim way to integrate a guestbook into your WordPress "
+"powered site. Don't use your 'comment' section the wrong way - install "
+"Gwolle-GB and have a real guestbook."
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
@@ -276,7 +284,7 @@ msgstr ""
 msgid "This entry is Not Visible."
 msgstr ""
 
-#: admin/page-editor.php:364
+#: admin/page-editor.php:364 frontend/posthandling.php:420
 msgid "Checked"
 msgstr ""
 
@@ -1168,11 +1176,15 @@ msgid ""
 "%entry_content%\n"
 msgstr ""
 
-#: frontend/posthandling.php:401 frontend/posthandling.php:468
+#: frontend/posthandling.php:401 frontend/posthandling.php:469
 msgid "New Guestbook Entry"
 msgstr ""
 
-#: frontend/posthandling.php:449 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:422
+msgid "Unchecked"
+msgstr ""
+
+#: frontend/posthandling.php:450 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1351,7 +1363,7 @@ msgstr ""
 msgid "Entry has been untrashed."
 msgstr ""
 
-#: functions/function.misc.php:65
+#: functions/function.misc.php:66
 msgid "No content to display. This entry is empty."
 msgstr ""
 

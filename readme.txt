@@ -379,6 +379,8 @@ Yes, it is again actively maintained.
 = 1.4.2 =
 * 2015-
 * Fix quotes in subjectline of emails.
+* Translate description of the plugin too.
+* Update pot, nl_NL.
 
 = 1.4.1 =
 * 2015-06-17

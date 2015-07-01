@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-14 19:52+0200\n"
+"POT-Creation-Date: 2015-07-01 14:20+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -51,6 +51,18 @@ msgstr "Exporteren"
 #: actions.php:190 actions.php:194 frontend/rss.php:81 frontend/rss.php:84
 msgid "Guestbook Feed"
 msgstr "Gastenboek Feed"
+
+#: gwolle-gb.php:126
+msgid ""
+"Gwolle Guestbook is not just another guestbook for WordPress. The goal is to "
+"provide an easy and slim way to integrate a guestbook into your WordPress "
+"powered site. Don't use your 'comment' section the wrong way - install "
+"Gwolle-GB and have a real guestbook."
+msgstr ""
+"Gwolle Gastenboek is niet zomaar weer een gastenboek voor WordPress. Het "
+"doel is om op een makkelijke en lichte manier een gastenboek te integreren "
+"in je WordPress website. Gebruik je 'reacties' gedeelte niet op de verkeerde "
+"manier - installeer Gwolle-GB en gebruik een echt gastenboek."
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
 #: frontend/gwolle_gb-entry.php:107
@@ -279,7 +291,7 @@ msgstr "Dit bericht is Zichtbaar."
 msgid "This entry is Not Visible."
 msgstr "Dit bericht is Niet Zichtbaar."
 
-#: admin/page-editor.php:364
+#: admin/page-editor.php:364 frontend/posthandling.php:420
 msgid "Checked"
 msgstr "Vrijgegeven"
 
@@ -1234,11 +1246,15 @@ msgstr ""
 "Berichtinhoud:\n"
 "%entry_content%\n"
 
-#: frontend/posthandling.php:401 frontend/posthandling.php:468
+#: frontend/posthandling.php:401 frontend/posthandling.php:469
 msgid "New Guestbook Entry"
 msgstr "Nieuw Gastenboek Bericht"
 
-#: frontend/posthandling.php:449 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:422
+msgid "Unchecked"
+msgstr "Niet vrijgegeven"
+
+#: frontend/posthandling.php:450 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1439,7 +1455,7 @@ msgstr "Bericht is verplaatst naar de prullenbak."
 msgid "Entry has been untrashed."
 msgstr "Bericht is hersteld uit de prullenbak."
 
-#: functions/function.misc.php:65
+#: functions/function.misc.php:66
 msgid "No content to display. This entry is empty."
 msgstr "Geen inhoud om weer te geven. Het bericht is leeg."
 

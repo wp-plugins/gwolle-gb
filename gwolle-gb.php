@@ -121,3 +121,7 @@ function gwolle_gb_activation() {
 register_activation_hook(__FILE__, 'gwolle_gb_activation');
 
 
+/* Translate Description */
+function gwolle_gb_description() {
+	$var = __( "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and have a real guestbook.", GWOLLE_GB_TEXTDOMAIN );
+}
