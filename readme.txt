@@ -126,6 +126,7 @@ If you do have a feature request, please post it on the support forum.
 * Frontend: Add pagination link for all entries (optional).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
 * Widget: Add option to not show admin entries.
+* Widget: Add option to select number of words.
 * Settings: Have button disabled with certain options, untill checkbox is clicked.
 * Settings: Save all tabs when saving.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
@@ -380,6 +381,7 @@ Yes, it is again actively maintained.
 * 2015-
 * Fix quotes in subjectline of emails.
 * Translate description of the plugin too.
+* Set CSS for span to display:inline.
 * Update pot, nl_NL.
 
 = 1.4.1 =

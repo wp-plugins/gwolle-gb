@@ -8,6 +8,9 @@
 	clear: left;
 }
 
+#gwolle_gb span {
+	display: inline;
+}
 
 /* Write button */
 
