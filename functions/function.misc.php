@@ -167,8 +167,11 @@ function gwolle_gb_get_setting($request) {
 				if ( is_string( $setting ) ) {
 					$setting = maybe_unserialize( $setting );
 				}
-				$setting = array_merge( $defaults, $setting );
-				return $setting;
+				if ( is_array($setting) && !empty($setting) ) {
+					$setting = array_merge( $defaults, $setting );
+					return $setting;
+				}
+				return $defaults;
 				break;
 			case 'read':
 				if ( get_option('show_avatars') ) {
@@ -190,8 +193,11 @@ function gwolle_gb_get_setting($request) {
 				if ( is_string( $setting ) ) {
 					$setting = maybe_unserialize( $setting );
 				}
-				$setting = array_merge( $defaults, $setting );
-				return $setting;
+				if ( is_array($setting) && !empty($setting) ) {
+					$setting = array_merge( $defaults, $setting );
+					return $setting;
+				}
+				return $defaults;
 				break;
 			default:
 				return false;
