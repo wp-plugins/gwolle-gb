@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-01 14:20+0200\n"
+"POT-Creation-Date: 2015-07-13 15:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,50 +17,49 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: actions.php:35 actions.php:36 frontend/widget.php:22
-#: frontend/widget.php:188
-msgid "Guestbook"
-msgstr ""
-
-#: actions.php:46 actions.php:47 admin/tabs/admintab.php:36
-#: admin/tabs/readingtab.php:36
-msgid "Entries"
-msgstr ""
-
-#. /editor.php
-#: actions.php:54
-msgid "Entry editor"
-msgstr ""
-
-#: actions.php:54 admin/page-gwolle-gb.php:85
-msgid "New entry"
-msgstr ""
-
-#. /settings.php
-#: actions.php:57 actions.php:80 admin/page-settings.php:314
-msgid "Settings"
-msgstr ""
-
-#. /import.php
-#: actions.php:60
-msgid "Import"
-msgstr ""
-
-#. /export.php
-#: actions.php:63
-msgid "Export"
-msgstr ""
-
-#: actions.php:190 actions.php:194 frontend/rss.php:81 frontend/rss.php:84
-msgid "Guestbook Feed"
-msgstr ""
-
 #: gwolle-gb.php:126
 msgid ""
 "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to "
 "provide an easy and slim way to integrate a guestbook into your WordPress "
 "powered site. Don't use your 'comment' section the wrong way - install "
 "Gwolle-GB and have a real guestbook."
+msgstr ""
+
+#: hooks.php:35 hooks.php:36 frontend/widget.php:22 frontend/widget.php:188
+msgid "Guestbook"
+msgstr ""
+
+#: hooks.php:46 hooks.php:47 admin/tabs/admintab.php:36
+#: admin/tabs/readingtab.php:36
+msgid "Entries"
+msgstr ""
+
+#. /editor.php
+#: hooks.php:54
+msgid "Entry editor"
+msgstr ""
+
+#: hooks.php:54 admin/page-gwolle-gb.php:85
+msgid "New entry"
+msgstr ""
+
+#. /settings.php
+#: hooks.php:57 hooks.php:80 admin/page-settings.php:314
+msgid "Settings"
+msgstr ""
+
+#. /import.php
+#: hooks.php:60
+msgid "Import"
+msgstr ""
+
+#. /export.php
+#: hooks.php:63
+msgid "Export"
+msgstr ""
+
+#: hooks.php:190 hooks.php:194 frontend/rss.php:67 frontend/rss.php:70
+msgid "Guestbook Feed"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
@@ -194,7 +193,7 @@ msgid ""
 msgstr ""
 
 #: admin/page-editor.php:15 admin/page-entries.php:16 admin/page-export.php:17
-#: admin/page-gwolle-gb.php:278 admin/page-import.php:26
+#: admin/page-gwolle-gb.php:287 admin/page-import.php:26
 #: admin/page-settings.php:15 admin/tabs/admintab.php:15
 #: admin/tabs/antispamtab.php:15 admin/tabs/emailtab.php:15
 #: admin/tabs/formtab.php:15 admin/tabs/readingtab.php:15
@@ -230,7 +229,7 @@ msgstr ""
 msgid "Submitted as Ham to the Akismet service."
 msgstr ""
 
-#: admin/page-editor.php:148 admin/page-gwolle-gb.php:355
+#: admin/page-editor.php:148 admin/page-gwolle-gb.php:364
 #: admin/page-settings.php:320
 msgid "Changes saved."
 msgstr ""
@@ -260,11 +259,11 @@ msgid "Entry was not saved."
 msgstr ""
 
 #: admin/page-editor.php:322 admin/page-editor.php:415
-#: admin/page-editor.php:459 admin/page-editor.php:514
-#: admin/page-editor.php:549 admin/page-editor.php:566
-#: admin/page-editor.php:574 admin/page-export.php:40
-#: admin/page-import.php:338 admin/page-import.php:405
-#: admin/page-import.php:526
+#: admin/page-editor.php:459 admin/page-editor.php:519
+#: admin/page-editor.php:533 admin/page-editor.php:568
+#: admin/page-editor.php:585 admin/page-editor.php:593
+#: admin/page-export.php:40 admin/page-import.php:352
+#: admin/page-import.php:419 admin/page-import.php:540
 msgid "Click to open or close"
 msgstr ""
 
@@ -319,7 +318,7 @@ msgstr ""
 msgid "E-Mail"
 msgstr ""
 
-#: admin/page-editor.php:480 admin/page-editor.php:524
+#: admin/page-editor.php:480 admin/page-editor.php:543
 msgid "Written"
 msgstr ""
 
@@ -339,35 +338,43 @@ msgstr ""
 msgid "Host"
 msgstr ""
 
-#: admin/page-editor.php:514
-msgid "Entry log"
+#: admin/page-editor.php:519
+msgid "View Frontend"
+msgstr ""
+
+#: admin/page-editor.php:523 admin/page-gwolle-gb.php:141
+msgid "View Guestbook"
 msgstr ""
 
 #: admin/page-editor.php:533
+msgid "Entry log"
+msgstr ""
+
+#: admin/page-editor.php:552
 msgid "No log yet."
 msgstr ""
 
-#: admin/page-editor.php:549 frontend/write.php:215
+#: admin/page-editor.php:568 frontend/write.php:215
 msgid "Guestbook entry"
 msgstr ""
 
-#: admin/page-editor.php:554
+#: admin/page-editor.php:573
 #, php-format
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:566 frontend/write.php:196 frontend/write.php:203
+#: admin/page-editor.php:585 frontend/write.php:196 frontend/write.php:203
 #: admin/tabs/formtab.php:165
 msgid "Website"
 msgstr ""
 
-#: admin/page-editor.php:569
+#: admin/page-editor.php:588
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr ""
 
-#: admin/page-editor.php:574 admin/page-export.php:61
+#: admin/page-editor.php:593 admin/page-export.php:61
 msgid "Origin"
 msgstr ""
 
@@ -613,29 +620,29 @@ msgstr ""
 msgid "The exporter will preserve the following data per entry:"
 msgstr ""
 
-#: admin/page-export.php:58 admin/page-import.php:372
-#: admin/page-import.php:413 frontend/write.php:139 frontend/write.php:146
+#: admin/page-export.php:58 admin/page-import.php:386
+#: admin/page-import.php:427 frontend/write.php:139 frontend/write.php:146
 #: admin/tabs/formtab.php:105 admin/tabs/readingtab.php:152
 msgid "Name"
 msgstr ""
 
-#: admin/page-export.php:59 admin/page-import.php:373
-#: admin/page-import.php:415
+#: admin/page-export.php:59 admin/page-import.php:387
+#: admin/page-import.php:429
 msgid "E-Mail address"
 msgstr ""
 
-#: admin/page-export.php:60 admin/page-import.php:374
-#: admin/page-import.php:416
+#: admin/page-export.php:60 admin/page-import.php:388
+#: admin/page-import.php:430
 msgid "URL/Website"
 msgstr ""
 
-#: admin/page-export.php:62 admin/page-import.php:375
-#: admin/page-import.php:417
+#: admin/page-export.php:62 admin/page-import.php:389
+#: admin/page-import.php:431
 msgid "Date of the entry"
 msgstr ""
 
-#: admin/page-export.php:63 admin/page-import.php:376
-#: admin/page-import.php:418
+#: admin/page-export.php:63 admin/page-import.php:390
+#: admin/page-import.php:432
 msgid "IP address"
 msgstr ""
 
@@ -643,17 +650,17 @@ msgstr ""
 msgid "Host address"
 msgstr ""
 
-#: admin/page-export.php:65 admin/page-import.php:377
-#: admin/page-import.php:419 admin/tabs/formtab.php:185
+#: admin/page-export.php:65 admin/page-import.php:391
+#: admin/page-import.php:433 admin/tabs/formtab.php:185
 #: admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr ""
 
-#: admin/page-export.php:66 admin/page-import.php:379
+#: admin/page-export.php:66 admin/page-import.php:393
 msgid "\"is checked\" flag"
 msgstr ""
 
-#: admin/page-export.php:67 admin/page-import.php:378
+#: admin/page-export.php:67 admin/page-import.php:392
 msgid "\"is spam\" flag"
 msgstr ""
 
@@ -713,11 +720,11 @@ msgstr ""
 msgid "Trashed entries"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:136
+#: admin/page-gwolle-gb.php:145
 msgid "Write admin entry"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:147 admin/tabs/emailtab.php:47
+#: admin/page-gwolle-gb.php:156 admin/tabs/emailtab.php:47
 msgid ""
 "Sorry, but the function <code>mail()</code> required to notify you by mail "
 "is not enabled in your PHP configuration. You might want to install a "
@@ -725,156 +732,156 @@ msgid ""
 "contact your hosting provider to change this."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:173
+#: admin/page-gwolle-gb.php:182
 msgid "Send me an e-mail when a new entry has been posted."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:175
+#: admin/page-gwolle-gb.php:184
 msgid "Save setting"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:180
+#: admin/page-gwolle-gb.php:189
 msgid "The following users have subscribed to this service:"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:192 functions/function.log.php:173
+#: admin/page-gwolle-gb.php:201 functions/function.log.php:173
 #: admin/tabs/emailtab.php:66 admin/tabs/emailtab.php:119
 msgid "You"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:201
+#: admin/page-gwolle-gb.php:210
 msgid "No subscriber yet"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:221
+#: admin/page-gwolle-gb.php:230
 msgid "This is how you can get your guestbook displayed on your website:"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:223
+#: admin/page-gwolle-gb.php:232
 msgid "Create a new page."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:224
+#: admin/page-gwolle-gb.php:233
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:225
+#: admin/page-gwolle-gb.php:234
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:232
+#: admin/page-gwolle-gb.php:241
 msgid "These entries will be visible for your visitors:"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:234
+#: admin/page-gwolle-gb.php:243
 msgid "Marked as Checked."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:235
+#: admin/page-gwolle-gb.php:244
 msgid "Not marked as Spam."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:236
+#: admin/page-gwolle-gb.php:245
 msgid "Not marked as Trash."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:240
+#: admin/page-gwolle-gb.php:249
 msgid "The Main Menu counter counts the following entries:"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:242
+#: admin/page-gwolle-gb.php:251
 msgid "Marked as Unchecked (You might want to moderate them)."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:243
+#: admin/page-gwolle-gb.php:252
 msgid "Not marked as Spam (You might want to check them)."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:244
+#: admin/page-gwolle-gb.php:253
 msgid "Not marked as Trash (You decide what goes to the trash)."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:251
+#: admin/page-gwolle-gb.php:260
 msgid "This plugin is being maintained by Marcel Pol from"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:255
+#: admin/page-gwolle-gb.php:264
 msgid "Review this plugin."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:256
+#: admin/page-gwolle-gb.php:265
 msgid "If this plugin has any value to you, then please leave a review at"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:257
+#: admin/page-gwolle-gb.php:266
 msgid "The plugin page at wordpress.org."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:258
+#: admin/page-gwolle-gb.php:267
 msgid "the plugin page at wordpress.org"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:261
+#: admin/page-gwolle-gb.php:270
 msgid "Donate to the EFF."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:262
+#: admin/page-gwolle-gb.php:271
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:263
+#: admin/page-gwolle-gb.php:272
 msgid "Please donate to the EFF."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:267
+#: admin/page-gwolle-gb.php:274 admin/page-gwolle-gb.php:276
 msgid "Donate to the maintainer."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:266
+#: admin/page-gwolle-gb.php:275
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through PayPal."
 msgstr ""
 
-#: admin/page-gwolle-gb.php:267
+#: admin/page-gwolle-gb.php:276
 msgid "Donate through"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:267
+#: admin/page-gwolle-gb.php:276
 msgid "PayPal"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:268
+#: admin/page-gwolle-gb.php:277
 msgid "to"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:338
+#: admin/page-gwolle-gb.php:347
 msgid "Welcome to the Guestbook!"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:339
+#: admin/page-gwolle-gb.php:348
 msgid "E-mail Notifications"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:340
+#: admin/page-gwolle-gb.php:349
 msgid "Review and Donate"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
+#: admin/page-gwolle-gb.php:351 admin/page-gwolle-gb.php:352
 msgid "Help"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:344
-msgid "This plugin uses the following scripts/programs/images:"
+#: admin/page-gwolle-gb.php:353
+msgid "This plugin uses the following scripts and services:"
 msgstr ""
 
-#: admin/page-gwolle-gb.php:349
+#: admin/page-gwolle-gb.php:358
 msgid "Gwolle Guestbook"
 msgstr ""
 
@@ -941,131 +948,131 @@ msgstr ""
 msgid "Invalid file format."
 msgstr ""
 
-#: admin/page-import.php:241
+#: admin/page-import.php:255
 msgid ""
 "It seems your CSV file is from an export that is not compatible with this "
 "version of Gwolle-GB."
 msgstr ""
 
-#: admin/page-import.php:250 admin/page-import.php:284
+#: admin/page-import.php:264 admin/page-import.php:298
 msgid "Your data seems to be corrupt. Import failed."
 msgstr ""
 
-#: admin/page-import.php:293
+#: admin/page-import.php:307
 msgid "I'm sorry, but I wasn't able to import entries from the CSV file."
 msgstr ""
 
-#: admin/page-import.php:295
+#: admin/page-import.php:309
 msgid "1 entry imported successfully from the CSV file."
 msgstr ""
 
-#: admin/page-import.php:297
+#: admin/page-import.php:311
 #, php-format
 msgid "%d entries imported successfully from the CSV file."
 msgstr ""
 
-#: admin/page-import.php:306
+#: admin/page-import.php:320
 msgid "Your upload triggered the following error:"
 msgstr ""
 
-#: admin/page-import.php:319
+#: admin/page-import.php:333
 msgid "Import guestbook entries."
 msgstr ""
 
-#: admin/page-import.php:338
+#: admin/page-import.php:352
 msgid "Import guestbook entries from DMSGuestbook"
 msgstr ""
 
-#: admin/page-import.php:367
+#: admin/page-import.php:381
 #, php-format
 msgid "%d entries were found and will be imported."
 msgstr ""
 
-#: admin/page-import.php:370 admin/page-import.php:411
+#: admin/page-import.php:384 admin/page-import.php:425
 msgid "The importer will preserve the following data per entry:"
 msgstr ""
 
-#: admin/page-import.php:381 admin/page-import.php:422
+#: admin/page-import.php:395 admin/page-import.php:436
 msgid ""
 "However, data such as HTML formatting is not supported by Gwolle-GB and "
 "<strong>will not</strong> be imported."
 msgstr ""
 
-#: admin/page-import.php:383 admin/page-import.php:426
+#: admin/page-import.php:397 admin/page-import.php:440
 msgid ""
 "The importer does not delete any data, so you can go back whenever you want."
 msgstr ""
 
-#: admin/page-import.php:389
+#: admin/page-import.php:403
 msgid "Import all entries from DMSGuestbook."
 msgstr ""
 
-#: admin/page-import.php:393 admin/page-import.php:518
-#: admin/page-import.php:537
+#: admin/page-import.php:407 admin/page-import.php:532
+#: admin/page-import.php:551
 msgid "Start import"
 msgstr ""
 
-#: admin/page-import.php:396
+#: admin/page-import.php:410
 msgid "DMSGuestbook was not found."
 msgstr ""
 
-#: admin/page-import.php:405
+#: admin/page-import.php:419
 msgid "Import guestbook entries from WordPress comments"
 msgstr ""
 
-#: admin/page-import.php:414
+#: admin/page-import.php:428
 msgid "User ID"
 msgstr ""
 
-#: admin/page-import.php:420
+#: admin/page-import.php:434
 msgid "\"approved\" status"
 msgstr ""
 
-#: admin/page-import.php:424
+#: admin/page-import.php:438
 msgid "Spam comments will not be imported."
 msgstr ""
 
-#: admin/page-import.php:429
+#: admin/page-import.php:443
 msgid "Select a page to import the comments from:"
 msgstr ""
 
-#: admin/page-import.php:431 admin/page-import.php:469
+#: admin/page-import.php:445 admin/page-import.php:483
 msgid "Select"
 msgstr ""
 
-#: admin/page-import.php:455 admin/page-import.php:492
+#: admin/page-import.php:469 admin/page-import.php:506
 msgid " Comments"
 msgstr ""
 
-#: admin/page-import.php:457 admin/page-import.php:494
+#: admin/page-import.php:471 admin/page-import.php:508
 msgid "1 Comment"
 msgstr ""
 
-#: admin/page-import.php:467
+#: admin/page-import.php:481
 msgid "Select a post to import the comments from:"
 msgstr ""
 
-#: admin/page-import.php:511
+#: admin/page-import.php:525
 msgid "Select where to import the comments from:"
 msgstr ""
 
-#: admin/page-import.php:512
+#: admin/page-import.php:526
 msgid "Comments from selected page."
 msgstr ""
 
-#: admin/page-import.php:513
+#: admin/page-import.php:527
 msgid "Comments from selected post."
 msgstr ""
 
-#: admin/page-import.php:514
+#: admin/page-import.php:528
 msgid "All Comments"
 msgstr ""
 
-#: admin/page-import.php:526
+#: admin/page-import.php:540
 msgid "Import guestbook entries from Gwolle-GB"
 msgstr ""
 
-#: admin/page-import.php:532
+#: admin/page-import.php:546
 msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 
@@ -1219,7 +1226,7 @@ msgstr ""
 msgid "(no entries yet)"
 msgstr ""
 
-#: frontend/rss.php:95
+#: frontend/rss.php:81
 msgid "Guestbook Entry by"
 msgstr ""
 
