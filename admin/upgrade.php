@@ -49,6 +49,7 @@ function install_gwolle_gb() {
 			entry_id int(5) NOT NULL,
 			author_id int(5) NOT NULL,
 			date varchar(12) NOT NULL,
+			datetime bigint(8) UNSIGNED NOT NULL,
 			PRIMARY KEY  (id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
@@ -456,6 +457,13 @@ function upgrade_gwolle_gb() {
 		");
 		$wpdb->query( "
 			UPDATE `$wpdb->gwolle_gb_entries` SET `datetime` = `date`;
+		");
+
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_log ADD `datetime` BIGINT(8) UNSIGNED NOT NULL AFTER `date`;
+		");
+		$wpdb->query( "
+			UPDATE `$wpdb->gwolle_gb_log` SET `datetime` = `date`;
 		");
 	}
 

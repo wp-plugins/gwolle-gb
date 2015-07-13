@@ -221,7 +221,7 @@ function gwolle_gb_page_import() {
 							while (($data = fgetcsv($handle, 1000)) !== FALSE) {
 								$num = count($data);
 								if ($row == 0) {
-									// Check the headerrow
+									// Check the headerrow. $tesrow_old is version 1.4.1 and older.
 									$testrow_old = array(
 										'id',
 										'author_name',

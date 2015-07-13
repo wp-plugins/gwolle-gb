@@ -362,9 +362,6 @@ But if you don't use standard comments, you can just as easily use the comment s
 A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
 and also the WordPress documentation. When you made a translation, you can send the po-file to marcel at timelord.nl.
 
-= Is this plugin actively maintained? =
-
-Yes, it is again actively maintained.
 
 == Screenshots ==
 
@@ -379,7 +376,7 @@ Yes, it is again actively maintained.
 == Changelog ==
 
 = 1.4.2 =
-* 2015-
+* 2015-07-13
 * Fix quotes in subjectline and From-header of emails.
 * Translate description of the plugin too.
 * Set CSS for span to display:inline.
