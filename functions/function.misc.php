@@ -302,4 +302,54 @@ function gwolle_gb_maybe_encode_emoji( $string, $field ) {
 }
 
 
+/*
+ * Taken from wp-admin/includes/template.php touch_time()
+ * Adapted for simplicity.
+ */
+function gwolle_gb_touch_time( $entry ) {
+	global $wp_locale;
 
+	$date = $entry->get_datetime();
+	if ( !$date ) {
+		$date = current_time('timestamp');
+	}
+
+	$dd = date( 'd', $date );
+	$mm = date( 'm', $date );
+	$yy = date( 'Y', $date );
+	$hh = date( 'H', $date );
+	$mn = date( 'i', $date );
+
+	// Day
+	echo '<label><span class="screen-reader-text">' . __( 'Day', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="dd" name="dd" value="' . $dd . '" size="2" maxlength="2" autocomplete="off" /></label>';
+
+	// Month
+	echo '<label><span class="screen-reader-text">' . __( 'Month', GWOLLE_GB_TEXTDOMAIN ) . '</span><select id="mm" name="mm">\n';
+	for ( $i = 1; $i < 13; $i = $i +1 ) {
+		$monthnum = zeroise($i, 2);
+		echo "\t\t\t" . '<option value="' . $monthnum . '" ' . selected( $monthnum, $mm, false ) . '>';
+		/* translators: 1: month number (01, 02, etc.), 2: month abbreviation */
+		echo sprintf( __( '%1$s-%2$s' ), $monthnum, $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) ) ) . "</option>\n";
+	}
+	echo '</select></label>';
+
+	// Year
+	echo '<label><span class="screen-reader-text">' . __( 'Year', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="yy" name="yy" value="' . $yy . '" size="4" maxlength="4" autocomplete="off" /></label>';
+	echo '<br />';
+	// Hour
+	echo '<label><span class="screen-reader-text">' . __( 'Hour', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="hh" name="hh" value="' . $hh . '" size="2" maxlength="2" autocomplete="off" /></label>:';
+	// Minute
+	echo '<label><span class="screen-reader-text">' . __( 'Minute', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="mn" name="mn" value="' . $mn . '" size="2" maxlength="2" autocomplete="off" /></label>';
+	?>
+
+	<div class="gwolle_gb_timestamp">
+		<!-- Clicking OK will place a timestamp here. -->
+		<input type="hidden" id="gwolle_gb_timestamp" name="gwolle_gb_timestamp" value="" />
+	</div>
+
+	<p>
+		<a href="#" class="gwolle_gb_save_timestamp hide-if-no-js button"><?php _e('OK', GWOLLE_GB_TEXTDOMAIN); ?></a>
+		<a href="#" class="gwolle_gb_cancel_timestamp hide-if-no-js button-cancel"><?php _e('Cancel', GWOLLE_GB_TEXTDOMAIN); ?></a>
+	</p>
+	<?php
+}
