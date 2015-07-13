@@ -209,6 +209,34 @@ function gwolle_gb_get_setting($request) {
 
 
 /*
+ * Uses intermittent meta_key to determine the permalink. See hooks.php
+ * return (int) postid if found, else 0.
+ */
+function gwolle_gb_get_postid() {
+
+	$the_query = new WP_Query( array(
+		'post_type' => 'any',
+		'ignore_sticky_posts' => true,
+		'meta_query' => array(
+			array(
+				'key' => 'gwolle_gb_read',
+				'value' => 'true',
+			),
+		)
+	));
+	if ( $the_query->have_posts() ) {
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			$postid = get_the_ID();
+			break; // only one postid is needed.
+		endwhile;
+		wp_reset_postdata();
+	}
+	return 0;
+
+}
+
+
+/*
  * Update Cache plugins
  */
 function gwolle_gb_clear_cache() {

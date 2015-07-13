@@ -240,6 +240,7 @@ The header needs to look like this:
 
 The next lines are made up of the content. Date needs to be a UNIX timestamp. For manually creating a timestamp, look at
 the [timestamp generator](http://www.timestampgenerator.com/).
+With version 1.4.1 and older, the field datetime was called date.
 You could make a test-entry, export that, and look to see what the importer expects from the CSV.
 Make sure you use UNIX line-endings. Any decent text-editor can transform a textdocument to UNIX line-endings.
 
@@ -385,6 +386,7 @@ Yes, it is again actively maintained.
 * Check for array when getting settings.
 * DB: Move date to datetime with bigint(8), so sorting on date works correctly.
 * Rename actions.php to hooks.php.
+* Add function gwolle_gb_get_postid.
 * Update pot, nl_NL.
 
 = 1.4.1 =
