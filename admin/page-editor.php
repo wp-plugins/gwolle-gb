@@ -485,17 +485,14 @@ function gwolle_gb_page_editor() {
 											} else {
 												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
 											} ?>
-										</span>
-										<br />
+										</span><br />
 										<?php _e('E-Mail', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
 											if (strlen(str_replace( ' ', '', $entry->get_author_email() )) > 0) {
 												echo gwolle_gb_sanitize_output( $entry->get_author_email() );
 											} else {
 												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
 											} ?>
-										</span>
-										<br />
-										<?php // FIXME: add option to change the date ?>
+										</span><br />
 										<?php _e('Written', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
 											if ( $entry->get_datetime() > 0 ) {
 												echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
@@ -503,8 +500,7 @@ function gwolle_gb_page_editor() {
 											} else {
 												echo '(' . __('Not yet', GWOLLE_GB_TEXTDOMAIN) . ')';
 											} ?>
-										</span>
-										<br />
+										</span><br />
 										<?php _e("Author's IP-address", GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
 											if (strlen( $entry->get_author_ip() ) > 0) {
 												echo '<a href="http://www.db.ripe.net/whois?form_type=simple&searchtext=' . $entry->get_author_ip() . '"
@@ -514,16 +510,29 @@ function gwolle_gb_page_editor() {
 											} else {
 												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
 											} ?>
-										</span>
-										<br />
+										</span><br />
 										<?php _e('Host', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
 											if (strlen( $entry->get_author_host() ) > 0) {
 												echo $entry->get_author_host();
 											} else {
 												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
 											} ?>
+										</span><br />
+										<span class="gwolle_gb_edit_meta">
+											<a href="#" title="<?php _e('Edit metadata', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Edit', GWOLLE_GB_TEXTDOMAIN); ?></a>
 										</span>
 										</p>
+
+										<div class="gwolle_gb_edit_meta_inputs">
+											<span><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: </span><br />
+											<input type="text" name="gwolle_gb_author_name" size="24" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_name() ); ?>" id="author_name" />
+
+											<span><?php _e('Date and time', GWOLLE_GB_TEXTDOMAIN); ?>: </span><br />
+											<div class="gwolle_gb_date"><?php
+												gwolle_gb_touch_time( $entry ); ?>
+											</div>
+										</div>
+
 									</div> <!-- tagsdiv -->
 								</div>
 							</div><!-- postbox -->

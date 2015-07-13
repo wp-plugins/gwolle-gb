@@ -6,19 +6,53 @@
 
 jQuery(document).ready(function($) {
 
-	$("#gwolle_gb_entries input[name='check-all-top']").change(function() {
+	jQuery("#gwolle_gb_entries input[name='check-all-top']").change(function() {
 		gwolle_gb_toggleCheckboxes($("input[name='check-all-top']").is(":checked"));
 	});
 
-	$("#gwolle_gb_entries input[name='check-all-bottom']").change(function() {
+	jQuery("#gwolle_gb_entries input[name='check-all-bottom']").change(function() {
 		gwolle_gb_toggleCheckboxes($("input[name='check-all-bottom']").is(":checked"));
 	});
 
 	// Function to check/uncheck all checkboxes.
 	function gwolle_gb_toggleCheckboxes(checkAll_checked) {
-		$("input[name^='check-']").attr("checked", checkAll_checked);
+		jQuery("input[name^='check-']").attr("checked", checkAll_checked);
 	}
 
+});
+
+
+/* Editor page, edit metadata */
+jQuery(document).ready(function($) {
+	jQuery('.gwolle_gb_edit_meta').click( function() {
+		jQuery('.gwolle_gb_edit_meta_inputs').toggle();
+		return false;
+	});
+});
+jQuery(document).ready(function($) {
+	jQuery('.gwolle_gb_cancel_timestamp').click( function() {
+		jQuery('.gwolle_gb_edit_meta_inputs').toggle();
+		return false;
+	});
+});
+jQuery(document).ready(function($) {
+	jQuery('.gwolle_gb_save_timestamp').click( function() {
+
+		var dd = jQuery("#dd").val();
+		var mm = jQuery("#mm").find(":selected").val();
+		var yy = jQuery("#yy").val();
+		var hh = jQuery("#hh").val();
+		var mn = jQuery("#mn").val();
+
+		var gwolle_date = new Date( yy, mm, dd, hh, mn );
+		console.log('gwolle_date: ' + gwolle_date);
+		var timestamp = gwolle_date.getTime();
+
+		jQuery("#gwolle_gb_timestamp").val(timestamp);
+
+		jQuery('.gwolle_gb_edit_meta_inputs').toggle();
+		return false;
+	});
 });
 
 
@@ -26,7 +60,7 @@ jQuery(document).ready(function($) {
 jQuery(document).ready(function($) {
 	jQuery('.postbox h3').click( function() {
 		jQuery(jQuery(this).parent().get(0)).toggleClass('closed');
-	} );
+	});
 } );
 
 

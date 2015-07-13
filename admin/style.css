@@ -41,6 +41,13 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 }
 
 
+/* Editor.php */
+
+.gwolle_gb_edit_meta_inputs {
+	display: none;
+}
+
+
 /* Entries.php */
 /* Page Navigation */
 .gwolle_gb .tablenav .tablenav-pages a {

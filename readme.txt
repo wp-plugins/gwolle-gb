@@ -386,6 +386,8 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Add function gwolle_gb_get_postid.
 * Add button for frontend to some adminpages.
 * Improve and update Admin CSS for WP 4.3.
+* Add function gwolle_gb_touch_time.
+* Edit author_name and datetime on editor.php.
 * Update pot, nl_NL.
 
 = 1.4.1 =
