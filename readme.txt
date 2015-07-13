@@ -388,6 +388,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Improve and update Admin CSS for WP 4.3.
 * Add function gwolle_gb_touch_time.
 * Edit author_name and datetime on editor.php.
+* Don't spam the logs when editing an entry.'
 * Update pot, nl_NL.
 
 = 1.4.1 =

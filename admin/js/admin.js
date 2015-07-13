@@ -44,10 +44,8 @@ jQuery(document).ready(function($) {
 		var hh = jQuery("#hh").val();
 		var mn = jQuery("#mn").val();
 
-		var gwolle_date = new Date( yy, mm, dd, hh, mn );
-		console.log('gwolle_date: ' + gwolle_date);
-		var timestamp = gwolle_date.getTime();
-
+		var gwolle_date = new Date( yy, mm - 1, dd, hh, mn );
+		var timestamp = Math.round( gwolle_date.getTime() / 1000 );
 		jQuery("#gwolle_gb_timestamp").val(timestamp);
 
 		jQuery('.gwolle_gb_edit_meta_inputs').toggle();

@@ -118,7 +118,6 @@ function gwolle_gb_page_editor() {
 					if ( $_POST['gwolle_gb_content'] != $entry->get_content() ) {
 						$entry_content = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_content'], 'content' );
 						$entry->set_content( $entry_content );
-						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
 				}
@@ -127,7 +126,6 @@ function gwolle_gb_page_editor() {
 				if ( isset($_POST['gwolle_gb_author_website']) ) {
 					if ( $_POST['gwolle_gb_author_website'] != $entry->get_author_website() ) {
 						$entry->set_author_website( $_POST['gwolle_gb_author_website'] );
-						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$changed = true;
 					}
 				}
@@ -137,7 +135,23 @@ function gwolle_gb_page_editor() {
 					if ( $_POST['gwolle_gb_author_origin'] != $entry->get_author_origin() ) {
 						$entry_origin = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_author_origin'], 'author_origin' );
 						$entry->set_author_origin( $entry_origin );
-						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
+						$changed = true;
+					}
+				}
+
+				/* Check if the author_name changed, and update accordingly */
+				if ( isset($_POST['gwolle_gb_author_name']) ) {
+					if ( $_POST['gwolle_gb_author_name'] != $entry->get_author_name() ) {
+						$entry_name = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_author_name'], 'author_name' );
+						$entry->set_author_name( $entry_name );
+						$changed = true;
+					}
+				}
+
+				/* Check if the datetime changed, and update accordingly */
+				if ( isset($_POST['gwolle_gb_timestamp']) && is_numeric($_POST['gwolle_gb_timestamp']) ) {
+					if ( $_POST['gwolle_gb_timestamp'] != $entry->get_datetime() ) {
+						$entry->set_datetime( (int) $_POST['gwolle_gb_timestamp'] );
 						$changed = true;
 					}
 				}
@@ -145,6 +159,7 @@ function gwolle_gb_page_editor() {
 				if ( $changed ) {
 					$result = $entry->save();
 					if ($result ) {
+						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
 						$gwolle_gb_messages .= '<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 					} else {
 						$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
