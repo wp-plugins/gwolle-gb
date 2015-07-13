@@ -157,7 +157,7 @@ The Array $args can have the following key/values:
 * author_ip, string with the ipaddress of the author.
 * author_host, string with the hostname of that ip.
 * content, string with content of the message.
-* date, timestamp of the entry.
+* datetime, timestamp of the entry.
 * ischecked, bool if it is checked by a moderator.
 * checkedby, int with the WordPress ID of that moderator.
 * istrash, bool if it is in trash or not.
@@ -210,7 +210,7 @@ When saving an entry you can filter it like this.
 	function your_custom_function($entry) {
 		// $entry is an array.
 		// Example where every entry that gets saved gets the current time
-		$entry['date'] = current_time( 'timestamp' );
+		$entry['datetime'] = current_time( 'timestamp' );
 		return $entry;
 	}
 	add_filter( 'gwolle_gb_entry_save', 'your_custom_function');
@@ -231,7 +231,7 @@ The header needs to look like this:
 		'author_ip',
 		'author_host',
 		'content',
-		'date',
+		'datetime',
 		'isspam',
 		'ischecked',
 		'istrash'
@@ -383,6 +383,7 @@ Yes, it is again actively maintained.
 * Translate description of the plugin too.
 * Set CSS for span to display:inline.
 * Check for array when getting settings.
+* DB: Move date to datetime with bigint(8), so sorting on date works correctly.
 * Update pot, nl_NL.
 
 = 1.4.1 =

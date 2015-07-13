@@ -31,6 +31,7 @@ function install_gwolle_gb() {
 			author_host text NOT NULL,
 			content longtext NOT NULL,
 			date varchar(10) NOT NULL,
+			datetime bigint(8) UNSIGNED NOT NULL,
 			ischecked tinyint(1) NOT NULL,
 			checkedby int(5) NOT NULL,
 			istrash varchar(1) NOT NULL default '0',
@@ -443,6 +444,19 @@ function upgrade_gwolle_gb() {
 		 */
 		global $wp_rewrite;
 		$wp_rewrite->flush_rules( false );
+	}
+
+	if (version_compare($installed_ver, '1.4.2', '<')) {
+		/*
+		 * 1.4.1->1.4.2
+		 * Add datetime field to database and fill it from the date column.
+		 */
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_entries ADD `datetime` BIGINT(8) UNSIGNED NOT NULL AFTER `date`;
+		");
+		$wpdb->query( "
+			UPDATE `$wpdb->gwolle_gb_entries` SET `datetime` = `date`;
+		");
 	}
 
 	/* Upgrade to new shiny db collation. Since WP 4.2 */

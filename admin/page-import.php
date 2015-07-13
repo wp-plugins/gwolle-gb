@@ -71,7 +71,7 @@ function gwolle_gb_page_import() {
 							$entry->set_ischecked( true );
 							$entry->set_istrash( $entry_data["flag"] );
 							$entry->set_content( $entry_data["message"] );
-							$entry->set_date( $entry_data["date"] );
+							$entry->set_datetime( $entry_data["date"] );
 							$entry->set_author_name( $entry_data["name"] );
 							$entry->set_author_email( $entry_data["email"] );
 							$entry->set_author_ip( $entry_data["ip"] );
@@ -148,7 +148,7 @@ function gwolle_gb_page_import() {
 
 						$entry->set_ischecked( $comment->comment_approved );
 						$entry->set_content( $comment->comment_content );
-						$entry->set_date( strtotime( $comment->comment_date ) );
+						$entry->set_datetime( strtotime( $comment->comment_date ) );
 						$entry->set_author_name( $comment->comment_author );
 						$entry->set_author_email( $comment->comment_author_email );
 						$entry->set_author_ip( $comment->comment_author_IP );
@@ -222,7 +222,7 @@ function gwolle_gb_page_import() {
 								$num = count($data);
 								if ($row == 0) {
 									// Check the headerrow
-									$testrow = array(
+									$testrow_old = array(
 										'id',
 										'author_name',
 										'author_email',
@@ -236,7 +236,21 @@ function gwolle_gb_page_import() {
 										'ischecked',
 										'istrash'
 									);
-									if ( $data != $testrow ) {
+									$testrow = array(
+										'id',
+										'author_name',
+										'author_email',
+										'author_origin',
+										'author_website',
+										'author_ip',
+										'author_host',
+										'content',
+										'datetime',
+										'isspam',
+										'ischecked',
+										'istrash'
+									);
+									if ( $data != $testrow_old && $data != $testrow ) {
 										$gwolle_gb_errors = 'error';
 										$gwolle_gb_messages .= '<p>' . __("It seems your CSV file is from an export that is not compatible with this version of Gwolle-GB.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 										break;
@@ -268,7 +282,7 @@ function gwolle_gb_page_import() {
 								$entry->set_author_ip( $data[5] );
 								$entry->set_author_host( $data[6] );
 								$entry->set_content( $data[7] );
-								$entry->set_date( $data[8] );
+								$entry->set_datetime( $data[8] );
 								$entry->set_isspam( $data[9] );
 								$entry->set_ischecked( $data[10] );
 								$entry->set_istrash( $data[11] );

@@ -145,7 +145,7 @@ function gwolle_gb_export_callback() {
 				'author_ip',
 				'author_host',
 				'content',
-				'date',
+				'datetime',
 				'isspam',
 				'ischecked',
 				'istrash'
@@ -164,7 +164,7 @@ function gwolle_gb_export_callback() {
 			$row[] = $entry->get_author_ip();
 			$row[] = $entry->get_author_host();
 			$row[] = addslashes($entry->get_content());
-			$row[] = $entry->get_date();
+			$row[] = $entry->get_datetime();
 			$row[] = $entry->get_isspam();
 			$row[] = $entry->get_ischecked();
 			$row[] = $entry->get_istrash();

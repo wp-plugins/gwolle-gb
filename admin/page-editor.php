@@ -478,9 +478,9 @@ function gwolle_gb_page_editor() {
 										<br />
 										<?php // FIXME: add option to change the date ?>
 										<?php _e('Written', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
-											if ( $entry->get_date() > 0 ) {
-												echo date_i18n( get_option('date_format'), $entry->get_date() ) . ', ';
-												echo date_i18n( get_option('time_format'), $entry->get_date() );
+											if ( $entry->get_datetime() > 0 ) {
+												echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
+												echo date_i18n( get_option('time_format'), $entry->get_datetime() );
 											} else {
 												echo '(' . __('Not yet', GWOLLE_GB_TEXTDOMAIN) . ')';
 											} ?>
@@ -517,10 +517,10 @@ function gwolle_gb_page_editor() {
 										<div id="categories-pop" class="tabs-panel gwolle_gb_log">
 											<ul>
 											<?php
-											if ($entry->get_date() > 0) {
+											if ($entry->get_datetime() > 0) {
 												echo '<li>';
-												echo date_i18n( get_option('date_format'), $entry->get_date() ) . ', ';
-												echo date_i18n( get_option('time_format'), $entry->get_date() );
+												echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
+												echo date_i18n( get_option('time_format'), $entry->get_datetime() );
 												echo ': ' . __('Written', GWOLLE_GB_TEXTDOMAIN) . '</li>';
 
 												$log_entries = gwolle_gb_get_log_entries( $entry->get_id() );

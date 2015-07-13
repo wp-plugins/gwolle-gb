@@ -26,7 +26,7 @@ function gwolle_gb_rss() {
 
 	/* Get the time of the last entry, else of the last edited post */
 	if ( is_array($entries) && !empty($entries) ) {
-		$lastbuild = gmdate( 'D, d M Y H:i:s', $entries[0]->get_date() );
+		$lastbuild = gmdate( 'D, d M Y H:i:s', $entries[0]->get_datetime() );
 	} else {
 		$lastbuild = mysql2date('D, d M Y H:i:s +0000', get_lastpostmodified('GMT'), false);
 	}
@@ -94,7 +94,7 @@ function gwolle_gb_rss() {
 					<item>
 						<title><?php _e('Guestbook Entry by', GWOLLE_GB_TEXTDOMAIN); echo " " . trim( $entry->get_author_name() ); ?></title>
 						<link><?php echo $permalink; ?></link>
-						<pubDate><?php echo gmdate( 'D, d M Y H:i:s', $entry->get_date() ); ?></pubDate>
+						<pubDate><?php echo gmdate( 'D, d M Y H:i:s', $entry->get_datetime() ); ?></pubDate>
 						<dc:creator><?php echo trim( $entry->get_author_name() ); ?></dc:creator>
 						<guid isPermaLink="false"><?php echo $permalink; ?></guid>
 						<description><![CDATA[<?php echo wp_trim_words( $entry->get_content(), 12, '...' ) ?>]]></description>
