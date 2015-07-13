@@ -133,6 +133,15 @@ function gwolle_gb_overview(){
 	</div><!-- Table-DIV -->
 	<div class="versions">
 		<p>
+			<?php
+			$postid = gwolle_gb_get_postid();
+			if ( $postid ) {
+				$permalink = get_bloginfo('url') . '?p=' . $postid;
+				?>
+				<a class="button rbutton button button-primary" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook',GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<?php
+			} ?>
+
 			<a class="button rbutton button button-primary" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php esc_attr_e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
 		</p>
 	</div>

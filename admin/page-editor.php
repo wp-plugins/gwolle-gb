@@ -509,6 +509,25 @@ function gwolle_gb_page_editor() {
 								</div>
 							</div><!-- postbox -->
 
+							<?php
+							$postid = gwolle_gb_get_postid();
+							if ( $postid ) {
+								$permalink = get_bloginfo('url') . '?p=' . $postid;
+								?>
+								<div id="tagsdiv-post_tag" class="postbox">
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('View Frontend', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<div class="inside">
+										<div class="tagsdiv" id="post_tag">
+											<div id="categories-pop" class="tabs-panel gwolle_gb_frontend">
+												<a class="button rbutton button" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook',GWOLLE_GB_TEXTDOMAIN); ?></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<?php
+							} ?>
+
 							<div id="tagsdiv-post_tag" class="postbox">
 								<div class="handlediv"></div>
 								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>

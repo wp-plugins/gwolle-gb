@@ -31,23 +31,9 @@ function gwolle_gb_rss() {
 		$lastbuild = mysql2date('D, d M Y H:i:s +0000', get_lastpostmodified('GMT'), false);
 	}
 
-	/* Uses intermittent meta_key to determine the permalink. See actions.php */
-	$the_query = new WP_Query( array(
-		'post_type' => 'any',
-		'ignore_sticky_posts' => true,
-		'meta_query' => array(
-			array(
-				'key' => 'gwolle_gb_read',
-				'value' => 'true',
-			),
-		)
-	));
-	if ( $the_query->have_posts() ) {
-		while ( $the_query->have_posts() ) : $the_query->the_post();
-			$permalink = get_the_permalink();
-			break; // only one post is needed.
-		endwhile;
-		wp_reset_postdata();
+	$postid = gwolle_gb_get_postid();
+	if ( $postid ) {
+		$permalink = get_bloginfo('url') . '?p=' . $postid;
 	} else {
 		$permalink = get_bloginfo('url');
 	}

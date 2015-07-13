@@ -387,6 +387,7 @@ Yes, it is again actively maintained.
 * DB: Move date to datetime with bigint(8), so sorting on date works correctly.
 * Rename actions.php to hooks.php.
 * Add function gwolle_gb_get_postid.
+* Add button for frontend to some adminpages.
 * Update pot, nl_NL.
 
 = 1.4.1 =

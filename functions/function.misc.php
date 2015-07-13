@@ -227,6 +227,7 @@ function gwolle_gb_get_postid() {
 	if ( $the_query->have_posts() ) {
 		while ( $the_query->have_posts() ) : $the_query->the_post();
 			$postid = get_the_ID();
+			return $postid;
 			break; // only one postid is needed.
 		endwhile;
 		wp_reset_postdata();
