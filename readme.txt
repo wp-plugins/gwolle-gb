@@ -380,6 +380,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Set CSS for span to display:inline.
 * Check for array when getting settings.
 * DB: Move date to datetime with bigint(8), so sorting on date works correctly.
+* Mark $entry->get_date and $entry->set_date as deprecated.
 * Rename actions.php to hooks.php.
 * Add function gwolle_gb_get_postid.
 * Add button for frontend to some adminpages.
