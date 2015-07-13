@@ -380,7 +380,7 @@ Yes, it is again actively maintained.
 
 = 1.4.2 =
 * 2015-
-* Fix quotes in subjectline of emails.
+* Fix quotes in subjectline and From-header of emails.
 * Translate description of the plugin too.
 * Set CSS for span to display:inline.
 * Check for array when getting settings.

@@ -401,9 +401,9 @@ Entry content:
 			$subject = '[' . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
 			$header = "";
 			if ( get_option('gwolle_gb-mail-from', false) ) {
-				$header .= "From: " . get_bloginfo('name') . " <" . get_option('gwolle_gb-mail-from') . ">\r\n";
+				$header .= "From: " . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . " <" . get_option('gwolle_gb-mail-from') . ">\r\n";
 			} else {
-				$header .= "From: " . get_bloginfo('name') . " <" . get_bloginfo('admin_email') . ">\r\n";
+				$header .= "From: " . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . " <" . get_bloginfo('admin_email') . ">\r\n";
 			}
 			$header .= "Content-Type: text/plain; charset=UTF-8\r\n"; // Encoding of the mail
 
