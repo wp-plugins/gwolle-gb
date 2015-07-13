@@ -95,8 +95,8 @@ include_once( GWOLLE_GB_DIR . '/functions/function.get_entry_count.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.log.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.misc.php' );
 
-// Actions
-include_once( GWOLLE_GB_DIR . '/actions.php' );
+// WordPress Hooks
+include_once( GWOLLE_GB_DIR . '/hooks.php' );
 
 // Frontend Widget
 include_once( GWOLLE_GB_DIR . '/frontend/widget.php' );

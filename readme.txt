@@ -384,6 +384,7 @@ Yes, it is again actively maintained.
 * Set CSS for span to display:inline.
 * Check for array when getting settings.
 * DB: Move date to datetime with bigint(8), so sorting on date works correctly.
+* Rename actions.php to hooks.php.
 * Update pot, nl_NL.
 
 = 1.4.1 =
