@@ -344,7 +344,7 @@ function gwolle_gb_touch_time( $entry ) {
 
 	<div class="gwolle_gb_timestamp">
 		<!-- Clicking OK will place a timestamp here. -->
-		<input type="text" id="gwolle_gb_timestamp" name="gwolle_gb_timestamp" value="" />
+		<input type="hidden" id="gwolle_gb_timestamp" name="gwolle_gb_timestamp" value="" />
 	</div>
 
 	<p>

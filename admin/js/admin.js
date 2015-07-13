@@ -45,7 +45,9 @@ jQuery(document).ready(function($) {
 		var mn = jQuery("#mn").val();
 
 		var gwolle_date = new Date( yy, mm - 1, dd, hh, mn );
-		var timestamp = Math.round( gwolle_date.getTime() / 1000 );
+		// Calculate offset between UTC and local time, and adjust our time.
+		date_offset = gwolle_date.getTimezoneOffset() * -60;
+		var timestamp = Math.round( gwolle_date.getTime() / 1000 ) + date_offset;
 		jQuery("#gwolle_gb_timestamp").val(timestamp);
 
 		jQuery('.gwolle_gb_edit_meta_inputs').toggle();
