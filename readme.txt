@@ -388,6 +388,7 @@ Yes, it is again actively maintained.
 * Rename actions.php to hooks.php.
 * Add function gwolle_gb_get_postid.
 * Add button for frontend to some adminpages.
+* Improve and update Admin CSS.
 * Update pot, nl_NL.
 
 = 1.4.1 =

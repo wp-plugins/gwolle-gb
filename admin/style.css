@@ -18,6 +18,7 @@
 	height: 42px;
 }
 
+
 /* Welcome page */
 .gwolle_gb_welcome .table_content.gwolle_gb table {
 	margin-left: 10px;
@@ -39,17 +40,22 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 
 }
 
-/* Page Navigation on entries.php */
-.gwolle_gb #page-nav {
-	display: block;
-	clear: both;
-	width: 100%;
-	text-align: right;
+
+/* Entries.php */
+/* Page Navigation */
+.gwolle_gb .tablenav .tablenav-pages a {
+	display: inline;
+	padding: 4px 6px 4px;
+	margin-left: 4px;
 }
 
+/* Table */
 .gwolle_gb .id,
 .gwolle_gb .check {
 	width: 12px;
+}
+.gwolle_gb .entry-date {
+	width: 72px;
 }
 
 .gwolle_gb .entry-checked,
@@ -71,6 +77,7 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	background-image: -o-linear-gradient(top, #f4f4f4, #e6e6e6);
 	background-image: linear-gradient(top, #f4f4f4, #e6e6e6);
 }
+
 
 /* Icons on entries.php and editor.php */
 .gwolle_gb td.entry-icons {
@@ -115,7 +122,7 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 
 /* Entries actions */
 td.gwolle_gb_actions {
-	width: 120px;
+	width: 130px;
 }
 
 /* Editor Log */
@@ -134,6 +141,7 @@ form.gwolle_gb_options.active {
 	display: block;
 }
 
+
 /* Forms tab */
 .gwolle_gb_options th.narrow,
 .gwolle_gb_options td.narrow {
@@ -142,7 +150,6 @@ form.gwolle_gb_options.active {
 
 
 /* Dashboard Widget */
-
 #gwolle_gb_dashboard .inside {
 	margin-top: 4px;
 }
@@ -177,7 +184,6 @@ form.gwolle_gb_options.active {
 
 
 /* AJAX on Entries Page and on Dashboard Widget */
-
 span.gwolle_gb_check,
 span.gwolle_gb_uncheck,
 span.gwolle_gb_spam,
