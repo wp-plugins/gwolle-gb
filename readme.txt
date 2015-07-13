@@ -2,8 +2,8 @@
 Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
-Tested up to: 4.2
-Stable tag: 1.4.1
+Tested up to: 4.3
+Stable tag: 1.4.2
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -120,8 +120,6 @@ These features are planned. There is no particular timeframe or order for when i
 If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
-* Editor: Add options to change the date.
-* Editor: Add option to change the name.
 * Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Add pagination link for all entries (optional).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
@@ -382,6 +380,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Set CSS for span to display:inline.
 * Check for array when getting settings.
 * DB: Move date to datetime with bigint(8), so sorting on date works correctly.
+* Mark $entry->get_date and $entry->set_date as deprecated.
 * Rename actions.php to hooks.php.
 * Add function gwolle_gb_get_postid.
 * Add button for frontend to some adminpages.
