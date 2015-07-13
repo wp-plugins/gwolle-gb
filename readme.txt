@@ -385,7 +385,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Rename actions.php to hooks.php.
 * Add function gwolle_gb_get_postid.
 * Add button for frontend to some adminpages.
-* Improve and update Admin CSS.
+* Improve and update Admin CSS for WP 4.3.
 * Update pot, nl_NL.
 
 = 1.4.1 =
