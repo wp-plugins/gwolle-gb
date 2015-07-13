@@ -105,7 +105,7 @@ function gwolle_gb_get_entries($args = array()) {
 				`author_ip`,
 				`author_host`,
 				`content`,
-				`date`,
+				`datetime`,
 				`ischecked`,
 				`checkedby`,
 				`istrash`,
@@ -115,7 +115,7 @@ function gwolle_gb_get_entries($args = array()) {
 			WHERE
 				" . $where . "
 			ORDER BY
-				date DESC
+				datetime DESC
 			" . $limit . " " . $offset . "
 			;";
 
@@ -143,7 +143,7 @@ function gwolle_gb_get_entries($args = array()) {
 				'author_ip' => $data['author_ip'],
 				'author_host' => $data['author_host'],
 				'content' => stripslashes($data['content']),
-				'date' => $data['date'],
+				'datetime' => $data['datetime'],
 				'ischecked' => (int) $data['ischecked'],
 				'checkedby' => (int) $data['checkedby'],
 				'istrash' => (int) $data['istrash'],

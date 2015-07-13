@@ -16,7 +16,8 @@
  * $author_ip       author_ip        text          ip address of the author                required
  * $author_host     author_host      text          hostname of that ip address             required
  * $content         content          longtext      content of the entry                    required
- * $date            date             varchar(10)   date of posting the entry, timestamp    required
+ * $date            date             varchar(10)   date of posting the entry, timestamp    deprecated
+ * $datetime        datetime         bigint(8)     date of posting the entry, timestamp    required
  * $ischecked       ischecked        tinyint(1)    checked/moderated by an admin, 0 or 1   required
  * $checkedby       checkedby        int(5)        admin who checked/moderated this entry  required
  * $istrash         istrash          varchar(1)    entry is placed in the trashbin, 0 or 1 required, default 0
@@ -28,7 +29,7 @@
 class gwolle_gb_entry {
 
 	protected $id, $author_name, $author_id, $author_email, $author_origin, $author_website,
-		$author_ip, $author_host, $content, $date, $ischecked, $checkedby, $istrash, $isspam;
+		$author_ip, $author_host, $content, $datetime, $ischecked, $checkedby, $istrash, $isspam;
 
 	/*
 	 * Construct an instance
@@ -44,7 +45,7 @@ class gwolle_gb_entry {
 		$this->author_ip      = (string) "";
 		$this->author_host    = (string) "";
 		$this->content        = (string) "";
-		$this->date           = (string) "";
+		$this->datetime       = (string) "";
 		$this->ischecked      = (int) 0;
 		$this->checkedby      = (int) 0;
 		$this->istrash        = (int) 0;
@@ -94,7 +95,7 @@ class gwolle_gb_entry {
 					`author_ip`,
 					`author_host`,
 					`content`,
-					`date`,
+					`datetime`,
 					`ischecked`,
 					`checkedby`,
 					`istrash`,
@@ -124,7 +125,7 @@ class gwolle_gb_entry {
 			'author_ip' => $data['author_ip'],
 			'author_host' => $data['author_host'],
 			'content' => stripslashes($data['content']),
-			'date' => $data['date'],
+			'datetime' => $data['datetime'],
 			'ischecked' => (int) $data['ischecked'],
 			'checkedby' => (int) $data['checkedby'],
 			'istrash' => (int) $data['istrash'],
@@ -167,7 +168,7 @@ class gwolle_gb_entry {
 					author_ip = %s,
 					author_host = %s,
 					content = %s,
-					date = %s,
+					datetime = %d,
 					isspam = %d,
 					ischecked = %s,
 					checkedby = %d,
@@ -185,7 +186,7 @@ class gwolle_gb_entry {
 					$this->get_author_ip(),
 					$this->get_author_host(),
 					$this->get_content(),
-					$this->get_date(),
+					$this->get_datetime(),
 					$this->get_isspam(),
 					$this->get_ischecked(),
 					$this->get_checkedby(),
@@ -212,7 +213,7 @@ class gwolle_gb_entry {
 					author_ip,
 					author_host,
 					content,
-					date,
+					datetime,
 					isspam,
 					ischecked,
 					checkedby,
@@ -226,7 +227,7 @@ class gwolle_gb_entry {
 					%s,
 					%s,
 					%s,
-					%s,
+					%d,
 					%d,
 					%d,
 					%d,
@@ -242,7 +243,7 @@ class gwolle_gb_entry {
 					$this->get_author_ip(),
 					$this->get_author_host(),
 					$this->get_content(),
-					$this->get_date(),
+					$this->get_datetime(),
 					$this->get_isspam(),
 					$this->get_ischecked(),
 					$this->get_checkedby(),
@@ -284,7 +285,7 @@ class gwolle_gb_entry {
 	 * - author_ip
 	 * - author_host
 	 * - content
-	 * - date
+	 * - datetime
 	 * - ischecked
 	 * - checkedby
 	 * - istrash
@@ -322,10 +323,10 @@ class gwolle_gb_entry {
 		if ( isset( $args['content'] ) ) {
 			$this->set_content( $args['content'] );
 		}
-		if ( isset( $args['date'] ) ) {
-			$this->set_date( $args['date'] );
-		} else if ( !$this->get_date() ) {
-			$this->set_date(); // set as new
+		if ( isset( $args['datetime'] ) ) {
+			$this->set_datetime( $args['datetime'] );
+		} else if ( !$this->get_datetime() ) {
+			$this->set_datetime(); // set as new
 		}
 		if ( isset( $args['ischecked'] ) ) {
 			$this->set_ischecked( $args['ischecked'] );
@@ -414,12 +415,15 @@ class gwolle_gb_entry {
 		}
 	}
 	public function set_date($date = NULL) {
+        _deprecated_function( __FUNCTION__, ' 1.4.2', 'set_datetime()' );
+	}
+	public function set_datetime($date = NULL) {
 		$date = intval($date); // timestamp can be cast to int.
 		if ( !$date ) {
 			$date = current_time( 'timestamp' );
 		}
 		if ($date) {
-			$this->date = $date;
+			$this->datetime = $date;
 		}
 	}
 	public function set_ischecked($ischecked) {
@@ -476,7 +480,11 @@ class gwolle_gb_entry {
 		return gwolle_gb_sanitize_output($this->content);
 	}
 	public function get_date() {
-		return $this->date;
+		_deprecated_function( __FUNCTION__, ' 1.4.2', 'get_datetime()' );
+		return $this->datetime;
+	}
+	public function get_datetime() {
+		return $this->datetime;
 	}
 	public function get_ischecked() {
 		return $this->ischecked;

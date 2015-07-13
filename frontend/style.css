@@ -8,6 +8,9 @@
 	clear: left;
 }
 
+#gwolle_gb span {
+	display: inline;
+}
 
 /* Write button */
 
@@ -147,5 +150,6 @@ li.gwolle_gb_widget {
 p.gwolle_gb_link {
 	padding: 3px 0;
 }
+
 
 

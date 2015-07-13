@@ -10,7 +10,9 @@ function gwolle_gb_sanitize_input($input) {
 	$input = trim($input);
 	$input = strip_tags($input);
 	$input = stripslashes($input); // Make sure we're not just adding lots of slashes.
-	$input = htmlentities($input, ENT_COMPAT, 'UTF-8');
+	$input = preg_replace('/"/', '&quot;', $input);
+	$input = preg_replace('/\'/', '&#39;', $input);
+	$input = htmlspecialchars($input, ENT_COMPAT, 'UTF-8');
 	$input = addslashes($input);
 	return $input;
 }
@@ -25,8 +27,11 @@ function gwolle_gb_sanitize_output($output) {
 	$output = trim($output);
 	$output = strip_tags($output);
 	$output = stripslashes($output);
-	//$output = htmlentities($output);
-	$output = html_entity_decode($output, ENT_COMPAT, 'UTF-8'); // the opposite of htmlentities
+	$output = html_entity_decode($output, ENT_COMPAT, 'UTF-8'); // the opposite of htmlentities, for backwards compat
+	$output = htmlspecialchars_decode($output, ENT_COMPAT);
+	// Still wanting this encoded
+	$output = preg_replace('/"/', '&quot;', $output);
+	$output = preg_replace('/\'/', '&#39;', $output);
 	return $output;
 }
 
@@ -39,6 +44,9 @@ function gwolle_gb_sanitize_output($output) {
 function gwolle_gb_format_values_for_mail($value) {
 	$value = str_replace('<', '{', $value);
 	$value = str_replace('>', '}', $value);
+	$value = str_replace('&quot;','\"', $value);
+	$value = str_replace('&#039;', '\'', $value);
+	$value = str_replace('&#39;', '\'', $value);
 	return $value;
 }
 
@@ -71,14 +79,13 @@ function gwolle_gb_get_excerpt( $content, $excerpt_length = 20 ) {
 function gwolle_gb_get_author_name_html($entry) {
 
 	$author_name = trim( $entry->get_author_name() );
-	$author_name_html = trim( $entry->get_author_name() );
+	$author_name_html = $author_name;
 
 	// Registered User;
 	$author_id = $entry->get_author_id();
 	$is_moderator = gwolle_gb_is_moderator( $author_id );
 	if ( $is_moderator ) {
-		$author_name = $is_moderator; // overwrite name in entry with name of registered user
-		$author_name_html = '<i>' . $is_moderator . '</i>'; // overwrite name in entry with name of registered user
+		$author_name_html = '<i>' . $author_name . '</i>';
 	} else {
 		$author_name_html = gwolle_gb_sanitize_output( $author_name_html );
 	}
@@ -137,7 +144,7 @@ function gwolle_gb_is_moderator($user_id) {
  */
 function gwolle_gb_get_setting($request) {
 
-	$provided = array('form', 'read', 'widget');
+	$provided = array('form', 'read');
 	if ( in_array( $request, $provided ) ) {
 		switch ( $request ) {
 			case 'form':
@@ -152,6 +159,7 @@ function gwolle_gb_get_setting($request) {
 					'form_homepage_mandatory' => 'false',
 					'form_message_enabled'    => 'true',
 					'form_message_mandatory'  => 'true',
+					'form_bbcode_enabled'     => 'false',
 					'form_antispam_enabled'   => 'false',
 					'form_recaptcha_enabled'  => 'false'
 					);
@@ -159,8 +167,11 @@ function gwolle_gb_get_setting($request) {
 				if ( is_string( $setting ) ) {
 					$setting = maybe_unserialize( $setting );
 				}
-				$setting = array_merge( $defaults, $setting );
-				return $setting;
+				if ( is_array($setting) && !empty($setting) ) {
+					$setting = array_merge( $defaults, $setting );
+					return $setting;
+				}
+				return $defaults;
 				break;
 			case 'read':
 				if ( get_option('show_avatars') ) {
@@ -182,8 +193,11 @@ function gwolle_gb_get_setting($request) {
 				if ( is_string( $setting ) ) {
 					$setting = maybe_unserialize( $setting );
 				}
-				$setting = array_merge( $defaults, $setting );
-				return $setting;
+				if ( is_array($setting) && !empty($setting) ) {
+					$setting = array_merge( $defaults, $setting );
+					return $setting;
+				}
+				return $defaults;
 				break;
 			default:
 				return false;
@@ -194,3 +208,148 @@ function gwolle_gb_get_setting($request) {
 }
 
 
+/*
+ * Uses intermittent meta_key to determine the permalink. See hooks.php
+ * return (int) postid if found, else 0.
+ */
+function gwolle_gb_get_postid() {
+
+	$the_query = new WP_Query( array(
+		'post_type' => 'any',
+		'ignore_sticky_posts' => true,
+		'meta_query' => array(
+			array(
+				'key' => 'gwolle_gb_read',
+				'value' => 'true',
+			),
+		)
+	));
+	if ( $the_query->have_posts() ) {
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			$postid = get_the_ID();
+			return $postid;
+			break; // only one postid is needed.
+		endwhile;
+		wp_reset_postdata();
+	}
+	return 0;
+
+}
+
+
+/*
+ * Update Cache plugins
+ */
+function gwolle_gb_clear_cache() {
+
+	/* WP Super Cache */
+	if ( function_exists('wp_cache_post_change') ) {
+		$GLOBALS["super_cache_enabled"] = 1;
+		wp_cache_post_change( get_the_ID() );
+	}
+
+}
+
+
+/*
+ * Parse the BBcode into HTML.
+ */
+function gwolle_gb_bbcode_parse( $str ){
+	$bb[] = "#\[b\](.*?)\[/b\]#si";
+	$html[] = "<b>\\1</b>";
+	$bb[] = "#\[i\](.*?)\[/i\]#si";
+	$html[] = "<i>\\1</i>";
+	$bb[] = "#\[u\](.*?)\[/u\]#si";
+	$html[] = "<u>\\1</u>";
+	$bb[] = "#\[ul\](.*?)\[/ul\]#si";
+	$html[] = "<ul>\\1</ul>";
+	$bb[] = "#\[ol\](.*?)\[/ol\]#si";
+	$html[] = "<ol>\\1</ol>";
+	$bb[] = "#\[li\](.*?)\[/li\]#si";
+	$html[] = "<li>\\1</li>";
+	$str = preg_replace($bb, $html, $str);
+
+	$pattern="#\[url href=([^\]]*)\]([^\[]*)\[/url\]#i";
+	$replace='<a href="\\1" target="_blank" rel="nofollow">\\2</a>';
+	$str=preg_replace($pattern, $replace, $str);
+
+	$pattern="#\[img\]([^\[]*)\[/img\]#i";
+	$replace='<img src="\\1" alt=""/>';
+	$str=preg_replace($pattern, $replace, $str);
+
+	//$str=nl2br($str);
+	return $str;
+}
+
+
+/*
+ * Convert to 3byte Emoji, if db-charset is only utf8mb3.
+ *
+ * $Args: - string, text string to encode
+ *        - field, the database field that is used for that string, will be checked on charset.
+ *
+ * Return: string, encoded or not.
+ */
+function gwolle_gb_maybe_encode_emoji( $string, $field ) {
+	global $wpdb;
+	if ( method_exists($wpdb, 'get_col_charset') ){
+		$charset = $wpdb->get_col_charset( $wpdb->gwolle_gb_entries, $field );
+		if ( 'utf8' === $charset && function_exists('wp_encode_emoji') ) {
+			$string = wp_encode_emoji( $string );
+		}
+	}
+	return $string;
+}
+
+
+/*
+ * Taken from wp-admin/includes/template.php touch_time()
+ * Adapted for simplicity.
+ */
+function gwolle_gb_touch_time( $entry ) {
+	global $wp_locale;
+
+	$date = $entry->get_datetime();
+	if ( !$date ) {
+		$date = current_time('timestamp');
+	}
+
+	$dd = date( 'd', $date );
+	$mm = date( 'm', $date );
+	$yy = date( 'Y', $date );
+	$hh = date( 'H', $date );
+	$mn = date( 'i', $date );
+
+	// Day
+	echo '<label><span class="screen-reader-text">' . __( 'Day', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="dd" name="dd" value="' . $dd . '" size="2" maxlength="2" autocomplete="off" /></label>';
+
+	// Month
+	echo '<label><span class="screen-reader-text">' . __( 'Month', GWOLLE_GB_TEXTDOMAIN ) . '</span><select id="mm" name="mm">\n';
+	for ( $i = 1; $i < 13; $i = $i +1 ) {
+		$monthnum = zeroise($i, 2);
+		echo "\t\t\t" . '<option value="' . $monthnum . '" ' . selected( $monthnum, $mm, false ) . '>';
+		/* translators: 1: month number (01, 02, etc.), 2: month abbreviation */
+		echo sprintf( __( '%1$s-%2$s' ), $monthnum, $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) ) ) . "</option>\n";
+	}
+	echo '</select></label>';
+
+	// Year
+	echo '<label><span class="screen-reader-text">' . __( 'Year', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="yy" name="yy" value="' . $yy . '" size="4" maxlength="4" autocomplete="off" /></label>';
+	echo '<br />';
+	// Hour
+	echo '<label><span class="screen-reader-text">' . __( 'Hour', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="hh" name="hh" value="' . $hh . '" size="2" maxlength="2" autocomplete="off" /></label>:';
+	// Minute
+	echo '<label><span class="screen-reader-text">' . __( 'Minute', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="mn" name="mn" value="' . $mn . '" size="2" maxlength="2" autocomplete="off" /></label>';
+	?>
+
+	<div class="gwolle_gb_timestamp">
+		<!-- Clicking OK will place a timestamp here. -->
+		<input type="hidden" id="gwolle_gb_timestamp" name="gwolle_gb_timestamp" value="" />
+	</div>
+
+	<p>
+		<a href="#" class="gwolle_gb_save_timestamp hide-if-no-js button"><?php _e('OK', GWOLLE_GB_TEXTDOMAIN); ?></a>
+		<a href="#" class="gwolle_gb_cancel_timestamp hide-if-no-js button-cancel"><?php _e('Cancel', GWOLLE_GB_TEXTDOMAIN); ?></a>
+	</p>
+	<?php
+}

@@ -31,6 +31,7 @@ function install_gwolle_gb() {
 			author_host text NOT NULL,
 			content longtext NOT NULL,
 			date varchar(10) NOT NULL,
+			datetime bigint(8) UNSIGNED NOT NULL,
 			ischecked tinyint(1) NOT NULL,
 			checkedby int(5) NOT NULL,
 			istrash varchar(1) NOT NULL default '0',
@@ -48,9 +49,17 @@ function install_gwolle_gb() {
 			entry_id int(5) NOT NULL,
 			author_id int(5) NOT NULL,
 			date varchar(12) NOT NULL,
+			datetime bigint(8) UNSIGNED NOT NULL,
 			PRIMARY KEY  (id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
+
+	/* Upgrade to new shiny db collation. Since WP 4.2 */
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	if ( function_exists('maybe_convert_table_to_utf8mb4') ) {
+		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_entries );
+		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_log );
+	}
 
 	// Add reCAPTCHA options
 	add_option('recaptcha-public-key', '');
@@ -85,6 +94,10 @@ function install_gwolle_gb() {
 
 	//	Save plugin version to database
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
+
+	// Call flush_rules() as a method of the $wp_rewrite object for the RSS Feed.
+	global $wp_rewrite;
+	$wp_rewrite->flush_rules( false );
 }
 
 
@@ -425,7 +438,46 @@ function upgrade_gwolle_gb() {
 		delete_option('gwolle_gb-recaptcha-active');
 	}
 
-	// Update the plugin version option
+	if (version_compare($installed_ver, '1.3.8', '<')) {
+		/*
+		 * 1.3.7->1.3.8
+		 * Call flush_rules() as a method of the $wp_rewrite object for the RSS Feed.
+		 */
+		global $wp_rewrite;
+		$wp_rewrite->flush_rules( false );
+	}
+
+	if (version_compare($installed_ver, '1.4.2', '<')) {
+		/*
+		 * 1.4.1->1.4.2
+		 * Add datetime field to database and fill it from the date column.
+		 */
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_entries ADD `datetime` BIGINT(8) UNSIGNED NOT NULL AFTER `date`;
+		");
+		$wpdb->query( "
+			UPDATE `$wpdb->gwolle_gb_entries` SET `datetime` = `date`;
+		");
+
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_log ADD `datetime` BIGINT(8) UNSIGNED NOT NULL AFTER `date`;
+		");
+		$wpdb->query( "
+			UPDATE `$wpdb->gwolle_gb_log` SET `datetime` = `date`;
+		");
+	}
+
+	/* Upgrade to new shiny db collation. Since WP 4.2 */
+	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+	if ( function_exists('maybe_convert_table_to_utf8mb4') ) {
+		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_entries );
+		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_log );
+	}
+
+
+	/* Update the plugin version option */
 	update_option('gwolle_gb_version', GWOLLE_GB_VER);
 }
+
+
 
