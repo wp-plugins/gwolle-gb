@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 22:05+0200\n"
+"POT-Creation-Date: 2015-07-15 12:14+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -298,7 +298,7 @@ msgstr "Dit bericht is Zichtbaar."
 msgid "This entry is Not Visible."
 msgstr "Dit bericht is Niet Zichtbaar."
 
-#: admin/page-editor.php:398 frontend/posthandling.php:420
+#: admin/page-editor.php:398 frontend/posthandling.php:435
 msgid "Checked"
 msgstr "Vrijgegeven"
 
@@ -1177,56 +1177,56 @@ msgstr ""
 "Een nieuw gastenboekbericht plaatsen is alleen toegestaan voor ingelogde "
 "gebruikers."
 
-#: frontend/posthandling.php:208 frontend/posthandling.php:251
+#: frontend/posthandling.php:223 frontend/posthandling.php:266
 msgid "There were errors submitting your guestbook entry."
 msgstr "Er waren fouten bij het toevoegen van je gastenboekbericht."
 
-#: frontend/posthandling.php:214
+#: frontend/posthandling.php:229
 msgid "Your name is not filled in, even though it is mandatory."
 msgstr "Je naam is niet ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:217
+#: frontend/posthandling.php:232
 msgid "Your origin is not filled in, even though it is mandatory."
 msgstr "Je stad is niet ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:220
+#: frontend/posthandling.php:235
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
 msgstr "Je e-mailadres is niet correct ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:223
+#: frontend/posthandling.php:238
 msgid "Your website is not filled in, even though it is mandatory."
 msgstr "Je website is niet ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:226
+#: frontend/posthandling.php:241
 msgid "There is no message, even though it is mandatory."
 msgstr "Bericht heeft geen inhoud, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:229
+#: frontend/posthandling.php:244
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
 msgstr ""
 "De anti-spam vraag is niet goed beantwoord, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:232
+#: frontend/posthandling.php:247
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr "De reCAPTCHA is niet goed ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:324
+#: frontend/posthandling.php:339
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 "Dubbel bericht: een bericht met de ingevoerde gegevens was al opgeslagen."
 
-#: frontend/posthandling.php:341
+#: frontend/posthandling.php:356
 msgid "Thank you for your entry."
 msgstr "Bedankt voor je bericht."
 
-#: frontend/posthandling.php:343
+#: frontend/posthandling.php:358
 msgid "We will review it and unlock it in a short while."
 msgstr "We zullen het bekijken en binnenkort plaatsen."
 
-#: frontend/posthandling.php:380 admin/tabs/emailtab.php:138
+#: frontend/posthandling.php:395 admin/tabs/emailtab.php:138
 msgid ""
 "\n"
 "Hello,\n"
@@ -1261,15 +1261,15 @@ msgstr ""
 "Berichtinhoud:\n"
 "%entry_content%\n"
 
-#: frontend/posthandling.php:401 frontend/posthandling.php:469
+#: frontend/posthandling.php:416 frontend/posthandling.php:484
 msgid "New Guestbook Entry"
 msgstr "Nieuw Gastenboek Bericht"
 
-#: frontend/posthandling.php:422
+#: frontend/posthandling.php:437
 msgid "Unchecked"
 msgstr "Niet vrijgegeven"
 
-#: frontend/posthandling.php:450 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:465 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1500,10 +1500,18 @@ msgid "Minute"
 msgstr "Minuut"
 
 #: functions/function.misc.php:351
+msgid "Save the date and time"
+msgstr "Opslaan van datum en tijd"
+
+#: functions/function.misc.php:352
 msgid "OK"
 msgstr "OK"
 
-#: functions/function.misc.php:352
+#: functions/function.misc.php:354
+msgid "Cancel saving date and time"
+msgstr "Niet opslaan van datum en tijd"
+
+#: functions/function.misc.php:355
 msgid "Cancel"
 msgstr "Annuleren"
 
