@@ -324,22 +324,22 @@ function gwolle_gb_touch_time( $entry ) {
 	echo '<label><span class="screen-reader-text">' . __( 'Day', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="dd" name="dd" value="' . $dd . '" size="2" maxlength="2" autocomplete="off" /></label>';
 
 	// Month
-	echo '<label><span class="screen-reader-text">' . __( 'Month', GWOLLE_GB_TEXTDOMAIN ) . '</span><select id="mm" name="mm">\n';
+	echo '<label for="mm"><span class="screen-reader-text">' . __( 'Month', GWOLLE_GB_TEXTDOMAIN ) . '</span><select id="mm" name="mm">\n';
 	for ( $i = 1; $i < 13; $i = $i +1 ) {
 		$monthnum = zeroise($i, 2);
 		echo "\t\t\t" . '<option value="' . $monthnum . '" ' . selected( $monthnum, $mm, false ) . '>';
 		/* translators: 1: month number (01, 02, etc.), 2: month abbreviation */
-		echo sprintf( __( '%1$s-%2$s' ), $monthnum, $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) ) ) . "</option>\n";
+		echo sprintf( __( '%1$s-%2$s', GWOLLE_GB_TEXTDOMAIN ), $monthnum, $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) ) ) . "</option>\n";
 	}
 	echo '</select></label>';
 
 	// Year
-	echo '<label><span class="screen-reader-text">' . __( 'Year', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="yy" name="yy" value="' . $yy . '" size="4" maxlength="4" autocomplete="off" /></label>';
+	echo '<label for="yy"><span class="screen-reader-text">' . __( 'Year', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="yy" name="yy" value="' . $yy . '" size="4" maxlength="4" autocomplete="off" /></label>';
 	echo '<br />';
 	// Hour
-	echo '<label><span class="screen-reader-text">' . __( 'Hour', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="hh" name="hh" value="' . $hh . '" size="2" maxlength="2" autocomplete="off" /></label>:';
+	echo '<label for="hh"><span class="screen-reader-text">' . __( 'Hour', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="hh" name="hh" value="' . $hh . '" size="2" maxlength="2" autocomplete="off" /></label>:';
 	// Minute
-	echo '<label><span class="screen-reader-text">' . __( 'Minute', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="mn" name="mn" value="' . $mn . '" size="2" maxlength="2" autocomplete="off" /></label>';
+	echo '<label for="mn"><span class="screen-reader-text">' . __( 'Minute', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="mn" name="mn" value="' . $mn . '" size="2" maxlength="2" autocomplete="off" /></label>';
 	?>
 
 	<div class="gwolle_gb_timestamp">
@@ -348,8 +348,12 @@ function gwolle_gb_touch_time( $entry ) {
 	</div>
 
 	<p>
-		<a href="#" class="gwolle_gb_save_timestamp hide-if-no-js button"><?php _e('OK', GWOLLE_GB_TEXTDOMAIN); ?></a>
-		<a href="#" class="gwolle_gb_cancel_timestamp hide-if-no-js button-cancel"><?php _e('Cancel', GWOLLE_GB_TEXTDOMAIN); ?></a>
+		<a href="#" class="gwolle_gb_save_timestamp hide-if-no-js button" title="<?php _e('Save the date and time', GWOLLE_GB_TEXTDOMAIN); ?>">
+			<?php _e('OK', GWOLLE_GB_TEXTDOMAIN); ?>
+		</a>
+		<a href="#" class="gwolle_gb_cancel_timestamp hide-if-no-js button-cancel" title="<?php _e('Cancel saving date and time', GWOLLE_GB_TEXTDOMAIN); ?>">
+			<?php _e('Cancel', GWOLLE_GB_TEXTDOMAIN); ?>
+		</a>
 	</p>
 	<?php
 }

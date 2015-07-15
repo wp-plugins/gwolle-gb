@@ -129,6 +129,7 @@ If you do have a feature request, please post it on the support forum.
 * Settings: Save all tabs when saving.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
 * Posting: Trigger most cache plugins to update their cache.
+* Save the used meta_key only when save_post action is run.
 
 = API, add an entry =
 
@@ -372,6 +373,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 
 == Changelog ==
+
+= 1.4.3 =
+* 2015-07-
+* Improve html of new editor options.
 
 = 1.4.2 =
 * 2015-07-13
