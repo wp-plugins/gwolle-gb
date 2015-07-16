@@ -269,17 +269,11 @@ If that doesn't work enough, use the Custom Anti-Spam question.
 
 You can also use reCAPTCHA. It might scare off some visitors, though.
 
-= I get a warning about another reCAPTCHA library =
-
-Apparently you use a theme or other plugin with its own reCAPTCHA library. If you get a warning that it is old and incompatible, please
-ask the maintainer of that theme or plugin to update their version of reCAPTCHA. If the warning is that another version will be used by
-Gwolle-GB, and you experience problems when submitting guestbook entries, please tell me on the forums, and also tell me which other plugin
-you use.
-
 = My reCAPTCHA doesn't show up in the form. =
 
-If you did enable reCAPTCHA, but didn't get a warning, in most cases it should show your reCAPTCHA. It might be that you have JavaScript errors.
-You can check this in the Inspector/console of your browser.
+If you did enable reCAPTCHA it should show your reCAPTCHA. reCAPTCHA only works on PHP 5.3 and higher.
+
+It could also be that you have JavaScript errors. You can check this in the Inspector/console of your browser.
 
 = After submitting a new entry, I get errors about reCAPTCHA. =
 If the form gives you errors, even though you filled in everything correctly, there might be something strange happening.
@@ -375,7 +369,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 == Changelog ==
 
 = 1.4.3 =
-* 2015-07-
+* 2015-07-16
 * Upgrade reCAPTCHA to 1.1.1 (Requires PHP 5.3+).
 * DB: drop column 'date'.
 * Improve html of new editor options.
