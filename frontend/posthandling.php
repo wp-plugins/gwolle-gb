@@ -170,10 +170,9 @@ function gwolle_gb_frontend_posthandling() {
 				if ( isset($recaptcha_publicKey) && isset($recaptcha_privateKey) ) {
 
 					// Taken from https://github.com/google/recaptcha
-					require('reCAPTCHA/autoload.php');
+					require('reCAPTCHA/init.php');
+					$resp = gwolle_gb_recaptcha_init($recaptcha_privateKey);
 
-					$recaptcha = new \ReCaptcha\ReCaptcha($recaptcha_privateKey);
-					$resp = $recaptcha->verify($_POST["g-recaptcha-response"], $_SERVER["REMOTE_ADDR"]);
 					if ( $resp != null && $resp->isSuccess() ) {
 						// verified!
 						$gwolle_gb_messages .= '<p class="error_fields"><strong>Verified.</strong></p>';
