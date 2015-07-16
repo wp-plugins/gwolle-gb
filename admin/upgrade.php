@@ -30,7 +30,6 @@ function install_gwolle_gb() {
 			author_ip text NOT NULL,
 			author_host text NOT NULL,
 			content longtext NOT NULL,
-			date varchar(10) NOT NULL,
 			datetime bigint(8) UNSIGNED NOT NULL,
 			ischecked tinyint(1) NOT NULL,
 			checkedby int(5) NOT NULL,
@@ -48,7 +47,6 @@ function install_gwolle_gb() {
 			subject text NOT NULL,
 			entry_id int(5) NOT NULL,
 			author_id int(5) NOT NULL,
-			date varchar(12) NOT NULL,
 			datetime bigint(8) UNSIGNED NOT NULL,
 			PRIMARY KEY  (id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
@@ -464,6 +462,20 @@ function upgrade_gwolle_gb() {
 		");
 		$wpdb->query( "
 			UPDATE `$wpdb->gwolle_gb_log` SET `datetime` = `date`;
+		");
+	}
+
+	if (version_compare($installed_ver, '1.4.3', '<')) {
+		/*
+		 * 1.4.2->1.4.3
+		 * Add datetime field to database and fill it from the date column.
+		 */
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_entries DROP COLUMN `date`;
+		");
+
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_log DROP COLUMN `date`;
 		");
 	}
 
