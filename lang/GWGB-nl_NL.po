@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-15 12:14+0200\n"
+"POT-Creation-Date: 2015-07-16 12:40+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -298,7 +298,7 @@ msgstr "Dit bericht is Zichtbaar."
 msgid "This entry is Not Visible."
 msgstr "Dit bericht is Niet Zichtbaar."
 
-#: admin/page-editor.php:398 frontend/posthandling.php:435
+#: admin/page-editor.php:398 frontend/posthandling.php:407
 msgid "Checked"
 msgstr "Vrijgegeven"
 
@@ -1147,7 +1147,7 @@ msgstr "Lezen"
 msgid "Admin"
 msgstr "Admin"
 
-#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
+#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:312
 msgid "Anti-spam"
 msgstr "Anti-spam"
 
@@ -1177,56 +1177,56 @@ msgstr ""
 "Een nieuw gastenboekbericht plaatsen is alleen toegestaan voor ingelogde "
 "gebruikers."
 
-#: frontend/posthandling.php:223 frontend/posthandling.php:266
+#: frontend/posthandling.php:195 frontend/posthandling.php:238
 msgid "There were errors submitting your guestbook entry."
 msgstr "Er waren fouten bij het toevoegen van je gastenboekbericht."
 
-#: frontend/posthandling.php:229
+#: frontend/posthandling.php:201
 msgid "Your name is not filled in, even though it is mandatory."
 msgstr "Je naam is niet ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:232
+#: frontend/posthandling.php:204
 msgid "Your origin is not filled in, even though it is mandatory."
 msgstr "Je stad is niet ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:235
+#: frontend/posthandling.php:207
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
 msgstr "Je e-mailadres is niet correct ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:238
+#: frontend/posthandling.php:210
 msgid "Your website is not filled in, even though it is mandatory."
 msgstr "Je website is niet ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:241
+#: frontend/posthandling.php:213
 msgid "There is no message, even though it is mandatory."
 msgstr "Bericht heeft geen inhoud, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:244
+#: frontend/posthandling.php:216
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
 msgstr ""
 "De anti-spam vraag is niet goed beantwoord, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:247
+#: frontend/posthandling.php:219
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr "De reCAPTCHA is niet goed ingevuld, terwijl dat wel verplicht is."
 
-#: frontend/posthandling.php:339
+#: frontend/posthandling.php:311
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 "Dubbel bericht: een bericht met de ingevoerde gegevens was al opgeslagen."
 
-#: frontend/posthandling.php:356
+#: frontend/posthandling.php:328
 msgid "Thank you for your entry."
 msgstr "Bedankt voor je bericht."
 
-#: frontend/posthandling.php:358
+#: frontend/posthandling.php:330
 msgid "We will review it and unlock it in a short while."
 msgstr "We zullen het bekijken en binnenkort plaatsen."
 
-#: frontend/posthandling.php:395 admin/tabs/emailtab.php:138
+#: frontend/posthandling.php:367 admin/tabs/emailtab.php:138
 msgid ""
 "\n"
 "Hello,\n"
@@ -1261,15 +1261,15 @@ msgstr ""
 "Berichtinhoud:\n"
 "%entry_content%\n"
 
-#: frontend/posthandling.php:416 frontend/posthandling.php:484
+#: frontend/posthandling.php:388 frontend/posthandling.php:456
 msgid "New Guestbook Entry"
 msgstr "Nieuw Gastenboek Bericht"
 
-#: frontend/posthandling.php:437
+#: frontend/posthandling.php:409
 msgid "Unchecked"
 msgstr "Niet vrijgegeven"
 
-#: frontend/posthandling.php:465 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:437 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1403,11 +1403,11 @@ msgstr "Vraag:"
 msgid "Answer"
 msgstr "Antwoord"
 
-#: frontend/write.php:333
+#: frontend/write.php:332
 msgid "Submit"
 msgstr "Toevoegen"
 
-#: frontend/write.php:342 admin/tabs/formtab.php:74
+#: frontend/write.php:341 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1539,7 +1539,7 @@ msgstr ""
 "Deze pictogrammen worden getoond in iedere berichtenrij op de admin-pagina, "
 "zodat je de status makkelijk kunt zien (vrijgegeven, spam en prullenbak)."
 
-#: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:140
+#: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:135
 #: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:252
 #: admin/tabs/readingtab.php:229
 msgid "Save settings"
@@ -1639,15 +1639,15 @@ msgstr ""
 msgid "Learn more about reCAPTCHA..."
 msgstr "Leer meer over reCAPTCHA..."
 
-#: admin/tabs/antispamtab.php:117
+#: admin/tabs/antispamtab.php:112
 msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
 msgstr "<strong>Site (Publieke)</strong> sleutel van je reCAPTCHA account"
 
-#: admin/tabs/antispamtab.php:120
+#: admin/tabs/antispamtab.php:115
 msgid "<strong>Secret</strong> key of your reCAPTCHA account"
 msgstr "<strong>Geheime</strong> sleutel van je reCAPTCHA account"
 
-#: admin/tabs/antispamtab.php:123
+#: admin/tabs/antispamtab.php:118
 msgid ""
 "reCAPTCHA is a way to have visitors fill in a field with a few letters or "
 "numbers. It is a way to make sure that you have a human visitor and not a "
@@ -1659,40 +1659,26 @@ msgstr ""
 "bezoeker is en geen spambot. Niet elke bezoeker zal het echter waarderen, en "
 "sommigen zullen het als onvriendelijk ervaren."
 
-#: admin/tabs/antispamtab.php:125
+#: admin/tabs/antispamtab.php:120
 msgid "The keys can be found at your"
 msgstr "De sleutels kunnen gevonden worden bij je"
 
-#: admin/tabs/antispamtab.php:125
+#: admin/tabs/antispamtab.php:120
 msgid "Go to my reCAPTCHA sites..."
 msgstr "Ga naar mijn reCAPTCHA sites..."
 
-#: admin/tabs/antispamtab.php:125
+#: admin/tabs/antispamtab.php:120
 msgid "reCAPTCHA sites overview"
 msgstr "reCAPTCHA sites overzicht"
 
-#: admin/tabs/antispamtab.php:130
+#: admin/tabs/antispamtab.php:126
+#, php-format
 msgid ""
-"<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
-"your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be "
-"loaded, and the found one will be used instead. This might give unexpected "
-"results."
+"reCAPTCHA requires PHP version 5.3 or newer. You are using PHP version %s. "
+"Contact your hosting provider."
 msgstr ""
-"<strong>Waarschuwing:</strong> Blijkbaar gebruik je al een reCAPTCHA "
-"bibliotheek in je thema of een andere plugin. De reCAPTCHA bibliotheek in "
-"Gwolle-GB zal niet geladen worden, en de gevonden versie zal gebruikt "
-"worden. Dit kan onverwachte resultaten geven."
-
-#: admin/tabs/antispamtab.php:132
-msgid ""
-"<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in "
-"your theme or another plugin. However, this is an old and incompatible "
-"version, so reCAPTCHA will not be used for Gwolle-GB."
-msgstr ""
-"<strong>Waarschuwing:</strong> Blijkbaar gebruik je al een reCAPTCHA "
-"bibliotheek in je thema of een andere plugin. Dit is echter een oude en niet "
-"vergelijkbaar werkende versie, dus reCAPTCHA zal niet gebruikt worden door "
-"Gwolle-GB."
+"reCAPTCHA vereist PHP-versie 5.3 of hoger. Je gebruikt PHP-versie %s. Neem "
+"contact op met je hostingprovider."
 
 #: admin/tabs/emailtab.php:26
 msgid "Admin mail from address"
@@ -2063,6 +2049,27 @@ msgstr "Verwijder ook de reCAPTCHA sleutels"
 #: admin/tabs/uninstalltab.php:73
 msgid "Uninstall &raquo;"
 msgstr "Deïnstalleren &raquo;"
+
+#~ msgid ""
+#~ "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library "
+#~ "in your theme or another plugin. The reCAPTCHA library in Gwolle-GB will "
+#~ "not be loaded, and the found one will be used instead. This might give "
+#~ "unexpected results."
+#~ msgstr ""
+#~ "<strong>Waarschuwing:</strong> Blijkbaar gebruik je al een reCAPTCHA "
+#~ "bibliotheek in je thema of een andere plugin. De reCAPTCHA bibliotheek in "
+#~ "Gwolle-GB zal niet geladen worden, en de gevonden versie zal gebruikt "
+#~ "worden. Dit kan onverwachte resultaten geven."
+
+#~ msgid ""
+#~ "<strong>Warning:</strong> Apparently you already use a reCAPTCHA library "
+#~ "in your theme or another plugin. However, this is an old and incompatible "
+#~ "version, so reCAPTCHA will not be used for Gwolle-GB."
+#~ msgstr ""
+#~ "<strong>Waarschuwing:</strong> Blijkbaar gebruik je al een reCAPTCHA "
+#~ "bibliotheek in je thema of een andere plugin. Dit is echter een oude en "
+#~ "niet vergelijkbaar werkende versie, dus reCAPTCHA zal niet gebruikt "
+#~ "worden door Gwolle-GB."
 
 #~ msgid "Donate through PayPal to"
 #~ msgstr "Doneer via PayPal aan"

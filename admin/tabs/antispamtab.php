@@ -123,7 +123,7 @@ function gwolle_gb_page_settingstab_antispam() {
 				<?php
 				if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
 					echo '<p><strong>';
-					echo sprintf( __('reCAPTCHA requires PHP version 5.3 or newer. You are using PHP version %s.', GWOLLE_GB_TEXTDOMAIN), PHP_VERSION );
+					echo sprintf( __('reCAPTCHA requires PHP version 5.3 or newer. You are using PHP version %s. Contact your hosting provider.', GWOLLE_GB_TEXTDOMAIN), PHP_VERSION );
 					echo '</strong></p>';
 				} ?>
 			</td>
