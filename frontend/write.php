@@ -300,14 +300,13 @@ function gwolle_gb_frontend_write() {
 
 
 	/* reCAPTCHA */
-	if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
-		// Register API keys at https://www.google.com/recaptcha/admin
-		$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
-		$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
+	if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
+		if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
+			// Register API keys at https://www.google.com/recaptcha/admin
+			$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
+			$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
 
-		if ( isset($recaptcha_publicKey) && strlen($recaptcha_publicKey) > 0 && isset($recaptcha_privateKey) && strlen($recaptcha_privateKey) > 0 ) {
-			// Don't show it, if we cannot use it, with only the ReCaptchaResponse class available
-			if ( !(!class_exists('ReCaptcha') && class_exists('ReCaptchaResponse')) ) {
+			if ( isset($recaptcha_publicKey) && strlen($recaptcha_publicKey) > 0 && isset($recaptcha_privateKey) && strlen($recaptcha_privateKey) > 0 ) {
 				$output .= '
 					<div class="gwolle_gb_recaptcha">
 						<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>

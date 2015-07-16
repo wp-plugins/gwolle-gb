@@ -376,7 +376,9 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 = 1.4.3 =
 * 2015-07-
+* Upgrade reCAPTCHA to 1.1.1 (Requires PHP 5.3+).
 * Improve html of new editor options.
+* Update pot, nl_NL.
 
 = 1.4.2 =
 * 2015-07-13
