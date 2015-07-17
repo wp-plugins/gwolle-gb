@@ -404,7 +404,7 @@ function gwolle_gb_page_entries() {
 			<?php
 			if ( $gwolle_gb_messages ) {
 				echo '
-					<div id="message" class="updated fade ' . $gwolle_gb_errors . ' ">' .
+					<div id="message" class="updated fade notice is-dismissible ' . $gwolle_gb_errors . ' ">' .
 						$gwolle_gb_messages .
 					'</div>';
 			}
@@ -471,12 +471,12 @@ function gwolle_gb_page_entries() {
 
 						}
 						$massEditControls .= '</select>';
-						$massEditControls .= '<input type="submit" value="' . __('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
+						$massEditControls .= '<input type="submit" value="' . esc_attr__('Apply', GWOLLE_GB_TEXTDOMAIN) . '" name="doaction" id="doaction" class="button-secondary action" />';
 						$empty_button = '';
 						if ( $show == 'spam' ) {
-							$empty_button = '<input type="submit" name="delete_all" id="delete_all" class="button apply" value="' . __('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+							$empty_button = '<input type="submit" name="delete_all" id="delete_all" class="button apply" value="' . esc_attr__('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
 						} else if ( $show == 'trash' ) {
-							$empty_button = '<input type="submit" name="delete_all" id="delete_all" class="button apply" value="' . __('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+							$empty_button = '<input type="submit" name="delete_all" id="delete_all" class="button apply" value="' . esc_attr__('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
 						}
 
 						// Only show controls when there are entries
@@ -667,8 +667,8 @@ function gwolle_gb_page_entries() {
 
 									// Date column
 									$html_output .= '
-										<td>' . date_i18n( get_option('date_format'), $entry->get_date() ) . ', ' .
-											date_i18n( get_option('time_format'), $entry->get_date() ) .
+										<td class="entry-date">' . date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ' .
+											date_i18n( get_option('time_format'), $entry->get_datetime() ) .
 										'</td>';
 
 									// Author column
@@ -732,9 +732,9 @@ function gwolle_gb_page_entries() {
 							$massEditControls_select = '<select name="massEditAction2">';
 							$empty_button = '';
 							if ( $show == 'spam' ) {
-								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . __('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . esc_attr__('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
 							} else if ( $show == 'trash' ) {
-								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . __('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . esc_attr__('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
 							}
 
 							// Only show controls when there are entries

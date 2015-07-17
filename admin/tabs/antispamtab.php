@@ -78,8 +78,8 @@ function gwolle_gb_page_settingstab_antispam() {
 		</tr>
 
 		<?php
-		$antispam_question = get_option('gwolle_gb-antispam-question');
-		$antispam_answer   = get_option('gwolle_gb-antispam-answer');
+		$antispam_question = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-question') );
+		$antispam_answer   = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-answer') );
 		?>
 		<tr valign="top">
 			<th scope="row"><label for="antispam-question"><?php _e('Custom Anti-Spam Security Question', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
@@ -97,8 +97,8 @@ function gwolle_gb_page_settingstab_antispam() {
 		</tr>
 
 		<?php
-		$recaptcha_publicKey = get_option('recaptcha-public-key');
-		$recaptcha_privateKey = get_option('recaptcha-private-key');
+		$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
+		$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
 		?>
 		<tr valign="top">
 			<th scope="row"><label for="recaptcha-public-key">reCAPTCHA</label><br />
@@ -107,12 +107,7 @@ function gwolle_gb_page_settingstab_antispam() {
 				</span>
 			</th>
 			<td>
-				<div
-					<?php
-					if ( !class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) {
-						echo 'style="display:none;"';
-					} ?>
-					>
+				<div>
 					<input name="recaptcha-public-key" type="text" id="recaptcha-public-key" value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
 					<label for="recaptcha-public-key" class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></label>
 					<br />
@@ -126,10 +121,10 @@ function gwolle_gb_page_settingstab_antispam() {
 					</span>
 				</div>
 				<?php
-				if ( class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) { ?>
-					<p class="setting-description"><?php _e('<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in your theme or another plugin. The reCAPTCHA library in Gwolle-GB will not be loaded, and the found one will be used instead. This might give unexpected results.', GWOLLE_GB_TEXTDOMAIN); ?></p><?php
-				} else if ( !class_exists('ReCaptcha') && class_exists('ReCaptchaResponse') ) { ?>
-					<p class="setting-description"><?php _e('<strong>Warning:</strong> Apparently you already use a reCAPTCHA library in your theme or another plugin. However, this is an old and incompatible version, so reCAPTCHA will not be used for Gwolle-GB.', GWOLLE_GB_TEXTDOMAIN); ?></p><?php
+				if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
+					echo '<p><strong>';
+					echo sprintf( __('reCAPTCHA requires PHP version 5.3 or newer. You are using PHP version %s. Contact your hosting provider.', GWOLLE_GB_TEXTDOMAIN), PHP_VERSION );
+					echo '</strong></p>';
 				} ?>
 			</td>
 		</tr>
@@ -137,7 +132,7 @@ function gwolle_gb_page_settingstab_antispam() {
 		<tr>
 			<td colspan="2">
 				<p class="submit">
-					<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
+					<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
 				</p>
 			</td>
 		</tr>

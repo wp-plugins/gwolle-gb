@@ -42,12 +42,12 @@ function gwolle_gb_add_log_entry( $entry_id, $subject ) {
 			subject,
 			entry_id,
 			author_id,
-			date
+			datetime
 		) VALUES (
 			%s,
 			%d,
 			%d,
-			%s
+			%d
 		)
 		",
 		array(
@@ -72,13 +72,13 @@ function gwolle_gb_add_log_entry( $entry_id, $subject ) {
  * Parameter: (string) $entry_id: the id of the guestbook entry where the log belongs to
  *
  * Return: Array with log_entries, each is an Array:
- * id           => (int) id
- * subject      => (string) subject of the log, what happened
- * author_id    => (int) author_id of the user responsible for this log entry
- * date         => (string) log_date with timestamp
- * msg          => (string) subject of the log, what happened. In Human Readable form, translated
- * author_login => (string) display_name or login_name of the user as standard WP_User
- * msg_html     => (string) string of html-text ready for displayed
+ *   id           => (int) id
+ *   subject      => (string) subject of the log, what happened
+ *   author_id    => (int) author_id of the user responsible for this log entry
+ *   datetime     => (int) log_date with timestamp
+ *   msg          => (string) subject of the log, what happened. In Human Readable form, translated
+ *   author_login => (string) display_name or login_name of the user as standard WP_User
+ *   msg_html     => (string) string of html-text ready for displayed
  *
  */
 
@@ -120,13 +120,13 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 				`subject`,
 				`entry_id`,
 				`author_id`,
-				`date`
+				`datetime`
 			FROM
 				" . $tablename . "
 			WHERE
 				" . $where . "
 			ORDER BY
-				date ASC
+				datetime ASC
 			;";
 
 	$sql = $wpdb->prepare( $sql, $values );
@@ -147,7 +147,7 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 				'subject'   => stripslashes($entry['subject']),
 				'entry_id'  => (int) $entry['entry_id'],
 				'author_id' => (int) $entry['author_id'],
-				'date'      => stripslashes($entry['date'])
+				'datetime'  => (int) $entry['datetime']
 			);
 
 			$log_entry['msg'] = (isset($log_messages[$log_entry['subject']])) ? $log_messages[$log_entry['subject']] : $log_entry['subject'];
@@ -165,8 +165,8 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 			}
 
 			// Construct the message in HTML
-			$log_entry['msg_html']  = date_i18n( get_option('date_format'), $log_entry['date']) . ", ";
-			$log_entry['msg_html'] .= date_i18n( get_option('time_format'), $log_entry['date']);
+			$log_entry['msg_html']  = date_i18n( get_option('date_format'), $log_entry['datetime']) . ", ";
+			$log_entry['msg_html'] .= date_i18n( get_option('time_format'), $log_entry['datetime']);
 			$log_entry['msg_html'] .= ': ' . $log_entry['msg'];
 
 			if ( $log_entry['author_id'] == get_current_user_id() ) {

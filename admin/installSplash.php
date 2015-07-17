@@ -23,7 +23,7 @@ function gwolle_gb_installSplash() {
 				<div>
 					<form action="<?php echo $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page']; ?>" method="POST">
 						<input type="hidden" id="install_gwolle_gb" name="install_gwolle_gb" value="install_gwolle_gb" />
-						<input type="submit" class="button button-primary" value="<?php _e('Sure, let\'s do this!', GWOLLE_GB_TEXTDOMAIN); ?>">
+						<input type="submit" class="button button-primary" value="<?php esc_attr_e('Sure, let\'s do this!', GWOLLE_GB_TEXTDOMAIN); ?>">
 					</form>
 				</div>
 				<?php

@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://zenoweb.nl
 Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and have a real guestbook.
-Version: 1.2.8
+Version: 1.4.3
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
 License: GPLv2 or later
@@ -31,7 +31,7 @@ Domain Path: /lang/
 
 
 // Plugin Version
-define('GWOLLE_GB_VER', '1.2.8');
+define('GWOLLE_GB_VER', '1.4.3');
 
 
 /*
@@ -66,6 +66,7 @@ include_once( GWOLLE_GB_DIR . '/functions/class.entry.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/index.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/posthandling.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/read.php' );
+include_once( GWOLLE_GB_DIR . '/frontend/rss.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/write.php' );
 
 // Functions and pages for the backend
@@ -94,8 +95,8 @@ include_once( GWOLLE_GB_DIR . '/functions/function.get_entry_count.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.log.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.misc.php' );
 
-// Actions
-include_once( GWOLLE_GB_DIR . '/actions.php' );
+// WordPress Hooks
+include_once( GWOLLE_GB_DIR . '/hooks.php' );
 
 // Frontend Widget
 include_once( GWOLLE_GB_DIR . '/frontend/widget.php' );
@@ -120,3 +121,7 @@ function gwolle_gb_activation() {
 register_activation_hook(__FILE__, 'gwolle_gb_activation');
 
 
+/* Translate Description */
+function gwolle_gb_description() {
+	$var = __( "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and have a real guestbook.", GWOLLE_GB_TEXTDOMAIN );
+}
