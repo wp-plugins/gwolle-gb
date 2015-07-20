@@ -267,7 +267,7 @@ function gwolle_gb_donate() {
 			<?php _e('the plugin page at wordpress.org', GWOLLE_GB_TEXTDOMAIN); ?></a>.
 	</p>
 
-	<h3><?php _e('Donate to the EFF.', 'customtaxorder'); ?></h3>
+	<h3><?php _e('Donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
 	<p><?php _e('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN); ?></p>
 	<p><a href="https://supporters.eff.org/donate" target="_blank" title="<?php esc_attr_e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></a></p>
 

@@ -368,8 +368,13 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.4.4 =
+* 2015-07-
+* Fix textdomain on Donate string.
+* Update pot, ru_RU.
+
 = 1.4.3 =
-* 2015-07-16
+* 2015-07-17
 * Upgrade reCAPTCHA to 1.1.1 (Requires PHP 5.3+).
 * DB: drop column 'date'.
 * Improve html of new editor options.
