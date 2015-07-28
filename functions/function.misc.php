@@ -256,7 +256,7 @@ function gwolle_gb_clear_cache() {
  */
 function gwolle_gb_bbcode_parse( $str ){
 	$bb[] = "#\[b\](.*?)\[/b\]#si";
-	$html[] = "<b>\\1</b>";
+	$html[] = "<strong>\\1</strong>";
 	$bb[] = "#\[i\](.*?)\[/i\]#si";
 	$html[] = "<i>\\1</i>";
 	$bb[] = "#\[u\](.*?)\[/u\]#si";
