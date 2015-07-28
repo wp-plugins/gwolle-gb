@@ -372,7 +372,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * 2015-07-
 * Fix textdomain on Donate string.
 * Use <strong> for bold in bbcode.
-* Update pot, ru_RU, zh_TW.
+* Update pot, de_DE, ru_RU, zh_TW.
 
 = 1.4.3 =
 * 2015-07-17
