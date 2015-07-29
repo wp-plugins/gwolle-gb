@@ -31,7 +31,7 @@ function gwolle_gb_frontend_read() {
 
 	$pageNum = 1;
 	if ( isset($_GET['pageNum']) && is_numeric($_GET['pageNum']) ) {
-		$pageNum = $_GET['pageNum'];
+		$pageNum = intval($_GET['pageNum']);
 	}
 
 	if ( $pageNum > $countPages ) {
@@ -144,102 +144,40 @@ function gwolle_gb_frontend_read() {
 		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
 	} else {
 		$first = true;
-		$read_setting = gwolle_gb_get_setting( 'read' );
+
+		$output .= '<div id="gwolle_gb_entries">';
+
+		// Try to load and require_once the template from the themes folders.
+		if ( locate_template( array('gwolle_gb-entry.php'), true, true ) == '') {
+
+			$output .= '<!-- Gwolle-GB Entry: Default Template Loaded -->
+				';
+
+			// No template found and loaded in the theme folders.
+			// Load the template from the plugin folder.
+			require_once('gwolle_gb-entry.php');
+
+		} else {
+
+			$output .= '<!-- Gwolle-GB Entry: Custom Template Loaded -->
+				';
+
+		}
 
 		foreach ($entries as $entry) {
-			// Main Author div
-			$entry_output = '<div class="';
-			if ($first == true) {
-				$first = false;
-				$entry_output .= ' gwolle_gb_first ';
-			}
-			$entry_output .= ' gb-entry ';
-			$entry_output .= ' gb-entry_' . $entry->get_id() . ' ';
 
-			if ( get_option( 'gwolle_gb-admin_style', 'true' ) === 'true' ) {
-				$author_id = $entry->get_author_id();
-				$is_moderator = gwolle_gb_is_moderator( $author_id );
-				if ( $is_moderator ) {
-					$entry_output .= ' admin-entry ';
-				}
-			}
-			$entry_output .= '">';
+			// Run the function from the template to get the entry.
+			$entry_output = gwolle_gb_entry_template( $entry, $first );
 
-			// Author Info
-			$entry_output .= '<div class="gb-author-info">';
-
-			// Author Avatar
-			if ( isset($read_setting['read_avatar']) && $read_setting['read_avatar']  === 'true' ) {
-				$avatar = get_avatar( $entry->get_author_email(), 32, '', $entry->get_author_name() );
-				if ($avatar) {
-					$entry_output .= '<span class="gb-author-avatar">' . $avatar . '</span>';
-				}
-			}
-
-			// Author Name
-			if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' ) {
-				$author_name_html = gwolle_gb_get_author_name_html($entry);
-				$entry_output .= '<span class="gb-author-name">' . $author_name_html . '</span>';
-			}
-
-			// Author Origin
-			if ( isset($read_setting['read_city']) && $read_setting['read_city']  === 'true' ) {
-				$origin = $entry->get_author_origin();
-				if ( strlen(str_replace(' ', '', $origin)) > 0 ) {
-					$entry_output .= '<span class="gb-author-origin"> ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' ' . gwolle_gb_sanitize_output($origin) . '</span>';
-				}
-			}
-
-			// Entry Date and Time
-			if ( ( isset($read_setting['read_datetime']) && $read_setting['read_datetime']  === 'true' ) || ( isset($read_setting['read_date']) && $read_setting['read_date']  === 'true' ) ) {
-				$entry_output .= '<span class="gb-datetime">
-							<span class="gb-date"> ';
-				if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' ) {
-					$entry_output .= __('wrote at', GWOLLE_GB_TEXTDOMAIN) . ' ';
-				}
-				$entry_output .=  date_i18n( get_option('date_format'), $entry->get_date() ) . '</span>';
-				if ( isset($read_setting['read_datetime']) && $read_setting['read_datetime']  === 'true' ) {
-					$entry_output .= '<span class="gb-time"> ' . __('at', GWOLLE_GB_TEXTDOMAIN) . ' ' . trim(date_i18n( get_option('time_format'), $entry->get_date() )) . ' ' . __('hours', GWOLLE_GB_TEXTDOMAIN) . '</span>';
-				}
-				$entry_output .= ':</span> ';
-			}
-
-			$entry_output .= '</div>'; // <div class="gb-author-info">
-
-			// Main Content
-			if ( isset($read_setting['read_content']) && $read_setting['read_content']  === 'true' ) {
-				$entry_output .= '<div class="gb-entry-content">';
-				$entry_content = gwolle_gb_sanitize_output( $entry->get_content() );
-				if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
-					$entry_content = convert_smilies($entry_content);
-				}
-				if ( get_option( 'gwolle_gb-showLineBreaks', 'false' ) === 'true' ) {
-					$entry_content = nl2br($entry_content);
-				}
-				$excerpt_length = (int) get_option( 'gwolle_gb-excerpt_length', 0 );
-				if ( $excerpt_length > 0 ) {
-					$entry_content = wp_trim_words( $entry_content, $excerpt_length, '...' );
-				}
-				$entry_output .= $entry_content;
-
-
-				// Edit Link for Moderators
-				if ( isset($read_setting['read_content']) && $read_setting['read_content']  === 'true' ) {
-					if ( function_exists('current_user_can') && current_user_can('moderate_comments') ) {
-						$entry_output .= '
-							<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
-					}
-				}
-				$entry_output .= '</div>
-				';
-			}
-
-			$entry_output .= '</div>
-				';
+			$first = false;
 
 			// Add a filter for each entry, so devs can add or remove parts.
 			$output .= apply_filters( 'gwolle_gb_entry_read', $entry_output);
+
 		}
+
+		$output .= '</div>';
+
 	}
 
 	if ($countPages > 1) {

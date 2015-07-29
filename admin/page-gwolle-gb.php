@@ -133,7 +133,16 @@ function gwolle_gb_overview(){
 	</div><!-- Table-DIV -->
 	<div class="versions">
 		<p>
-			<a class="button rbutton button button-primary" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php _e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
+			<?php
+			$postid = gwolle_gb_get_postid();
+			if ( $postid ) {
+				$permalink = get_bloginfo('url') . '?p=' . $postid;
+				?>
+				<a class="button rbutton button button-primary" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook',GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<?php
+			} ?>
+
+			<a class="button rbutton button button-primary" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php esc_attr_e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
 		</p>
 	</div>
 <?php }
@@ -172,7 +181,7 @@ function gwolle_gb_notification() {
 				} ?> >
 			<label for="notify_by_mail" class="setting-description"><?php _e('Send me an e-mail when a new entry has been posted.', GWOLLE_GB_TEXTDOMAIN); ?></label>
 			<p class="submit">
-				<input type="submit" name="Submit" class="button-primary" value="<?php _e('Save setting', GWOLLE_GB_TEXTDOMAIN); ?>" />
+				<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save setting', GWOLLE_GB_TEXTDOMAIN); ?>" />
 			</p>
 		</form>
 	</p>
@@ -210,6 +219,7 @@ function gwolle_gb_overview_thanks() {
 	echo '
 	<ul class="settings">
 		<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>
+		<li><a href="http://markitup.jaysalvat.com/" target="_blank">MarkItUp</a></li>
 		<li><a href="http://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a></li>
 	</ul>';
 }
@@ -246,25 +256,27 @@ function gwolle_gb_overview_help_more() {
 
 
 function gwolle_gb_donate() {
-	echo '
-		<div id="gwolle_gb_eff"></div>
-		<h3>
-		' . __('Donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-		';
+	?>
+	<p><?php _e('This plugin is being maintained by Marcel Pol from', GWOLLE_GB_TEXTDOMAIN); ?>
+		<a href="http://zenoweb.nl" target="_blank" title="ZenoWeb">ZenoWeb</a>.
+	</p>
 
-	echo '<p>
-		' . __('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN) . '</p>
-		<p><a href="https://supporters.eff.org/donate" target="_blank" title="' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN) . '</a></p>
-		';
+	<h3><?php _e('Review this plugin.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+	<p><?php _e('If this plugin has any value to you, then please leave a review at', GWOLLE_GB_TEXTDOMAIN); ?>
+		<a href="https://wordpress.org/support/view/plugin-reviews/gwolle-gb" target="_blank" title="<?php esc_attr_e('The plugin page at wordpress.org.', GWOLLE_GB_TEXTDOMAIN); ?>">
+			<?php _e('the plugin page at wordpress.org', GWOLLE_GB_TEXTDOMAIN); ?></a>.
+	</p>
 
-	echo '
-		<h3>
-		' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-		';
-	echo '<p>
-		' . __('If you rather want to donate to the maintainer of the plugin, you can donate through PayPal.', GWOLLE_GB_TEXTDOMAIN) . '</p>
-		<p><a href="https://www.paypal.com" target="_blank" title="' . __('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Donate through PayPal to', GWOLLE_GB_TEXTDOMAIN) . '</a> marcel@timelord.nl</p>
-		';
+	<h3><?php _e('Donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+	<p><?php _e('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN); ?></p>
+	<p><a href="https://supporters.eff.org/donate" target="_blank" title="<?php esc_attr_e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></a></p>
+
+	<h3><?php _e('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+	<p><?php _e('If you rather want to donate to the maintainer of the plugin, you can donate through PayPal.', GWOLLE_GB_TEXTDOMAIN); ?></p>
+	<p><?php _e('Donate through', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.paypal.com" target="_blank" title="<?php esc_attr_e('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('PayPal', GWOLLE_GB_TEXTDOMAIN); ?></a>
+		<?php _e('to', GWOLLE_GB_TEXTDOMAIN); ?> marcel@timelord.nl.
+	</p>
+	<?php
 }
 
 
@@ -334,10 +346,11 @@ function gwolle_gb_welcome() {
 	} else {
 		add_meta_box('dashboard_right_now', __('Welcome to the Guestbook!',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview', 'gwolle_gb_welcome', 'left', 'core');
 		add_meta_box('gwolle_gb_notification', __('E-mail Notifications', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_notification', 'gwolle_gb_welcome', 'left', 'core');
-		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts/programs/images:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'left', 'core');
+		add_meta_box('gwolle_gb_donate', __('Review and Donate', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_donate', 'gwolle_gb_welcome', 'left', 'core');
+
 		add_meta_box('gwolle_gb_help', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');
 		add_meta_box('gwolle_gb_help_more', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help_more', 'gwolle_gb_welcome', 'right', 'core');
-		add_meta_box('gwolle_gb_donate', __('Donate', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_donate', 'gwolle_gb_welcome', 'right', 'core');
+		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts and services:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'right', 'core');
 
 		?>
 		<div class="wrap gwolle_gb-wrap">
@@ -347,7 +360,7 @@ function gwolle_gb_welcome() {
 			<?php
 			if ( $saved ) {
 				echo '
-					<div id="message" class="updated fade">
+					<div id="message" class="updated fade notice is-dismissible">
 						<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>
 					</div>';
 			} ?>

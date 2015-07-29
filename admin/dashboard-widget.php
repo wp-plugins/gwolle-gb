@@ -93,8 +93,8 @@ function gwolle_gb_dashboard() {
 
 					// Date column
 					echo '
-						<div class="date">' . date_i18n( get_option('date_format'), $entry->get_date() ) . ', ' .
-							date_i18n( get_option('time_format'), $entry->get_date() ) .
+						<div class="date">' . date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ' .
+							date_i18n( get_option('time_format'), $entry->get_datetime() ) .
 						'</div>'; ?>
 
 					<blockquote class="excerpt">

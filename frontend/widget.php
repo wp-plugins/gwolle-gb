@@ -75,7 +75,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 							$widget_html .= " / ";
 						}
 						if ( $date ) {
-							$widget_html .= '<span class="gb-date">' . date_i18n( get_option('date_format'), $entry->get_date() ) . '</span>';
+							$widget_html .= '<span class="gb-date">' . date_i18n( get_option('date_format'), $entry->get_datetime() ) . '</span>';
 						}
 						if ( $name || $date ) {
 							$widget_html .= ":<br />";
@@ -119,7 +119,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 							$widget_html .= " / ";
 						}
 						if ( $date ) {
-							$widget_html .= '<span class="gb-date">' . date_i18n( get_option('date_format'), $entry->get_date() ) . '</span>';
+							$widget_html .= '<span class="gb-date">' . date_i18n( get_option('date_format'), $entry->get_datetime() ) . '</span>';
 						}
 						if ( $name || $date ) {
 							$widget_html .= ":<br />";
@@ -129,7 +129,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
-						$widget_html .= '<span class="gb-entry-content">' . $entry_content . '</span';
+						$widget_html .= '<span class="gb-entry-content">' . $entry_content . '</span>';
 						$widget_html .= '
 										</li>
 										';
