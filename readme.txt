@@ -127,6 +127,7 @@ If you do have a feature request, please post it on the support forum.
 * Widget: Add option to select number of words.
 * Settings: Have button disabled with certain options, untill checkbox is clicked.
 * Settings: Save all tabs when saving.
+* Admin pages: Make them more Responsive.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
 * Posting: Trigger most cache plugins to update their cache.
 
