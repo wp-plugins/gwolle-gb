@@ -195,7 +195,7 @@ function gwolle_gb_rss_head() {
 				<?php
 			}
 
-			// Remove the next part of this function about a year after adding it in June 2015.
+			// FIXME: Remove the next part of this function about a year after adding it in June 2015.
 			// It was only meant to be temporary for updating from old versions.
 			// Use the below function gwolle_gb_save_post as the real functionality.
 

@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.3
-Stable tag: 1.4.3
+Stable tag: 1.4.4
 License: GPLv2 or later
 
 Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -129,7 +129,6 @@ If you do have a feature request, please post it on the support forum.
 * Settings: Save all tabs when saving.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
 * Posting: Trigger most cache plugins to update their cache.
-* Save the used meta_key only when save_post action is run.
 
 = API, add an entry =
 
