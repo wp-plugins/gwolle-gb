@@ -368,7 +368,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 == Changelog ==
 
 = 1.4.4 =
-* 2015-07-
+* 2015-07-29
 * Fix textdomain on Donate string.
 * Use 'strong' for bold in bbcode.
 * Update meta_key on save_post action.
