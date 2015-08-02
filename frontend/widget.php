@@ -144,7 +144,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 			if ( (int) $postid > 0 ) {
 				$widget_html .= '
 				<p class="gwolle_gb_link">
-					<a href="' . get_home_url() . "/?p=" . $postid . '" title="' . __('Click here to get to the guestbook.', GWOLLE_GB_TEXTDOMAIN) . '">' . $link_text . ' &raquo;</a>
+					<a href="' . add_query_arg( 'p', $postid, get_home_url() ) . '" title="' . __('Click here to get to the guestbook.', GWOLLE_GB_TEXTDOMAIN) . '">' . $link_text . ' &raquo;</a>
 				</p>';
 			}
 			$widget_html .= '</div>' . $after_widget;

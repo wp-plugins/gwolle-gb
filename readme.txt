@@ -368,6 +368,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.4.5 =
+* 2015-08-
+* Fix link in widget for WPML.
+
 = 1.4.4 =
 * 2015-07-29
 * Fix textdomain on Donate string.
