@@ -66,6 +66,7 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 * es_ES, José Luis Sanz Ruiz
 * fi, Ilkka Kivelä and Timo Hintsa
 * fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/) and [Florence Bourmault-Gohin](http://www.mon-coin-de-bourgogne.fr)
+* gr_GR, dbonovas
 * it_IT, Mariachiara Corradini
 * nl_NL, [Marcel Pol](http://zenoweb.nl)
 * pl_PL, Andrzej Sobaniec
@@ -371,6 +372,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.4.5 =
 * 2015-08-
 * Fix link in widget for WPML.
+* Add Greek, gr_GR (thanks dbonovas).
 
 = 1.4.4 =
 * 2015-07-29
