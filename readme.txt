@@ -59,23 +59,23 @@ Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
 
 = Languages =
 
-* bg_BG, Kostadin Petrichkov
-* cs_CZ, Jan Korous
-* da_DK, [Bo Fischer Nielsen](http://bfn.dk)
-* de_DE, Jenny Gaulke and Eckhard Henkel
-* el, dbonovas
-* es_ES, José Luis Sanz Ruiz
-* fi, Ilkka Kivelä and Timo Hintsa
-* fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/) and [Florence Bourmault-Gohin](http://www.mon-coin-de-bourgogne.fr)
-* it_IT, Mariachiara Corradini
-* nl_NL, [Marcel Pol](http://zenoweb.nl)
-* pl_PL, Andrzej Sobaniec
-* pt_BR, [Alexandre Rocha](http://alexandre-rocha.com)
-* pt_PT, Jose Quintas
-* ru_RU, zhonglyor
-* sk_SK, Marcel Klacan
-* sv_SE, [Roffe Bentsen](http://macodesign.se)
-* zh_TW, Chun-I Lee
+* Bulgarian, bg_BG, Kostadin Petrichkov
+* Czech, cs_CZ, Jan Korous
+* Danish, da_DK, [Bo Fischer Nielsen](http://bfn.dk)
+* German, de_DE, Jenny Gaulke and Eckhard Henkel
+* Greek, el, dbonovas
+* Spanish, es_ES, José Luis Sanz Ruiz
+* Finnish, fi, Ilkka Kivelä and Timo Hintsa
+* French, fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/) and [Florence Bourmault-Gohin](http://www.mon-coin-de-bourgogne.fr)
+* Italian, it_IT, Mariachiara Corradini
+* Dutch, nl_NL, [Marcel Pol](http://zenoweb.nl)
+* Polish, pl_PL, Andrzej Sobaniec
+* Portuguese, pt_BR, [Alexandre Rocha](http://alexandre-rocha.com)
+* Portuguese, pt_PT, Jose Quintas
+* Russian, ru_RU, zhonglyor
+* Slovak, sk_SK, Marcel Klacan
+* Swedish, sv_SE, [Roffe Bentsen](http://macodesign.se)
+* Traditional Chinese, zh_TW, Chun-I Lee
 
 Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
 
