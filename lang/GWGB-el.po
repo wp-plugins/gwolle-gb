@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Gwolle Guestbook\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-13 14:55+0200\n"
-"PO-Revision-Date: 2015-08-04 15:29+0200\n"
+"PO-Revision-Date: 2015-08-04 18:25+0200\n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: el <el.example.com>\n"
 "Language: el\n"
@@ -406,184 +406,189 @@ msgid ""
 "entry marked as spam and submitted to Akismet as spam (if Akismet was "
 "enabled)."
 msgstr ""
-"entry marked as spam and submitted to Akismet as spam (if Akismet was "
-"enabled)."
+"Η συγκεκριμένη καταχώρηση θεωρείτε spam και υποβλήθηκε στην υπηρεσία Akismet "
+"ως spam (εάν το Akismet είναι ε νεργό)"
 
 #: admin/page-entries.php:227
 msgid ""
 "entries marked as spam and submitted to Akismet as spam (if Akismet was "
 "enabled)."
 msgstr ""
-"entries marked as spam and submitted to Akismet as spam (if Akismet was "
-"enabled)."
+"Οι συγκεκριμένες καταχωρήσεις θεωρήθηκαν ψspam και υποβλήθηκαν στην υπηρεσία "
+"Akismet ως spam (εάν το Akismet είναι ενεργό)"
 
 #: admin/page-entries.php:229
 msgid "No entries marked as spam."
-msgstr "No entries marked as spam."
+msgstr "Καμία καταχώρηση spam"
 
 #: admin/page-entries.php:233
 msgid ""
 "entry marked as not spam and submitted to Akismet as ham (if Akismet was "
 "enabled)."
 msgstr ""
-"entry marked as not spam and submitted to Akismet as ham (if Akismet was "
-"enabled)."
+"Η συγκεκριμένη καταχώρηση θεωρήθηκε ως μη-spam και υποβλήθηκε στην υπηρεσία "
+"Akismet ως ham (εάν το Akismet είναι ενεργό)"
 
 #: admin/page-entries.php:235
 msgid ""
 "entries marked as not spam and submitted to Akismet as ham (if Akismet was "
 "enabled)."
 msgstr ""
-"entries marked as not spam and submitted to Akismet as ham (if Akismet was "
-"enabled)."
+"Οι συγκεκριμένες καταχωρήσεις θεωρήθηκαν ως μη-spam και υποβλήθηκαν στην "
+"υπηρεσία Akismet ως ham (εάν το Akismet είναι ενεργό)"
 
 #: admin/page-entries.php:237
 msgid "No entries marked as not spam."
-msgstr "No entries marked as not spam."
+msgstr "Καμία καταχώρηση ως μη-spam"
 
 #: admin/page-entries.php:241
 msgid "entry considered spam and marked as such."
-msgstr "entry considered spam and marked as such."
+msgstr "Η συγκεκριμένη καταχώρηση θεωρείται spam"
 
 #: admin/page-entries.php:243
 msgid "entries considered spam and marked as such."
-msgstr "entries considered spam and marked as such."
+msgstr "Οι συγκεκριμένες καταχωρίσεις θεωρούνται spam"
 
 #: admin/page-entries.php:246
 msgid "entry not considered spam and marked as such."
-msgstr "entry not considered spam and marked as such."
+msgstr "Η συγκεκριμένη καταχώρηση δεν θεωρείται spam"
 
 #: admin/page-entries.php:248
 msgid "entries not considered spam and marked as such."
-msgstr "entries not considered spam and marked as such."
+msgstr "Οι συγκεκριμένες καταχωρίσεις δεν θεωρούνται spam"
 
 #: admin/page-entries.php:251
 msgid "entry already considered spam and not changed."
-msgstr "entry already considered spam and not changed."
+msgstr "Η συγκεκριμένη καταχώρηση έχει θεωρηθεί spam αλλά δεν έχει αλλαχθεί"
 
 #: admin/page-entries.php:253
 msgid "entries already considered spam and not changed."
-msgstr "entries already considered spam and not changed."
+msgstr ""
+"Οι συγκεκριμένες καταχωρίσεις έχουν θεωρηθεί spam και ακόμα δεν έχουν "
+"αλλαχθεί"
 
 #: admin/page-entries.php:256
 msgid "entry already considered not spam and not changed."
-msgstr "entry already considered not spam and not changed."
+msgstr ""
+"Η συγκεκριμένη καταχώρηση έχει ήδη θεωρηθεί μη-spam και δεν έχει αλλαχθεί"
 
 #: admin/page-entries.php:258
 msgid "entries already considered not spam and not changed."
-msgstr "entries already considered not spam and not changed."
+msgstr ""
+"Οι συγκεκριμένες καταχωρίσεις έχουν ήδη θεωρηθεί μη-spam και δεν έχουν "
+"αλλαχθεί"
 
 #: admin/page-entries.php:262
 msgid "entry moved to trash."
-msgstr "entry moved to trash."
+msgstr "Η συγκεκριμένη καταχώρηση εστάλη στο κάδο"
 
 #: admin/page-entries.php:264
 msgid "entries moved to trash."
-msgstr "entries moved to trash."
+msgstr "Οι συγκεκριμένες καταχωρίσεις εστάλησαν στον κάδο"
 
 #: admin/page-entries.php:266
 msgid "No entries moved to trash."
-msgstr "Няма записи в кошчето."
+msgstr "Καμία καταχώρηση δεν έχει σταλεί στον κάδο"
 
 #: admin/page-entries.php:270
 msgid "entry recovered from trash."
-msgstr "Няма записи в кошчето."
+msgstr "Επαναφορά απο τον κάδο"
 
 #: admin/page-entries.php:272
 msgid "entries recovered from trash."
-msgstr "entries recovered from trash."
+msgstr "Επαναφορά απο τον κάδο"
 
 #: admin/page-entries.php:274
 msgid "No entries recovered from trash."
-msgstr "No entries recovered from trash."
+msgstr "Καμία επαναφορά απο τον κάδο"
 
 #: admin/page-entries.php:278 admin/page-entries.php:293
 msgid "entry removed permanently."
-msgstr "entry removed permanently."
+msgstr "Η συγκεκριμένη καταχώρηση διαγράφηκε τελείως"
 
 #: admin/page-entries.php:280 admin/page-entries.php:295
 msgid "entries removed permanently."
-msgstr "entries removed permanently."
+msgstr "Οι συγκεκριμένες καταχωρίσεις διεγράφησαν τελείως"
 
 #: admin/page-entries.php:282 admin/page-entries.php:297
 msgid "No entries permanently removed."
-msgstr "No entries permanently removed."
+msgstr "Καμία καταχώρηση δεν διαγράφηκε τελείως"
 
 #: admin/page-entries.php:329
 msgid "Please activate Akismet if you want to battle spam."
-msgstr "Please activate Akismet if you want to battle spam."
+msgstr "Παρακαλώ ενεργοποιείστε το Akismet για να προστατευθείτε απ'το spam"
 
 #: admin/page-entries.php:402
 msgid "Guestbook entries"
-msgstr "Guestbook entries"
+msgstr "Καταχωρίσεις βιβλίου"
 
 #: admin/page-entries.php:424
 msgid "All"
-msgstr "All"
+msgstr "Όλα"
 
 #: admin/page-entries.php:429
 msgid "Unlocked"
-msgstr "Unlocked"
+msgstr "Ξεκλειδωμένο"
 
 #: admin/page-entries.php:433
 msgid "New"
-msgstr "New"
+msgstr "Νέο"
 
 #: admin/page-entries.php:448
 msgid "Mass edit actions"
-msgstr "Mass edit actions"
+msgstr "Μαζική επεξεργασία"
 
 #: admin/page-entries.php:451
 msgid "Recover from trash"
-msgstr "Recover from trash"
+msgstr "Επαναφορά απο τον κάδο"
 
 #: admin/page-entries.php:452 admin/page-entries.php:469
 msgid "Remove permanently"
-msgstr "Remove permanently"
+msgstr "Οριστική διαγραφή"
 
 #: admin/page-entries.php:455
 msgid "Mark as checked"
-msgstr "Mark as checked"
+msgstr "Ελεγμένη"
 
 #: admin/page-entries.php:458
 msgid "Mark as not checked"
-msgstr "Mark as not checked"
+msgstr "Μη ελεγμένη"
 
 #: admin/page-entries.php:461
 msgid "Mark as spam"
-msgstr "Mark as spam"
+msgstr "Spam"
 
 #: admin/page-entries.php:463
 msgid "Mark as not spam"
-msgstr "Mark as not spam"
+msgstr "Μη spam"
 
 #: admin/page-entries.php:465
 msgid "Check with Akismet"
-msgstr "Check with Akismet"
+msgstr "Έλεγχος με Akismet"
 
 #: admin/page-entries.php:467
 msgid "Move to trash"
-msgstr "Move to trash"
+msgstr "Μετακίνηση στον κάδο"
 
 #: admin/page-entries.php:474
 msgid "Apply"
-msgstr "Apply"
+msgstr "Υποβολή"
 
 #: admin/page-entries.php:477 admin/page-entries.php:735
 msgid "Empty Spam"
-msgstr "Empty Spam"
+msgstr "Άδειασμα spam"
 
 #: admin/page-entries.php:479 admin/page-entries.php:737
 msgid "Empty Trash"
-msgstr "Empty Trash"
+msgstr "Άδειασμα κάδου"
 
 #: admin/page-entries.php:492
 msgid "Showing:"
-msgstr "Showing:"
+msgstr "Φαίνεται:"
 
 #: admin/page-entries.php:493
 msgid "of"
-msgstr "of"
+msgstr "απο"
 
 #: admin/page-entries.php:560 admin/page-entries.php:576
 msgid "ID"
@@ -592,40 +597,40 @@ msgstr "ID"
 #: admin/page-entries.php:566 admin/page-entries.php:582
 #: admin/tabs/readingtab.php:189
 msgid "Date"
-msgstr "Date"
+msgstr "Ημερομηνία"
 
 #: admin/page-entries.php:568 admin/page-entries.php:584
 msgid "Entry (excerpt)"
-msgstr "Entry (excerpt)"
+msgstr "Καταχώρηση (προεπισκόπηση)"
 
 #: admin/page-entries.php:569 admin/page-entries.php:585
 msgid "Action"
-msgstr "Action"
+msgstr "Ενέργεια"
 
 #: admin/page-entries.php:598
 msgid "No entries found."
-msgstr "No entries found."
+msgstr "Καμία καταχώρηση δεν βρέθηκε"
 
 #: admin/page-export.php:27
 msgid "Export guestbook entries."
-msgstr "Export guestbook entries."
+msgstr "Εξαγωγή καταχωρήσεων"
 
 #: admin/page-export.php:40
 msgid "Export guestbook entries from Gwolle-GB"
-msgstr "Export guestbook entries from Gwolle-GB"
+msgstr "Εξαγωγή καταχωρίσεων απο Gwolle-GB"
 
 #: admin/page-export.php:47
 msgid "No entries were found."
-msgstr "No entries were found."
+msgstr "Καμία καταχώρηση δεν βρέθηκε"
 
 #: admin/page-export.php:52
 #, php-format
 msgid "%d entries were found and will be exported."
-msgstr "%d entries were found and will be exported."
+msgstr "%d καταχωρίσεις βρέθηκαν και θα εξαχθούν"
 
 #: admin/page-export.php:55
 msgid "The exporter will preserve the following data per entry:"
-msgstr "The exporter will preserve the following data per entry:"
+msgstr "Ο εξαγωγέας θα διατηρήσει τα ακόλουθα για κάθε καταχώρηση:"
 
 #: admin/page-export.php:58 admin/page-import.php:372
 #: admin/page-import.php:413 frontend/write.php:139 frontend/write.php:146
@@ -646,16 +651,16 @@ msgstr "URL/Website"
 #: admin/page-export.php:62 admin/page-import.php:375
 #: admin/page-import.php:417
 msgid "Date of the entry"
-msgstr "Date of the entry"
+msgstr "Ημερομηνία καταχώρησης"
 
 #: admin/page-export.php:63 admin/page-import.php:376
 #: admin/page-import.php:418
 msgid "IP address"
-msgstr "IP address"
+msgstr "Διεύθυνση ip"
 
 #: admin/page-export.php:64
 msgid "Host address"
-msgstr "Host address"
+msgstr "Διεύθυνση host"
 
 #: admin/page-export.php:65 admin/page-import.php:377
 #: admin/page-import.php:419 admin/tabs/formtab.php:185
@@ -665,72 +670,72 @@ msgstr "Μήνυμα"
 
 #: admin/page-export.php:66 admin/page-import.php:379
 msgid "\"is checked\" flag"
-msgstr "\"is checked\" flag"
+msgstr "\"ελέγμένη\""
 
 #: admin/page-export.php:67 admin/page-import.php:378
 msgid "\"is spam\" flag"
-msgstr "\"is spam\" flag"
+msgstr "\"spam\""
 
 #: admin/page-export.php:68
 msgid "\"is trash\" flag"
-msgstr "\"is trash\" flag"
+msgstr "\"σκουπίδι\""
 
 #: admin/page-export.php:70
 msgid "The exporter does not delete any data, so your data will still be here."
 msgstr ""
-"The exporter does not delete any data, so your data will still be here."
+"Ο εξαγωγέας δεν διαγράφει δεδομένα οπότε τα δεδομένα σας θα παραμείνουν εδώ"
 
 #: admin/page-export.php:75
 msgid "Export all entries from this website."
-msgstr "Export all entries from this website."
+msgstr "Εξαγωγή όλων των καταχωρίσεων απο αυτό το site"
 
 #: admin/page-export.php:79
 msgid "Start export"
-msgstr "Start export"
+msgstr "Εκκίνηση εξαγωγής"
 
 #: admin/page-gwolle-gb.php:34
 msgid "Overview"
-msgstr "Overview"
+msgstr "Επισκόπηση"
 
 #: admin/page-gwolle-gb.php:48
 msgid "Entry total"
-msgstr "Entry total"
+msgstr "Συνολικό περιεχόμενο  καταχώρησης"
 
 #: admin/page-gwolle-gb.php:51
 msgid "Entries total"
-msgstr "Entries total"
+msgstr "Συνολικό περιεχόμενο καταχωρίσεων"
 
 #: admin/page-gwolle-gb.php:67
 msgid "Unlocked entry"
-msgstr "Unlocked entry"
+msgstr "Ξεκλειδωμένη καταχώρηση"
 
 #: admin/page-gwolle-gb.php:69
 msgid "Unlocked entries"
-msgstr "Unlocked entries"
+msgstr "Ξεκλειδωμένες καταχωρίσεις"
 
 #: admin/page-gwolle-gb.php:87
 msgid "New entries"
-msgstr "New entries"
+msgstr "Νέες καταχωρίσεις"
 
 #: admin/page-gwolle-gb.php:103
 msgid "Spam entry"
-msgstr "Spam entry"
+msgstr "Spam καταχώρηση"
 
 #: admin/page-gwolle-gb.php:105
 msgid "Spam entries"
-msgstr "Spam entries"
+msgstr "Spam καταχωρίσεις"
 
 #: admin/page-gwolle-gb.php:121
 msgid "Trashed entry"
-msgstr "Trashed entry"
+msgstr "Διεγραμένη καταχώρηση"
 
 #: admin/page-gwolle-gb.php:123
 msgid "Trashed entries"
-msgstr "Trashed entries"
+msgstr "Διεγραμένες καταχωρίσεις"
 
 #: admin/page-gwolle-gb.php:136
 msgid "Write admin entry"
-msgstr "Write admin entry"
+msgstr "Συγγραφή καταχώρησης διαχειριστή"
 
 #: admin/page-gwolle-gb.php:147 admin/tabs/emailtab.php:47
 msgid ""
@@ -739,87 +744,88 @@ msgid ""
 "WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can "
 "contact your hosting provider to change this."
 msgstr ""
-"Sorry, but the function <code>mail()</code> required to notify you by mail "
-"is not enabled in your PHP configuration. You might want to install a "
-"WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can "
-"contact your hosting provider to change this."
+"Συγγνώμη αλλά η συνάρτηση <code>mail()</code> η οποία χρειαζόταν για να "
+"ειδοποιείστε μέσω e-mail δεν είναι ενεργή στις ρυθμίσεις PHP.Μπορεί να "
+"προτιμάτε να εγκαταστήσετε ένα plugin το οποίο θα χρηιμοποιεί SMTP αντί "
+"για<code>mail()</code>. Εναλλακτικά, μπορείτε να επικοινωνήσετε με τον "
+"hosting provider σας για να σας βοηθήσει."
 
 #: admin/page-gwolle-gb.php:173
 msgid "Send me an e-mail when a new entry has been posted."
-msgstr "Send me an e-mail when a new entry has been posted."
+msgstr "Στείλε μου mail όποτε καταχωρείτε ένα νέο μήνυμα"
 
 #: admin/page-gwolle-gb.php:175
 msgid "Save setting"
-msgstr "Save setting"
+msgstr "Αποθήκευση"
 
 #: admin/page-gwolle-gb.php:180
 msgid "The following users have subscribed to this service:"
-msgstr "The following users have subscribed to this service:"
+msgstr "Οι ακόλουθοι χρήστες έχουν εγγραφεί στην υπηρεσία:"
 
 #: admin/page-gwolle-gb.php:192 functions/function.log.php:173
 #: admin/tabs/emailtab.php:66 admin/tabs/emailtab.php:119
 msgid "You"
-msgstr "You"
+msgstr "Εσύ"
 
 #: admin/page-gwolle-gb.php:201
 msgid "No subscriber yet"
-msgstr "No subscriber yet"
+msgstr "Κανένας subscriber ακόμα"
 
 #: admin/page-gwolle-gb.php:221
 msgid "This is how you can get your guestbook displayed on your website:"
-msgstr "This is how you can get your guestbook displayed on your website:"
+msgstr "Έτσι μπορείτε να εμφανίσετε το guestbook στη σελίδα σας"
 
 #: admin/page-gwolle-gb.php:223
 msgid "Create a new page."
-msgstr "Create a new page."
+msgstr "Δημιοργήστε μια καινούργια σελίδα"
 
 #: admin/page-gwolle-gb.php:224
 msgid ""
 "Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
 "content."
 msgstr ""
-"Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the "
-"content."
+"Επιλέξτα έναν τίτλο και βάλτε &quot;[gwolle_gb]&quot; (χωρίς τα εισαγωγικά) "
+"σαν περιεχόμενο"
 
 #: admin/page-gwolle-gb.php:225
 msgid ""
 "It is probably a good idea to disable comments on that page; otherwise, your "
 "visitors might get a little confused."
 msgstr ""
-"It is probably a good idea to disable comments on that page; otherwise, your "
-"visitors might get a little confused."
+"Καλύτερα να απενεργοποιήσετε τα σχόλια στην συγκεκριμένη σσελίδα αλλιώς οι "
+"επισκέπτες σας ίσως μπερδευτούν"
 
 #: admin/page-gwolle-gb.php:232
 msgid "These entries will be visible for your visitors:"
-msgstr "These entries will be visible for your visitors:"
+msgstr "Αυτές οι καταχωρίσεις θα είναι ορατές για τους επισκέπτες του site"
 
 #: admin/page-gwolle-gb.php:234
 msgid "Marked as Checked."
-msgstr "Marked as Checked."
+msgstr "Ελεγμένη"
 
 #: admin/page-gwolle-gb.php:235
 msgid "Not marked as Spam."
-msgstr "Not marked as Spam."
+msgstr "Μη spam"
 
 #: admin/page-gwolle-gb.php:236
 msgid "Not marked as Trash."
-msgstr "Not marked as Trash."
+msgstr "Όχι σκουπίδι"
 
 #: admin/page-gwolle-gb.php:240
 msgid "The Main Menu counter counts the following entries:"
-msgstr "The Main Menu counter counts the following entries:"
+msgstr "Αριθμός καταχωρίσεων:"
 
 #: admin/page-gwolle-gb.php:242
 msgid "Marked as Unchecked (You might want to moderate them)."
-msgstr "Marked as Unchecked (You might want to moderate them)."
+msgstr "Μη ελεγμένες (ίσως θα θέλατε να τις τσεκάρετε)"
 
 #: admin/page-gwolle-gb.php:243
 msgid "Not marked as Spam (You might want to check them)."
-msgstr "Not marked as Spam (You might want to check them)."
+msgstr "Μη spam ίσως θα θέλατε να τις τσεκάρετε)"
 
 #: admin/page-gwolle-gb.php:244
 msgid "Not marked as Trash (You decide what goes to the trash)."
-msgstr "Not marked as Trash (You decide what goes to the trash)."
+msgstr "Όχι σκουπίδια (εσείς αποφασίζετε τι θα πάει στον κάδο)"
 
 #: admin/page-gwolle-gb.php:251
 msgid "This plugin is being maintained by Marcel Pol from"
@@ -827,7 +833,7 @@ msgstr ""
 
 #: admin/page-gwolle-gb.php:255
 msgid "Review this plugin."
-msgstr "Review this plugin."
+msgstr "Ανασκόπηση plugin"
 
 #: admin/page-gwolle-gb.php:256
 msgid "If this plugin has any value to you, then please leave a review at"
@@ -843,35 +849,35 @@ msgstr ""
 
 #: admin/page-gwolle-gb.php:261
 msgid "Donate to the EFF."
-msgstr "Donate to the EFF."
+msgstr "Δωρίστε στο EFF"
 
 #: admin/page-gwolle-gb.php:262
 msgid ""
 "The Electronic Frontier Foundation is one of the few organisations that "
 "wants to keep the internet a free place."
 msgstr ""
-"The Electronic Frontier Foundation is one of the few organisations that "
-"wants to keep the internet a free place."
+"Το Electronic Frontier Foundation είναι ένας απο τους λίγους οργανισμούς που "
+"θέλουν να διατηρήσουν το internet ένα ασφαλές μέρος"
 
 #: admin/page-gwolle-gb.php:263
 msgid "Please donate to the EFF."
-msgstr "Please donate to the EFF."
+msgstr "Παρακαλούμε, δωρίστε στο EFF"
 
 #: admin/page-gwolle-gb.php:265 admin/page-gwolle-gb.php:267
 msgid "Donate to the maintainer."
-msgstr "Donate to the maintainer."
+msgstr "Δωρίστε στον συντηρητή"
 
 #: admin/page-gwolle-gb.php:266
 msgid ""
 "If you rather want to donate to the maintainer of the plugin, you can donate "
 "through PayPal."
 msgstr ""
-"If you rather want to donate to the maintainer of the plugin, you can donate "
-"through PayPal."
+"Αν θέλετε να δωρίσετε στον συντηρητή του plugin μπορείτε να το κάνετε μέσω "
+"paypal"
 
 #: admin/page-gwolle-gb.php:267
 msgid "Donate through"
-msgstr "Donate through"
+msgstr "Δωρίστε"
 
 #: admin/page-gwolle-gb.php:267
 msgid "PayPal"
@@ -883,11 +889,11 @@ msgstr ""
 
 #: admin/page-gwolle-gb.php:338
 msgid "Welcome to the Guestbook!"
-msgstr "Welcome to the Guestbook!"
+msgstr "Καλωσήρθατε!!!"
 
 #: admin/page-gwolle-gb.php:339
 msgid "E-mail Notifications"
-msgstr "E-mail Notifications"
+msgstr "Ενημερώσεις μέσω e-mail"
 
 #: admin/page-gwolle-gb.php:340
 msgid "Review and Donate"
@@ -895,11 +901,11 @@ msgstr ""
 
 #: admin/page-gwolle-gb.php:342 admin/page-gwolle-gb.php:343
 msgid "Help"
-msgstr "Help"
+msgstr "Βοήθεια"
 
 #: admin/page-gwolle-gb.php:344
 msgid "This plugin uses the following scripts/programs/images:"
-msgstr "This plugin uses the following scripts/programs/images:"
+msgstr "Το Plugin χρησιμοποιεί τα ακόλ,ουθα scripts/προγράμματα/εικόνες:"
 
 #: admin/page-gwolle-gb.php:349
 msgid "Gwolle Guestbook"
@@ -910,64 +916,57 @@ msgid ""
 "I'm sorry, but I wasn't able to import entries from DMSGuestbook "
 "successfully."
 msgstr ""
-"I'm sorry, but I wasn't able to import entries from DMSGuestbook "
-"successfully."
+"Συγγνώμη αλλά δεν μπορέσαμε να εισάγουμε καταχωρίσεις απο DMSGuestbook "
+"επιτυχημένα"
 
 #: admin/page-import.php:92
 msgid "1 entry imported successfully from DMSGuestbook."
-msgstr "1 entry imported successfully from DMSGuestbook."
+msgstr "1 καταχώρηση εισήχθη απο DMSGuestbook"
 
 #: admin/page-import.php:94
 #, php-format
 msgid "%d entries imported successfully from DMSGuestbook."
-msgstr "%d entries imported successfully from DMSGuestbook."
+msgstr "%d καταχωρίσεις εισήχθησαν απο DMSGuestbook."
 
 #: admin/page-import.php:98
 msgid ""
 "<strong>Nothing to import.</strong> The guestbook you've chosen does not "
 "contain any entries."
-msgstr ""
-"<strong>Nothing to import.</strong> The guestbook you've chosen does not "
-"contain any entries."
+msgstr "<strong>Τίποτα για εισαγωγή.</strong>"
 
 #: admin/page-import.php:103
 msgid "I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook."
-msgstr "I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook."
+msgstr "Συγγνώμη αλλά δεν μπορέσαμε να βρούμε τη MySQL βάση απο DMSGuestbook."
 
 #: admin/page-import.php:108
 msgid "You haven't chosen a guestbook. Please select one and try again."
-msgstr "You haven't chosen a guestbook. Please select one and try again."
+msgstr "Δεν έχετε επιλέξει κάποιο βιβλίο"
 
 #: admin/page-import.php:133 admin/page-import.php:181
 msgid ""
 "You haven't chosen how to import from WordPress comments. Please choose and "
 "try again."
-msgstr ""
-"You haven't chosen how to import from WordPress comments. Please choose and "
-"try again."
+msgstr "Δεν έχετε επιλέξει τρόπο εισαγωγής απο WordPress comments"
 
 #: admin/page-import.php:168
 msgid ""
 "I'm sorry, but I wasn't able to import comments from that page successfully."
-msgstr ""
-"I'm sorry, but I wasn't able to import comments from that page successfully."
+msgstr "Συγγνώμη αλλά δεν μπορέσαμε να εισάγουμε σχόλια απο αυτή τη σελίδα"
 
 #: admin/page-import.php:170
 msgid "1 entry imported successfully from WordPress comments."
-msgstr "1 entry imported successfully from WordPress comments."
+msgstr "1 καταχώρηση εισήχθη απο WordPress comments."
 
 #: admin/page-import.php:172
 #, php-format
 msgid "%d entries imported successfully from WordPress comments."
-msgstr "%d entries imported successfully from WordPress comments."
+msgstr "%d καταχωρίσεις εισήχθησαν απο WordPress comments."
 
 #: admin/page-import.php:176
 msgid ""
 "<strong>Nothing to import.</strong> There seem to be no comments on this "
 "page, post or at all."
-msgstr ""
-"<strong>Nothing to import.</strong> There seem to be no comments on this "
-"page, post or at all."
+msgstr "<strong>Τίποτα για εισαγωγή</strong>"
 
 #: admin/page-import.php:195
 msgid "Your filesize is too large."
@@ -1008,7 +1007,7 @@ msgstr "Your upload triggered the following error:"
 
 #: admin/page-import.php:319
 msgid "Import guestbook entries."
-msgstr "Import guestbook entries."
+msgstr "Εισαγωγή καταχωρίσεων"
 
 #: admin/page-import.php:338
 msgid "Import guestbook entries from DMSGuestbook"
@@ -1112,15 +1111,15 @@ msgstr "Select a CSV file with exported entries to import again:"
 
 #: admin/page-settings.php:326
 msgid "Form"
-msgstr "Form"
+msgstr "Φόρμα"
 
 #: admin/page-settings.php:327
 msgid "Reading"
-msgstr "Reading"
+msgstr "Ανάγνωση"
 
 #: admin/page-settings.php:328
 msgid "Admin"
-msgstr "Admin"
+msgstr "Διαχειριστής"
 
 #: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:313
 msgid "Anti-spam"
@@ -1132,59 +1131,54 @@ msgstr "E-mail"
 
 #: admin/page-settings.php:331 admin/tabs/uninstalltab.php:45
 msgid "Uninstall"
-msgstr "Uninstall"
+msgstr "Απεγκατάσταση"
 
 #: frontend/posthandling.php:39
 msgid "Submitting a new guestbook entry is only allowed for logged-in users."
-msgstr "Submitting a new guestbook entry is only allowed for logged-in users."
+msgstr "Η υποβολη καταχωρίσεων επιτρέπεται μόνο στους συνδεδεμένους χρήστες"
 
 #: frontend/posthandling.php:208 frontend/posthandling.php:251
 msgid "There were errors submitting your guestbook entry."
-msgstr "There were errors submitting your guestbook entry."
+msgstr "Υπήρξαν λάθη κατα την συγγραφή της καταχώρησης σας"
 
 #: frontend/posthandling.php:214
 msgid "Your name is not filled in, even though it is mandatory."
-msgstr "Your name is not filled in, even though it is mandatory."
+msgstr "Δεν δώσατε όνομα"
 
 #: frontend/posthandling.php:217
 msgid "Your origin is not filled in, even though it is mandatory."
-msgstr "Your origin is not filled in, even though it is mandatory."
+msgstr "Δεν δώσατε πηγή"
 
 #: frontend/posthandling.php:220
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
-msgstr ""
-"Your e-mail address is not filled in correctly, even though it is mandatory."
+msgstr "Δεν δώσατε e-mail"
 
 #: frontend/posthandling.php:223
 msgid "Your website is not filled in, even though it is mandatory."
-msgstr "Your website is not filled in, even though it is mandatory."
+msgstr "Δεν δώσατε url"
 
 #: frontend/posthandling.php:226
 msgid "There is no message, even though it is mandatory."
-msgstr "There is no message, even though it is mandatory."
+msgstr "Δεν υπάρχει μήνυμα"
 
 #: frontend/posthandling.php:229
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
-msgstr ""
-"The anti-spam question was not answered correctly, even though it is "
-"mandatory."
+msgstr "Η anti-spam ερώτηση δεν απαντήθηκε"
 
 #: frontend/posthandling.php:232
 msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
-msgstr ""
-"The reCAPTCHA was not filled in correctly, even though it is mandatory."
+msgstr "Το reCAPTCHA δεν συμπληρώθηκε σωστά"
 
 #: frontend/posthandling.php:324
 msgid "Double post: An entry with the data you entered has already been saved."
-msgstr ""
-"Double post: An entry with the data you entered has already been saved."
+msgstr "Διπλότυπο : μια καταχώρηση με τα ίδια στοιχεία υπάρχει ήδη"
 
 #: frontend/posthandling.php:341
 msgid "Thank you for your entry."
-msgstr "Ευχαριστολυμε για το σχόλιο σας!"
+msgstr "Ευχαριστούμε για το σχόλιο σας!"
 
 #: frontend/posthandling.php:343
 msgid "We will review it and unlock it in a short while."
@@ -1210,25 +1204,25 @@ msgid ""
 "%entry_content%\n"
 msgstr ""
 "\n"
-"Hello,\n"
+"Γεια σας,\n"
 "\n"
-"There is a new guestbook entry at '%blog_name%'.\n"
-"You can check it at %entry_management_url%.\n"
+"Υπάρχει μία νέα καταχώρηση στο'%blog_name%'.\n"
+"Μπορείτε να τη δείτε εδώ %entry_management_url%.\n"
 "\n"
-"Have a nice day.\n"
-"Your Gwolle-GB-Mailer\n"
+"Καλή σας μέρα!.\n"
+" Gwolle-GB-Mailer\n"
 "\n"
 "\n"
-"Website address: %blog_url%\n"
-"User name: %user_name%\n"
-"User email: %user_email%\n"
-"Entry status: %status%\n"
-"Entry content:\n"
+"Διεύθυνση site: %blog_url%\n"
+"Όνομα χρήστη: %user_name%\n"
+"e-mail χρήστη: %user_email%\n"
+"Status καταχώρησης: %status%\n"
+"Πειρεχόμενο καταχώρησης:\n"
 "%entry_content%\n"
 
 #: frontend/posthandling.php:401 frontend/posthandling.php:467
 msgid "New Guestbook Entry"
-msgstr "New Guestbook Entry"
+msgstr "Νέα καταχώρηση"
 
 #: frontend/posthandling.php:448 admin/tabs/emailtab.php:198
 msgid ""
@@ -1248,36 +1242,36 @@ msgid ""
 "%entry_content%\n"
 msgstr ""
 "\n"
-"Hello,\n"
+"Γεια σας,\n"
 "\n"
-"You have just posted a new guestbook entry at '%blog_name%'.\n"
+"Μόλις υποβάλατε μια νέα καταχώρηση στο '%blog_name%'.\n"
 "\n"
-"Have a nice day.\n"
-"The editors at %blog_name%.\n"
+"Καλή σας μέρα!.\n"
+"Ο διαχειριστής του %blog_name%.\n"
 "\n"
 "\n"
-"Website address: %blog_url%\n"
-"User name: %user_name%\n"
-"User email: %user_email%\n"
-"Entry content:\n"
+"Διεύθυνση site: %blog_url%\n"
+"Όνομα χρήστη: %user_name%\n"
+"e-mail χρήστη: %user_email%\n"
+"Περιεχόμενο καταχώρησης:\n"
 "%entry_content%\n"
 
 #: frontend/read.php:79
 msgid "Previous page"
-msgstr "Previous page"
+msgstr "Προηγούμενη σελίδα"
 
 #: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
 #: frontend/read.php:121 frontend/read.php:132
 msgid "Page"
-msgstr "Page"
+msgstr "Σελίδα"
 
 #: frontend/read.php:103 frontend/read.php:133
 msgid "Next page"
-msgstr "Next page"
+msgstr "Επόμενη σελίδα"
 
 #: frontend/read.php:144
 msgid "(no entries yet)"
-msgstr "(no entries yet)"
+msgstr "Καμία καταχώρηση"
 
 #: frontend/read.php:192
 msgid "from"
@@ -1309,11 +1303,11 @@ msgstr "Click here to get to the guestbook."
 
 #: frontend/widget.php:210
 msgid "Title:"
-msgstr "Title:"
+msgstr "Τίτλος"
 
 #: frontend/widget.php:216
 msgid "Number of entries:"
-msgstr "Number of entries:"
+msgstr "Πλήθος καταχωρίσεων"
 
 #: frontend/widget.php:232
 msgid "Best entries to show:"
@@ -1349,7 +1343,7 @@ msgstr "Select page"
 
 #: frontend/write.php:94
 msgid "Write a new entry."
-msgstr "Υποβολή νέας κατχώρησης"
+msgstr "Υποβολή νέας καταχώρησης"
 
 #: frontend/write.php:102
 msgid "Log in to post an entry"
@@ -1395,19 +1389,19 @@ msgstr ""
 
 #: functions/function.log.php:94
 msgid "Entry has been locked."
-msgstr "Entry has been locked."
+msgstr "Η συγκεκριμένη καταχώρηση κλειδώθηκε"
 
 #: functions/function.log.php:95
 msgid "Entry has been checked."
-msgstr "Entry has been checked."
+msgstr "Η συγκεκριμένη καταχώρηση έχει ελεγχθεί"
 
 #: functions/function.log.php:96
 msgid "Entry marked as spam."
-msgstr "Entry marked as spam."
+msgstr "Spam"
 
 #: functions/function.log.php:97
 msgid "Entry marked as not spam."
-msgstr "Entry marked as not spam."
+msgstr "Μη spam"
 
 #: functions/function.log.php:98
 msgid "Entry has been edited."
