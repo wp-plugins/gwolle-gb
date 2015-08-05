@@ -1,4 +1,4 @@
-=== Gwolle-GB ===
+=== Gwolle Guestbook ===
 Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
@@ -6,14 +6,14 @@ Tested up to: 4.3
 Stable tag: 1.4.4
 License: GPLv2 or later
 
-Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
+Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.
 
 
 == Description ==
 
-Gwolle-GB is the WordPress guestbook you've just been looking for. Beautiful and easy.
+Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.
 Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate
-a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and
+a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and
 have a real guestbook.
 
 
@@ -23,7 +23,7 @@ Current features include:
 * Widget to display your last or your best entries.
 * Simple and clean admin interface that integrates seamlessly into WordPress admin.
 * Dashboard Widget to easily manage the latest entries from your Admin dashboard.
-* Easy import from other guestbooks into Gwolle-GB.
+* Easy import from other guestbooks into Gwolle Guestbook.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
@@ -43,18 +43,18 @@ Current features include:
 
 = Import / Export =
 
-You may have another guestbook installed. That's great, because Gwolle-GB enables you to import entries easily.
+You may have another guestbook installed. That's great, because Gwolle Guestbook enables you to import entries easily.
 The importer does not delete any of your data, so you can go back to your previous setup without loss of data, if you want to.
-Trying Gwolle-GB is as easy as 1-2-3.
+Trying Gwolle Guestbook is as easy as 1-2-3.
 
 Import is supported from:
 
 * DMSGuestbook.
 * WordPress comments from a specific post, page or just all comments.
-* Gwolle-GB itself, with Export supported as well (CSV-file).
+* Gwolle Guestbook itself, with Export supported as well (CSV-file).
 
 
-Please note: At the moment, Gwolle-GB does *not* work with WordPress MU.
+Please note: At the moment, Gwolle Guestbook does *not* work with WordPress MU.
 
 
 = Languages =
@@ -101,7 +101,7 @@ It couldn't be easier.
 
 With version 1.0 there have been some changes:
 
-* Gwolle-GB uses the Shortcode API now. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
+* Gwolle Guestbook uses the Shortcode API now. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
 * The entries that are visible to visitors have changed. Make sure to check if you have everything
   visible that you want and nothing more.
 * CSS has changed somewhat. If you have custom CSS, you want to check if it still applies.
@@ -329,7 +329,7 @@ This will most likely add the rewrite rule for the RSS Feed.
 
 = I use a caching plugin, and my entries are not visible after posting =
 
-When you have moderation disabled, Gwolle-GB will try to refresh the cache. If it doesn't on your setup,
+When you have moderation disabled, Gwolle Guestbook will try to refresh the cache. If it doesn't on your setup,
 please let me know which caching plugin you use, and support for it might be added.
 If you use moderation, and check your entries manually, then you should also refresh or delete your cache manually.
 Most caching plugins offer support for that.
@@ -371,6 +371,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 = 1.4.5 =
 * 2015-08-
+* Rename from Gwolle-GB to Gwolle Guestbook.
 * Fix link in widget for WPML.
 * Add Greek, el (thanks dbonovas).
 

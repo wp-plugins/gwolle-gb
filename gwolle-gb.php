@@ -2,7 +2,7 @@
 /*
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://zenoweb.nl
-Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and have a real guestbook.
+Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.
 Version: 1.4.4
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
@@ -123,5 +123,6 @@ register_activation_hook(__FILE__, 'gwolle_gb_activation');
 
 /* Translate Description */
 function gwolle_gb_description() {
-	$var = __( "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle-GB and have a real guestbook.", GWOLLE_GB_TEXTDOMAIN );
+	$var = __( "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.", GWOLLE_GB_TEXTDOMAIN );
+	$var = __( "Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.", GWOLLE_GB_TEXTDOMAIN );
 }
