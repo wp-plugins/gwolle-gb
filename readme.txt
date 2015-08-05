@@ -374,6 +374,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Rename from Gwolle-GB to Gwolle Guestbook.
 * Fix link in widget for WPML.
 * Add Greek, el (thanks dbonovas).
+* Update pot, nl_NL.
 
 = 1.4.4 =
 * 2015-07-29
