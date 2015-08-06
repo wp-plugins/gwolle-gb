@@ -57,6 +57,10 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 }
 
 /* Table */
+.gwolle_gb td {
+	word-break: break-all;
+	word-wrap: break-word;
+}
 .gwolle_gb .id,
 .gwolle_gb .check {
 	width: 12px;
