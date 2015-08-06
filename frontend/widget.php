@@ -81,7 +81,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 							$widget_html .= ":<br />";
 						}
 
-						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), $num_words );
+						$entry_content = gwolle_gb_get_excerpt( gwolle_gb_bbcode_strip($entry->get_content()), $num_words );
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
@@ -125,7 +125,7 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 							$widget_html .= ":<br />";
 						}
 
-						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), $num_words );
+						$entry_content = gwolle_gb_get_excerpt( gwolle_gb_bbcode_strip($entry->get_content()), $num_words );
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}

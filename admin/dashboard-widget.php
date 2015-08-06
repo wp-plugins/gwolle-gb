@@ -101,7 +101,7 @@ function gwolle_gb_dashboard() {
 						<p>
 						<?php
 						// Content / Excerpt
-						$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), 16 );
+						$entry_content = gwolle_gb_get_excerpt( gwolle_gb_bbcode_strip($entry->get_content()), 16 );
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
