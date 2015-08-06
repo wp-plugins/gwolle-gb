@@ -373,6 +373,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * 2015-08-
 * Rename from Gwolle-GB to Gwolle Guestbook.
 * Fix link in widget for WPML.
+* Fix PHP notice in AJAX request.
 * Add word-break and word-wrap to admin CSS.
 * Add Greek, el (thanks dbonovas).
 * Update pot, nl_NL.

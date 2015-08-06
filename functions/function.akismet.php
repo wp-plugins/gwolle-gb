@@ -114,6 +114,7 @@ function gwolle_gb_akismet_entry_check( $comment, $action ) {
 	$query_string = '';
 
 	foreach ( $comment as $key => $data ) {
+		if (is_array($data)) { continue; }
 		$query_string .= $key . '=' . urlencode( wp_unslash( (string) $data ) ) . '&';
 	}
 
