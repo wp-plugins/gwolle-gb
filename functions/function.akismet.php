@@ -66,7 +66,7 @@ function gwolle_gb_akismet( $entry, $action ) {
 
 	$comment['comment_author_url'] = $entry->get_author_website();
 
-	$comment['comment_content'] = $entry->get_content();
+	$comment['comment_content'] = gwolle_gb_bbcode_strip( $entry->get_content() );
 
 	$comment['blog'] = get_option( 'home' );
 	$comment['blog_lang'] = get_locale();

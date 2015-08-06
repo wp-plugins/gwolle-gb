@@ -372,6 +372,8 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.4.5 =
 * 2015-08-
 * Rename from Gwolle-GB to Gwolle Guestbook.
+* Add function gwolle_gb_bbcode_strip.
+* Strip BBcode for Akismet service request.
 * Fix link in widget for WPML.
 * Fix PHP notice in AJAX request.
 * Add word-break and word-wrap to admin CSS.

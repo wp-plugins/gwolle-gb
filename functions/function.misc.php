@@ -283,6 +283,35 @@ function gwolle_gb_bbcode_parse( $str ){
 
 
 /*
+ * Strip the BBcode.
+ */
+function gwolle_gb_bbcode_strip( $str ){
+	$bb[] = "#\[b\](.*?)\[/b\]#si";
+	$html[] = "\\1";
+	$bb[] = "#\[i\](.*?)\[/i\]#si";
+	$html[] = "\\1";
+	$bb[] = "#\[u\](.*?)\[/u\]#si";
+	$html[] = "\\1";
+	$bb[] = "#\[ul\](.*?)\[/ul\]#si";
+	$html[] = "\\1";
+	$bb[] = "#\[ol\](.*?)\[/ol\]#si";
+	$html[] = "\\1";
+	$bb[] = "#\[li\](.*?)\[/li\]#si";
+	$html[] = "\\1";
+	$str = preg_replace($bb, $html, $str);
+
+	$pattern="#\[url href=([^\]]*)\]([^\[]*)\[/url\]#i";
+	$replace='\\1';
+	$str=preg_replace($pattern, $replace, $str);
+
+	$pattern="#\[img\]([^\[]*)\[/img\]#i";
+	$replace='';
+	$str=preg_replace($pattern, $replace, $str);
+
+	return $str;
+}
+
+/*
  * Convert to 3byte Emoji, if db-charset is only utf8mb3.
  *
  * $Args: - string, text string to encode
