@@ -96,6 +96,8 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 			}
 			if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
 				$entry_content = gwolle_gb_bbcode_parse($entry_content);
+			} else {
+				$entry_content = gwolle_gb_bbcode_strip($entry_content);
 			}
 			$entry_output .= $entry_content;
 

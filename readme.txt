@@ -374,6 +374,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Rename from Gwolle-GB to Gwolle Guestbook.
 * Add function gwolle_gb_bbcode_strip.
 * Strip BBcode from Widget and Dashboard Widget.
+* Strip BBcode from entry when BBcode is disabled.
 * Strip BBcode for Akismet service request.
 * Fix link in widget for WPML.
 * Fix PHP notice in AJAX request.
