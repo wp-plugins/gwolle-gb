@@ -674,13 +674,13 @@ function gwolle_gb_page_entries() {
 									// Author column
 									$author_name_html = gwolle_gb_get_author_name_html($entry);
 									$html_output .= '
-										<td><span class="author-name">' . $author_name_html . '</span><br />' .
+										<td class="entry-author-name"><span class="author-name">' . $author_name_html . '</span><br />' .
 											'<span class="author-email">' . $entry->get_author_email() . '</span>' .
 										'</td>';
 
 									// Excerpt column
 									$html_output .= '
-										<td>
+										<td class="entry-content">
 											<label for="check-' . $entry->get_id() . '">';
 									$entry_content = gwolle_gb_get_excerpt( $entry->get_content(), 17 );
 									if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {

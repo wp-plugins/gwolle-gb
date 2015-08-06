@@ -57,7 +57,10 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 }
 
 /* Table */
-.gwolle_gb td {
+.gwolle_gb td.entry-author-name{
+	word-break: break-word;
+}
+.gwolle_gb td.entry-content {
 	word-break: break-all;
 	word-wrap: break-word;
 }
