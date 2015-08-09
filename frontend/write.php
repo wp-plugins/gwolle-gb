@@ -219,7 +219,7 @@ function gwolle_gb_frontend_write() {
 		if (in_array('content', $gwolle_gb_error_fields)) {
 			$output .= ' error';
 		}
-		$output .= '" ';
+		$output .= '" placeholder="' . __('Message', GWOLLE_GB_TEXTDOMAIN) . '" ';
 		if ( in_array('content', $gwolle_gb_error_fields) && isset($autofocus) ) {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.

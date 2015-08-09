@@ -377,6 +377,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Strip BBcode from entry when BBcode is disabled.
 * Strip BBcode for Akismet service request.
 * Fix link in widget for WPML.
+* Add placeholder to textarea.
 * Fix PHP notice in AJAX request.
 * Add word-break and word-wrap to admin CSS.
 * Add Greek, el (thanks dbonovas).
