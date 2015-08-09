@@ -28,14 +28,12 @@ jQuery(document).ready(function($) {
 		jQuery('.gwolle_gb_edit_meta_inputs').toggle();
 		return false;
 	});
-});
-jQuery(document).ready(function($) {
+
 	jQuery('.gwolle_gb_cancel_timestamp').click( function() {
 		jQuery('.gwolle_gb_edit_meta_inputs').toggle();
 		return false;
 	});
-});
-jQuery(document).ready(function($) {
+
 	jQuery('.gwolle_gb_save_timestamp').click( function() {
 
 		var dd = jQuery("#dd").val();

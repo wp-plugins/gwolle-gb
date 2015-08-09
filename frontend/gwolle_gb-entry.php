@@ -71,7 +71,7 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 			if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' ) {
 				$entry_output .= __('wrote on', GWOLLE_GB_TEXTDOMAIN) . ' ';
 			}
-			$entry_output .=  date_i18n( get_option('date_format'), $entry->get_datetime() ) . '</span>';
+			$entry_output .= date_i18n( get_option('date_format'), $entry->get_datetime() ) . '</span>';
 			if ( isset($read_setting['read_datetime']) && $read_setting['read_datetime']  === 'true' ) {
 				$entry_output .= '<span class="gb-time"> ' . __('on', GWOLLE_GB_TEXTDOMAIN) . ' ' . trim(date_i18n( get_option('time_format'), $entry->get_datetime() )) . '</span>';
 			}
@@ -103,11 +103,9 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 
 
 			// Edit Link for Moderators
-			if ( isset($read_setting['read_content']) && $read_setting['read_content']  === 'true' ) {
-				if ( function_exists('current_user_can') && current_user_can('moderate_comments') ) {
-					$entry_output .= '
-						<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
-				}
+			if ( function_exists('current_user_can') && current_user_can('moderate_comments') ) {
+				$entry_output .= '
+					<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
 			}
 			$entry_output .= '</div>
 			';
