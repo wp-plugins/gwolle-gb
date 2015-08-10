@@ -540,7 +540,7 @@ function gwolle_gb_page_editor() {
 
 										<div class="gwolle_gb_edit_meta_inputs">
 											<label for="gwolle_gb_author_name"><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: </label><br />
-											<input type="text" name="gwolle_gb_author_name" size="24" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_name() ); ?>" id="gwolle_gb_author_name" />
+											<input type="text" name="gwolle_gb_author_name" size="24" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_name() ); ?>" id="gwolle_gb_author_name" /><br />
 
 											<span><?php _e('Date and time', GWOLLE_GB_TEXTDOMAIN); ?>: </span><br />
 											<div class="gwolle_gb_date"><?php
