@@ -370,13 +370,15 @@ and also the WordPress documentation. When you made a translation, you can send 
 == Changelog ==
 
 = 1.4.5 =
-* 2015-08-
+* 2015-08-10
+* Drop reCAPTCHA completely.
+* Use Really Simple CAPTCHA plugin from now on.
 * Rename from Gwolle-GB to Gwolle Guestbook.
 * Add function gwolle_gb_bbcode_strip.
 * Strip BBcode from Widget and Dashboard Widget.
 * Strip BBcode from entry when BBcode is disabled.
 * Strip BBcode for Akismet service request.
-* Fix link in widget for WPML.
+* Fix link in Widget for WPML.
 * Add placeholder to textarea, also in admin editor.
 * Fix PHP notice in AJAX request.
 * Add word-break and word-wrap to admin CSS.
