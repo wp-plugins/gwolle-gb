@@ -102,7 +102,7 @@ function gwolle_gb_frontend_write() {
 				<h3>' . __('Log in to post an entry', GWOLLE_GB_TEXTDOMAIN) . '</h3>';
 
 		$args = array(
-			'echo'           => false,
+			'echo'     => false,
 			'redirect' => ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'],
 		);
 		$output .= wp_login_form( $args );
@@ -210,6 +210,7 @@ function gwolle_gb_frontend_write() {
 			<div class="clearBoth">&nbsp;</div>';
 	}
 
+	/* Content */
 	if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_content">
 				<div class="label"><label for="gwolle_gb_content">' . __('Guestbook entry', GWOLLE_GB_TEXTDOMAIN) . ':';
@@ -267,10 +268,7 @@ function gwolle_gb_frontend_write() {
 			<div class="clearBoth">&nbsp;</div>';
 	}
 
-
-	/* FIXME: add smileys for use in the content textarea */
-
-
+	/* Custom Anti-Spam */
 	if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
 		$antispam_question = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-question') );
 		$antispam_answer   = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-answer') );
@@ -287,44 +285,111 @@ function gwolle_gb_frontend_write() {
 				$output .= ' error';
 			}
 			$output .= '" value="' . $antispam . '" type="text" name="gwolle_gb_antispam_answer" id="gwolle_gb_antispam_answer" placeholder="' . __('Answer', GWOLLE_GB_TEXTDOMAIN) . '" ';
-		if ( in_array('antispam', $gwolle_gb_error_fields) && isset($autofocus) ) {
-			$output .= $autofocus;
-			$autofocus = false; // disable it for the next error.
-		}
-		$output .= ' />
-					</div>
-				</div>
-				<div class="clearBoth">&nbsp;</div>';
-		}
-	}
-
-
-	/* reCAPTCHA */
-	if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-		if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
-			// Register API keys at https://www.google.com/recaptcha/admin
-			$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
-			$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
-
-			if ( isset($recaptcha_publicKey) && strlen($recaptcha_publicKey) > 0 && isset($recaptcha_privateKey) && strlen($recaptcha_privateKey) > 0 ) {
-				$output .= '
-					<div class="gwolle_gb_recaptcha">
-						<div class="label">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *</div>
-						<div class="input ';
-				if (in_array('recaptcha', $gwolle_gb_error_fields)) {
-					$output .= ' error';
-				}
-				$output .=
-						' ">
-							<div class="g-recaptcha" data-sitekey="' . $recaptcha_publicKey . '"></div>
+			if ( in_array('antispam', $gwolle_gb_error_fields) && isset($autofocus) ) {
+				$output .= $autofocus;
+				$autofocus = false; // disable it for the next error.
+			}
+			$output .= ' />
 						</div>
 					</div>
 					<div class="clearBoth">&nbsp;</div>';
-				wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js', 'jquery', GWOLLE_GB_VER, false );
-			}
 		}
 	}
 
+	/* CAPTCHA */
+	if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
+		if ( class_exists('ReallySimpleCaptcha') ) {
+			// Instantiate the ReallySimpleCaptcha class, which will handle all of the heavy lifting
+			$gwolle_gb_captcha = new ReallySimpleCaptcha();
+
+			// Set Really Simple CAPTCHA Options
+			$gwolle_gb_captcha->chars           = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+			$gwolle_gb_captcha->char_length     = '4';
+			$gwolle_gb_captcha->img_size        = array( '72', '24' );
+			$gwolle_gb_captcha->fg              = array( '0', '0', '0' );
+			$gwolle_gb_captcha->bg              = array( '255', '255', '255' );
+			$gwolle_gb_captcha->font_size       = '16';
+			$gwolle_gb_captcha->font_char_width = '15';
+			$gwolle_gb_captcha->img_type        = 'png';
+			$gwolle_gb_captcha->base            = array( '6', '18' );
+
+			// Generate random word and image prefix
+			$gwolle_gb_captcha_word = $gwolle_gb_captcha->generate_random_word();
+			$gwolle_gb_captcha_prefix = mt_rand();
+			// Generate CAPTCHA image
+			$gwolle_gb_captcha_image_name = $gwolle_gb_captcha->generate_image($gwolle_gb_captcha_prefix, $gwolle_gb_captcha_word);
+			// Define values for CAPTCHA fields
+			$gwolle_gb_captcha_image_url = get_bloginfo('wpurl') . '/wp-content/plugins/really-simple-captcha/tmp/';
+			$gwolle_gb_captcha_image_src = $gwolle_gb_captcha_image_url . $gwolle_gb_captcha_image_name;
+			$gwolle_gb_captcha_image_width = $gwolle_gb_captcha->img_size[0];
+			$gwolle_gb_captcha_image_height = $gwolle_gb_captcha->img_size[1];
+			$gwolle_gb_captcha_field_size = $gwolle_gb_captcha->char_length;
+			// AJAX url
+			$gwolle_gb_captcha_ajax_url = GWOLLE_GB_URL . '/frontend/captcha/ajaxresponse.php';
+			// ABSPATH
+			$gwolle_gb_abspath = urlencode( ABSPATH );
+
+			// Output the CAPTCHA fields
+			?>
+			<script>
+			function gwolle_gb_captcha_check( code, prefix, url, abspath ) {
+				// Setup variables
+				var code_string = '?code=' + code;
+				var prefix_string = '&prefix=' + prefix;
+				var abspath_string = '&abspath=' + abspath;
+				var request_url_base = url;
+				var request_url = request_url_base + code_string + prefix_string + abspath_string;
+
+				// Instantiate request
+				var xmlhttp = new XMLHttpRequest();
+
+				// Parse resonse
+				xmlhttp.onreadystatechange = function() {
+					if ( 4 == xmlhttp.readyState && 200 == xmlhttp.status ) {
+						var ajax_response = xmlhttp.responseText;
+
+						// Update form verification feedback
+						if ( 'true' == ajax_response ) {
+							document.getElementById( 'gwolle_gb_captcha_verify' ).innerHTML = '<span style="color:green"><?php _e('Correct CAPTCHA value.', GWOLLE_GB_TEXTDOMAIN); ?></span>';
+							jQuery( '#gwolle_gb_captcha_code' ).removeClass('error');
+						} else if ( 'false' == ajax_response ) {
+							document.getElementById( 'gwolle_gb_captcha_verify' ).innerHTML = '<span style="color:red"><?php _e('Incorrect CAPTCHA value.', GWOLLE_GB_TEXTDOMAIN); ?></span>';
+							jQuery( '#gwolle_gb_captcha_code' ).addClass('error');
+						}
+					}
+				}
+				// Send request
+				xmlhttp.open( 'GET', request_url, true );
+				xmlhttp.send();
+			}
+			</script>
+
+			<?php
+			$output .= '
+				<div class="gwolle_gb_captcha">
+					<div class="label">
+						<label for="gwolle_gb_captcha_code">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *<br />
+						<img src="' . $gwolle_gb_captcha_image_src . '" alt="captcha" width="' . $gwolle_gb_captcha_image_width . '" height="' . $gwolle_gb_captcha_image_height . '" />
+						</label>
+					</div>
+					<div class="input">
+					<input class="';
+			if (in_array('captcha', $gwolle_gb_error_fields)) {
+				$output .= 'error';
+			}
+			$output .= '" value="" type="text" name="gwolle_gb_captcha_code" id="gwolle_gb_captcha_code" placeholder="' . __('CAPTCHA', GWOLLE_GB_TEXTDOMAIN) . '" onblur="gwolle_gb_captcha_check( this.value, \'' . $gwolle_gb_captcha_prefix . '\', \'' . $gwolle_gb_captcha_ajax_url . '\', \'' . $gwolle_gb_abspath . '\' )" ';
+			if ( in_array('captcha', $gwolle_gb_error_fields) && isset($autofocus) ) {
+				$output .= $autofocus;
+				$autofocus = false; // disable it for the next error.
+			}
+			$output .= ' />
+							<input type="hidden" name="gwolle_gb_captcha_prefix" id="gwolle_gb_captcha_prefix" value="' . $gwolle_gb_captcha_prefix . '" />
+							<span id="gwolle_gb_captcha_verify"></span>
+						</div>
+					</div>
+					<div class="clearBoth">&nbsp;</div>';
+		}
+	}
 
 	$output .= '
 			<div class="gwolle_gb_submit">

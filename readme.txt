@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.3
-Stable tag: 1.4.4
+Stable tag: 1.4.5
 License: GPLv2 or later
 
 Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -28,10 +28,10 @@ Current features include:
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
 * Custom Anti-Spam question for fighting spam, too.
-* reCAPTCHA integration for fighting spam, as well.
+* CAPTCHA integration for fighting spam, as well.
 * Simple Form Builder to select which form-fields you want to use.
 * Option List with the parts of each entry that you want to show.
-* Localisation. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
+* Localization. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
 * IP-address and host-logging with link to WHOIS query site.
@@ -112,8 +112,6 @@ If you have a feature request please use the forum on WordPress.org.
 
 The plugin itself is released under the GNU General Public License; a copy of this licence can be found at the licence homepage or
 in the gwolle-gb.php file at the top.
-
-For the licences regarding the use of reCAPTCHA you may ask the authors.
 
 = Coming Soon =
 
@@ -268,17 +266,12 @@ Your first option is to use Akismet. It works like a charm. Fighting spam has ne
 
 If that doesn't work enough, use the Custom Anti-Spam question.
 
-You can also use reCAPTCHA. It might scare off some visitors, though.
+You can also use a CAPTCHA. It might scare off some visitors, though.
 
-= My reCAPTCHA doesn't show up in the form. =
+= I enabled the CAPTCHA, but I don't see it in the form. =
 
-If you did enable reCAPTCHA it should show your reCAPTCHA. reCAPTCHA only works on PHP 5.3 and higher.
-
-It could also be that you have JavaScript errors. You can check this in the Inspector/console of your browser.
-
-= After submitting a new entry, I get errors about reCAPTCHA. =
-If the form gives you errors, even though you filled in everything correctly, there might be something strange happening.
-On some setups reCAPTCHA doesn't report Succes or Error. If you are able to debug this, and tell me what is happening, I would be happy to hear that.
+It could be that the plugin has no write permission in the /tmp folder of the Really Simple Captcha plugin.
+Please fix this in your install.
 
 = I don't see the labels in the form. =
 
@@ -370,13 +363,15 @@ and also the WordPress documentation. When you made a translation, you can send 
 == Changelog ==
 
 = 1.4.5 =
-* 2015-08-
+* 2015-08-10
+* Drop reCAPTCHA completely.
+* Use Really Simple CAPTCHA plugin from now on.
 * Rename from Gwolle-GB to Gwolle Guestbook.
 * Add function gwolle_gb_bbcode_strip.
 * Strip BBcode from Widget and Dashboard Widget.
-* Strip BBcode from entry when BBcode is disabled.
+* Strip BBcode from Entry when BBcode is disabled.
 * Strip BBcode for Akismet service request.
-* Fix link in widget for WPML.
+* Fix link in Widget for WPML.
 * Add placeholder to textarea, also in admin editor.
 * Fix PHP notice in AJAX request.
 * Add word-break and word-wrap to admin CSS.

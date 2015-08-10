@@ -59,10 +59,6 @@ function install_gwolle_gb() {
 		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_log );
 	}
 
-	// Add reCAPTCHA options
-	add_option('recaptcha-public-key', '');
-	add_option('recaptcha-private-key', '');
-
 	//	Add Akismet option
 	add_option('gwolle_gb-akismet-active', 'false');
 
@@ -112,18 +108,6 @@ function uninstall_gwolle_gb() {
 			WHERE
 				option_name LIKE 'gwolle_gb%'
 		");
-
-	if (isset($_POST['delete_recaptchaKeys']) && $_POST['delete_recaptchaKeys'] == 'on' || (get_option('recaptcha-public-key') == '' && get_option('recaptcha-private-key') == '')) {
-		// Also delete the reCAPTCHA-keys
-		$wpdb->query("
-				DELETE
-					FROM " . $wpdb->prefix . "options
-				WHERE
-					option_name = 'recaptcha-public-key'
-					OR
-					option_name = 'recaptcha-private-key'
-			");
-	}
 
 	// Deactivate ourselves
 	deactivate_plugins( GWOLLE_GB_FOLDER . '/gwolle-gb.php' );

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-05 19:16+0200\n"
+"POT-Creation-Date: 2015-08-10 15:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -69,12 +69,12 @@ msgid "Guestbook Feed"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/gwolle_gb-entry.php:107
+#: frontend/gwolle_gb-entry.php:108
 msgid "Edit entry"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-editor.php:537
-#: admin/page-entries.php:696 frontend/gwolle_gb-entry.php:107
+#: admin/page-entries.php:696 frontend/gwolle_gb-entry.php:108
 msgid "Edit"
 msgstr ""
 
@@ -297,7 +297,7 @@ msgstr ""
 msgid "This entry is Not Visible."
 msgstr ""
 
-#: admin/page-editor.php:398 frontend/posthandling.php:407
+#: admin/page-editor.php:398 frontend/posthandling.php:401
 msgid "Checked"
 msgstr ""
 
@@ -368,8 +368,14 @@ msgstr ""
 msgid "No log yet."
 msgstr ""
 
-#: admin/page-editor.php:592 frontend/write.php:215
+#: admin/page-editor.php:592 frontend/write.php:216
 msgid "Guestbook entry"
+msgstr ""
+
+#: admin/page-editor.php:594 admin/page-export.php:65
+#: admin/page-import.php:391 admin/page-import.php:433 frontend/write.php:223
+#: admin/tabs/formtab.php:185 admin/tabs/uninstalltab.php:31
+msgid "Message"
 msgstr ""
 
 #: admin/page-editor.php:597
@@ -379,8 +385,8 @@ msgid ""
 "\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:609 frontend/write.php:196 frontend/write.php:203
-#: admin/tabs/formtab.php:165
+#: admin/page-editor.php:609 admin/page-editor.php:611 frontend/write.php:196
+#: frontend/write.php:203 admin/tabs/formtab.php:165
 msgid "Website"
 msgstr ""
 
@@ -390,6 +396,11 @@ msgstr ""
 
 #: admin/page-editor.php:617 admin/page-export.php:61
 msgid "Origin"
+msgstr ""
+
+#: admin/page-editor.php:619 frontend/write.php:158 frontend/write.php:165
+#: admin/tabs/formtab.php:125 admin/tabs/readingtab.php:164
+msgid "City"
 msgstr ""
 
 #: admin/page-entries.php:209
@@ -662,12 +673,6 @@ msgstr ""
 
 #: admin/page-export.php:64
 msgid "Host address"
-msgstr ""
-
-#: admin/page-export.php:65 admin/page-import.php:391
-#: admin/page-import.php:433 admin/tabs/formtab.php:185
-#: admin/tabs/uninstalltab.php:31
-msgid "Message"
 msgstr ""
 
 #: admin/page-export.php:66 admin/page-import.php:393
@@ -1102,7 +1107,7 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:312
+#: admin/page-settings.php:329 frontend/write.php:280 frontend/write.php:371
 msgid "Anti-spam"
 msgstr ""
 
@@ -1130,54 +1135,54 @@ msgstr ""
 msgid "Submitting a new guestbook entry is only allowed for logged-in users."
 msgstr ""
 
-#: frontend/posthandling.php:195 frontend/posthandling.php:238
+#: frontend/posthandling.php:189 frontend/posthandling.php:232
 msgid "There were errors submitting your guestbook entry."
 msgstr ""
 
-#: frontend/posthandling.php:201
+#: frontend/posthandling.php:195
 msgid "Your name is not filled in, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:204
+#: frontend/posthandling.php:198
 msgid "Your origin is not filled in, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:207
+#: frontend/posthandling.php:201
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:210
+#: frontend/posthandling.php:204
 msgid "Your website is not filled in, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:213
+#: frontend/posthandling.php:207
 msgid "There is no message, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:216
+#: frontend/posthandling.php:210
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:219
-msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
+#: frontend/posthandling.php:213
+msgid "The CAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:311
+#: frontend/posthandling.php:305
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 
-#: frontend/posthandling.php:328
+#: frontend/posthandling.php:322
 msgid "Thank you for your entry."
 msgstr ""
 
-#: frontend/posthandling.php:330
+#: frontend/posthandling.php:324
 msgid "We will review it and unlock it in a short while."
 msgstr ""
 
-#: frontend/posthandling.php:367 admin/tabs/emailtab.php:138
+#: frontend/posthandling.php:361 admin/tabs/emailtab.php:138
 msgid ""
 "\n"
 "Hello,\n"
@@ -1197,15 +1202,15 @@ msgid ""
 "%entry_content%\n"
 msgstr ""
 
-#: frontend/posthandling.php:388 frontend/posthandling.php:456
+#: frontend/posthandling.php:382 frontend/posthandling.php:450
 msgid "New Guestbook Entry"
 msgstr ""
 
-#: frontend/posthandling.php:409
+#: frontend/posthandling.php:403
 msgid "Unchecked"
 msgstr ""
 
-#: frontend/posthandling.php:437 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:431 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1308,28 +1313,36 @@ msgstr ""
 msgid "Write a new entry for the Guestbook"
 msgstr ""
 
-#: frontend/write.php:158 frontend/write.php:165 admin/tabs/formtab.php:125
-#: admin/tabs/readingtab.php:164
-msgid "City"
-msgstr ""
-
 #: frontend/write.php:177 frontend/write.php:184 admin/tabs/formtab.php:145
 msgid "Email"
 msgstr ""
 
-#: frontend/write.php:283
+#: frontend/write.php:281
 msgid "Question:"
 msgstr ""
 
-#: frontend/write.php:289
+#: frontend/write.php:287
 msgid "Answer"
 msgstr ""
 
-#: frontend/write.php:332
+#: frontend/write.php:353
+msgid "Correct CAPTCHA value."
+msgstr ""
+
+#: frontend/write.php:356
+msgid "Incorrect CAPTCHA value."
+msgstr ""
+
+#: frontend/write.php:380 admin/tabs/antispamtab.php:100
+#: admin/tabs/formtab.php:235
+msgid "CAPTCHA"
+msgstr ""
+
+#: frontend/write.php:397
 msgid "Submit"
 msgstr ""
 
-#: frontend/write.php:341 admin/tabs/formtab.php:74
+#: frontend/write.php:406 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1388,44 +1401,44 @@ msgstr ""
 msgid "No content to display. This entry is empty."
 msgstr ""
 
-#: functions/function.misc.php:324
+#: functions/function.misc.php:353
 msgid "Day"
 msgstr ""
 
-#: functions/function.misc.php:327
+#: functions/function.misc.php:356
 msgid "Month"
 msgstr ""
 
-#: functions/function.misc.php:332
+#: functions/function.misc.php:361
 #, php-format
 msgid "%1$s-%2$s"
 msgstr ""
 
-#: functions/function.misc.php:337
+#: functions/function.misc.php:366
 msgid "Year"
 msgstr ""
 
-#: functions/function.misc.php:340
+#: functions/function.misc.php:369
 msgid "Hour"
 msgstr ""
 
-#: functions/function.misc.php:342
+#: functions/function.misc.php:371
 msgid "Minute"
 msgstr ""
 
-#: functions/function.misc.php:351
+#: functions/function.misc.php:380
 msgid "Save the date and time"
 msgstr ""
 
-#: functions/function.misc.php:352
+#: functions/function.misc.php:381
 msgid "OK"
 msgstr ""
 
-#: functions/function.misc.php:354
+#: functions/function.misc.php:383
 msgid "Cancel saving date and time"
 msgstr ""
 
-#: functions/function.misc.php:355
+#: functions/function.misc.php:384
 msgid "Cancel"
 msgstr ""
 
@@ -1451,7 +1464,7 @@ msgid ""
 "its status (checked, spam and trash)."
 msgstr ""
 
-#: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:135
+#: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:131
 #: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:252
 #: admin/tabs/readingtab.php:229
 msgid "Save settings"
@@ -1481,7 +1494,7 @@ msgstr ""
 msgid "Learn more about Akismet..."
 msgstr ""
 
-#: admin/tabs/antispamtab.php:50 admin/tabs/antispamtab.php:106
+#: admin/tabs/antispamtab.php:50
 msgid "What's that?"
 msgstr ""
 
@@ -1534,43 +1547,33 @@ msgid ""
 "people can post an entry."
 msgstr ""
 
-#: admin/tabs/antispamtab.php:106
-msgid "Learn more about reCAPTCHA..."
-msgstr ""
-
-#: admin/tabs/antispamtab.php:112
-msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
-msgstr ""
-
-#: admin/tabs/antispamtab.php:115
-msgid "<strong>Secret</strong> key of your reCAPTCHA account"
-msgstr ""
-
-#: admin/tabs/antispamtab.php:118
+#: admin/tabs/antispamtab.php:106 admin/tabs/antispamtab.php:116
 msgid ""
-"reCAPTCHA is a way to have visitors fill in a field with a few letters or "
+"A CAPTCHA is a way to have visitors fill in a field with a few letters or "
 "numbers. It is a way to make sure that you have a human visitor and not a "
 "spambot. Not every visitor will appreciate it though, some will consider it "
 "unfriendly."
 msgstr ""
 
-#: admin/tabs/antispamtab.php:120
-msgid "The keys can be found at your"
+#: admin/tabs/antispamtab.php:108 admin/tabs/antispamtab.php:118
+msgid "For the CAPTCHA you need the plugin"
 msgstr ""
 
-#: admin/tabs/antispamtab.php:120
-msgid "Go to my reCAPTCHA sites..."
+#: admin/tabs/antispamtab.php:109 admin/tabs/antispamtab.php:119
+msgid "Really Simple CAPTCHA plugin at wordpress.org"
 msgstr ""
 
-#: admin/tabs/antispamtab.php:120
-msgid "reCAPTCHA sites overview"
+#: admin/tabs/antispamtab.php:109 admin/tabs/antispamtab.php:119
+msgid "Really Simple CAPTCHA"
 msgstr ""
 
-#: admin/tabs/antispamtab.php:126
-#, php-format
+#: admin/tabs/antispamtab.php:110 admin/tabs/antispamtab.php:120
+msgid "installed and activated"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:111
 msgid ""
-"reCAPTCHA requires PHP version 5.3 or newer. You are using PHP version %s. "
-"Contact your hosting provider."
+"This plugin is installed and activated, so the CAPTCHA is ready to be used."
 msgstr ""
 
 #: admin/tabs/emailtab.php:26
@@ -1744,10 +1747,6 @@ msgstr ""
 msgid "When enabled it is mandatory."
 msgstr ""
 
-#: admin/tabs/formtab.php:235 admin/tabs/uninstalltab.php:63
-msgid "reCAPTCHA"
-msgstr ""
-
 #: admin/tabs/readingtab.php:26
 msgid "Entries per page on the frontend"
 msgstr ""
@@ -1902,10 +1901,6 @@ msgstr ""
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr ""
 
-#: admin/tabs/uninstalltab.php:66
-msgid "Also delete the reCAPTCHA keys"
-msgstr ""
-
-#: admin/tabs/uninstalltab.php:73
+#: admin/tabs/uninstalltab.php:65
 msgid "Uninstall &raquo;"
 msgstr ""

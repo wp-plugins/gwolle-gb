@@ -159,33 +159,27 @@ function gwolle_gb_frontend_posthandling() {
 			}
 		}
 
-		/* reCAPTCHA */
-		if ( version_compare( PHP_VERSION, '5.3', '>=' ) ) {
-			if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
-
-				// Register API keys at https://www.google.com/recaptcha/admin
-				$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
-				$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
-
-				if ( isset($recaptcha_publicKey) && isset($recaptcha_privateKey) ) {
-
-					// Taken from https://github.com/google/recaptcha
-					require('reCAPTCHA/init.php');
-					$resp = gwolle_gb_recaptcha_init($recaptcha_privateKey);
-
-					if ( $resp != null && $resp->isSuccess() ) {
-						// verified!
-						$gwolle_gb_messages .= '<p class="error_fields"><strong>Verified.</strong></p>';
-					} else {
-						$errors = $resp->getErrorCodes();
-						$gwolle_gb_errors = true;
-						$gwolle_gb_error_fields[] = 'recaptcha'; // mandatory
-						$gwolle_gb_messages .= '<p style="display_:none"><strong>' . $errors . '</strong></p>';
-						$gwolle_gb_messages .= '<p style="display_:none"><strong>' . print_r( $resp, true ) . '</strong></p>';
-					}
-
-				}
+		/* CAPTCHA */
+		if ( class_exists('ReallySimpleCaptcha') ) {
+			$gwolle_gb_captcha = new ReallySimpleCaptcha();
+			// This variable holds the CAPTCHA image prefix, which corresponds to the correct answer
+			$gwolle_gb_captcha_prefix = $_POST['gwolle_gb_captcha_prefix'];
+			// This variable holds the CAPTCHA response, entered by the user
+			$gwolle_gb_captcha_code = $_POST['gwolle_gb_captcha_code'];
+			// Validate the CAPTCHA response
+			$gwolle_gb_captcha_correct = $gwolle_gb_captcha->check( $gwolle_gb_captcha_prefix, $gwolle_gb_captcha_code );
+			// If CAPTCHA validation fails (incorrect value entered in CAPTCHA field) mark comment as spam.
+			if ( true != $gwolle_gb_captcha_correct ) {
+				$gwolle_gb_errors = true;
+				$gwolle_gb_error_fields[] = 'captcha'; // mandatory
+				//$gwolle_gb_messages .= '<p style="display_:none"><strong>' . $gwolle_gb_captcha_correct . '</strong></p>';
+			} else {
+				// verified!
+				//$gwolle_gb_messages .= '<p class="error_fields"><strong>Verified.</strong></p>';
 			}
+			// clean up the tmp directory
+			$gwolle_gb_captcha->remove($gwolle_gb_captcha_prefix);
+			$gwolle_gb_captcha->cleanup();
 		}
 
 
@@ -215,8 +209,8 @@ function gwolle_gb_frontend_posthandling() {
 						case 'antispam':
 							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The anti-spam question was not answered correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 							break;
-						case 'recaptcha':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The reCAPTCHA was not filled in correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+						case 'captcha':
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The CAPTCHA was not filled in correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
 							break;
 					}
 				}
