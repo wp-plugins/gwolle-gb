@@ -59,14 +59,6 @@ function gwolle_gb_page_settingstab_uninstall( $uninstalled ) {
 			</td>
 		</tr>
 
-		<tr valign="top">
-			<th scope="row" style="color:#FF0000;"><label for="delete_recaptchaKeys"><?php _e('reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
-			<td>
-				<input type="checkbox" name="delete_recaptchaKeys" id="delete_recaptchaKeys">
-				<label for="delete_recaptchaKeys"><?php _e("Also delete the reCAPTCHA keys", GWOLLE_GB_TEXTDOMAIN); ?></label>
-			</td>
-		</tr>
-
 		<tr>
 			<td colspan="2">
 				<p class="submit">
