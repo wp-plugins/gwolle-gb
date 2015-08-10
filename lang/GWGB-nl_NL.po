@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle-GB\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-10 14:52+0200\n"
+"POT-Creation-Date: 2015-08-10 15:10+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
@@ -2050,17 +2050,15 @@ msgstr "Bevestigen"
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr "Yup, ik weet het absoluut zeker. Doorgaan!"
 
-#: admin/tabs/uninstalltab.php:63
-msgid "reCAPTCHA"
-msgstr "reCAPTCHA"
-
-#: admin/tabs/uninstalltab.php:66
-msgid "Also delete the reCAPTCHA keys"
-msgstr "Verwijder ook de reCAPTCHA sleutels"
-
-#: admin/tabs/uninstalltab.php:73
+#: admin/tabs/uninstalltab.php:65
 msgid "Uninstall &raquo;"
 msgstr "Deïnstalleren &raquo;"
+
+#~ msgid "reCAPTCHA"
+#~ msgstr "reCAPTCHA"
+
+#~ msgid "Also delete the reCAPTCHA keys"
+#~ msgstr "Verwijder ook de reCAPTCHA sleutels"
 
 #~ msgid "Learn more about reCAPTCHA..."
 #~ msgstr "Leer meer over reCAPTCHA..."
