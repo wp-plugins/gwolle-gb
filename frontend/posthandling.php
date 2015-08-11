@@ -47,6 +47,7 @@ function gwolle_gb_frontend_posthandling() {
 		$gwolle_gb_data = array();
 		$form_setting = gwolle_gb_get_setting( 'form' );
 
+		/* Name */
 		if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_author_name'])) {
 				$gwolle_gb_data['author_name'] = trim($_POST['gwolle_gb_author_name']);
@@ -65,6 +66,7 @@ function gwolle_gb_frontend_posthandling() {
 			}
 		}
 
+		/* City / Origin */
 		if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_author_origin'])) {
 				$gwolle_gb_data['author_origin'] = trim($_POST['gwolle_gb_author_origin']);
@@ -83,6 +85,7 @@ function gwolle_gb_frontend_posthandling() {
 			}
 		}
 
+		/* Email */
 		if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_author_email'])) {
 				$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
@@ -100,6 +103,7 @@ function gwolle_gb_frontend_posthandling() {
 			}
 		}
 
+		/* Website / Homepage */
 		if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_author_website'])) {
 				$gwolle_gb_data['author_website'] = trim($_POST['gwolle_gb_author_website']);
@@ -121,6 +125,7 @@ function gwolle_gb_frontend_posthandling() {
 			}
 		}
 
+		/* Message */
 		if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' ) {
 			if (isset($_POST['gwolle_gb_content'])) {
 				$gwolle_gb_data['content'] = trim($_POST['gwolle_gb_content']);
@@ -140,8 +145,7 @@ function gwolle_gb_frontend_posthandling() {
 			}
 		}
 
-
-		/* Custom Security Question for Anti-Spam */
+		/* Custom Anti-Spam */
 		if ( isset($form_setting['form_antispam_enabled']) && $form_setting['form_antispam_enabled']  === 'true' ) {
 			$antispam_question = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-question') );
 			$antispam_answer   = gwolle_gb_sanitize_output( get_option('gwolle_gb-antispam-answer') );
@@ -292,7 +296,6 @@ function gwolle_gb_frontend_posthandling() {
 		 * Check for double post using email field and content.
 		 * Only if content is mandatory.
 		 */
-
 		if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
 			$entries = gwolle_gb_get_entries(array(
 					'email' => $entry->get_author_email()
@@ -313,7 +316,6 @@ function gwolle_gb_frontend_posthandling() {
 		/*
 		 * Save the Entry
 		 */
-
 		// $save = ""; // Testing mode
 		$save = $entry->save();
 		//if ( WP_DEBUG ) { echo "save: "; var_dump($save); }
@@ -337,7 +339,6 @@ function gwolle_gb_frontend_posthandling() {
 		/*
 		 * Send the Notification Mail to moderators that have subscribed (only when it is not Spam)
 		 */
-
 		if ( !$isspam ) {
 			$subscribers = Array();
 			$recipients = get_option('gwolle_gb-notifyByMail', Array() );
@@ -420,7 +421,6 @@ Entry content:
 		/*
 		 * Send Notification Mail to the author if set to true in an option
 		 */
-
 		if ( !$isspam ) {
 			if ( get_option( 'gwolle_gb-mail_author', 'false' ) == 'true' ) {
 

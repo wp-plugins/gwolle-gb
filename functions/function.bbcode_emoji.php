@@ -2,7 +2,7 @@
 
 
 /*
- * Parse the BBcode into HTML.
+ * Parse the BBcode into HTML for output.
  */
 function gwolle_gb_bbcode_parse( $str ){
 	$bb[] = "#\[b\](.*?)\[/b\]#si";
@@ -33,7 +33,7 @@ function gwolle_gb_bbcode_parse( $str ){
 
 
 /*
- * Strip the BBcode.
+ * Strip the BBcode from the output.
  */
 function gwolle_gb_bbcode_strip( $str ){
 	$bb[] = "#\[b\](.*?)\[/b\]#si";
@@ -63,7 +63,7 @@ function gwolle_gb_bbcode_strip( $str ){
 
 
 /*
- * Get the list of Emoji.
+ * Get the list of Emoji for the form.
  */
 function gwolle_gb_get_emoji() {
 	$emoji = '
@@ -95,7 +95,7 @@ function gwolle_gb_get_emoji() {
 
 
 /*
- * Convert to 3byte Emoji, if db-charset is only utf8mb3.
+ * Convert to 3byte Emoji for storing in db, if db-charset is only utf8mb3.
  *
  * $Args: - string, text string to encode
  *        - field, the database field that is used for that string, will be checked on charset.
