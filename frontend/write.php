@@ -234,30 +234,7 @@ function gwolle_gb_frontend_write() {
 			wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('markitup/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
 			// Emoji symbols
 			$output .= '<div class="gwolle_gb_emoji" style="display:none;">';
-			$output .= '
-				<a title="😄">😄</a><a title="😃">😃</a><a title="😀">😀</a>
-				<a title="😊">😊</a><a title="😉">😉</a><a title="😍">😍</a>
-				<a title="😘">😘</a><a title="😚">😚</a><a title="😗">😗</a>
-				<a title="😜">😜</a><a title="😝">😝</a><a title="😛">😛</a>
-				<a title="😳">😳</a><a title="😁">😁</a><a title="😔">😔</a>
-				<a title="😌">😌</a><a title="😒">😒</a><a title="😞">😞</a>
-				<a title="😣">😣</a><a title="😢">😢</a><a title="😂">😂</a>
-				<a title="😭">😭</a><a title="😪">😪</a><a title="😥">😥</a>
-				<a title="😰">😰</a><a title="😅">😅</a><a title="😓">😓</a>
-				<a title="😩">😩</a><a title="😫">😫</a><a title="😱">😱</a>
-				<a title="😠">😠</a><a title="😡">😡</a><a title="😤">😤</a>
-				<a title="😖">😖</a><a title="😆">😆</a><a title="😋">😋</a>
-				<a title="😷">😷</a><a title="😎">😎</a><a title="😴">😴</a>
-				<a title="😲">😲</a><a title="😧">😧</a><a title="😈">😈</a>
-				<a title="👿">👿</a><a title="😮">😮</a><a title="😬">😬</a>
-				<a title="😐">😐</a><a title="😕">😕</a><a title="😯">😯</a>
-				<a title="😶">😶</a><a title="😇">😇</a><a title="😏">😏</a>
-				<a title="😑">😑</a><a title="👲">👲</a><a title="👮">👮</a>
-				<a title="💂">💂</a><a title="👶">👶</a><a title="❤">❤</a>
-				<a title="💔">💔</a><a title="💕">💕</a><a title="💖">💖</a>
-				<a title="💞">💞</a><a title="💘">💘</a><a title="💌">💌</a>
-				<a title="💋">💋</a><a title="💍">💍</a>
-			';
+			$output .= gwolle_gb_get_emoji();
 			$output .= '</div>';
 		}
 

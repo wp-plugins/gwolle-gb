@@ -61,6 +61,39 @@ function gwolle_gb_bbcode_strip( $str ){
 	return $str;
 }
 
+
+/*
+ * Get the list of Emoji.
+ */
+function gwolle_gb_get_emoji() {
+	$emoji = '
+		<a title="😄">😄</a><a title="😃">😃</a><a title="😀">😀</a>
+		<a title="😊">😊</a><a title="😉">😉</a><a title="😍">😍</a>
+		<a title="😘">😘</a><a title="😚">😚</a><a title="😗">😗</a>
+		<a title="😜">😜</a><a title="😝">😝</a><a title="😛">😛</a>
+		<a title="😳">😳</a><a title="😁">😁</a><a title="😔">😔</a>
+		<a title="😌">😌</a><a title="😒">😒</a><a title="😞">😞</a>
+		<a title="😣">😣</a><a title="😢">😢</a><a title="😂">😂</a>
+		<a title="😭">😭</a><a title="😪">😪</a><a title="😥">😥</a>
+		<a title="😰">😰</a><a title="😅">😅</a><a title="😓">😓</a>
+		<a title="😩">😩</a><a title="😫">😫</a><a title="😱">😱</a>
+		<a title="😠">😠</a><a title="😡">😡</a><a title="😤">😤</a>
+		<a title="😖">😖</a><a title="😆">😆</a><a title="😋">😋</a>
+		<a title="😷">😷</a><a title="😎">😎</a><a title="😴">😴</a>
+		<a title="😲">😲</a><a title="😧">😧</a><a title="😈">😈</a>
+		<a title="👿">👿</a><a title="😮">😮</a><a title="😬">😬</a>
+		<a title="😐">😐</a><a title="😕">😕</a><a title="😯">😯</a>
+		<a title="😶">😶</a><a title="😇">😇</a><a title="😏">😏</a>
+		<a title="😑">😑</a><a title="👲">👲</a><a title="👮">👮</a>
+		<a title="💂">💂</a><a title="👶">👶</a><a title="❤">❤</a>
+		<a title="💔">💔</a><a title="💕">💕</a><a title="💖">💖</a>
+		<a title="💞">💞</a><a title="💘">💘</a><a title="💌">💌</a>
+		<a title="💋">💋</a><a title="💍">💍</a>
+		';
+	return $emoji;
+	}
+
+
 /*
  * Convert to 3byte Emoji, if db-charset is only utf8mb3.
  *
