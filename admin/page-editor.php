@@ -291,307 +291,16 @@ function gwolle_gb_page_editor() {
 				<input type="hidden" name="gwolle_gb_page" value="editor" />
 				<input type="hidden" name="entry_id" value="<?php echo $entry->get_id(); ?>" />
 
-				<div id="poststuff" class="metabox-holder has-right-sidebar">
-					<div id="side-info-column" class="inner-sidebar">
-						<div id='side-sortables' class='meta-box-sortables'>
+				<div id="poststuff" class="metabox-holder">
+					<div id="post-body" class="metabox-holder columns-2">
 
-							<?php
-							$class = '';
-							// Attach 'spam' to class if the entry is spam
-							if ( $entry->get_isspam() === 1 ) {
-								$class .= ' spam';
-							} else {
-								$class .= ' nospam';
-							}
-
-							// Attach 'trash' to class if the entry is in trash
-							if ( $entry->get_istrash() === 1 ) {
-								$class .= ' trash';
-							} else {
-								$class .= ' notrash';
-							}
-
-							// Attach 'checked/unchecked' to class
-							if ( $entry->get_ischecked() === 1 ) {
-								$class .= ' checked';
-							} else {
-								$class .= ' unchecked';
-							}
-
-							// Attach 'visible/invisible' to class
-							if ( $entry->get_isspam() === 1 || $entry->get_istrash() === 1 || $entry->get_ischecked() === 0 ) {
-								$class .= ' invisible';
-							} else {
-								$class .= ' visible';
-							}
-
-							// Add admin-entry class to an entry from an admin
-							$author_id = $entry->get_author_id();
-							$is_moderator = gwolle_gb_is_moderator( $author_id );
-							if ( $is_moderator ) {
-								$class .= ' admin-entry';
-							} ?>
-
-							<?php
-							$postid = gwolle_gb_get_postid();
-							if ( $postid ) {
-								$permalink = get_bloginfo('url') . '?p=' . $postid;
-								?>
-								<div id="tagsdiv-post_tag" class="postbox">
-									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('View Frontend', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
-									<div class="inside">
-										<div class="tagsdiv" id="post_tag">
-											<div id="categories-pop" class="tabs-panel gwolle_gb_frontend">
-												<a class="button rbutton button" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook',GWOLLE_GB_TEXTDOMAIN); ?></a>
-											</div>
-										</div>
-									</div>
-								</div>
-								<?php
-							} ?>
-
-							<div id="submitdiv" class="postbox">
-								<div class="handlediv"></div>
-								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Options', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
-								<div class="inside">
-									<div class="submitbox" id="submitpost">
-										<div id="minor-publishing">
-											<div id="misc-publishing-actions">
-												<div class="misc-pub-section misc-pub-section-last">
-
-													<?php
-													// Optional Icon column where CSS is being used to show them or not
-													if ( get_option('gwolle_gb-showEntryIcons', 'true') === 'true' ) { ?>
-														<span class="entry-icons <?php echo $class; ?>">
-															<span class="visible-icon"></span>
-															<span class="invisible-icon"></span>
-															<span class="spam-icon"></span>
-															<span class="trash-icon"></span>
-															<span class="gwolle_gb_ajax"></span>
-														</span>
-														<?php
-													}
-
-													if ( $entry->get_id() == 0 ) {
-														echo '<h3 class="h3_invisible">' . __('This entry is not yet visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>';
-													} else {
-														if ($entry->get_ischecked() == 1 && $entry->get_isspam() == 0 && $entry->get_istrash() == 0 ) {
-															echo '
-																<h3 class="h3_visible">' . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-																<h3 class="h3_invisible" style="display:none;">' . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-																';
-														} else {
-															echo '
-																<h3 class="h3_visible" style="display:none;">' . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-																<h3 class="h3_invisible">' . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-																';
-														}
-													} ?>
-
-													<label for="ischecked" class="selectit">
-														<input id="ischecked" name="ischecked" type="checkbox" <?php
-															if ($entry->get_ischecked() == '1' || $entry->get_id() == 0) {
-																echo 'checked="checked"';
-															}
-															?> />
-														<?php _e('Checked', GWOLLE_GB_TEXTDOMAIN); ?>
-													</label>
-
-													<br />
-													<label for="isspam" class="selectit">
-														<input id="isspam" name="isspam" type="checkbox" <?php
-															if ($entry->get_isspam() == '1') {
-																echo 'checked="checked"';
-															}
-															?> />
-														<?php _e('Spam', GWOLLE_GB_TEXTDOMAIN); ?>
-													</label>
-
-													<br />
-													<label for="istrash" class="selectit">
-														<input id="istrash" name="istrash" type="checkbox" <?php
-															if ($entry->get_istrash() == '1') {
-																echo 'checked="checked"';
-															}
-															?> />
-														<?php _e('Trash', GWOLLE_GB_TEXTDOMAIN); ?>
-													</label>
-
-													<?php
-													if ($entry->get_istrash() == '1') { ?>
-														<br />
-														<label for="remove" class="selectit">
-															<input id="remove" name="remove" type="checkbox" />
-															<?php _e('Remove this entry Permanently.', GWOLLE_GB_TEXTDOMAIN); ?>
-														</label>
-													<?php } ?>
-
-												</div>
-											</div><!-- 'misc-publishing-actions' -->
-											<div class="clear"></div>
-										</div> <!-- minor-publishing -->
-
-										<div id="major-publishing-actions">
-											<div id="publishing-action">
-												<input name="save" type="submit" class="button-primary" id="publish" tabindex="4" accesskey="p" value="<?php esc_attr_e('Save', GWOLLE_GB_TEXTDOMAIN); ?>" />
-											</div> <!-- publishing-action -->
-											<div class="clear"></div>
-										</div><!-- 'major-publishing-actions' -->
-									</div><!-- 'submitbox' -->
-								</div><!-- 'inside' -->
-							</div><!-- 'submitdiv' -->
-
-							<?php
-							if ( $entry->get_id() > 0 ) { ?>
-							<div id="submitdiv" class="postbox">
-								<div class="handlediv"></div>
-								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Actions', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
-								<div class="inside">
-									<div class="submitbox" id="submitpost">
-										<div id="minor-publishing">
-											<div id="misc-publishing-actions">
-												<div class="misc-pub-section misc-pub-section-last">
-
-													<?php echo '
-													<div class="gwolle_gb_actions ' . $class . '">
-														<span class="gwolle_gb_check">
-															<a id="check_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Check entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Check', GWOLLE_GB_TEXTDOMAIN) . '</a>
-														</span>
-														<span class="gwolle_gb_uncheck">
-															<a id="uncheck_' . $entry->get_id() . '" href="#" class="vim-u" title="' . __('Uncheck entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Uncheck', GWOLLE_GB_TEXTDOMAIN) . '</a>
-														</span>
-														<span class="gwolle_gb_spam">&nbsp;|&nbsp;
-															<a id="spam_' . $entry->get_id() . '" href="#" class="vim-s vim-destructive" title="' . __('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
-														</span>
-														<span class="gwolle_gb_unspam">&nbsp;|&nbsp;
-															<a id="unspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Not spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
-														</span>
-														<span class="gwolle_gb_trash">&nbsp;|&nbsp;
-															<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash', GWOLLE_GB_TEXTDOMAIN) . '</a>
-														</span>
-														<span class="gwolle_gb_untrash">&nbsp;|&nbsp;
-															<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash', GWOLLE_GB_TEXTDOMAIN) . '</a>
-														</span><br />
-														<span class="gwolle_gb_ajax">
-															<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...', GWOLLE_GB_TEXTDOMAIN) . '</a>
-														</span><br />
-													</div>
-													'; ?>
-
-												</div>
-											</div><!-- 'misc-publishing-actions' -->
-											<div class="clear"></div>
-										</div> <!-- minor-publishing -->
-									</div><!-- 'submitbox' -->
-								</div><!-- 'inside' -->
-							</div><!-- 'submitdiv' -->
-							<?php } ?>
-
-							<div id="gwolle_gb-entry-details" class="postbox " >
-								<div class="handlediv"></div>
-								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Details', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
-								<div class="inside">
-									<div class="tagsdiv" id="post_tag">
-										<p>
-										<?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
-											if ( $entry->get_author_name() ) {
-												echo gwolle_gb_sanitize_output( $entry->get_author_name() );
-											} else {
-												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
-											} ?>
-										</span><br />
-										<?php _e('E-Mail', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
-											if (strlen(str_replace( ' ', '', $entry->get_author_email() )) > 0) {
-												echo gwolle_gb_sanitize_output( $entry->get_author_email() );
-											} else {
-												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
-											} ?>
-										</span><br />
-										<?php _e('Written', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
-											if ( $entry->get_datetime() > 0 ) {
-												echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
-												echo date_i18n( get_option('time_format'), $entry->get_datetime() );
-											} else {
-												echo '(' . __('Not yet', GWOLLE_GB_TEXTDOMAIN) . ')';
-											} ?>
-										</span><br />
-										<?php _e("Author's IP-address", GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
-											if (strlen( $entry->get_author_ip() ) > 0) {
-												echo '<a href="http://www.db.ripe.net/whois?form_type=simple&searchtext=' . $entry->get_author_ip() . '"
-														title="' . __('Whois search for this IP', GWOLLE_GB_TEXTDOMAIN) . '" target="_blank">
-															' . $entry->get_author_ip() . '
-														</a>';
-											} else {
-												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
-											} ?>
-										</span><br />
-										<?php _e('Host', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
-											if (strlen( $entry->get_author_host() ) > 0) {
-												echo $entry->get_author_host();
-											} else {
-												echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
-											} ?>
-										</span><br />
-										<span class="gwolle_gb_edit_meta">
-											<a href="#" title="<?php _e('Edit metadata', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Edit', GWOLLE_GB_TEXTDOMAIN); ?></a>
-										</span>
-										</p>
-
-										<div class="gwolle_gb_edit_meta_inputs">
-											<label for="gwolle_gb_author_name"><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: </label><br />
-											<input type="text" name="gwolle_gb_author_name" size="24" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_name() ); ?>" id="gwolle_gb_author_name" /><br />
-
-											<span><?php _e('Date and time', GWOLLE_GB_TEXTDOMAIN); ?>: </span><br />
-											<div class="gwolle_gb_date"><?php
-												gwolle_gb_touch_time( $entry ); ?>
-											</div>
-										</div>
-
-									</div> <!-- tagsdiv -->
-								</div>
-							</div><!-- postbox -->
-
-							<div id="tagsdiv-post_tag" class="postbox">
-								<div class="handlediv"></div>
-								<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
-								<div class="inside">
-									<div class="tagsdiv" id="post_tag">
-										<div id="categories-pop" class="tabs-panel gwolle_gb_log">
-											<ul>
-											<?php
-											if ($entry->get_datetime() > 0) {
-												echo '<li>';
-												echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
-												echo date_i18n( get_option('time_format'), $entry->get_datetime() );
-												echo ': ' . __('Written', GWOLLE_GB_TEXTDOMAIN) . '</li>';
-
-												$log_entries = gwolle_gb_get_log_entries( $entry->get_id() );
-												if ( is_array($log_entries) && !empty($log_entries) ) {
-													foreach ($log_entries as $log_entry) {
-														echo '<li class="log_id_' . $log_entry['id'] . '">' . $log_entry['msg_html'] . '</li>';
-													}
-												}
-											} else {
-												echo '<li>(' . __('No log yet.', GWOLLE_GB_TEXTDOMAIN) . ')</li>';
-											}
-											?>
-											</ul>
-										</div>
-									</div>
-								</div>
-							</div><!-- postbox -->
-						</div><!-- 'side-sortables' -->
-					</div><!-- 'side-info-column' -->
-
-					<div id="post-body">
 						<div id="post-body-content">
 							<div id='normal-sortables' class='meta-box-sortables'>
 								<div id="contentdiv" class="postbox" >
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<textarea rows="10" cols="56" name="gwolle_gb_content" id="gwolle_gb_content" tabindex="1" placeholder="<?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?>"><?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?></textarea>
+										<textarea rows="10" name="gwolle_gb_content" id="gwolle_gb_content" tabindex="1" placeholder="<?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?>"><?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?></textarea>
 										<?php
 										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
 											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', GWOLLE_GB_TEXTDOMAIN), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
@@ -608,7 +317,7 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<input type="text" name="gwolle_gb_author_website" size="58" tabindex="2" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_website() ); ?>" id="author_website" placeholder="<?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?>" />
+										<input type="text" name="gwolle_gb_author_website" tabindex="2" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_website() ); ?>" id="author_website" placeholder="<?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?>" />
 										<p><?php _e("Example: <code>http://www.example.com/</code>", GWOLLE_GB_TEXTDOMAIN); ?></p>
 									</div>
 								</div>
@@ -616,14 +325,309 @@ function gwolle_gb_page_editor() {
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
 									<div class="inside">
-										<input type="text" name="gwolle_gb_author_origin" size="58" tabindex="3" placeholder="<?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_origin() ); ?>" id="author_origin" />
+										<input type="text" name="gwolle_gb_author_origin" tabindex="3" placeholder="<?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_origin() ); ?>" id="author_origin" />
 									</div>
 								</div>
-							</div><!-- 'normal-sortables' -->
-						</div><!-- 'post-body-content' -->
-					</div>
-					<br class="clear" />
-				</div><!-- /poststuff -->
+							</div><!-- .normal-sortables -->
+						</div><!-- .post-body-content -->
+
+
+						<div id="postbox-container-1" class="postbox-container">
+							<div id='side-sortables' class='meta-box-sortables'>
+
+								<?php
+								$class = '';
+								// Attach 'spam' to class if the entry is spam
+								if ( $entry->get_isspam() === 1 ) {
+									$class .= ' spam';
+								} else {
+									$class .= ' nospam';
+								}
+
+								// Attach 'trash' to class if the entry is in trash
+								if ( $entry->get_istrash() === 1 ) {
+									$class .= ' trash';
+								} else {
+									$class .= ' notrash';
+								}
+
+								// Attach 'checked/unchecked' to class
+								if ( $entry->get_ischecked() === 1 ) {
+									$class .= ' checked';
+								} else {
+									$class .= ' unchecked';
+								}
+
+								// Attach 'visible/invisible' to class
+								if ( $entry->get_isspam() === 1 || $entry->get_istrash() === 1 || $entry->get_ischecked() === 0 ) {
+									$class .= ' invisible';
+								} else {
+									$class .= ' visible';
+								}
+
+								// Add admin-entry class to an entry from an admin
+								$author_id = $entry->get_author_id();
+								$is_moderator = gwolle_gb_is_moderator( $author_id );
+								if ( $is_moderator ) {
+									$class .= ' admin-entry';
+								} ?>
+
+								<?php
+								$postid = gwolle_gb_get_postid();
+								if ( $postid ) {
+									$permalink = get_bloginfo('url') . '?p=' . $postid;
+									?>
+									<div id="tagsdiv-post_tag" class="postbox">
+										<div class="handlediv"></div>
+										<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('View Frontend', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+										<div class="inside">
+											<div class="tagsdiv" id="post_tag">
+												<div id="categories-pop" class="tabs-panel gwolle_gb_frontend">
+													<a class="button rbutton button" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook',GWOLLE_GB_TEXTDOMAIN); ?></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<?php
+								} ?>
+
+								<div id="submitdiv" class="postbox">
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Options', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<div class="inside">
+										<div class="submitbox" id="submitpost">
+											<div id="minor-publishing">
+												<div id="misc-publishing-actions">
+													<div class="misc-pub-section misc-pub-section-last">
+
+														<?php
+														// Optional Icon column where CSS is being used to show them or not
+														if ( get_option('gwolle_gb-showEntryIcons', 'true') === 'true' ) { ?>
+															<span class="entry-icons <?php echo $class; ?>">
+																<span class="visible-icon"></span>
+																<span class="invisible-icon"></span>
+																<span class="spam-icon"></span>
+																<span class="trash-icon"></span>
+																<span class="gwolle_gb_ajax"></span>
+															</span>
+															<?php
+														}
+
+														if ( $entry->get_id() == 0 ) {
+															echo '<h3 class="h3_invisible">' . __('This entry is not yet visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>';
+														} else {
+															if ($entry->get_ischecked() == 1 && $entry->get_isspam() == 0 && $entry->get_istrash() == 0 ) {
+																echo '
+																	<h3 class="h3_visible">' . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+																	<h3 class="h3_invisible" style="display:none;">' . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+																	';
+															} else {
+																echo '
+																	<h3 class="h3_visible" style="display:none;">' . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+																	<h3 class="h3_invisible">' . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+																	';
+															}
+														} ?>
+
+														<label for="ischecked" class="selectit">
+															<input id="ischecked" name="ischecked" type="checkbox" <?php
+																if ($entry->get_ischecked() == '1' || $entry->get_id() == 0) {
+																	echo 'checked="checked"';
+																}
+																?> />
+															<?php _e('Checked', GWOLLE_GB_TEXTDOMAIN); ?>
+														</label>
+
+														<br />
+														<label for="isspam" class="selectit">
+															<input id="isspam" name="isspam" type="checkbox" <?php
+																if ($entry->get_isspam() == '1') {
+																	echo 'checked="checked"';
+																}
+																?> />
+															<?php _e('Spam', GWOLLE_GB_TEXTDOMAIN); ?>
+														</label>
+
+														<br />
+														<label for="istrash" class="selectit">
+															<input id="istrash" name="istrash" type="checkbox" <?php
+																if ($entry->get_istrash() == '1') {
+																	echo 'checked="checked"';
+																}
+																?> />
+															<?php _e('Trash', GWOLLE_GB_TEXTDOMAIN); ?>
+														</label>
+
+														<?php
+														if ($entry->get_istrash() == '1') { ?>
+															<br />
+															<label for="remove" class="selectit">
+																<input id="remove" name="remove" type="checkbox" />
+																<?php _e('Remove this entry Permanently.', GWOLLE_GB_TEXTDOMAIN); ?>
+															</label>
+														<?php } ?>
+
+													</div>
+												</div><!-- .misc-publishing-actions -->
+												<div class="clear"></div>
+											</div> <!-- .minor-publishing -->
+
+											<div id="major-publishing-actions">
+												<div id="publishing-action">
+													<input name="save" type="submit" class="button-primary" id="publish" tabindex="4" accesskey="p" value="<?php esc_attr_e('Save', GWOLLE_GB_TEXTDOMAIN); ?>" />
+												</div> <!-- .publishing-action -->
+												<div class="clear"></div>
+											</div><!-- major-publishing-actions -->
+										</div><!-- .submitbox -->
+									</div><!-- .inside -->
+								</div><!-- .submitdiv -->
+
+								<?php
+								if ( $entry->get_id() > 0 ) { ?>
+								<div id="submitdiv" class="postbox">
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Actions', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<div class="inside">
+										<div class="submitbox" id="submitpost">
+											<div id="minor-publishing">
+												<div id="misc-publishing-actions">
+													<div class="misc-pub-section misc-pub-section-last">
+
+														<?php echo '
+														<div class="gwolle_gb_actions ' . $class . '">
+															<span class="gwolle_gb_check">
+																<a id="check_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Check entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Check', GWOLLE_GB_TEXTDOMAIN) . '</a>
+															</span>
+															<span class="gwolle_gb_uncheck">
+																<a id="uncheck_' . $entry->get_id() . '" href="#" class="vim-u" title="' . __('Uncheck entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Uncheck', GWOLLE_GB_TEXTDOMAIN) . '</a>
+															</span>
+															<span class="gwolle_gb_spam">&nbsp;|&nbsp;
+																<a id="spam_' . $entry->get_id() . '" href="#" class="vim-s vim-destructive" title="' . __('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
+															</span>
+															<span class="gwolle_gb_unspam">&nbsp;|&nbsp;
+																<a id="unspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Not spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
+															</span>
+															<span class="gwolle_gb_trash">&nbsp;|&nbsp;
+																<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash', GWOLLE_GB_TEXTDOMAIN) . '</a>
+															</span>
+															<span class="gwolle_gb_untrash">&nbsp;|&nbsp;
+																<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash', GWOLLE_GB_TEXTDOMAIN) . '</a>
+															</span><br />
+															<span class="gwolle_gb_ajax">
+																<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...', GWOLLE_GB_TEXTDOMAIN) . '</a>
+															</span><br />
+														</div>
+														'; ?>
+
+													</div>
+												</div><!-- .misc-publishing-actions -->
+												<div class="clear"></div>
+											</div> <!-- .minor-publishing -->
+										</div><!-- .submitbox -->
+									</div><!-- .inside -->
+								</div><!-- .submitdiv -->
+								<?php } ?>
+
+								<div id="gwolle_gb-entry-details" class="postbox " >
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Details', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<div class="inside">
+										<div class="tagsdiv" id="post_tag">
+											<p>
+											<?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+												if ( $entry->get_author_name() ) {
+													echo gwolle_gb_sanitize_output( $entry->get_author_name() );
+												} else {
+													echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+												} ?>
+											</span><br />
+											<?php _e('E-Mail', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+												if (strlen(str_replace( ' ', '', $entry->get_author_email() )) > 0) {
+													echo gwolle_gb_sanitize_output( $entry->get_author_email() );
+												} else {
+													echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+												} ?>
+											</span><br />
+											<?php _e('Written', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+												if ( $entry->get_datetime() > 0 ) {
+													echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
+													echo date_i18n( get_option('time_format'), $entry->get_datetime() );
+												} else {
+													echo '(' . __('Not yet', GWOLLE_GB_TEXTDOMAIN) . ')';
+												} ?>
+											</span><br />
+											<?php _e("Author's IP-address", GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+												if (strlen( $entry->get_author_ip() ) > 0) {
+													echo '<a href="http://www.db.ripe.net/whois?form_type=simple&searchtext=' . $entry->get_author_ip() . '"
+															title="' . __('Whois search for this IP', GWOLLE_GB_TEXTDOMAIN) . '" target="_blank">
+																' . $entry->get_author_ip() . '
+															</a>';
+												} else {
+													echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+												} ?>
+											</span><br />
+											<?php _e('Host', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+												if (strlen( $entry->get_author_host() ) > 0) {
+													echo $entry->get_author_host();
+												} else {
+													echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+												} ?>
+											</span><br />
+											<span class="gwolle_gb_edit_meta">
+												<a href="#" title="<?php _e('Edit metadata', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Edit', GWOLLE_GB_TEXTDOMAIN); ?></a>
+											</span>
+											</p>
+
+											<div class="gwolle_gb_edit_meta_inputs">
+												<label for="gwolle_gb_author_name"><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: </label><br />
+												<input type="text" name="gwolle_gb_author_name" size="24" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_name() ); ?>" id="gwolle_gb_author_name" /><br />
+
+												<span><?php _e('Date and time', GWOLLE_GB_TEXTDOMAIN); ?>: </span><br />
+												<div class="gwolle_gb_date"><?php
+													gwolle_gb_touch_time( $entry ); ?>
+												</div>
+											</div>
+
+										</div><!-- .tagsdiv -->
+									</div>
+								</div><!-- .postbox -->
+
+								<div id="tagsdiv-post_tag" class="postbox">
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<div class="inside">
+										<div class="tagsdiv" id="post_tag">
+											<div id="categories-pop" class="tabs-panel gwolle_gb_log">
+												<ul>
+												<?php
+												if ($entry->get_datetime() > 0) {
+													echo '<li>';
+													echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
+													echo date_i18n( get_option('time_format'), $entry->get_datetime() );
+													echo ': ' . __('Written', GWOLLE_GB_TEXTDOMAIN) . '</li>';
+
+													$log_entries = gwolle_gb_get_log_entries( $entry->get_id() );
+													if ( is_array($log_entries) && !empty($log_entries) ) {
+														foreach ($log_entries as $log_entry) {
+															echo '<li class="log_id_' . $log_entry['id'] . '">' . $log_entry['msg_html'] . '</li>';
+														}
+													}
+												} else {
+													echo '<li>(' . __('No log yet.', GWOLLE_GB_TEXTDOMAIN) . ')</li>';
+												}
+												?>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div><!-- .postbox -->
+							</div><!-- .side-sortables -->
+						</div><!-- #postbox-container-1 -->
+
+						<br class="clear" />
+
+					</div><!-- .post-body -->
+				</div><!-- .poststuff -->
 			</form>
 		</div>
 
