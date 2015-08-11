@@ -134,6 +134,8 @@ function gwolle_gb_frontend_write() {
 			<h3>' . $header . '</h3>
 			<input type="hidden" name="gwolle_gb_function" value="add_entry" />';
 
+
+	/* Name */
 	if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_name">
 				<div class="label"><label for="gwolle_gb_author_name">' . __('Name', GWOLLE_GB_TEXTDOMAIN) . ':';
@@ -153,6 +155,7 @@ function gwolle_gb_frontend_write() {
 			<div class="clearBoth">&nbsp;</div>';
 	}
 
+	/* City / Origin */
 	if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_origin">
 					<div class="label"><label for="gwolle_gb_author_origin">' . __('City', GWOLLE_GB_TEXTDOMAIN) . ':';
@@ -172,6 +175,7 @@ function gwolle_gb_frontend_write() {
 				<div class="clearBoth">&nbsp;</div>';
 	}
 
+	/* Email */
 	if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_email">
 				<div class="label"><label for="gwolle_gb_author_email">' . __('Email', GWOLLE_GB_TEXTDOMAIN) . ':';
@@ -191,6 +195,7 @@ function gwolle_gb_frontend_write() {
 			<div class="clearBoth">&nbsp;</div>';
 	}
 
+	/* Website / Homepage */
 	if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_website">
 				<div class="label"><label for="gwolle_gb_author_website">' . __('Website', GWOLLE_GB_TEXTDOMAIN) . ':';
