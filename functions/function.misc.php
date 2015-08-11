@@ -78,19 +78,18 @@ function gwolle_gb_get_excerpt( $content, $excerpt_length = 20 ) {
  */
 function gwolle_gb_get_author_name_html($entry) {
 
-	$author_name = trim( $entry->get_author_name() );
-	$author_name_html = $author_name;
+	$author_name = gwolle_gb_sanitize_output( trim( $entry->get_author_name() ) );
 
-	// Registered User;
+	// Registered User gets italic font-style
 	$author_id = $entry->get_author_id();
 	$is_moderator = gwolle_gb_is_moderator( $author_id );
 	if ( $is_moderator ) {
 		$author_name_html = '<i>' . $author_name . '</i>';
 	} else {
-		$author_name_html = gwolle_gb_sanitize_output( $author_name_html );
+		$author_name_html = $author_name;
 	}
 
-	// Link the author website?
+	// Link the author website if set in options
 	if ( get_option('gwolle_gb-linkAuthorWebsite', 'true') === 'true' ) {
 		$author_website = trim( $entry->get_author_website() );
 		if ($author_website) {
@@ -98,7 +97,8 @@ function gwolle_gb_get_author_name_html($entry) {
 			if ( !preg_match($pattern, $author_website, $matches) ) {
 				$author_website = "http://" . $author_website;
 			}
-			$author_name_html = '<a href="' . $author_website . '" target="_blank" title="' . $author_name . '">' . $author_name_html . '</a>';
+			$author_name_html = '<a href="' . $author_website . '" target="_blank"
+				title="' . __( 'Visit the website of', GWOLLE_GB_TEXTDOMAIN ) . ' ' . $author_name . ': ' . $author_website . '">' . $author_name_html . '</a>';
 		}
 	}
 	return $author_name_html;
