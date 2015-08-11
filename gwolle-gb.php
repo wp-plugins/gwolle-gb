@@ -90,6 +90,7 @@ include_once( GWOLLE_GB_DIR . '/admin/tabs/uninstalltab.php' );
 
 // General Functions
 include_once( GWOLLE_GB_DIR . '/functions/function.akismet.php' );
+include_once( GWOLLE_GB_DIR . '/functions/function.bbcode_emoji.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.get_entries.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.get_entry_count.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.log.php' );

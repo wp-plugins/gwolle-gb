@@ -362,6 +362,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.4.6 =
+* 2015-08-
+* Refactor BBcode and Emoji functions into own file.
+
 = 1.4.5 =
 * 2015-08-10
 * Drop reCAPTCHA completely.
