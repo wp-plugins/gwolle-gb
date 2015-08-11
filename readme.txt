@@ -236,9 +236,15 @@ The header needs to look like this:
 	)
 	?>
 
-The next lines are made up of the content. Date needs to be a UNIX timestamp. For manually creating a timestamp, look at
+The next lines are made up of the content.
+
+Date needs to be a UNIX timestamp. For manually creating a timestamp, look at
 the [timestamp generator](http://www.timestampgenerator.com/).
+
+It expects quotes around each field, so having quotes inside the content of the entry can break the import process.
+
 With version 1.4.1 and older, the field datetime was called date.
+
 You could make a test-entry, export that, and look to see what the importer expects from the CSV.
 Make sure you use UNIX line-endings. Any decent text-editor can transform a textdocument to UNIX line-endings.
 
@@ -270,7 +276,10 @@ You can also use a CAPTCHA. It might scare off some visitors, though.
 
 = I enabled the CAPTCHA, but I don't see it in the form. =
 
-It could be that the plugin has no write permission in the /tmp folder of the Really Simple Captcha plugin.
+The CAPTCHA uses the one provided by the [Really Simple Captcha plugin](https://wordpress.org/plugins/really-simple-captcha/).
+Please install and activate that plugin.
+
+If it still doesn't show, it could be that the plugin has no write permission in the /tmp folder of the Really Simple Captcha plugin.
 Please fix this in your install.
 
 = I don't see the labels in the form. =
