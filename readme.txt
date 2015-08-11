@@ -364,6 +364,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 = 1.4.6 =
 * 2015-08-
+* Improve Responsive Layout of Admin Pages.
 * Refactor BBcode and Emoji functions into own file.
 * Add function gwolle_gb_get_emoji.
 * Improve html of author_name.

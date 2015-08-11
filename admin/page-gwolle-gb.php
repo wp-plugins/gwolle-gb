@@ -367,16 +367,14 @@ function gwolle_gb_welcome() {
 
 			<div id="dashboard-widgets-wrap" class="gwolle_gb_welcome">
 				<div id="dashboard-widgets" class="metabox-holder">
-					<div class="postbox-container" style="width:49%;">
+					<div class="postbox-container">
 						<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 							<?php do_meta_boxes('gwolle_gb_welcome', 'left', null); ?>
 						</div>
 					</div>
-					<div class="postbox-container" style="width:49%;">
+					<div class="postbox-container">
 						<div id="normal-sortables" class="meta-box-sortables ui-sortable">
-							<div id="dashboard-widgets-main-content" class="has-sidebar-content">
-								<?php do_meta_boxes('gwolle_gb_welcome', 'right', ''); ?>
-							</div>
+							<?php do_meta_boxes('gwolle_gb_welcome', 'right', ''); ?>
 						</div>
 					</div>
 				</div>
