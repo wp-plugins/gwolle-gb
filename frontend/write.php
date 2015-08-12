@@ -125,7 +125,7 @@ function gwolle_gb_frontend_write() {
 
 	// Form for submitting new entries
 	$header = gwolle_gb_sanitize_output( get_option('gwolle_gb-header', false) );
-	if ( !$header ) {
+	if ( $header == false ) {
 		$header = __('Write a new entry for the Guestbook', GWOLLE_GB_TEXTDOMAIN);
 	}
 
@@ -384,7 +384,7 @@ function gwolle_gb_frontend_write() {
 				';
 
 	$notice = gwolle_gb_sanitize_output( get_option('gwolle_gb-notice', false) );
-	if (!$notice) { // No text set by the user. Use the default text.
+	if ( $notice == false ) { // No text set by the user. Use the default text.
 		$notice = __('
 Fields marked with * are obligatory.
 Your E-mail address wil not be published.

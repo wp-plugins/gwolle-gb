@@ -126,7 +126,6 @@ If you do have a feature request, please post it on the support forum.
 * Settings: Have button disabled with certain options, untill checkbox is clicked.
 * Settings: Save all tabs when saving.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
-* Posting: Trigger most cache plugins to update their cache.
 
 = API, add an entry =
 
@@ -368,6 +367,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 
 == Changelog ==
+
+= 1.4.7 =
+* 2015-08-
+* Make header and notice compatible with MultiLingual plugins.
 
 = 1.4.6 =
 * 2015-08-12
