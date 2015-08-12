@@ -375,9 +375,11 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Add option to paginate All entries.
 * Clear Cache plugins on admin changes as well.
 * Support Cachify, W3 Total Cache, WP Fastest Cache.
+* Improve support for WP Super Cache.
 * Refactor BBcode and Emoji functions into own file.
 * Add function gwolle_gb_get_emoji.
 * Improve html of author_name.
+* Update pot, nl_NL.
 
 = 1.4.5 =
 * 2015-08-10

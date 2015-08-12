@@ -238,14 +238,14 @@ function gwolle_gb_get_postid() {
 
 
 /*
- * Update Cache plugins
+ * Clear the cache of the most common Cache plugins.
  */
 function gwolle_gb_clear_cache() {
 
 	/* Cachify */
 	if ( class_exists('Cachify') ) {
 		$cachify = new Cachify();
-		if ( method_exists($cachify, 'flush_total_cache') ){
+		if ( method_exists($cachify, 'flush_total_cache') ) {
 			$cachify->flush_total_cache(true);
 		}
 	}
@@ -258,7 +258,7 @@ function gwolle_gb_clear_cache() {
 	/* WP Fastest Cache */
 	if ( class_exists('WpFastestCache') ) {
 		$WpFastestCache = new WpFastestCache();
-		if ( method_exists($WpFastestCache, 'deleteCache') ){
+		if ( method_exists($WpFastestCache, 'deleteCache') ) {
 			$WpFastestCache->deleteCache();
 		}
 	}
