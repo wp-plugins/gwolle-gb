@@ -242,10 +242,16 @@ function gwolle_gb_get_postid() {
  */
 function gwolle_gb_clear_cache() {
 
+	/* Cachify */
+	if ( class_exists('Cachify') ) {
+		$cachify = new Cachify();
+		$cachify->flush_total_cache(true);
+	}
+
 	/* WP Super Cache */
 	if ( function_exists('wp_cache_post_change') ) {
 		$GLOBALS["super_cache_enabled"] = 1;
-		wp_cache_post_change( get_the_ID() );
+		wp_cache_post_change( gwolle_gb_get_postid() );
 	}
 
 }

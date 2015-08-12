@@ -374,6 +374,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Improve Responsive Layout of Admin Pages.
 * Add option to paginate All entries.
 * Clear Cache plugins on more places.
+* Support Cachify.
 * Refactor BBcode and Emoji functions into own file.
 * Add function gwolle_gb_get_emoji.
 * Improve html of author_name.
