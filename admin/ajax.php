@@ -268,7 +268,6 @@ function gwolle_gb_ajax_javascript() {
 /*
  * Callback function for handling the Ajax requests that are generated from the JavaScript above in gwolle_gb_ajax_javascript
  */
-
 add_action( 'wp_ajax_gwolle_gb_ajax', 'gwolle_gb_ajax_callback' );
 function gwolle_gb_ajax_callback() {
 
@@ -291,7 +290,7 @@ function gwolle_gb_ajax_callback() {
 		$entry = new gwolle_gb_entry();
 		$result = $entry->load( $id );
 		if ( !$result ) {
-			echo "error";
+			echo "error, no such entry.";
 			die();
 		}
 
@@ -389,6 +388,8 @@ function gwolle_gb_ajax_callback() {
 	} else {
 		$response = "error";
 	}
+
+	gwolle_gb_clear_cache();
 
 	echo $response;
 	die(); // this is required to return a proper result

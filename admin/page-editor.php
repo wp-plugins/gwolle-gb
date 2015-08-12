@@ -61,7 +61,10 @@ function gwolle_gb_page_editor() {
 				$gwolle_gb_errors = 'error';
 			} else if ( $_POST['entry_id'] > 0 && $entry->get_id() > 0 ) {
 
-				/* Check for changes, and update accordingly. This is on an Existing Entry */
+				/*
+				 * Check for changes, and update accordingly. This is on an Existing Entry!
+				 */
+
 				$changed = false;
 
 				/* Set as checked or unchecked, and by whom */
@@ -71,6 +74,7 @@ function gwolle_gb_page_editor() {
 						$user_id = get_current_user_id(); // returns 0 if no current user
 						$entry->set_checkedby( $user_id );
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-checked' );
+						gwolle_gb_clear_cache();
 						$changed = true;
 					}
 				} else if ( $entry->get_ischecked() == 1 ) {
@@ -183,7 +187,10 @@ function gwolle_gb_page_editor() {
 
 			} else if ( $_POST['entry_id'] == 0 && $entry->get_id() == 0 ) {
 
-				/* Check for input, and save accordingly. This is on a New Entry, so no logging */
+				/*
+				 * Check for input, and save accordingly. This is on a New Entry! (So no logging)
+				 */
+
 				$saved = false;
 				$data = Array();
 
@@ -256,6 +263,7 @@ function gwolle_gb_page_editor() {
 					$result2 = $entry->save();
 					if ( $result1 && $result2 ) {
 						$gwolle_gb_messages .= '<p>' . __('Entry saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						gwolle_gb_clear_cache();
 					} else {
 						$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
 						$gwolle_gb_errors = 'error';

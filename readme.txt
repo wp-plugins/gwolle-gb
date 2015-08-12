@@ -125,7 +125,6 @@ If you do have a feature request, please post it on the support forum.
 * Widget: Add option to select number of words.
 * Settings: Have button disabled with certain options, untill checkbox is clicked.
 * Settings: Save all tabs when saving.
-* Admin pages: Make them more Responsive.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
 * Posting: Trigger most cache plugins to update their cache.
 
@@ -374,6 +373,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * 2015-08-
 * Improve Responsive Layout of Admin Pages.
 * Add option to paginate All entries.
+* Clear Cache plugins on more places.
 * Refactor BBcode and Emoji functions into own file.
 * Add function gwolle_gb_get_emoji.
 * Improve html of author_name.
