@@ -128,6 +128,20 @@ function gwolle_gb_page_settingstab_reading() {
 			</td>
 		</tr>
 
+		<tr valign="top">
+			<th scope="row"><label for="paginate_all"><?php _e('Pagination', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+			<td>
+				<input type="checkbox" id="paginate_all" name="paginate_all"<?php
+					if ( get_option( 'gwolle_gb-paginate_all', 'false' ) === 'true' ) {
+						echo ' checked="checked"';
+					}
+					?> />
+				<label for="paginate_all"><?php _e("Show a link to paginate All entries.", GWOLLE_GB_TEXTDOMAIN); ?></label>
+				<br />
+				<span class="setting-description"><?php _e("Clicking this link will list all the published entries in the guestbook.", GWOLLE_GB_TEXTDOMAIN); ?></span>
+			</td>
+		</tr>
+
 
 		<?php $read_setting = gwolle_gb_get_setting( 'read' ); ?>
 

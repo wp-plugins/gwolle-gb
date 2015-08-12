@@ -220,7 +220,7 @@ function gwolle_gb_overview_thanks() {
 	<ul class="settings">
 		<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>
 		<li><a href="http://markitup.jaysalvat.com/" target="_blank">MarkItUp</a></li>
-		<li><a href="http://www.google.com/recaptcha/intro/index.html" target="_blank">reCAPTCHA</a></li>
+		<li><a href="https://wordpress.org/plugins/really-simple-captcha/" target="_blank">Really Simple CAPTCHA plugin</a></li>
 	</ul>';
 }
 
@@ -367,16 +367,14 @@ function gwolle_gb_welcome() {
 
 			<div id="dashboard-widgets-wrap" class="gwolle_gb_welcome">
 				<div id="dashboard-widgets" class="metabox-holder">
-					<div class="postbox-container" style="width:49%;">
+					<div class="postbox-container">
 						<div id="normal-sortables" class="meta-box-sortables ui-sortable">
 							<?php do_meta_boxes('gwolle_gb_welcome', 'left', null); ?>
 						</div>
 					</div>
-					<div class="postbox-container" style="width:49%;">
+					<div class="postbox-container">
 						<div id="normal-sortables" class="meta-box-sortables ui-sortable">
-							<div id="dashboard-widgets-main-content" class="has-sidebar-content">
-								<?php do_meta_boxes('gwolle_gb_welcome', 'right', ''); ?>
-							</div>
+							<?php do_meta_boxes('gwolle_gb_welcome', 'right', ''); ?>
 						</div>
 					</div>
 				</div>

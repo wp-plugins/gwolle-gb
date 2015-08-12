@@ -135,6 +135,14 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
+						if (isset($_POST['paginate_all']) && $_POST['paginate_all'] == 'on') {
+							update_option('gwolle_gb-paginate_all', 'true');
+							$saved = true;
+						} else {
+							update_option('gwolle_gb-paginate_all', 'false');
+							$saved = true;
+						}
+
 						$list = Array(
 							'read_avatar',
 							'read_name',
