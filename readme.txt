@@ -373,8 +373,8 @@ and also the WordPress documentation. When you made a translation, you can send 
 * 2015-08-
 * Improve Responsive Layout of Admin Pages.
 * Add option to paginate All entries.
-* Clear Cache plugins on more places.
-* Support Cachify, W3 Total Cache.
+* Clear Cache plugins on admin changes as well.
+* Support Cachify, W3 Total Cache, WP Fastest Cache.
 * Refactor BBcode and Emoji functions into own file.
 * Add function gwolle_gb_get_emoji.
 * Improve html of author_name.

@@ -245,12 +245,22 @@ function gwolle_gb_clear_cache() {
 	/* Cachify */
 	if ( class_exists('Cachify') ) {
 		$cachify = new Cachify();
-		$cachify->flush_total_cache(true);
+		if ( method_exists($cachify, 'flush_total_cache') ){
+			$cachify->flush_total_cache(true);
+		}
 	}
 
 	/* W3 Total Cache */
 	if ( function_exists('w3tc_pgcache_flush') ) {
 		w3tc_pgcache_flush();
+	}
+
+	/* WP Fastest Cache */
+	if ( class_exists('WpFastestCache') ) {
+		$WpFastestCache = new WpFastestCache();
+		if ( method_exists($WpFastestCache, 'deleteCache') ){
+			$WpFastestCache->deleteCache();
+		}
 	}
 
 	/* WP Super Cache */
