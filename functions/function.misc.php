@@ -249,9 +249,9 @@ function gwolle_gb_clear_cache() {
 	}
 
 	/* WP Super Cache */
-	if ( function_exists('wp_cache_post_change') ) {
+	if ( function_exists('wp_cache_clear_cache') ) {
 		$GLOBALS["super_cache_enabled"] = 1;
-		wp_cache_post_change( gwolle_gb_get_postid() );
+		wp_cache_clear_cache();
 	}
 
 }
