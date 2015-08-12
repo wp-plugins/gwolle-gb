@@ -248,6 +248,11 @@ function gwolle_gb_clear_cache() {
 		$cachify->flush_total_cache(true);
 	}
 
+	/* W3 Total Cache */
+	if ( function_exists('w3tc_pgcache_flush') ) {
+		w3tc_pgcache_flush();
+	}
+
 	/* WP Super Cache */
 	if ( function_exists('wp_cache_clear_cache') ) {
 		$GLOBALS["super_cache_enabled"] = 1;

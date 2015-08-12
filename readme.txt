@@ -331,8 +331,8 @@ This will most likely add the rewrite rule for the RSS Feed.
 
 When you have moderation disabled, Gwolle Guestbook will try to refresh the cache. If it doesn't on your setup,
 please let me know which caching plugin you use, and support for it might be added.
-If you use moderation, and check your entries manually, then you should also refresh or delete your cache manually.
-Most caching plugins offer support for that.
+
+You can also refresh or delete your cache manually. Most caching plugins offer support for that.
 
 = What capabilities are needed? =
 
@@ -374,7 +374,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Improve Responsive Layout of Admin Pages.
 * Add option to paginate All entries.
 * Clear Cache plugins on more places.
-* Support Cachify.
+* Support Cachify, W3 Total Cache.
 * Refactor BBcode and Emoji functions into own file.
 * Add function gwolle_gb_get_emoji.
 * Improve html of author_name.
