@@ -57,21 +57,31 @@ function gwolle_gb_frontend_read() {
 		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
 	}
 
-	/* Make an optional extra page, with a Get-parameter like show_all=true, which shows all the entries.
-	 * This would need a settings option, which is off by default.
-	 * https://wordpress.org/support/topic/show-all-posts-6?replies=1
-	 */
 
 	/* Get the entries for the frontend */
-	$entries = gwolle_gb_get_entries(
-		array(
-			'offset'      => $mysqlFirstRow,
-			'num_entries' => $entriesPerPage,
-			'checked'     => 'checked',
-			'trash'       => 'notrash',
-			'spam'        => 'nospam'
-		)
-	);
+	if ( isset($_GET['show_all']) && $_GET['show_all'] == 'true' ) {
+		$entries = gwolle_gb_get_entries(
+			array(
+				'offset'      => 0,
+				'num_entries' => -1,
+				'checked'     => 'checked',
+				'trash'       => 'notrash',
+				'spam'        => 'nospam'
+			)
+		);
+		$pageNum = 0; // do not have it set to 1, this way the '1' will be clickable too.
+	} else {
+		$entries = gwolle_gb_get_entries(
+			array(
+				'offset'      => $mysqlFirstRow,
+				'num_entries' => $entriesPerPage,
+				'checked'     => 'checked',
+				'trash'       => 'notrash',
+				'spam'        => 'nospam'
+			)
+		);
+	}
+
 
 	/* Page navigation */
 	$pagination = '<div class="page-navigation">';
@@ -133,6 +143,15 @@ function gwolle_gb_frontend_read() {
 			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
 		}
 	}
+	// 'All' link
+	if ( $countPages >= 2 && get_option( 'gwolle_gb-paginate_all', 'false' ) === 'true' ) {
+		if ( isset($_GET['show_all']) && $_GET['show_all'] == 'true' ) {
+			$pagination .= '<span>' . __('All', GWOLLE_GB_TEXTDOMAIN) . '</span>';
+		} else {
+			$pagination .= '<a href="' . add_query_arg( 'show_all', 'true', $permalink ) . '" title="' . __('All entries', GWOLLE_GB_TEXTDOMAIN) . '">' . __('All', GWOLLE_GB_TEXTDOMAIN) . '</a>';
+		}
+	}
+
 	$pagination .= '</div>
 		';
 	if ($countPages > 1) {

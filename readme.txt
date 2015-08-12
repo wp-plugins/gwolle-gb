@@ -120,7 +120,6 @@ If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
 * Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
-* Frontend: Add pagination link for all entries (optional).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
 * Widget: Add option to not show admin entries.
 * Widget: Add option to select number of words.
@@ -374,6 +373,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.4.6 =
 * 2015-08-
 * Improve Responsive Layout of Admin Pages.
+* Add option to paginate All entries.
 * Refactor BBcode and Emoji functions into own file.
 * Add function gwolle_gb_get_emoji.
 * Improve html of author_name.
