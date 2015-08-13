@@ -10,13 +10,14 @@
  *
  * $args: $entry, instance of gwolle_gb_entry.
  *        $first, boolean with true if it is the first entry.
+ *        $counter,int with the number of the entry.
  *
  * return: string, html with a single guestbook entry.
  */
 
 
 if ( !function_exists('gwolle_gb_entry_template') ) {
-	function gwolle_gb_entry_template( $entry, $first ) {
+	function gwolle_gb_entry_template( $entry, $first, $counter ) {
 
 		// Get the needed settings.
 		$form_setting = gwolle_gb_get_setting( 'form' );
@@ -24,17 +25,22 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 
 		// Main Author div
 		$entry_output = '<div class="';
-		if ($first == true) {
-			$entry_output .= ' gwolle_gb_first ';
+		$entry_output .= ' gb-entry';
+		$entry_output .= ' gb-entry_' . $entry->get_id();
+		if ( is_int( $counter / 2 ) ) {
+			$entry_output .= ' gwolle_gb_even';
+		} else {
+			$entry_output .= ' gwolle_gb_uneven';
 		}
-		$entry_output .= ' gb-entry ';
-		$entry_output .= ' gb-entry_' . $entry->get_id() . ' ';
+		if ( $first == true ) {
+			$entry_output .= ' gwolle_gb_first';
+		}
 
 		if ( get_option( 'gwolle_gb-admin_style', 'true' ) === 'true' ) {
 			$author_id = $entry->get_author_id();
 			$is_moderator = gwolle_gb_is_moderator( $author_id );
 			if ( $is_moderator ) {
-				$entry_output .= ' admin-entry ';
+				$entry_output .= ' admin-entry';
 			}
 		}
 		$entry_output .= '">';

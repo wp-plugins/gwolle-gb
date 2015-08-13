@@ -375,6 +375,8 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.4.7 =
 * 2015-08-
 * Make header and notice compatible with Multi-Lingual plugins.
+* Add parameter to template function gwolle_gb_entry_template.
+* Add CSS class for even/uneven entry.
 * Have better usability in handling disabled submit buttons on admin pages.
 * Have sensible attributes for submit-button on settings page.
 * Move pagination to own files and functions.

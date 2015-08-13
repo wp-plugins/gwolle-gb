@@ -104,10 +104,12 @@ function gwolle_gb_frontend_read() {
 
 		}
 
+		$counter = 0;
 		foreach ($entries as $entry) {
+			$counter++;
 
 			// Run the function from the template to get the entry.
-			$entry_output = gwolle_gb_entry_template( $entry, $first );
+			$entry_output = gwolle_gb_entry_template( $entry, $first, $counter );
 
 			$first = false;
 
