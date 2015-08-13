@@ -10,7 +10,6 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
  * gwolle_gb_pagination_frontend
  * Pagination of the entries for the guestbook frontend
  */
-
 function gwolle_gb_pagination_frontend( $pageNum, $countPages ) {
 
 	$permalink = get_permalink(get_the_ID());

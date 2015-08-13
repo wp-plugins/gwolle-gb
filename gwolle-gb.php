@@ -79,6 +79,7 @@ include_once( GWOLLE_GB_DIR . '/admin/page-export.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-gwolle-gb.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-import.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-settings.php' );
+include_once( GWOLLE_GB_DIR . '/admin/pagination.php' );
 include_once( GWOLLE_GB_DIR . '/admin/upgrade.php' );
 
 // Tabs for page-settings.php
