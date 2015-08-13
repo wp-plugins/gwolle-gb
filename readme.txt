@@ -333,6 +333,12 @@ please let me know which caching plugin you use, and support for it might be add
 
 You can also refresh or delete your cache manually. Most caching plugins offer support for that.
 
+= I use a Multi-Lingual plugin =
+
+There are 2 settings that you need to pay attention to. If you saved the settings for the form tab, you should save an
+empty header and notice text. It will fill in the default there after saving, but that is okay.
+As long as you saved an empty option, or it is still not-saved, then it will show the translated text from your MO file.
+
 = What capabilities are needed? =
 
 For moderating comments you need the capability 'moderate_comments'.
