@@ -9,6 +9,10 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 /*
  * gwolle_gb_pagination_frontend
  * Pagination of the entries for the guestbook frontend
+ *
+ * @args: $pageNum, int with the number of the requested page.
+ *        $countPages, int with the total number of pages.
+ *  @return: $pagination, string with the html of the pagination.
  */
 function gwolle_gb_pagination_frontend( $pageNum, $countPages ) {
 

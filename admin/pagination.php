@@ -9,6 +9,12 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 /*
  * gwolle_gb_pagination_admin
  * Pagination of the entries for the page-entries.php
+ *
+ * @args: $pageNum, int with the number of the requested page.
+ *        $countPages, int with the total number of pages.
+ *        $count, int with total number of entries. Relative to the $show variable.
+ *        $show, string with the tab of the page that is shown.
+ *  @return: $pagination, string with the html of the pagination.
  */
 function gwolle_gb_pagination_admin( $pageNum, $countPages, $count, $show ) {
 
