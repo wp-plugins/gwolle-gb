@@ -15,8 +15,6 @@ function gwolle_gb_frontend_read() {
 
 	$output = '';
 
-	$permalink = get_permalink(get_the_ID());
-
 	$entriesPerPage = (int) get_option('gwolle_gb-entriesPerPage', 20);
 
 	$entriesCount = gwolle_gb_get_entry_count(
@@ -50,13 +48,6 @@ function gwolle_gb_frontend_read() {
 		$mysqlFirstRow = $firstEntryNum - 1;
 	}
 
-	$lastEntryNum = $pageNum * $entriesPerPage;
-	if ($entriesCount == 0) {
-		$lastEntryNum = 0;
-	} elseif ($lastEntryNum > $entriesCount) {
-		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
-	}
-
 
 	/* Get the entries for the frontend */
 	if ( isset($_GET['show_all']) && $_GET['show_all'] == 'true' ) {
@@ -83,82 +74,12 @@ function gwolle_gb_frontend_read() {
 	}
 
 
-	/* Page navigation */
-	$pagination = '<div class="page-navigation">';
-	if ($pageNum > 1) {
-		$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum - 1), $permalink ) . '" title="' . __('Previous page', GWOLLE_GB_TEXTDOMAIN) . '">&laquo;</a>';
-	}
-	if ($pageNum < 5) {
-		if ($countPages < 5) {
-			$showRange = $countPages;
-		} else {
-			$showRange = 5;
-		}
+	/* Page navigation on top */
+	$pagination = gwolle_gb_pagination_frontend( $pageNum, $countPages );
+	$output .= $pagination;
 
-		for ($i = 1; $i < ($showRange + 1); $i++) {
-			if ($i == $pageNum) {
-				$pagination .= '<span>' . $i . '</span>';
-			} else {
-				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
-			}
-		}
 
-		if ( $countPages > 6 ) {
-			if ( $countPages > 7 && ($pageNum + 3) < $countPages ) {
-				$pagination .= '<span class="page-numbers dots">...</span>';
-			}
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
-		}
-		if ($pageNum < $countPages) {
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
-		}
-	} elseif ($pageNum >= 5) {
-		$pagination .= '<a href="' . add_query_arg( 'pageNum', 1, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . ' 1">1</a>';
-		if ( ($pageNum - 4) > 1) {
-			$pagination .= '<span class="page-numbers dots">...</span>';
-		}
-		if ( ($pageNum + 2) < $countPages) {
-			$minRange = $pageNum - 2;
-			$showRange = $pageNum + 2;
-		} else {
-			$minRange = $pageNum - 3;
-			$showRange = $countPages - 1;
-		}
-		for ($i = $minRange; $i <= $showRange; $i++) {
-			if ($i == $pageNum) {
-				$pagination .= '<span>' . $i . '</span>';
-			} else {
-				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
-			}
-		}
-		if ($pageNum == $countPages) {
-			$pagination .= '<span class="page-numbers current">' . $pageNum . '</span>';
-		}
-
-		if ($pageNum < $countPages) {
-			if ( ($pageNum + 3) < $countPages ) {
-				$pagination .= '<span class="page-numbers dots">...</span>';
-			}
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
-		}
-	}
-	// 'All' link
-	if ( $countPages >= 2 && get_option( 'gwolle_gb-paginate_all', 'false' ) === 'true' ) {
-		if ( isset($_GET['show_all']) && $_GET['show_all'] == 'true' ) {
-			$pagination .= '<span>' . __('All', GWOLLE_GB_TEXTDOMAIN) . '</span>';
-		} else {
-			$pagination .= '<a href="' . add_query_arg( 'show_all', 'true', $permalink ) . '" title="' . __('All entries', GWOLLE_GB_TEXTDOMAIN) . '">' . __('All', GWOLLE_GB_TEXTDOMAIN) . '</a>';
-		}
-	}
-
-	$pagination .= '</div>
-		';
-	if ($countPages > 1) {
-		$output .= $pagination;
-	}
-
-	/* Entries */
+	/* Entries from the template */
 	if ( !is_array($entries) || empty($entries) ) {
 		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
 	} else {
@@ -199,9 +120,10 @@ function gwolle_gb_frontend_read() {
 
 	}
 
-	if ($countPages > 1) {
-		$output .= $pagination;
-	}
+
+	/* Page navigation on bottom */
+	$output .= $pagination;
+
 
 	// Add filter for the complete output.
 	$output = apply_filters( 'gwolle_gb_entries_read', $output);

@@ -64,6 +64,7 @@ include_once( GWOLLE_GB_DIR . '/functions/class.entry.php' );
 
 // Functions for the frontend
 include_once( GWOLLE_GB_DIR . '/frontend/index.php' );
+include_once( GWOLLE_GB_DIR . '/frontend/pagination.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/posthandling.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/read.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/rss.php' );
