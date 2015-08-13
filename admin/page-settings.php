@@ -314,7 +314,7 @@ function gwolle_gb_page_settings() {
 		<div class="wrap gwolle_gb">
 
 			<div id="icon-gwolle-gb"><br /></div>
-			<h2><?php _e('Settings', GWOLLE_GB_TEXTDOMAIN); ?></h2>
+			<h1><?php _e('Settings', GWOLLE_GB_TEXTDOMAIN); ?></h1>
 
 			<?php
 			if ( $saved ) {

@@ -11,6 +11,8 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 	die('No direct calls allowed!');
 }
 
+
+/* Metaboxes on the left */
 function gwolle_gb_overview(){
 
 	// Calculate the number of entries
@@ -215,16 +217,32 @@ function gwolle_gb_notification() {
 }
 
 
-function gwolle_gb_overview_thanks() {
-	echo '
-	<ul class="settings">
-		<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>
-		<li><a href="http://markitup.jaysalvat.com/" target="_blank">MarkItUp</a></li>
-		<li><a href="https://wordpress.org/plugins/really-simple-captcha/" target="_blank">Really Simple CAPTCHA plugin</a></li>
-	</ul>';
+function gwolle_gb_donate() {
+	?>
+	<p><?php _e('This plugin is being maintained by Marcel Pol from', GWOLLE_GB_TEXTDOMAIN); ?>
+		<a href="http://zenoweb.nl" target="_blank" title="ZenoWeb">ZenoWeb</a>.
+	</p>
+
+	<h3><?php _e('Review this plugin.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+	<p><?php _e('If this plugin has any value to you, then please leave a review at', GWOLLE_GB_TEXTDOMAIN); ?>
+		<a href="https://wordpress.org/support/view/plugin-reviews/gwolle-gb" target="_blank" title="<?php esc_attr_e('The plugin page at wordpress.org.', GWOLLE_GB_TEXTDOMAIN); ?>">
+			<?php _e('the plugin page at wordpress.org', GWOLLE_GB_TEXTDOMAIN); ?></a>.
+	</p>
+
+	<h3><?php _e('Donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+	<p><?php _e('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN); ?></p>
+	<p><a href="https://supporters.eff.org/donate" target="_blank" title="<?php esc_attr_e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></a></p>
+
+	<h3><?php _e('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+	<p><?php _e('If you rather want to donate to the maintainer of the plugin, you can donate through PayPal.', GWOLLE_GB_TEXTDOMAIN); ?></p>
+	<p><?php _e('Donate through', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.paypal.com" target="_blank" title="<?php esc_attr_e('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('PayPal', GWOLLE_GB_TEXTDOMAIN); ?></a>
+		<?php _e('to', GWOLLE_GB_TEXTDOMAIN); ?> marcel@timelord.nl.
+	</p>
+	<?php
 }
 
 
+/* Metaboxes on the right */
 function gwolle_gb_overview_help() {
 	echo '<h3>
 	'.__('This is how you can get your guestbook displayed on your website:', GWOLLE_GB_TEXTDOMAIN).'</h3>
@@ -255,28 +273,13 @@ function gwolle_gb_overview_help_more() {
 }
 
 
-function gwolle_gb_donate() {
-	?>
-	<p><?php _e('This plugin is being maintained by Marcel Pol from', GWOLLE_GB_TEXTDOMAIN); ?>
-		<a href="http://zenoweb.nl" target="_blank" title="ZenoWeb">ZenoWeb</a>.
-	</p>
-
-	<h3><?php _e('Review this plugin.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-	<p><?php _e('If this plugin has any value to you, then please leave a review at', GWOLLE_GB_TEXTDOMAIN); ?>
-		<a href="https://wordpress.org/support/view/plugin-reviews/gwolle-gb" target="_blank" title="<?php esc_attr_e('The plugin page at wordpress.org.', GWOLLE_GB_TEXTDOMAIN); ?>">
-			<?php _e('the plugin page at wordpress.org', GWOLLE_GB_TEXTDOMAIN); ?></a>.
-	</p>
-
-	<h3><?php _e('Donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-	<p><?php _e('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN); ?></p>
-	<p><a href="https://supporters.eff.org/donate" target="_blank" title="<?php esc_attr_e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></a></p>
-
-	<h3><?php _e('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-	<p><?php _e('If you rather want to donate to the maintainer of the plugin, you can donate through PayPal.', GWOLLE_GB_TEXTDOMAIN); ?></p>
-	<p><?php _e('Donate through', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.paypal.com" target="_blank" title="<?php esc_attr_e('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('PayPal', GWOLLE_GB_TEXTDOMAIN); ?></a>
-		<?php _e('to', GWOLLE_GB_TEXTDOMAIN); ?> marcel@timelord.nl.
-	</p>
-	<?php
+function gwolle_gb_overview_thanks() {
+	echo '
+	<ul class="settings">
+		<li><a href="http://akismet.com/tos/" target="_blank">Akismet</a></li>
+		<li><a href="http://markitup.jaysalvat.com/" target="_blank">MarkItUp</a></li>
+		<li><a href="https://wordpress.org/plugins/really-simple-captcha/" target="_blank">Really Simple CAPTCHA plugin</a></li>
+	</ul>';
 }
 
 
@@ -355,7 +358,7 @@ function gwolle_gb_welcome() {
 		?>
 		<div class="wrap gwolle_gb-wrap">
 			<div id="icon-gwolle-gb"><br /></div>
-			<h2><?php _e('Gwolle Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></h2>
+			<h1><?php _e('Gwolle Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></h1>
 
 			<?php
 			if ( $saved ) {

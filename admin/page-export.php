@@ -24,7 +24,7 @@ function gwolle_gb_page_export() {
 	?>
 	<div class="wrap gwolle_gb">
 		<div id="icon-gwolle-gb"><br /></div>
-		<h2><?php _e('Export guestbook entries.', GWOLLE_GB_TEXTDOMAIN); ?></h2>
+		<h1><?php _e('Export guestbook entries.', GWOLLE_GB_TEXTDOMAIN); ?></h1>
 
 		<form name="gwolle_gb_export" id="gwolle_gb_export" method="POST" action="#" accept-charset="UTF-8">
 			<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_export" />

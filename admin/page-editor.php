@@ -284,7 +284,7 @@ function gwolle_gb_page_editor() {
 		?>
 		<div class="wrap gwolle_gb">
 			<div id="icon-gwolle-gb"><br /></div>
-			<h2><?php echo $sectionHeading; ?></h2>
+			<h1><?php echo $sectionHeading; ?></h1>
 
 			<?php
 			if ( $gwolle_gb_messages ) {
