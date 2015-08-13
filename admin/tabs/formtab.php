@@ -249,7 +249,7 @@ We reserve our right to edit, delete, or not publish entries.
 		<tr>
 			<td colspan="3">
 				<p class="submit">
-					<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
+					<input type="submit" name="gwolle_gb_settings_form" id="gwolle_gb_settings_form" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
 				</p>
 			</td>
 		</tr>

@@ -123,8 +123,6 @@ If you do have a feature request, please post it on the support forum.
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
 * Widget: Add option to not show admin entries.
 * Widget: Add option to select number of words.
-* Settings: Have button disabled with certain options, untill checkbox is clicked.
-* Settings: Save all tabs when saving.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
 
 = API, add an entry =
@@ -378,6 +376,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * 2015-08-
 * Make header and notice compatible with Multi-Lingual plugins.
 * Have better usability in handling disabled submit buttons on admin pages.
+* Have sensible attributes for submit-button on settings page.
 * Move pagination to own files and functions.
 * Use h1 headings on admin pages.
 
