@@ -295,7 +295,7 @@ function gwolle_gb_page_settings() {
 					case 'gwolle_gb_uninstall':
 						/* Uninstall */
 
-						if (isset($_POST['uninstall_confirmed']) && $_POST['uninstall_confirmed'] == 'on') {
+						if (isset($_POST['gwolle_gb_uninstall_confirmed']) && $_POST['gwolle_gb_uninstall_confirmed'] == 'on') {
 							// uninstall the plugin -> delete all tables and preferences of the plugin
 							uninstall_gwolle_gb();
 							$uninstalled = true;
@@ -362,7 +362,6 @@ function gwolle_gb_page_settings() {
 
 			<form name="gwolle_gb_options" class="gwolle_gb_options gwolle_gb_uninstall <?php if ($active_tab == 'gwolle_gb_uninstall') { echo "active";} ?>" method="post" action="">
 				<?php gwolle_gb_page_settingstab_uninstall( $uninstalled ); ?>
-				<?php // FIXME: inactive button, after checkbox, set to active. ?>
 			</form>
 
 		<?php // FIXME: Integrate into 1 form, have 1 submit button on all tabs. ?>

@@ -377,6 +377,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.4.7 =
 * 2015-08-
 * Make header and notice compatible with Multi-Lingual plugins.
+* Have better usability in handling disabled submit buttons on admin pages.
 * Move pagination to own files and functions.
 * Use h1 headings on admin pages.
 

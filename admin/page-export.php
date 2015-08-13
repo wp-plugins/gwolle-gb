@@ -70,13 +70,13 @@ function gwolle_gb_page_export() {
 												<?php _e('The exporter does not delete any data, so your data will still be here.', GWOLLE_GB_TEXTDOMAIN); ?>
 
 												<p>
-													<label for="gwolle_gb" class="selectit">
-														<input id="gwolle_gb" name="gwolle_gb" type="checkbox" />
+													<label for="start_export_enable" class="selectit">
+														<input id="start_export_enable" name="start_export_enable" type="checkbox" />
 														<?php _e('Export all entries from this website.', GWOLLE_GB_TEXTDOMAIN); ?>
 													</label>
 												</p>
 												<p>
-													<input name="start_export" id="gwolle_gb_start_export" type="submit" class="button button-primary" value="<?php esc_attr_e('Start export', GWOLLE_GB_TEXTDOMAIN); ?>">
+													<input name="gwolle_gb_start_export" id="gwolle_gb_start_export" type="submit" class="button" disabled value="<?php esc_attr_e('Start export', GWOLLE_GB_TEXTDOMAIN); ?>">
 												</p>
 												<?php
 											} ?>
@@ -114,7 +114,7 @@ function gwolle_gb_export_action() {
 function gwolle_gb_export_callback() {
 
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
-		echo "error";
+		echo "error, no permission.";
 		die();
 	}
 

@@ -31,100 +31,93 @@ function gwolle_gb_page_import() {
 
 		if (isset($_POST['start_import_dms'])) {
 
-			if ( isset($_POST['dmsguestbook']) && $_POST['dmsguestbook'] == 'on' ) {
-				// Import all entries from DMSGuestbook
-				// Does the table of DMSGuestbook exist?
-				$sql = "
-					SHOW
-					TABLES
-					LIKE '" . $wpdb->prefix . "dmsguestbook'";
-				$foundTables = $wpdb->get_results( $sql, ARRAY_A );
+			// Import all entries from DMSGuestbook
+			// Does the table of DMSGuestbook exist?
+			$sql = "
+				SHOW
+				TABLES
+				LIKE '" . $wpdb->prefix . "dmsguestbook'";
+			$foundTables = $wpdb->get_results( $sql, ARRAY_A );
 
-				if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) {
-					$result = $wpdb->get_results("
-						SELECT
-							`name`,
-							`email`,
-							`url`,
-							`date`,
-							`ip`,
-							`message`,
-							`spam`,
-							`additional`,
-							`flag`
-						FROM
-							" . $wpdb->prefix . "dmsguestbook
-						ORDER BY
-							date ASC
-						", ARRAY_A);
+			if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) {
+				$result = $wpdb->get_results("
+					SELECT
+						`name`,
+						`email`,
+						`url`,
+						`date`,
+						`ip`,
+						`message`,
+						`spam`,
+						`additional`,
+						`flag`
+					FROM
+						" . $wpdb->prefix . "dmsguestbook
+					ORDER BY
+						date ASC
+					", ARRAY_A);
 
-					if ( is_array($result) && !empty($result) ) {
+				if ( is_array($result) && !empty($result) ) {
 
-						$saved = 0;
-						foreach ($result as $entry_data) {
+					$saved = 0;
+					foreach ($result as $entry_data) {
 
-							/* New Instance of gwolle_gb_entry. */
-							$entry = new gwolle_gb_entry();
+						/* New Instance of gwolle_gb_entry. */
+						$entry = new gwolle_gb_entry();
 
-							/* Set the data in the instance */
-							$entry->set_isspam( $entry_data["spam"] );
-							$entry->set_ischecked( true );
-							$entry->set_istrash( $entry_data["flag"] );
-							$entry->set_content( $entry_data["message"] );
-							$entry->set_datetime( $entry_data["date"] );
-							$entry->set_author_name( $entry_data["name"] );
-							$entry->set_author_email( $entry_data["email"] );
-							$entry->set_author_ip( $entry_data["ip"] );
-							$entry->set_author_website( $entry_data["url"] );
+						/* Set the data in the instance */
+						$entry->set_isspam( $entry_data["spam"] );
+						$entry->set_ischecked( true );
+						$entry->set_istrash( $entry_data["flag"] );
+						$entry->set_content( $entry_data["message"] );
+						$entry->set_datetime( $entry_data["date"] );
+						$entry->set_author_name( $entry_data["name"] );
+						$entry->set_author_email( $entry_data["email"] );
+						$entry->set_author_ip( $entry_data["ip"] );
+						$entry->set_author_website( $entry_data["url"] );
 
-							/* Save the instance */
-							$save = $entry->save();
-							if ( $save ) {
-								// We have been saved to the Database
-								gwolle_gb_add_log_entry( $entry->get_id(), 'imported-from-dmsguestbook' );
-								$saved++;
-							}
+						/* Save the instance */
+						$save = $entry->save();
+						if ( $save ) {
+							// We have been saved to the Database
+							gwolle_gb_add_log_entry( $entry->get_id(), 'imported-from-dmsguestbook' );
+							$saved++;
 						}
-						if ( $saved == 0 ) {
-							$gwolle_gb_errors = 'error';
-							$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import entries from DMSGuestbook successfully.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
-						} else if ( $saved == 1 ) {
-							$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from DMSGuestbook.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
-						} else if ( $saved > 1 ) {
-							$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN), $saved ) . '</p>';
-						}
-					} else {
+					}
+					if ( $saved == 0 ) {
 						$gwolle_gb_errors = 'error';
-						$gwolle_gb_messages .= '<p>' . __("<strong>Nothing to import.</strong> The guestbook you've chosen does not contain any entries.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
-
+						$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import entries from DMSGuestbook successfully.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else if ( $saved == 1 ) {
+						$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from DMSGuestbook.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					} else if ( $saved > 1 ) {
+						$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN), $saved ) . '</p>';
 					}
 				} else {
 					$gwolle_gb_errors = 'error';
-					$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_messages .= '<p>' . __("<strong>Nothing to import.</strong> The guestbook you've chosen does not contain any entries.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 				}
 			} else {
-				// The requested plugin is not supported
 				$gwolle_gb_errors = 'error';
-				$gwolle_gb_messages .= '<p>' . __("You haven't chosen a guestbook. Please select one and try again.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+				$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 			}
 
 		} else if (isset($_POST['start_import_wp'])) {
 
 			$args = array();
 
-			if ( isset($_POST['importfrom']) && $_POST['importfrom'] == 'page' && isset($_POST['gwolle_gb_pageid']) && intval($_POST['gwolle_gb_pageid']) > 0 ) {
+			if ( isset($_POST['gwolle_gb_importfrom']) && $_POST['gwolle_gb_importfrom'] == 'page' && isset($_POST['gwolle_gb_pageid']) && intval($_POST['gwolle_gb_pageid']) > 0 ) {
 				$page_id = intval($_POST['gwolle_gb_pageid']);
 				$args = array(
 					'status' => 'all',
 					'post_id' => $page_id
 				);
-			} else if ( isset($_POST['importfrom']) && $_POST['importfrom'] == 'post' && isset($_POST['gwolle_gb_postid']) && intval($_POST['gwolle_gb_postid']) > 0 ) {
+			} else if ( isset($_POST['gwolle_gb_importfrom']) && $_POST['gwolle_gb_importfrom'] == 'post' && isset($_POST['gwolle_gb_postid']) && intval($_POST['gwolle_gb_postid']) > 0 ) {
 				$post_id = intval($_POST['gwolle_gb_postid']);
 				$args = array(
 					'status' => 'all',
 					'post_id' => $post_id
 				);
-			} else if ( isset($_POST['importfrom']) && $_POST['importfrom'] == 'all' ) {
+			} else if ( isset($_POST['gwolle_gb_importfrom']) && $_POST['gwolle_gb_importfrom'] == 'all' ) {
 				$args = array(
 					'status' => 'all',
 				);
@@ -185,11 +178,11 @@ function gwolle_gb_page_import() {
 		} else if (isset($_POST['start_import_gwolle'])) {
 
 			// if they DID upload a file...
-			if($_FILES['gwolle_gb_gwolle']['name']) {
-				if( !$_FILES['gwolle_gb_gwolle']['error'] ) { // if no errors...
+			if($_FILES['start_import_gwolle_file']['name']) {
+				if( !$_FILES['start_import_gwolle_file']['error'] ) { // if no errors...
 					//now is the time to modify the future file name and validate the file
 					// $new_file_name = strtolower( $_FILES['gwolle_gb_gwolle']['tmp_name'] ); //rename file
-					if( $_FILES['gwolle_gb_gwolle']['size'] > (1024000) ) { //can't be larger than 1 MB
+					if( $_FILES['start_import_gwolle_file']['size'] > (1024000) ) { //can't be larger than 1 MB
 						$valid_file = false;
 						$gwolle_gb_errors = 'error';
 						$gwolle_gb_messages .= '<p>' . __("Your filesize is too large.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
@@ -197,7 +190,7 @@ function gwolle_gb_page_import() {
 						if ( function_exists('finfo_open') ) {
 							// Check MIME Type. Only PHP >= 5.3.0
 							$finfo = finfo_open(FILEINFO_MIME_TYPE); // return mime type ala mimetype extension
-							$mimetype = trim( finfo_file( $finfo, $_FILES['gwolle_gb_gwolle']['tmp_name'] ) );
+							$mimetype = trim( finfo_file( $finfo, $_FILES['start_import_gwolle_file']['tmp_name'] ) );
 							finfo_close($finfo);
 						} else {
 							// PHP 5.2 is insecure anyway?
@@ -215,7 +208,7 @@ function gwolle_gb_page_import() {
 							$gwolle_gb_errors = 'error';
 							$gwolle_gb_messages .= '<p>' . __("Invalid file format.", GWOLLE_GB_TEXTDOMAIN) . ' (' . print_r($mimetype, true) . ')</p>';
 						} else {
-							$handle = fopen($_FILES['gwolle_gb_gwolle']['tmp_name'], "r");
+							$handle = fopen($_FILES['start_import_gwolle_file']['tmp_name'], "r");
 							$row = 0;
 
 							while (($data = fgetcsv($handle, 1000)) !== FALSE) {
@@ -398,13 +391,13 @@ function gwolle_gb_page_import() {
 										</div>
 
 										<p>
-											<label for="dmsguestbook" class="selectit">
-												<input id="dmsguestbook" name="dmsguestbook" type="checkbox" />
+											<label for="gwolle_gb_dmsguestbook" class="selectit">
+												<input id="gwolle_gb_dmsguestbook" name="gwolle_gb_dmsguestbook" type="checkbox" />
 												<?php _e('Import all entries from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN); ?>
 											</label>
 										</p>
 										<p>
-											<input name="start_import_dms" type="submit" class="button button-primary" value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+											<input name="start_import_dms" id="start_import_dms" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
 										</p><?php
 									} else {
 										echo '<div>' . __('DMSGuestbook was not found.', GWOLLE_GB_TEXTDOMAIN) . '</div>';
@@ -522,14 +515,14 @@ function gwolle_gb_page_import() {
 									);
 									$num_comments = get_comments($args); ?>
 
-									<p><label for="importfrom"><?php _e('Select where to import the comments from:', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
-										<label><input type="radio" name="importfrom" value="page" /><?php _e('Comments from selected page.', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
-										<label><input type="radio" name="importfrom" value="post" /><?php _e('Comments from selected post.', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
-										<label><input type="radio" name="importfrom" value="all" /><?php _e('All Comments', GWOLLE_GB_TEXTDOMAIN); echo " (" . $num_comments . ")."; ?></label><br />
+									<p><label for="gwolle_gb_importfrom"><?php _e('Select where to import the comments from:', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="page" /><?php _e('Comments from selected page.', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="post" /><?php _e('Comments from selected post.', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="all" /><?php _e('All Comments', GWOLLE_GB_TEXTDOMAIN); echo " (" . $num_comments . ")."; ?></label><br />
 									</p>
 
 									<p>
-										<input name="start_import_wp" type="submit" class="button button-primary" value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+										<input name="start_import_wp" id="start_import_wp" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
 									</p>
 								</form>
 							</div> <!-- inside -->
@@ -543,12 +536,12 @@ function gwolle_gb_page_import() {
 									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
 
 									<p>
-										<label for="gwolle_gb_gwolle" class="selectit"><?php _e('Select a CSV file with exported entries to import again:', GWOLLE_GB_TEXTDOMAIN); ?><br />
-											<input id="gwolle_gb_gwolle" name="gwolle_gb_gwolle" type="file" />
+										<label for="start_import_gwolle_file" class="selectit"><?php _e('Select a CSV file with exported entries to import again:', GWOLLE_GB_TEXTDOMAIN); ?><br />
+											<input id="start_import_gwolle_file" name="start_import_gwolle_file" type="file" />
 										</label>
 									</p>
 									<p>
-										<input name="start_import_gwolle" type="submit" class="button button-primary" value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+										<input name="start_import_gwolle" id="start_import_gwolle" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
 									</p>
 								</form>
 							</div> <!-- inside -->

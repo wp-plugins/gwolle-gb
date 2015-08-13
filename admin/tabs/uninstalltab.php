@@ -52,17 +52,17 @@ function gwolle_gb_page_settingstab_uninstall( $uninstalled ) {
 		</tr>
 
 		<tr valign="top">
-			<th scope="row" style="color:#FF0000;"><label for="uninstall_confirmed"><?php _e('Confirm', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
+			<th scope="row" style="color:#FF0000;"><label for="gwolle_gb_uninstall_confirmed"><?php _e('Confirm', GWOLLE_GB_TEXTDOMAIN); ?></label></th>
 			<td>
-				<input type="checkbox" name="uninstall_confirmed" id="uninstall_confirmed">
-				<label for="uninstall_confirmed"><?php _e("Yes, I'm absolutely sure of this. Proceed!", GWOLLE_GB_TEXTDOMAIN); ?></label>
+				<input type="checkbox" name="gwolle_gb_uninstall_confirmed" id="gwolle_gb_uninstall_confirmed">
+				<label for="gwolle_gb_uninstall_confirmed"><?php _e("Yes, I'm absolutely sure of this. Proceed!", GWOLLE_GB_TEXTDOMAIN); ?></label>
 			</td>
 		</tr>
 
 		<tr>
 			<td colspan="2">
 				<p class="submit">
-					<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Uninstall &raquo;', GWOLLE_GB_TEXTDOMAIN); ?>" />
+					<input type="submit" name="gwolle_gb_uninstall" id="gwolle_gb_uninstall" class="button" disabled value="<?php esc_attr_e('Uninstall &raquo;', GWOLLE_GB_TEXTDOMAIN); ?>" />
 				</p>
 			</td>
 		</tr>
