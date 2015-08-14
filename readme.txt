@@ -374,6 +374,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 = 1.4.7 =
 * 2015-08-
+* Fix adding an entry whithout CAPTCHA enabled.
 * Make header and notice compatible with Multi-Lingual plugins.
 * Add parameter to template function gwolle_gb_entry_template.
 * Add CSS class for even/uneven entry.

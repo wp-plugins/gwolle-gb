@@ -10,7 +10,7 @@
  *
  * $args: $entry, instance of gwolle_gb_entry.
  *        $first, boolean with true if it is the first entry.
- *        $counter,int with the number of the entry.
+ *        $counter,int with the number of the entry. (since 1.4.7)
  *
  * return: string, html with a single guestbook entry.
  */

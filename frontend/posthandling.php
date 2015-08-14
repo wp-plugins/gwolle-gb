@@ -164,26 +164,28 @@ function gwolle_gb_frontend_posthandling() {
 		}
 
 		/* CAPTCHA */
-		if ( class_exists('ReallySimpleCaptcha') ) {
-			$gwolle_gb_captcha = new ReallySimpleCaptcha();
-			// This variable holds the CAPTCHA image prefix, which corresponds to the correct answer
-			$gwolle_gb_captcha_prefix = $_POST['gwolle_gb_captcha_prefix'];
-			// This variable holds the CAPTCHA response, entered by the user
-			$gwolle_gb_captcha_code = $_POST['gwolle_gb_captcha_code'];
-			// Validate the CAPTCHA response
-			$gwolle_gb_captcha_correct = $gwolle_gb_captcha->check( $gwolle_gb_captcha_prefix, $gwolle_gb_captcha_code );
-			// If CAPTCHA validation fails (incorrect value entered in CAPTCHA field) mark comment as spam.
-			if ( true != $gwolle_gb_captcha_correct ) {
-				$gwolle_gb_errors = true;
-				$gwolle_gb_error_fields[] = 'captcha'; // mandatory
-				//$gwolle_gb_messages .= '<p style="display_:none"><strong>' . $gwolle_gb_captcha_correct . '</strong></p>';
-			} else {
-				// verified!
-				//$gwolle_gb_messages .= '<p class="error_fields"><strong>Verified.</strong></p>';
+		if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
+			if ( class_exists('ReallySimpleCaptcha') ) {
+				$gwolle_gb_captcha = new ReallySimpleCaptcha();
+				// This variable holds the CAPTCHA image prefix, which corresponds to the correct answer
+				$gwolle_gb_captcha_prefix = $_POST['gwolle_gb_captcha_prefix'];
+				// This variable holds the CAPTCHA response, entered by the user
+				$gwolle_gb_captcha_code = $_POST['gwolle_gb_captcha_code'];
+				// Validate the CAPTCHA response
+				$gwolle_gb_captcha_correct = $gwolle_gb_captcha->check( $gwolle_gb_captcha_prefix, $gwolle_gb_captcha_code );
+				// If CAPTCHA validation fails (incorrect value entered in CAPTCHA field) mark comment as spam.
+				if ( true != $gwolle_gb_captcha_correct ) {
+					$gwolle_gb_errors = true;
+					$gwolle_gb_error_fields[] = 'captcha'; // mandatory
+					//$gwolle_gb_messages .= '<p style="display_:none"><strong>' . $gwolle_gb_captcha_correct . '</strong></p>';
+				} else {
+					// verified!
+					//$gwolle_gb_messages .= '<p class="error_fields"><strong>Verified.</strong></p>';
+				}
+				// clean up the tmp directory
+				$gwolle_gb_captcha->remove($gwolle_gb_captcha_prefix);
+				$gwolle_gb_captcha->cleanup();
 			}
-			// clean up the tmp directory
-			$gwolle_gb_captcha->remove($gwolle_gb_captcha_prefix);
-			$gwolle_gb_captcha->cleanup();
 		}
 
 
