@@ -339,24 +339,14 @@ function gwolle_gb_page_entries() {
 			$pageNum = 1; // page doesnot exist, return to first page
 		}
 
-		// Calculate entry-args for query
+		// Calculate Query
 		if ($pageNum == 1 && $count[$show] > 0) {
-			$firstEntryNum = 1;
 			$mysqlFirstRow = 0;
 		} elseif ($count[$show] == 0) {
-			$firstEntryNum = 0;
 			$mysqlFirstRow = 0;
 		} else {
 			$firstEntryNum = ($pageNum - 1) * $entries_per_page + 1;
 			$mysqlFirstRow = $firstEntryNum - 1;
-		}
-
-		// Calculate written text with info "Showing 1 – 25 of 54"
-		$lastEntryNum = $pageNum * $entries_per_page;
-		if ($count[$show] == 0) {
-			$lastEntryNum = 0;
-		} elseif ($lastEntryNum > $count[$show]) {
-			$lastEntryNum = $firstEntryNum + ($count[$show] - ($pageNum - 1) * $entries_per_page) - 1;
 		}
 
 		// Get the entries
@@ -399,7 +389,7 @@ function gwolle_gb_page_entries() {
 
 		<div class="wrap gwolle_gb">
 			<div id="icon-gwolle-gb"><br /></div>
-			<h2><?php _e('Guestbook entries', GWOLLE_GB_TEXTDOMAIN); ?></h2>
+			<h1><?php _e('Guestbook entries', GWOLLE_GB_TEXTDOMAIN); ?></h1>
 
 			<?php
 			if ( $gwolle_gb_messages ) {
@@ -411,6 +401,7 @@ function gwolle_gb_page_entries() {
 			// FIXME: add a searchform someday? ?>
 
 			<form name="gwolle_gb_entries" id="gwolle_gb_entries" action="" method="POST" accept-charset="UTF-8">
+
 				<input type="hidden" name="gwolle_gb_page" value="entries" />
 				<!-- the following fields give us some information we're going to use processing the mass edit -->
 				<input type="hidden" name="pageNum" value="<?php echo $pageNum; ?>">
@@ -441,6 +432,7 @@ function gwolle_gb_page_entries() {
 						?>><?php _e('Trash', GWOLLE_GB_TEXTDOMAIN); ?> <span class="count">(<?php echo $count['trash']; ?>)</span></a>
 					</li>
 				</ul>
+
 				<div class="tablenav">
 					<div class="alignleft actions">
 						<?php
@@ -486,73 +478,13 @@ function gwolle_gb_page_entries() {
 						?>
 					</div>
 
-					<div class="tablenav-pages">
-						<?php
-						$highDotsMade = false;
-						$pagination = '<span class="displaying-num">' . __('Showing:', GWOLLE_GB_TEXTDOMAIN) .
-							' ' . $firstEntryNum . ' &#8211; ' . $lastEntryNum . ' ' . __('of', GWOLLE_GB_TEXTDOMAIN) . ' ' . $count[$show] . '</span>
-							';
-						if ($pageNum > 1) {
-							$pagination .= '<a class="first page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . round($pageNum - 1) . '">&laquo;</a>';
-						}
+					<?php
+					$pagination = gwolle_gb_pagination_admin( $pageNum, $countPages, $count, $show );
+					echo $pagination;
+					?>
+				</div>
 
-						if ($pageNum < 5) {
-							if ($countPages < 4) {
-								$showRange = $countPages;
-							} else {
-								$showRange = 6;
-							}
-							for ($i = 1; $i < ($showRange + 1); $i++) {
-								if ($i == $pageNum) {
-									$pagination .= '<span class="page-numbers current">' . $i . '</span>';
-								} else {
-									$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $i . '">' . $i . '</a>';
-								}
-							}
-
-							if ($pageNum + 4 < $countPages) {
-								$highDotsMade = true;
-								// The dots next to the highest number have already been put out.
-								$pagination .= '<span class="page-numbers dots">...</span>';
-							}
-						} elseif ($pageNum >= 5) {
-							$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=1">1</a>';
-							if ($countPages > 5) {
-								$pagination .= '<span class="page-numbers dots">...</span>';
-							}
-							if ($pageNum + 2 < $countPages) {
-								$minRange = $pageNum - 2;
-								$showRange = $pageNum + 2;
-							} else {
-								$minRange = $pageNum - 3;
-								$showRange = $countPages - 1;
-							}
-							for ($i = $minRange; $i <= $showRange; $i++) {
-								if ($i == $pageNum) {
-									$pagination .= '<span class="page-numbers current">' . $i . '</span>';
-								} else {
-									$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $i . '">' . $i . '</a>';
-								}
-							}
-							if ($pageNum == $countPages) {
-								$pagination .= '<span class="page-numbers current">' . $pageNum . '</span>';
-							}
-						}
-
-						if ($pageNum < $countPages) {
-							if (($pageNum + 4 < $countPages) && !$highDotsMade) {
-								$pagination .= '<span class="page-numbers dots">...</span>';
-								$highDotsMade = true;
-							}
-							if ( isset($highDotsMade) ) {
-								$pagination .= '<a class="page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . $countPages . '">' . $countPages . '</a>';
-							}
-							$pagination .= '<a class="last page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . round($pageNum + 1) . '">&raquo;</a>';
-						}
-						echo $pagination;
-						?>
-					</div>
-
+				<div>
 					<table class="widefat">
 						<thead>
 							<tr>
@@ -723,32 +655,31 @@ function gwolle_gb_page_entries() {
 							echo $html_output;
 							?>
 						</tbody>
-
 					</table>
+				</div>
 
-					<div class="tablenav">
-						<div class="alignleft actions">
-							<?php
-							$massEditControls_select = '<select name="massEditAction2">';
-							$empty_button = '';
-							if ( $show == 'spam' ) {
-								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . esc_attr__('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
-							} else if ( $show == 'trash' ) {
-								$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . esc_attr__('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
-							}
+				<div class="tablenav">
+					<div class="alignleft actions">
+						<?php
+						$massEditControls_select = '<select name="massEditAction2">';
+						$empty_button = '';
+						if ( $show == 'spam' ) {
+							$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . esc_attr__('Empty Spam', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+						} else if ( $show == 'trash' ) {
+							$empty_button = '<input type="submit" name="delete_all2" id="delete_all2" class="button apply" value="' . esc_attr__('Empty Trash', GWOLLE_GB_TEXTDOMAIN) . '"  />';
+						}
 
-							// Only show controls when there are entries
-							if ( is_array($entries) && !empty($entries) ) {
-								echo $massEditControls_select . $massEditControls . $empty_button;
-							}
-							?>
-						</div>
-						<div class="tablenav-pages">
-							<?php echo $pagination; ?>
-						</div>
+						// Only show controls when there are entries
+						if ( is_array($entries) && !empty($entries) ) {
+							echo $massEditControls_select . $massEditControls . $empty_button;
+						}
+						?>
 					</div>
 
+					<?php echo $pagination; ?>
+
 				</div>
+
 			</form>
 
 		</div>

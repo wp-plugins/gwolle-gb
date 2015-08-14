@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-05 19:16+0200\n"
+"POT-Creation-Date: 2015-08-12 16:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: gwolle-gb.php:126
+#: gwolle-gb.php:127
 msgid ""
 "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to "
 "provide an easy and slim way to integrate a guestbook into your WordPress "
@@ -25,127 +25,127 @@ msgid ""
 "Gwolle Guestbook and have a real guestbook."
 msgstr ""
 
-#: gwolle-gb.php:127
+#: gwolle-gb.php:128
 msgid ""
 "Gwolle Guestbook is the WordPress guestbook you've just been looking for. "
 "Beautiful and easy."
 msgstr ""
 
-#: hooks.php:35 hooks.php:36 frontend/widget.php:22 frontend/widget.php:188
+#: hooks.php:33 hooks.php:34 frontend/widget.php:22 frontend/widget.php:188
 msgid "Guestbook"
 msgstr ""
 
-#: hooks.php:46 hooks.php:47 admin/tabs/admintab.php:36
+#: hooks.php:44 hooks.php:45 admin/tabs/admintab.php:36
 #: admin/tabs/readingtab.php:36
 msgid "Entries"
 msgstr ""
 
 #. /editor.php
-#: hooks.php:54
+#: hooks.php:52
 msgid "Entry editor"
 msgstr ""
 
-#: hooks.php:54 admin/page-gwolle-gb.php:85
+#: hooks.php:52 admin/page-gwolle-gb.php:85
 msgid "New entry"
 msgstr ""
 
 #. /settings.php
-#: hooks.php:57 hooks.php:80 admin/page-settings.php:314
+#: hooks.php:55 hooks.php:79 admin/page-settings.php:322
 msgid "Settings"
 msgstr ""
 
 #. /import.php
-#: hooks.php:60
+#: hooks.php:58
 msgid "Import"
 msgstr ""
 
 #. /export.php
-#: hooks.php:63
+#: hooks.php:61
 msgid "Export"
 msgstr ""
 
-#: hooks.php:190 hooks.php:194 frontend/rss.php:67 frontend/rss.php:70
+#: hooks.php:188 hooks.php:192 frontend/rss.php:67 frontend/rss.php:70
 msgid "Guestbook Feed"
 msgstr ""
 
 #: admin/dashboard-widget.php:116 admin/page-entries.php:696
-#: frontend/gwolle_gb-entry.php:107
+#: frontend/gwolle_gb-entry.php:108
 msgid "Edit entry"
 msgstr ""
 
-#: admin/dashboard-widget.php:116 admin/page-editor.php:537
-#: admin/page-entries.php:696 frontend/gwolle_gb-entry.php:107
+#: admin/dashboard-widget.php:116 admin/page-editor.php:585
+#: admin/page-entries.php:696 frontend/gwolle_gb-entry.php:108
 msgid "Edit"
 msgstr ""
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:459
+#: admin/dashboard-widget.php:120 admin/page-editor.php:507
 #: admin/page-entries.php:699
 msgid "Check entry"
 msgstr ""
 
-#: admin/dashboard-widget.php:120 admin/page-editor.php:459
+#: admin/dashboard-widget.php:120 admin/page-editor.php:507
 #: admin/page-entries.php:699
 msgid "Check"
 msgstr ""
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:462
+#: admin/dashboard-widget.php:124 admin/page-editor.php:510
 #: admin/page-entries.php:702
 msgid "Uncheck entry"
 msgstr ""
 
-#: admin/dashboard-widget.php:124 admin/page-editor.php:462
+#: admin/dashboard-widget.php:124 admin/page-editor.php:510
 #: admin/page-entries.php:702
 msgid "Uncheck"
 msgstr ""
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:465
+#: admin/dashboard-widget.php:128 admin/page-editor.php:513
 #: admin/page-entries.php:705
 msgid "Mark entry as spam."
 msgstr ""
 
-#: admin/dashboard-widget.php:128 admin/page-editor.php:408
-#: admin/page-editor.php:465 admin/page-entries.php:437
+#: admin/dashboard-widget.php:128 admin/page-editor.php:456
+#: admin/page-editor.php:513 admin/page-entries.php:437
 #: admin/page-entries.php:705
 msgid "Spam"
 msgstr ""
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:468
+#: admin/dashboard-widget.php:132 admin/page-editor.php:516
 #: admin/page-entries.php:708
 msgid "Mark entry as not-spam."
 msgstr ""
 
-#: admin/dashboard-widget.php:132 admin/page-editor.php:468
+#: admin/dashboard-widget.php:132 admin/page-editor.php:516
 #: admin/page-entries.php:708
 msgid "Not spam"
 msgstr ""
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:471
+#: admin/dashboard-widget.php:136 admin/page-editor.php:519
 #: admin/page-entries.php:711
 msgid "Move entry to trash."
 msgstr ""
 
-#: admin/dashboard-widget.php:136 admin/page-editor.php:418
-#: admin/page-editor.php:471 admin/page-entries.php:441
+#: admin/dashboard-widget.php:136 admin/page-editor.php:466
+#: admin/page-editor.php:519 admin/page-entries.php:441
 #: admin/page-entries.php:711
 msgid "Trash"
 msgstr ""
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:474
+#: admin/dashboard-widget.php:140 admin/page-editor.php:522
 #: admin/page-entries.php:714
 msgid "Recover entry from trash."
 msgstr ""
 
-#: admin/dashboard-widget.php:140 admin/page-editor.php:474
+#: admin/dashboard-widget.php:140 admin/page-editor.php:522
 #: admin/page-entries.php:714
 msgid "Untrash"
 msgstr ""
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:477
+#: admin/dashboard-widget.php:144 admin/page-editor.php:525
 #: admin/page-entries.php:717
 msgid "Please wait..."
 msgstr ""
 
-#: admin/dashboard-widget.php:144 admin/page-editor.php:477
+#: admin/dashboard-widget.php:144 admin/page-editor.php:525
 #: admin/page-entries.php:717
 msgid "Wait..."
 msgstr ""
@@ -227,169 +227,180 @@ msgstr ""
 msgid "Something strange happened."
 msgstr ""
 
-#: admin/page-editor.php:88
+#: admin/page-editor.php:92
 msgid "Submitted as Spam to the Akismet service."
 msgstr ""
 
-#: admin/page-editor.php:97
+#: admin/page-editor.php:101
 msgid "Submitted as Ham to the Akismet service."
 msgstr ""
 
-#: admin/page-editor.php:163 admin/page-gwolle-gb.php:364
-#: admin/page-settings.php:320
+#: admin/page-editor.php:167 admin/page-gwolle-gb.php:364
+#: admin/page-settings.php:328
 msgid "Changes saved."
 msgstr ""
 
-#: admin/page-editor.php:165 admin/page-editor.php:260
+#: admin/page-editor.php:169 admin/page-editor.php:268
 msgid "Error happened during saving."
 msgstr ""
 
-#: admin/page-editor.php:169
+#: admin/page-editor.php:173
 msgid "Entry was not changed."
 msgstr ""
 
-#: admin/page-editor.php:180
+#: admin/page-editor.php:184
 msgid "Entry removed."
 msgstr ""
 
-#: admin/page-editor.php:225
+#: admin/page-editor.php:232
 msgid "Entry has no content, even though that is mandatory."
 msgstr ""
 
-#: admin/page-editor.php:258
+#: admin/page-editor.php:265
 msgid "Entry saved."
 msgstr ""
 
-#: admin/page-editor.php:264
+#: admin/page-editor.php:272
 msgid "Entry was not saved."
 msgstr ""
 
-#: admin/page-editor.php:342 admin/page-editor.php:356
-#: admin/page-editor.php:449 admin/page-editor.php:493
-#: admin/page-editor.php:557 admin/page-editor.php:592
-#: admin/page-editor.php:609 admin/page-editor.php:617
+#: admin/page-editor.php:309 admin/page-editor.php:326
+#: admin/page-editor.php:334 admin/page-editor.php:390
+#: admin/page-editor.php:404 admin/page-editor.php:497
+#: admin/page-editor.php:541 admin/page-editor.php:605
 #: admin/page-export.php:40 admin/page-import.php:352
 #: admin/page-import.php:419 admin/page-import.php:540
 msgid "Click to open or close"
 msgstr ""
 
-#: admin/page-editor.php:342
-msgid "View Frontend"
-msgstr ""
-
-#: admin/page-editor.php:346 admin/page-gwolle-gb.php:141
-msgid "View Guestbook"
-msgstr ""
-
-#: admin/page-editor.php:356
-msgid "Options"
-msgstr ""
-
-#: admin/page-editor.php:377
-msgid "This entry is not yet visible."
-msgstr ""
-
-#: admin/page-editor.php:381 admin/page-editor.php:386
-msgid "This entry is Visible."
-msgstr ""
-
-#: admin/page-editor.php:382 admin/page-editor.php:387
-msgid "This entry is Not Visible."
-msgstr ""
-
-#: admin/page-editor.php:398 frontend/posthandling.php:407
-msgid "Checked"
-msgstr ""
-
-#: admin/page-editor.php:426
-msgid "Remove this entry Permanently."
-msgstr ""
-
-#: admin/page-editor.php:437
-msgid "Save"
-msgstr ""
-
-#: admin/page-editor.php:449
-msgid "Actions"
-msgstr ""
-
-#: admin/page-editor.php:493
-msgid "Details"
-msgstr ""
-
-#: admin/page-editor.php:497 admin/page-editor.php:542
-#: admin/page-entries.php:567 admin/page-entries.php:583
-msgid "Author"
-msgstr ""
-
-#: admin/page-editor.php:501 admin/page-editor.php:508
-#: admin/page-editor.php:526 admin/page-editor.php:533
-#: functions/function.log.php:164
-msgid "Unknown"
-msgstr ""
-
-#: admin/page-editor.php:504
-msgid "E-Mail"
-msgstr ""
-
-#: admin/page-editor.php:511 admin/page-editor.php:567
-msgid "Written"
-msgstr ""
-
-#: admin/page-editor.php:516
-msgid "Not yet"
-msgstr ""
-
-#: admin/page-editor.php:519
-msgid "Author's IP-address"
-msgstr ""
-
-#: admin/page-editor.php:522
-msgid "Whois search for this IP"
-msgstr ""
-
-#: admin/page-editor.php:529
-msgid "Host"
-msgstr ""
-
-#: admin/page-editor.php:537
-msgid "Edit metadata"
-msgstr ""
-
-#: admin/page-editor.php:545
-msgid "Date and time"
-msgstr ""
-
-#: admin/page-editor.php:557
-msgid "Entry log"
-msgstr ""
-
-#: admin/page-editor.php:576
-msgid "No log yet."
-msgstr ""
-
-#: admin/page-editor.php:592 frontend/write.php:215
+#: admin/page-editor.php:309 frontend/write.php:221
 msgid "Guestbook entry"
 msgstr ""
 
-#: admin/page-editor.php:597
+#: admin/page-editor.php:311 admin/page-export.php:65
+#: admin/page-import.php:391 admin/page-import.php:433 frontend/write.php:228
+#: admin/tabs/formtab.php:185 admin/tabs/uninstalltab.php:31
+msgid "Message"
+msgstr ""
+
+#: admin/page-editor.php:314
 #, php-format
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
 "\">settings</a>."
 msgstr ""
 
-#: admin/page-editor.php:609 frontend/write.php:196 frontend/write.php:203
-#: admin/tabs/formtab.php:165
+#: admin/page-editor.php:326 admin/page-editor.php:328 frontend/write.php:201
+#: frontend/write.php:208 admin/tabs/formtab.php:165
 msgid "Website"
 msgstr ""
 
-#: admin/page-editor.php:612
+#: admin/page-editor.php:329
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr ""
 
-#: admin/page-editor.php:617 admin/page-export.php:61
+#: admin/page-editor.php:334 admin/page-export.php:61
 msgid "Origin"
+msgstr ""
+
+#: admin/page-editor.php:336 frontend/write.php:161 frontend/write.php:168
+#: admin/tabs/formtab.php:125 admin/tabs/readingtab.php:178
+msgid "City"
+msgstr ""
+
+#: admin/page-editor.php:390
+msgid "View Frontend"
+msgstr ""
+
+#: admin/page-editor.php:394 admin/page-gwolle-gb.php:141
+msgid "View Guestbook"
+msgstr ""
+
+#: admin/page-editor.php:404
+msgid "Options"
+msgstr ""
+
+#: admin/page-editor.php:425
+msgid "This entry is not yet visible."
+msgstr ""
+
+#: admin/page-editor.php:429 admin/page-editor.php:434
+msgid "This entry is Visible."
+msgstr ""
+
+#: admin/page-editor.php:430 admin/page-editor.php:435
+msgid "This entry is Not Visible."
+msgstr ""
+
+#: admin/page-editor.php:446 frontend/posthandling.php:402
+msgid "Checked"
+msgstr ""
+
+#: admin/page-editor.php:474
+msgid "Remove this entry Permanently."
+msgstr ""
+
+#: admin/page-editor.php:485
+msgid "Save"
+msgstr ""
+
+#: admin/page-editor.php:497
+msgid "Actions"
+msgstr ""
+
+#: admin/page-editor.php:541
+msgid "Details"
+msgstr ""
+
+#: admin/page-editor.php:545 admin/page-editor.php:590
+#: admin/page-entries.php:567 admin/page-entries.php:583
+msgid "Author"
+msgstr ""
+
+#: admin/page-editor.php:549 admin/page-editor.php:556
+#: admin/page-editor.php:574 admin/page-editor.php:581
+#: functions/function.log.php:164
+msgid "Unknown"
+msgstr ""
+
+#: admin/page-editor.php:552
+msgid "E-Mail"
+msgstr ""
+
+#: admin/page-editor.php:559 admin/page-editor.php:615
+msgid "Written"
+msgstr ""
+
+#: admin/page-editor.php:564
+msgid "Not yet"
+msgstr ""
+
+#: admin/page-editor.php:567
+msgid "Author's IP-address"
+msgstr ""
+
+#: admin/page-editor.php:570
+msgid "Whois search for this IP"
+msgstr ""
+
+#: admin/page-editor.php:577
+msgid "Host"
+msgstr ""
+
+#: admin/page-editor.php:585
+msgid "Edit metadata"
+msgstr ""
+
+#: admin/page-editor.php:593
+msgid "Date and time"
+msgstr ""
+
+#: admin/page-editor.php:605
+msgid "Entry log"
+msgstr ""
+
+#: admin/page-editor.php:624
+msgid "No log yet."
 msgstr ""
 
 #: admin/page-entries.php:209
@@ -524,7 +535,7 @@ msgstr ""
 msgid "Guestbook entries"
 msgstr ""
 
-#: admin/page-entries.php:424
+#: admin/page-entries.php:424 frontend/read.php:149 frontend/read.php:151
 msgid "All"
 msgstr ""
 
@@ -597,7 +608,7 @@ msgid "ID"
 msgstr ""
 
 #: admin/page-entries.php:566 admin/page-entries.php:582
-#: admin/tabs/readingtab.php:189
+#: admin/tabs/readingtab.php:203
 msgid "Date"
 msgstr ""
 
@@ -635,8 +646,8 @@ msgid "The exporter will preserve the following data per entry:"
 msgstr ""
 
 #: admin/page-export.php:58 admin/page-import.php:386
-#: admin/page-import.php:427 frontend/write.php:139 frontend/write.php:146
-#: admin/tabs/formtab.php:105 admin/tabs/readingtab.php:152
+#: admin/page-import.php:427 frontend/write.php:141 frontend/write.php:148
+#: admin/tabs/formtab.php:105 admin/tabs/readingtab.php:166
 msgid "Name"
 msgstr ""
 
@@ -662,12 +673,6 @@ msgstr ""
 
 #: admin/page-export.php:64
 msgid "Host address"
-msgstr ""
-
-#: admin/page-export.php:65 admin/page-import.php:391
-#: admin/page-import.php:433 admin/tabs/formtab.php:185
-#: admin/tabs/uninstalltab.php:31
-msgid "Message"
 msgstr ""
 
 #: admin/page-export.php:66 admin/page-import.php:393
@@ -1090,27 +1095,27 @@ msgstr ""
 msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 
-#: admin/page-settings.php:326
+#: admin/page-settings.php:334
 msgid "Form"
 msgstr ""
 
-#: admin/page-settings.php:327
+#: admin/page-settings.php:335
 msgid "Reading"
 msgstr ""
 
-#: admin/page-settings.php:328
+#: admin/page-settings.php:336
 msgid "Admin"
 msgstr ""
 
-#: admin/page-settings.php:329 frontend/write.php:282 frontend/write.php:312
+#: admin/page-settings.php:337 frontend/write.php:262 frontend/write.php:353
 msgid "Anti-spam"
 msgstr ""
 
-#: admin/page-settings.php:330
+#: admin/page-settings.php:338
 msgid "E-mail"
 msgstr ""
 
-#: admin/page-settings.php:331 admin/tabs/uninstalltab.php:45
+#: admin/page-settings.php:339 admin/tabs/uninstalltab.php:45
 msgid "Uninstall"
 msgstr ""
 
@@ -1130,54 +1135,54 @@ msgstr ""
 msgid "Submitting a new guestbook entry is only allowed for logged-in users."
 msgstr ""
 
-#: frontend/posthandling.php:195 frontend/posthandling.php:238
+#: frontend/posthandling.php:193 frontend/posthandling.php:236
 msgid "There were errors submitting your guestbook entry."
 msgstr ""
 
-#: frontend/posthandling.php:201
+#: frontend/posthandling.php:199
 msgid "Your name is not filled in, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:204
+#: frontend/posthandling.php:202
 msgid "Your origin is not filled in, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:207
+#: frontend/posthandling.php:205
 msgid ""
 "Your e-mail address is not filled in correctly, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:210
+#: frontend/posthandling.php:208
 msgid "Your website is not filled in, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:213
+#: frontend/posthandling.php:211
 msgid "There is no message, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:216
+#: frontend/posthandling.php:214
 msgid ""
 "The anti-spam question was not answered correctly, even though it is "
 "mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:219
-msgid "The reCAPTCHA was not filled in correctly, even though it is mandatory."
+#: frontend/posthandling.php:217
+msgid "The CAPTCHA was not filled in correctly, even though it is mandatory."
 msgstr ""
 
-#: frontend/posthandling.php:311
+#: frontend/posthandling.php:308
 msgid "Double post: An entry with the data you entered has already been saved."
 msgstr ""
 
-#: frontend/posthandling.php:328
+#: frontend/posthandling.php:324
 msgid "Thank you for your entry."
 msgstr ""
 
-#: frontend/posthandling.php:330
+#: frontend/posthandling.php:326
 msgid "We will review it and unlock it in a short while."
 msgstr ""
 
-#: frontend/posthandling.php:367 admin/tabs/emailtab.php:138
+#: frontend/posthandling.php:362 admin/tabs/emailtab.php:138
 msgid ""
 "\n"
 "Hello,\n"
@@ -1197,15 +1202,15 @@ msgid ""
 "%entry_content%\n"
 msgstr ""
 
-#: frontend/posthandling.php:388 frontend/posthandling.php:456
+#: frontend/posthandling.php:383 frontend/posthandling.php:450
 msgid "New Guestbook Entry"
 msgstr ""
 
-#: frontend/posthandling.php:409
+#: frontend/posthandling.php:404
 msgid "Unchecked"
 msgstr ""
 
-#: frontend/posthandling.php:437 admin/tabs/emailtab.php:198
+#: frontend/posthandling.php:431 admin/tabs/emailtab.php:198
 msgid ""
 "\n"
 "Hello,\n"
@@ -1223,20 +1228,24 @@ msgid ""
 "%entry_content%\n"
 msgstr ""
 
-#: frontend/read.php:79
+#: frontend/read.php:89
 msgid "Previous page"
 msgstr ""
 
-#: frontend/read.php:92 frontend/read.php:100 frontend/read.php:106
-#: frontend/read.php:121 frontend/read.php:132
+#: frontend/read.php:102 frontend/read.php:110 frontend/read.php:116
+#: frontend/read.php:131 frontend/read.php:142
 msgid "Page"
 msgstr ""
 
-#: frontend/read.php:103 frontend/read.php:133
+#: frontend/read.php:113 frontend/read.php:143
 msgid "Next page"
 msgstr ""
 
-#: frontend/read.php:144
+#: frontend/read.php:151
+msgid "All entries"
+msgstr ""
+
+#: frontend/read.php:163
 msgid "(no entries yet)"
 msgstr ""
 
@@ -1308,28 +1317,36 @@ msgstr ""
 msgid "Write a new entry for the Guestbook"
 msgstr ""
 
-#: frontend/write.php:158 frontend/write.php:165 admin/tabs/formtab.php:125
-#: admin/tabs/readingtab.php:164
-msgid "City"
-msgstr ""
-
-#: frontend/write.php:177 frontend/write.php:184 admin/tabs/formtab.php:145
+#: frontend/write.php:181 frontend/write.php:188 admin/tabs/formtab.php:145
 msgid "Email"
 msgstr ""
 
-#: frontend/write.php:283
+#: frontend/write.php:263
 msgid "Question:"
 msgstr ""
 
-#: frontend/write.php:289
+#: frontend/write.php:269
 msgid "Answer"
 msgstr ""
 
-#: frontend/write.php:332
+#: frontend/write.php:335
+msgid "Correct CAPTCHA value."
+msgstr ""
+
+#: frontend/write.php:338
+msgid "Incorrect CAPTCHA value."
+msgstr ""
+
+#: frontend/write.php:362 admin/tabs/antispamtab.php:100
+#: admin/tabs/formtab.php:235
+msgid "CAPTCHA"
+msgstr ""
+
+#: frontend/write.php:379
 msgid "Submit"
 msgstr ""
 
-#: frontend/write.php:341 admin/tabs/formtab.php:74
+#: frontend/write.php:388 admin/tabs/formtab.php:74
 msgid ""
 "\n"
 "Fields marked with * are obligatory.\n"
@@ -1388,44 +1405,48 @@ msgstr ""
 msgid "No content to display. This entry is empty."
 msgstr ""
 
-#: functions/function.misc.php:324
+#: functions/function.misc.php:101
+msgid "Visit the website of"
+msgstr ""
+
+#: functions/function.misc.php:294
 msgid "Day"
 msgstr ""
 
-#: functions/function.misc.php:327
+#: functions/function.misc.php:297
 msgid "Month"
 msgstr ""
 
-#: functions/function.misc.php:332
+#: functions/function.misc.php:302
 #, php-format
 msgid "%1$s-%2$s"
 msgstr ""
 
-#: functions/function.misc.php:337
+#: functions/function.misc.php:307
 msgid "Year"
 msgstr ""
 
-#: functions/function.misc.php:340
+#: functions/function.misc.php:310
 msgid "Hour"
 msgstr ""
 
-#: functions/function.misc.php:342
+#: functions/function.misc.php:312
 msgid "Minute"
 msgstr ""
 
-#: functions/function.misc.php:351
+#: functions/function.misc.php:321
 msgid "Save the date and time"
 msgstr ""
 
-#: functions/function.misc.php:352
+#: functions/function.misc.php:322
 msgid "OK"
 msgstr ""
 
-#: functions/function.misc.php:354
+#: functions/function.misc.php:324
 msgid "Cancel saving date and time"
 msgstr ""
 
-#: functions/function.misc.php:355
+#: functions/function.misc.php:325
 msgid "Cancel"
 msgstr ""
 
@@ -1451,9 +1472,9 @@ msgid ""
 "its status (checked, spam and trash)."
 msgstr ""
 
-#: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:135
+#: admin/tabs/admintab.php:61 admin/tabs/antispamtab.php:131
 #: admin/tabs/emailtab.php:235 admin/tabs/formtab.php:252
-#: admin/tabs/readingtab.php:229
+#: admin/tabs/readingtab.php:243
 msgid "Save settings"
 msgstr ""
 
@@ -1481,7 +1502,7 @@ msgstr ""
 msgid "Learn more about Akismet..."
 msgstr ""
 
-#: admin/tabs/antispamtab.php:50 admin/tabs/antispamtab.php:106
+#: admin/tabs/antispamtab.php:50
 msgid "What's that?"
 msgstr ""
 
@@ -1534,43 +1555,33 @@ msgid ""
 "people can post an entry."
 msgstr ""
 
-#: admin/tabs/antispamtab.php:106
-msgid "Learn more about reCAPTCHA..."
-msgstr ""
-
-#: admin/tabs/antispamtab.php:112
-msgid "<strong>Site (Public)</strong> key of your reCAPTCHA account"
-msgstr ""
-
-#: admin/tabs/antispamtab.php:115
-msgid "<strong>Secret</strong> key of your reCAPTCHA account"
-msgstr ""
-
-#: admin/tabs/antispamtab.php:118
+#: admin/tabs/antispamtab.php:106 admin/tabs/antispamtab.php:116
 msgid ""
-"reCAPTCHA is a way to have visitors fill in a field with a few letters or "
+"A CAPTCHA is a way to have visitors fill in a field with a few letters or "
 "numbers. It is a way to make sure that you have a human visitor and not a "
 "spambot. Not every visitor will appreciate it though, some will consider it "
 "unfriendly."
 msgstr ""
 
-#: admin/tabs/antispamtab.php:120
-msgid "The keys can be found at your"
+#: admin/tabs/antispamtab.php:108 admin/tabs/antispamtab.php:118
+msgid "For the CAPTCHA you need the plugin"
 msgstr ""
 
-#: admin/tabs/antispamtab.php:120
-msgid "Go to my reCAPTCHA sites..."
+#: admin/tabs/antispamtab.php:109 admin/tabs/antispamtab.php:119
+msgid "Really Simple CAPTCHA plugin at wordpress.org"
 msgstr ""
 
-#: admin/tabs/antispamtab.php:120
-msgid "reCAPTCHA sites overview"
+#: admin/tabs/antispamtab.php:109 admin/tabs/antispamtab.php:119
+msgid "Really Simple CAPTCHA"
 msgstr ""
 
-#: admin/tabs/antispamtab.php:126
-#, php-format
+#: admin/tabs/antispamtab.php:110 admin/tabs/antispamtab.php:120
+msgid "installed and activated"
+msgstr ""
+
+#: admin/tabs/antispamtab.php:111
 msgid ""
-"reCAPTCHA requires PHP version 5.3 or newer. You are using PHP version %s. "
-"Contact your hosting provider."
+"This plugin is installed and activated, so the CAPTCHA is ready to be used."
 msgstr ""
 
 #: admin/tabs/emailtab.php:26
@@ -1715,10 +1726,10 @@ msgstr ""
 #: admin/tabs/formtab.php:152 admin/tabs/formtab.php:172
 #: admin/tabs/formtab.php:192 admin/tabs/formtab.php:212
 #: admin/tabs/formtab.php:227 admin/tabs/formtab.php:242
-#: admin/tabs/readingtab.php:147 admin/tabs/readingtab.php:159
-#: admin/tabs/readingtab.php:171 admin/tabs/readingtab.php:183
-#: admin/tabs/readingtab.php:196 admin/tabs/readingtab.php:209
-#: admin/tabs/readingtab.php:221
+#: admin/tabs/readingtab.php:161 admin/tabs/readingtab.php:173
+#: admin/tabs/readingtab.php:185 admin/tabs/readingtab.php:197
+#: admin/tabs/readingtab.php:210 admin/tabs/readingtab.php:223
+#: admin/tabs/readingtab.php:235
 msgid "Enabled"
 msgstr ""
 
@@ -1742,10 +1753,6 @@ msgstr ""
 
 #: admin/tabs/formtab.php:230 admin/tabs/formtab.php:245
 msgid "When enabled it is mandatory."
-msgstr ""
-
-#: admin/tabs/formtab.php:235 admin/tabs/uninstalltab.php:63
-msgid "reCAPTCHA"
 msgstr ""
 
 #: admin/tabs/readingtab.php:26
@@ -1832,37 +1839,50 @@ msgid ""
 "Admin entries get a special CSS styling. It will get a lightgrey background."
 msgstr ""
 
-#: admin/tabs/readingtab.php:135
+#: admin/tabs/readingtab.php:132
+msgid "Pagination"
+msgstr ""
+
+#: admin/tabs/readingtab.php:139
+msgid "Show a link to paginate All entries."
+msgstr ""
+
+#: admin/tabs/readingtab.php:141
+msgid ""
+"Clicking this link will list all the published entries in the guestbook."
+msgstr ""
+
+#: admin/tabs/readingtab.php:149
 msgid "Configure the parts of the entries that are shown to visitors."
 msgstr ""
 
-#: admin/tabs/readingtab.php:140
+#: admin/tabs/readingtab.php:154
 msgid "Avatar"
 msgstr ""
 
-#: admin/tabs/readingtab.php:176
+#: admin/tabs/readingtab.php:190
 msgid "Date and Time"
 msgstr ""
 
-#: admin/tabs/readingtab.php:184
+#: admin/tabs/readingtab.php:198
 msgid "Setting this will show the date and the time of the entry."
 msgstr ""
 
-#: admin/tabs/readingtab.php:197
+#: admin/tabs/readingtab.php:211
 msgid ""
 "Setting this will show the date of the entry. If Date and Time above are "
 "enabled, that setting has preference."
 msgstr ""
 
-#: admin/tabs/readingtab.php:202
+#: admin/tabs/readingtab.php:216
 msgid "Content"
 msgstr ""
 
-#: admin/tabs/readingtab.php:214
+#: admin/tabs/readingtab.php:228
 msgid "Edit link"
 msgstr ""
 
-#: admin/tabs/readingtab.php:222
+#: admin/tabs/readingtab.php:236
 msgid ""
 "A link to the editor will be added to the content. Only visible for "
 "moderators."
@@ -1902,10 +1922,6 @@ msgstr ""
 msgid "Yes, I'm absolutely sure of this. Proceed!"
 msgstr ""
 
-#: admin/tabs/uninstalltab.php:66
-msgid "Also delete the reCAPTCHA keys"
-msgstr ""
-
-#: admin/tabs/uninstalltab.php:73
+#: admin/tabs/uninstalltab.php:65
 msgid "Uninstall &raquo;"
 msgstr ""

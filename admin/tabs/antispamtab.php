@@ -96,43 +96,39 @@ function gwolle_gb_page_settingstab_antispam() {
 			</td>
 		</tr>
 
-		<?php
-		$recaptcha_publicKey = gwolle_gb_sanitize_output( get_option('recaptcha-public-key') );
-		$recaptcha_privateKey = gwolle_gb_sanitize_output( get_option('recaptcha-private-key') );
-		?>
 		<tr valign="top">
-			<th scope="row"><label for="recaptcha-public-key">reCAPTCHA</label><br />
-				<span class="setting-description">
-					<a href="http://www.google.com/recaptcha/intro/index.html" title="<?php _e('Learn more about reCAPTCHA...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e("What's that?", GWOLLE_GB_TEXTDOMAIN); ?></a>
-				</span>
-			</th>
+			<th scope="row"><?php _e('CAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?></th>
 			<td>
 				<div>
-					<input name="recaptcha-public-key" type="text" id="recaptcha-public-key" value="<?php echo $recaptcha_publicKey; ?>" class="regular-text" />
-					<label for="recaptcha-public-key" class="setting-description"><?php _e('<strong>Site (Public)</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></label>
-					<br />
-					<input name="recaptcha-private-key" type="text" id="recaptcha-private-key" value="<?php echo $recaptcha_privateKey; ?>" class="regular-text" />
-					<label for="recaptcha-private-key" class="setting-description"><?php _e('<strong>Secret</strong> key of your reCAPTCHA account', GWOLLE_GB_TEXTDOMAIN); ?></label>
-					<br />
-					<span class="setting-description">
-						<?php _e('reCAPTCHA is a way to have visitors fill in a field with a few letters or numbers. It is a way to make sure that you have a human visitor and not a spambot. Not every visitor will appreciate it though, some will consider it unfriendly.', GWOLLE_GB_TEXTDOMAIN); ?>
-						<br />
-						<?php _e('The keys can be found at your', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.google.com/recaptcha/intro/index.html" title="<?php _e('Go to my reCAPTCHA sites...', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('reCAPTCHA sites overview', GWOLLE_GB_TEXTDOMAIN); ?></a>.
-					</span>
+					<?php
+					if ( class_exists('ReallySimpleCaptcha') ) { ?>
+						<span class="setting-description">
+							<?php _e('A CAPTCHA is a way to have visitors fill in a field with a few letters or numbers. It is a way to make sure that you have a human visitor and not a spambot. Not every visitor will appreciate it though, some will consider it unfriendly.', GWOLLE_GB_TEXTDOMAIN); ?>
+							<br /><br />
+							<?php _e('For the CAPTCHA you need the plugin', GWOLLE_GB_TEXTDOMAIN); ?>
+							<a href="https://wordpress.org/plugins/really-simple-captcha/" title="<?php _e('Really Simple CAPTCHA plugin at wordpress.org', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('Really Simple CAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							<?php _e('installed and activated', GWOLLE_GB_TEXTDOMAIN); ?>.<br />
+							<?php _e('This plugin is installed and activated, so the CAPTCHA is ready to be used.', GWOLLE_GB_TEXTDOMAIN); ?>
+						</span>
+						<?php
+					} else { ?>
+						<span class="setting-description">
+							<?php _e('A CAPTCHA is a way to have visitors fill in a field with a few letters or numbers. It is a way to make sure that you have a human visitor and not a spambot. Not every visitor will appreciate it though, some will consider it unfriendly.', GWOLLE_GB_TEXTDOMAIN); ?>
+							<br /><br />
+							<?php _e('For the CAPTCHA you need the plugin', GWOLLE_GB_TEXTDOMAIN); ?>
+							<a href="https://wordpress.org/plugins/really-simple-captcha/" title="<?php _e('Really Simple CAPTCHA plugin at wordpress.org', GWOLLE_GB_TEXTDOMAIN); ?>" target="_blank"><?php _e('Really Simple CAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?></a>
+							<?php _e('installed and activated', GWOLLE_GB_TEXTDOMAIN); ?>.
+						</span>
+						<?php
+					} ?>
 				</div>
-				<?php
-				if ( version_compare( PHP_VERSION, '5.3', '<' ) ) {
-					echo '<p><strong>';
-					echo sprintf( __('reCAPTCHA requires PHP version 5.3 or newer. You are using PHP version %s. Contact your hosting provider.', GWOLLE_GB_TEXTDOMAIN), PHP_VERSION );
-					echo '</strong></p>';
-				} ?>
 			</td>
 		</tr>
 
 		<tr>
 			<td colspan="2">
 				<p class="submit">
-					<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
+					<input type="submit" name="gwolle_gb_settings_antispam" id="gwolle_gb_settings_antispam" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
 				</p>
 			</td>
 		</tr>

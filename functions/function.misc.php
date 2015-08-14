@@ -78,19 +78,18 @@ function gwolle_gb_get_excerpt( $content, $excerpt_length = 20 ) {
  */
 function gwolle_gb_get_author_name_html($entry) {
 
-	$author_name = trim( $entry->get_author_name() );
-	$author_name_html = $author_name;
+	$author_name = gwolle_gb_sanitize_output( trim( $entry->get_author_name() ) );
 
-	// Registered User;
+	// Registered User gets italic font-style
 	$author_id = $entry->get_author_id();
 	$is_moderator = gwolle_gb_is_moderator( $author_id );
 	if ( $is_moderator ) {
 		$author_name_html = '<i>' . $author_name . '</i>';
 	} else {
-		$author_name_html = gwolle_gb_sanitize_output( $author_name_html );
+		$author_name_html = $author_name;
 	}
 
-	// Link the author website?
+	// Link the author website if set in options
 	if ( get_option('gwolle_gb-linkAuthorWebsite', 'true') === 'true' ) {
 		$author_website = trim( $entry->get_author_website() );
 		if ($author_website) {
@@ -98,7 +97,8 @@ function gwolle_gb_get_author_name_html($entry) {
 			if ( !preg_match($pattern, $author_website, $matches) ) {
 				$author_website = "http://" . $author_website;
 			}
-			$author_name_html = '<a href="' . $author_website . '" target="_blank" title="' . $author_name . '">' . $author_name_html . '</a>';
+			$author_name_html = '<a href="' . $author_website . '" target="_blank"
+				title="' . __( 'Visit the website of', GWOLLE_GB_TEXTDOMAIN ) . ' ' . $author_name . ': ' . $author_website . '">' . $author_name_html . '</a>';
 		}
 	}
 	return $author_name_html;
@@ -238,96 +238,37 @@ function gwolle_gb_get_postid() {
 
 
 /*
- * Update Cache plugins
+ * Clear the cache of the most common Cache plugins.
  */
 function gwolle_gb_clear_cache() {
 
-	/* WP Super Cache */
-	if ( function_exists('wp_cache_post_change') ) {
-		$GLOBALS["super_cache_enabled"] = 1;
-		wp_cache_post_change( get_the_ID() );
-	}
-
-}
-
-
-/*
- * Parse the BBcode into HTML.
- */
-function gwolle_gb_bbcode_parse( $str ){
-	$bb[] = "#\[b\](.*?)\[/b\]#si";
-	$html[] = "<strong>\\1</strong>";
-	$bb[] = "#\[i\](.*?)\[/i\]#si";
-	$html[] = "<i>\\1</i>";
-	$bb[] = "#\[u\](.*?)\[/u\]#si";
-	$html[] = "<u>\\1</u>";
-	$bb[] = "#\[ul\](.*?)\[/ul\]#si";
-	$html[] = "<ul>\\1</ul>";
-	$bb[] = "#\[ol\](.*?)\[/ol\]#si";
-	$html[] = "<ol>\\1</ol>";
-	$bb[] = "#\[li\](.*?)\[/li\]#si";
-	$html[] = "<li>\\1</li>";
-	$str = preg_replace($bb, $html, $str);
-
-	$pattern="#\[url href=([^\]]*)\]([^\[]*)\[/url\]#i";
-	$replace='<a href="\\1" target="_blank" rel="nofollow">\\2</a>';
-	$str=preg_replace($pattern, $replace, $str);
-
-	$pattern="#\[img\]([^\[]*)\[/img\]#i";
-	$replace='<img src="\\1" alt=""/>';
-	$str=preg_replace($pattern, $replace, $str);
-
-	//$str=nl2br($str);
-	return $str;
-}
-
-
-/*
- * Strip the BBcode.
- */
-function gwolle_gb_bbcode_strip( $str ){
-	$bb[] = "#\[b\](.*?)\[/b\]#si";
-	$html[] = "\\1";
-	$bb[] = "#\[i\](.*?)\[/i\]#si";
-	$html[] = "\\1";
-	$bb[] = "#\[u\](.*?)\[/u\]#si";
-	$html[] = "\\1";
-	$bb[] = "#\[ul\](.*?)\[/ul\]#si";
-	$html[] = "\\1";
-	$bb[] = "#\[ol\](.*?)\[/ol\]#si";
-	$html[] = "\\1";
-	$bb[] = "#\[li\](.*?)\[/li\]#si";
-	$html[] = "\\1";
-	$str = preg_replace($bb, $html, $str);
-
-	$pattern="#\[url href=([^\]]*)\]([^\[]*)\[/url\]#i";
-	$replace='\\1';
-	$str=preg_replace($pattern, $replace, $str);
-
-	$pattern="#\[img\]([^\[]*)\[/img\]#i";
-	$replace='';
-	$str=preg_replace($pattern, $replace, $str);
-
-	return $str;
-}
-
-/*
- * Convert to 3byte Emoji, if db-charset is only utf8mb3.
- *
- * $Args: - string, text string to encode
- *        - field, the database field that is used for that string, will be checked on charset.
- *
- * Return: string, encoded or not.
- */
-function gwolle_gb_maybe_encode_emoji( $string, $field ) {
-	global $wpdb;
-	if ( method_exists($wpdb, 'get_col_charset') ){
-		$charset = $wpdb->get_col_charset( $wpdb->gwolle_gb_entries, $field );
-		if ( 'utf8' === $charset && function_exists('wp_encode_emoji') ) {
-			$string = wp_encode_emoji( $string );
+	/* Cachify */
+	if ( class_exists('Cachify') ) {
+		$cachify = new Cachify();
+		if ( method_exists($cachify, 'flush_total_cache') ) {
+			$cachify->flush_total_cache(true);
 		}
 	}
-	return $string;
+
+	/* W3 Total Cache */
+	if ( function_exists('w3tc_pgcache_flush') ) {
+		w3tc_pgcache_flush();
+	}
+
+	/* WP Fastest Cache */
+	if ( class_exists('WpFastestCache') ) {
+		$WpFastestCache = new WpFastestCache();
+		if ( method_exists($WpFastestCache, 'deleteCache') ) {
+			$WpFastestCache->deleteCache();
+		}
+	}
+
+	/* WP Super Cache */
+	if ( function_exists('wp_cache_clear_cache') ) {
+		$GLOBALS["super_cache_enabled"] = 1;
+		wp_cache_clear_cache();
+	}
+
 }
 
 

@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.3
-Stable tag: 1.4.4
+Stable tag: 1.4.7
 License: GPLv2 or later
 
 Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -28,10 +28,10 @@ Current features include:
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
 * Custom Anti-Spam question for fighting spam, too.
-* reCAPTCHA integration for fighting spam, as well.
+* CAPTCHA integration for fighting spam, as well.
 * Simple Form Builder to select which form-fields you want to use.
 * Option List with the parts of each entry that you want to show.
-* Localisation. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
+* Localization. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
 * IP-address and host-logging with link to WHOIS query site.
@@ -113,8 +113,6 @@ If you have a feature request please use the forum on WordPress.org.
 The plugin itself is released under the GNU General Public License; a copy of this licence can be found at the licence homepage or
 in the gwolle-gb.php file at the top.
 
-For the licences regarding the use of reCAPTCHA you may ask the authors.
-
 = Coming Soon =
 
 These features are planned. There is no particular timeframe or order for when it will be added.
@@ -122,15 +120,10 @@ If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
 * Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
-* Frontend: Add pagination link for all entries (optional).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
 * Widget: Add option to not show admin entries.
 * Widget: Add option to select number of words.
-* Settings: Have button disabled with certain options, untill checkbox is clicked.
-* Settings: Save all tabs when saving.
-* Admin pages: Make them more Responsive.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
-* Posting: Trigger most cache plugins to update their cache.
 
 = API, add an entry =
 
@@ -238,9 +231,15 @@ The header needs to look like this:
 	)
 	?>
 
-The next lines are made up of the content. Date needs to be a UNIX timestamp. For manually creating a timestamp, look at
+The next lines are made up of the content.
+
+Date needs to be a UNIX timestamp. For manually creating a timestamp, look at
 the [timestamp generator](http://www.timestampgenerator.com/).
+
+It expects quotes around each field, so having quotes inside the content of the entry can break the import process.
+
 With version 1.4.1 and older, the field datetime was called date.
+
 You could make a test-entry, export that, and look to see what the importer expects from the CSV.
 Make sure you use UNIX line-endings. Any decent text-editor can transform a textdocument to UNIX line-endings.
 
@@ -268,17 +267,15 @@ Your first option is to use Akismet. It works like a charm. Fighting spam has ne
 
 If that doesn't work enough, use the Custom Anti-Spam question.
 
-You can also use reCAPTCHA. It might scare off some visitors, though.
+You can also use a CAPTCHA. It might scare off some visitors, though.
 
-= My reCAPTCHA doesn't show up in the form. =
+= I enabled the CAPTCHA, but I don't see it in the form. =
 
-If you did enable reCAPTCHA it should show your reCAPTCHA. reCAPTCHA only works on PHP 5.3 and higher.
+The CAPTCHA uses the one provided by the [Really Simple Captcha plugin](https://wordpress.org/plugins/really-simple-captcha/).
+Please install and activate that plugin.
 
-It could also be that you have JavaScript errors. You can check this in the Inspector/console of your browser.
-
-= After submitting a new entry, I get errors about reCAPTCHA. =
-If the form gives you errors, even though you filled in everything correctly, there might be something strange happening.
-On some setups reCAPTCHA doesn't report Succes or Error. If you are able to debug this, and tell me what is happening, I would be happy to hear that.
+If it still doesn't show, it could be that the plugin has no write permission in the /tmp folder of the Really Simple Captcha plugin.
+Please fix this in your install.
 
 = I don't see the labels in the form. =
 
@@ -331,8 +328,14 @@ This will most likely add the rewrite rule for the RSS Feed.
 
 When you have moderation disabled, Gwolle Guestbook will try to refresh the cache. If it doesn't on your setup,
 please let me know which caching plugin you use, and support for it might be added.
-If you use moderation, and check your entries manually, then you should also refresh or delete your cache manually.
-Most caching plugins offer support for that.
+
+You can also refresh or delete your cache manually. Most caching plugins offer support for that.
+
+= I use a Multi-Lingual plugin =
+
+There are 2 settings that you need to pay attention to. If you saved the settings for the form tab, you should save an
+empty header and notice text. It will fill in the default there after saving, but that is okay.
+As long as you saved an empty option, or it is still not-saved, then it will show the translated text from your MO file.
 
 = What capabilities are needed? =
 
@@ -369,14 +372,39 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.4.7 =
+* 2015-08-14
+* Fix adding an entry without CAPTCHA enabled.
+* Make header and notice compatible with Multi-Lingual plugins.
+* Add parameter to template function gwolle_gb_entry_template.
+* Add CSS class for even/uneven entry.
+* Have better usability in handling disabled submit buttons on admin pages.
+* Have sensible attributes for submit-button on settings page.
+* Move pagination to own files and functions.
+* Use h1 headings on admin pages.
+
+= 1.4.6 =
+* 2015-08-12
+* Improve Responsive Layout of Admin Pages.
+* Add option to paginate All entries.
+* Clear Cache plugins on admin changes as well.
+* Support Cachify, W3 Total Cache, WP Fastest Cache.
+* Improve support for WP Super Cache.
+* Refactor BBcode and Emoji functions into own file.
+* Add function gwolle_gb_get_emoji.
+* Improve html of author_name.
+* Update pot, nl_NL.
+
 = 1.4.5 =
-* 2015-08-
+* 2015-08-10
+* Drop reCAPTCHA completely.
+* Use Really Simple CAPTCHA plugin from now on.
 * Rename from Gwolle-GB to Gwolle Guestbook.
 * Add function gwolle_gb_bbcode_strip.
 * Strip BBcode from Widget and Dashboard Widget.
-* Strip BBcode from entry when BBcode is disabled.
+* Strip BBcode from Entry when BBcode is disabled.
 * Strip BBcode for Akismet service request.
-* Fix link in widget for WPML.
+* Fix link in Widget for WPML.
 * Add placeholder to textarea, also in admin editor.
 * Fix PHP notice in AJAX request.
 * Add word-break and word-wrap to admin CSS.

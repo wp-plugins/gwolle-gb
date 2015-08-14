@@ -15,8 +15,6 @@ function gwolle_gb_frontend_read() {
 
 	$output = '';
 
-	$permalink = get_permalink(get_the_ID());
-
 	$entriesPerPage = (int) get_option('gwolle_gb-entriesPerPage', 20);
 
 	$entriesCount = gwolle_gb_get_entry_count(
@@ -50,96 +48,38 @@ function gwolle_gb_frontend_read() {
 		$mysqlFirstRow = $firstEntryNum - 1;
 	}
 
-	$lastEntryNum = $pageNum * $entriesPerPage;
-	if ($entriesCount == 0) {
-		$lastEntryNum = 0;
-	} elseif ($lastEntryNum > $entriesCount) {
-		$lastEntryNum = $firstEntryNum + ($entriesCount - ($pageNum - 1) * $entriesPerPage) - 1;
-	}
-
-	/* Make an optional extra page, with a Get-parameter like show_all=true, which shows all the entries.
-	 * This would need a settings option, which is off by default.
-	 * https://wordpress.org/support/topic/show-all-posts-6?replies=1
-	 */
 
 	/* Get the entries for the frontend */
-	$entries = gwolle_gb_get_entries(
-		array(
-			'offset'      => $mysqlFirstRow,
-			'num_entries' => $entriesPerPage,
-			'checked'     => 'checked',
-			'trash'       => 'notrash',
-			'spam'        => 'nospam'
-		)
-	);
-
-	/* Page navigation */
-	$pagination = '<div class="page-navigation">';
-	if ($pageNum > 1) {
-		$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum - 1), $permalink ) . '" title="' . __('Previous page', GWOLLE_GB_TEXTDOMAIN) . '">&laquo;</a>';
-	}
-	if ($pageNum < 5) {
-		if ($countPages < 5) {
-			$showRange = $countPages;
-		} else {
-			$showRange = 5;
-		}
-
-		for ($i = 1; $i < ($showRange + 1); $i++) {
-			if ($i == $pageNum) {
-				$pagination .= '<span>' . $i . '</span>';
-			} else {
-				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
-			}
-		}
-
-		if ( $countPages > 6 ) {
-			if ( $countPages > 7 && ($pageNum + 3) < $countPages ) {
-				$pagination .= '<span class="page-numbers dots">...</span>';
-			}
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
-		}
-		if ($pageNum < $countPages) {
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
-		}
-	} elseif ($pageNum >= 5) {
-		$pagination .= '<a href="' . add_query_arg( 'pageNum', 1, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . ' 1">1</a>';
-		if ( ($pageNum - 4) > 1) {
-			$pagination .= '<span class="page-numbers dots">...</span>';
-		}
-		if ( ($pageNum + 2) < $countPages) {
-			$minRange = $pageNum - 2;
-			$showRange = $pageNum + 2;
-		} else {
-			$minRange = $pageNum - 3;
-			$showRange = $countPages - 1;
-		}
-		for ($i = $minRange; $i <= $showRange; $i++) {
-			if ($i == $pageNum) {
-				$pagination .= '<span>' . $i . '</span>';
-			} else {
-				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
-			}
-		}
-		if ($pageNum == $countPages) {
-			$pagination .= '<span class="page-numbers current">' . $pageNum . '</span>';
-		}
-
-		if ($pageNum < $countPages) {
-			if ( ($pageNum + 3) < $countPages ) {
-				$pagination .= '<span class="page-numbers dots">...</span>';
-			}
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
-		}
-	}
-	$pagination .= '</div>
-		';
-	if ($countPages > 1) {
-		$output .= $pagination;
+	if ( isset($_GET['show_all']) && $_GET['show_all'] == 'true' ) {
+		$entries = gwolle_gb_get_entries(
+			array(
+				'offset'      => 0,
+				'num_entries' => -1,
+				'checked'     => 'checked',
+				'trash'       => 'notrash',
+				'spam'        => 'nospam'
+			)
+		);
+		$pageNum = 0; // do not have it set to 1, this way the '1' will be clickable too.
+	} else {
+		$entries = gwolle_gb_get_entries(
+			array(
+				'offset'      => $mysqlFirstRow,
+				'num_entries' => $entriesPerPage,
+				'checked'     => 'checked',
+				'trash'       => 'notrash',
+				'spam'        => 'nospam'
+			)
+		);
 	}
 
-	/* Entries */
+
+	/* Page navigation on top */
+	$pagination = gwolle_gb_pagination_frontend( $pageNum, $countPages );
+	$output .= $pagination;
+
+
+	/* Entries from the template */
 	if ( !is_array($entries) || empty($entries) ) {
 		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
 	} else {
@@ -164,10 +104,12 @@ function gwolle_gb_frontend_read() {
 
 		}
 
+		$counter = 0;
 		foreach ($entries as $entry) {
+			$counter++;
 
 			// Run the function from the template to get the entry.
-			$entry_output = gwolle_gb_entry_template( $entry, $first );
+			$entry_output = gwolle_gb_entry_template( $entry, $first, $counter );
 
 			$first = false;
 
@@ -180,9 +122,10 @@ function gwolle_gb_frontend_read() {
 
 	}
 
-	if ($countPages > 1) {
-		$output .= $pagination;
-	}
+
+	/* Page navigation on bottom */
+	$output .= $pagination;
+
 
 	// Add filter for the complete output.
 	$output = apply_filters( 'gwolle_gb_entries_read', $output);

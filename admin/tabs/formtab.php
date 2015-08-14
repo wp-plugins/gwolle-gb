@@ -162,7 +162,7 @@ We reserve our right to edit, delete, or not publish entries.
 		</tr>
 
 		<tr valign="top">
-			<th scope="row"><label for=""form_homepage_enabled><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+			<th scope="row"><label for="form_homepage_enabled"><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 			<td>
 				<input type="checkbox" id="form_homepage_enabled" name="form_homepage_enabled"<?php
 					if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
@@ -232,7 +232,7 @@ We reserve our right to edit, delete, or not publish entries.
 		</tr>
 
 		<tr valign="top">
-			<th scope="row"><label for="form_recaptcha_enabled"><?php _e('reCAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
+			<th scope="row"><label for="form_recaptcha_enabled"><?php _e('CAPTCHA', GWOLLE_GB_TEXTDOMAIN); ?>:</label></th>
 			<td>
 				<input type="checkbox" id="form_recaptcha_enabled" name="form_recaptcha_enabled"<?php
 					if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
@@ -249,7 +249,7 @@ We reserve our right to edit, delete, or not publish entries.
 		<tr>
 			<td colspan="3">
 				<p class="submit">
-					<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
+					<input type="submit" name="gwolle_gb_settings_form" id="gwolle_gb_settings_form" class="button-primary" value="<?php esc_attr_e('Save settings', GWOLLE_GB_TEXTDOMAIN); ?>" />
 				</p>
 			</td>
 		</tr>

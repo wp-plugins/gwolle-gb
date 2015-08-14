@@ -11,8 +11,6 @@
 /*
  * Add a menu in the WordPress backend.
  */
-
-add_action('admin_menu', 'gwolle_gb_adminmenu');
 function gwolle_gb_adminmenu() {
 	/*
 	 * How to add new menu-entries:
@@ -68,6 +66,7 @@ function gwolle_gb_adminmenu() {
 	// Load JavaScript for Admin
 	wp_enqueue_script( 'gwolle-gb-entries', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/js/admin.js', 'jquery', GWOLLE_GB_VER, true );
 }
+add_action('admin_menu', 'gwolle_gb_adminmenu');
 
 
 /*
@@ -89,8 +88,6 @@ add_filter( 'plugin_action_links', 'gwolle_gb_links', 10, 2 );
  * Handle the $_POST for the Frontend.
  * Use this action, since we have a $post already and can use get_the_ID().
  */
-
-add_action('wp', 'gwolle_gb_handle_post');
 function gwolle_gb_handle_post() {
 	if ( !is_admin() ) {
 		// Frontend Handling of $_POST, only one form
@@ -99,13 +96,12 @@ function gwolle_gb_handle_post() {
 		}
 	}
 }
+add_action('wp', 'gwolle_gb_handle_post');
 
 
 /*
  * Register settings
  */
-
-add_action( 'admin_init', 'gwolle_gb_register_settings' );
 function gwolle_gb_register_settings() {
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-admin_style',       'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-adminMailContent',  'strval' ); // empty by default
@@ -125,6 +121,7 @@ function gwolle_gb_register_settings() {
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-moderate-entries',  'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-notifyByMail',      'strval' ); // array, but initially empty
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-notice',            'strval' ); // string, but initially empty
+	register_setting( 'gwolle_gb_options', 'gwolle_gb-paginate_all',      'strval' ); // 'false'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-read',              'strval' ); // serialized Array, but initially empty
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-require_login',     'strval' ); // 'false'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-showEntryIcons',    'strval' ); // 'true'
@@ -132,6 +129,7 @@ function gwolle_gb_register_settings() {
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-showSmilies',       'strval' ); // 'true'
 	register_setting( 'gwolle_gb_options', 'gwolle_gb_version',           'strval' ); // string, mind the underscore
 }
+add_action( 'admin_init', 'gwolle_gb_register_settings' );
 
 
 add_action('admin_init', 'gwolle_gb_init');

@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://zenoweb.nl
 Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.
-Version: 1.4.4
+Version: 1.4.7
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
 License: GPLv2 or later
@@ -31,7 +31,7 @@ Domain Path: /lang/
 
 
 // Plugin Version
-define('GWOLLE_GB_VER', '1.4.4');
+define('GWOLLE_GB_VER', '1.4.7');
 
 
 /*
@@ -64,6 +64,7 @@ include_once( GWOLLE_GB_DIR . '/functions/class.entry.php' );
 
 // Functions for the frontend
 include_once( GWOLLE_GB_DIR . '/frontend/index.php' );
+include_once( GWOLLE_GB_DIR . '/frontend/pagination.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/posthandling.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/read.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/rss.php' );
@@ -78,6 +79,7 @@ include_once( GWOLLE_GB_DIR . '/admin/page-export.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-gwolle-gb.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-import.php' );
 include_once( GWOLLE_GB_DIR . '/admin/page-settings.php' );
+include_once( GWOLLE_GB_DIR . '/admin/pagination.php' );
 include_once( GWOLLE_GB_DIR . '/admin/upgrade.php' );
 
 // Tabs for page-settings.php
@@ -90,6 +92,7 @@ include_once( GWOLLE_GB_DIR . '/admin/tabs/uninstalltab.php' );
 
 // General Functions
 include_once( GWOLLE_GB_DIR . '/functions/function.akismet.php' );
+include_once( GWOLLE_GB_DIR . '/functions/function.bbcode_emoji.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.get_entries.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.get_entry_count.php' );
 include_once( GWOLLE_GB_DIR . '/functions/function.log.php' );

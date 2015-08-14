@@ -10,9 +10,9 @@ function gwolle_gb_installSplash() {
 	?>
 	<div class="wrap">
 		<div id="icon-gwolle-gb"><br /></div>
-		<h2>Gwolle-GB &#8212;
+		<h1>Gwolle-GB &#8212;
 			<?php _e('Installation',GWOLLE_GB_TEXTDOMAIN); ?>
-		</h2>
+		</h1>
 
 		<div>
 			<?php
