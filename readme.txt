@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.3
-Stable tag: 1.4.6
+Stable tag: 1.4.7
 License: GPLv2 or later
 
 Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -373,8 +373,8 @@ and also the WordPress documentation. When you made a translation, you can send 
 == Changelog ==
 
 = 1.4.7 =
-* 2015-08-
-* Fix adding an entry whithout CAPTCHA enabled.
+* 2015-08-14
+* Fix adding an entry without CAPTCHA enabled.
 * Make header and notice compatible with Multi-Lingual plugins.
 * Add parameter to template function gwolle_gb_entry_template.
 * Add CSS class for even/uneven entry.
