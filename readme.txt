@@ -121,6 +121,7 @@ If you do have a feature request, please post it on the support forum.
 * More translations (send them in).
 * Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
+* Frontend: HTML5 markup.
 * Widget: Add option to not show admin entries.
 * Widget: Add option to select number of words.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
@@ -371,6 +372,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 
 == Changelog ==
+
+= 1.4.8 =
+* 2015-
+* Add actions and filters to entry-list and to widget.
 
 = 1.4.7 =
 * 2015-08-14

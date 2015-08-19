@@ -45,6 +45,9 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 		}
 		$entry_output .= '">';
 
+		// Use this filter to just add something
+		$entry_output .= apply_filters( 'gwolle_gb_entry_read_add_before', '');
+
 		// Author Info
 		$entry_output .= '<div class="gb-author-info">';
 
@@ -113,9 +116,16 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 				$entry_output .= '
 					<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
 			}
+
+			// Use this filter to just add something
+			$entry_output .= apply_filters( 'gwolle_gb_entry_read_add_content', '');
+
 			$entry_output .= '</div>
 			';
 		}
+
+		// Use this filter to just add something
+		$entry_output .= apply_filters( 'gwolle_gb_entry_read_add_after', '');
 
 		$entry_output .= '</div>
 			';

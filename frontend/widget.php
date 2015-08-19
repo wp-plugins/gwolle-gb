@@ -68,6 +68,10 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						$widget_html .= '
 										<li class="gwolle_gb_widget">
 										';
+
+						// Use this filter to just add something
+						$widget_html .= apply_filters( 'gwolle_gb_entry_widget_add_before', '');
+
 						if ( $name ) {
 							$widget_html .= '<span class="gb-author-name">' . $entry->get_author_name() . '</span>';
 						}
@@ -85,10 +89,20 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
-						$widget_html .= '<span class="gb-entry-content">' . $entry_content . '</span';
+						$widget_html .= '<span class="gb-entry-content">' . $entry_content;
+
+						// Use this filter to just add something
+						$widget_html .= apply_filters( 'gwolle_gb_entry_widget_add_content', '');
+
+						$widget_html .= '</span>';
+
+						// Use this filter to just add something
+						$widget_html .= apply_filters( 'gwolle_gb_entry_widget_add_after', '');
+
 						$widget_html .= '
 										</li>
 										';
+
 						$counter++;
 					}
 				}
@@ -112,6 +126,10 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						$widget_html .= '
 										<li class="gwolle_gb_widget">
 										';
+
+						// Use this filter to just add something
+						$widget_html .= apply_filters( 'gwolle_gb_entry_widget_add_before', '');
+
 						if ( $name ) {
 							$widget_html .= '<span class="gb-author-name">' . $entry->get_author_name() . '</span>';
 						}
@@ -129,7 +147,16 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 						if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
 							$entry_content = convert_smilies($entry_content);
 						}
-						$widget_html .= '<span class="gb-entry-content">' . $entry_content . '</span>';
+						$widget_html .= '<span class="gb-entry-content">' . $entry_content;
+
+						// Use this filter to just add something
+						$widget_html .= apply_filters( 'gwolle_gb_entry_widget_add_content', '');
+
+						$widget_html .= '</span>';
+
+						// Use this filter to just add something
+						$widget_html .= apply_filters( 'gwolle_gb_entry_widget_add_after', '');
+
 						$widget_html .= '
 										</li>
 										';
@@ -148,6 +175,9 @@ if (function_exists('register_sidebar') && class_exists('WP_Widget')) {
 				</p>';
 			}
 			$widget_html .= '</div>' . $after_widget;
+
+			// Add a filter for the entries, so devs can add or remove parts.
+			$widget_html .= apply_filters( 'gwolle_gb_widget', $widget_html);
 
 			if ( $counter > 0 ) {
 				// Only display widget if there are any entries
