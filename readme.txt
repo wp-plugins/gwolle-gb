@@ -122,6 +122,7 @@ If you do have a feature request, please post it on the support forum.
 * Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
 * Frontend: HTML5 markup.
+* Frontend: Add filters for the Form in write.php.
 * Widget: Add option to not show admin entries.
 * Widget: Add option to select number of words.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
@@ -208,6 +209,22 @@ When saving an entry you can filter it like this.
 		return $entry;
 	}
 	add_filter( 'gwolle_gb_entry_save', 'your_custom_function');
+	?>
+
+Adding text to the entries list can be done with several hooks.
+The next filters will add the string of text before each entry, in the content of each entry, or after each entry.
+
+	<?php
+	function gw_add_content($string) {
+		$string .= "Filter add content.";
+		return $string;
+	}
+	add_filter( 'gwolle_gb_entry_read_add_before',    'gw_add_content');
+	add_filter( 'gwolle_gb_entry_read_add_content',   'gw_add_content');
+	add_filter( 'gwolle_gb_entry_read_add_after',     'gw_add_content');
+	add_filter( 'gwolle_gb_entry_widget_add_before',  'gw_add_content');
+	add_filter( 'gwolle_gb_entry_widget_add_content', 'gw_add_content');
+	add_filter( 'gwolle_gb_entry_widget_add_after',   'gw_add_content');
 	?>
 
 = Format for importing through CSV-file =
