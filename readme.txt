@@ -265,7 +265,8 @@ The header needs to look like this:
 		'datetime',
 		'isspam',
 		'ischecked',
-		'istrash'
+		'istrash',
+		'admin_reply'
 	)
 	?>
 
@@ -412,7 +413,8 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 = 1.4.8 =
 * 2015-08-27
-* Add admin reply.
+* Add Admin Reply.
+* Update Importer and Exporter.
 * Add filters to entry-list and to widget.
 * Add parameter $entry to many filters.
 * Add CSS class for counter in entry-list.

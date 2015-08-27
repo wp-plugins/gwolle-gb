@@ -66,6 +66,7 @@ function gwolle_gb_page_export() {
 													<li><?php _e('"is checked" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
 													<li><?php _e('"is spam" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
 													<li><?php _e('"is trash" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
+													<li><?php _e('Admin Reply', GWOLLE_GB_TEXTDOMAIN); ?></li>
 												</ul>
 												<?php _e('The exporter does not delete any data, so your data will still be here.', GWOLLE_GB_TEXTDOMAIN); ?>
 
@@ -148,7 +149,8 @@ function gwolle_gb_export_callback() {
 				'datetime',
 				'isspam',
 				'ischecked',
-				'istrash'
+				'istrash',
+				'admin_reply'
 			));
 
 		$saved = 0;
@@ -168,6 +170,7 @@ function gwolle_gb_export_callback() {
 			$row[] = $entry->get_isspam();
 			$row[] = $entry->get_ischecked();
 			$row[] = $entry->get_istrash();
+			$row[] = $entry->get_admin_reply();
 
 			fputcsv($output, $row);
 

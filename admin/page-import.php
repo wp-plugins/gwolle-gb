@@ -215,7 +215,7 @@ function gwolle_gb_page_import() {
 								$num = count($data);
 								if ($row == 0) {
 									// Check the headerrow. $tesrow_old is version 1.4.1 and older.
-									$testrow_old = array(
+									$testrow_1_0 = array(
 										'id',
 										'author_name',
 										'author_email',
@@ -229,7 +229,7 @@ function gwolle_gb_page_import() {
 										'ischecked',
 										'istrash'
 									);
-									$testrow = array(
+									$testrow_1_4_1 = array(
 										'id',
 										'author_name',
 										'author_email',
@@ -243,7 +243,22 @@ function gwolle_gb_page_import() {
 										'ischecked',
 										'istrash'
 									);
-									if ( $data != $testrow_old && $data != $testrow ) {
+									$testrow_1_4_8 = array(
+										'id',
+										'author_name',
+										'author_email',
+										'author_origin',
+										'author_website',
+										'author_ip',
+										'author_host',
+										'content',
+										'datetime',
+										'isspam',
+										'ischecked',
+										'istrash',
+										'admin_reply'
+									);
+									if ( $data != $testrow_1_0 && $data != $testrow_1_4_1 && $data != $testrow_1_4_8 ) {
 										$gwolle_gb_errors = 'error';
 										$gwolle_gb_messages .= '<p>' . __("It seems your CSV file is from an export that is not compatible with this version of Gwolle-GB.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 										break;
@@ -252,7 +267,7 @@ function gwolle_gb_page_import() {
 									continue;
 								}
 
-								if ( $num != 12 ) {
+								if ( $num != 12 && $num != 13 ) {
 									$gwolle_gb_errors = 'error';
 									$gwolle_gb_messages .= '<p>' . __("Your data seems to be corrupt. Import failed.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
 									break;
@@ -267,7 +282,7 @@ function gwolle_gb_page_import() {
 								}
 
 								/* Set the data in the instance */
-								// $entry->set_id( $data[0] );
+								// $entry->set_id( $data[0] ); // id of entry
 								$entry->set_author_name( $data[1] );
 								$entry->set_author_email( $data[2] );
 								$entry->set_author_origin( $data[3] );
@@ -279,6 +294,9 @@ function gwolle_gb_page_import() {
 								$entry->set_isspam( $data[9] );
 								$entry->set_ischecked( $data[10] );
 								$entry->set_istrash( $data[11] );
+								if ( isset( $data[12] ) ) {
+									$entry->set_admin_reply( $data[12] ); // admin_reply is only since 1.4.8
+								}
 
 								/* Save the instance */
 								$save = $entry->save();
