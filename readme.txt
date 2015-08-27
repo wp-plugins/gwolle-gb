@@ -416,7 +416,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Add CSS class for counter in entry-list.
 * Add filters to the form.
 * Turn linebreaks off in Settings when excerpt_length is being used.
-* Update pot, nl_NL.
+* Update pot, de_DE, nl_NL.
 
 = 1.4.7 =
 * 2015-08-14
