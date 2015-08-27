@@ -482,14 +482,7 @@ class gwolle_gb_entry {
 		$this->admin_reply = $admin_reply;
 	}
 	public function set_admin_reply_uid($admin_reply_uid) {
-		$admin_reply_uid = intval($admin_reply_uid);
-		if ($admin_reply_uid) {
-			if ( strlen($this->admin_reply) > 0 ) {
-				$this->admin_reply_uid = $admin_reply_uid;
-			} else {
-				$this->admin_reply_uid = 0; // reset, there is no content
-			}
-		}
+		$this->admin_reply_uid = intval($admin_reply_uid);
 	}
 
 

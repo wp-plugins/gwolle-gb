@@ -157,6 +157,8 @@ The Array $args can have the following key/values:
 * checkedby, int with the WordPress ID of that moderator.
 * istrash, bool if it is in trash or not.
 * isspam, bool if it is spam or not.
+* admin_reply, string with content of the admin reply message.
+* admin_reply_uid, id with the WordPress user ID of the author of the admin_reply.
 
 = Filter an entry on the frontend =
 
@@ -409,9 +411,9 @@ and also the WordPress documentation. When you made a translation, you can send 
 == Changelog ==
 
 = 1.4.8 =
-* 2015-08-
+* 2015-08-27
 * Add admin reply.
-* Add actions and filters to entry-list and to widget.
+* Add filters to entry-list and to widget.
 * Add parameter $entry to many filters.
 * Add CSS class for counter in entry-list.
 * Add filters to the form.

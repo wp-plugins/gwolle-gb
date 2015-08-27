@@ -130,10 +130,7 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 
 				$class = '';
 				if ( get_option( 'gwolle_gb-admin_style', 'true' ) === 'true' ) {
-					$is_moderator = gwolle_gb_is_moderator( $entry->get_admin_reply_uid() );
-					if ( $is_moderator ) {
-						$class = ' admin-entry';
-					}
+					$class = ' admin-entry';
 				}
 
 				$admin_reply = '<div class="gb-entry-admin_reply' . $class . '">';
