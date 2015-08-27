@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gwolle Guestbook v1.4.6\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-26 12:24+0200\n"
-"PO-Revision-Date: 2015-08-26 12:26+0200\n"
+"POT-Creation-Date: 2015-08-27 14:45+0200\n"
+"PO-Revision-Date: 2015-08-27 14:46+0200\n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -93,93 +93,93 @@ msgid "Edit entry"
 msgstr "Bewerk bericht"
 
 # @ GWGB
-#: admin/dashboard-widget.php:116 admin/page-editor.php:585
+#: admin/dashboard-widget.php:116 admin/page-editor.php:632
 #: admin/page-entries.php:628 frontend/gwolle_gb-entry.php:118
 msgid "Edit"
 msgstr "Bewerken"
 
 # @ GWGB
-#: admin/dashboard-widget.php:120 admin/page-editor.php:507
+#: admin/dashboard-widget.php:120 admin/page-editor.php:554
 #: admin/page-entries.php:631
 msgid "Check entry"
 msgstr "Geen bericht vrij"
 
 # @ GWGB
-#: admin/dashboard-widget.php:120 admin/page-editor.php:507
+#: admin/dashboard-widget.php:120 admin/page-editor.php:554
 #: admin/page-entries.php:631
 msgid "Check"
 msgstr "Vrijgeven"
 
 # @ GWGB
-#: admin/dashboard-widget.php:124 admin/page-editor.php:510
+#: admin/dashboard-widget.php:124 admin/page-editor.php:557
 #: admin/page-entries.php:634
 msgid "Uncheck entry"
 msgstr "Geef bericht niet vrij"
 
 # @ GWGB
-#: admin/dashboard-widget.php:124 admin/page-editor.php:510
+#: admin/dashboard-widget.php:124 admin/page-editor.php:557
 #: admin/page-entries.php:634
 msgid "Uncheck"
 msgstr "Niet vrijgeven"
 
 # @ GWGB
-#: admin/dashboard-widget.php:128 admin/page-editor.php:513
+#: admin/dashboard-widget.php:128 admin/page-editor.php:560
 #: admin/page-entries.php:637
 msgid "Mark entry as spam."
 msgstr "Markeer bericht als spam."
 
 # @ GWGB
-#: admin/dashboard-widget.php:128 admin/page-editor.php:456
-#: admin/page-editor.php:513 admin/page-entries.php:428
+#: admin/dashboard-widget.php:128 admin/page-editor.php:503
+#: admin/page-editor.php:560 admin/page-entries.php:428
 #: admin/page-entries.php:637
 msgid "Spam"
 msgstr "Spam"
 
 # @ GWGB
-#: admin/dashboard-widget.php:132 admin/page-editor.php:516
+#: admin/dashboard-widget.php:132 admin/page-editor.php:563
 #: admin/page-entries.php:640
 msgid "Mark entry as not-spam."
 msgstr "Markeer bericht als niet-spam."
 
 # @ GWGB
-#: admin/dashboard-widget.php:132 admin/page-editor.php:516
+#: admin/dashboard-widget.php:132 admin/page-editor.php:563
 #: admin/page-entries.php:640
 msgid "Not spam"
 msgstr "Geen spam"
 
 # @ GWGB
-#: admin/dashboard-widget.php:136 admin/page-editor.php:519
+#: admin/dashboard-widget.php:136 admin/page-editor.php:566
 #: admin/page-entries.php:643
 msgid "Move entry to trash."
 msgstr "Verplaats bericht naar prullenbak."
 
 # @ GWGB
-#: admin/dashboard-widget.php:136 admin/page-editor.php:466
-#: admin/page-editor.php:519 admin/page-entries.php:432
+#: admin/dashboard-widget.php:136 admin/page-editor.php:513
+#: admin/page-editor.php:566 admin/page-entries.php:432
 #: admin/page-entries.php:643
 msgid "Trash"
 msgstr "Prullenbak"
 
 # @ GWGB
-#: admin/dashboard-widget.php:140 admin/page-editor.php:522
+#: admin/dashboard-widget.php:140 admin/page-editor.php:569
 #: admin/page-entries.php:646
 msgid "Recover entry from trash."
 msgstr "Herstellen uit de prullenbak."
 
 # @ GWGB
-#: admin/dashboard-widget.php:140 admin/page-editor.php:522
+#: admin/dashboard-widget.php:140 admin/page-editor.php:569
 #: admin/page-entries.php:646
 msgid "Untrash"
 msgstr "Herstellen"
 
 # @ GWGB
-#: admin/dashboard-widget.php:144 admin/page-editor.php:525
+#: admin/dashboard-widget.php:144 admin/page-editor.php:572
 #: admin/page-entries.php:649
 msgid "Please wait..."
 msgstr "Even wachten..."
 
 # @ GWGB
-#: admin/dashboard-widget.php:144 admin/page-editor.php:525
+#: admin/dashboard-widget.php:144 admin/page-editor.php:572
 #: admin/page-entries.php:649
 msgid "Wait..."
 msgstr "Wacht even..."
@@ -294,65 +294,66 @@ msgid "Submitted as Ham to the Akismet service."
 msgstr "Aangemeld als Ham bij de Akismet dienst."
 
 # @ GWGB
-#: admin/page-editor.php:167 admin/page-gwolle-gb.php:367
+#: admin/page-editor.php:186 admin/page-gwolle-gb.php:367
 #: admin/page-settings.php:317
 msgid "Changes saved."
 msgstr "Wijzigingen opgeslagen."
 
 # @ GWGB
-#: admin/page-editor.php:169 admin/page-editor.php:268
+#: admin/page-editor.php:188 admin/page-editor.php:295
 msgid "Error happened during saving."
 msgstr "Er ging iets fout bij het opslaan."
 
 # @ GWGB
-#: admin/page-editor.php:173
+#: admin/page-editor.php:192
 msgid "Entry was not changed."
 msgstr "Bericht was niet veranderd."
 
 # @ GWGB
-#: admin/page-editor.php:184
+#: admin/page-editor.php:202
 msgid "Entry removed."
 msgstr "Bericht verwijderd."
 
 # @ GWGB
-#: admin/page-editor.php:232
+#: admin/page-editor.php:250
 msgid "Entry has no content, even though that is mandatory."
 msgstr "Bericht heeft geen inhoud, terwijl dat wel verplicht is."
 
 # @ GWGB
-#: admin/page-editor.php:265
+#: admin/page-editor.php:292
 msgid "Entry saved."
 msgstr "Bericht opgeslagen."
 
 # @ GWGB
-#: admin/page-editor.php:272
+#: admin/page-editor.php:299
 msgid "Entry was not saved."
 msgstr "Bericht is niet opgeslagen."
 
 # @ GWGB
-#: admin/page-editor.php:309 admin/page-editor.php:326
-#: admin/page-editor.php:334 admin/page-editor.php:390
-#: admin/page-editor.php:404 admin/page-editor.php:497
-#: admin/page-editor.php:541 admin/page-editor.php:605
-#: admin/page-export.php:40 admin/page-import.php:345
-#: admin/page-import.php:412 admin/page-import.php:533
+#: admin/page-editor.php:337 admin/page-editor.php:355
+#: admin/page-editor.php:364 admin/page-editor.php:372
+#: admin/page-editor.php:437 admin/page-editor.php:451
+#: admin/page-editor.php:544 admin/page-editor.php:588
+#: admin/page-editor.php:652 admin/page-export.php:40
+#: admin/page-import.php:345 admin/page-import.php:412
+#: admin/page-import.php:533
 msgid "Click to open or close"
 msgstr "Klik om te openen of te sluiten"
 
 # @ GWGB
-#: admin/page-editor.php:309 frontend/write.php:223
+#: admin/page-editor.php:337 frontend/write.php:223
 msgid "Guestbook entry"
 msgstr "Gastenboek bericht"
 
 # @ GWGB
-#: admin/page-editor.php:311 admin/page-export.php:65
+#: admin/page-editor.php:339 admin/page-export.php:65
 #: admin/page-import.php:384 admin/page-import.php:426 frontend/write.php:230
 #: admin/tabs/formtab.php:187 admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr "Bericht"
 
 # @ GWGB
-#: admin/page-editor.php:314
+#: admin/page-editor.php:342 admin/page-editor.php:381
 #, php-format
 msgid ""
 "Line breaks will not be visible to the visitors due to your <a href=\"%s"
@@ -362,142 +363,151 @@ msgstr ""
 "\">instellingen</a>."
 
 # @ GWGB
-#: admin/page-editor.php:326 admin/page-editor.php:328 frontend/write.php:203
+#: admin/page-editor.php:355 admin/page-editor.php:357 frontend/write.php:203
 #: frontend/write.php:210 admin/tabs/formtab.php:167
 msgid "Website"
 msgstr "Website"
 
 # @ GWGB
-#: admin/page-editor.php:329
+#: admin/page-editor.php:358
 msgid "Example: <code>http://www.example.com/</code>"
 msgstr "Voorbeeld: <code>http://www.example.com/</code>"
 
 # @ GWGB
-#: admin/page-editor.php:334 admin/page-export.php:61
+#: admin/page-editor.php:364 admin/page-export.php:61
 msgid "Origin"
 msgstr "Woonplaats"
 
 # @ GWGB
-#: admin/page-editor.php:336 frontend/write.php:163 frontend/write.php:170
+#: admin/page-editor.php:366 frontend/write.php:163 frontend/write.php:170
 #: admin/tabs/formtab.php:127 admin/tabs/readingtab.php:181
 msgid "City"
 msgstr "Stad"
 
+#: admin/page-editor.php:373 frontend/gwolle_gb-entry.php:144
+msgid "Admin Reply by:"
+msgstr "Admin antwoord door:"
+
 # @ GWGB
-#: admin/page-editor.php:390
+#: admin/page-editor.php:378
+msgid "Admin Reply"
+msgstr "Admin antwoord"
+
+# @ GWGB
+#: admin/page-editor.php:437
 msgid "View Frontend"
 msgstr "Bekijk Frontend"
 
 # @ GWGB
-#: admin/page-editor.php:394 admin/page-gwolle-gb.php:143
+#: admin/page-editor.php:441 admin/page-gwolle-gb.php:143
 msgid "View Guestbook"
 msgstr "Bekijk Gastenboek"
 
 # @ GWGB
-#: admin/page-editor.php:404
+#: admin/page-editor.php:451
 msgid "Options"
 msgstr "Opties"
 
 # @ GWGB
-#: admin/page-editor.php:425
+#: admin/page-editor.php:472
 msgid "This entry is not yet visible."
 msgstr "Dit bericht is nog niet zichtbaar."
 
 # @ GWGB
-#: admin/page-editor.php:429 admin/page-editor.php:434
+#: admin/page-editor.php:476 admin/page-editor.php:481
 msgid "This entry is Visible."
 msgstr "Dit bericht is Zichtbaar."
 
 # @ GWGB
-#: admin/page-editor.php:430 admin/page-editor.php:435
+#: admin/page-editor.php:477 admin/page-editor.php:482
 msgid "This entry is Not Visible."
 msgstr "Dit bericht is Niet Zichtbaar."
 
 # @ GWGB
-#: admin/page-editor.php:446 frontend/posthandling.php:404
+#: admin/page-editor.php:493 frontend/posthandling.php:404
 msgid "Checked"
 msgstr "Vrijgegeven"
 
 # @ GWGB
-#: admin/page-editor.php:474
+#: admin/page-editor.php:521
 msgid "Remove this entry Permanently."
 msgstr "Verwijder dit bericht Permanent."
 
 # @ GWGB
-#: admin/page-editor.php:485
+#: admin/page-editor.php:532
 msgid "Save"
 msgstr "Opslaan"
 
 # @ GWGB
-#: admin/page-editor.php:497
+#: admin/page-editor.php:544
 msgid "Actions"
 msgstr "Acties"
 
 # @ GWGB
-#: admin/page-editor.php:541
+#: admin/page-editor.php:588
 msgid "Details"
 msgstr "Details"
 
 # @ GWGB
-#: admin/page-editor.php:545 admin/page-editor.php:590
+#: admin/page-editor.php:592 admin/page-editor.php:637
 #: admin/page-entries.php:499 admin/page-entries.php:515
 msgid "Author"
 msgstr "Auteur"
 
 # @ GWGB
-#: admin/page-editor.php:549 admin/page-editor.php:556
-#: admin/page-editor.php:574 admin/page-editor.php:581
-#: functions/function.log.php:164
+#: admin/page-editor.php:596 admin/page-editor.php:603
+#: admin/page-editor.php:621 admin/page-editor.php:628
+#: functions/function.log.php:170
 msgid "Unknown"
 msgstr "Onbekend"
 
 # @ GWGB
-#: admin/page-editor.php:552
+#: admin/page-editor.php:599
 msgid "E-Mail"
 msgstr "E-Mail"
 
 # @ GWGB
-#: admin/page-editor.php:559 admin/page-editor.php:615
+#: admin/page-editor.php:606 admin/page-editor.php:662
 msgid "Written"
 msgstr "Geschreven"
 
 # @ GWGB
-#: admin/page-editor.php:564
+#: admin/page-editor.php:611
 msgid "Not yet"
 msgstr "Nog niet"
 
 # @ GWGB
-#: admin/page-editor.php:567
+#: admin/page-editor.php:614
 msgid "Author's IP-address"
 msgstr "IP-adres van auteur"
 
 # @ GWGB
-#: admin/page-editor.php:570
+#: admin/page-editor.php:617
 msgid "Whois search for this IP"
 msgstr "Whois zoeken voor dit IP-adres"
 
 # @ GWGB
-#: admin/page-editor.php:577
+#: admin/page-editor.php:624
 msgid "Host"
 msgstr "Host"
 
 # @ GWGB
-#: admin/page-editor.php:585
+#: admin/page-editor.php:632
 msgid "Edit metadata"
 msgstr "Bewerk metadata"
 
 # @ GWGB
-#: admin/page-editor.php:593
+#: admin/page-editor.php:640
 msgid "Date and time"
 msgstr "Datum en tijd"
 
 # @ GWGB
-#: admin/page-editor.php:605
+#: admin/page-editor.php:652
 msgid "Entry log"
 msgstr "Bericht log"
 
 # @ GWGB
-#: admin/page-editor.php:624
+#: admin/page-editor.php:671
 msgid "No log yet."
 msgstr "Nog geen log."
 
@@ -952,7 +962,7 @@ msgid "The following users have subscribed to this service:"
 msgstr "De volgende gebruikers hebben zich aangemeld voor deze dienst:"
 
 # @ GWGB
-#: admin/page-gwolle-gb.php:203 functions/function.log.php:173
+#: admin/page-gwolle-gb.php:203 functions/function.log.php:179
 #: admin/tabs/emailtab.php:66 admin/tabs/emailtab.php:119
 msgid "You"
 msgstr "Jij"
@@ -1437,6 +1447,10 @@ msgstr "schreef op"
 msgid "on"
 msgstr "om"
 
+#: frontend/gwolle_gb-entry.php:147
+msgid "Admin Reply:"
+msgstr "Admin antwoord:"
+
 # @ GWGB
 #: frontend/pagination.php:23
 msgid "Previous page"
@@ -1752,59 +1766,74 @@ msgstr ""
 "publiceren.\n"
 
 # @ GWGB
-#: functions/function.log.php:94
+#: functions/function.log.php:97
 msgid "Entry has been locked."
 msgstr "Bericht wordt geblokkeerd."
 
 # @ GWGB
-#: functions/function.log.php:95
+#: functions/function.log.php:98
 msgid "Entry has been checked."
 msgstr "Bericht is vrijgegeven."
 
 # @ GWGB
-#: functions/function.log.php:96
+#: functions/function.log.php:99
 msgid "Entry marked as spam."
 msgstr "Bericht gemarkeerd als spam."
 
 # @ GWGB
-#: functions/function.log.php:97
+#: functions/function.log.php:100
 msgid "Entry marked as not spam."
 msgstr "Bericht is gemarkeerd als niet spam."
 
 # @ GWGB
-#: functions/function.log.php:98
+#: functions/function.log.php:101
 msgid "Entry has been edited."
 msgstr "Bericht is bewerkt."
 
 # @ GWGB
-#: functions/function.log.php:99
+#: functions/function.log.php:102
 msgid "Imported from DMSGuestbook"
 msgstr "Geïmporteerd vanuit DMSGuestbook"
 
 # @ GWGB
-#: functions/function.log.php:100
+#: functions/function.log.php:103
 msgid "Imported from WordPress comments"
 msgstr "Geïmporteerd vanuit WordPress reacties"
 
 # @ GWGB
-#: functions/function.log.php:101
+#: functions/function.log.php:104
 msgid "Imported from Gwolle-GB"
 msgstr "Geïmporteerd vanuit Gwolle-GB"
 
 # @ GWGB
-#: functions/function.log.php:102
+#: functions/function.log.php:105
 msgid "Exported to CSV file"
 msgstr "Geëxporteerd naar CSV bestand"
 
 # @ GWGB
-#: functions/function.log.php:103
+#: functions/function.log.php:106
 msgid "Entry has been trashed."
 msgstr "Bericht is verplaatst naar de prullenbak."
 
 # @ GWGB
-#: functions/function.log.php:104
+#: functions/function.log.php:107
 msgid "Entry has been untrashed."
 msgstr "Bericht is hersteld uit de prullenbak."
+
+# @ GWGB
+#: functions/function.log.php:108
+msgid "Admin reply has been added."
+msgstr "Admin antwoord is toegevoegd."
+
+# @ GWGB
+#: functions/function.log.php:109
+msgid "Admin reply has been updated."
+msgstr "Admin antwoord is bewerkt."
+
+# @ GWGB
+#: functions/function.log.php:110
+msgid "Admin reply has been removed."
+msgstr "Admin antwoord is verwijderd."
 
 # @ GWGB
 #: functions/function.misc.php:66
