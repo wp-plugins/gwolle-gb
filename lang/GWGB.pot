@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-27 14:45+0200\n"
+"POT-Creation-Date: 2015-08-27 15:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -269,8 +269,8 @@ msgstr ""
 #: admin/page-editor.php:437 admin/page-editor.php:451
 #: admin/page-editor.php:544 admin/page-editor.php:588
 #: admin/page-editor.php:652 admin/page-export.php:40
-#: admin/page-import.php:345 admin/page-import.php:412
-#: admin/page-import.php:533
+#: admin/page-import.php:363 admin/page-import.php:430
+#: admin/page-import.php:551
 msgid "Click to open or close"
 msgstr ""
 
@@ -279,7 +279,7 @@ msgid "Guestbook entry"
 msgstr ""
 
 #: admin/page-editor.php:339 admin/page-export.php:65
-#: admin/page-import.php:384 admin/page-import.php:426 frontend/write.php:230
+#: admin/page-import.php:402 admin/page-import.php:444 frontend/write.php:230
 #: admin/tabs/formtab.php:187 admin/tabs/uninstalltab.php:31
 msgid "Message"
 msgstr ""
@@ -309,11 +309,11 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: admin/page-editor.php:373 frontend/gwolle_gb-entry.php:144
+#: admin/page-editor.php:373 frontend/gwolle_gb-entry.php:142
 msgid "Admin Reply by:"
 msgstr ""
 
-#: admin/page-editor.php:378
+#: admin/page-editor.php:378 admin/page-export.php:69
 msgid "Admin Reply"
 msgstr ""
 
@@ -647,29 +647,29 @@ msgstr ""
 msgid "The exporter will preserve the following data per entry:"
 msgstr ""
 
-#: admin/page-export.php:58 admin/page-import.php:379
-#: admin/page-import.php:420 frontend/write.php:143 frontend/write.php:150
+#: admin/page-export.php:58 admin/page-import.php:397
+#: admin/page-import.php:438 frontend/write.php:143 frontend/write.php:150
 #: admin/tabs/formtab.php:107 admin/tabs/readingtab.php:169
 msgid "Name"
 msgstr ""
 
-#: admin/page-export.php:59 admin/page-import.php:380
-#: admin/page-import.php:422
+#: admin/page-export.php:59 admin/page-import.php:398
+#: admin/page-import.php:440
 msgid "E-Mail address"
 msgstr ""
 
-#: admin/page-export.php:60 admin/page-import.php:381
-#: admin/page-import.php:423
+#: admin/page-export.php:60 admin/page-import.php:399
+#: admin/page-import.php:441
 msgid "URL/Website"
 msgstr ""
 
-#: admin/page-export.php:62 admin/page-import.php:382
-#: admin/page-import.php:424
+#: admin/page-export.php:62 admin/page-import.php:400
+#: admin/page-import.php:442
 msgid "Date of the entry"
 msgstr ""
 
-#: admin/page-export.php:63 admin/page-import.php:383
-#: admin/page-import.php:425
+#: admin/page-export.php:63 admin/page-import.php:401
+#: admin/page-import.php:443
 msgid "IP address"
 msgstr ""
 
@@ -677,11 +677,11 @@ msgstr ""
 msgid "Host address"
 msgstr ""
 
-#: admin/page-export.php:66 admin/page-import.php:386
+#: admin/page-export.php:66 admin/page-import.php:404
 msgid "\"is checked\" flag"
 msgstr ""
 
-#: admin/page-export.php:67 admin/page-import.php:385
+#: admin/page-export.php:67 admin/page-import.php:403
 msgid "\"is spam\" flag"
 msgstr ""
 
@@ -689,15 +689,15 @@ msgstr ""
 msgid "\"is trash\" flag"
 msgstr ""
 
-#: admin/page-export.php:70
+#: admin/page-export.php:71
 msgid "The exporter does not delete any data, so your data will still be here."
 msgstr ""
 
-#: admin/page-export.php:75
+#: admin/page-export.php:76
 msgid "Export all entries from this website."
 msgstr ""
 
-#: admin/page-export.php:79
+#: admin/page-export.php:80
 msgid "Start export"
 msgstr ""
 
@@ -965,131 +965,131 @@ msgstr ""
 msgid "Invalid file format."
 msgstr ""
 
-#: admin/page-import.php:248
+#: admin/page-import.php:263
 msgid ""
 "It seems your CSV file is from an export that is not compatible with this "
 "version of Gwolle-GB."
 msgstr ""
 
-#: admin/page-import.php:257 admin/page-import.php:291
+#: admin/page-import.php:272 admin/page-import.php:309
 msgid "Your data seems to be corrupt. Import failed."
 msgstr ""
 
-#: admin/page-import.php:300
+#: admin/page-import.php:318
 msgid "I'm sorry, but I wasn't able to import entries from the CSV file."
 msgstr ""
 
-#: admin/page-import.php:302
+#: admin/page-import.php:320
 msgid "1 entry imported successfully from the CSV file."
 msgstr ""
 
-#: admin/page-import.php:304
+#: admin/page-import.php:322
 #, php-format
 msgid "%d entries imported successfully from the CSV file."
 msgstr ""
 
-#: admin/page-import.php:313
+#: admin/page-import.php:331
 msgid "Your upload triggered the following error:"
 msgstr ""
 
-#: admin/page-import.php:326
+#: admin/page-import.php:344
 msgid "Import guestbook entries."
 msgstr ""
 
-#: admin/page-import.php:345
+#: admin/page-import.php:363
 msgid "Import guestbook entries from DMSGuestbook"
 msgstr ""
 
-#: admin/page-import.php:374
+#: admin/page-import.php:392
 #, php-format
 msgid "%d entries were found and will be imported."
 msgstr ""
 
-#: admin/page-import.php:377 admin/page-import.php:418
+#: admin/page-import.php:395 admin/page-import.php:436
 msgid "The importer will preserve the following data per entry:"
 msgstr ""
 
-#: admin/page-import.php:388 admin/page-import.php:429
+#: admin/page-import.php:406 admin/page-import.php:447
 msgid ""
 "However, data such as HTML formatting is not supported by Gwolle-GB and "
 "<strong>will not</strong> be imported."
 msgstr ""
 
-#: admin/page-import.php:390 admin/page-import.php:433
+#: admin/page-import.php:408 admin/page-import.php:451
 msgid ""
 "The importer does not delete any data, so you can go back whenever you want."
 msgstr ""
 
-#: admin/page-import.php:396
+#: admin/page-import.php:414
 msgid "Import all entries from DMSGuestbook."
 msgstr ""
 
-#: admin/page-import.php:400 admin/page-import.php:525
-#: admin/page-import.php:544
+#: admin/page-import.php:418 admin/page-import.php:543
+#: admin/page-import.php:562
 msgid "Start import"
 msgstr ""
 
-#: admin/page-import.php:403
+#: admin/page-import.php:421
 msgid "DMSGuestbook was not found."
 msgstr ""
 
-#: admin/page-import.php:412
+#: admin/page-import.php:430
 msgid "Import guestbook entries from WordPress comments"
 msgstr ""
 
-#: admin/page-import.php:421
+#: admin/page-import.php:439
 msgid "User ID"
 msgstr ""
 
-#: admin/page-import.php:427
+#: admin/page-import.php:445
 msgid "\"approved\" status"
 msgstr ""
 
-#: admin/page-import.php:431
+#: admin/page-import.php:449
 msgid "Spam comments will not be imported."
 msgstr ""
 
-#: admin/page-import.php:436
+#: admin/page-import.php:454
 msgid "Select a page to import the comments from:"
 msgstr ""
 
-#: admin/page-import.php:438 admin/page-import.php:476
+#: admin/page-import.php:456 admin/page-import.php:494
 msgid "Select"
 msgstr ""
 
-#: admin/page-import.php:462 admin/page-import.php:499
+#: admin/page-import.php:480 admin/page-import.php:517
 msgid " Comments"
 msgstr ""
 
-#: admin/page-import.php:464 admin/page-import.php:501
+#: admin/page-import.php:482 admin/page-import.php:519
 msgid "1 Comment"
 msgstr ""
 
-#: admin/page-import.php:474
+#: admin/page-import.php:492
 msgid "Select a post to import the comments from:"
 msgstr ""
 
-#: admin/page-import.php:518
+#: admin/page-import.php:536
 msgid "Select where to import the comments from:"
 msgstr ""
 
-#: admin/page-import.php:519
+#: admin/page-import.php:537
 msgid "Comments from selected page."
 msgstr ""
 
-#: admin/page-import.php:520
+#: admin/page-import.php:538
 msgid "Comments from selected post."
 msgstr ""
 
-#: admin/page-import.php:521
+#: admin/page-import.php:539
 msgid "All Comments"
 msgstr ""
 
-#: admin/page-import.php:533
+#: admin/page-import.php:551
 msgid "Import guestbook entries from Gwolle-GB"
 msgstr ""
 
-#: admin/page-import.php:539
+#: admin/page-import.php:557
 msgid "Select a CSV file with exported entries to import again:"
 msgstr ""
 
@@ -1137,7 +1137,7 @@ msgstr ""
 msgid "on"
 msgstr ""
 
-#: frontend/gwolle_gb-entry.php:147
+#: frontend/gwolle_gb-entry.php:145
 msgid "Admin Reply:"
 msgstr ""
 
