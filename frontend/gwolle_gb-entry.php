@@ -137,9 +137,10 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 
 				/* Admin Reply Author */
 				$admin_reply .= '<div class="gb-admin_reply_uid">';
-				if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' ) {
-					$admin_reply .= '<strong>' . __('Admin Reply by:', GWOLLE_GB_TEXTDOMAIN) . '</strong>';
-					$admin_reply .= ' ' . gwolle_gb_is_moderator( $entry->get_admin_reply_uid() );
+				$admin_reply_name = gwolle_gb_is_moderator( $entry->get_admin_reply_uid() );
+				if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' && $admin_reply_name ) {
+					$admin_reply .= '<strong>' . __('Admin Reply by:', GWOLLE_GB_TEXTDOMAIN) . '</strong>
+						' . $admin_reply_name;
 				} else {
 					$admin_reply .= '<strong>' . __('Admin Reply:', GWOLLE_GB_TEXTDOMAIN) . '</strong>';
 				}
