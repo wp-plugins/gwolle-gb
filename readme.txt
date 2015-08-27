@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.4
 Tested up to: 4.3
-Stable tag: 1.4.6
+Stable tag: 1.4.8
 License: GPLv2 or later
 
 Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -121,6 +121,8 @@ If you do have a feature request, please post it on the support forum.
 * More translations (send them in).
 * Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
 * Frontend: Make it possible for an admin to reply to an entry (extra db field).
+* Frontend: HTML5 markup.
+* Frontend: Add filters for the Form in write.php.
 * Widget: Add option to not show admin entries.
 * Widget: Add option to select number of words.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
@@ -155,21 +157,42 @@ The Array $args can have the following key/values:
 * checkedby, int with the WordPress ID of that moderator.
 * istrash, bool if it is in trash or not.
 * isspam, bool if it is spam or not.
+* admin_reply, string with content of the admin reply message.
+* admin_reply_uid, id with the WordPress user ID of the author of the admin_reply.
 
 = Filter an entry on the frontend =
 
 On the frontend you can filter each entry. You can use a function like:
 
 	<?php
-	function your_custom_function($entry) {
-		// $entry is a string
-		$entry = $entry . " Hi There. ";
-		return $entry;
+	function your_custom_function( $entry_html, $entry ) {
+		// $entry_html is a string
+		$entry_html = $entry_html . " Hi There. ";
+		return $entry_html;
 	}
-	add_filter( 'gwolle_gb_entry_read', 'your_custom_function');
+	add_filter( 'gwolle_gb_entry_read', 'your_custom_function', 10, 2 );
 	?>
 
 = Filter all the entries on the frontend =
+
+= Add text to each entry in the list of entries. =
+
+Adding text to the entries list can be done with several hooks.
+The next filters will add the string of text before each entry, in the content of each entry, or after each entry.
+Initially $string is empty.
+
+	<?php
+	function gw_add_content( $string, $entry ) {
+		$string .= "Filter add content.";
+		return $string;
+	}
+	add_filter( 'gwolle_gb_entry_read_add_before',    'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_read_add_content',   'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_read_add_after',     'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_widget_add_before',  'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_widget_add_content', 'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_widget_add_after',   'gw_add_content', 10, 2 );
+	?>
 
 You can also filter the complete list of entries.
 
@@ -182,7 +205,7 @@ You can also filter the complete list of entries.
 	add_filter( 'gwolle_gb_entries_read', 'your_custom_function');
 	?>
 
-= Filter the form =
+= Filter the form as a whole. =
 
 The form can be filtered as well:
 
@@ -193,6 +216,21 @@ The form can be filtered as well:
 		return $form;
 	}
 	add_filter( 'gwolle_gb_write', 'your_custom_function');
+	?>
+
+= Add html to the form. =
+
+You can add html to the form at three different places. Initially $string is empty.
+
+	<?php
+	function gw_add_to_form( $string ) {
+		$string .= "Filter add to form.";
+		return $string;
+	}
+	// Use this filter to just add something
+	add_filter( 'gwolle_gb_write_add_before', 'gw_add_to_form' );
+	add_filter( 'gwolle_gb_write_add_form', 'gw_add_to_form' );
+	add_filter( 'gwolle_gb_write_add_after', 'gw_add_to_form' );
 	?>
 
 = Filter an entry before saving =
@@ -227,7 +265,8 @@ The header needs to look like this:
 		'datetime',
 		'isspam',
 		'ischecked',
-		'istrash'
+		'istrash',
+		'admin_reply'
 	)
 	?>
 
@@ -372,9 +411,20 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.4.8 =
+* 2015-08-27
+* Add Admin Reply.
+* Update Importer and Exporter.
+* Add filters to entry-list and to widget.
+* Add parameter $entry to many filters.
+* Add CSS class for counter in entry-list.
+* Add filters to the form.
+* Turn linebreaks off in Settings when excerpt_length is being used.
+* Update pot, de_DE, nl_NL.
+
 = 1.4.7 =
-* 2015-08-
-* Fix adding an entry whithout CAPTCHA enabled.
+* 2015-08-14
+* Fix adding an entry without CAPTCHA enabled.
 * Make header and notice compatible with Multi-Lingual plugins.
 * Add parameter to template function gwolle_gb_entry_template.
 * Add CSS class for even/uneven entry.

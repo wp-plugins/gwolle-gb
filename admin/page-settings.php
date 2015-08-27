@@ -92,17 +92,20 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
-						if ( isset($_POST['excerpt_length']) && is_numeric($_POST['excerpt_length']) ) {
-							update_option('gwolle_gb-excerpt_length', (int) $_POST['excerpt_length']);
-							$saved = true;
-						}
-
-
 						if (isset($_POST['showLineBreaks']) && $_POST['showLineBreaks'] == 'on') {
 							update_option('gwolle_gb-showLineBreaks', 'true');
 							$saved = true;
 						} else {
 							update_option('gwolle_gb-showLineBreaks', 'false');
+							$saved = true;
+						}
+
+						if ( isset($_POST['excerpt_length']) && is_numeric($_POST['excerpt_length']) ) {
+							update_option('gwolle_gb-excerpt_length', (int) $_POST['excerpt_length']);
+							if ($_POST['excerpt_length'] > 0) {
+								// Will not be shown anyway with wp_trim_words()
+								update_option('gwolle_gb-showLineBreaks', 'false');
+							}
 							$saved = true;
 						}
 
@@ -201,15 +204,6 @@ function gwolle_gb_page_settings() {
 						}
 						if ( isset($_POST['antispam-answer']) ) {
 							update_option('gwolle_gb-antispam-answer', gwolle_gb_sanitize_input($_POST['antispam-answer']));
-							$saved = true;
-						}
-
-						if ( isset($_POST['recaptcha-public-key']) ) {
-							update_option('recaptcha-public-key', gwolle_gb_sanitize_input($_POST['recaptcha-public-key']));
-							$saved = true;
-						}
-						if ( isset($_POST['recaptcha-private-key']) ) {
-							update_option('recaptcha-private-key', gwolle_gb_sanitize_input($_POST['recaptcha-private-key']));
 							$saved = true;
 						}
 

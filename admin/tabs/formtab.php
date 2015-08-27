@@ -85,7 +85,9 @@ We reserve our right to edit, delete, or not publish entries.
 				<span class="setting-description">
 					<?php _e('You can set the content of the notice that gets shown below the form.', GWOLLE_GB_TEXTDOMAIN);
 					echo '<br />';
-					_e('You can use the tag %ip% to show the ip address.', GWOLLE_GB_TEXTDOMAIN); ?>
+					_e('You can use the tag %ip% to show the ip address.', GWOLLE_GB_TEXTDOMAIN);
+					echo '<br /><br />';
+					_e('If you use a Multi-Lingual plugin, keep the 2 fields for header and notice empty when saving. That way the default text will be shown from a translated PO file.', GWOLLE_GB_TEXTDOMAIN); ?>
 				</span>
 			</td>
 		</tr>

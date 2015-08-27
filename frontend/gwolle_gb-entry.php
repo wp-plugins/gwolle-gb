@@ -27,6 +27,7 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 		$entry_output = '<div class="';
 		$entry_output .= ' gb-entry';
 		$entry_output .= ' gb-entry_' . $entry->get_id();
+		$entry_output .= ' gb-entry-count_' . $counter;
 		if ( is_int( $counter / 2 ) ) {
 			$entry_output .= ' gwolle_gb_even';
 		} else {
@@ -44,6 +45,9 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 			}
 		}
 		$entry_output .= '">';
+
+		// Use this filter to just add something
+		$entry_output .= apply_filters( 'gwolle_gb_entry_read_add_before', '', $entry );
 
 		// Author Info
 		$entry_output .= '<div class="gb-author-info">';
@@ -113,9 +117,62 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 				$entry_output .= '
 					<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
 			}
+
+			// Use this filter to just add something
+			$entry_output .= apply_filters( 'gwolle_gb_entry_read_add_content', '', $entry );
+
 			$entry_output .= '</div>
 			';
+
+			/* Admin Reply */
+			$admin_reply_content = gwolle_gb_sanitize_output( $entry->get_admin_reply() );
+			if ( $admin_reply_content != '' ) {
+
+				$class = '';
+				if ( get_option( 'gwolle_gb-admin_style', 'true' ) === 'true' ) {
+					$class = ' admin-entry';
+				}
+
+				$admin_reply = '<div class="gb-entry-admin_reply' . $class . '">';
+
+				/* Admin Reply Author */
+				$admin_reply .= '<div class="gb-admin_reply_uid">';
+				$admin_reply_name = gwolle_gb_is_moderator( $entry->get_admin_reply_uid() );
+				if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' && $admin_reply_name ) {
+					$admin_reply .= '<strong>' . __('Admin Reply by:', GWOLLE_GB_TEXTDOMAIN) . '</strong>
+						' . $admin_reply_name;
+				} else {
+					$admin_reply .= '<strong>' . __('Admin Reply:', GWOLLE_GB_TEXTDOMAIN) . '</strong>';
+				}
+				$admin_reply .= '</div> ';
+
+				/* Admin Reply Content */
+				if ( get_option('gwolle_gb-showSmilies', 'true') === 'true' ) {
+					$admin_reply_content = convert_smilies($admin_reply_content);
+				}
+				if ( get_option( 'gwolle_gb-showLineBreaks', 'false' ) === 'true' ) {
+					$admin_reply_content = nl2br($admin_reply_content);
+				}
+				if ( $excerpt_length > 0 ) {
+					$admin_reply_content = wp_trim_words( $admin_reply_content, $excerpt_length, '...' );
+				}
+				if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
+					$admin_reply_content = gwolle_gb_bbcode_parse($admin_reply_content);
+				} else {
+					$admin_reply_content = gwolle_gb_bbcode_strip($admin_reply_content);
+				}
+				$admin_reply .= '<div class="gb-admin_reply_content">
+					' . $admin_reply_content . '
+					</div>';
+
+				$admin_reply .= '</div>';
+
+				$entry_output .= $admin_reply;
+			}
 		}
+
+		// Use this filter to just add something
+		$entry_output .= apply_filters( 'gwolle_gb_entry_read_add_after', '', $entry );
 
 		$entry_output .= '</div>
 			';

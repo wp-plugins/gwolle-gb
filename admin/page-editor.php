@@ -119,7 +119,7 @@ function gwolle_gb_page_editor() {
 
 				/* Check if the content changed, and update accordingly */
 				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
-					if ( $_POST['gwolle_gb_content'] != $entry->get_content() ) {
+					if ( trim($_POST['gwolle_gb_content']) != $entry->get_content() ) {
 						$entry_content = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_content'], 'content' );
 						$entry->set_content( $entry_content );
 						$changed = true;
@@ -143,6 +143,24 @@ function gwolle_gb_page_editor() {
 					}
 				}
 
+				/* Check if the admin_reply changed, and update and log accordingly */
+				if ( isset($_POST['gwolle_gb_admin_reply']) ) {
+					if ( trim($_POST['gwolle_gb_admin_reply']) != $entry->get_admin_reply() ) {
+						$gwolle_gb_admin_reply = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_admin_reply'], 'admin_reply' );
+						if ( $gwolle_gb_admin_reply != '' && $entry->get_admin_reply() == '' ) {
+							$entry->set_admin_reply_uid( get_current_user_id() );
+							gwolle_gb_add_log_entry( $entry->get_id(), 'admin-reply-added' );
+						} else if ( $gwolle_gb_admin_reply == '' && $entry->get_admin_reply() != '' ) {
+							$entry->set_admin_reply_uid( 0 );
+							gwolle_gb_add_log_entry( $entry->get_id(), 'admin-reply-removed' );
+						} else if ( $gwolle_gb_admin_reply != '' && $entry->get_admin_reply() != '' ) {
+							gwolle_gb_add_log_entry( $entry->get_id(), 'admin-reply-updated' );
+						}
+						$entry->set_admin_reply( $gwolle_gb_admin_reply );
+						$changed = true;
+					}
+				}
+
 				/* Check if the author_name changed, and update accordingly */
 				if ( isset($_POST['gwolle_gb_author_name']) ) {
 					if ( $_POST['gwolle_gb_author_name'] != $entry->get_author_name() ) {
@@ -160,6 +178,7 @@ function gwolle_gb_page_editor() {
 					}
 				}
 
+				/* Save the entry */
 				if ( $changed ) {
 					$result = $entry->save();
 					if ($result ) {
@@ -171,7 +190,6 @@ function gwolle_gb_page_editor() {
 					}
 				} else {
 					$gwolle_gb_messages .= '<p>' . __('Entry was not changed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
-
 				}
 
 				/* Remove permanently */
@@ -221,7 +239,7 @@ function gwolle_gb_page_editor() {
 				/* Do not set as trash */
 				$data['istrash'] = false;
 
-				/* Check if the content is filled in, and update accordingly */
+				/* Check if the content is filled in, and save accordingly */
 				if ( isset($_POST['gwolle_gb_content']) && $_POST['gwolle_gb_content'] != '' ) {
 					$data['content'] = $_POST['gwolle_gb_content'];
 					$data['content'] = gwolle_gb_maybe_encode_emoji( $data['content'], 'content' );
@@ -237,7 +255,7 @@ function gwolle_gb_page_editor() {
 					}
 				}
 
-				/* Check if the website changed, and update accordingly */
+				/* Check if the website is set, and save accordingly */
 				if ( isset($_POST['gwolle_gb_author_website']) ) {
 					if ( $_POST['gwolle_gb_author_website'] != '' ) {
 						$data['author_website'] = $_POST['gwolle_gb_author_website'];
@@ -246,11 +264,20 @@ function gwolle_gb_page_editor() {
 					}
 				}
 
-				/* Check if the author_origin changed, and update accordingly */
+				/* Check if the author_origin is set, and save accordingly */
 				if ( isset($_POST['gwolle_gb_author_origin']) ) {
 					if ( $_POST['gwolle_gb_author_origin'] != '' ) {
 						$data['author_origin'] = $_POST['gwolle_gb_author_origin'];
 						$data['author_origin'] = gwolle_gb_maybe_encode_emoji( $data['author_origin'], 'author_origin' );
+					}
+				}
+
+				/* Check if the admin_reply is set, and save accordingly */
+				if ( isset($_POST['gwolle_gb_admin_reply']) ) {
+					if ( $_POST['gwolle_gb_admin_reply'] != '' ) {
+						$data['admin_reply'] = gwolle_gb_maybe_encode_emoji( $_POST['gwolle_gb_admin_reply'], 'admin_reply' );
+						$data['admin_reply_uid'] = get_current_user_id();
+						gwolle_gb_add_log_entry( $entry->get_id(), 'admin-reply-added' );
 					}
 				}
 
@@ -304,6 +331,7 @@ function gwolle_gb_page_editor() {
 
 						<div id="post-body-content">
 							<div id='normal-sortables' class='meta-box-sortables'>
+
 								<div id="contentdiv" class="postbox" >
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
@@ -315,12 +343,13 @@ function gwolle_gb_page_editor() {
 										}
 										$form_setting = gwolle_gb_get_setting( 'form' );
 										if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
-											wp_enqueue_script( 'markitup', plugins_url('../frontend/markitup/jquery.markitup.js', __FILE__), 'jquery', '1.1.14', false );
-											wp_enqueue_script( 'markitup_set', plugins_url('../frontend/markitup/set.js', __FILE__), 'jquery', '1.1.14', false );
-											wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('../frontend/markitup/style.css', __FILE__), false, '1.1.14',  'screen');
+											wp_enqueue_script( 'markitup', plugins_url('../frontend/markitup/jquery.markitup.js', __FILE__), 'jquery', GWOLLE_GB_VER, false );
+											wp_enqueue_script( 'markitup_set', plugins_url('../frontend/markitup/set.js', __FILE__), 'jquery', GWOLLE_GB_VER, false );
+											wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('../frontend/markitup/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
 										} ?>
 									</div>
 								</div>
+
 								<div id="authordiv" class="postbox " >
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
@@ -329,6 +358,7 @@ function gwolle_gb_page_editor() {
 										<p><?php _e("Example: <code>http://www.example.com/</code>", GWOLLE_GB_TEXTDOMAIN); ?></p>
 									</div>
 								</div>
+
 								<div id="authordiv" class="postbox ">
 									<div class="handlediv"></div>
 									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
@@ -336,6 +366,23 @@ function gwolle_gb_page_editor() {
 										<input type="text" name="gwolle_gb_author_origin" tabindex="3" placeholder="<?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_origin() ); ?>" id="author_origin" />
 									</div>
 								</div>
+
+								<div id="admin_reply" class="postbox" >
+									<div class="handlediv"></div>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>">
+										<span><?php _e('Admin Reply by:', GWOLLE_GB_TEXTDOMAIN);
+											echo ' ' . gwolle_gb_is_moderator($entry->get_admin_reply_uid()) ?>
+										</span>
+									</h3>
+									<div class="inside">
+										<textarea rows="10" name="gwolle_gb_admin_reply" id="gwolle_gb_admin_reply" tabindex="4" placeholder="<?php _e('Admin Reply', GWOLLE_GB_TEXTDOMAIN); ?>"><?php echo gwolle_gb_sanitize_output( $entry->get_admin_reply() ); ?></textarea>
+										<?php
+										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
+											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', GWOLLE_GB_TEXTDOMAIN), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
+										} ?>
+									</div>
+								</div>
+
 							</div><!-- .normal-sortables -->
 						</div><!-- .post-body-content -->
 
@@ -482,7 +529,7 @@ function gwolle_gb_page_editor() {
 
 											<div id="major-publishing-actions">
 												<div id="publishing-action">
-													<input name="save" type="submit" class="button-primary" id="publish" tabindex="4" accesskey="p" value="<?php esc_attr_e('Save', GWOLLE_GB_TEXTDOMAIN); ?>" />
+													<input name="save" type="submit" class="button-primary" id="publish" tabindex="5" accesskey="p" value="<?php esc_attr_e('Save', GWOLLE_GB_TEXTDOMAIN); ?>" />
 												</div> <!-- .publishing-action -->
 												<div class="clear"></div>
 											</div><!-- major-publishing-actions -->
