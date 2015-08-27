@@ -29,7 +29,10 @@ function gwolle_gb_add_log_entry( $entry_id, $subject ) {
 		'imported-from-gwolle',
 		'exported-to-csv',
 		'entry-trashed',
-		'entry-untrashed'
+		'entry-untrashed',
+		'admin-reply-added',
+		'admin-reply-updated',
+		'admin-reply-removed'
 	);
 	if ( !in_array( $subject, $log_messages ) ) {
 		return false;
@@ -101,7 +104,10 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 		'imported-from-gwolle'        => __('Imported from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN),
 		'exported-to-csv'             => __('Exported to CSV file', GWOLLE_GB_TEXTDOMAIN),
 		'entry-trashed'               => __('Entry has been trashed.',   GWOLLE_GB_TEXTDOMAIN),
-		'entry-untrashed'             => __('Entry has been untrashed.', GWOLLE_GB_TEXTDOMAIN)
+		'entry-untrashed'             => __('Entry has been untrashed.', GWOLLE_GB_TEXTDOMAIN),
+		'admin-reply-added'           => __('Admin reply has been added.', GWOLLE_GB_TEXTDOMAIN),
+		'admin-reply-updated'         => __('Admin reply has been updated.', GWOLLE_GB_TEXTDOMAIN),
+		'admin-reply-removed'         => __('Admin reply has been removed.', GWOLLE_GB_TEXTDOMAIN)
 	);
 
 	$where = " 1 = %d";

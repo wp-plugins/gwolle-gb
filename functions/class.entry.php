@@ -22,6 +22,8 @@
  * $checkedby       checkedby        int(5)        admin who checked/moderated this entry  required
  * $istrash         istrash          varchar(1)    entry is placed in the trashbin, 0 or 1 required, default 0
  * $isspam          isspam           varchar(1)    entry is considered as spam, 0 or 1     required, default 0
+ * $admin_reply     admin_reply      longtext      content of the reply from an admin      required
+ * $admin_reply_uid admin_reply_uid  int(5)        user_id of the admin that replied       required
  *
  */
 
@@ -29,27 +31,30 @@
 class gwolle_gb_entry {
 
 	protected $id, $author_name, $author_id, $author_email, $author_origin, $author_website,
-		$author_ip, $author_host, $content, $datetime, $ischecked, $checkedby, $istrash, $isspam;
+		$author_ip, $author_host, $content, $datetime, $ischecked, $checkedby, $istrash, $isspam,
+		$admin_reply, $admin_reply_uid;
 
 	/*
 	 * Construct an instance
 	 */
 
 	public function __construct() {
-		$this->id             = (int) 0;
-		$this->author_name    = (string) "";
-		$this->author_id      = (int) 0;
-		$this->author_email   = (string) "";
-		$this->author_origin  = (string) "";
-		$this->author_website = (string) "";
-		$this->author_ip      = (string) "";
-		$this->author_host    = (string) "";
-		$this->content        = (string) "";
-		$this->datetime       = (string) "";
-		$this->ischecked      = (int) 0;
-		$this->checkedby      = (int) 0;
-		$this->istrash        = (int) 0;
-		$this->isspam         = (int) 0;
+		$this->id              = (int) 0;
+		$this->author_name     = (string) "";
+		$this->author_id       = (int) 0;
+		$this->author_email    = (string) "";
+		$this->author_origin   = (string) "";
+		$this->author_website  = (string) "";
+		$this->author_ip       = (string) "";
+		$this->author_host     = (string) "";
+		$this->content         = (string) "";
+		$this->datetime        = (string) "";
+		$this->ischecked       = (int) 0;
+		$this->checkedby       = (int) 0;
+		$this->istrash         = (int) 0;
+		$this->isspam          = (int) 0;
+		$this->admin_reply     = (string) "";
+		$this->admin_reply_uid = (int) 0;
 	}
 
 
@@ -99,7 +104,9 @@ class gwolle_gb_entry {
 					`ischecked`,
 					`checkedby`,
 					`istrash`,
-					`isspam`
+					`isspam`,
+					`admin_reply`,
+					`admin_reply_uid`
 				FROM
 					" . $tablename . "
 				WHERE
@@ -116,20 +123,22 @@ class gwolle_gb_entry {
 
 		// Use the fields that the setter method expects
 		$item = array(
-			'id' => (int) $data['id'],
-			'author_name' => stripslashes($data['author_name']),
-			'author_id' => (int) $data['author_id'],
-			'author_email' => stripslashes($data['author_email']),
-			'author_origin' => stripslashes($data['author_origin']),
-			'author_website' => stripslashes($data['author_website']),
-			'author_ip' => $data['author_ip'],
-			'author_host' => $data['author_host'],
-			'content' => stripslashes($data['content']),
-			'datetime' => $data['datetime'],
-			'ischecked' => (int) $data['ischecked'],
-			'checkedby' => (int) $data['checkedby'],
-			'istrash' => (int) $data['istrash'],
-			'isspam' => (int) $data['isspam']
+			'id'              => (int) $data['id'],
+			'author_name'     => stripslashes($data['author_name']),
+			'author_id'       => (int) $data['author_id'],
+			'author_email'    => stripslashes($data['author_email']),
+			'author_origin'   => stripslashes($data['author_origin']),
+			'author_website'  => stripslashes($data['author_website']),
+			'author_ip'       => $data['author_ip'],
+			'author_host'     => $data['author_host'],
+			'content'         => stripslashes($data['content']),
+			'datetime'        => $data['datetime'],
+			'ischecked'       => (int) $data['ischecked'],
+			'checkedby'       => (int) $data['checkedby'],
+			'istrash'         => (int) $data['istrash'],
+			'isspam'          => (int) $data['isspam'],
+			'admin_reply'     => stripslashes($data['admin_reply']),
+			'admin_reply_uid' => (int) $data['admin_reply_uid'],
 		);
 
 		$this->set_data( $item );
@@ -172,7 +181,9 @@ class gwolle_gb_entry {
 					isspam = %d,
 					ischecked = %s,
 					checkedby = %d,
-					istrash = %d
+					istrash = %d,
+					admin_reply = %s,
+					admin_reply_uid = %d
 				WHERE
 					id = %d
 				";
@@ -191,6 +202,8 @@ class gwolle_gb_entry {
 					$this->get_ischecked(),
 					$this->get_checkedby(),
 					$this->get_istrash(),
+					$this->get_admin_reply(),
+					$this->get_admin_reply_uid(),
 					$this->get_id()
 				);
 
@@ -217,7 +230,9 @@ class gwolle_gb_entry {
 					isspam,
 					ischecked,
 					checkedby,
-					istrash
+					istrash,
+					admin_reply,
+					admin_reply_uid
 				) VALUES (
 					%s,
 					%d,
@@ -231,6 +246,8 @@ class gwolle_gb_entry {
 					%d,
 					%d,
 					%d,
+					%d,
+					%s,
 					%d
 				)
 				",
@@ -247,7 +264,9 @@ class gwolle_gb_entry {
 					$this->get_isspam(),
 					$this->get_ischecked(),
 					$this->get_checkedby(),
-					$this->get_istrash()
+					$this->get_istrash(),
+					$this->get_admin_reply(),
+					$this->get_admin_reply_uid()
 				)
 			) );
 
@@ -290,6 +309,9 @@ class gwolle_gb_entry {
 	 * - checkedby
 	 * - istrash
 	 * - isspam
+	 * - admin_reply
+	 * - admin_reply_uid
+
 	 */
 
 	public function set_data($args) {
@@ -339,6 +361,12 @@ class gwolle_gb_entry {
 		}
 		if ( isset( $args['isspam'] ) ) {
 			$this->set_isspam( $args['isspam'] );
+		}
+		if ( isset( $args['admin_reply'] ) ) {
+			$this->set_admin_reply( $args['admin_reply'] );
+		}
+		if ( isset( $args['admin_reply_uid'] ) ) {
+			$this->set_admin_reply_uid( $args['admin_reply_uid'] );
 		}
 
 		return true;
@@ -448,6 +476,21 @@ class gwolle_gb_entry {
 		$isspam = intval($isspam);
 		$this->isspam = $isspam;
 	}
+	public function set_admin_reply($admin_reply) {
+		// User input
+		$admin_reply = gwolle_gb_sanitize_input($admin_reply);
+		$this->admin_reply = $admin_reply;
+	}
+	public function set_admin_reply_uid($admin_reply_uid) {
+		$admin_reply_uid = intval($admin_reply_uid);
+		if ($admin_reply_uid) {
+			if ( strlen($this->admin_reply) > 0 ) {
+				$this->admin_reply_uid = $admin_reply_uid;
+			} else {
+				$this->admin_reply_uid = 0; // reset, there is no content
+			}
+		}
+	}
 
 
 	/* The Getter methods */
@@ -497,6 +540,12 @@ class gwolle_gb_entry {
 	}
 	public function get_isspam() {
 		return $this->isspam;
+	}
+	public function get_admin_reply() {
+		return gwolle_gb_sanitize_output($this->admin_reply);
+	}
+	public function get_admin_reply_uid() {
+		return $this->admin_reply_uid;
 	}
 
 

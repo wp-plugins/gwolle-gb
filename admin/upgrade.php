@@ -35,6 +35,8 @@ function install_gwolle_gb() {
 			checkedby int(5) NOT NULL,
 			istrash varchar(1) NOT NULL default '0',
 			isspam varchar(1) NOT NULL default '0',
+			admin_reply longtext NOT NULL,
+			admin_reply_uid int(5) NOT NULL default '0',
 			PRIMARY KEY  (id)
 		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 	$result = $wpdb->query($sql);
@@ -460,6 +462,19 @@ function upgrade_gwolle_gb() {
 
 		$wpdb->query( "
 			ALTER TABLE $wpdb->gwolle_gb_log DROP COLUMN `date`;
+		");
+	}
+
+	if (version_compare($installed_ver, '1.4.8', '<')) {
+		/*
+		 * 1.4.7->1.4.8
+		 * Add datetime field to database and fill it from the date column.
+		 */
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_entries ADD `admin_reply` LONGTEXT NOT NULL AFTER `isspam`;
+		");
+		$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_entries ADD `admin_reply_uid` INT(5) NOT NULL AFTER `admin_reply`;
 		");
 	}
 

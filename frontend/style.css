@@ -27,7 +27,7 @@
 }
 
 
-/* Messages */
+/* Messages / Notices */
 
 #gwolle_gb #gwolle_gb_messages {
 	border-left: 4px solid #7ad03a;
@@ -139,8 +139,16 @@
 	padding-left: 10px;
 }
 
+/* Admin Reply */
+
+#gwolle_gb .gb-entry-admin_reply {
+	margin: 10px 0 0 40px;
+	padding: 4px 10px 4px 10px;
+	border-left: 1px dotted #999;
+}
 
 /* Widget */
+
 li.gwolle_gb_widget {
 	border-bottom: 1px dotted #999;
 	padding: 3px 0;

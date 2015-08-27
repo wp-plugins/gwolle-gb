@@ -163,15 +163,34 @@ The Array $args can have the following key/values:
 On the frontend you can filter each entry. You can use a function like:
 
 	<?php
-	function your_custom_function($entry) {
-		// $entry is a string
-		$entry = $entry . " Hi There. ";
-		return $entry;
+	function your_custom_function( $entry_html, $entry ) {
+		// $entry_html is a string
+		$entry_html = $entry_html . " Hi There. ";
+		return $entry_html;
 	}
-	add_filter( 'gwolle_gb_entry_read', 'your_custom_function');
+	add_filter( 'gwolle_gb_entry_read', 'your_custom_function', 10, 2 );
 	?>
 
 = Filter all the entries on the frontend =
+
+= Add text to each entry in the list of entries. =
+
+Adding text to the entries list can be done with several hooks.
+The next filters will add the string of text before each entry, in the content of each entry, or after each entry.
+Initially $string is empty.
+
+	<?php
+	function gw_add_content( $string, $entry ) {
+		$string .= "Filter add content.";
+		return $string;
+	}
+	add_filter( 'gwolle_gb_entry_read_add_before',    'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_read_add_content',   'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_read_add_after',     'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_widget_add_before',  'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_widget_add_content', 'gw_add_content', 10, 2 );
+	add_filter( 'gwolle_gb_entry_widget_add_after',   'gw_add_content', 10, 2 );
+	?>
 
 You can also filter the complete list of entries.
 
@@ -184,7 +203,7 @@ You can also filter the complete list of entries.
 	add_filter( 'gwolle_gb_entries_read', 'your_custom_function');
 	?>
 
-= Filter the form =
+= Filter the form as a whole. =
 
 The form can be filtered as well:
 
@@ -195,6 +214,21 @@ The form can be filtered as well:
 		return $form;
 	}
 	add_filter( 'gwolle_gb_write', 'your_custom_function');
+	?>
+
+= Add html to the form. =
+
+You can add html to the form at three different places. Initially $string is empty.
+
+	<?php
+	function gw_add_to_form( $string ) {
+		$string .= "Filter add to form.";
+		return $string;
+	}
+	// Use this filter to just add something
+	add_filter( 'gwolle_gb_write_add_before', 'gw_add_to_form' );
+	add_filter( 'gwolle_gb_write_add_form', 'gw_add_to_form' );
+	add_filter( 'gwolle_gb_write_add_after', 'gw_add_to_form' );
 	?>
 
 = Filter an entry before saving =
@@ -209,22 +243,6 @@ When saving an entry you can filter it like this.
 		return $entry;
 	}
 	add_filter( 'gwolle_gb_entry_save', 'your_custom_function');
-	?>
-
-Adding text to the entries list can be done with several hooks.
-The next filters will add the string of text before each entry, in the content of each entry, or after each entry.
-
-	<?php
-	function gw_add_content($string) {
-		$string .= "Filter add content.";
-		return $string;
-	}
-	add_filter( 'gwolle_gb_entry_read_add_before',    'gw_add_content');
-	add_filter( 'gwolle_gb_entry_read_add_content',   'gw_add_content');
-	add_filter( 'gwolle_gb_entry_read_add_after',     'gw_add_content');
-	add_filter( 'gwolle_gb_entry_widget_add_before',  'gw_add_content');
-	add_filter( 'gwolle_gb_entry_widget_add_content', 'gw_add_content');
-	add_filter( 'gwolle_gb_entry_widget_add_after',   'gw_add_content');
 	?>
 
 = Format for importing through CSV-file =
@@ -391,8 +409,14 @@ and also the WordPress documentation. When you made a translation, you can send 
 == Changelog ==
 
 = 1.4.8 =
-* 2015-
+* 2015-08-
+* Add admin reply.
 * Add actions and filters to entry-list and to widget.
+* Add parameter $entry to many filters.
+* Add CSS class for counter in entry-list.
+* Add filters to the form.
+* Turn linebreaks off in Settings when excerpt_length is being used.
+* Update pot, nl_NL.
 
 = 1.4.7 =
 * 2015-08-14

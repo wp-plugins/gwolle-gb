@@ -109,7 +109,9 @@ function gwolle_gb_get_entries($args = array()) {
 				`ischecked`,
 				`checkedby`,
 				`istrash`,
-				`isspam`
+				`isspam`,
+				`admin_reply`,
+				`admin_reply_uid`
 			FROM
 				" . $tablename . "
 			WHERE
@@ -134,20 +136,22 @@ function gwolle_gb_get_entries($args = array()) {
 
 			// Use the fields that the setter method expects
 			$item = array(
-				'id' => (int) $data['id'],
-				'author_name' => stripslashes($data['author_name']),
-				'author_id' => (int) $data['author_id'],
-				'author_email' => stripslashes($data['author_email']),
-				'author_origin' => stripslashes($data['author_origin']),
-				'author_website' => stripslashes($data['author_website']),
-				'author_ip' => $data['author_ip'],
-				'author_host' => $data['author_host'],
-				'content' => stripslashes($data['content']),
-				'datetime' => $data['datetime'],
-				'ischecked' => (int) $data['ischecked'],
-				'checkedby' => (int) $data['checkedby'],
-				'istrash' => (int) $data['istrash'],
-				'isspam' => (int) $data['isspam']
+				'id'              => (int) $data['id'],
+				'author_name'     => stripslashes($data['author_name']),
+				'author_id'       => (int) $data['author_id'],
+				'author_email'    => stripslashes($data['author_email']),
+				'author_origin'   => stripslashes($data['author_origin']),
+				'author_website'  => stripslashes($data['author_website']),
+				'author_ip'       => $data['author_ip'],
+				'author_host'     => $data['author_host'],
+				'content'         => stripslashes($data['content']),
+				'datetime'        => $data['datetime'],
+				'ischecked'       => (int) $data['ischecked'],
+				'checkedby'       => (int) $data['checkedby'],
+				'istrash'         => (int) $data['istrash'],
+				'isspam'          => (int) $data['isspam'],
+				'admin_reply'     => stripslashes($data['admin_reply']),
+				'admin_reply_uid' => (int) $data['admin_reply_uid'],
 			);
 
 			$entry = new gwolle_gb_entry();

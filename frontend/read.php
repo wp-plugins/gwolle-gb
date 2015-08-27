@@ -114,7 +114,7 @@ function gwolle_gb_frontend_read() {
 			$first = false;
 
 			// Add a filter for each entry, so devs can add or remove parts.
-			$output .= apply_filters( 'gwolle_gb_entry_read', $entry_output);
+			$output .= apply_filters( 'gwolle_gb_entry_read', $entry_output, $entry );
 
 		}
 

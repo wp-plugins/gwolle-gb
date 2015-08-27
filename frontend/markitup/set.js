@@ -32,6 +32,7 @@ jQuery(document).ready(function() {
 
 	/* Initialize BBcode editor */
 	jQuery('#gwolle_gb_content').markItUp(marktitup_mySettings);
+	jQuery('#gwolle_gb_admin_reply').markItUp(marktitup_mySettings);
 
 	/* Toggle the Emoji rows */
 	jQuery( 'li.markItUpButton.emoji a' ).click(function() {

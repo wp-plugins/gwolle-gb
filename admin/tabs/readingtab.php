@@ -82,7 +82,10 @@ function gwolle_gb_page_settingstab_reading() {
 					?> />
 				<label for="showLineBreaks"><?php _e('Show line breaks.', GWOLLE_GB_TEXTDOMAIN); ?></label>
 				<br />
-				<span class="setting-description"><?php _e('Show line breaks as the entry authors entered them. (May result in very long entries. Is turned off by default.)', GWOLLE_GB_TEXTDOMAIN); ?></span>
+				<span class="setting-description">
+					<?php _e('Show line breaks as the entry authors entered them. (May result in very long entries. Is turned off by default.)', GWOLLE_GB_TEXTDOMAIN); ?><br />
+					<?php _e('This can only be enabled if the Excerpt Length above is set to Unlimited Words.', GWOLLE_GB_TEXTDOMAIN); ?><br />
+				</span>
 			</td>
 		</tr>
 

@@ -134,6 +134,8 @@ function gwolle_gb_frontend_write() {
 			<h3>' . $header . '</h3>
 			<input type="hidden" name="gwolle_gb_function" value="add_entry" />';
 
+	// Use this filter to just add something
+	$output .= apply_filters( 'gwolle_gb_write_add_before', '' );
 
 	/* Name */
 	if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
@@ -373,6 +375,9 @@ function gwolle_gb_frontend_write() {
 		}
 	}
 
+	// Use this filter to just add something
+	$output .= apply_filters( 'gwolle_gb_write_add_form', '' );
+
 	$output .= '
 			<div class="gwolle_gb_submit">
 				<div class="label">&nbsp;</div>
@@ -399,8 +404,12 @@ We reserve our right to edit, delete, or not publish entries.
 	$output .= str_replace('%ip%', $_SERVER['REMOTE_ADDR'], $notice);
 
 	$output .= '
-			</div>
-		</form>';
+			</div>';
+
+	// Use this filter to just add something
+	$output .= apply_filters( 'gwolle_gb_write_add_after', '' );
+
+	$output .= '</form>';
 
 	if ( get_option( 'gwolle_gb-labels_float', 'true' ) === 'true' ) {
 		$output .= '

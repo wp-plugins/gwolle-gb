@@ -56,6 +56,10 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	display: block;
 }
 
+.markItUpButton.markItUpButton8.emoji {
+	display: none;
+}
+
 /* Entries.php */
 /* Page Navigation */
 .gwolle_gb .tablenav .tablenav-pages a {
