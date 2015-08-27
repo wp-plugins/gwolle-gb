@@ -120,9 +120,7 @@ If you do have a feature request, please post it on the support forum.
 
 * More translations (send them in).
 * Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
-* Frontend: Make it possible for an admin to reply to an entry (extra db field).
 * Frontend: HTML5 markup.
-* Frontend: Add filters for the Form in write.php.
 * Widget: Add option to not show admin entries.
 * Widget: Add option to select number of words.
 * SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
