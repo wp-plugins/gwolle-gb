@@ -409,6 +409,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.4.9 =
+* 2015-
+* Use content_url() for the Captcha (thanks harald.reingruber).
+
 = 1.4.8 =
 * 2015-08-27
 * Add Admin Reply.

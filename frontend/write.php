@@ -303,7 +303,7 @@ function gwolle_gb_frontend_write() {
 			// Generate CAPTCHA image
 			$gwolle_gb_captcha_image_name = $gwolle_gb_captcha->generate_image($gwolle_gb_captcha_prefix, $gwolle_gb_captcha_word);
 			// Define values for CAPTCHA fields
-			$gwolle_gb_captcha_image_url = get_bloginfo('wpurl') . '/wp-content/plugins/really-simple-captcha/tmp/';
+			$gwolle_gb_captcha_image_url = content_url('plugins/really-simple-captcha/tmp/');
 			$gwolle_gb_captcha_image_src = $gwolle_gb_captcha_image_url . $gwolle_gb_captcha_image_name;
 			$gwolle_gb_captcha_image_width = $gwolle_gb_captcha->img_size[0];
 			$gwolle_gb_captcha_image_height = $gwolle_gb_captcha->img_size[1];
