@@ -412,6 +412,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.4.9 =
 * 2015-
 * Use content_url() for the Captcha (thanks harald.reingruber).
+* Update de_DE.
 
 = 1.4.8 =
 * 2015-08-27
