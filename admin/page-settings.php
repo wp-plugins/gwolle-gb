@@ -285,6 +285,12 @@ function gwolle_gb_page_settings() {
 							$saved = true;
 						}
 
+						if ( isset($_POST['gwolle_gb-mail_admin_replyContent']) ) {
+							$mail_content = gwolle_gb_sanitize_input( $_POST['gwolle_gb-mail_admin_replyContent'] );
+							update_option('gwolle_gb-mail_admin_replyContent', $mail_content);
+							$saved = true;
+						}
+
 						break;
 					case 'gwolle_gb_uninstall':
 						/* Uninstall */

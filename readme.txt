@@ -415,6 +415,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Rename class and function files to WP standards.
 * Move mail functions to own file.
 * Add permalink of guestbook to mails.
+* Add mail to author on Admin Reply.
 * Update de_DE.
 
 = 1.4.8 =
