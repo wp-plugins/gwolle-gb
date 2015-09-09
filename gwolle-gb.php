@@ -96,6 +96,7 @@ include_once( GWOLLE_GB_DIR . '/functions/bbcode_emoji.php' );
 include_once( GWOLLE_GB_DIR . '/functions/get_entries.php' );
 include_once( GWOLLE_GB_DIR . '/functions/get_entry_count.php' );
 include_once( GWOLLE_GB_DIR . '/functions/log.php' );
+include_once( GWOLLE_GB_DIR . '/functions/mail.php' );
 include_once( GWOLLE_GB_DIR . '/functions/misc.php' );
 
 // WordPress Hooks

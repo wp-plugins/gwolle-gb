@@ -413,6 +413,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * 2015-
 * Use content_url() for the Captcha (thanks harald.reingruber).
 * Rename class and function files to WP standards.
+* Move mail functions to own file.
 * Update de_DE.
 
 = 1.4.8 =
