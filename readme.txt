@@ -416,7 +416,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Move mail functions to own file.
 * Add permalink of guestbook to mails.
 * Add mail to author on Admin Reply.
-* Update de_DE.
+* Update pot, de_DE, nl_NL.
 
 = 1.4.8 =
 * 2015-08-27
