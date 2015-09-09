@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Gwolle Guestbook v1.4.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-09-09 10:51+0200\n"
-"PO-Revision-Date: 2015-09-09 10:53+0200\n"
+"PO-Revision-Date: 2015-09-09 10:55+0200\n"
 "Last-Translator: Marcel Pol <marcel@timelord.nl>\n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -2185,7 +2185,7 @@ msgstr ""
 # @ GWGB
 #: admin/tabs/emailtab.php:133
 msgid "Admin mail content"
-msgstr "Admin mail inhoud"
+msgstr "Admin mail-inhoud"
 
 # @ GWGB
 #: admin/tabs/emailtab.php:160
@@ -2218,7 +2218,7 @@ msgstr ""
 # @ GWGB
 #: admin/tabs/emailtab.php:193
 msgid "Author mail content"
-msgstr "Auteur mail content"
+msgstr "Auteur mail-inhoud"
 
 # @ GWGB
 #: admin/tabs/emailtab.php:218
