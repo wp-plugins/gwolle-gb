@@ -54,7 +54,7 @@ Import is supported from:
 * Gwolle Guestbook itself, with Export supported as well (CSV-file).
 
 
-Please note: At the moment, Gwolle Guestbook does *not* work with WordPress MU.
+> Please note: Gwolle Guestbook does *not* work with WordPress MultiSite.
 
 
 = Languages =
@@ -412,6 +412,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.4.9 =
 * 2015-
 * Use content_url() for the Captcha (thanks harald.reingruber).
+* Rename class and function files to WP standards.
 * Update de_DE.
 
 = 1.4.8 =

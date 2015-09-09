@@ -60,7 +60,7 @@ $wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
 
 
 // Classes
-include_once( GWOLLE_GB_DIR . '/functions/class.entry.php' );
+include_once( GWOLLE_GB_DIR . '/functions/class-entry.php' );
 
 // Functions for the frontend
 include_once( GWOLLE_GB_DIR . '/frontend/index.php' );
@@ -91,12 +91,12 @@ include_once( GWOLLE_GB_DIR . '/admin/tabs/emailtab.php' );
 include_once( GWOLLE_GB_DIR . '/admin/tabs/uninstalltab.php' );
 
 // General Functions
-include_once( GWOLLE_GB_DIR . '/functions/function.akismet.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.bbcode_emoji.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.get_entries.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.get_entry_count.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.log.php' );
-include_once( GWOLLE_GB_DIR . '/functions/function.misc.php' );
+include_once( GWOLLE_GB_DIR . '/functions/akismet.php' );
+include_once( GWOLLE_GB_DIR . '/functions/bbcode_emoji.php' );
+include_once( GWOLLE_GB_DIR . '/functions/get_entries.php' );
+include_once( GWOLLE_GB_DIR . '/functions/get_entry_count.php' );
+include_once( GWOLLE_GB_DIR . '/functions/log.php' );
+include_once( GWOLLE_GB_DIR . '/functions/misc.php' );
 
 // WordPress Hooks
 include_once( GWOLLE_GB_DIR . '/hooks.php' );
