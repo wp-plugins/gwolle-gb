@@ -46,7 +46,7 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 .gwolle_gb_edit_meta_inputs {
 	display: none;
 }
-#gwolle_gb_editor #post-body-content input,
+#gwolle_gb_editor #post-body-content input[type="text"],
 #gwolle_gb_editor #post-body-content textarea {
 	width: 100%;
 	max-width: 500px;

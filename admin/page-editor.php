@@ -161,6 +161,13 @@ function gwolle_gb_page_editor() {
 					}
 				}
 
+				/* Mail the author about the Admin Reply, if so requested */
+				if ( isset($_POST['gwolle_gb_admin_reply_mail_author']) ) {
+					if ( $_POST['gwolle_gb_admin_reply_mail_author'] == 'on' ) {
+						gwolle_gb_mail_author_on_admin_reply( $entry );
+					}
+				}
+
 				/* Check if the author_name changed, and update accordingly */
 				if ( isset($_POST['gwolle_gb_author_name']) ) {
 					if ( $_POST['gwolle_gb_author_name'] != $entry->get_author_name() ) {
@@ -376,6 +383,12 @@ function gwolle_gb_page_editor() {
 									</h3>
 									<div class="inside">
 										<textarea rows="10" name="gwolle_gb_admin_reply" id="gwolle_gb_admin_reply" tabindex="4" placeholder="<?php _e('Admin Reply', GWOLLE_GB_TEXTDOMAIN); ?>"><?php echo gwolle_gb_sanitize_output( $entry->get_admin_reply() ); ?></textarea>
+
+										<input type="checkbox" name="gwolle_gb_admin_reply_mail_author" id="gwolle_gb_admin_reply_mail_author">
+										<label for="gwolle_gb_admin_reply_mail_author">
+											<?php _e('Mail the author a notification about this reply.', GWOLLE_GB_TEXTDOMAIN); ?>
+										</label><br />
+
 										<?php
 										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
 											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', GWOLLE_GB_TEXTDOMAIN), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
