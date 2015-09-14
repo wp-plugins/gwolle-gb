@@ -405,6 +405,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Add parameter book_id to get_entries and get_entry_count functions.
 * Show and Edit book_id on Admin Editor.
 * Don't show so much metadata on unpublished entry.
+* Add icons for book_id and admin_reply.
 * Fix link to entry in moderation mail.
 * Add notice for using CAPTCHA with a caching plugin.
 * No need to add options on install, we have defaults for that.

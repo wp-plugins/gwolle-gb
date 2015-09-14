@@ -592,7 +592,14 @@ function gwolle_gb_page_entries() {
 												<span class="visible-icon"></span>
 												<span class="invisible-icon"></span>
 												<span class="spam-icon"></span>
-												<span class="trash-icon"></span>
+												<span class="trash-icon"></span>';
+										$admin_reply = gwolle_gb_sanitize_output( $entry->get_admin_reply() );
+										if ( strlen( trim($admin_reply) ) > 0 ) {
+											$html_output .= '
+												<span class="admin_reply-icon"></span>';
+										}
+										$html_output .= '
+												<span class="book-icon">' . $entry->get_book_id()  . '</span>
 												<span class="gwolle_gb_ajax"></span>
 											</td>';
 									}

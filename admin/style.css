@@ -118,15 +118,35 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 }
 .gwolle_gb .visible .visible-icon {
 	display: inline-block;
-	background-image: url('gfx/entry-checked.jpg');
+	background-image: url('gfx/entry-checked.png');
 }
 .gwolle_gb .invisible .invisible-icon {
 	display: inline-block;
-	background-image: url('gfx/entry-unchecked.jpg');
+	background-image: url('gfx/entry-unchecked.png');
 }
 .gwolle_gb .spam .spam-icon {
 	display: inline-block;
-	background-image: url('gfx/entry-spam.jpg');
+	background-image: url('gfx/entry-spam.png');
+}
+.gwolle_gb .admin_reply-icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	color: #fff;
+	text-align: center;
+	line-height: 15px;
+	margin-right: 5px;
+	background-image: url('gfx/entry-admin_reply.png');
+}
+.gwolle_gb .book-icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	color: #fff;
+	text-align: center;
+	line-height: 15px;
+	margin-right: 5px;
+	background-image: url('gfx/entry-blue.png');
 }
 
 /* AJAX */
