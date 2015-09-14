@@ -519,46 +519,46 @@ function gwolle_gb_page_editor() {
 																	<h3 class="h3_visible" style="display:none;">' . __('This entry is Visible.', 'gwolle-gb') . '</h3>
 																	<h3 class="h3_invisible">' . __('This entry is Not Visible.', 'gwolle-gb') . '</h3>
 																	';
-															}
-														} ?>
+															} ?>
 
-														<label for="ischecked" class="selectit">
-															<input id="ischecked" name="ischecked" type="checkbox" <?php
-																if ($entry->get_ischecked() == '1' || $entry->get_id() == 0) {
-																	echo 'checked="checked"';
-																}
-																?> />
-															<?php _e('Checked', 'gwolle-gb'); ?>
-														</label>
-
-														<br />
-														<label for="isspam" class="selectit">
-															<input id="isspam" name="isspam" type="checkbox" <?php
-																if ($entry->get_isspam() == '1') {
-																	echo 'checked="checked"';
-																}
-																?> />
-															<?php _e('Spam', 'gwolle-gb'); ?>
-														</label>
-
-														<br />
-														<label for="istrash" class="selectit">
-															<input id="istrash" name="istrash" type="checkbox" <?php
-																if ($entry->get_istrash() == '1') {
-																	echo 'checked="checked"';
-																}
-																?> />
-															<?php _e('Trash', 'gwolle-gb'); ?>
-														</label>
-
-														<?php
-														if ($entry->get_istrash() == '1') { ?>
-															<br />
-															<label for="remove" class="selectit">
-																<input id="remove" name="remove" type="checkbox" />
-																<?php _e('Remove this entry Permanently.', 'gwolle-gb'); ?>
+															<label for="ischecked" class="selectit">
+																<input id="ischecked" name="ischecked" type="checkbox" <?php
+																	if ($entry->get_ischecked() == '1' || $entry->get_id() == 0) {
+																		echo 'checked="checked"';
+																	}
+																	?> />
+																<?php _e('Checked', 'gwolle-gb'); ?>
 															</label>
-														<?php } ?>
+
+															<br />
+															<label for="isspam" class="selectit">
+																<input id="isspam" name="isspam" type="checkbox" <?php
+																	if ($entry->get_isspam() == '1') {
+																		echo 'checked="checked"';
+																	}
+																	?> />
+																<?php _e('Spam', 'gwolle-gb'); ?>
+															</label>
+
+															<br />
+															<label for="istrash" class="selectit">
+																<input id="istrash" name="istrash" type="checkbox" <?php
+																	if ($entry->get_istrash() == '1') {
+																		echo 'checked="checked"';
+																	}
+																	?> />
+																<?php _e('Trash', 'gwolle-gb'); ?>
+															</label>
+
+															<?php
+															if ($entry->get_istrash() == '1') { ?>
+																<br />
+																<label for="remove" class="selectit">
+																	<input id="remove" name="remove" type="checkbox" />
+																	<?php _e('Remove this entry Permanently.', 'gwolle-gb'); ?>
+																</label>
+															<?php }
+														} ?>
 
 													</div>
 												</div><!-- .misc-publishing-actions -->

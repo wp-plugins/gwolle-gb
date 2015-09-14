@@ -403,6 +403,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Add book_id field to database and class-entry, default is book_id 1.
 * Add parameter book_id to shortcodes.
 * Add parameter book_id to get_entries and get_entry_count functions.
+* Don't show so much metadata on unpublished entry.
 * Fix link to entry in moderation mail.
 * Add notice for using CAPTCHA with a caching plugin.
 * No need to add options on install, we have defaults for that.
