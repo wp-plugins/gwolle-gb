@@ -23,7 +23,7 @@ function gwolle_gb_page_import() {
 	//if ( WP_DEBUG ) { echo "_POST: "; var_dump($_POST); }
 
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
-		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
+		die(__('Cheatin&#8217; uh?', 'gwolle-gb'));
 	}
 
 
@@ -86,19 +86,19 @@ function gwolle_gb_page_import() {
 					}
 					if ( $saved == 0 ) {
 						$gwolle_gb_errors = 'error';
-						$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import entries from DMSGuestbook successfully.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import entries from DMSGuestbook successfully.", 'gwolle-gb') . '</p>';
 					} else if ( $saved == 1 ) {
-						$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from DMSGuestbook.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from DMSGuestbook.", 'gwolle-gb') . '</p>';
 					} else if ( $saved > 1 ) {
-						$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN), $saved ) . '</p>';
+						$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from DMSGuestbook.', 'gwolle-gb'), $saved ) . '</p>';
 					}
 				} else {
 					$gwolle_gb_errors = 'error';
-					$gwolle_gb_messages .= '<p>' . __("<strong>Nothing to import.</strong> The guestbook you've chosen does not contain any entries.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_messages .= '<p>' . __("<strong>Nothing to import.</strong> The guestbook you've chosen does not contain any entries.", 'gwolle-gb') . '</p>';
 				}
 			} else {
 				$gwolle_gb_errors = 'error';
-				$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+				$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to find the MySQL table of DMSGuestbook.", 'gwolle-gb') . '</p>';
 			}
 
 		} else if (isset($_POST['start_import_wp'])) {
@@ -123,7 +123,7 @@ function gwolle_gb_page_import() {
 				);
 			} else {
 				$gwolle_gb_errors = 'error';
-				$gwolle_gb_messages .= '<p>' . __("You haven't chosen how to import from WordPress comments. Please choose and try again.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+				$gwolle_gb_messages .= '<p>' . __("You haven't chosen how to import from WordPress comments. Please choose and try again.", 'gwolle-gb') . '</p>';
 			}
 
 			if ( is_array($args) && !empty($args) ) {
@@ -158,20 +158,20 @@ function gwolle_gb_page_import() {
 					}
 					if ( $saved == 0 ) {
 						$gwolle_gb_errors = 'error';
-						$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import comments from that page successfully.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import comments from that page successfully.", 'gwolle-gb') . '</p>';
 					} else if ( $saved == 1 ) {
-						$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from WordPress comments.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from WordPress comments.", 'gwolle-gb') . '</p>';
 					} else if ( $saved > 1 ) {
-						$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from WordPress comments.', GWOLLE_GB_TEXTDOMAIN), $saved ) . '</p>';
+						$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from WordPress comments.', 'gwolle-gb'), $saved ) . '</p>';
 					}
 				} else {
 					$gwolle_gb_errors = 'error';
-					$gwolle_gb_messages .= '<p>' . __("<strong>Nothing to import.</strong> There seem to be no comments on this page, post or at all.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_messages .= '<p>' . __("<strong>Nothing to import.</strong> There seem to be no comments on this page, post or at all.", 'gwolle-gb') . '</p>';
 				}
 			} else {
 				if ( $gwolle_gb_errors != 'error' ) {
 					$gwolle_gb_errors = 'error';
-					$gwolle_gb_messages .= '<p>' . __("You haven't chosen how to import from WordPress comments. Please choose and try again.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_messages .= '<p>' . __("You haven't chosen how to import from WordPress comments. Please choose and try again.", 'gwolle-gb') . '</p>';
 				}
 			}
 
@@ -185,7 +185,7 @@ function gwolle_gb_page_import() {
 					if( $_FILES['start_import_gwolle_file']['size'] > (1024000) ) { //can't be larger than 1 MB
 						$valid_file = false;
 						$gwolle_gb_errors = 'error';
-						$gwolle_gb_messages .= '<p>' . __("Your filesize is too large.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __("Your filesize is too large.", 'gwolle-gb') . '</p>';
 					} else {
 						if ( function_exists('finfo_open') ) {
 							// Check MIME Type. Only PHP >= 5.3.0
@@ -206,7 +206,7 @@ function gwolle_gb_page_import() {
 								)
 							) ) {
 							$gwolle_gb_errors = 'error';
-							$gwolle_gb_messages .= '<p>' . __("Invalid file format.", GWOLLE_GB_TEXTDOMAIN) . ' (' . print_r($mimetype, true) . ')</p>';
+							$gwolle_gb_messages .= '<p>' . __("Invalid file format.", 'gwolle-gb') . ' (' . print_r($mimetype, true) . ')</p>';
 						} else {
 							$handle = fopen($_FILES['start_import_gwolle_file']['tmp_name'], "r");
 							$row = 0;
@@ -260,7 +260,7 @@ function gwolle_gb_page_import() {
 									);
 									if ( $data != $testrow_1_0 && $data != $testrow_1_4_1 && $data != $testrow_1_4_8 ) {
 										$gwolle_gb_errors = 'error';
-										$gwolle_gb_messages .= '<p>' . __("It seems your CSV file is from an export that is not compatible with this version of Gwolle-GB.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+										$gwolle_gb_messages .= '<p>' . __("It seems your CSV file is from an export that is not compatible with this version of Gwolle-GB.", 'gwolle-gb') . '</p>';
 										break;
 									}
 									$row++;
@@ -269,7 +269,7 @@ function gwolle_gb_page_import() {
 
 								if ( $num != 12 && $num != 13 ) {
 									$gwolle_gb_errors = 'error';
-									$gwolle_gb_messages .= '<p>' . __("Your data seems to be corrupt. Import failed.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+									$gwolle_gb_messages .= '<p>' . __("Your data seems to be corrupt. Import failed.", 'gwolle-gb') . '</p>';
 									break;
 								}
 
@@ -306,7 +306,7 @@ function gwolle_gb_page_import() {
 									$row++;
 								} else {
 									$gwolle_gb_errors = 'error';
-									$gwolle_gb_messages .= '<p>' . __("Your data seems to be corrupt. Import failed.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+									$gwolle_gb_messages .= '<p>' . __("Your data seems to be corrupt. Import failed.", 'gwolle-gb') . '</p>';
 									break;
 								}
 
@@ -315,11 +315,11 @@ function gwolle_gb_page_import() {
 
 							if ( $row == 0 ) {
 								$gwolle_gb_errors = 'error';
-								$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import entries from the CSV file.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+								$gwolle_gb_messages .= '<p>' . __("I'm sorry, but I wasn't able to import entries from the CSV file.", 'gwolle-gb') . '</p>';
 							} else if ( $row == 1 ) {
-								$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from the CSV file.", GWOLLE_GB_TEXTDOMAIN) . '</p>';
+								$gwolle_gb_messages .= '<p>' . __("1 entry imported successfully from the CSV file.", 'gwolle-gb') . '</p>';
 							} else if ( $row > 1 ) {
-								$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from the CSV file.', GWOLLE_GB_TEXTDOMAIN), $row ) . '</p>';
+								$gwolle_gb_messages .= '<p>' . sprintf( __('%d entries imported successfully from the CSV file.', 'gwolle-gb'), $row ) . '</p>';
 							}
 
 							fclose($handle);
@@ -328,7 +328,7 @@ function gwolle_gb_page_import() {
 				} else {
 					// set that to be the returned message
 					$gwolle_gb_errors = 'error';
-					$gwolle_gb_messages .= '<p>' . __("Your upload triggered the following error:", GWOLLE_GB_TEXTDOMAIN) . ' ' . $_FILES['gwolle_gb_gwolle']['error'] . '</p>';
+					$gwolle_gb_messages .= '<p>' . __("Your upload triggered the following error:", 'gwolle-gb') . ' ' . $_FILES['gwolle_gb_gwolle']['error'] . '</p>';
 				}
 			}
 		}
@@ -341,7 +341,7 @@ function gwolle_gb_page_import() {
 	?>
 	<div class="wrap gwolle_gb">
 		<div id="icon-gwolle-gb"><br /></div>
-		<h1><?php _e('Import guestbook entries.', GWOLLE_GB_TEXTDOMAIN); ?></h1>
+		<h1><?php _e('Import guestbook entries.', 'gwolle-gb'); ?></h1>
 
 		<?php
 		if ( $gwolle_gb_messages ) {
@@ -360,7 +360,7 @@ function gwolle_gb_page_import() {
 
 						<div id="dmsdiv" class="postbox">
 							<div class="handlediv"></div>
-							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><?php _e('Import guestbook entries from DMSGuestbook', 'gwolle-gb'); ?></h3>
 							<div class="inside">
 								<form name="gwolle_gb_import_dms" id="gwolle_gb_import_dms" method="POST" action="#" accept-charset="UTF-8">
 									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
@@ -389,36 +389,36 @@ function gwolle_gb_page_import() {
 
 									if ( isset($foundTables[0]) && in_array( $wpdb->prefix . 'dmsguestbook', $foundTables[0] ) ) { ?>
 										<div>
-											<?php echo sprintf( __("%d entries were found and will be imported.", GWOLLE_GB_TEXTDOMAIN), $count ); ?>
+											<?php echo sprintf( __("%d entries were found and will be imported.", 'gwolle-gb'), $count ); ?>
 										</div>
 										<div>
-											<?php _e('The importer will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
+											<?php _e('The importer will preserve the following data per entry:', 'gwolle-gb'); ?>
 											<ul class="ul-disc">
-												<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('"is spam" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
-												<li><?php _e('"is checked" flag', GWOLLE_GB_TEXTDOMAIN); ?></li>
+												<li><?php _e('Name', 'gwolle-gb'); ?></li>
+												<li><?php _e('E-Mail address', 'gwolle-gb'); ?></li>
+												<li><?php _e('URL/Website', 'gwolle-gb'); ?></li>
+												<li><?php _e('Date of the entry', 'gwolle-gb'); ?></li>
+												<li><?php _e('IP address', 'gwolle-gb'); ?></li>
+												<li><?php _e('Message', 'gwolle-gb'); ?></li>
+												<li><?php _e('"is spam" flag', 'gwolle-gb'); ?></li>
+												<li><?php _e('"is checked" flag', 'gwolle-gb'); ?></li>
 											</ul>
-											<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', GWOLLE_GB_TEXTDOMAIN); ?>
+											<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', 'gwolle-gb'); ?>
 											<br />
-											<?php _e('The importer does not delete any data, so you can go back whenever you want.', GWOLLE_GB_TEXTDOMAIN); ?>
+											<?php _e('The importer does not delete any data, so you can go back whenever you want.', 'gwolle-gb'); ?>
 										</div>
 
 										<p>
 											<label for="gwolle_gb_dmsguestbook" class="selectit">
 												<input id="gwolle_gb_dmsguestbook" name="gwolle_gb_dmsguestbook" type="checkbox" />
-												<?php _e('Import all entries from DMSGuestbook.', GWOLLE_GB_TEXTDOMAIN); ?>
+												<?php _e('Import all entries from DMSGuestbook.', 'gwolle-gb'); ?>
 											</label>
 										</p>
 										<p>
-											<input name="start_import_dms" id="start_import_dms" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+											<input name="start_import_dms" id="start_import_dms" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', 'gwolle-gb'); ?>">
 										</p><?php
 									} else {
-										echo '<div>' . __('DMSGuestbook was not found.', GWOLLE_GB_TEXTDOMAIN) . '</div>';
+										echo '<div>' . __('DMSGuestbook was not found.', 'gwolle-gb') . '</div>';
 									} ?>
 								</form>
 							</div> <!-- inside -->
@@ -427,33 +427,33 @@ function gwolle_gb_page_import() {
 
 						<div id="wp_comm_div" class="postbox">
 							<div class="handlediv"></div>
-							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from WordPress comments', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><?php _e('Import guestbook entries from WordPress comments', 'gwolle-gb'); ?></h3>
 							<div class="inside">
 								<form name="gwolle_gb_import_wp" id="gwolle_gb_import_wp" method="POST" action="#" accept-charset="UTF-8">
 									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
 
 									<div>
-										<?php _e('The importer will preserve the following data per entry:', GWOLLE_GB_TEXTDOMAIN); ?>
+										<?php _e('The importer will preserve the following data per entry:', 'gwolle-gb'); ?>
 										<ul class="ul-disc">
-											<li><?php _e('Name', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											<li><?php _e('User ID', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											<li><?php _e('E-Mail address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											<li><?php _e('URL/Website', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											<li><?php _e('Date of the entry', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											<li><?php _e('IP address', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											<li><?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?></li>
-											<li><?php _e('"approved" status', GWOLLE_GB_TEXTDOMAIN); ?></li>
+											<li><?php _e('Name', 'gwolle-gb'); ?></li>
+											<li><?php _e('User ID', 'gwolle-gb'); ?></li>
+											<li><?php _e('E-Mail address', 'gwolle-gb'); ?></li>
+											<li><?php _e('URL/Website', 'gwolle-gb'); ?></li>
+											<li><?php _e('Date of the entry', 'gwolle-gb'); ?></li>
+											<li><?php _e('IP address', 'gwolle-gb'); ?></li>
+											<li><?php _e('Message', 'gwolle-gb'); ?></li>
+											<li><?php _e('"approved" status', 'gwolle-gb'); ?></li>
 										</ul>
-										<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', GWOLLE_GB_TEXTDOMAIN); ?>
+										<?php _e('However, data such as HTML formatting is not supported by Gwolle-GB and <strong>will not</strong> be imported.', 'gwolle-gb'); ?>
 										<br />
-										<?php _e('Spam comments will not be imported.', GWOLLE_GB_TEXTDOMAIN); ?>
+										<?php _e('Spam comments will not be imported.', 'gwolle-gb'); ?>
 										<br />
-										<?php _e('The importer does not delete any data, so you can go back whenever you want.', GWOLLE_GB_TEXTDOMAIN); ?>
+										<?php _e('The importer does not delete any data, so you can go back whenever you want.', 'gwolle-gb'); ?>
 									</div>
 
-									<p><label for="gwolle_gb_pageid"><?php _e('Select a page to import the comments from:', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+									<p><label for="gwolle_gb_pageid"><?php _e('Select a page to import the comments from:', 'gwolle-gb'); ?></label><br />
 										<select id="gwolle_gb_pageid" name="gwolle_gb_pageid">
-										<option value="0"><?php _e('Select', GWOLLE_GB_TEXTDOMAIN); ?></option>
+										<option value="0"><?php _e('Select', 'gwolle-gb'); ?></option>
 										<?php
 										$args = array(
 											'post_type'      => 'page',
@@ -477,9 +477,9 @@ function gwolle_gb_page_import() {
 												if ( $num_comments == 0 ) {
 													continue;
 												} elseif ( $num_comments > 1 ) {
-													$comments = $num_comments . __(' Comments', GWOLLE_GB_TEXTDOMAIN);
+													$comments = $num_comments . __(' Comments', 'gwolle-gb');
 												} else {
-													$comments = __('1 Comment', GWOLLE_GB_TEXTDOMAIN);
+													$comments = __('1 Comment', 'gwolle-gb');
 												}
 
 												echo '<option value="' . get_the_ID() . '">'. get_the_title() . ' (' . $comments . ')</option>';
@@ -489,9 +489,9 @@ function gwolle_gb_page_import() {
 										</select>
 									</p>
 
-									<p><label for="gwolle_gb_postid"><?php _e('Select a post to import the comments from:', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
+									<p><label for="gwolle_gb_postid"><?php _e('Select a post to import the comments from:', 'gwolle-gb'); ?></label><br />
 										<select id="gwolle_gb_postid" name="gwolle_gb_postid">
-										<option value="0"><?php _e('Select', GWOLLE_GB_TEXTDOMAIN); ?></option>
+										<option value="0"><?php _e('Select', 'gwolle-gb'); ?></option>
 										<?php
 										$args = array(
 											'post_type'      => 'post',
@@ -514,9 +514,9 @@ function gwolle_gb_page_import() {
 												if ( $num_comments == 0 ) {
 													continue;
 												} elseif ( $num_comments > 1 ) {
-													$comments = $num_comments . __(' Comments', GWOLLE_GB_TEXTDOMAIN);
+													$comments = $num_comments . __(' Comments', 'gwolle-gb');
 												} else {
-													$comments = __('1 Comment', GWOLLE_GB_TEXTDOMAIN);
+													$comments = __('1 Comment', 'gwolle-gb');
 												}
 
 												echo '<option value="' . get_the_ID() . '">'. get_the_title() . ' (' . $comments . ')</option>';
@@ -533,14 +533,14 @@ function gwolle_gb_page_import() {
 									);
 									$num_comments = get_comments($args); ?>
 
-									<p><label for="gwolle_gb_importfrom"><?php _e('Select where to import the comments from:', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
-										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="page" /><?php _e('Comments from selected page.', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
-										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="post" /><?php _e('Comments from selected post.', GWOLLE_GB_TEXTDOMAIN); ?></label><br />
-										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="all" /><?php _e('All Comments', GWOLLE_GB_TEXTDOMAIN); echo " (" . $num_comments . ")."; ?></label><br />
+									<p><label for="gwolle_gb_importfrom"><?php _e('Select where to import the comments from:', 'gwolle-gb'); ?></label><br />
+										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="page" /><?php _e('Comments from selected page.', 'gwolle-gb'); ?></label><br />
+										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="post" /><?php _e('Comments from selected post.', 'gwolle-gb'); ?></label><br />
+										<label><input type="radio" name="gwolle_gb_importfrom" id="gwolle_gb_importfrom" value="all" /><?php _e('All Comments', 'gwolle-gb'); echo " (" . $num_comments . ")."; ?></label><br />
 									</p>
 
 									<p>
-										<input name="start_import_wp" id="start_import_wp" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+										<input name="start_import_wp" id="start_import_wp" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', 'gwolle-gb'); ?>">
 									</p>
 								</form>
 							</div> <!-- inside -->
@@ -548,18 +548,18 @@ function gwolle_gb_page_import() {
 
 						<div id="gwollediv" class="postbox">
 							<div class="handlediv"></div>
-							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Import guestbook entries from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN); ?></h3>
+							<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><?php _e('Import guestbook entries from Gwolle-GB', 'gwolle-gb'); ?></h3>
 							<div class="inside">
 								<form name="gwolle_gb_import_gwolle" id="gwolle_gb_import_gwolle" method="POST" action="#" accept-charset="UTF-8" enctype="multipart/form-data">
 									<input type="hidden" name="gwolle_gb_page" value="gwolle_gb_import" />
 
 									<p>
-										<label for="start_import_gwolle_file" class="selectit"><?php _e('Select a CSV file with exported entries to import again:', GWOLLE_GB_TEXTDOMAIN); ?><br />
+										<label for="start_import_gwolle_file" class="selectit"><?php _e('Select a CSV file with exported entries to import again:', 'gwolle-gb'); ?><br />
 											<input id="start_import_gwolle_file" name="start_import_gwolle_file" type="file" />
 										</label>
 									</p>
 									<p>
-										<input name="start_import_gwolle" id="start_import_gwolle" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', GWOLLE_GB_TEXTDOMAIN); ?>">
+										<input name="start_import_gwolle" id="start_import_gwolle" type="submit" class="button" disabled value="<?php esc_attr_e('Start import', 'gwolle-gb'); ?>">
 									</p>
 								</form>
 							</div> <!-- inside -->

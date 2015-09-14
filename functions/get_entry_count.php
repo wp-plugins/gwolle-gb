@@ -8,6 +8,7 @@
  * - trash    string: 'trash' or 'notrash', List the entries that are deleted or not deleted
  * - spam     string: 'spam' or 'nospam', List the entries marked as spam or as no spam
  * - all      string: 'all', List all entries
+ * - book_id  int: Only entries from this book. Default in the shortcode is 1 (since 1.5.1).
  *
  * Return:
  * - int with the count of the entries
@@ -61,6 +62,12 @@ function gwolle_gb_get_entry_count($args) {
 				$values[] = 0;
 			}
 		}
+	}
+	if ( isset( $args['book_id']) ) {
+		$where .= "
+			AND
+			book_id = %d";
+		$values[] = (int) $args['book_id'];
 	}
 
 	$tablename = $wpdb->prefix . "gwolle_gb_entries";

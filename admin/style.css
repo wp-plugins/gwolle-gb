@@ -46,7 +46,7 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 .gwolle_gb_edit_meta_inputs {
 	display: none;
 }
-#gwolle_gb_editor #post-body-content input,
+#gwolle_gb_editor #post-body-content input[type="text"],
 #gwolle_gb_editor #post-body-content textarea {
 	width: 100%;
 	max-width: 500px;
@@ -56,9 +56,6 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	display: block;
 }
 
-.markItUpButton.markItUpButton8.emoji {
-	display: none;
-}
 
 /* Entries.php */
 /* Page Navigation */
@@ -121,15 +118,32 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 }
 .gwolle_gb .visible .visible-icon {
 	display: inline-block;
-	background-image: url('gfx/entry-checked.jpg');
+	background-image: url('gfx/entry-checked.png');
 }
 .gwolle_gb .invisible .invisible-icon {
 	display: inline-block;
-	background-image: url('gfx/entry-unchecked.jpg');
+	background-image: url('gfx/entry-unchecked.png');
 }
 .gwolle_gb .spam .spam-icon {
 	display: inline-block;
-	background-image: url('gfx/entry-spam.jpg');
+	background-image: url('gfx/entry-spam.png');
+}
+.gwolle_gb .admin_reply-icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-right: 5px;
+	background-image: url('gfx/entry-admin_reply.png');
+}
+.gwolle_gb .book-icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	color: #fff;
+	text-align: center;
+	line-height: 16px;
+	margin-right: 5px;
+	background-image: url('gfx/entry-blue.png');
 }
 
 /* AJAX */
@@ -238,5 +252,8 @@ span.gwolle_gb_ajax {
 	display: inline;
 }
 
-
-
+/* Admin Bar */
+#wpadminbar #wp-admin-bar-gwolle-gb .ab-icon::before {
+	content: "";
+	top: 3px;
+}
