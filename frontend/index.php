@@ -7,11 +7,15 @@
 
 
 /* Frontend Function
- * Use this to display the guestbook on a page without using a shortcode
+ * Use this to display the guestbook on a page without using a shortcode.
+ *
+ * For multiple guestbooks, use it like this:
+ * show_gwolle_gb( array('book_id'=>2) );
+ * which will show Book ID 2.
  */
 
-function show_gwolle_gb() {
-	echo get_gwolle_gb();
+function show_gwolle_gb( $atts ) {
+	echo get_gwolle_gb( $atts );
 }
 
 

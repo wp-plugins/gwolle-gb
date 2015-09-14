@@ -31,6 +31,7 @@ Current features include:
 * CAPTCHA integration for fighting spam, as well.
 * Simple Form Builder to select which form-fields you want to use.
 * Option List with the parts of each entry that you want to show.
+* Multiple guestbooks are possible.
 * Localization. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * Admins can add a reply to each entry.
@@ -144,6 +145,7 @@ The Array $args can have the following key/values:
 * isspam, bool if it is spam or not.
 * admin_reply, string with content of the admin reply message.
 * admin_reply_uid, id with the WordPress user ID of the author of the admin_reply.
+* book_id, int with the Book ID of that entry, default is 1.
 
 = Filter an entry on the frontend =
 
@@ -301,6 +303,18 @@ Please install and activate that plugin.
 If it still doesn't show, it could be that the plugin has no write permission in the '/tmp' folder of the Really Simple Captcha plugin.
 Please fix this in your install.
 
+= How can I use Multiple Guestbooks? =
+
+You can add a parameter to the shortcode, like:
+
+	'[gwolle_gb book_id="2"]'
+
+This will make the page have the guestbook with Book ID 2.
+
+If you use the template function, you can use it like this:
+
+	show_gwolle_gb( array('book_id'=>2) );
+
 = I don't see the labels in the form. =
 
 This plugin doesn't apply any CSS to the label elements. It is possible that your label elements have a white color on a white background.
@@ -404,8 +418,8 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Add parameter book_id to shortcodes.
 * Add parameter book_id to get_entries and get_entry_count functions.
 * Show and Edit book_id on Admin Editor.
+* Add icons for book_id and admin_reply, add alt attributes.
 * Don't show so much metadata on unpublished entry.
-* Add icons for book_id and admin_reply.
 * Fix link to entry in moderation mail.
 * Add notice for using CAPTCHA with a caching plugin.
 * No need to add options on install, we have defaults for that.
