@@ -13,7 +13,7 @@
  * - author_id     string: All entries associated with this author_id (since 1.5.0).
  * - email         string: All entries associated with this emailaddress.
  * - no_moderators string: 'true', Only entries not written by a moderator (might be expensive with many users) (since 1.5.0).
- * - book_id       int: All the entries in this book. Default = 1.
+ * - book_id       int: Only entries from this book. Default in the shortcode is 1 (since 1.5.1).
  *
  * Return:
  * - Array of objects of gwolle_gb_entry
@@ -140,7 +140,8 @@ function gwolle_gb_get_entries($args = array()) {
 				`istrash`,
 				`isspam`,
 				`admin_reply`,
-				`admin_reply_uid`
+				`admin_reply_uid`,
+				`book_id`
 			FROM
 				" . $tablename . "
 			WHERE
@@ -181,6 +182,7 @@ function gwolle_gb_get_entries($args = array()) {
 				'isspam'          => (int) $data['isspam'],
 				'admin_reply'     => stripslashes($data['admin_reply']),
 				'admin_reply_uid' => (int) $data['admin_reply_uid'],
+				'book_id'         => (int) $data['book_id'],
 			);
 
 			$entry = new gwolle_gb_entry();
