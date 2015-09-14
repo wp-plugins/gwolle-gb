@@ -17,42 +17,48 @@ function gwolle_gb_install() {
 	$wpdb->gwolle_gb_entries = $wpdb->prefix . 'gwolle_gb_entries';
 	$wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
 
-	$sql = "
-		CREATE TABLE
-			" . $wpdb->gwolle_gb_entries . "
-		(
-			id int(10) NOT NULL auto_increment,
-			author_name text NOT NULL,
-			author_id int(5) NOT NULL default '0',
-			author_email text NOT NULL,
-			author_origin text NOT NULL,
-			author_website text NOT NULL,
-			author_ip text NOT NULL,
-			author_host text NOT NULL,
-			content longtext NOT NULL,
-			datetime bigint(8) UNSIGNED NOT NULL,
-			ischecked tinyint(1) NOT NULL,
-			checkedby int(5) NOT NULL,
-			istrash varchar(1) NOT NULL default '0',
-			isspam varchar(1) NOT NULL default '0',
-			admin_reply longtext NOT NULL,
-			admin_reply_uid int(5) NOT NULL default '0',
-			PRIMARY KEY  (id)
-		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
-	$result = $wpdb->query($sql);
+	$result = $wpdb->query("SHOW TABLES LIKE '" . $wpdb->prefix . "gwolle_gb_entries'");
+	if ( $result === 0 ) {
+		$sql = "
+			CREATE TABLE
+				" . $wpdb->gwolle_gb_entries . "
+			(
+				id int(10) NOT NULL auto_increment,
+				author_name text NOT NULL,
+				author_id int(5) NOT NULL default '0',
+				author_email text NOT NULL,
+				author_origin text NOT NULL,
+				author_website text NOT NULL,
+				author_ip text NOT NULL,
+				author_host text NOT NULL,
+				content longtext NOT NULL,
+				datetime bigint(8) UNSIGNED NOT NULL,
+				ischecked tinyint(1) NOT NULL,
+				checkedby int(5) NOT NULL,
+				istrash varchar(1) NOT NULL default '0',
+				isspam varchar(1) NOT NULL default '0',
+				admin_reply longtext NOT NULL,
+				admin_reply_uid int(5) NOT NULL default '0',
+				PRIMARY KEY  (id)
+			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
+		$result = $wpdb->query($sql);
+	}
 
-	$sql = "
-		CREATE TABLE
-			" . $wpdb->gwolle_gb_log . "
-		(
-			id int(8) NOT NULL auto_increment,
-			subject text NOT NULL,
-			entry_id int(5) NOT NULL,
-			author_id int(5) NOT NULL,
-			datetime bigint(8) UNSIGNED NOT NULL,
-			PRIMARY KEY  (id)
-		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
-	$result = $wpdb->query($sql);
+	$result = $wpdb->query("SHOW TABLES LIKE '" . $wpdb->prefix . "gwolle_gb_log'");
+	if ( $result === 0 ) {
+		$sql = "
+			CREATE TABLE
+				" . $wpdb->gwolle_gb_log . "
+			(
+				id int(8) NOT NULL auto_increment,
+				subject text NOT NULL,
+				entry_id int(5) NOT NULL,
+				author_id int(5) NOT NULL,
+				datetime bigint(8) UNSIGNED NOT NULL,
+				PRIMARY KEY  (id)
+			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
+		$result = $wpdb->query($sql);
+	}
 
 	/* Upgrade to new shiny db collation. Since WP 4.2 */
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -61,7 +67,7 @@ function gwolle_gb_install() {
 		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_log );
 	}
 
-	//	Save plugin version to database
+	// Save plugin version to database
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
 
 	// Call flush_rules() as a method of the $wp_rewrite object for the RSS Feed.
@@ -76,7 +82,7 @@ function gwolle_gb_uninstall() {
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_log . "");
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_entries . "");
 
-	// Delete the plugin's preferences and version-no in the wp-options table
+	// Delete the plugin's preferences and version-nr in the wp-options table
 	$wpdb->query("
 			DELETE
 				FROM " . $wpdb->prefix . "options

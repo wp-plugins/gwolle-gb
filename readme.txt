@@ -403,6 +403,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Add notice for using CAPTCHA with a caching plugin.
 * No need to add options on install, we have defaults for that.
 * Rename install / upgrade functions.
+* Test if db tables exists, before adding them.
 * Update pot, nl_NL, ru_RU.
 
 = 1.5.0 =
