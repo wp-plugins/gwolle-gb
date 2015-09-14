@@ -132,9 +132,6 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	display: inline-block;
 	width: 16px;
 	height: 16px;
-	color: #fff;
-	text-align: center;
-	line-height: 15px;
 	margin-right: 5px;
 	background-image: url('gfx/entry-admin_reply.png');
 }
@@ -144,7 +141,7 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	height: 16px;
 	color: #fff;
 	text-align: center;
-	line-height: 15px;
+	line-height: 16px;
 	margin-right: 5px;
 	background-image: url('gfx/entry-blue.png');
 }
