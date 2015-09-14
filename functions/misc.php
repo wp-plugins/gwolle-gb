@@ -373,7 +373,7 @@ function gwolle_gb_touch_time( $entry ) {
 
 	<p>
 		<a href="#" class="gwolle_gb_save_timestamp hide-if-no-js button" title="<?php _e('Save the date and time', 'gwolle-gb'); ?>">
-			<?php _e('OK', 'gwolle-gb'); ?>
+			<?php _e('Save Date', 'gwolle-gb'); ?>
 		</a>
 		<a href="#" class="gwolle_gb_cancel_timestamp hide-if-no-js button-cancel" title="<?php _e('Cancel saving date and time', 'gwolle-gb'); ?>">
 			<?php _e('Cancel', 'gwolle-gb'); ?>
