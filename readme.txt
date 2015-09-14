@@ -32,6 +32,7 @@ Current features include:
 * Simple Form Builder to select which form-fields you want to use.
 * Option List with the parts of each entry that you want to show.
 * Multiple guestbooks are possible.
+* MultiSite is supported.
 * Localization. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * Admins can add a reply to each entry.
@@ -54,9 +55,6 @@ Import is supported from:
 * DMSGuestbook.
 * WordPress comments from a specific post, page or just all comments.
 * Gwolle Guestbook itself, with Export supported as well (CSV-file).
-
-
-> Please note: Gwolle Guestbook does *not* work with WordPress MultiSite.
 
 
 = Languages =
