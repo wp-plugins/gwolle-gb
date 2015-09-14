@@ -133,7 +133,10 @@ function gwolle_gb_frontend_write( $shortcode_atts ) {
 	$output .= '
 		<form id="gwolle_gb_new_entry" action="#" method="POST">
 			<h3>' . $header . '</h3>
-			<input type="hidden" name="gwolle_gb_function" value="add_entry" />';
+			<input type="hidden" name="gwolle_gb_function" id="gwolle_gb_function" value="add_entry" />';
+
+	// The book_id from the shortcode, to be used by the posthandling function again.
+	$output .= '<input type="hidden" name="gwolle_gb_book_id" id="gwolle_gb_book_id" value="' . $shortcode_atts['book_id'] . '" />';
 
 	// Use this filter to just add something
 	$output .= apply_filters( 'gwolle_gb_write_add_before', '' );

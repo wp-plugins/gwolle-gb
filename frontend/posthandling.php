@@ -295,6 +295,18 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/*
+		 * Book ID
+		 */
+		if ( isset( $_POST['gwolle_gb_book_id'] ) ) {
+			$gwolle_gb_data['book_id'] = (int) $_POST['gwolle_gb_book_id'];
+		}
+		if ( $gwolle_gb_data['book_id'] < 1 ) {
+			$gwolle_gb_data['book_id'] = 1;
+		}
+		$entry->set_book_id( $gwolle_gb_data['book_id'] );
+
+
+		/*
 		 * Check for double post using email field and content.
 		 * Only if content is mandatory.
 		 */
