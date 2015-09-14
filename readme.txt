@@ -399,12 +399,15 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 = 1.5.1 =
 * 2015-09-
-* Add book_id field to database, default is id 1.
+* Support Multiple Guestbooks.
+* Add book_id field to database and class-entry, default is book_id 1.
+* Add parameter book_id to shortcodes.
+* Add parameter book_id to get_entries and get_entry_count functions.
 * Fix link to entry in moderation mail.
 * Add notice for using CAPTCHA with a caching plugin.
 * No need to add options on install, we have defaults for that.
 * Rename install / upgrade functions.
-* Test if db tables exists, before adding them.
+* Test if db tables exist, before adding them.
 * Update pot, nl_NL, ru_RU.
 
 = 1.5.0 =

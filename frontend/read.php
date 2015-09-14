@@ -11,7 +11,7 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
  * Reading mode of the guestbook frontend
  */
 
-function gwolle_gb_frontend_read() {
+function gwolle_gb_frontend_read( $shortcode_atts ) {
 
 	$output = '';
 
@@ -21,7 +21,8 @@ function gwolle_gb_frontend_read() {
 		array(
 			'checked' => 'checked',
 			'trash'   => 'notrash',
-			'spam'    => 'nospam'
+			'spam'    => 'nospam',
+			'book_id' => $shortcode_atts['book_id']
 		)
 	);
 
@@ -57,7 +58,8 @@ function gwolle_gb_frontend_read() {
 				'num_entries' => -1,
 				'checked'     => 'checked',
 				'trash'       => 'notrash',
-				'spam'        => 'nospam'
+				'spam'        => 'nospam',
+				'book_id'     => $shortcode_atts['book_id']
 			)
 		);
 		$pageNum = 0; // do not have it set to 1, this way the '1' will be clickable too.
@@ -68,7 +70,8 @@ function gwolle_gb_frontend_read() {
 				'num_entries' => $entriesPerPage,
 				'checked'     => 'checked',
 				'trash'       => 'notrash',
-				'spam'        => 'nospam'
+				'spam'        => 'nospam',
+				'book_id'     => $shortcode_atts['book_id']
 			)
 		);
 	}

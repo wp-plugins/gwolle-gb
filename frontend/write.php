@@ -10,7 +10,7 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
  * Build up a form for the user, including possible error_fields
  */
 
-function gwolle_gb_frontend_write() {
+function gwolle_gb_frontend_write( $shortcode_atts ) {
 	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
 	$html5 = current_theme_supports( 'html5' );
