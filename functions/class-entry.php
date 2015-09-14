@@ -604,8 +604,6 @@ class gwolle_gb_entry {
 			// Also remove the log entries
 			gwolle_gb_del_log_entries( $id );
 
-			// FIXME: use unset? or set_id(0) if that even works with the setter
-			// unset $this
 			return true;
 		}
 		return false;

@@ -315,6 +315,11 @@ If you use the template function, you can use it like this:
 
 	show_gwolle_gb( array('book_id'=>2) );
 
+= With multiple guestbook, how do I keep track? =
+
+There is no need to use id's that are incrementing. If you have a lot of guestbooks on lots of pages,
+you can just use the id of the post as the id of the guestbook. That way you won't have double id's.
+
 = I don't see the labels in the form. =
 
 This plugin doesn't apply any CSS to the label elements. It is possible that your label elements have a white color on a white background.
