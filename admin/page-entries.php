@@ -589,18 +589,18 @@ function gwolle_gb_page_entries() {
 									if ( get_option('gwolle_gb-showEntryIcons', 'true') === 'true' ) {
 										$html_output .= '
 											<td class="entry-icons">
-												<span class="visible-icon" alt="' . __('Visible', 'gwolle-gb') . '"></span>
-												<span class="invisible-icon" alt="' . __('Invisible', 'gwolle-gb') . '"></span>
-												<span class="spam-icon" alt="' . __('Spam', 'gwolle-gb') . '"></span>
-												<span class="trash-icon"></span>';
+												<span class="visible-icon" title="' . __('Visible', 'gwolle-gb') . '"></span>
+												<span class="invisible-icon" title="' . __('Invisible', 'gwolle-gb') . '"></span>
+												<span class="spam-icon" title="' . __('Spam', 'gwolle-gb') . '"></span>
+												<span class="trash-icon" title="' . __('Trash', 'gwolle-gb') . '""></span>';
 										$admin_reply = gwolle_gb_sanitize_output( $entry->get_admin_reply() );
 										if ( strlen( trim($admin_reply) ) > 0 ) {
 											$html_output .= '
-												<span class="admin_reply-icon" alt="' . __('Admin Replied', 'gwolle-gb') . '"></span>';
+												<span class="admin_reply-icon" title="' . __('Admin Replied', 'gwolle-gb') . '"></span>';
 										}
 										$html_output .= '
-												<span class="book-icon" alt="' . __('Book ID', 'gwolle-gb') . '">' . $entry->get_book_id()  . '</span>
-												<span class="gwolle_gb_ajax" alt="' . __('Wait...', 'gwolle-gb') . '"></span>
+												<span class="book-icon" title="' . __('Book ID', 'gwolle-gb') . ' ' . $entry->get_book_id()  . '">' . $entry->get_book_id()  . '</span>
+												<span class="gwolle_gb_ajax" title="' . __('Wait...', 'gwolle-gb') . '"></span>
 											</td>';
 									}
 

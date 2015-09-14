@@ -510,11 +510,16 @@ function gwolle_gb_page_editor() {
 														// Optional Icon column where CSS is being used to show them or not
 														if ( get_option('gwolle_gb-showEntryIcons', 'true') === 'true' ) { ?>
 															<span class="entry-icons <?php echo $class; ?>">
-																<span class="visible-icon"></span>
-																<span class="invisible-icon"></span>
-																<span class="spam-icon"></span>
-																<span class="trash-icon"></span>
-																<span class="gwolle_gb_ajax"></span>
+																<span class="visible-icon" title="<?php _e('Visible', 'gwolle-gb'); ?>"></span>
+																<span class="invisible-icon" title="<?php _e('Invisible', 'gwolle-gb'); ?>"></span>
+																<span class="spam-icon" title="<?php _e('Spam', 'gwolle-gb'); ?>"></span>
+																<!--<span class="trash-icon" title="<?php _e('Trash', 'gwolle-gb'); ?>"></span>-->
+																<?php
+																$admin_reply = gwolle_gb_sanitize_output( $entry->get_admin_reply() );
+																if ( strlen( trim($admin_reply) ) > 0 ) { ?>
+																	<span class="admin_reply-icon" title="<?php _e('Admin Replied', 'gwolle-gb'); ?>"></span><?php
+																} ?>
+																<span class="gwolle_gb_ajax" title="<?php _e('Wait...', 'gwolle-gb'); ?>"></span>
 															</span>
 															<?php
 														}
