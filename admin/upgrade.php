@@ -39,6 +39,7 @@ function gwolle_gb_install() {
 				isspam varchar(1) NOT NULL default '0',
 				admin_reply longtext NOT NULL,
 				admin_reply_uid int(5) NOT NULL default '0',
+				book_id int(5) NOT NULL default '1',
 				PRIMARY KEY  (id)
 			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
 		$result = $wpdb->query($sql);
@@ -433,7 +434,7 @@ function gwolle_gb_upgrade() {
 	if (version_compare($installed_ver, '1.4.3', '<')) {
 		/*
 		 * 1.4.2->1.4.3
-		 * Add datetime field to database and fill it from the date column.
+		 * Remove date field from database.
 		 */
 		$wpdb->query( "
 			ALTER TABLE $wpdb->gwolle_gb_entries DROP COLUMN `date`;
@@ -447,7 +448,7 @@ function gwolle_gb_upgrade() {
 	if (version_compare($installed_ver, '1.4.8', '<')) {
 		/*
 		 * 1.4.7->1.4.8
-		 * Add datetime field to database and fill it from the date column.
+		 * Add admin_reply and admin_reply_uid field to database.
 		 */
 		$wpdb->query( "
 			ALTER TABLE $wpdb->gwolle_gb_entries ADD `admin_reply` LONGTEXT NOT NULL AFTER `isspam`;
@@ -456,6 +457,17 @@ function gwolle_gb_upgrade() {
 			ALTER TABLE $wpdb->gwolle_gb_entries ADD `admin_reply_uid` INT(5) NOT NULL AFTER `admin_reply`;
 		");
 	}
+
+	if (version_compare($installed_ver, '1.5.1', '<')) {
+		/*
+		 * 1.5.0->1.5.1
+		 * Add book_id field to database and fill it with value '1'.
+		 */
+			$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_entries ADD `book_id` INT(8) UNSIGNED NOT NULL default '1' AFTER `admin_reply_uid`;
+		");
+	}
+
 
 	/* Upgrade to new shiny db collation. Since WP 4.2 */
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');

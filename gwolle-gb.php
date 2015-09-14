@@ -31,7 +31,7 @@ Domain Path: /lang/
 
 
 // Plugin Version
-define('GWOLLE_GB_VER', '1.5.0');
+define('GWOLLE_GB_VER', '1.5.1');
 
 
 /*

@@ -399,6 +399,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 = 1.5.1 =
 * 2015-09-
+* Add book_id field to database, default is id 1.
 * Fix link to entry in moderation mail.
 * Add notice for using CAPTCHA with a caching plugin.
 * No need to add options on install, we have defaults for that.
