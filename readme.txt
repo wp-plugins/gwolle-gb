@@ -309,7 +309,7 @@ You can add a parameter to the shortcode, like:
 
 	[gwolle_gb book_id="2"]
 
-This will make the page have the guestbook with Book ID 2.
+This will make that page show all the entries in Book ID 2.
 
 If you use the template function, you can use it like this:
 
