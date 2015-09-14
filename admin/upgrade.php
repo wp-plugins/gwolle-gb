@@ -8,7 +8,7 @@
  */
 
 
-function install_gwolle_gb() {
+function gwolle_gb_install() {
 	global $wpdb;
 
 	// Install the table for the entries
@@ -70,7 +70,7 @@ function install_gwolle_gb() {
 }
 
 
-function uninstall_gwolle_gb() {
+function gwolle_gb_uninstall() {
 	// Delete the plugin's tables
 	global $wpdb;
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_log . "");
@@ -89,7 +89,7 @@ function uninstall_gwolle_gb() {
 }
 
 
-function upgrade_gwolle_gb() {
+function gwolle_gb_upgrade() {
 	global $wpdb;
 	$installed_ver = get_option('gwolle_gb_version');
 

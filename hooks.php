@@ -140,7 +140,7 @@ function gwolle_gb_init() {
 	$current_version = get_option('gwolle_gb_version');
 	if ($current_version && version_compare($current_version, GWOLLE_GB_VER, '<')) {
 		// Upgrade, if this version differs from what the database says.
-		upgrade_gwolle_gb();
+		gwolle_gb_upgrade();
 	}
 }
 

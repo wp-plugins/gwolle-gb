@@ -402,6 +402,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Fix link to entry in moderation mail.
 * Add notice for using CAPTCHA with a caching plugin.
 * No need to add options on install, we have defaults for that.
+* Rename install / upgrade functions.
 * Update pot, nl_NL, ru_RU.
 
 = 1.5.0 =

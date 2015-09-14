@@ -297,7 +297,7 @@ function gwolle_gb_page_settings() {
 
 						if (isset($_POST['gwolle_gb_uninstall_confirmed']) && $_POST['gwolle_gb_uninstall_confirmed'] == 'on') {
 							// uninstall the plugin -> delete all tables and preferences of the plugin
-							uninstall_gwolle_gb();
+							gwolle_gb_uninstall();
 							$uninstalled = true;
 						} else {
 							// Uninstallation not confirmed.

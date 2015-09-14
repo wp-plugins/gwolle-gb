@@ -115,9 +115,9 @@ function gwolle_gb_activation() {
 	$current_version = get_option( 'gwolle_gb_version' );
 
 	if ( $current_version == false ) {
-		install_gwolle_gb();
+		gwolle_gb_install();
 	} elseif ($current_version != GWOLLE_GB_VER) {
-		upgrade_gwolle_gb();
+		gwolle_gb_upgrade();
 	}
 }
 register_activation_hook(__FILE__, 'gwolle_gb_activation');

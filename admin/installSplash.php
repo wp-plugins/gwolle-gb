@@ -29,7 +29,7 @@ function gwolle_gb_installSplash() {
 				<?php
 			} elseif ( isset($_REQUEST['install_gwolle_gb']) && $_REQUEST['install_gwolle_gb'] == 'install_gwolle_gb' && !get_option('gwolle_gb_version') ) {
 				// perform installation
-				install_gwolle_gb();
+				gwolle_gb_install();
 				echo sprintf( __('Allright, we\'re done. <a href="%s">Click here to continue...</a>', 'gwolle-gb'), $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page'] );
 			} else {
 				echo sprintf( __('It looks like there has been an error. <a href="%s">Click here to continue...</a>', 'gwolle-gb'), $_SERVER['PHP_SELF'] . '?page=' . $_REQUEST['page'] );
