@@ -185,6 +185,14 @@ function gwolle_gb_page_editor() {
 					}
 				}
 
+				/* Check if the book_id changed, and update accordingly */
+				if ( isset($_POST['gwolle_gb_book_id']) && is_numeric($_POST['gwolle_gb_book_id']) ) {
+					if ( $_POST['gwolle_gb_book_id'] != $entry->get_book_id() ) {
+						$entry->set_book_id( (int) $_POST['gwolle_gb_book_id'] );
+						$changed = true;
+					}
+				}
+
 				/* Save the entry */
 				if ( $changed ) {
 					$result = $entry->save();
@@ -286,6 +294,11 @@ function gwolle_gb_page_editor() {
 						$data['admin_reply_uid'] = get_current_user_id();
 						gwolle_gb_add_log_entry( $entry->get_id(), 'admin-reply-added' );
 					}
+				}
+
+				/* Check if the book_id is set, and save accordingly */
+				if ( isset($_POST['gwolle_gb_book_id']) && is_numeric($_POST['gwolle_gb_book_id']) ) {
+					$entry->set_book_id( (int) $_POST['gwolle_gb_book_id'] );
 				}
 
 				/* Network Information */
@@ -666,6 +679,8 @@ function gwolle_gb_page_editor() {
 													echo '<i>(' . __('Unknown', 'gwolle-gb') . ')</i>';
 												} ?>
 											</span><br />
+											<?php _e('Book', 'gwolle-gb'); ?>: <span><?php echo $entry->get_book_id(); ?>
+											</span><br />
 											<span class="gwolle_gb_edit_meta">
 												<a href="#" title="<?php _e('Edit metadata', 'gwolle-gb'); ?>"><?php _e('Edit', 'gwolle-gb'); ?></a>
 											</span>
@@ -679,6 +694,9 @@ function gwolle_gb_page_editor() {
 												<div class="gwolle_gb_date"><?php
 													gwolle_gb_touch_time( $entry ); ?>
 												</div>
+
+												<label for="gwolle_gb_book_id"><?php _e('Book ID', 'gwolle-gb'); ?>: </label><br />
+												<input type="text" name="gwolle_gb_book_id" size="4" value="<?php echo (int) $entry->get_book_id(); ?>" id="gwolle_gb_book_id" />
 											</div>
 
 										</div><!-- .tagsdiv -->
