@@ -414,6 +414,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.5.2 =
 * 2015-09-
 * First stab at supporting MultiSite.
+* When deleting an entry on the Editor page, start with a clean slate.
 
 = 1.5.1 =
 * 2015-09-14

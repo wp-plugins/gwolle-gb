@@ -215,6 +215,7 @@ function gwolle_gb_page_editor() {
 						$changed = true;
 						// Overwrite any other message, only removal is relevant.
 						$gwolle_gb_messages = '<p>' . __('Entry removed.', 'gwolle-gb') . '</p>';
+						$entry = new gwolle_gb_entry();
 					}
 				}
 
