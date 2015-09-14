@@ -30,8 +30,8 @@ function gwolle_gb_adminmenu() {
 	// Main navigation entry
 	// Admin page: admin/welcome.php
 	add_menu_page(
-		__('Guestbook', GWOLLE_GB_TEXTDOMAIN),
-		__('Guestbook', GWOLLE_GB_TEXTDOMAIN) . "<span class='update-plugins count-" . $count_unchecked . "'><span class='theme-count'>" . $count_unchecked . "</span></span>",
+		__('Guestbook', 'gwolle-gb'),
+		__('Guestbook', 'gwolle-gb') . "<span class='update-plugins count-" . $count_unchecked . "'><span class='theme-count'>" . $count_unchecked . "</span></span>",
 		'moderate_comments',
 		GWOLLE_GB_FOLDER . '/gwolle-gb.php',
 		'gwolle_gb_welcome',
@@ -41,24 +41,24 @@ function gwolle_gb_adminmenu() {
 	// Admin page: admin/entries.php
 	add_submenu_page(
 		GWOLLE_GB_FOLDER . '/gwolle-gb.php',
-		__('Entries', GWOLLE_GB_TEXTDOMAIN),
-		__('Entries', GWOLLE_GB_TEXTDOMAIN) . "<span class='update-plugins count-" . $count_unchecked . "'><span class='theme-count'>" . $count_unchecked . "</span></span>",
+		__('Entries', 'gwolle-gb'),
+		__('Entries', 'gwolle-gb') . "<span class='update-plugins count-" . $count_unchecked . "'><span class='theme-count'>" . $count_unchecked . "</span></span>",
 		'moderate_comments',
 		GWOLLE_GB_FOLDER . '/entries.php',
 		'gwolle_gb_page_entries'
 	);
 
 	// Admin page: admin/editor.php
-	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Entry editor', GWOLLE_GB_TEXTDOMAIN), __('New entry', GWOLLE_GB_TEXTDOMAIN), 'moderate_comments', GWOLLE_GB_FOLDER . '/editor.php', 'gwolle_gb_page_editor' );
+	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Entry editor', 'gwolle-gb'), __('New entry', 'gwolle-gb'), 'moderate_comments', GWOLLE_GB_FOLDER . '/editor.php', 'gwolle_gb_page_editor' );
 
 	// Admin page: admin/settings.php
-	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Settings', GWOLLE_GB_TEXTDOMAIN), __('Settings', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/settings.php', 'gwolle_gb_page_settings' );
+	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Settings', 'gwolle-gb'), __('Settings', 'gwolle-gb'), 'manage_options', GWOLLE_GB_FOLDER . '/settings.php', 'gwolle_gb_page_settings' );
 
 	// Admin page: admin/import.php
-	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Import', GWOLLE_GB_TEXTDOMAIN), __('Import', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/import.php', 'gwolle_gb_page_import' );
+	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Import', 'gwolle-gb'), __('Import', 'gwolle-gb'), 'manage_options', GWOLLE_GB_FOLDER . '/import.php', 'gwolle_gb_page_import' );
 
 	// Admin page: admin/export.php
-	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Export', GWOLLE_GB_TEXTDOMAIN), __('Export', GWOLLE_GB_TEXTDOMAIN), 'manage_options', GWOLLE_GB_FOLDER . '/export.php', 'gwolle_gb_page_export' );
+	add_submenu_page( GWOLLE_GB_FOLDER . '/gwolle-gb.php', __('Export', 'gwolle-gb'), __('Export', 'gwolle-gb'), 'manage_options', GWOLLE_GB_FOLDER . '/export.php', 'gwolle_gb_page_export' );
 
 	// Load Admin CSS
 	wp_enqueue_style( 'gwolle-gb-css', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/style.css', false, GWOLLE_GB_VER, 'all' );
@@ -76,7 +76,7 @@ add_action('admin_menu', 'gwolle_gb_adminmenu');
 
 function gwolle_gb_links( $links, $file ) {
 	if ( $file == plugin_basename( dirname(__FILE__).'/gwolle-gb.php' ) ) {
-		$links[] = '<a href="' . admin_url( 'admin.php?page=gwolle-gb/settings.php' ) . '">'.__( 'Settings', GWOLLE_GB_TEXTDOMAIN ).'</a>';
+		$links[] = '<a href="' . admin_url( 'admin.php?page=gwolle-gb/settings.php' ) . '">'.__( 'Settings', 'gwolle-gb' ).'</a>';
 	}
 	return $links;
 }
@@ -163,7 +163,7 @@ add_action('wp_enqueue_scripts', 'gwolle_gb_register');
  * - Loads language files for frontend and backend
  */
 function gwolle_gb_load_lang() {
-	load_plugin_textdomain( GWOLLE_GB_TEXTDOMAIN, false, GWOLLE_GB_FOLDER . '/lang' );
+	load_plugin_textdomain( 'gwolle-gb', false, GWOLLE_GB_FOLDER . '/lang' );
 }
 add_action('plugins_loaded', 'gwolle_gb_load_lang');
 
@@ -186,11 +186,11 @@ function gwolle_gb_rss_head() {
 			$permalinks = $wp_rewrite->permalink_structure;
 			if ( $permalinks ) {
 				?>
-				<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", GWOLLE_GB_TEXTDOMAIN); ?>" href="<?php bloginfo('url'); ?>/feed/gwolle_gb" />
+				<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", 'gwolle-gb'); ?>" href="<?php bloginfo('url'); ?>/feed/gwolle_gb" />
 				<?php
 			} else {
 				?>
-				<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", GWOLLE_GB_TEXTDOMAIN); ?>" href="<?php bloginfo('url'); ?>/?feed=gwolle_gb" />
+				<link rel="alternate" type="application/rss+xml" title="<?php esc_attr_e("Guestbook Feed", 'gwolle-gb'); ?>" href="<?php bloginfo('url'); ?>/?feed=gwolle_gb" />
 				<?php
 			}
 
@@ -234,5 +234,42 @@ function gwolle_gb_save_post($id) {
 	}
 }
 add_action('save_post', 'gwolle_gb_save_post');
+
+
+/*
+ * Add number of unchecked entries to admin bar, if > 0.
+ */
+function gwolle_gb_admin_bar_menu( $wp_admin_bar ) {
+	if ( !current_user_can('moderate_comments') )
+		return;
+
+	// Counter
+	$count_unchecked = gwolle_gb_get_entry_count(
+		array(
+			'checked' => 'unchecked',
+			'trash'   => 'notrash',
+			'spam'    => 'nospam'
+		)
+	);
+
+	if ( $count_unchecked == 1 ) {
+		$awaiting_title = esc_attr( sprintf( __( '%s guestbook entry awaiting moderation', 'gwolle-gb' ), number_format_i18n( $count_unchecked ) ) );
+	} else if ( $count_unchecked > 1 ) {
+		$awaiting_title = esc_attr( sprintf( __( '%s guestbook entries awaiting moderation', 'gwolle-gb' ), number_format_i18n( $count_unchecked ) ) );
+	}
+
+	if ( $count_unchecked > 0 ) {
+		$icon  = '<span class="ab-icon"></span>';
+		$title = '<span id="ab-unchecked-entries" class="ab-label awaiting-mod pending-count count-' . $count_unchecked . '">' . number_format_i18n( $count_unchecked ) . '</span>';
+
+		$wp_admin_bar->add_menu( array(
+			'id'    => 'gwolle-gb',
+			'title' => $icon . $title,
+			'href'  => admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&amp;show=unchecked'),
+			'meta'  => array( 'title' => $awaiting_title ),
+		) );
+	}
+}
+add_action( 'admin_bar_menu', 'gwolle_gb_admin_bar_menu', 61 );
 
 

@@ -64,10 +64,10 @@ function gwolle_gb_rss() {
 		<?php do_action('rss2_ns'); ?>>
 
 		<channel>
-			<title><?php bloginfo_rss('name'); echo " - " . __('Guestbook Feed', GWOLLE_GB_TEXTDOMAIN); ?></title>
+			<title><?php bloginfo_rss('name'); echo " - " . __('Guestbook Feed', 'gwolle-gb'); ?></title>
 			<atom:link href="<?php self_link(); ?>" rel="self" type="application/rss+xml" />
 			<link><?php echo $permalink; ?></link>
-			<description><?php bloginfo_rss('description'); echo " - " . __('Guestbook Feed', GWOLLE_GB_TEXTDOMAIN); ?></description>
+			<description><?php bloginfo_rss('description'); echo " - " . __('Guestbook Feed', 'gwolle-gb'); ?></description>
 			<lastBuildDate><?php echo $lastbuild; ?></lastBuildDate>
 			<language><?php echo $WPLANG; ?></language>
 			<sy:updatePeriod><?php echo apply_filters( 'rss_update_period', 'hourly' ); ?></sy:updatePeriod>
@@ -78,7 +78,7 @@ function gwolle_gb_rss() {
 			if ( is_array($entries) && !empty($entries) ) {
 				foreach ( $entries as $entry ) { ?>
 					<item>
-						<title><?php _e('Guestbook Entry by', GWOLLE_GB_TEXTDOMAIN); echo " " . trim( $entry->get_author_name() ); ?></title>
+						<title><?php _e('Guestbook Entry by', 'gwolle-gb'); echo " " . trim( $entry->get_author_name() ); ?></title>
 						<link><?php echo $permalink; ?></link>
 						<pubDate><?php echo gmdate( 'D, d M Y H:i:s', $entry->get_datetime() ); ?></pubDate>
 						<dc:creator><?php echo trim( $entry->get_author_name() ); ?></dc:creator>

@@ -63,7 +63,7 @@ function gwolle_gb_get_excerpt( $content, $excerpt_length = 20 ) {
 	$excerpt = wp_trim_words( $content, $excerpt_length, '...' );
 	$excerpt = gwolle_gb_sanitize_output( $excerpt );
 	if (trim($excerpt) == '') {
-		$excerpt = '<i style="color:red;">' . __('No content to display. This entry is empty.', GWOLLE_GB_TEXTDOMAIN) . '</i>';
+		$excerpt = '<i style="color:red;">' . __('No content to display. This entry is empty.', 'gwolle-gb') . '</i>';
 	}
 	return $excerpt;
 }
@@ -98,7 +98,7 @@ function gwolle_gb_get_author_name_html($entry) {
 				$author_website = "http://" . $author_website;
 			}
 			$author_name_html = '<a href="' . $author_website . '" target="_blank"
-				title="' . __( 'Visit the website of', GWOLLE_GB_TEXTDOMAIN ) . ' ' . $author_name . ': ' . $author_website . '">' . $author_name_html . '</a>';
+				title="' . __( 'Visit the website of', 'gwolle-gb' ) . ' ' . $author_name . ': ' . $author_website . '">' . $author_name_html . '</a>';
 		}
 	}
 	return $author_name_html;
@@ -132,6 +132,41 @@ function gwolle_gb_is_moderator($user_id) {
 	return false;
 }
 
+
+/*
+ * Get all the users with capability 'moderate_comments'.
+ *
+ * Return: Array with User objects.
+ */
+function gwolle_gb_get_moderators() {
+
+	$users_query = new WP_User_Query( array(
+		'fields'  => 'all',
+		'orderby' => 'display_name'
+		) );
+	$users = $users_query->get_results();
+
+	$moderators = array();
+
+	if ( is_array($users) && !empty($users) ) {
+		foreach ( $users as $user_info ) {
+
+			if ($user_info === FALSE) {
+				// Invalid $user_id
+				continue;
+			}
+
+			// No capability
+			if ( !user_can( $user_info, 'moderate_comments' ) ) {
+				continue;
+			}
+
+			$moderators[] = $user_info;
+		}
+	}
+
+	return $moderators;
+}
 
 /*
  * Get the setting for Gwolle-GB that is saved as serialized data.
@@ -273,6 +308,25 @@ function gwolle_gb_clear_cache() {
 
 
 /*
+ * Delete author_id (and maybe checkedby) after deletion of user.
+ * Will trim down db requests, because non-existent user do not get cached.
+ */
+function gwolle_gb_deleted_user( $user_id ) {
+	$entries = gwolle_gb_get_entries(array(
+		'author_id' => $user_id,
+		'num_entries' => -1
+	));
+	if ( is_array( $entries ) && !empty( $entries ) ) {
+		foreach ( $entries as $entry ) {
+			// method will take care of it...
+			$save = $entry->save();
+		}
+	}
+}
+add_action( 'deleted_user', 'gwolle_gb_deleted_user' );
+
+
+/*
  * Taken from wp-admin/includes/template.php touch_time()
  * Adapted for simplicity.
  */
@@ -291,25 +345,25 @@ function gwolle_gb_touch_time( $entry ) {
 	$mn = date( 'i', $date );
 
 	// Day
-	echo '<label><span class="screen-reader-text">' . __( 'Day', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="dd" name="dd" value="' . $dd . '" size="2" maxlength="2" autocomplete="off" /></label>';
+	echo '<label><span class="screen-reader-text">' . __( 'Day', 'gwolle-gb' ) . '</span><input type="text" id="dd" name="dd" value="' . $dd . '" size="2" maxlength="2" autocomplete="off" /></label>';
 
 	// Month
-	echo '<label for="mm"><span class="screen-reader-text">' . __( 'Month', GWOLLE_GB_TEXTDOMAIN ) . '</span><select id="mm" name="mm">\n';
+	echo '<label for="mm"><span class="screen-reader-text">' . __( 'Month', 'gwolle-gb' ) . '</span><select id="mm" name="mm">\n';
 	for ( $i = 1; $i < 13; $i = $i +1 ) {
 		$monthnum = zeroise($i, 2);
 		echo "\t\t\t" . '<option value="' . $monthnum . '" ' . selected( $monthnum, $mm, false ) . '>';
 		/* translators: 1: month number (01, 02, etc.), 2: month abbreviation */
-		echo sprintf( __( '%1$s-%2$s', GWOLLE_GB_TEXTDOMAIN ), $monthnum, $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) ) ) . "</option>\n";
+		echo sprintf( __( '%1$s-%2$s', 'gwolle-gb' ), $monthnum, $wp_locale->get_month_abbrev( $wp_locale->get_month( $i ) ) ) . "</option>\n";
 	}
 	echo '</select></label>';
 
 	// Year
-	echo '<label for="yy"><span class="screen-reader-text">' . __( 'Year', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="yy" name="yy" value="' . $yy . '" size="4" maxlength="4" autocomplete="off" /></label>';
+	echo '<label for="yy"><span class="screen-reader-text">' . __( 'Year', 'gwolle-gb' ) . '</span><input type="text" id="yy" name="yy" value="' . $yy . '" size="4" maxlength="4" autocomplete="off" /></label>';
 	echo '<br />';
 	// Hour
-	echo '<label for="hh"><span class="screen-reader-text">' . __( 'Hour', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="hh" name="hh" value="' . $hh . '" size="2" maxlength="2" autocomplete="off" /></label>:';
+	echo '<label for="hh"><span class="screen-reader-text">' . __( 'Hour', 'gwolle-gb' ) . '</span><input type="text" id="hh" name="hh" value="' . $hh . '" size="2" maxlength="2" autocomplete="off" /></label>:';
 	// Minute
-	echo '<label for="mn"><span class="screen-reader-text">' . __( 'Minute', GWOLLE_GB_TEXTDOMAIN ) . '</span><input type="text" id="mn" name="mn" value="' . $mn . '" size="2" maxlength="2" autocomplete="off" /></label>';
+	echo '<label for="mn"><span class="screen-reader-text">' . __( 'Minute', 'gwolle-gb' ) . '</span><input type="text" id="mn" name="mn" value="' . $mn . '" size="2" maxlength="2" autocomplete="off" /></label>';
 	?>
 
 	<div class="gwolle_gb_timestamp">
@@ -318,11 +372,11 @@ function gwolle_gb_touch_time( $entry ) {
 	</div>
 
 	<p>
-		<a href="#" class="gwolle_gb_save_timestamp hide-if-no-js button" title="<?php _e('Save the date and time', GWOLLE_GB_TEXTDOMAIN); ?>">
-			<?php _e('OK', GWOLLE_GB_TEXTDOMAIN); ?>
+		<a href="#" class="gwolle_gb_save_timestamp hide-if-no-js button" title="<?php _e('Save the date and time', 'gwolle-gb'); ?>">
+			<?php _e('OK', 'gwolle-gb'); ?>
 		</a>
-		<a href="#" class="gwolle_gb_cancel_timestamp hide-if-no-js button-cancel" title="<?php _e('Cancel saving date and time', GWOLLE_GB_TEXTDOMAIN); ?>">
-			<?php _e('Cancel', GWOLLE_GB_TEXTDOMAIN); ?>
+		<a href="#" class="gwolle_gb_cancel_timestamp hide-if-no-js button-cancel" title="<?php _e('Cancel saving date and time', 'gwolle-gb'); ?>">
+			<?php _e('Cancel', 'gwolle-gb'); ?>
 		</a>
 	</p>
 	<?php

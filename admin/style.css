@@ -56,9 +56,6 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	display: block;
 }
 
-.markItUpButton.markItUpButton8.emoji {
-	display: none;
-}
 
 /* Entries.php */
 /* Page Navigation */
@@ -238,5 +235,8 @@ span.gwolle_gb_ajax {
 	display: inline;
 }
 
-
-
+/* Admin Bar */
+#wpadminbar #wp-admin-bar-gwolle-gb .ab-icon::before {
+	content: "";
+	top: 3px;
+}

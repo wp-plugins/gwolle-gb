@@ -61,33 +61,6 @@ function install_gwolle_gb() {
 		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_log );
 	}
 
-	//	Add Akismet option
-	add_option('gwolle_gb-akismet-active', 'false');
-
-	//	Add moderation option
-	add_option('gwolle_gb-moderate-entries', 'true');
-
-	//	Add icon option
-	add_option('gwolle_gb-showEntryIcons', 'true');
-
-	//	Add option for the admin mail content (can then be defined by the user)
-	add_option('gwolle_gb-adminMailContent', '');
-
-	// Add entries per page option
-	add_option('gwolle_gb-entries_per_page', '20');
-
-	//	Add entries per page option
-	add_option('gwolle_gb-entriesPerPage', '20');
-
-	//	Add option to toggle the visibility of line breaks
-	add_option('gwolle_gb-showLineBreaks', 'false');
-
-	//  Add option to toggle replacing of smilies with graphics.
-	add_option('gwolle_gb-showSmilies', 'true');
-
-	//  Add option to toogle linking of author's website
-	add_option('gwolle_gb-linkAuthorWebsite', 'true');
-
 	//	Save plugin version to database
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
 

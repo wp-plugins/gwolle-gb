@@ -44,8 +44,8 @@ function gwolle_gb_pagination_admin( $pageNum, $countPages, $count, $show ) {
 
 	$highDotsMade = false;
 
-	$pagination .= '<span class="displaying-num">' . __('Showing:', GWOLLE_GB_TEXTDOMAIN) .
-		' ' . $firstEntryNum . ' &#8211; ' . $lastEntryNum . ' ' . __('of', GWOLLE_GB_TEXTDOMAIN) . ' ' . $count[$show] . '</span>
+	$pagination .= '<span class="displaying-num">' . __('Showing:', 'gwolle-gb') .
+		' ' . $firstEntryNum . ' &#8211; ' . $lastEntryNum . ' ' . __('of', 'gwolle-gb') . ' ' . $count[$show] . '</span>
 		';
 	if ($pageNum > 1) {
 		$pagination .= '<a class="first page-numbers" href="admin.php?page=' . GWOLLE_GB_FOLDER . '/entries.php&show=' . $show . '&pageNum=' . round($pageNum - 1) . '">&laquo;</a>';

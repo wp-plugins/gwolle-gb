@@ -12,7 +12,7 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 function gwolle_gb_page_editor() {
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
-		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
+		die(__('Cheatin&#8217; uh?', 'gwolle-gb'));
 	} ?>
 
 	<!-- Do not replace Emoji with <img> elements in textarea, it screws saving the entry -->
@@ -29,7 +29,7 @@ function gwolle_gb_page_editor() {
 		$gwolle_gb_errors = '';
 		$gwolle_gb_messages = '';
 
-		$sectionHeading = __('Edit guestbook entry', GWOLLE_GB_TEXTDOMAIN);
+		$sectionHeading = __('Edit guestbook entry', 'gwolle-gb');
 
 		// Always fetch the requested entry, so we can compare the $entry and the $_POST.
 		$entry = new gwolle_gb_entry();
@@ -42,12 +42,12 @@ function gwolle_gb_page_editor() {
 		if ( isset($entry_id) && $entry_id > 0 ) {
 			$result = $entry->load( $entry_id );
 			if ( !$result ) {
-				$gwolle_gb_messages .= '<p class="error">' . __('Entry could not be found.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+				$gwolle_gb_messages .= '<p class="error">' . __('Entry could not be found.', 'gwolle-gb') . '</p>';
 				$gwolle_gb_errors = 'error';
-				$sectionHeading = __('Guestbook entry (error)', GWOLLE_GB_TEXTDOMAIN);
+				$sectionHeading = __('Guestbook entry (error)', 'gwolle-gb');
 			}
 		} else {
-			$sectionHeading = __('New guestbook entry', GWOLLE_GB_TEXTDOMAIN);
+			$sectionHeading = __('New guestbook entry', 'gwolle-gb');
 		}
 
 
@@ -57,7 +57,7 @@ function gwolle_gb_page_editor() {
 		if ( isset($_POST['gwolle_gb_page']) && $_POST['gwolle_gb_page'] == 'editor' && $gwolle_gb_errors == '' ) {
 
 			if ( !isset($_POST['entry_id']) || $_POST['entry_id'] != $entry->get_id() ) {
-				$gwolle_gb_messages .= '<p class="error">' . __('Something strange happened.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+				$gwolle_gb_messages .= '<p class="error">' . __('Something strange happened.', 'gwolle-gb') . '</p>';
 				$gwolle_gb_errors = 'error';
 			} else if ( $_POST['entry_id'] > 0 && $entry->get_id() > 0 ) {
 
@@ -89,7 +89,7 @@ function gwolle_gb_page_editor() {
 						$entry->set_isspam( true );
 						$result = gwolle_gb_akismet( $entry, 'submit-spam' );
 						if ( $result ) {
-							$gwolle_gb_messages .= '<p>' . __('Submitted as Spam to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+							$gwolle_gb_messages .= '<p>' . __('Submitted as Spam to the Akismet service.', 'gwolle-gb') . '</p>';
 						}
 						gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-spam' );
 						$changed = true;
@@ -98,7 +98,7 @@ function gwolle_gb_page_editor() {
 					$entry->set_isspam( false );
 					$result = gwolle_gb_akismet( $entry, 'submit-ham' );
 					if ( $result ) {
-						$gwolle_gb_messages .= '<p>' . __('Submitted as Ham to the Akismet service.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __('Submitted as Ham to the Akismet service.', 'gwolle-gb') . '</p>';
 					}
 					gwolle_gb_add_log_entry( $entry->get_id(), 'marked-as-not-spam' );
 					$changed = true;
@@ -190,13 +190,13 @@ function gwolle_gb_page_editor() {
 					$result = $entry->save();
 					if ($result ) {
 						gwolle_gb_add_log_entry( $entry->get_id(), 'entry-edited' );
-						$gwolle_gb_messages .= '<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __('Changes saved.', 'gwolle-gb') . '</p>';
 					} else {
-						$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', 'gwolle-gb') . '</p>';
 						$gwolle_gb_errors = 'error';
 					}
 				} else {
-					$gwolle_gb_messages .= '<p>' . __('Entry was not changed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_messages .= '<p>' . __('Entry was not changed.', 'gwolle-gb') . '</p>';
 				}
 
 				/* Remove permanently */
@@ -206,7 +206,7 @@ function gwolle_gb_page_editor() {
 						$entry->set_id(0);
 						$changed = true;
 						// Overwrite any other message, only removal is relevant.
-						$gwolle_gb_messages = '<p>' . __('Entry removed.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages = '<p>' . __('Entry removed.', 'gwolle-gb') . '</p>';
 					}
 				}
 
@@ -254,7 +254,7 @@ function gwolle_gb_page_editor() {
 				} else {
 					$form_setting = gwolle_gb_get_setting( 'form' );
 					if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' && isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) {
-						$gwolle_gb_messages .= '<p>' . __('Entry has no content, even though that is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __('Entry has no content, even though that is mandatory.', 'gwolle-gb') . '</p>';
 						$gwolle_gb_errors = 'error';
 					} else {
 						$data['content'] = '';
@@ -296,14 +296,14 @@ function gwolle_gb_page_editor() {
 				if ( $saved ) {
 					$result2 = $entry->save();
 					if ( $result1 && $result2 ) {
-						$gwolle_gb_messages .= '<p>' . __('Entry saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __('Entry saved.', 'gwolle-gb') . '</p>';
 						gwolle_gb_clear_cache();
 					} else {
-						$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+						$gwolle_gb_messages .= '<p>' . __('Error happened during saving.', 'gwolle-gb') . '</p>';
 						$gwolle_gb_errors = 'error';
 					}
 				} else {
-					$gwolle_gb_messages .= '<p>' . __('Entry was not saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>';
+					$gwolle_gb_messages .= '<p>' . __('Entry was not saved.', 'gwolle-gb') . '</p>';
 
 				}
 
@@ -341,57 +341,82 @@ function gwolle_gb_page_editor() {
 
 								<div id="contentdiv" class="postbox" >
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Guestbook entry', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><span><?php _e('Guestbook entry', 'gwolle-gb'); ?></span></h3>
 									<div class="inside">
-										<textarea rows="10" name="gwolle_gb_content" id="gwolle_gb_content" tabindex="1" placeholder="<?php _e('Message', GWOLLE_GB_TEXTDOMAIN); ?>"><?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?></textarea>
+										<textarea rows="10" name="gwolle_gb_content" id="gwolle_gb_content" tabindex="1" placeholder="<?php _e('Message', 'gwolle-gb'); ?>"><?php echo gwolle_gb_sanitize_output( $entry->get_content() ); ?></textarea>
 										<?php
 										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
-											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', GWOLLE_GB_TEXTDOMAIN), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
+											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', 'gwolle-gb'), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
 										}
 										$form_setting = gwolle_gb_get_setting( 'form' );
+
 										if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
 											wp_enqueue_script( 'markitup', plugins_url('../frontend/markitup/jquery.markitup.js', __FILE__), 'jquery', GWOLLE_GB_VER, false );
 											wp_enqueue_script( 'markitup_set', plugins_url('../frontend/markitup/set.js', __FILE__), 'jquery', GWOLLE_GB_VER, false );
 											wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('../frontend/markitup/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
+
+											$dataToBePassed = array(
+												'bold'      => __('Bold', 'gwolle-gb' ),
+												'italic'    => __('Italic', 'gwolle-gb' ),
+												'bullet'    => __('Bulleted List', 'gwolle-gb' ),
+												'numeric'   => __('Numeric List', 'gwolle-gb' ),
+												'picture'   => __('Picture', 'gwolle-gb' ),
+												'source'    => __('Source', 'gwolle-gb' ),
+												'link'      => __('Link', 'gwolle-gb' ),
+												'linktext'  => __('Your text to link...', 'gwolle-gb' ),
+												'clean'     => __('Clean', 'gwolle-gb' ),
+												'emoji'     => __('Emoji', 'gwolle-gb' )
+											);
+											wp_localize_script( 'markitup_set', 'gwolle_gb_localize', $dataToBePassed );
+
+											// Emoji symbols
+											echo '<div class="gwolle_gb_emoji" style="display:none;">';
+											$emoji = gwolle_gb_get_emoji();
+											// make it into images for nice colors.
+											if ( function_exists('wp_staticize_emoji') ) {
+												$emoji = wp_staticize_emoji( $emoji );
+											}
+											echo $emoji;
+											echo '</div>';
 										} ?>
 									</div>
 								</div>
 
 								<div id="authordiv" class="postbox " >
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><span><?php _e('Website', 'gwolle-gb'); ?></span></h3>
 									<div class="inside">
-										<input type="text" name="gwolle_gb_author_website" tabindex="2" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_website() ); ?>" id="author_website" placeholder="<?php _e('Website', GWOLLE_GB_TEXTDOMAIN); ?>" />
-										<p><?php _e("Example: <code>http://www.example.com/</code>", GWOLLE_GB_TEXTDOMAIN); ?></p>
+										<input type="url" name="gwolle_gb_author_website" tabindex="2" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_website() ); ?>" id="author_website" placeholder="<?php _e('Website', 'gwolle-gb'); ?>" />
+										<p><?php _e("Example: <code>http://www.example.com/</code>", 'gwolle-gb'); ?></p>
 									</div>
 								</div>
 
 								<div id="authordiv" class="postbox ">
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Origin', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><span><?php _e('Origin', 'gwolle-gb'); ?></span></h3>
 									<div class="inside">
-										<input type="text" name="gwolle_gb_author_origin" tabindex="3" placeholder="<?php _e('City', GWOLLE_GB_TEXTDOMAIN); ?>" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_origin() ); ?>" id="author_origin" />
+										<input type="text" name="gwolle_gb_author_origin" tabindex="3" placeholder="<?php _e('City', 'gwolle-gb'); ?>" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_origin() ); ?>" id="author_origin" />
 									</div>
 								</div>
 
 								<div id="admin_reply" class="postbox" >
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>">
-										<span><?php _e('Admin Reply by:', GWOLLE_GB_TEXTDOMAIN);
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>">
+										<span><?php _e('Admin Reply by:', 'gwolle-gb');
 											echo ' ' . gwolle_gb_is_moderator($entry->get_admin_reply_uid()) ?>
 										</span>
 									</h3>
 									<div class="inside">
-										<textarea rows="10" name="gwolle_gb_admin_reply" id="gwolle_gb_admin_reply" tabindex="4" placeholder="<?php _e('Admin Reply', GWOLLE_GB_TEXTDOMAIN); ?>"><?php echo gwolle_gb_sanitize_output( $entry->get_admin_reply() ); ?></textarea>
+										<textarea rows="10" name="gwolle_gb_admin_reply" id="gwolle_gb_admin_reply" tabindex="4" placeholder="<?php _e('Admin Reply', 'gwolle-gb'); ?>"><?php echo gwolle_gb_sanitize_output( $entry->get_admin_reply() ); ?></textarea>
 
 										<input type="checkbox" name="gwolle_gb_admin_reply_mail_author" id="gwolle_gb_admin_reply_mail_author">
 										<label for="gwolle_gb_admin_reply_mail_author">
-											<?php _e('Mail the author a notification about this reply.', GWOLLE_GB_TEXTDOMAIN); ?>
+											<?php _e('Mail the author a notification about this reply.', 'gwolle-gb'); ?>
 										</label><br />
 
 										<?php
 										if (get_option('gwolle_gb-showLineBreaks', 'false') == 'false') {
-											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', GWOLLE_GB_TEXTDOMAIN), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
+											echo '<p>' . sprintf( __('Line breaks will not be visible to the visitors due to your <a href="%s">settings</a>.', 'gwolle-gb'), 'admin.php?page=' . GWOLLE_GB_FOLDER . '/settings.php' ) . '</p>';
 										} ?>
 									</div>
 								</div>
@@ -447,11 +472,11 @@ function gwolle_gb_page_editor() {
 									?>
 									<div id="tagsdiv-post_tag" class="postbox">
 										<div class="handlediv"></div>
-										<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('View Frontend', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+										<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><span><?php _e('View Frontend', 'gwolle-gb'); ?></span></h3>
 										<div class="inside">
 											<div class="tagsdiv" id="post_tag">
 												<div id="categories-pop" class="tabs-panel gwolle_gb_frontend">
-													<a class="button rbutton button" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook',GWOLLE_GB_TEXTDOMAIN); ?></a>
+													<a class="button rbutton button" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook','gwolle-gb'); ?></a>
 												</div>
 											</div>
 										</div>
@@ -461,7 +486,7 @@ function gwolle_gb_page_editor() {
 
 								<div id="submitdiv" class="postbox">
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Options', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><span><?php _e('Options', 'gwolle-gb'); ?></span></h3>
 									<div class="inside">
 										<div class="submitbox" id="submitpost">
 											<div id="minor-publishing">
@@ -482,17 +507,17 @@ function gwolle_gb_page_editor() {
 														}
 
 														if ( $entry->get_id() == 0 ) {
-															echo '<h3 class="h3_invisible">' . __('This entry is not yet visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>';
+															echo '<h3 class="h3_invisible">' . __('This entry is not yet visible.', 'gwolle-gb') . '</h3>';
 														} else {
 															if ($entry->get_ischecked() == 1 && $entry->get_isspam() == 0 && $entry->get_istrash() == 0 ) {
 																echo '
-																	<h3 class="h3_visible">' . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-																	<h3 class="h3_invisible" style="display:none;">' . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+																	<h3 class="h3_visible">' . __('This entry is Visible.', 'gwolle-gb') . '</h3>
+																	<h3 class="h3_invisible" style="display:none;">' . __('This entry is Not Visible.', 'gwolle-gb') . '</h3>
 																	';
 															} else {
 																echo '
-																	<h3 class="h3_visible" style="display:none;">' . __('This entry is Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
-																	<h3 class="h3_invisible">' . __('This entry is Not Visible.', GWOLLE_GB_TEXTDOMAIN) . '</h3>
+																	<h3 class="h3_visible" style="display:none;">' . __('This entry is Visible.', 'gwolle-gb') . '</h3>
+																	<h3 class="h3_invisible">' . __('This entry is Not Visible.', 'gwolle-gb') . '</h3>
 																	';
 															}
 														} ?>
@@ -503,7 +528,7 @@ function gwolle_gb_page_editor() {
 																	echo 'checked="checked"';
 																}
 																?> />
-															<?php _e('Checked', GWOLLE_GB_TEXTDOMAIN); ?>
+															<?php _e('Checked', 'gwolle-gb'); ?>
 														</label>
 
 														<br />
@@ -513,7 +538,7 @@ function gwolle_gb_page_editor() {
 																	echo 'checked="checked"';
 																}
 																?> />
-															<?php _e('Spam', GWOLLE_GB_TEXTDOMAIN); ?>
+															<?php _e('Spam', 'gwolle-gb'); ?>
 														</label>
 
 														<br />
@@ -523,7 +548,7 @@ function gwolle_gb_page_editor() {
 																	echo 'checked="checked"';
 																}
 																?> />
-															<?php _e('Trash', GWOLLE_GB_TEXTDOMAIN); ?>
+															<?php _e('Trash', 'gwolle-gb'); ?>
 														</label>
 
 														<?php
@@ -531,7 +556,7 @@ function gwolle_gb_page_editor() {
 															<br />
 															<label for="remove" class="selectit">
 																<input id="remove" name="remove" type="checkbox" />
-																<?php _e('Remove this entry Permanently.', GWOLLE_GB_TEXTDOMAIN); ?>
+																<?php _e('Remove this entry Permanently.', 'gwolle-gb'); ?>
 															</label>
 														<?php } ?>
 
@@ -542,7 +567,7 @@ function gwolle_gb_page_editor() {
 
 											<div id="major-publishing-actions">
 												<div id="publishing-action">
-													<input name="save" type="submit" class="button-primary" id="publish" tabindex="5" accesskey="p" value="<?php esc_attr_e('Save', GWOLLE_GB_TEXTDOMAIN); ?>" />
+													<input name="save" type="submit" class="button-primary" id="publish" tabindex="5" accesskey="p" value="<?php esc_attr_e('Save', 'gwolle-gb'); ?>" />
 												</div> <!-- .publishing-action -->
 												<div class="clear"></div>
 											</div><!-- major-publishing-actions -->
@@ -554,7 +579,7 @@ function gwolle_gb_page_editor() {
 								if ( $entry->get_id() > 0 ) { ?>
 								<div id="submitdiv" class="postbox">
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Actions', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><span><?php _e('Actions', 'gwolle-gb'); ?></span></h3>
 									<div class="inside">
 										<div class="submitbox" id="submitpost">
 											<div id="minor-publishing">
@@ -564,25 +589,25 @@ function gwolle_gb_page_editor() {
 														<?php echo '
 														<div class="gwolle_gb_actions ' . $class . '">
 															<span class="gwolle_gb_check">
-																<a id="check_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Check entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Check', GWOLLE_GB_TEXTDOMAIN) . '</a>
+																<a id="check_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Check entry', 'gwolle-gb') . '">' . __('Check', 'gwolle-gb') . '</a>
 															</span>
 															<span class="gwolle_gb_uncheck">
-																<a id="uncheck_' . $entry->get_id() . '" href="#" class="vim-u" title="' . __('Uncheck entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Uncheck', GWOLLE_GB_TEXTDOMAIN) . '</a>
+																<a id="uncheck_' . $entry->get_id() . '" href="#" class="vim-u" title="' . __('Uncheck entry', 'gwolle-gb') . '">' . __('Uncheck', 'gwolle-gb') . '</a>
 															</span>
 															<span class="gwolle_gb_spam">&nbsp;|&nbsp;
-																<a id="spam_' . $entry->get_id() . '" href="#" class="vim-s vim-destructive" title="' . __('Mark entry as spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
+																<a id="spam_' . $entry->get_id() . '" href="#" class="vim-s vim-destructive" title="' . __('Mark entry as spam.', 'gwolle-gb') . '">' . __('Spam', 'gwolle-gb') . '</a>
 															</span>
 															<span class="gwolle_gb_unspam">&nbsp;|&nbsp;
-																<a id="unspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Not spam', GWOLLE_GB_TEXTDOMAIN) . '</a>
+																<a id="unspam_' . $entry->get_id() . '" href="#" class="vim-a" title="' . __('Mark entry as not-spam.', 'gwolle-gb') . '">' . __('Not spam', 'gwolle-gb') . '</a>
 															</span>
 															<span class="gwolle_gb_trash">&nbsp;|&nbsp;
-																<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Trash', GWOLLE_GB_TEXTDOMAIN) . '</a>
+																<a id="trash_' . $entry->get_id() . '" href="#" class="vim-d vim-destructive" title="' . __('Move entry to trash.', 'gwolle-gb') . '">' . __('Trash', 'gwolle-gb') . '</a>
 															</span>
 															<span class="gwolle_gb_untrash">&nbsp;|&nbsp;
-																<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Untrash', GWOLLE_GB_TEXTDOMAIN) . '</a>
+																<a id="untrash_' . $entry->get_id() . '" href="#" class="vim-d" title="' . __('Recover entry from trash.', 'gwolle-gb') . '">' . __('Untrash', 'gwolle-gb') . '</a>
 															</span><br />
 															<span class="gwolle_gb_ajax">
-																<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Wait...', GWOLLE_GB_TEXTDOMAIN) . '</a>
+																<a id="ajax_' . $entry->get_id() . '" href="#" class="ajax vim-d vim-destructive" title="' . __('Please wait...', 'gwolle-gb') . '">' . __('Wait...', 'gwolle-gb') . '</a>
 															</span><br />
 														</div>
 														'; ?>
@@ -598,59 +623,59 @@ function gwolle_gb_page_editor() {
 
 								<div id="gwolle_gb-entry-details" class="postbox " >
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Details', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><span><?php _e('Details', 'gwolle-gb'); ?></span></h3>
 									<div class="inside">
 										<div class="tagsdiv" id="post_tag">
 											<p>
-											<?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+											<?php _e('Author', 'gwolle-gb'); ?>: <span><?php
 												if ( $entry->get_author_name() ) {
 													echo gwolle_gb_sanitize_output( $entry->get_author_name() );
 												} else {
-													echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+													echo '<i>(' . __('Unknown', 'gwolle-gb') . ')</i>';
 												} ?>
 											</span><br />
-											<?php _e('E-Mail', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+											<?php _e('E-Mail', 'gwolle-gb'); ?>: <span><?php
 												if (strlen(str_replace( ' ', '', $entry->get_author_email() )) > 0) {
 													echo gwolle_gb_sanitize_output( $entry->get_author_email() );
 												} else {
-													echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+													echo '<i>(' . __('Unknown', 'gwolle-gb') . ')</i>';
 												} ?>
 											</span><br />
-											<?php _e('Written', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+											<?php _e('Written', 'gwolle-gb'); ?>: <span><?php
 												if ( $entry->get_datetime() > 0 ) {
 													echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
 													echo date_i18n( get_option('time_format'), $entry->get_datetime() );
 												} else {
-													echo '(' . __('Not yet', GWOLLE_GB_TEXTDOMAIN) . ')';
+													echo '(' . __('Not yet', 'gwolle-gb') . ')';
 												} ?>
 											</span><br />
-											<?php _e("Author's IP-address", GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+											<?php _e("Author's IP-address", 'gwolle-gb'); ?>: <span><?php
 												if (strlen( $entry->get_author_ip() ) > 0) {
 													echo '<a href="http://www.db.ripe.net/whois?form_type=simple&searchtext=' . $entry->get_author_ip() . '"
-															title="' . __('Whois search for this IP', GWOLLE_GB_TEXTDOMAIN) . '" target="_blank">
+															title="' . __('Whois search for this IP', 'gwolle-gb') . '" target="_blank">
 																' . $entry->get_author_ip() . '
 															</a>';
 												} else {
-													echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+													echo '<i>(' . __('Unknown', 'gwolle-gb') . ')</i>';
 												} ?>
 											</span><br />
-											<?php _e('Host', GWOLLE_GB_TEXTDOMAIN); ?>: <span><?php
+											<?php _e('Host', 'gwolle-gb'); ?>: <span><?php
 												if (strlen( $entry->get_author_host() ) > 0) {
 													echo $entry->get_author_host();
 												} else {
-													echo '<i>(' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+													echo '<i>(' . __('Unknown', 'gwolle-gb') . ')</i>';
 												} ?>
 											</span><br />
 											<span class="gwolle_gb_edit_meta">
-												<a href="#" title="<?php _e('Edit metadata', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Edit', GWOLLE_GB_TEXTDOMAIN); ?></a>
+												<a href="#" title="<?php _e('Edit metadata', 'gwolle-gb'); ?>"><?php _e('Edit', 'gwolle-gb'); ?></a>
 											</span>
 											</p>
 
 											<div class="gwolle_gb_edit_meta_inputs">
-												<label for="gwolle_gb_author_name"><?php _e('Author', GWOLLE_GB_TEXTDOMAIN); ?>: </label><br />
+												<label for="gwolle_gb_author_name"><?php _e('Author', 'gwolle-gb'); ?>: </label><br />
 												<input type="text" name="gwolle_gb_author_name" size="24" value="<?php echo gwolle_gb_sanitize_output( $entry->get_author_name() ); ?>" id="gwolle_gb_author_name" /><br />
 
-												<span><?php _e('Date and time', GWOLLE_GB_TEXTDOMAIN); ?>: </span><br />
+												<span><?php _e('Date and time', 'gwolle-gb'); ?>: </span><br />
 												<div class="gwolle_gb_date"><?php
 													gwolle_gb_touch_time( $entry ); ?>
 												</div>
@@ -662,7 +687,7 @@ function gwolle_gb_page_editor() {
 
 								<div id="tagsdiv-post_tag" class="postbox">
 									<div class="handlediv"></div>
-									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', GWOLLE_GB_TEXTDOMAIN); ?>"><span><?php _e('Entry log', GWOLLE_GB_TEXTDOMAIN); ?></span></h3>
+									<h3 class='hndle' title="<?php esc_attr_e('Click to open or close', 'gwolle-gb'); ?>"><span><?php _e('Entry log', 'gwolle-gb'); ?></span></h3>
 									<div class="inside">
 										<div class="tagsdiv" id="post_tag">
 											<div id="categories-pop" class="tabs-panel gwolle_gb_log">
@@ -672,7 +697,7 @@ function gwolle_gb_page_editor() {
 													echo '<li>';
 													echo date_i18n( get_option('date_format'), $entry->get_datetime() ) . ', ';
 													echo date_i18n( get_option('time_format'), $entry->get_datetime() );
-													echo ': ' . __('Written', GWOLLE_GB_TEXTDOMAIN) . '</li>';
+													echo ': ' . __('Written', 'gwolle-gb') . '</li>';
 
 													$log_entries = gwolle_gb_get_log_entries( $entry->get_id() );
 													if ( is_array($log_entries) && !empty($log_entries) ) {
@@ -681,7 +706,7 @@ function gwolle_gb_page_editor() {
 														}
 													}
 												} else {
-													echo '<li>(' . __('No log yet.', GWOLLE_GB_TEXTDOMAIN) . ')</li>';
+													echo '<li>(' . __('No log yet.', 'gwolle-gb') . ')</li>';
 												}
 												?>
 												</ul>

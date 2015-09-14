@@ -3,11 +3,11 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://zenoweb.nl
 Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.
-Version: 1.4.8
+Version: 1.5.0
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
 License: GPLv2 or later
-Text Domain: GWGB
+Text Domain: gwolle-gb
 Domain Path: /lang/
 */
 
@@ -31,7 +31,7 @@ Domain Path: /lang/
 
 
 // Plugin Version
-define('GWOLLE_GB_VER', '1.4.8');
+define('GWOLLE_GB_VER', '1.5.0');
 
 
 /*
@@ -48,8 +48,6 @@ define('GWOLLE_GB_VER', '1.4.8');
 define('GWOLLE_GB_FOLDER', plugin_basename(dirname(__FILE__)));
 define('GWOLLE_GB_URL', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER);
 define('GWOLLE_GB_DIR', WP_PLUGIN_DIR . '/' . GWOLLE_GB_FOLDER);
-// Textdomain for translation
-define('GWOLLE_GB_TEXTDOMAIN', 'GWGB');
 
 
 global $wpdb;
@@ -127,6 +125,6 @@ register_activation_hook(__FILE__, 'gwolle_gb_activation');
 
 /* Translate Description */
 function gwolle_gb_description() {
-	$var = __( "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.", GWOLLE_GB_TEXTDOMAIN );
-	$var = __( "Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.", GWOLLE_GB_TEXTDOMAIN );
+	$var = __( "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.", 'gwolle-gb' );
+	$var = __( "Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.", 'gwolle-gb' );
 }

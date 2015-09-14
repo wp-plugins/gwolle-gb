@@ -81,7 +81,7 @@ function gwolle_gb_frontend_read() {
 
 	/* Entries from the template */
 	if ( !is_array($entries) || empty($entries) ) {
-		$output .= __('(no entries yet)', GWOLLE_GB_TEXTDOMAIN);
+		$output .= __('(no entries yet)', 'gwolle-gb');
 	} else {
 		$first = true;
 

@@ -12,7 +12,7 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 function gwolle_gb_page_settings() {
 
 	if ( function_exists('current_user_can') && !current_user_can('manage_options') ) {
-		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
+		die(__('Cheatin&#8217; uh?', 'gwolle-gb'));
 	}
 
 	if (!get_option('gwolle_gb_version')) {
@@ -314,24 +314,24 @@ function gwolle_gb_page_settings() {
 		<div class="wrap gwolle_gb">
 
 			<div id="icon-gwolle-gb"><br /></div>
-			<h1><?php _e('Settings', GWOLLE_GB_TEXTDOMAIN); ?></h1>
+			<h1><?php _e('Settings', 'gwolle-gb'); ?></h1>
 
 			<?php
 			if ( $saved ) {
 				echo '
 					<div id="message" class="updated fade notice is-dismissible">
-						<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+						<p>' . __('Changes saved.', 'gwolle-gb') . '</p>
 					</div>';
 			} ?>
 
 			<?php /* The rel attribute will be the form that becomes active */ ?>
 			<h2 class="nav-tab-wrapper gwolle-nav-tab-wrapper">
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_forms')     { echo "nav-tab-active";} ?>" rel="gwolle_gb_forms"><?php _e('Form', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_reading')   { echo "nav-tab-active";} ?>" rel="gwolle_gb_reading"><?php _e('Reading', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_admin')     { echo "nav-tab-active";} ?>" rel="gwolle_gb_admin"><?php _e('Admin', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_antispam')  { echo "nav-tab-active";} ?>" rel="gwolle_gb_antispam"><?php _e('Anti-spam', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_mail')      { echo "nav-tab-active";} ?>" rel="gwolle_gb_mail"><?php _e('E-mail', GWOLLE_GB_TEXTDOMAIN); ?></a>
-				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_uninstall') { echo "nav-tab-active";} ?>" rel="gwolle_gb_uninstall"><?php _e('Uninstall', GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_forms')     { echo "nav-tab-active";} ?>" rel="gwolle_gb_forms"><?php _e('Form', 'gwolle-gb'); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_reading')   { echo "nav-tab-active";} ?>" rel="gwolle_gb_reading"><?php _e('Reading', 'gwolle-gb'); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_admin')     { echo "nav-tab-active";} ?>" rel="gwolle_gb_admin"><?php _e('Admin', 'gwolle-gb'); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_antispam')  { echo "nav-tab-active";} ?>" rel="gwolle_gb_antispam"><?php _e('Anti-spam', 'gwolle-gb'); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_mail')      { echo "nav-tab-active";} ?>" rel="gwolle_gb_mail"><?php _e('E-mail', 'gwolle-gb'); ?></a>
+				<a href="#" class="nav-tab <?php if ($active_tab == 'gwolle_gb_uninstall') { echo "nav-tab-active";} ?>" rel="gwolle_gb_uninstall"><?php _e('Uninstall', 'gwolle-gb'); ?></a>
 			</h2>
 
 
@@ -363,8 +363,6 @@ function gwolle_gb_page_settings() {
 			<form name="gwolle_gb_options" class="gwolle_gb_options gwolle_gb_uninstall <?php if ($active_tab == 'gwolle_gb_uninstall') { echo "active";} ?>" method="post" action="">
 				<?php gwolle_gb_page_settingstab_uninstall( $uninstalled ); ?>
 			</form>
-
-		<?php // FIXME: Integrate into 1 form, have 1 submit button on all tabs. ?>
 
 		</div> <!-- wrap -->
 		<?php

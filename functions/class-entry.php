@@ -161,6 +161,8 @@ class gwolle_gb_entry {
 		$data = apply_filters( 'gwolle_gb_entry_save', get_object_vars( $this ) );
 		$this->set_data( $data );
 
+		$this->check_userids();
+
 		if ( $this->get_id() ) {
 			// entry exists, use UPDATE
 
@@ -462,8 +464,6 @@ class gwolle_gb_entry {
 	public function set_checkedby($checkedby) {
 		// $checkedby is a userid of the moderator
 		$checkedby = intval($checkedby);
-		// FIXME: Check if user exists
-
 		if ($checkedby) {
 			$this->checkedby = $checkedby;
 		}
@@ -587,6 +587,25 @@ class gwolle_gb_entry {
 			return true;
 		}
 		return false;
+	}
+
+	function check_userids() {
+		$author_id = $this->get_author_id();
+		if ( $author_id > 0 ) {
+			$userdata = get_userdata( $author_id );
+			if ( !is_object($userdata) ) {
+				// reset non-existent user because of heavy load in db queries (userid 0 does not get cached).
+				$this->author_id = 0;
+			}
+		}
+		$checkedby = $this->get_checkedby();
+		if ( $checkedby > 0 ) {
+			$userdata = get_userdata( $checkedby );
+			if ( !is_object($userdata) ) {
+				// reset non-existent user because of heavy load in db queries (userid 0 does not get cached).
+				$this->checkedby = 0;
+			}
+		}
 	}
 
 }

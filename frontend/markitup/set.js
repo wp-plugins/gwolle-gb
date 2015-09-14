@@ -12,18 +12,18 @@
 var marktitup_mySettings = {
 	onTab: { keepDefault:false, replaceWith:'    ' },
 	markupSet:  [
-		{name:'Bold', key:'B', openWith:'(!([b]|!|<b>)!)', closeWith:'(!([/b]|!|</b>)!)' },
-		{name:'Italic', key:'I', openWith:'(!([i]|!|<i>)!)', closeWith:'(!([/i]|!|</i>)!)'  },
+		{name: gwolle_gb_localize.bold, key:'B', openWith:'(!([b]|!|<b>)!)', closeWith:'(!([/b]|!|</b>)!)' },
+		{name: gwolle_gb_localize.italic, key:'I', openWith:'(!([i]|!|<i>)!)', closeWith:'(!([/i]|!|</i>)!)'  },
 		{separator:'---------------' },
-		{name:'Bulleted List', openWith:'[li]', closeWith:'[/li]', multiline:true, openBlockWith:'[ul]\n', closeBlockWith:'\n[/ul]'},
-		{name:'Numeric List', openWith:'[li]', closeWith:'[/li]', multiline:true, openBlockWith:'[ol]\n', closeBlockWith:'\n[/ol]'},
+		{name: gwolle_gb_localize.bullet, openWith:'[li]', closeWith:'[/li]', multiline:true, openBlockWith:'[ul]\n', closeBlockWith:'\n[/ul]'},
+		{name: gwolle_gb_localize.numeric, openWith:'[li]', closeWith:'[/li]', multiline:true, openBlockWith:'[ol]\n', closeBlockWith:'\n[/ol]'},
 		{separator:'---------------' },
-		{name:'Picture', key:'P', replaceWith:'[img][![Source:!:http://]!][/img]' },
-		{name:'Link', key:'L', openWith:'[url href=[![Link:!:http://]!]]', closeWith:'[/url]', placeHolder:'Your text to link...' },
+		{name: gwolle_gb_localize.picture, key:'P', replaceWith:'[img][![' + gwolle_gb_localize.source + ':!:http://]!][/img]' },
+		{name: gwolle_gb_localize.link, key:'L', openWith:'[url href=[![' + gwolle_gb_localize.link + ':!:http://]!]]', closeWith:'[/url]', placeHolder: gwolle_gb_localize.linktext },
 		{separator:'---------------' },
-		{name:'Clean', className:'clean', replaceWith:function(markitup) { return markitup.selection.replace(/\[(.*?)\]/g, "") } },
+		{name: gwolle_gb_localize.clean, className:'clean', replaceWith:function(markitup) { return markitup.selection.replace(/\[(.*?)\]/g, "") } },
 		{separator:'---------------' },
-		{name:'Emoji', className:'emoji' }
+		{name: gwolle_gb_localize.emoji, className:'emoji' }
 	]
 }
 

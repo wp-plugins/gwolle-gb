@@ -19,6 +19,8 @@
 if ( !function_exists('gwolle_gb_entry_template') ) {
 	function gwolle_gb_entry_template( $entry, $first, $counter ) {
 
+		$html5 = current_theme_supports( 'html5' );
+
 		// Get the needed settings.
 		$form_setting = gwolle_gb_get_setting( 'form' );
 		$read_setting = gwolle_gb_get_setting( 'read' );
@@ -46,6 +48,10 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 		}
 		$entry_output .= '">';
 
+		if ( $html5 ) {
+			$entry_output .= '<article>';
+		}
+
 		// Use this filter to just add something
 		$entry_output .= apply_filters( 'gwolle_gb_entry_read_add_before', '', $entry );
 
@@ -70,7 +76,7 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 		if ( isset($read_setting['read_city']) && $read_setting['read_city']  === 'true' ) {
 			$origin = $entry->get_author_origin();
 			if ( strlen(str_replace(' ', '', $origin)) > 0 ) {
-				$entry_output .= '<span class="gb-author-origin"> ' . __('from', GWOLLE_GB_TEXTDOMAIN) . ' ' . gwolle_gb_sanitize_output($origin) . '</span>';
+				$entry_output .= '<span class="gb-author-origin"> ' . __('from', 'gwolle-gb') . ' ' . gwolle_gb_sanitize_output($origin) . '</span>';
 			}
 		}
 
@@ -79,11 +85,11 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 			$entry_output .= '<span class="gb-datetime">
 						<span class="gb-date"> ';
 			if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' ) {
-				$entry_output .= __('wrote on', GWOLLE_GB_TEXTDOMAIN) . ' ';
+				$entry_output .= __('wrote on', 'gwolle-gb') . ' ';
 			}
 			$entry_output .= date_i18n( get_option('date_format'), $entry->get_datetime() ) . '</span>';
 			if ( isset($read_setting['read_datetime']) && $read_setting['read_datetime']  === 'true' ) {
-				$entry_output .= '<span class="gb-time"> ' . __('on', GWOLLE_GB_TEXTDOMAIN) . ' ' . trim(date_i18n( get_option('time_format'), $entry->get_datetime() )) . '</span>';
+				$entry_output .= '<span class="gb-time"> ' . __('on', 'gwolle-gb') . ' ' . trim(date_i18n( get_option('time_format'), $entry->get_datetime() )) . '</span>';
 			}
 			$entry_output .= ':</span> ';
 		}
@@ -115,7 +121,7 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 			// Edit Link for Moderators
 			if ( function_exists('current_user_can') && current_user_can('moderate_comments') ) {
 				$entry_output .= '
-					<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', GWOLLE_GB_TEXTDOMAIN) . '">' . __('Edit', GWOLLE_GB_TEXTDOMAIN) . '</a>';
+					<a class="gwolle_gb_edit_link" href="' . admin_url('admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&amp;entry_id=' . $entry->get_id() ) . '" title="' . __('Edit entry', 'gwolle-gb') . '">' . __('Edit', 'gwolle-gb') . '</a>';
 			}
 
 			// Use this filter to just add something
@@ -139,10 +145,10 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 				$admin_reply .= '<div class="gb-admin_reply_uid">';
 				$admin_reply_name = gwolle_gb_is_moderator( $entry->get_admin_reply_uid() );
 				if ( isset($read_setting['read_name']) && $read_setting['read_name']  === 'true' && $admin_reply_name ) {
-					$admin_reply .= '<strong>' . __('Admin Reply by:', GWOLLE_GB_TEXTDOMAIN) . '</strong>
+					$admin_reply .= '<strong>' . __('Admin Reply by:', 'gwolle-gb') . '</strong>
 						' . $admin_reply_name;
 				} else {
-					$admin_reply .= '<strong>' . __('Admin Reply:', GWOLLE_GB_TEXTDOMAIN) . '</strong>';
+					$admin_reply .= '<strong>' . __('Admin Reply:', 'gwolle-gb') . '</strong>';
 				}
 				$admin_reply .= '</div> ';
 
@@ -173,6 +179,10 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 
 		// Use this filter to just add something
 		$entry_output .= apply_filters( 'gwolle_gb_entry_read_add_after', '', $entry );
+
+		if ( $html5 ) {
+			$entry_output .= '</article>';
+		}
 
 		$entry_output .= '</div>
 			';

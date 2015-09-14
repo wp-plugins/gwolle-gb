@@ -13,6 +13,7 @@ if ( strpos($_SERVER['PHP_SELF'], basename(__FILE__) )) {
 function gwolle_gb_frontend_write() {
 	global $gwolle_gb_errors, $gwolle_gb_error_fields, $gwolle_gb_messages, $gwolle_gb_data;
 
+	$html5 = current_theme_supports( 'html5' );
 	$output = '';
 
 
@@ -91,7 +92,7 @@ function gwolle_gb_frontend_write() {
 
 	$output .= '
 		<div id="gwolle_gb_write_button">
-			<input type="button" value="&raquo; ' . esc_attr__('Write a new entry.', GWOLLE_GB_TEXTDOMAIN) . '" />
+			<input type="button" value="&raquo; ' . esc_attr__('Write a new entry.', 'gwolle-gb') . '" />
 		</div>';
 
 
@@ -99,7 +100,7 @@ function gwolle_gb_frontend_write() {
 	if ( !is_user_logged_in() && get_option('gwolle_gb-require_login', 'false') == 'true' ) {
 		$output .= '
 			<div id="gwolle_gb_new_entry">
-				<h3>' . __('Log in to post an entry', GWOLLE_GB_TEXTDOMAIN) . '</h3>';
+				<h3>' . __('Log in to post an entry', 'gwolle-gb') . '</h3>';
 
 		$args = array(
 			'echo'     => false,
@@ -126,7 +127,7 @@ function gwolle_gb_frontend_write() {
 	// Form for submitting new entries
 	$header = gwolle_gb_sanitize_output( get_option('gwolle_gb-header', false) );
 	if ( $header == false ) {
-		$header = __('Write a new entry for the Guestbook', GWOLLE_GB_TEXTDOMAIN);
+		$header = __('Write a new entry for the Guestbook', 'gwolle-gb');
 	}
 
 	$output .= '
@@ -140,14 +141,14 @@ function gwolle_gb_frontend_write() {
 	/* Name */
 	if ( isset($form_setting['form_name_enabled']) && $form_setting['form_name_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_name">
-				<div class="label"><label for="gwolle_gb_author_name">' . __('Name', GWOLLE_GB_TEXTDOMAIN) . ':';
+				<div class="label"><label for="gwolle_gb_author_name">' . __('Name', 'gwolle-gb') . ':';
 		if ( isset($form_setting['form_name_mandatory']) && $form_setting['form_name_mandatory']  === 'true' ) { $output .= ' *';}
 		$output .= '</label></div>
 				<div class="input"><input class="';
 		if (in_array('name', $gwolle_gb_error_fields)) {
 			$output .= ' error';
 		}
-		$output .= '" value="' . $name . '" type="text" name="gwolle_gb_author_name" id="gwolle_gb_author_name" placeholder="' . __('Name', GWOLLE_GB_TEXTDOMAIN) . '" ';
+		$output .= '" value="' . $name . '" type="text" name="gwolle_gb_author_name" id="gwolle_gb_author_name" placeholder="' . __('Name', 'gwolle-gb') . '" ';
 		if ( in_array('name', $gwolle_gb_error_fields) && isset($autofocus) ) {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.
@@ -160,14 +161,14 @@ function gwolle_gb_frontend_write() {
 	/* City / Origin */
 	if ( isset($form_setting['form_city_enabled']) && $form_setting['form_city_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_origin">
-					<div class="label"><label for="gwolle_gb_author_origin">' . __('City', GWOLLE_GB_TEXTDOMAIN) . ':';
+					<div class="label"><label for="gwolle_gb_author_origin">' . __('City', 'gwolle-gb') . ':';
 		if ( isset($form_setting['form_city_mandatory']) && $form_setting['form_city_mandatory']  === 'true' ) { $output .= ' *';}
 		$output .= '</label></div>
 					<div class="input"><input class="';
 		if (in_array('author_origin', $gwolle_gb_error_fields)) {
 			$output .= ' error';
 		}
-		$output .= '" value="' . $origin . '" type="text" name="gwolle_gb_author_origin" id="gwolle_gb_author_origin" placeholder="' . __('City', GWOLLE_GB_TEXTDOMAIN) . '" ';
+		$output .= '" value="' . $origin . '" type="text" name="gwolle_gb_author_origin" id="gwolle_gb_author_origin" placeholder="' . __('City', 'gwolle-gb') . '" ';
 		if ( in_array('author_origin', $gwolle_gb_error_fields) && isset($autofocus) ) {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.
@@ -180,14 +181,14 @@ function gwolle_gb_frontend_write() {
 	/* Email */
 	if ( isset($form_setting['form_email_enabled']) && $form_setting['form_email_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_email">
-				<div class="label"><label for="gwolle_gb_author_email">' . __('Email', GWOLLE_GB_TEXTDOMAIN) . ':';
+				<div class="label"><label for="gwolle_gb_author_email">' . __('Email', 'gwolle-gb') . ':';
 		if ( isset($form_setting['form_email_mandatory']) && $form_setting['form_email_mandatory']  === 'true' ) { $output .= ' *';}
 		$output .= '</label></div>
 				<div class="input"><input class="';
 		if (in_array('author_email', $gwolle_gb_error_fields)) {
 			$output .= ' error';
 		}
-		$output .= '" value="' . $email . '" type="text" name="gwolle_gb_author_email" id="gwolle_gb_author_email" placeholder="' . __('Email', GWOLLE_GB_TEXTDOMAIN) . '" ';
+		$output .= '" value="' . $email . '" ' . ($html5 ? 'type="email"' : 'type="text"') . ' name="gwolle_gb_author_email" id="gwolle_gb_author_email" placeholder="' . __('Email', 'gwolle-gb') . '" ';
 		if ( in_array('author_email', $gwolle_gb_error_fields) && isset($autofocus) ) {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.
@@ -200,14 +201,14 @@ function gwolle_gb_frontend_write() {
 	/* Website / Homepage */
 	if ( isset($form_setting['form_homepage_enabled']) && $form_setting['form_homepage_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_author_website">
-				<div class="label"><label for="gwolle_gb_author_website">' . __('Website', GWOLLE_GB_TEXTDOMAIN) . ':';
+				<div class="label"><label for="gwolle_gb_author_website">' . __('Website', 'gwolle-gb') . ':';
 		if ( isset($form_setting['form_homepage_mandatory']) && $form_setting['form_homepage_mandatory']  === 'true' ) { $output .= ' *';}
 		$output .= '</label></div>
 				<div class="input"><input class="';
 		if (in_array('author_website', $gwolle_gb_error_fields)) {
 			$output .= ' error';
 		}
-		$output .= '" value="' . $website . '" type="text" name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Website', GWOLLE_GB_TEXTDOMAIN) . '" ';
+		$output .= '" value="' . $website . '" ' . ($html5 ? 'type="url"' : 'type="text"') . ' name="gwolle_gb_author_website" id="gwolle_gb_author_website" placeholder="' . __('Website', 'gwolle-gb') . '" ';
 		if ( in_array('author_website', $gwolle_gb_error_fields) && isset($autofocus) ) {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.
@@ -220,14 +221,14 @@ function gwolle_gb_frontend_write() {
 	/* Content */
 	if ( isset($form_setting['form_message_enabled']) && $form_setting['form_message_enabled']  === 'true' ) {
 		$output .= '<div class="gwolle_gb_content">
-				<div class="label"><label for="gwolle_gb_content">' . __('Guestbook entry', GWOLLE_GB_TEXTDOMAIN) . ':';
+				<div class="label"><label for="gwolle_gb_content">' . __('Guestbook entry', 'gwolle-gb') . ':';
 		if ( isset($form_setting['form_message_mandatory']) && $form_setting['form_message_mandatory']  === 'true' ) { $output .= ' *';}
 		$output .= '</label></div>
 				<div class="input"><textarea name="gwolle_gb_content" id="gwolle_gb_content" class="';
 		if (in_array('content', $gwolle_gb_error_fields)) {
 			$output .= ' error';
 		}
-		$output .= '" placeholder="' . __('Message', GWOLLE_GB_TEXTDOMAIN) . '" ';
+		$output .= '" placeholder="' . __('Message', 'gwolle-gb') . '" ';
 		if ( in_array('content', $gwolle_gb_error_fields) && isset($autofocus) ) {
 			$output .= $autofocus;
 			$autofocus = false; // disable it for the next error.
@@ -239,6 +240,21 @@ function gwolle_gb_frontend_write() {
 			wp_enqueue_script( 'markitup', plugins_url('markitup/jquery.markitup.js', __FILE__), 'jquery', GWOLLE_GB_VER, false );
 			wp_enqueue_script( 'markitup_set', plugins_url('markitup/set.js', __FILE__), 'jquery', GWOLLE_GB_VER, false );
 			wp_enqueue_style('gwolle_gb_markitup_css', plugins_url('markitup/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
+
+			$dataToBePassed = array(
+				'bold'      => __('Bold', 'gwolle-gb' ),
+				'italic'    => __('Italic', 'gwolle-gb' ),
+				'bullet'    => __('Bulleted List', 'gwolle-gb' ),
+				'numeric'   => __('Numeric List', 'gwolle-gb' ),
+				'picture'   => __('Picture', 'gwolle-gb' ),
+				'source'    => __('Source', 'gwolle-gb' ),
+				'link'      => __('Link', 'gwolle-gb' ),
+				'linktext'  => __('Your text to link...', 'gwolle-gb' ),
+				'clean'     => __('Clean', 'gwolle-gb' ),
+				'emoji'     => __('Emoji', 'gwolle-gb' )
+			);
+			wp_localize_script( 'markitup_set', 'gwolle_gb_localize', $dataToBePassed );
+
 			// Emoji symbols
 			$output .= '<div class="gwolle_gb_emoji" style="display:none;">';
 			$output .= gwolle_gb_get_emoji();
@@ -261,14 +277,14 @@ function gwolle_gb_frontend_write() {
 			$output .= '
 				<div class="gwolle_gb_antispam">
 					<div class="label">
-						<label for="gwolle_gb_antispam_answer">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *<br />
-						' . __('Question:', GWOLLE_GB_TEXTDOMAIN) . " " .  $antispam_question . '</label>
+						<label for="gwolle_gb_antispam_answer">' . __('Anti-spam', 'gwolle-gb') . ': *<br />
+						' . __('Question:', 'gwolle-gb') . " " .  $antispam_question . '</label>
 					</div>
 					<div class="input"><input class="';
 			if (in_array('antispam', $gwolle_gb_error_fields)) {
 				$output .= ' error';
 			}
-			$output .= '" value="' . $antispam . '" type="text" name="gwolle_gb_antispam_answer" id="gwolle_gb_antispam_answer" placeholder="' . __('Answer', GWOLLE_GB_TEXTDOMAIN) . '" ';
+			$output .= '" value="' . $antispam . '" type="text" name="gwolle_gb_antispam_answer" id="gwolle_gb_antispam_answer" placeholder="' . __('Answer', 'gwolle-gb') . '" ';
 			if ( in_array('antispam', $gwolle_gb_error_fields) && isset($autofocus) ) {
 				$output .= $autofocus;
 				$autofocus = false; // disable it for the next error.
@@ -334,10 +350,10 @@ function gwolle_gb_frontend_write() {
 
 						// Update form verification feedback
 						if ( 'true' == ajax_response ) {
-							document.getElementById( 'gwolle_gb_captcha_verify' ).innerHTML = '<span style="color:green"><?php _e('Correct CAPTCHA value.', GWOLLE_GB_TEXTDOMAIN); ?></span>';
+							document.getElementById( 'gwolle_gb_captcha_verify' ).innerHTML = '<span style="color:green"><?php _e('Correct CAPTCHA value.', 'gwolle-gb'); ?></span>';
 							jQuery( '#gwolle_gb_captcha_code' ).removeClass('error');
 						} else if ( 'false' == ajax_response ) {
-							document.getElementById( 'gwolle_gb_captcha_verify' ).innerHTML = '<span style="color:red"><?php _e('Incorrect CAPTCHA value.', GWOLLE_GB_TEXTDOMAIN); ?></span>';
+							document.getElementById( 'gwolle_gb_captcha_verify' ).innerHTML = '<span style="color:red"><?php _e('Incorrect CAPTCHA value.', 'gwolle-gb'); ?></span>';
 							jQuery( '#gwolle_gb_captcha_code' ).addClass('error');
 						}
 					}
@@ -352,7 +368,7 @@ function gwolle_gb_frontend_write() {
 			$output .= '
 				<div class="gwolle_gb_captcha">
 					<div class="label">
-						<label for="gwolle_gb_captcha_code">' . __('Anti-spam', GWOLLE_GB_TEXTDOMAIN) . ': *<br />
+						<label for="gwolle_gb_captcha_code">' . __('Anti-spam', 'gwolle-gb') . ': *<br />
 						<img src="' . $gwolle_gb_captcha_image_src . '" alt="captcha" width="' . $gwolle_gb_captcha_image_width . '" height="' . $gwolle_gb_captcha_image_height . '" />
 						</label>
 					</div>
@@ -361,7 +377,7 @@ function gwolle_gb_frontend_write() {
 			if (in_array('captcha', $gwolle_gb_error_fields)) {
 				$output .= 'error';
 			}
-			$output .= '" value="" type="text" name="gwolle_gb_captcha_code" id="gwolle_gb_captcha_code" placeholder="' . __('CAPTCHA', GWOLLE_GB_TEXTDOMAIN) . '" onblur="gwolle_gb_captcha_check( this.value, \'' . $gwolle_gb_captcha_prefix . '\', \'' . $gwolle_gb_captcha_ajax_url . '\', \'' . $gwolle_gb_abspath . '\' )" ';
+			$output .= '" value="" type="text" name="gwolle_gb_captcha_code" id="gwolle_gb_captcha_code" placeholder="' . __('CAPTCHA', 'gwolle-gb') . '" onblur="gwolle_gb_captcha_check( this.value, \'' . $gwolle_gb_captcha_prefix . '\', \'' . $gwolle_gb_captcha_ajax_url . '\', \'' . $gwolle_gb_abspath . '\' )" ';
 			if ( in_array('captcha', $gwolle_gb_error_fields) && isset($autofocus) ) {
 				$output .= $autofocus;
 				$autofocus = false; // disable it for the next error.
@@ -381,7 +397,7 @@ function gwolle_gb_frontend_write() {
 	$output .= '
 			<div class="gwolle_gb_submit">
 				<div class="label">&nbsp;</div>
-				<div class="input"><input type="submit" name="gwolle_gb_submit" value="' . esc_attr__('Submit', GWOLLE_GB_TEXTDOMAIN) . '" /></div>
+				<div class="input"><input type="submit" name="gwolle_gb_submit" value="' . esc_attr__('Submit', 'gwolle-gb') . '" /></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>
 
@@ -397,7 +413,7 @@ For security reasons we save the ip address %ip%.
 It might be that your entry will only be visible in the guestbook after we reviewed it.
 We reserve our right to edit, delete, or not publish entries.
 '
-, GWOLLE_GB_TEXTDOMAIN);
+, 'gwolle-gb');
 	}
 
 	$notice = nl2br($notice);

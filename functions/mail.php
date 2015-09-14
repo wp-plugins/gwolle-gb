@@ -50,11 +50,11 @@ Entry status: %status%
 Entry content:
 %entry_content%
 "
-, GWOLLE_GB_TEXTDOMAIN);
+, 'gwolle-gb');
 		}
 
 		// Set the Mail Headers
-		$subject = '[' . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
+		$subject = '[' . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . '] ' . __('New Guestbook Entry', 'gwolle-gb');
 		$header = "";
 		if ( get_option('gwolle_gb-mail-from', false) ) {
 			$header .= "From: " . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . " <" . get_option('gwolle_gb-mail-from') . ">\r\n";
@@ -73,14 +73,14 @@ Entry content:
 		} else {
 			$info['blog_url'] = get_bloginfo('wpurl');
 		}
-		$info['wp_admin_url'] = $info['blog_url'] . '/wp-admin';
-		$info['entry_management_url'] = $info['wp_admin_url'] . '/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id();
+		$info['wp_admin_url'] = admin_url( '/admin.php' );
+		$info['entry_management_url'] = admin_url( '/admin.php?page=' . GWOLLE_GB_FOLDER . '/editor.php&entry_id=' . $entry->get_id() );
 		$info['entry_content'] = gwolle_gb_format_values_for_mail(gwolle_gb_sanitize_output( $entry->get_content() ));
 		$info['author_ip'] = $_SERVER['REMOTE_ADDR'];
 		if ( $entry->get_ischecked() ) {
-			$info['status'] = __('Checked', GWOLLE_GB_TEXTDOMAIN);
+			$info['status'] = __('Checked', 'gwolle-gb');
 		} else {
-			$info['status'] = __('Unchecked', GWOLLE_GB_TEXTDOMAIN);
+			$info['status'] = __('Unchecked', 'gwolle-gb');
 		}
 
 		// The last tags are bloginfo-based
@@ -128,11 +128,11 @@ User email: %user_email%
 Entry content:
 %entry_content%
 "
-, GWOLLE_GB_TEXTDOMAIN);
+, 'gwolle-gb');
 			}
 
 			// Set the Mail Headers
-			$subject = '[' . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . '] ' . __('New Guestbook Entry', GWOLLE_GB_TEXTDOMAIN);
+			$subject = '[' . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . '] ' . __('New Guestbook Entry', 'gwolle-gb');
 			$header = "";
 			if ( get_option('gwolle_gb-mail-from', false) ) {
 				$header .= "From: " . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . " <" . gwolle_gb_sanitize_output( get_option('gwolle_gb-mail-from') ) . ">\r\n";
@@ -191,11 +191,11 @@ Website address: %blog_url%
 Admin Reply:
 %admin_reply%
 "
-, GWOLLE_GB_TEXTDOMAIN);
+, 'gwolle-gb');
 		}
 
 		// Set the Mail Headers
-		$subject = '[' . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . '] ' . __('Admin Reply', GWOLLE_GB_TEXTDOMAIN);
+		$subject = '[' . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . '] ' . __('Admin Reply', 'gwolle-gb');
 		$header = "";
 		if ( get_option('gwolle_gb-mail-from', false) ) {
 			$header .= "From: " . gwolle_gb_format_values_for_mail(get_bloginfo('name')) . " <" . gwolle_gb_sanitize_output( get_option('gwolle_gb-mail-from') ) . ">\r\n";

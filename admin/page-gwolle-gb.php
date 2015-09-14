@@ -33,7 +33,7 @@ function gwolle_gb_overview(){
 	?>
 
 	<div class="table table_content gwolle_gb">
-		<h3><?php _e('Overview',GWOLLE_GB_TEXTDOMAIN); ?></h3>
+		<h3><?php _e('Overview','gwolle-gb'); ?></h3>
 
 		<table>
 			<tbody>
@@ -47,10 +47,10 @@ function gwolle_gb_overview(){
 					<td class="t" style="color:#0000f0;">
 						<?php
 							if ($count['all']==1) {
-								_e('Entry total',GWOLLE_GB_TEXTDOMAIN);
+								_e('Entry total','gwolle-gb');
 							}
 							else {
-								_e('Entries total',GWOLLE_GB_TEXTDOMAIN);
+								_e('Entries total','gwolle-gb');
 							}
 						?>
 					</td>
@@ -66,9 +66,9 @@ function gwolle_gb_overview(){
 					<td class="t" style="color:#008000;">
 						<?php
 							if ($count['checked'] == 1) {
-								_e('Unlocked entry',GWOLLE_GB_TEXTDOMAIN);
+								_e('Unlocked entry','gwolle-gb');
 							} else {
-								_e('Unlocked entries',GWOLLE_GB_TEXTDOMAIN);;
+								_e('Unlocked entries','gwolle-gb');;
 							}
 						?>
 					</td>
@@ -84,9 +84,9 @@ function gwolle_gb_overview(){
 					<td class="t" style="color:#ff6f00;">
 						<?php
 							if ($count['unchecked'] == 1) {
-								_e('New entry',GWOLLE_GB_TEXTDOMAIN);
+								_e('New entry','gwolle-gb');
 							} else {
-								_e('New entries',GWOLLE_GB_TEXTDOMAIN);
+								_e('New entries','gwolle-gb');
 							}
 						?>
 					</td>
@@ -102,9 +102,9 @@ function gwolle_gb_overview(){
 					<td class="t" style="color:#FF0000;">
 						<?php
 							if ($count['spam'] == 1) {
-								_e('Spam entry',GWOLLE_GB_TEXTDOMAIN);
+								_e('Spam entry','gwolle-gb');
 							} else {
-								_e('Spam entries',GWOLLE_GB_TEXTDOMAIN);
+								_e('Spam entries','gwolle-gb');
 							}
 						?>
 					</td>
@@ -120,9 +120,9 @@ function gwolle_gb_overview(){
 					<td class="t" style="color:#FF0000;">
 						<?php
 							if ($count['trash'] == 1) {
-								_e('Trashed entry',GWOLLE_GB_TEXTDOMAIN);
+								_e('Trashed entry','gwolle-gb');
 							} else {
-								_e('Trashed entries',GWOLLE_GB_TEXTDOMAIN);
+								_e('Trashed entries','gwolle-gb');
 							}
 						?>
 					</td>
@@ -140,11 +140,11 @@ function gwolle_gb_overview(){
 			if ( $postid ) {
 				$permalink = get_bloginfo('url') . '?p=' . $postid;
 				?>
-				<a class="button rbutton button button-primary" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook',GWOLLE_GB_TEXTDOMAIN); ?></a>
+				<a class="button rbutton button button-primary" href="<?php echo $permalink; ?>"><?php esc_attr_e('View Guestbook','gwolle-gb'); ?></a>
 				<?php
 			} ?>
 
-			<a class="button rbutton button button-primary" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php esc_attr_e('Write admin entry',GWOLLE_GB_TEXTDOMAIN); ?></a>
+			<a class="button rbutton button button-primary" href="admin.php?page=<?php echo GWOLLE_GB_FOLDER; ?>/editor.php"><?php esc_attr_e('Write admin entry','gwolle-gb'); ?></a>
 		</p>
 	</div>
 <?php }
@@ -155,7 +155,7 @@ function gwolle_gb_notification() {
 	// Check if function mail() exists. If not, display a hint to the user.
 	if (!function_exists('mail')) {
 		echo '<p class="setting-description">' .
-			__('Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. You might want to install a WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can contact your hosting provider to change this.',GWOLLE_GB_TEXTDOMAIN)
+			__('Sorry, but the function <code>mail()</code> required to notify you by mail is not enabled in your PHP configuration. You might want to install a WordPress plugin that uses SMTP instead of <code>mail()</code>. Or you can contact your hosting provider to change this.','gwolle-gb')
 			. '</p>';
 	}
 	$current_user_id = get_current_user_id();;
@@ -181,14 +181,14 @@ function gwolle_gb_notification() {
 				if ( $currentUserNotification ) {
 					echo 'checked="checked"';
 				} ?> >
-			<label for="notify_by_mail" class="setting-description"><?php _e('Send me an e-mail when a new entry has been posted.', GWOLLE_GB_TEXTDOMAIN); ?></label>
+			<label for="notify_by_mail" class="setting-description"><?php _e('Send me an e-mail when a new entry has been posted.', 'gwolle-gb'); ?></label>
 			<p class="submit">
-				<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save setting', GWOLLE_GB_TEXTDOMAIN); ?>" />
+				<input type="submit" name="Submit" class="button-primary" value="<?php esc_attr_e('Save setting', 'gwolle-gb'); ?>" />
 			</p>
 		</form>
 	</p>
 	<div>
-		<?php _e('The following users have subscribed to this service:', GWOLLE_GB_TEXTDOMAIN);
+		<?php _e('The following users have subscribed to this service:', 'gwolle-gb');
 
 		if ( is_array($user_ids) && !empty($user_ids) ) {
 			echo '<ul style="font-size:10px;font-style:italic;list-style-type:disc;padding-left:14px;">';
@@ -200,7 +200,7 @@ function gwolle_gb_notification() {
 				}
 				echo '<li>';
 				if ( $user_info->ID == get_current_user_id() ) {
-					echo '<strong>' . __('You', GWOLLE_GB_TEXTDOMAIN) . '</strong>';
+					echo '<strong>' . __('You', 'gwolle-gb') . '</strong>';
 				} else {
 					echo $user_info->first_name . ' ' . $user_info->last_name;
 				}
@@ -209,7 +209,7 @@ function gwolle_gb_notification() {
 			}
 			echo '</ul>';
 		} else {
-			echo '<br /><i>(' . __('No subscriber yet', GWOLLE_GB_TEXTDOMAIN) . ')</i>';
+			echo '<br /><i>(' . __('No subscriber yet', 'gwolle-gb') . ')</i>';
 		}
 		?>
 	</div>
@@ -219,24 +219,24 @@ function gwolle_gb_notification() {
 
 function gwolle_gb_donate() {
 	?>
-	<p><?php _e('This plugin is being maintained by Marcel Pol from', GWOLLE_GB_TEXTDOMAIN); ?>
+	<p><?php _e('This plugin is being maintained by Marcel Pol from', 'gwolle-gb'); ?>
 		<a href="http://zenoweb.nl" target="_blank" title="ZenoWeb">ZenoWeb</a>.
 	</p>
 
-	<h3><?php _e('Review this plugin.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-	<p><?php _e('If this plugin has any value to you, then please leave a review at', GWOLLE_GB_TEXTDOMAIN); ?>
-		<a href="https://wordpress.org/support/view/plugin-reviews/gwolle-gb" target="_blank" title="<?php esc_attr_e('The plugin page at wordpress.org.', GWOLLE_GB_TEXTDOMAIN); ?>">
-			<?php _e('the plugin page at wordpress.org', GWOLLE_GB_TEXTDOMAIN); ?></a>.
+	<h3><?php _e('Review this plugin.', 'gwolle-gb'); ?></h3>
+	<p><?php _e('If this plugin has any value to you, then please leave a review at', 'gwolle-gb'); ?>
+		<a href="https://wordpress.org/support/view/plugin-reviews/gwolle-gb" target="_blank" title="<?php esc_attr_e('The plugin page at wordpress.org.', 'gwolle-gb'); ?>">
+			<?php _e('the plugin page at wordpress.org', 'gwolle-gb'); ?></a>.
 	</p>
 
-	<h3><?php _e('Donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-	<p><?php _e('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', GWOLLE_GB_TEXTDOMAIN); ?></p>
-	<p><a href="https://supporters.eff.org/donate" target="_blank" title="<?php esc_attr_e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('Please donate to the EFF.', GWOLLE_GB_TEXTDOMAIN); ?></a></p>
+	<h3><?php _e('Donate to the EFF.', 'gwolle-gb'); ?></h3>
+	<p><?php _e('The Electronic Frontier Foundation is one of the few organisations that wants to keep the internet a free place.', 'gwolle-gb'); ?></p>
+	<p><a href="https://supporters.eff.org/donate" target="_blank" title="<?php esc_attr_e('Please donate to the EFF.', 'gwolle-gb'); ?>"><?php _e('Please donate to the EFF.', 'gwolle-gb'); ?></a></p>
 
-	<h3><?php _e('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN); ?></h3>
-	<p><?php _e('If you rather want to donate to the maintainer of the plugin, you can donate through PayPal.', GWOLLE_GB_TEXTDOMAIN); ?></p>
-	<p><?php _e('Donate through', GWOLLE_GB_TEXTDOMAIN); ?> <a href="https://www.paypal.com" target="_blank" title="<?php esc_attr_e('Donate to the maintainer.', GWOLLE_GB_TEXTDOMAIN); ?>"><?php _e('PayPal', GWOLLE_GB_TEXTDOMAIN); ?></a>
-		<?php _e('to', GWOLLE_GB_TEXTDOMAIN); ?> marcel@timelord.nl.
+	<h3><?php _e('Donate to the maintainer.', 'gwolle-gb'); ?></h3>
+	<p><?php _e('If you rather want to donate to the maintainer of the plugin, you can donate through PayPal.', 'gwolle-gb'); ?></p>
+	<p><?php _e('Donate through', 'gwolle-gb'); ?> <a href="https://www.paypal.com" target="_blank" title="<?php esc_attr_e('Donate to the maintainer.', 'gwolle-gb'); ?>"><?php _e('PayPal', 'gwolle-gb'); ?></a>
+		<?php _e('to', 'gwolle-gb'); ?> marcel@timelord.nl.
 	</p>
 	<?php
 }
@@ -245,30 +245,30 @@ function gwolle_gb_donate() {
 /* Metaboxes on the right */
 function gwolle_gb_overview_help() {
 	echo '<h3>
-	'.__('This is how you can get your guestbook displayed on your website:', GWOLLE_GB_TEXTDOMAIN).'</h3>
+	'.__('This is how you can get your guestbook displayed on your website:', 'gwolle-gb').'</h3>
 	<ul class="ul-disc">
-		<li>'.__('Create a new page.', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__("Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the content.", GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__("It is probably a good idea to disable comments on that page; otherwise, your visitors might get a little confused.",GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Create a new page.', 'gwolle-gb').'</li>
+		<li>'.__("Choose a title and set &quot;[gwolle_gb]&quot; (without the quotes) as the content.", 'gwolle-gb').'</li>
+		<li>'.__("It is probably a good idea to disable comments on that page; otherwise, your visitors might get a little confused.",'gwolle-gb').'</li>
 	</ul>';
 }
 
 
 function gwolle_gb_overview_help_more() {
 	echo '<h3>
-	'.__('These entries will be visible for your visitors:', GWOLLE_GB_TEXTDOMAIN).'</h3>
+	'.__('These entries will be visible for your visitors:', 'gwolle-gb').'</h3>
 	<ul class="ul-disc">
-		<li>'.__('Marked as Checked.', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__('Not marked as Spam.', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__('Not marked as Trash.',GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Marked as Checked.', 'gwolle-gb').'</li>
+		<li>'.__('Not marked as Spam.', 'gwolle-gb').'</li>
+		<li>'.__('Not marked as Trash.','gwolle-gb').'</li>
 	</ul>';
 
 	echo '<h3>
-	'.__('The Main Menu counter counts the following entries:', GWOLLE_GB_TEXTDOMAIN).'</h3>
+	'.__('The Main Menu counter counts the following entries:', 'gwolle-gb').'</h3>
 	<ul class="ul-disc">
-		<li>'.__('Marked as Unchecked (You might want to moderate them).', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__('Not marked as Spam (You might want to check them).', GWOLLE_GB_TEXTDOMAIN).'</li>
-		<li>'.__('Not marked as Trash (You decide what goes to the trash).',GWOLLE_GB_TEXTDOMAIN).'</li>
+		<li>'.__('Marked as Unchecked (You might want to moderate them).', 'gwolle-gb').'</li>
+		<li>'.__('Not marked as Spam (You might want to check them).', 'gwolle-gb').'</li>
+		<li>'.__('Not marked as Trash (You decide what goes to the trash).','gwolle-gb').'</li>
 	</ul>';
 }
 
@@ -287,7 +287,7 @@ function gwolle_gb_overview_thanks() {
 function gwolle_gb_welcome() {
 
 	if ( function_exists('current_user_can') && !current_user_can('moderate_comments') ) {
-		die(__('Cheatin&#8217; uh?', GWOLLE_GB_TEXTDOMAIN));
+		die(__('Cheatin&#8217; uh?', 'gwolle-gb'));
 	}
 
 	/* Save notification setting */
@@ -347,24 +347,24 @@ function gwolle_gb_welcome() {
 	if (get_option('gwolle_gb_version', false) === false) {
 		gwolle_gb_installSplash();
 	} else {
-		add_meta_box('dashboard_right_now', __('Welcome to the Guestbook!',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview', 'gwolle_gb_welcome', 'left', 'core');
-		add_meta_box('gwolle_gb_notification', __('E-mail Notifications', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_notification', 'gwolle_gb_welcome', 'left', 'core');
-		add_meta_box('gwolle_gb_donate', __('Review and Donate', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_donate', 'gwolle_gb_welcome', 'left', 'core');
+		add_meta_box('dashboard_right_now', __('Welcome to the Guestbook!','gwolle-gb'), 'gwolle_gb_overview', 'gwolle_gb_welcome', 'left', 'core');
+		add_meta_box('gwolle_gb_notification', __('E-mail Notifications', 'gwolle-gb'), 'gwolle_gb_notification', 'gwolle_gb_welcome', 'left', 'core');
+		add_meta_box('gwolle_gb_donate', __('Review and Donate', 'gwolle-gb'), 'gwolle_gb_donate', 'gwolle_gb_welcome', 'left', 'core');
 
-		add_meta_box('gwolle_gb_help', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');
-		add_meta_box('gwolle_gb_help_more', __('Help', GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_help_more', 'gwolle_gb_welcome', 'right', 'core');
-		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts and services:',GWOLLE_GB_TEXTDOMAIN), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'right', 'core');
+		add_meta_box('gwolle_gb_help', __('Help', 'gwolle-gb'), 'gwolle_gb_overview_help', 'gwolle_gb_welcome', 'right', 'core');
+		add_meta_box('gwolle_gb_help_more', __('Help', 'gwolle-gb'), 'gwolle_gb_overview_help_more', 'gwolle_gb_welcome', 'right', 'core');
+		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts and services:','gwolle-gb'), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'right', 'core');
 
 		?>
 		<div class="wrap gwolle_gb-wrap">
 			<div id="icon-gwolle-gb"><br /></div>
-			<h1><?php _e('Gwolle Guestbook', GWOLLE_GB_TEXTDOMAIN); ?></h1>
+			<h1><?php _e('Gwolle Guestbook', 'gwolle-gb'); ?></h1>
 
 			<?php
 			if ( $saved ) {
 				echo '
 					<div id="message" class="updated fade notice is-dismissible">
-						<p>' . __('Changes saved.', GWOLLE_GB_TEXTDOMAIN) . '</p>
+						<p>' . __('Changes saved.', 'gwolle-gb') . '</p>
 					</div>';
 			} ?>
 
