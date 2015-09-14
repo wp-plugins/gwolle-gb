@@ -13,6 +13,7 @@
  * - author_id     string: All entries associated with this author_id (since 1.5.0).
  * - email         string: All entries associated with this emailaddress.
  * - no_moderators string: 'true', Only entries not written by a moderator (might be expensive with many users) (since 1.5.0).
+ * - book_id       int: All the entries in this book. Default = 1.
  *
  * Return:
  * - Array of objects of gwolle_gb_entry
@@ -90,6 +91,12 @@ function gwolle_gb_get_entries($args = array()) {
 				}
 			}
 		}
+	}
+	if ( isset( $args['book_id']) ) {
+		$where .= "
+			AND
+			book_id = %d";
+		$values[] = (int) $args['book_id'];
 	}
 
 	// Offset
