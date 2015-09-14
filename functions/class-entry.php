@@ -24,6 +24,7 @@
  * $isspam          isspam           varchar(1)    entry is considered as spam, 0 or 1     required, default 0
  * $admin_reply     admin_reply      longtext      content of the reply from an admin      required
  * $admin_reply_uid admin_reply_uid  int(5)        user_id of the admin that replied       required
+ * $book_id         book_id          int(8)        the book in which the entry is placed   required, default 1
  *
  */
 
@@ -32,7 +33,7 @@ class gwolle_gb_entry {
 
 	protected $id, $author_name, $author_id, $author_email, $author_origin, $author_website,
 		$author_ip, $author_host, $content, $datetime, $ischecked, $checkedby, $istrash, $isspam,
-		$admin_reply, $admin_reply_uid;
+		$admin_reply, $admin_reply_uid, $book_id;
 
 	/*
 	 * Construct an instance
@@ -55,6 +56,7 @@ class gwolle_gb_entry {
 		$this->isspam          = (int) 0;
 		$this->admin_reply     = (string) "";
 		$this->admin_reply_uid = (int) 0;
+		$this->book_id         = (int) 1;
 	}
 
 
@@ -106,7 +108,8 @@ class gwolle_gb_entry {
 					`istrash`,
 					`isspam`,
 					`admin_reply`,
-					`admin_reply_uid`
+					`admin_reply_uid`,
+					`book_id`
 				FROM
 					" . $tablename . "
 				WHERE
@@ -139,6 +142,7 @@ class gwolle_gb_entry {
 			'isspam'          => (int) $data['isspam'],
 			'admin_reply'     => stripslashes($data['admin_reply']),
 			'admin_reply_uid' => (int) $data['admin_reply_uid'],
+			'book_id'         => (int) $data['book_id'],
 		);
 
 		$this->set_data( $item );
@@ -185,7 +189,8 @@ class gwolle_gb_entry {
 					checkedby = %d,
 					istrash = %d,
 					admin_reply = %s,
-					admin_reply_uid = %d
+					admin_reply_uid = %d,
+					book_id = %d
 				WHERE
 					id = %d
 				";
@@ -206,6 +211,7 @@ class gwolle_gb_entry {
 					$this->get_istrash(),
 					$this->get_admin_reply(),
 					$this->get_admin_reply_uid(),
+					$this->get_book_id(),
 					$this->get_id()
 				);
 
@@ -234,7 +240,8 @@ class gwolle_gb_entry {
 					checkedby,
 					istrash,
 					admin_reply,
-					admin_reply_uid
+					admin_reply_uid,
+					book_id
 				) VALUES (
 					%s,
 					%d,
@@ -250,6 +257,7 @@ class gwolle_gb_entry {
 					%d,
 					%d,
 					%s,
+					%d,
 					%d
 				)
 				",
@@ -268,7 +276,8 @@ class gwolle_gb_entry {
 					$this->get_checkedby(),
 					$this->get_istrash(),
 					$this->get_admin_reply(),
-					$this->get_admin_reply_uid()
+					$this->get_admin_reply_uid(),
+					$this->get_book_id()
 				)
 			) );
 
@@ -313,6 +322,7 @@ class gwolle_gb_entry {
 	 * - isspam
 	 * - admin_reply
 	 * - admin_reply_uid
+	 * - book_id
 
 	 */
 
@@ -369,6 +379,9 @@ class gwolle_gb_entry {
 		}
 		if ( isset( $args['admin_reply_uid'] ) ) {
 			$this->set_admin_reply_uid( $args['admin_reply_uid'] );
+		}
+		if ( isset( $args['book_id'] ) ) {
+			$this->set_book_id( $args['book_id'] );
 		}
 
 		return true;
@@ -484,6 +497,12 @@ class gwolle_gb_entry {
 	public function set_admin_reply_uid($admin_reply_uid) {
 		$this->admin_reply_uid = intval($admin_reply_uid);
 	}
+	public function set_book_id($book_id) {
+		$this->book_id = intval($book_id);
+		if (!$book_id) {
+			$this->book_id = 1;
+		}
+	}
 
 
 	/* The Getter methods */
@@ -539,6 +558,9 @@ class gwolle_gb_entry {
 	}
 	public function get_admin_reply_uid() {
 		return $this->admin_reply_uid;
+	}
+	public function get_book_id() {
+		return $this->book_id;
 	}
 
 
