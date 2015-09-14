@@ -31,7 +31,7 @@ Domain Path: /lang/
 
 
 // Plugin Version
-define('GWOLLE_GB_VER', '1.5.1');
+define('GWOLLE_GB_VER', '1.5.2');
 
 
 /*
@@ -110,14 +110,28 @@ include_once( GWOLLE_GB_DIR . '/admin/dashboard-widget.php' );
 /*
  * Trigger an install/upgrade function when the plugin is activated.
  */
+function gwolle_gb_activation( $networkwide ) {
+	global $wpdb;
 
-function gwolle_gb_activation() {
 	$current_version = get_option( 'gwolle_gb_version' );
 
-	if ( $current_version == false ) {
-		gwolle_gb_install();
-	} elseif ($current_version != GWOLLE_GB_VER) {
-		gwolle_gb_upgrade();
+	if ( function_exists('is_multisite') && is_multisite() ) {
+		$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+		foreach ($blogids as $blog_id) {
+			switch_to_blog($blog_id);
+			if ( $current_version == false ) {
+				gwolle_gb_install();
+			} elseif ($current_version != GWOLLE_GB_VER) {
+				gwolle_gb_upgrade();
+			}
+			restore_current_blog();
+		}
+	} else {
+		if ( $current_version == false ) {
+			gwolle_gb_install();
+		} elseif ($current_version != GWOLLE_GB_VER) {
+			gwolle_gb_upgrade();
+		}
 	}
 }
 register_activation_hook(__FILE__, 'gwolle_gb_activation');

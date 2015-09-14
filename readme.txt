@@ -411,6 +411,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.5.2 =
+* 2015-09-
+* First stab at supporting MultiSite.
+
 = 1.5.1 =
 * 2015-09-14
 * Support Multiple Guestbooks.
@@ -418,7 +422,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Add parameter book_id to shortcodes.
 * Add parameter book_id to get_entries and get_entry_count functions.
 * Show and Edit book_id on Admin Editor.
-* Add icons for book_id and admin_reply, add alt attributes.
+* Add icons for book_id and admin_reply, add title attributes.
 * Don't show so much metadata on unpublished entry.
 * Fix link to entry in moderation mail.
 * Add notice for using CAPTCHA with a caching plugin.

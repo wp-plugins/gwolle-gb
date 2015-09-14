@@ -26,7 +26,6 @@ function gwolle_gb_mail_moderators( $entry ) {
 			}
 		}
 
-
 		@ini_set('sendmail_from', get_bloginfo('admin_mail'));
 
 		// Set the Mail Content
@@ -165,7 +164,7 @@ Entry content:
 
 
 /*
- * Send Notification Mail to the author for admin_reply (only when it is not Spam).
+ * Send Notification Mail to the author that there is an admin_reply (only when it is not Spam).
  *
  * $arg: $entry, instance of gwolle_gb_entry
  * since 1.4.9

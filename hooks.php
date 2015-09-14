@@ -10,6 +10,7 @@
 
 /*
  * Add a menu in the WordPress backend.
+ * Load JavaSCript and CSS for Admin.
  */
 function gwolle_gb_adminmenu() {
 	/*
@@ -70,10 +71,8 @@ add_action('admin_menu', 'gwolle_gb_adminmenu');
 
 
 /*
- * customtaxorder_links
  * Add Settings link to the main plugin page
  */
-
 function gwolle_gb_links( $links, $file ) {
 	if ( $file == plugin_basename( dirname(__FILE__).'/gwolle-gb.php' ) ) {
 		$links[] = '<a href="' . admin_url( 'admin.php?page=gwolle-gb/settings.php' ) . '">'.__( 'Settings', 'gwolle-gb' ).'</a>';
@@ -84,9 +83,8 @@ add_filter( 'plugin_action_links', 'gwolle_gb_links', 10, 2 );
 
 
 /*
- * gwolle_gb_handle_post
- * Handle the $_POST for the Frontend.
- * Use this action, since we have a $post already and can use get_the_ID().
+ * Handle the $_POST for the Frontend on a new entry.
+ * Use this action, since $post is populated and we can use get_the_ID().
  */
 function gwolle_gb_handle_post() {
 	if ( !is_admin() ) {
@@ -100,7 +98,7 @@ add_action('wp', 'gwolle_gb_handle_post');
 
 
 /*
- * Register settings
+ * Register Settings
  */
 function gwolle_gb_register_settings() {
 	register_setting( 'gwolle_gb_options', 'gwolle_gb-admin_style',       'strval' ); // 'true'
@@ -133,19 +131,49 @@ function gwolle_gb_register_settings() {
 add_action( 'admin_init', 'gwolle_gb_register_settings' );
 
 
-add_action('admin_init', 'gwolle_gb_init');
+/*
+ * Check if we need to install or upgrade.
+ * Supports MultiSite since 1.5.2.
+ */
 function gwolle_gb_init() {
 
-	// Check if the plugin is out of date
-	$current_version = get_option('gwolle_gb_version');
+	global $wpdb;
+
+	$current_version = get_option( 'gwolle_gb_version' );
+
 	if ($current_version && version_compare($current_version, GWOLLE_GB_VER, '<')) {
 		// Upgrade, if this version differs from what the database says.
-		gwolle_gb_upgrade();
+
+		if ( function_exists('is_multisite') && is_multisite() ) {
+			$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+			foreach ($blogids as $blog_id) {
+				switch_to_blog($blog_id);
+				gwolle_gb_upgrade();
+				restore_current_blog();
+			}
+		} else {
+			gwolle_gb_upgrade();
+		}
 	}
 }
+add_action('admin_init', 'gwolle_gb_init');
 
 
-/* Register styles and scripts. */
+/*
+ * Install database tables for new blog on MultiSite.
+ */
+function gwolle_gb_activate_new_site($blog_id) {
+	switch_to_blog($blog_id);
+	gwolle_gb_install();
+	restore_current_blog();
+}
+add_action( 'wpmu_new_blog', 'gwolle_gb_activate_new_site' );
+
+
+/*
+ * Register styles and scripts.
+ * Enqueue them in the frontend function only when we need them.
+ */
 function gwolle_gb_register() {
 
 	// Always load jQuery, it's just easier this way.
@@ -158,9 +186,7 @@ add_action('wp_enqueue_scripts', 'gwolle_gb_register');
 
 
 /*
- * gwolle_gb_load_lang
- * Function called at initialisation.
- * - Loads language files for frontend and backend
+ * Load Language files for frontend and backend.
  */
 function gwolle_gb_load_lang() {
 	load_plugin_textdomain( 'gwolle-gb', false, GWOLLE_GB_FOLDER . '/lang' );
@@ -170,7 +196,7 @@ add_action('plugins_loaded', 'gwolle_gb_load_lang');
 
 /*
  * Add the RSS link to the html head.
- * There is no post_content yet, but we do have a get_the_ID().
+ * There is no post_content yet, but we do have get_the_ID().
  */
 function gwolle_gb_rss_head() {
 	if ( is_singular() && function_exists('has_shortcode') ) {
