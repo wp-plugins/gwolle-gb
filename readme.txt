@@ -307,7 +307,7 @@ Please fix this in your install.
 
 You can add a parameter to the shortcode, like:
 
-	'[gwolle_gb book_id="2"]'
+	[gwolle_gb book_id="2"]
 
 This will make the page have the guestbook with Book ID 2.
 
