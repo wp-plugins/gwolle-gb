@@ -421,6 +421,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * On Entries page, give Book ID its own column.
 * Do not cache page when using a Captcha.
 * Admin Enqueue moved to its own function and action.
+* Only toggle our own postboxes.
 * Update zh_TW.
 
 = 1.5.1 =

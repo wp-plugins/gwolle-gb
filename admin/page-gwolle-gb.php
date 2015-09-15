@@ -356,7 +356,7 @@ function gwolle_gb_welcome() {
 		add_meta_box('gwolle_gb_thanks', __('This plugin uses the following scripts and services:','gwolle-gb'), 'gwolle_gb_overview_thanks', 'gwolle_gb_welcome', 'right', 'core');
 
 		?>
-		<div class="wrap gwolle_gb-wrap">
+		<div class="wrap gwolle_gb">
 			<div id="icon-gwolle-gb"><br /></div>
 			<h1><?php _e('Gwolle Guestbook', 'gwolle-gb'); ?></h1>
 
