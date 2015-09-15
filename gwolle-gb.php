@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://zenoweb.nl
 Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.
-Version: 1.5.1
+Version: 1.5.2
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
 License: GPLv2 or later
@@ -35,10 +35,9 @@ define('GWOLLE_GB_VER', '1.5.2');
 
 
 /*
- * FIXME: add things to title and description for SEO
- * https://wordpress.org/support/topic/seo-optimization-4?replies=2#post-6532654
- * Title meta that looks like: title tag - page number
- * Description meta, one message of the page would be perfect.
+ * Todo List:
+ *
+ * - Entries Admin page, make columns sortable, add order parameters to get* functions.
  */
 
 
