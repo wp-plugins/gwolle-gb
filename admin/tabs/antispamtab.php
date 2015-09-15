@@ -111,7 +111,7 @@ function gwolle_gb_page_settingstab_antispam() {
 							<?php _e('installed and activated', 'gwolle-gb'); ?>.<br />
 							<?php _e('This plugin is installed and activated, so the CAPTCHA is ready to be used.', 'gwolle-gb'); ?>
 							<br /><br />
-							<?php _e('If you use any caching plugin together with this CAPTCHA, page caching will be disabled for the page that the CAPTCHA is shown on. This is to prevent errors and have a fresh CAPCHA image each time.', 'gwolle-gb'); ?>
+							<?php _e('If you use any caching plugin together with this CAPTCHA, page caching will be disabled for the page that the CAPTCHA is shown on. This is to prevent errors and to have a fresh CAPCHA image each time.', 'gwolle-gb'); ?>
 						</span>
 						<?php
 					} else { ?>
@@ -122,7 +122,7 @@ function gwolle_gb_page_settingstab_antispam() {
 							<a href="https://wordpress.org/plugins/really-simple-captcha/" title="<?php _e('Really Simple CAPTCHA plugin at wordpress.org', 'gwolle-gb'); ?>" target="_blank"><?php _e('Really Simple CAPTCHA', 'gwolle-gb'); ?></a>
 							<?php _e('installed and activated', 'gwolle-gb'); ?>.
 							<br /><br />
-							<?php _e('If you use any caching plugin together with this CAPTCHA, page caching will be disabled for the page that the CAPTCHA is shown on. This is to prevent errors and have a fresh CAPCHA image each time.', 'gwolle-gb'); ?>
+							<?php _e('If you use any caching plugin together with this CAPTCHA, page caching will be disabled for the page that the CAPTCHA is shown on. This is to prevent errors and to have a fresh CAPCHA image each time.', 'gwolle-gb'); ?>
 						</span>
 						<?php
 					} ?>
