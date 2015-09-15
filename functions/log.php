@@ -94,20 +94,20 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 
 	// Message to strings
 	$log_messages = array(
-		'entry-unchecked'             => __('Entry has been locked.',    GWOLLE_GB_TEXTDOMAIN),
-		'entry-checked'               => __('Entry has been checked.',   GWOLLE_GB_TEXTDOMAIN),
-		'marked-as-spam'              => __('Entry marked as spam.',     GWOLLE_GB_TEXTDOMAIN),
-		'marked-as-not-spam'          => __('Entry marked as not spam.', GWOLLE_GB_TEXTDOMAIN),
-		'entry-edited'                => __('Entry has been edited.',    GWOLLE_GB_TEXTDOMAIN),
-		'imported-from-dmsguestbook'  => __('Imported from DMSGuestbook', GWOLLE_GB_TEXTDOMAIN),
-		'imported-from-wp'            => __('Imported from WordPress comments', GWOLLE_GB_TEXTDOMAIN),
-		'imported-from-gwolle'        => __('Imported from Gwolle-GB', GWOLLE_GB_TEXTDOMAIN),
-		'exported-to-csv'             => __('Exported to CSV file', GWOLLE_GB_TEXTDOMAIN),
-		'entry-trashed'               => __('Entry has been trashed.',   GWOLLE_GB_TEXTDOMAIN),
-		'entry-untrashed'             => __('Entry has been untrashed.', GWOLLE_GB_TEXTDOMAIN),
-		'admin-reply-added'           => __('Admin reply has been added.', GWOLLE_GB_TEXTDOMAIN),
-		'admin-reply-updated'         => __('Admin reply has been updated.', GWOLLE_GB_TEXTDOMAIN),
-		'admin-reply-removed'         => __('Admin reply has been removed.', GWOLLE_GB_TEXTDOMAIN)
+		'entry-unchecked'             => __('Entry has been locked.',    'gwolle-gb'),
+		'entry-checked'               => __('Entry has been checked.',   'gwolle-gb'),
+		'marked-as-spam'              => __('Entry marked as spam.',     'gwolle-gb'),
+		'marked-as-not-spam'          => __('Entry marked as not spam.', 'gwolle-gb'),
+		'entry-edited'                => __('Entry has been edited.',    'gwolle-gb'),
+		'imported-from-dmsguestbook'  => __('Imported from DMSGuestbook', 'gwolle-gb'),
+		'imported-from-wp'            => __('Imported from WordPress comments', 'gwolle-gb'),
+		'imported-from-gwolle'        => __('Imported from Gwolle-GB', 'gwolle-gb'),
+		'exported-to-csv'             => __('Exported to CSV file', 'gwolle-gb'),
+		'entry-trashed'               => __('Entry has been trashed.',   'gwolle-gb'),
+		'entry-untrashed'             => __('Entry has been untrashed.', 'gwolle-gb'),
+		'admin-reply-added'           => __('Admin reply has been added.', 'gwolle-gb'),
+		'admin-reply-updated'         => __('Admin reply has been updated.', 'gwolle-gb'),
+		'admin-reply-removed'         => __('Admin reply has been removed.', 'gwolle-gb')
 	);
 
 	$where = " 1 = %d";
@@ -167,7 +167,7 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 					$log_entry['author_login'] = $userdata->user_login;
 				}
 			} else {
-				$log_entry['author_login'] = '<i>' . __('Unknown', GWOLLE_GB_TEXTDOMAIN) . '</i>';
+				$log_entry['author_login'] = '<i>' . __('Unknown', 'gwolle-gb') . '</i>';
 			}
 
 			// Construct the message in HTML
@@ -176,7 +176,7 @@ function gwolle_gb_get_log_entries( $entry_id ) {
 			$log_entry['msg_html'] .= ': ' . $log_entry['msg'];
 
 			if ( $log_entry['author_id'] == get_current_user_id() ) {
-				$log_entry['msg_html'] .= ' (<strong>' . __('You', GWOLLE_GB_TEXTDOMAIN) . '</strong>)';
+				$log_entry['msg_html'] .= ' (<strong>' . __('You', 'gwolle-gb') . '</strong>)';
 			} else {
 				$log_entry['msg_html'] .= ' (' . $log_entry['author_login'] . ')';
 			}

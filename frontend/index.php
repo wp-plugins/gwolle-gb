@@ -7,16 +7,29 @@
 
 
 /* Frontend Function
- * Use this to display the guestbook on a page without using a shortcode
+ * Use this to display the guestbook on a page without using a shortcode.
+ *
+ * For multiple guestbooks, use it like this:
+ * show_gwolle_gb( array('book_id'=>2) );
+ * which will show Book ID 2.
  */
 
-function show_gwolle_gb() {
-	echo get_gwolle_gb();
+function show_gwolle_gb( $atts ) {
+	echo get_gwolle_gb( $atts );
 }
 
 
-function get_gwolle_gb() {
+/* Frontend Function
+ * Used for the main shortcode.
+ * shortcode_atts: book_id = 1
+ */
+
+function get_gwolle_gb( $atts ) {
 	global $gwolle_gb_errors;
+
+	$shortcode_atts = shortcode_atts( array(
+		'book_id' => 1,
+	), $atts );
 
 	// Load Frontend CSS in Footer, only when it's active
 	wp_enqueue_style('gwolle_gb_frontend_css');
@@ -26,7 +39,7 @@ function get_gwolle_gb() {
 	$output = '<div id="gwolle_gb">';
 
 	// Add the form
-	$output .= gwolle_gb_frontend_write();
+	$output .= gwolle_gb_frontend_write( $shortcode_atts );
 
 	/*
 	 * Add CSS for showing the Form or the Button.
@@ -58,11 +71,12 @@ function get_gwolle_gb() {
 					return false;
 				});
 			});
-			</script>';
+			</script>
+		';
 	}
 
 	// Add the list of entries to show
-	$output .= gwolle_gb_frontend_read();
+	$output .= gwolle_gb_frontend_read( $shortcode_atts );
 
 	$output .= '</div>';
 
@@ -73,7 +87,11 @@ add_shortcode( 'gwolle_gb', 'get_gwolle_gb' );
 
 
 /* Frontend function to show just the form */
-function get_gwolle_gb_write() {
+function get_gwolle_gb_write( $atts ) {
+
+	$shortcode_atts = shortcode_atts( array(
+		'book_id' => 1,
+	), $atts );
 
 	// Load Frontend CSS in Footer, only when it's active
 	wp_enqueue_style('gwolle_gb_frontend_css');
@@ -83,7 +101,7 @@ function get_gwolle_gb_write() {
 	$output = '<div id="gwolle_gb">';
 
 	// Add the form
-	$output .= gwolle_gb_frontend_write();
+	$output .= gwolle_gb_frontend_write( $shortcode_atts );
 
 	$output .= '</div>';
 
@@ -99,7 +117,11 @@ add_shortcode( 'gwolle_gb_write', 'get_gwolle_gb_write' );
 
 
 /* Frontend function to show just the list of entries */
-function get_gwolle_gb_read() {
+function get_gwolle_gb_read( $atts ) {
+
+	$shortcode_atts = shortcode_atts( array(
+		'book_id' => 1,
+	), $atts );
 
 	// Load Frontend CSS in Footer, only when it's active
 	wp_enqueue_style('gwolle_gb_frontend_css');
@@ -109,7 +131,7 @@ function get_gwolle_gb_read() {
 	$output = '<div id="gwolle_gb">';
 
 	// Add the list of entries to show
-	$output .= gwolle_gb_frontend_read();
+	$output .= gwolle_gb_frontend_read( $shortcode_atts );
 
 	$output .= '</div>';
 

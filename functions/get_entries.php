@@ -5,12 +5,15 @@
  * Function to get guestbook entries from the database.
  *
  * Parameter $args is an Array:
- * - num_entries  int: Number of requested entries. -1 will return all requested entries
- * - offset       int: Start after this entry
- * - checked      string: 'checked' or 'unchecked', List the entries that are checked or unchecked
- * - trash        string: 'trash' or 'notrash', List the entries that are in trash or not in trash
- * - spam         string: 'spam' or 'nospam', List the entries marked as spam or as no spam
- * - email        string: All entries associated with this emailaddress
+ * - num_entries   int: Number of requested entries. -1 will return all requested entries.
+ * - offset        int: Start after this entry.
+ * - checked       string: 'checked' or 'unchecked', List the entries that are checked or unchecked.
+ * - trash         string: 'trash' or 'notrash', List the entries that are in trash or not in trash.
+ * - spam          string: 'spam' or 'nospam', List the entries marked as spam or as no spam.
+ * - author_id     string: All entries associated with this author_id (since 1.5.0).
+ * - email         string: All entries associated with this emailaddress.
+ * - no_moderators string: 'true', Only entries not written by a moderator (might be expensive with many users) (since 1.5.0).
+ * - book_id       int: Only entries from this book. Default in the shortcode is 1 (since 1.5.1).
  *
  * Return:
  * - Array of objects of gwolle_gb_entry
@@ -63,11 +66,37 @@ function gwolle_gb_get_entries($args = array()) {
 			}
 		}
 	}
+	if ( isset( $args['author_id']) ) {
+		$where .= "
+			AND
+			author_id = %d";
+		$values[] = (int) $args['author_id'];
+	}
 	if ( isset($args['email']) ) {
 		$where .= "
 			AND
 			author_email = %s";
 		$values[] = $args['email'];
+	}
+	if ( isset($args['no_moderators']) ) {
+		$no_moderators = $args['no_moderators'];
+		if ( $no_moderators === 'true' ) {
+			$users = gwolle_gb_get_moderators();
+			if ( is_array($users) && !empty($users) ) {
+				foreach ( $users as $user_info ) {
+					$where .= "
+						AND
+						author_id != %d";
+					$values[] = $user_info->ID;
+				}
+			}
+		}
+	}
+	if ( isset( $args['book_id']) ) {
+		$where .= "
+			AND
+			book_id = %d";
+		$values[] = (int) $args['book_id'];
 	}
 
 	// Offset
@@ -111,7 +140,8 @@ function gwolle_gb_get_entries($args = array()) {
 				`istrash`,
 				`isspam`,
 				`admin_reply`,
-				`admin_reply_uid`
+				`admin_reply_uid`,
+				`book_id`
 			FROM
 				" . $tablename . "
 			WHERE
@@ -152,6 +182,7 @@ function gwolle_gb_get_entries($args = array()) {
 				'isspam'          => (int) $data['isspam'],
 				'admin_reply'     => stripslashes($data['admin_reply']),
 				'admin_reply_uid' => (int) $data['admin_reply_uid'],
+				'book_id'         => (int) $data['book_id'],
 			);
 
 			$entry = new gwolle_gb_entry();
