@@ -422,7 +422,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * Do not cache page when using a Captcha.
 * Admin Enqueue moved to its own function and action.
 * Only toggle our own postboxes.
-* Update zh_TW.
+* Update pot, nl_NL, zh_TW.
 
 = 1.5.1 =
 * 2015-09-14
