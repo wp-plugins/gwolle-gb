@@ -474,8 +474,7 @@ function gwolle_gb_page_entries() {
 						// Only show controls when there are entries
 						if ( is_array($entries) && !empty($entries) ) {
 							echo $massEditControls_select . $massEditControls . $empty_button;
-						}
-						?>
+						} ?>
 					</div>
 
 					<?php
@@ -489,6 +488,7 @@ function gwolle_gb_page_entries() {
 						<thead>
 							<tr>
 								<th scope="col" class="manage-column column-cb check-column"><input name="check-all-top" id="check-all-top" type="checkbox"></th>
+								<th scope="col"><?php _e('Book', 'gwolle-gb'); ?></th>
 								<th scope="col"><?php _e('ID', 'gwolle-gb'); ?></th>
 								<?php
 								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') { ?>
@@ -505,6 +505,7 @@ function gwolle_gb_page_entries() {
 						<tfoot>
 							<tr>
 								<th scope="col" class="manage-column column-cb check-column"><input name="check-all-bottom" id="check-all-bottom" type="checkbox"></th>
+								<th scope="col"><?php _e('Book', 'gwolle-gb'); ?></th>
 								<th scope="col"><?php _e('ID', 'gwolle-gb'); ?></th>
 								<?php
 								if (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') { ?>
@@ -523,7 +524,7 @@ function gwolle_gb_page_entries() {
 							<?php $rowOdd = true;
 							$html_output = '';
 							if ( !is_array($entries) || empty($entries) ) {
-								$colspan = (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') ? 7 : 6;
+								$colspan = (get_option('gwolle_gb-showEntryIcons', 'true') === 'true') ? 8 : 7;
 								$html_output .= '
 									<tr>
 										<td colspan="' . $colspan . '" align="center">
@@ -583,6 +584,9 @@ function gwolle_gb_page_entries() {
 											<td class="check">
 												<input name="check-' . $entry->get_id() . '" id="check-' . $entry->get_id() . '" type="checkbox">
 											</td>
+											<td class="book">
+												<span class="book-icon" title="' . __('Book ID', 'gwolle-gb') . ' ' . $entry->get_book_id()  . '">' . $entry->get_book_id()  . '</span>
+											</td>
 											<td class="id">' . $entry->get_id() . '</td>';
 
 									// Optional Icon column where CSS is being used to show them or not
@@ -599,7 +603,6 @@ function gwolle_gb_page_entries() {
 												<span class="admin_reply-icon" title="' . __('Admin Replied', 'gwolle-gb') . '"></span>';
 										}
 										$html_output .= '
-												<span class="book-icon" title="' . __('Book ID', 'gwolle-gb') . ' ' . $entry->get_book_id()  . '">' . $entry->get_book_id()  . '</span>
 												<span class="gwolle_gb_ajax" title="' . __('Wait...', 'gwolle-gb') . '"></span>
 											</td>';
 									}
@@ -679,8 +682,7 @@ function gwolle_gb_page_entries() {
 						// Only show controls when there are entries
 						if ( is_array($entries) && !empty($entries) ) {
 							echo $massEditControls_select . $massEditControls . $empty_button;
-						}
-						?>
+						} ?>
 					</div>
 
 					<?php echo $pagination; ?>

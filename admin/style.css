@@ -135,16 +135,6 @@ body #dashboard-widgets .postbox#gwolle_gb_notification form p.submit {
 	margin-right: 5px;
 	background-image: url('gfx/entry-admin_reply.png');
 }
-.gwolle_gb .book-icon {
-	display: inline-block;
-	width: 16px;
-	height: 16px;
-	color: #fff;
-	text-align: center;
-	line-height: 16px;
-	margin-right: 5px;
-	background-image: url('gfx/entry-blue.png');
-}
 
 /* AJAX */
 .gwolle_gb .entry-icons .gwolle_gb_ajax {
