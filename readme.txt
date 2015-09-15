@@ -418,6 +418,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * 2015-09-
 * First stab at supporting MultiSite.
 * When deleting an entry on the Editor page, start with a clean slate.
+* Do not cache page when using a captcha.
 * Update zh_TW.
 
 = 1.5.1 =

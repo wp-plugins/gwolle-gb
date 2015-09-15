@@ -302,6 +302,10 @@ function gwolle_gb_frontend_write( $shortcode_atts ) {
 	/* CAPTCHA */
 	if ( isset($form_setting['form_recaptcha_enabled']) && $form_setting['form_recaptcha_enabled']  === 'true' ) {
 		if ( class_exists('ReallySimpleCaptcha') ) {
+			// Disable page caching, we want a new CAPTCHA image each time.
+			if ( ! defined( 'DONOTCACHEPAGE' ) )
+				define( "DONOTCACHEPAGE", "true" );
+
 			// Instantiate the ReallySimpleCaptcha class, which will handle all of the heavy lifting
 			$gwolle_gb_captcha = new ReallySimpleCaptcha();
 
