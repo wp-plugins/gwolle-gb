@@ -199,6 +199,11 @@ function gwolle_gb_frontend_write( $shortcode_atts ) {
 		$output .= ' /></div>
 			</div>
 			<div class="clearBoth">&nbsp;</div>';
+	} else {
+		if ( isset($email) && strlen($email) > 0 ) {
+			// For logged in users, just save the email anyway.
+			$output .= '<input class="" value="' . $email . '" type="hidden" name="gwolle_gb_author_email" id="gwolle_gb_author_email" />';
+		}
 	}
 
 	/* Website / Homepage */

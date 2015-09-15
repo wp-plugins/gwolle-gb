@@ -101,6 +101,10 @@ function gwolle_gb_frontend_posthandling() {
 					$gwolle_gb_error_fields[] = 'author_email'; // mandatory
 				}
 			}
+		} else {
+			if (isset($_POST['gwolle_gb_author_email'])) {
+				$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
+			}
 		}
 
 		/* Website / Homepage */

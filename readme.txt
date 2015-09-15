@@ -414,6 +414,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.5.3 =
+* 2015-09-
+* When email is disabled, save it anyway when user is logged in.
+
 = 1.5.2 =
 * 2015-09-15
 * First stab at supporting MultiSite.
