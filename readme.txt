@@ -419,7 +419,8 @@ and also the WordPress documentation. When you made a translation, you can send 
 * First stab at supporting MultiSite.
 * When deleting an entry on the Editor page, start with a clean slate.
 * On Entries page, give Book ID its own column.
-* Do not cache page when using a captcha.
+* Do not cache page when using a Captcha.
+* Admin Enqueue moved to its own function and action.
 * Update zh_TW.
 
 = 1.5.1 =
