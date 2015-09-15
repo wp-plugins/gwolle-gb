@@ -101,31 +101,20 @@ function gwolle_gb_page_settingstab_antispam() {
 			<th scope="row"><?php _e('CAPTCHA', 'gwolle-gb'); ?></th>
 			<td>
 				<div>
-					<?php
-					if ( class_exists('ReallySimpleCaptcha') ) { ?>
-						<span class="setting-description">
-							<?php _e('A CAPTCHA is a way to have visitors fill in a field with a few letters or numbers. It is a way to make sure that you have a human visitor and not a spambot. Not every visitor will appreciate it though, some will consider it unfriendly.', 'gwolle-gb'); ?>
-							<br /><br />
-							<?php _e('For the CAPTCHA you need the plugin', 'gwolle-gb'); ?>
-							<a href="https://wordpress.org/plugins/really-simple-captcha/" title="<?php _e('Really Simple CAPTCHA plugin at wordpress.org', 'gwolle-gb'); ?>" target="_blank"><?php _e('Really Simple CAPTCHA', 'gwolle-gb'); ?></a>
-							<?php _e('installed and activated', 'gwolle-gb'); ?>.<br />
-							<?php _e('This plugin is installed and activated, so the CAPTCHA is ready to be used.', 'gwolle-gb'); ?>
-							<br /><br />
-							<?php _e('If you use any caching plugin together with this CAPTCHA, page caching will be disabled for the page that the CAPTCHA is shown on. This is to prevent errors and to have a fresh CAPCHA image each time.', 'gwolle-gb'); ?>
-						</span>
+					<span class="setting-description">
+						<?php _e('A CAPTCHA is a way to have visitors fill in a field with a few letters or numbers. It is a way to make sure that you have a human visitor and not a spambot. Not every visitor will appreciate it though, some will consider it unfriendly.', 'gwolle-gb'); ?>
+						<br /><br />
+						<?php _e('For the CAPTCHA you need the plugin', 'gwolle-gb'); ?>
+						<a href="https://wordpress.org/plugins/really-simple-captcha/" title="<?php _e('Really Simple CAPTCHA plugin at wordpress.org', 'gwolle-gb'); ?>" target="_blank"><?php _e('Really Simple CAPTCHA', 'gwolle-gb'); ?></a>
+						<?php _e('installed and activated', 'gwolle-gb'); ?>.
 						<?php
-					} else { ?>
-						<span class="setting-description">
-							<?php _e('A CAPTCHA is a way to have visitors fill in a field with a few letters or numbers. It is a way to make sure that you have a human visitor and not a spambot. Not every visitor will appreciate it though, some will consider it unfriendly.', 'gwolle-gb'); ?>
-							<br /><br />
-							<?php _e('For the CAPTCHA you need the plugin', 'gwolle-gb'); ?>
-							<a href="https://wordpress.org/plugins/really-simple-captcha/" title="<?php _e('Really Simple CAPTCHA plugin at wordpress.org', 'gwolle-gb'); ?>" target="_blank"><?php _e('Really Simple CAPTCHA', 'gwolle-gb'); ?></a>
-							<?php _e('installed and activated', 'gwolle-gb'); ?>.
-							<br /><br />
-							<?php _e('If you use any caching plugin together with this CAPTCHA, page caching will be disabled for the page that the CAPTCHA is shown on. This is to prevent errors and to have a fresh CAPCHA image each time.', 'gwolle-gb'); ?>
-						</span>
-						<?php
-					} ?>
+						if ( class_exists('ReallySimpleCaptcha') ) {
+							echo '<br />';
+							_e('This plugin is installed and activated, so the CAPTCHA is ready to be used.', 'gwolle-gb');
+						} ?>
+						<br /><br />
+						<?php _e('If you use any caching plugin together with this CAPTCHA, page caching will be disabled for the page that the CAPTCHA is shown on. This is to prevent errors and to have a fresh CAPCHA image each time.', 'gwolle-gb'); ?>
+					</span>
 				</div>
 			</td>
 		</tr>
