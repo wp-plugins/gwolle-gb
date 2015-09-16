@@ -417,6 +417,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.5.3 =
 * 2015-09-
 * When email is disabled, save it anyway when user is logged in.
+* Update ru_RU.
 
 = 1.5.2 =
 * 2015-09-15
