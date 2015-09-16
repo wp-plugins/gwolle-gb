@@ -269,6 +269,10 @@ Make sure you use UNIX line-endings. Any decent text-editor can transform a text
 
 == Frequently Asked Questions ==
 
+= How do I get people to post messages in my guestbook? =
+
+You could start by writing the first entry yourself, and invite people to leave a message.
+
 = Which entries are visible on the Frontend? =
 
 Starting with version 1.0, the following entries are listed on the Frontend:

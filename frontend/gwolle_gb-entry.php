@@ -109,6 +109,7 @@ if ( !function_exists('gwolle_gb_entry_template') ) {
 			$excerpt_length = (int) get_option( 'gwolle_gb-excerpt_length', 0 );
 			if ( $excerpt_length > 0 ) {
 				$entry_content = wp_trim_words( $entry_content, $excerpt_length, '...' );
+				// FIXME: add readmore link
 			}
 			if ( isset($form_setting['form_bbcode_enabled']) && $form_setting['form_bbcode_enabled']  === 'true' ) {
 				$entry_content = gwolle_gb_bbcode_parse($entry_content);
