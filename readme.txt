@@ -68,6 +68,7 @@ Import is supported from:
 * Finnish, fi, Ilkka Kivelä and Timo Hintsa
 * French, fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/) and [Florence Bourmault-Gohin](http://www.mon-coin-de-bourgogne.fr)
 * Italian, it_IT, Mariachiara Corradini
+* Norwegian Bokmål, nb_NO, Bjørn Inge Vårvik
 * Dutch, nl_NL, [Marcel Pol](http://zenoweb.nl)
 * Polish, pl_PL, Andrzej Sobaniec
 * Portuguese, pt_BR, [Alexandre Rocha](http://alexandre-rocha.com)
@@ -421,6 +422,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.5.3 =
 * 2015-09-
 * When email is disabled, save it anyway when user is logged in.
+* Add nb_NO (thanks Bjørn Inge Vårvik).
 * Update ru_RU.
 
 = 1.5.2 =
