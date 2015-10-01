@@ -22,15 +22,15 @@ Current features include:
 * Easy to use guestbook frontend with a simple form for visitors of your website.
 * Widget to display your last or your best entries.
 * Simple and clean admin interface that integrates seamlessly into WordPress admin.
-* Dashboard Widget to easily manage the latest entries from your Admin dashboard.
-* Easy import from other guestbooks into Gwolle Guestbook.
+* Dashboard Widget to easily manage the latest entries from your Admin Dashboard.
+* Easy Import from other guestbooks into Gwolle Guestbook.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
 * Custom Anti-Spam question for fighting spam, too.
 * CAPTCHA integration for fighting spam, as well.
 * Simple Form Builder to select which form-fields you want to use.
-* Option List with the parts of each entry that you want to show.
+* Simple Entry Builder with the parts of each entry that you want to show.
 * Multiple guestbooks are possible.
 * MultiSite is supported.
 * Localization. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.

@@ -42,6 +42,7 @@ define('GWOLLE_GB_VER', '1.5.3');
  * - Fix Emoji for Admin_reply.
  * - When setting a max words for reading an entry, add a Readmore link with a JS event.
  * - Do AJAX the proper way for CAPTCHA check.
+ * - Meta Key also saves the book_id, so we can use that in the links to the right guestbook.
  *
  */
 
