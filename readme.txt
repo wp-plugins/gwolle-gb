@@ -3,7 +3,7 @@ Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.7
 Tested up to: 4.3
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv2 or later
 
 Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -420,7 +420,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 == Changelog ==
 
 = 1.5.3 =
-* 2015-09-
+* 2015-10-01
 * When email is disabled, save it anyway when user is logged in.
 * Add nb_NO (thanks Bjørn Inge Vårvik).
 * Update ru_RU.
