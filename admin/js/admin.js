@@ -3,7 +3,7 @@
 
 /* Postbox on every admin page */
 jQuery(document).ready(function($) {
-	jQuery('.postbox h3').click( function() {
+	jQuery('.gwolle_gb .postbox h3').click( function() {
 		jQuery(jQuery(this).parent().get(0)).toggleClass('closed');
 	});
 });

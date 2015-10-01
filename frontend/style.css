@@ -160,4 +160,8 @@ p.gwolle_gb_link {
 }
 
 
-
+/* Admin Bar */
+#wpadminbar #wp-admin-bar-gwolle-gb .ab-icon::before {
+	content: "";
+	top: 3px;
+}
