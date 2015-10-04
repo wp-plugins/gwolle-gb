@@ -183,6 +183,9 @@ function gwolle_gb_register() {
 	// Always load jQuery, it's just easier this way.
 	wp_enqueue_script('jquery');
 
+	// Register script for frontend. Load it later.
+	wp_register_script( 'gwolle_gb_frontend_js', plugins_url('frontend/js/script.js', __FILE__), 'jquery', GWOLLE_GB_VER, true );
+
 	// Register style for frontend. Load it later.
 	wp_register_style('gwolle_gb_frontend_css', plugins_url('frontend/style.css', __FILE__), false, GWOLLE_GB_VER,  'screen');
 }

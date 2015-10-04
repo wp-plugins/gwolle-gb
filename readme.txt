@@ -419,6 +419,10 @@ and also the WordPress documentation. When you made a translation, you can send 
 
 == Changelog ==
 
+= 1.5.4 =
+* 2015-10-
+* Properly enqueue frontend JavaScript.
+
 = 1.5.3 =
 * 2015-10-01
 * When email is disabled, save it anyway when user is logged in.

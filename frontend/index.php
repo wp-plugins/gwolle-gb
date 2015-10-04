@@ -34,6 +34,7 @@ function get_gwolle_gb( $atts ) {
 	// Load Frontend CSS in Footer, only when it's active
 	wp_enqueue_style('gwolle_gb_frontend_css');
 	//wp_enqueue_script('jquery');
+	wp_enqueue_script('gwolle_gb_frontend_js');
 
 	// Define $output
 	$output = '<div id="gwolle_gb">';
@@ -60,19 +61,6 @@ function get_gwolle_gb( $atts ) {
 				div#gwolle_gb_new_entry { display:none; }
 			</style>
 		';
-
-		/* Add JavaScript to show or hide the Form or the Button. */
-		$output .= '
-			<script>
-			jQuery(document).ready(function($) {
-				jQuery( "#gwolle_gb_write_button input" ).click(function() {
-					document.getElementById("gwolle_gb_write_button").style.display = "none";
-					jQuery("#gwolle_gb_new_entry").slideDown(1000);
-					return false;
-				});
-			});
-			</script>
-		';
 	}
 
 	// Add the list of entries to show
@@ -96,6 +84,7 @@ function get_gwolle_gb_write( $atts ) {
 	// Load Frontend CSS in Footer, only when it's active
 	wp_enqueue_style('gwolle_gb_frontend_css');
 	//wp_enqueue_script('jquery');
+	wp_enqueue_script('gwolle_gb_frontend_js');
 
 	// Define $output
 	$output = '<div id="gwolle_gb">';
@@ -126,6 +115,7 @@ function get_gwolle_gb_read( $atts ) {
 	// Load Frontend CSS in Footer, only when it's active
 	wp_enqueue_style('gwolle_gb_frontend_css');
 	//wp_enqueue_script('jquery');
+	wp_enqueue_script('gwolle_gb_frontend_js');
 
 	// Define $output
 	$output = '<div id="gwolle_gb">';
