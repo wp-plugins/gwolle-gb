@@ -423,6 +423,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 * 2015-10-
 * Properly enqueue frontend JavaScript.
 * Use plugins_url() for admin enqueue.
+* Don't use WP_PLUGIN_URL and GWOLLE_GB_URL anymore.
 
 = 1.5.3 =
 * 2015-10-01

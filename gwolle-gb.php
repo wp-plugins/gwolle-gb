@@ -50,7 +50,6 @@ define('GWOLLE_GB_VER', '1.5.3');
  * Definitions
  */
 define('GWOLLE_GB_FOLDER', plugin_basename(dirname(__FILE__)));
-define('GWOLLE_GB_URL', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER);
 define('GWOLLE_GB_DIR', WP_PLUGIN_DIR . '/' . GWOLLE_GB_FOLDER);
 
 

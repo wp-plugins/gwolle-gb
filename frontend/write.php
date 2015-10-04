@@ -337,7 +337,7 @@ function gwolle_gb_frontend_write( $shortcode_atts ) {
 			$gwolle_gb_captcha_image_height = $gwolle_gb_captcha->img_size[1];
 			$gwolle_gb_captcha_field_size = $gwolle_gb_captcha->char_length;
 			// AJAX url
-			$gwolle_gb_captcha_ajax_url = GWOLLE_GB_URL . '/frontend/captcha/ajaxresponse.php';
+			$gwolle_gb_captcha_ajax_url = plugins_url('/captcha/ajaxresponse.php', __FILE__);
 			// ABSPATH
 			$gwolle_gb_abspath = urlencode( ABSPATH );
 
