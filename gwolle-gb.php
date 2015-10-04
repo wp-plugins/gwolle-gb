@@ -38,7 +38,6 @@ define('GWOLLE_GB_VER', '1.5.3');
  * Todo List:
  *
  * - Entries Admin page, make columns sortable, add order parameters to get* functions.
- * - Enqueue frontend JavaScript properly.
  * - Fix Emoji for Admin_reply.
  * - When setting a max words for reading an entry, add a Readmore link with a JS event.
  * - Do AJAX the proper way for CAPTCHA check.

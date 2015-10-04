@@ -66,10 +66,10 @@ add_action('admin_menu', 'gwolle_gb_adminmenu');
 /* Load CSS and JavaScript */
 function gwolle_gb_admin_enqueue() {
 	// Load Admin CSS
-	wp_enqueue_style( 'gwolle-gb-css', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/style.css', false, GWOLLE_GB_VER, 'all' );
+	wp_enqueue_style( 'gwolle-gb-css', plugins_url( '/admin/style.css', __FILE__ ), false, GWOLLE_GB_VER, 'all' );
 
 	// Load JavaScript for Admin
-	wp_enqueue_script( 'gwolle-gb-entries', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER .'/admin/js/admin.js', 'jquery', GWOLLE_GB_VER, true );
+	wp_enqueue_script( 'gwolle-gb-entries', plugins_url( '/admin/js/admin.js', __FILE__ ), 'jquery', GWOLLE_GB_VER, true );
 }
 add_action( 'admin_enqueue_scripts', 'gwolle_gb_admin_enqueue' );
 

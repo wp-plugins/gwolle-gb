@@ -422,6 +422,7 @@ and also the WordPress documentation. When you made a translation, you can send 
 = 1.5.4 =
 * 2015-10-
 * Properly enqueue frontend JavaScript.
+* Use plugins_url() for admin enqueue.
 
 = 1.5.3 =
 * 2015-10-01
