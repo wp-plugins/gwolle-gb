@@ -311,6 +311,13 @@ add_action( 'admin_bar_menu', 'gwolle_gb_admin_bar_menu', 61 );
  */
 function gwolle_gb_shortcode_ui() {
 	if ( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+		if ( isset($_GET['post']) ) {
+			$postid = (int) $_GET['post'];
+			$description = esc_html( sprintf( __( 'Book ID for when using multiple guestbooks. Default is 1. Your current post ID is %d.', 'gwolle-gb' ), $postid ) );
+		} else {
+			$description = esc_html__( 'Book ID for when using multiple guestbooks. Default is 1.', 'gwolle-gb' );
+		}
+
 		$ui_args = array(
 			'label'         => esc_html__( 'Gwolle Guestbook', 'gwolle-gb' ),
 			'listItemImage' => 'dashicons-comments',
@@ -319,7 +326,7 @@ function gwolle_gb_shortcode_ui() {
 					'label'       => esc_html__( 'Gwolle Guestbook', 'gwolle-gb' ),
 					'attr'        => 'book_id',
 					'type'        => 'number',
-					'description' => esc_html__( 'Book ID for when using multiple guestbooks. Default is 1.', 'gwolle-gb' ),
+					'description' => $description,
 				),
 				),
 			);
