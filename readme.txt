@@ -33,7 +33,7 @@ Current features include:
 * Simple Entry Builder with the parts of each entry that you want to show.
 * Multiple guestbooks are possible.
 * MultiSite is supported.
-* Localization. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
+* Localization. Own languages can be added very easily through GlotPress.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * Admins can add a reply to each entry.
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
@@ -78,7 +78,7 @@ Import is supported from:
 * Swedish, sv_SE, [Roffe Bentsen](http://macodesign.se)
 * Traditional Chinese, zh_TW, Chun-I Lee
 
-Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
+Other languages can be added very easily through [GlotPress](https://translate.wordpress.org/projects/wp-plugins/gwolle-gb).
 
 
 = Demo =
@@ -399,11 +399,6 @@ Make sure you keep track of changes in the default templatefile though.
 Sure you can if you want to. In my personal opinion however it can be a good thing to keep comments and guestbook entries separated.
 So if you already have a blog with comments, the guestbook entries might get lost in there, and keeping a separate guestbook can be good.
 But if you don't use standard comments, you can just as easily use the comment section for a guestbook.
-
-= How do I localize a plugin? =
-
-A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
-and also the WordPress documentation. When you made a translation, you can send the po-file to marcel at timelord.nl.
 
 
 == Screenshots ==
