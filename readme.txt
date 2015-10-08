@@ -2,7 +2,7 @@
 Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
 Requires at least: 3.7
-Tested up to: 4.3
+Tested up to: 4.4
 Stable tag: 1.5.3
 License: GPLv2 or later
 
@@ -22,18 +22,18 @@ Current features include:
 * Easy to use guestbook frontend with a simple form for visitors of your website.
 * Widget to display your last or your best entries.
 * Simple and clean admin interface that integrates seamlessly into WordPress admin.
-* Dashboard Widget to easily manage the latest entries from your Admin dashboard.
-* Easy import from other guestbooks into Gwolle Guestbook.
+* Dashboard Widget to easily manage the latest entries from your Admin Dashboard.
+* Easy Import from other guestbooks into Gwolle Guestbook.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
 * Custom Anti-Spam question for fighting spam, too.
 * CAPTCHA integration for fighting spam, as well.
 * Simple Form Builder to select which form-fields you want to use.
-* Option List with the parts of each entry that you want to show.
+* Simple Entry Builder with the parts of each entry that you want to show.
 * Multiple guestbooks are possible.
 * MultiSite is supported.
-* Localization. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
+* Localization. Own languages can be added very easily through GlotPress.
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * Admins can add a reply to each entry.
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
@@ -78,7 +78,7 @@ Import is supported from:
 * Swedish, sv_SE, [Roffe Bentsen](http://macodesign.se)
 * Traditional Chinese, zh_TW, Chun-I Lee
 
-Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
+Other languages can be added very easily through [GlotPress](https://translate.wordpress.org/projects/wp-plugins/gwolle-gb).
 
 
 = Demo =
@@ -399,11 +399,6 @@ Make sure you keep track of changes in the default templatefile though.
 Sure you can if you want to. In my personal opinion however it can be a good thing to keep comments and guestbook entries separated.
 So if you already have a blog with comments, the guestbook entries might get lost in there, and keeping a separate guestbook can be good.
 But if you don't use standard comments, you can just as easily use the comment section for a guestbook.
-
-= How do I localize a plugin? =
-
-A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
-and also the WordPress documentation. When you made a translation, you can send the po-file to marcel at timelord.nl.
 
 
 == Screenshots ==
