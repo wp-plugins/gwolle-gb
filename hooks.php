@@ -306,3 +306,24 @@ function gwolle_gb_admin_bar_menu( $wp_admin_bar ) {
 add_action( 'admin_bar_menu', 'gwolle_gb_admin_bar_menu', 61 );
 
 
+/*
+ * Support Shortcode UI (since WP 4.4).
+ */
+function gwolle_gb_shortcode_ui() {
+	if ( function_exists( 'shortcode_ui_register_for_shortcode' ) ) {
+		$ui_args = array(
+			'label'         => esc_html__( 'Gwolle Guestbook', 'gwolle-gb' ),
+			'listItemImage' => 'dashicons-comments',
+			'attrs'         => array(
+				array(
+					'label'       => esc_html__( 'Gwolle Guestbook', 'gwolle-gb' ),
+					'attr'        => 'book_id',
+					'type'        => 'number',
+					'description' => esc_html__( 'Book ID for when using multiple guestbooks. Default is 1.', 'gwolle-gb' ),
+				),
+				),
+			);
+		shortcode_ui_register_for_shortcode( 'gwolle_gb', $ui_args );
+	}
+}
+add_action( 'init', 'gwolle_gb_shortcode_ui' );
