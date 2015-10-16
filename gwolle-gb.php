@@ -3,7 +3,7 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://zenoweb.nl
 Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.
-Version: 1.5.3
+Version: 1.5.4
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
 License: GPLv2 or later
@@ -31,7 +31,7 @@ Domain Path: /lang/
 
 
 // Plugin Version
-define('GWOLLE_GB_VER', '1.5.3');
+define('GWOLLE_GB_VER', '1.5.4');
 
 
 /*
@@ -42,6 +42,7 @@ define('GWOLLE_GB_VER', '1.5.3');
  * - When setting a max words for reading an entry, add a Readmore link with a JS event.
  * - Do AJAX the proper way for CAPTCHA check.
  * - Meta Key also saves the book_id, so we can use that in the links to the right guestbook.
+ * - Fix leftover pagination issues.
  *
  */
 
@@ -64,6 +65,7 @@ $wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
 include_once( GWOLLE_GB_DIR . '/functions/class-entry.php' );
 
 // Functions for the frontend
+include_once( GWOLLE_GB_DIR . '/frontend/captcha-ajax.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/index.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/pagination.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/posthandling.php' );

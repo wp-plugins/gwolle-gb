@@ -33,7 +33,7 @@ Current features include:
 * Simple Entry Builder with the parts of each entry that you want to show.
 * Multiple guestbooks are possible.
 * MultiSite is supported.
-* Localization. Own languages can be added very easily through GlotPress.
+* Localization. Own languages can be added very easily through [GlotPress](https://translate.wordpress.org/projects/wp-plugins/gwolle-gb).
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
 * Admins can add a reply to each entry.
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
@@ -415,7 +415,9 @@ But if you don't use standard comments, you can just as easily use the comment s
 == Changelog ==
 
 = 1.5.4 =
-* 2015-10-
+* 2015-10-15
+* Security fix: Use AJAX the proper way for CAPTCHA check (thanks htbridge.ch).
+* Translations moved to GlotPress.
 * Support Shortcode UI.
 * Properly enqueue frontend JavaScript.
 * Use plugins_url() for admin enqueue.

@@ -336,47 +336,22 @@ function gwolle_gb_frontend_write( $shortcode_atts ) {
 			$gwolle_gb_captcha_image_width = $gwolle_gb_captcha->img_size[0];
 			$gwolle_gb_captcha_image_height = $gwolle_gb_captcha->img_size[1];
 			$gwolle_gb_captcha_field_size = $gwolle_gb_captcha->char_length;
-			// AJAX url
-			$gwolle_gb_captcha_ajax_url = plugins_url('/captcha/ajaxresponse.php', __FILE__);
-			// ABSPATH
-			$gwolle_gb_abspath = urlencode( ABSPATH );
+
+			// Enqueue and localize the frontend script for CAPTCHA.
+			wp_enqueue_script('gwolle_gb_captcha_js', plugins_url('js/captcha.js', __FILE__), 'jquery', GWOLLE_GB_VER, true );
+			$dataToBePassed = array(
+				// URL to wp-admin/admin-ajax.php to process the request
+				'ajaxurl'   => admin_url( 'admin-ajax.php' ),
+				// generate a nonce with a unique ID "gwolle_gb_captcha_ajax"
+				// so that you can check it later when an AJAX request is sent
+				'security'  => wp_create_nonce( 'gwolle_gb_captcha_ajax' ),
+				'correct'   => __ ('Correct CAPTCHA value.', 'gwolle-gb' ),
+				'incorrect' => __( 'Incorrect CAPTCHA value.', 'gwolle-gb' ),
+				'gwolle_gb_captcha_prefix' => $gwolle_gb_captcha_prefix
+			);
+			wp_localize_script( 'gwolle_gb_captcha_js', 'gwolle_gb_captcha', $dataToBePassed );
 
 			// Output the CAPTCHA fields
-			?>
-			<script>
-			function gwolle_gb_captcha_check( code, prefix, url, abspath ) {
-				// Setup variables
-				var code_string = '?code=' + code;
-				var prefix_string = '&prefix=' + prefix;
-				var abspath_string = '&abspath=' + abspath;
-				var request_url_base = url;
-				var request_url = request_url_base + code_string + prefix_string + abspath_string;
-
-				// Instantiate request
-				var xmlhttp = new XMLHttpRequest();
-
-				// Parse resonse
-				xmlhttp.onreadystatechange = function() {
-					if ( 4 == xmlhttp.readyState && 200 == xmlhttp.status ) {
-						var ajax_response = xmlhttp.responseText;
-
-						// Update form verification feedback
-						if ( 'true' == ajax_response ) {
-							document.getElementById( 'gwolle_gb_captcha_verify' ).innerHTML = '<span style="color:green"><?php _e('Correct CAPTCHA value.', 'gwolle-gb'); ?></span>';
-							jQuery( '#gwolle_gb_captcha_code' ).removeClass('error');
-						} else if ( 'false' == ajax_response ) {
-							document.getElementById( 'gwolle_gb_captcha_verify' ).innerHTML = '<span style="color:red"><?php _e('Incorrect CAPTCHA value.', 'gwolle-gb'); ?></span>';
-							jQuery( '#gwolle_gb_captcha_code' ).addClass('error');
-						}
-					}
-				}
-				// Send request
-				xmlhttp.open( 'GET', request_url, true );
-				xmlhttp.send();
-			}
-			</script>
-
-			<?php
 			$output .= '
 				<div class="gwolle_gb_captcha">
 					<div class="label">
@@ -389,7 +364,7 @@ function gwolle_gb_frontend_write( $shortcode_atts ) {
 			if (in_array('captcha', $gwolle_gb_error_fields)) {
 				$output .= 'error';
 			}
-			$output .= '" value="" type="text" name="gwolle_gb_captcha_code" id="gwolle_gb_captcha_code" placeholder="' . __('CAPTCHA', 'gwolle-gb') . '" onblur="gwolle_gb_captcha_check( this.value, \'' . $gwolle_gb_captcha_prefix . '\', \'' . $gwolle_gb_captcha_ajax_url . '\', \'' . $gwolle_gb_abspath . '\' )" ';
+			$output .= '" value="" type="text" name="gwolle_gb_captcha_code" id="gwolle_gb_captcha_code" placeholder="' . __('CAPTCHA', 'gwolle-gb') . '" ';
 			if ( in_array('captcha', $gwolle_gb_error_fields) && isset($autofocus) ) {
 				$output .= $autofocus;
 				$autofocus = false; // disable it for the next error.
