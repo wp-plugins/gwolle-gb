@@ -415,7 +415,7 @@ But if you don't use standard comments, you can just as easily use the comment s
 == Changelog ==
 
 = 1.5.4 =
-* 2015-10-15
+* 2015-10-16
 * Security fix: Use AJAX the proper way for CAPTCHA check (thanks htbridge.ch).
 * Translations moved to GlotPress.
 * Support Shortcode UI.
