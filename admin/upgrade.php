@@ -8,7 +8,7 @@
  */
 
 
-function install_gwolle_gb() {
+function gwolle_gb_install() {
 	global $wpdb;
 
 	// Install the table for the entries
@@ -17,42 +17,49 @@ function install_gwolle_gb() {
 	$wpdb->gwolle_gb_entries = $wpdb->prefix . 'gwolle_gb_entries';
 	$wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
 
-	$sql = "
-		CREATE TABLE
-			" . $wpdb->gwolle_gb_entries . "
-		(
-			id int(10) NOT NULL auto_increment,
-			author_name text NOT NULL,
-			author_id int(5) NOT NULL default '0',
-			author_email text NOT NULL,
-			author_origin text NOT NULL,
-			author_website text NOT NULL,
-			author_ip text NOT NULL,
-			author_host text NOT NULL,
-			content longtext NOT NULL,
-			datetime bigint(8) UNSIGNED NOT NULL,
-			ischecked tinyint(1) NOT NULL,
-			checkedby int(5) NOT NULL,
-			istrash varchar(1) NOT NULL default '0',
-			isspam varchar(1) NOT NULL default '0',
-			admin_reply longtext NOT NULL,
-			admin_reply_uid int(5) NOT NULL default '0',
-			PRIMARY KEY  (id)
-		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
-	$result = $wpdb->query($sql);
+	$result = $wpdb->query("SHOW TABLES LIKE '" . $wpdb->prefix . "gwolle_gb_entries'");
+	if ( $result === 0 ) {
+		$sql = "
+			CREATE TABLE
+				" . $wpdb->gwolle_gb_entries . "
+			(
+				id int(10) NOT NULL auto_increment,
+				author_name text NOT NULL,
+				author_id int(5) NOT NULL default '0',
+				author_email text NOT NULL,
+				author_origin text NOT NULL,
+				author_website text NOT NULL,
+				author_ip text NOT NULL,
+				author_host text NOT NULL,
+				content longtext NOT NULL,
+				datetime bigint(8) UNSIGNED NOT NULL,
+				ischecked tinyint(1) NOT NULL,
+				checkedby int(5) NOT NULL,
+				istrash varchar(1) NOT NULL default '0',
+				isspam varchar(1) NOT NULL default '0',
+				admin_reply longtext NOT NULL,
+				admin_reply_uid int(5) NOT NULL default '0',
+				book_id int(5) NOT NULL default '1',
+				PRIMARY KEY  (id)
+			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
+		$result = $wpdb->query($sql);
+	}
 
-	$sql = "
-		CREATE TABLE
-			" . $wpdb->gwolle_gb_log . "
-		(
-			id int(8) NOT NULL auto_increment,
-			subject text NOT NULL,
-			entry_id int(5) NOT NULL,
-			author_id int(5) NOT NULL,
-			datetime bigint(8) UNSIGNED NOT NULL,
-			PRIMARY KEY  (id)
-		) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
-	$result = $wpdb->query($sql);
+	$result = $wpdb->query("SHOW TABLES LIKE '" . $wpdb->prefix . "gwolle_gb_log'");
+	if ( $result === 0 ) {
+		$sql = "
+			CREATE TABLE
+				" . $wpdb->gwolle_gb_log . "
+			(
+				id int(8) NOT NULL auto_increment,
+				subject text NOT NULL,
+				entry_id int(5) NOT NULL,
+				author_id int(5) NOT NULL,
+				datetime bigint(8) UNSIGNED NOT NULL,
+				PRIMARY KEY  (id)
+			) ENGINE=MyISAM CHARACTER SET utf8 COLLATE utf8_general_ci";
+		$result = $wpdb->query($sql);
+	}
 
 	/* Upgrade to new shiny db collation. Since WP 4.2 */
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -61,34 +68,7 @@ function install_gwolle_gb() {
 		maybe_convert_table_to_utf8mb4( $wpdb->gwolle_gb_log );
 	}
 
-	//	Add Akismet option
-	add_option('gwolle_gb-akismet-active', 'false');
-
-	//	Add moderation option
-	add_option('gwolle_gb-moderate-entries', 'true');
-
-	//	Add icon option
-	add_option('gwolle_gb-showEntryIcons', 'true');
-
-	//	Add option for the admin mail content (can then be defined by the user)
-	add_option('gwolle_gb-adminMailContent', '');
-
-	// Add entries per page option
-	add_option('gwolle_gb-entries_per_page', '20');
-
-	//	Add entries per page option
-	add_option('gwolle_gb-entriesPerPage', '20');
-
-	//	Add option to toggle the visibility of line breaks
-	add_option('gwolle_gb-showLineBreaks', 'false');
-
-	//  Add option to toggle replacing of smilies with graphics.
-	add_option('gwolle_gb-showSmilies', 'true');
-
-	//  Add option to toogle linking of author's website
-	add_option('gwolle_gb-linkAuthorWebsite', 'true');
-
-	//	Save plugin version to database
+	// Save plugin version to database
 	add_option('gwolle_gb_version', GWOLLE_GB_VER);
 
 	// Call flush_rules() as a method of the $wp_rewrite object for the RSS Feed.
@@ -97,13 +77,13 @@ function install_gwolle_gb() {
 }
 
 
-function uninstall_gwolle_gb() {
+function gwolle_gb_uninstall() {
 	// Delete the plugin's tables
 	global $wpdb;
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_log . "");
 	$wpdb->query("DROP TABLE " . $wpdb->gwolle_gb_entries . "");
 
-	// Delete the plugin's preferences and version-no in the wp-options table
+	// Delete the plugin's preferences and version-nr in the wp-options table
 	$wpdb->query("
 			DELETE
 				FROM " . $wpdb->prefix . "options
@@ -116,7 +96,7 @@ function uninstall_gwolle_gb() {
 }
 
 
-function upgrade_gwolle_gb() {
+function gwolle_gb_upgrade() {
 	global $wpdb;
 	$installed_ver = get_option('gwolle_gb_version');
 
@@ -454,7 +434,7 @@ function upgrade_gwolle_gb() {
 	if (version_compare($installed_ver, '1.4.3', '<')) {
 		/*
 		 * 1.4.2->1.4.3
-		 * Add datetime field to database and fill it from the date column.
+		 * Remove date field from database.
 		 */
 		$wpdb->query( "
 			ALTER TABLE $wpdb->gwolle_gb_entries DROP COLUMN `date`;
@@ -468,7 +448,7 @@ function upgrade_gwolle_gb() {
 	if (version_compare($installed_ver, '1.4.8', '<')) {
 		/*
 		 * 1.4.7->1.4.8
-		 * Add datetime field to database and fill it from the date column.
+		 * Add admin_reply and admin_reply_uid field to database.
 		 */
 		$wpdb->query( "
 			ALTER TABLE $wpdb->gwolle_gb_entries ADD `admin_reply` LONGTEXT NOT NULL AFTER `isspam`;
@@ -477,6 +457,17 @@ function upgrade_gwolle_gb() {
 			ALTER TABLE $wpdb->gwolle_gb_entries ADD `admin_reply_uid` INT(5) NOT NULL AFTER `admin_reply`;
 		");
 	}
+
+	if (version_compare($installed_ver, '1.5.1', '<')) {
+		/*
+		 * 1.5.0->1.5.1
+		 * Add book_id field to database and fill it with value '1'.
+		 */
+			$wpdb->query( "
+			ALTER TABLE $wpdb->gwolle_gb_entries ADD `book_id` INT(8) UNSIGNED NOT NULL default '1' AFTER `admin_reply_uid`;
+		");
+	}
+
 
 	/* Upgrade to new shiny db collation. Since WP 4.2 */
 	require_once(ABSPATH . 'wp-admin/includes/upgrade.php');

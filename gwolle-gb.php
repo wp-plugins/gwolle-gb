@@ -3,11 +3,11 @@
 Plugin Name: Gwolle Guestbook
 Plugin URI: http://zenoweb.nl
 Description: Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.
-Version: 1.4.8
+Version: 1.5.4
 Author: Marcel Pol
 Author URI: http://zenoweb.nl
 License: GPLv2 or later
-Text Domain: GWGB
+Text Domain: gwolle-gb
 Domain Path: /lang/
 */
 
@@ -31,14 +31,19 @@ Domain Path: /lang/
 
 
 // Plugin Version
-define('GWOLLE_GB_VER', '1.4.8');
+define('GWOLLE_GB_VER', '1.5.4');
 
 
 /*
- * FIXME: add things to title and description for SEO
- * https://wordpress.org/support/topic/seo-optimization-4?replies=2#post-6532654
- * Title meta that looks like: title tag - page number
- * Description meta, one message of the page would be perfect.
+ * Todo List:
+ *
+ * - Entries Admin page, make columns sortable, add order parameters to get* functions.
+ * - Fix Emoji for Admin_reply.
+ * - When setting a max words for reading an entry, add a Readmore link with a JS event.
+ * - Do AJAX the proper way for CAPTCHA check.
+ * - Meta Key also saves the book_id, so we can use that in the links to the right guestbook.
+ * - Fix leftover pagination issues.
+ *
  */
 
 
@@ -46,10 +51,7 @@ define('GWOLLE_GB_VER', '1.4.8');
  * Definitions
  */
 define('GWOLLE_GB_FOLDER', plugin_basename(dirname(__FILE__)));
-define('GWOLLE_GB_URL', WP_PLUGIN_URL . '/' . GWOLLE_GB_FOLDER);
 define('GWOLLE_GB_DIR', WP_PLUGIN_DIR . '/' . GWOLLE_GB_FOLDER);
-// Textdomain for translation
-define('GWOLLE_GB_TEXTDOMAIN', 'GWGB');
 
 
 global $wpdb;
@@ -63,6 +65,7 @@ $wpdb->gwolle_gb_log = $wpdb->prefix . 'gwolle_gb_log';
 include_once( GWOLLE_GB_DIR . '/functions/class-entry.php' );
 
 // Functions for the frontend
+include_once( GWOLLE_GB_DIR . '/frontend/captcha-ajax.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/index.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/pagination.php' );
 include_once( GWOLLE_GB_DIR . '/frontend/posthandling.php' );
@@ -112,14 +115,28 @@ include_once( GWOLLE_GB_DIR . '/admin/dashboard-widget.php' );
 /*
  * Trigger an install/upgrade function when the plugin is activated.
  */
+function gwolle_gb_activation( $networkwide ) {
+	global $wpdb;
 
-function gwolle_gb_activation() {
 	$current_version = get_option( 'gwolle_gb_version' );
 
-	if ( $current_version == false ) {
-		install_gwolle_gb();
-	} elseif ($current_version != GWOLLE_GB_VER) {
-		upgrade_gwolle_gb();
+	if ( function_exists('is_multisite') && is_multisite() ) {
+		$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+		foreach ($blogids as $blog_id) {
+			switch_to_blog($blog_id);
+			if ( $current_version == false ) {
+				gwolle_gb_install();
+			} elseif ($current_version != GWOLLE_GB_VER) {
+				gwolle_gb_upgrade();
+			}
+			restore_current_blog();
+		}
+	} else {
+		if ( $current_version == false ) {
+			gwolle_gb_install();
+		} elseif ($current_version != GWOLLE_GB_VER) {
+			gwolle_gb_upgrade();
+		}
 	}
 }
 register_activation_hook(__FILE__, 'gwolle_gb_activation');
@@ -127,6 +144,6 @@ register_activation_hook(__FILE__, 'gwolle_gb_activation');
 
 /* Translate Description */
 function gwolle_gb_description() {
-	$var = __( "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.", GWOLLE_GB_TEXTDOMAIN );
-	$var = __( "Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.", GWOLLE_GB_TEXTDOMAIN );
+	$var = __( "Gwolle Guestbook is not just another guestbook for WordPress. The goal is to provide an easy and slim way to integrate a guestbook into your WordPress powered site. Don't use your 'comment' section the wrong way - install Gwolle Guestbook and have a real guestbook.", 'gwolle-gb' );
+	$var = __( "Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.", 'gwolle-gb' );
 }

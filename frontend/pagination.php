@@ -20,7 +20,7 @@ function gwolle_gb_pagination_frontend( $pageNum, $countPages ) {
 
 	$pagination = '<div class="page-navigation">';
 	if ($pageNum > 1) {
-		$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum - 1), $permalink ) . '" title="' . __('Previous page', GWOLLE_GB_TEXTDOMAIN) . '">&laquo;</a>';
+		$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum - 1), $permalink ) . '" title="' . __('Previous page', 'gwolle-gb') . '">&laquo;</a>';
 	}
 	if ($pageNum < 5) {
 		if ($countPages < 5) {
@@ -33,7 +33,7 @@ function gwolle_gb_pagination_frontend( $pageNum, $countPages ) {
 			if ($i == $pageNum) {
 				$pagination .= '<span>' . $i . '</span>';
 			} else {
-				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
+				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', 'gwolle-gb') . " " . $i . '">' . $i . '</a>';
 			}
 		}
 
@@ -41,13 +41,13 @@ function gwolle_gb_pagination_frontend( $pageNum, $countPages ) {
 			if ( $countPages > 7 && ($pageNum + 3) < $countPages ) {
 				$pagination .= '<span class="page-numbers dots">...</span>';
 			}
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
+			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', 'gwolle-gb') . " " . $countPages . '">' . $countPages . '</a>';
 		}
 		if ($pageNum < $countPages) {
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
+			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', 'gwolle-gb') . '">&raquo;</a>';
 		}
 	} elseif ($pageNum >= 5) {
-		$pagination .= '<a href="' . add_query_arg( 'pageNum', 1, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . ' 1">1</a>';
+		$pagination .= '<a href="' . add_query_arg( 'pageNum', 1, $permalink ) . '" title="' . __('Page', 'gwolle-gb') . ' 1">1</a>';
 		if ( ($pageNum - 4) > 1) {
 			$pagination .= '<span class="page-numbers dots">...</span>';
 		}
@@ -62,7 +62,7 @@ function gwolle_gb_pagination_frontend( $pageNum, $countPages ) {
 			if ($i == $pageNum) {
 				$pagination .= '<span>' . $i . '</span>';
 			} else {
-				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $i . '">' . $i . '</a>';
+				$pagination .= '<a href="' . add_query_arg( 'pageNum', $i, $permalink ) . '" title="' . __('Page', 'gwolle-gb') . " " . $i . '">' . $i . '</a>';
 			}
 		}
 		if ($pageNum == $countPages) {
@@ -73,16 +73,16 @@ function gwolle_gb_pagination_frontend( $pageNum, $countPages ) {
 			if ( ($pageNum + 3) < $countPages ) {
 				$pagination .= '<span class="page-numbers dots">...</span>';
 			}
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', GWOLLE_GB_TEXTDOMAIN) . " " . $countPages . '">' . $countPages . '</a>';
-			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', GWOLLE_GB_TEXTDOMAIN) . '">&raquo;</a>';
+			$pagination .= '<a href="' . add_query_arg( 'pageNum', $countPages, $permalink ) . '" title="' . __('Page', 'gwolle-gb') . " " . $countPages . '">' . $countPages . '</a>';
+			$pagination .= '<a href="' . add_query_arg( 'pageNum', round($pageNum + 1), $permalink ) . '" title="' . __('Next page', 'gwolle-gb') . '">&raquo;</a>';
 		}
 	}
 	// 'All' link
 	if ( $countPages >= 2 && get_option( 'gwolle_gb-paginate_all', 'false' ) === 'true' ) {
 		if ( isset($_GET['show_all']) && $_GET['show_all'] == 'true' ) {
-			$pagination .= '<span>' . __('All', GWOLLE_GB_TEXTDOMAIN) . '</span>';
+			$pagination .= '<span>' . __('All', 'gwolle-gb') . '</span>';
 		} else {
-			$pagination .= '<a href="' . add_query_arg( 'show_all', 'true', $permalink ) . '" title="' . __('All entries', GWOLLE_GB_TEXTDOMAIN) . '">' . __('All', GWOLLE_GB_TEXTDOMAIN) . '</a>';
+			$pagination .= '<a href="' . add_query_arg( 'show_all', 'true', $permalink ) . '" title="' . __('All entries', 'gwolle-gb') . '">' . __('All', 'gwolle-gb') . '</a>';
 		}
 	}
 

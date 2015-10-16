@@ -36,7 +36,7 @@ function gwolle_gb_frontend_posthandling() {
 		// Option to allow only logged-in users to post. Don't show the form if not logged-in.
 		if ( !is_user_logged_in() && get_option('gwolle_gb-require_login', 'false') == 'true' ) {
 			$gwolle_gb_errors = true;
-			$gwolle_gb_messages .= '<p class="require_login"><strong>' . __('Submitting a new guestbook entry is only allowed for logged-in users.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+			$gwolle_gb_messages .= '<p class="require_login"><strong>' . __('Submitting a new guestbook entry is only allowed for logged-in users.', 'gwolle-gb') . '</strong></p>';
 			return;
 		}
 
@@ -100,6 +100,10 @@ function gwolle_gb_frontend_posthandling() {
 					$gwolle_gb_errors = true;
 					$gwolle_gb_error_fields[] = 'author_email'; // mandatory
 				}
+			}
+		} else {
+			if (isset($_POST['gwolle_gb_author_email'])) {
+				$gwolle_gb_data['author_email'] = trim($_POST['gwolle_gb_author_email']);
 			}
 		}
 
@@ -192,31 +196,31 @@ function gwolle_gb_frontend_posthandling() {
 		/* If there are errors, stop here and return false */
 		if ( is_array( $gwolle_gb_error_fields ) && !empty( $gwolle_gb_error_fields ) ) {
 			// There was no data filled in, even though that was mandatory.
-			$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There were errors submitting your guestbook entry.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+			$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There were errors submitting your guestbook entry.', 'gwolle-gb') . '</strong></p>';
 
 			if ( isset($gwolle_gb_error_fields) ) {
 				foreach ( $gwolle_gb_error_fields as $field ) {
 					switch ( $field ) {
 						case 'name':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your name is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your name is not filled in, even though it is mandatory.', 'gwolle-gb') . '</strong></p>';
 							break;
 						case 'author_origin':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your origin is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your origin is not filled in, even though it is mandatory.', 'gwolle-gb') . '</strong></p>';
 							break;
 						case 'author_email':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your e-mail address is not filled in correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your e-mail address is not filled in correctly, even though it is mandatory.', 'gwolle-gb') . '</strong></p>';
 							break;
 						case 'author_website':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your website is not filled in, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('Your website is not filled in, even though it is mandatory.', 'gwolle-gb') . '</strong></p>';
 							break;
 						case 'content':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There is no message, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('There is no message, even though it is mandatory.', 'gwolle-gb') . '</strong></p>';
 							break;
 						case 'antispam':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The anti-spam question was not answered correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The anti-spam question was not answered correctly, even though it is mandatory.', 'gwolle-gb') . '</strong></p>';
 							break;
 						case 'captcha':
-							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The CAPTCHA was not filled in correctly, even though it is mandatory.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+							$gwolle_gb_messages .= '<p class="error_fields"><strong>' . __('The CAPTCHA was not filled in correctly, even though it is mandatory.', 'gwolle-gb') . '</strong></p>';
 							break;
 					}
 				}
@@ -235,7 +239,7 @@ function gwolle_gb_frontend_posthandling() {
 		if ( !$set_data ) {
 			// Data is not set in the Instance, something happened
 			$gwolle_gb_errors = true;
-			$gwolle_gb_messages .= '<p class="set_data"><strong>' . __('There were errors submitting your guestbook entry.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+			$gwolle_gb_messages .= '<p class="set_data"><strong>' . __('There were errors submitting your guestbook entry.', 'gwolle-gb') . '</strong></p>';
 			return false;
 		}
 
@@ -246,7 +250,7 @@ function gwolle_gb_frontend_posthandling() {
 			// Returned true, so considered spam
 			$entry->set_isspam(true);
 			// Is it wise to make them any wiser? Probably not...
-			// $gwolle_gb_messages .= '<p><strong>' . __('Your guestbook entry is probably spam. A moderator will decide upon it.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+			// $gwolle_gb_messages .= '<p><strong>' . __('Your guestbook entry is probably spam. A moderator will decide upon it.', 'gwolle-gb') . '</strong></p>';
 		}
 
 
@@ -295,6 +299,18 @@ function gwolle_gb_frontend_posthandling() {
 
 
 		/*
+		 * Book ID
+		 */
+		if ( isset( $_POST['gwolle_gb_book_id'] ) ) {
+			$gwolle_gb_data['book_id'] = (int) $_POST['gwolle_gb_book_id'];
+		}
+		if ( $gwolle_gb_data['book_id'] < 1 ) {
+			$gwolle_gb_data['book_id'] = 1;
+		}
+		$entry->set_book_id( $gwolle_gb_data['book_id'] );
+
+
+		/*
 		 * Check for double post using email field and content.
 		 * Only if content is mandatory.
 		 */
@@ -307,7 +323,7 @@ function gwolle_gb_frontend_posthandling() {
 					if ( $entry_email->get_content() == $entry->get_content() ) {
 						// Match is double entry
 						$gwolle_gb_errors = true;
-						$gwolle_gb_messages .= '<p class="double_post"><strong>' . __('Double post: An entry with the data you entered has already been saved.', GWOLLE_GB_TEXTDOMAIN) . '</strong></p>';
+						$gwolle_gb_messages .= '<p class="double_post"><strong>' . __('Double post: An entry with the data you entered has already been saved.', 'gwolle-gb') . '</strong></p>';
 						return false;
 					}
 				}
@@ -323,9 +339,9 @@ function gwolle_gb_frontend_posthandling() {
 		//if ( WP_DEBUG ) { echo "save: "; var_dump($save); }
 		if ( $save ) {
 			// We have been saved to the Database
-			$gwolle_gb_messages .= '<p class="entry_saved">' . __('Thank you for your entry.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
+			$gwolle_gb_messages .= '<p class="entry_saved">' . __('Thank you for your entry.','gwolle-gb') . '</p>';
 			if ( $entry->get_ischecked() == 0 ) {
-				$gwolle_gb_messages .= '<p>' . __('We will review it and unlock it in a short while.',GWOLLE_GB_TEXTDOMAIN) . '</p>';
+				$gwolle_gb_messages .= '<p>' . __('We will review it and unlock it in a short while.','gwolle-gb') . '</p>';
 			}
 		}
 

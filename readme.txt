@@ -1,9 +1,9 @@
 === Gwolle Guestbook ===
 Contributors: Gwolle, mpol
 Tags: guestbook, guest book, comments, feedback, antispam, review, gastenboek, livre d'or, Gästebuch, libro de visitas, livro de visitas
-Requires at least: 3.4
-Tested up to: 4.3
-Stable tag: 1.4.8
+Requires at least: 3.7
+Tested up to: 4.4
+Stable tag: 1.5.4
 License: GPLv2 or later
 
 Gwolle Guestbook is the WordPress guestbook you've just been looking for. Beautiful and easy.
@@ -22,17 +22,20 @@ Current features include:
 * Easy to use guestbook frontend with a simple form for visitors of your website.
 * Widget to display your last or your best entries.
 * Simple and clean admin interface that integrates seamlessly into WordPress admin.
-* Dashboard Widget to easily manage the latest entries from your Admin dashboard.
-* Easy import from other guestbooks into Gwolle Guestbook.
+* Dashboard Widget to easily manage the latest entries from your Admin Dashboard.
+* Easy Import from other guestbooks into Gwolle Guestbook.
 * Notification by mail when a new entry has been posted.
 * Moderation, so that you can check an entry before it is visible in your guestbook (all optional).
 * Akismet integration for fighting spam.
 * Custom Anti-Spam question for fighting spam, too.
 * CAPTCHA integration for fighting spam, as well.
 * Simple Form Builder to select which form-fields you want to use.
-* Option List with the parts of each entry that you want to show.
-* Localization. Own languages can be added very easily, so please send po-files to marcel at timelord.nl.
+* Simple Entry Builder with the parts of each entry that you want to show.
+* Multiple guestbooks are possible.
+* MultiSite is supported.
+* Localization. Own languages can be added very easily through [GlotPress](https://translate.wordpress.org/projects/wp-plugins/gwolle-gb).
 * Different-styled admin entries, so that the visitor can tell which entry is written by the 'real admin' (optional).
+* Admins can add a reply to each entry.
 * A log for each entry, so that you know which member of the staff released and edited a guestbook-entry to the public and when.
 * IP-address and host-logging with link to WHOIS query site.
 * RSS Feed.
@@ -54,9 +57,6 @@ Import is supported from:
 * Gwolle Guestbook itself, with Export supported as well (CSV-file).
 
 
-> Please note: Gwolle Guestbook does *not* work with WordPress MultiSite.
-
-
 = Languages =
 
 * Bulgarian, bg_BG, Kostadin Petrichkov
@@ -68,6 +68,7 @@ Import is supported from:
 * Finnish, fi, Ilkka Kivelä and Timo Hintsa
 * French, fr_FR, [Charles-Aurélien PONCET](http://www.brie-informatique.com/) and [Florence Bourmault-Gohin](http://www.mon-coin-de-bourgogne.fr)
 * Italian, it_IT, Mariachiara Corradini
+* Norwegian Bokmål, nb_NO, Bjørn Inge Vårvik
 * Dutch, nl_NL, [Marcel Pol](http://zenoweb.nl)
 * Polish, pl_PL, Andrzej Sobaniec
 * Portuguese, pt_BR, [Alexandre Rocha](http://alexandre-rocha.com)
@@ -77,7 +78,7 @@ Import is supported from:
 * Swedish, sv_SE, [Roffe Bentsen](http://macodesign.se)
 * Traditional Chinese, zh_TW, Chun-I Lee
 
-Other languages can be added very easily, so please send po-files to marcel at timelord.nl.
+Other languages can be added very easily through [GlotPress](https://translate.wordpress.org/projects/wp-plugins/gwolle-gb).
 
 
 = Demo =
@@ -101,29 +102,15 @@ It couldn't be easier.
 
 With version 1.0 there have been some changes:
 
-* Gwolle Guestbook uses the Shortcode API now. Make sure your Guestbook page uses [gwolle_gb] instead of the old one.
+* Gwolle Guestbook uses the Shortcode API now. Make sure your Guestbook page uses '[gwolle_gb]' instead of the old one.
 * The entries that are visible to visitors have changed. Make sure to check if you have everything
   visible that you want and nothing more.
 * CSS has changed somewhat. If you have custom CSS, you want to check if it still applies.
 
-If you have a feature request please use the forum on WordPress.org.
+= License =
 
-= Licence =
-
-The plugin itself is released under the GNU General Public License; a copy of this licence can be found at the licence homepage or
+The plugin itself is released under the GNU General Public License. A copy of this license can be found at the license homepage or
 in the gwolle-gb.php file at the top.
-
-= Coming Soon =
-
-These features are planned. There is no particular timeframe or order for when it will be added.
-If you do have a feature request, please post it on the support forum.
-
-* More translations (send them in).
-* Frontend: Add option to show only one entry with $_GET entry_id (use no-follow links).
-* Frontend: HTML5 markup.
-* Widget: Add option to not show admin entries.
-* Widget: Add option to select number of words.
-* SEO: Add title and desc of first entry to SEO meta in html (probably with javascript).
 
 = API, add an entry =
 
@@ -157,6 +144,7 @@ The Array $args can have the following key/values:
 * isspam, bool if it is spam or not.
 * admin_reply, string with content of the admin reply message.
 * admin_reply_uid, id with the WordPress user ID of the author of the admin_reply.
+* book_id, int with the Book ID of that entry, default is 1.
 
 = Filter an entry on the frontend =
 
@@ -282,6 +270,10 @@ Make sure you use UNIX line-endings. Any decent text-editor can transform a text
 
 == Frequently Asked Questions ==
 
+= How do I get people to post messages in my guestbook? =
+
+You could start by writing the first entry yourself, and invite people to leave a message.
+
 = Which entries are visible on the Frontend? =
 
 Starting with version 1.0, the following entries are listed on the Frontend:
@@ -311,8 +303,25 @@ You can also use a CAPTCHA. It might scare off some visitors, though.
 The CAPTCHA uses the one provided by the [Really Simple Captcha plugin](https://wordpress.org/plugins/really-simple-captcha/).
 Please install and activate that plugin.
 
-If it still doesn't show, it could be that the plugin has no write permission in the /tmp folder of the Really Simple Captcha plugin.
+If it still doesn't show, it could be that the plugin has no write permission in the '/tmp' folder of the Really Simple Captcha plugin.
 Please fix this in your install.
+
+= How can I use Multiple Guestbooks? =
+
+You can add a parameter to the shortcode, like:
+
+	[gwolle_gb book_id="2"]
+
+This will make that page show all the entries in Book ID 2.
+
+If you use the template function, you can use it like this:
+
+	show_gwolle_gb( array('book_id'=>2) );
+
+= With multiple guestbook, how do I keep track? =
+
+There is no need to use id's that are incrementing. If you have a lot of guestbooks on lots of pages,
+you can just use the id of the post as the id of the guestbook. That way you won't have double id's.
 
 = I don't see the labels in the form. =
 
@@ -344,8 +353,8 @@ If it still doesn't work, request the maillog at your hosting provider, or ask i
 
 = I want to show the form and the list on different pages =
 
-There are different shortcodes that you can use. Instead of the [gwolle_gb] shortcode, you can use [gwolle_gb_write] for just the form,
-and [gwolle_gb_read] for the list of entries.
+There are different shortcodes that you can use. Instead of the '[gwolle_gb]' shortcode, you can use '[gwolle_gb_write]' for just the form,
+and '[gwolle_gb_read]' for the list of entries.
 
 = Moderation is enabled, but my entry is marked as checked =
 
@@ -382,7 +391,7 @@ For managing options you need the capability 'manage_options'.
 
 = Can I override a template? =
 
-You can look at frontend/gwolle_gb-entry.php, and copy it to your theme folder. Then it will be loaded by the plugin.
+You can look at 'frontend/gwolle_gb-entry.php', and copy it to your theme folder. Then it will be loaded by the plugin.
 Make sure you keep track of changes in the default templatefile though.
 
 = Should I really not use WordPress comments for a guestbook? =
@@ -391,32 +400,85 @@ Sure you can if you want to. In my personal opinion however it can be a good thi
 So if you already have a blog with comments, the guestbook entries might get lost in there, and keeping a separate guestbook can be good.
 But if you don't use standard comments, you can just as easily use the comment section for a guestbook.
 
-= How do I localize a plugin? =
-
-A good start to learn about localization and WP plugins is the guide "Localizing a WordPress plugin using poEdit" (http://weblogtoolscollection.com/archives/2007/08/27/localizing-a-wordpress-plugin-using-poedit/)
-and also the WordPress documentation. When you made a translation, you can send the po-file to marcel at timelord.nl.
-
 
 == Screenshots ==
 
-1. Frontend view of the list of guestbook entries. On top the button that will show the form when clicked. Then pagination. Then the list of entries.
-2. Dashboard widget with new and unchecked entries.
-3. Main page with the overview panel, so that you easily can see what's the overall status.
-2. List of guestbook entries. The icons display the status of an entry.
-3. The editor for a single entry. The Actions are using AJAX. There is a log of each entry what happened to this entry.
-4. Settings panel. This is the first tab where you can select which parts of the form to show and use.
+1. Frontend View of the list of guestbook entries. On top the button that will show the form when clicked. Then pagination. Then the list of entries.
+2. Widget with different options.
+3. Main Admin Page with the overview panel, so that you easily can see what's the overall status.
+4. List of guestbook entries. The icons display the status of an entry.
+5. The Editor for a single entry. The Actions are using AJAX. There is a log of each entry what happened to this entry.
+6. Settings Page. This is the first tab where you can select which parts of the form to show and use.
+7. Dashboard Widget with new and unchecked entries.
 
 
 == Changelog ==
 
+= 1.5.4 =
+* 2015-10-15
+* Security fix: Use AJAX the proper way for CAPTCHA check (thanks htbridge.ch).
+* Translations moved to GlotPress.
+* Support Shortcode UI.
+* Properly enqueue frontend JavaScript.
+* Use plugins_url() for admin enqueue.
+* Don't use WP_PLUGIN_URL and GWOLLE_GB_URL anymore.
+
+= 1.5.3 =
+* 2015-10-01
+* When email is disabled, save it anyway when user is logged in.
+* Add nb_NO (thanks Bjørn Inge Vårvik).
+* Update ru_RU.
+
+= 1.5.2 =
+* 2015-09-15
+* First stab at supporting MultiSite.
+* When deleting an entry on the Editor page, start with a clean slate.
+* On Entries page, give Book ID its own column.
+* Do not cache page when using a Captcha.
+* Admin Enqueue moved to its own function and action.
+* Only toggle our own postboxes.
+* Update pot, nl_NL, zh_TW.
+
+= 1.5.1 =
+* 2015-09-14
+* Support Multiple Guestbooks.
+* Add book_id field to database and class-entry, default is book_id 1.
+* Add parameter book_id to shortcodes.
+* Add parameter book_id to get_entries and get_entry_count functions.
+* Show and Edit book_id on Admin Editor.
+* Add icons for book_id and admin_reply, add title attributes.
+* Don't show so much metadata on unpublished entry.
+* Fix link to entry in moderation mail.
+* Add notice for using CAPTCHA with a caching plugin.
+* No need to add options on install, we have defaults for that.
+* Rename install/upgrade functions.
+* Test if db tables exist, before adding them.
+* Update pot, nl_NL, ru_RU.
+
+= 1.5.0 =
+* 2015-09-10
+* Only support WordPress 3.7+, since they really are supported.
+* Add option for widget to not show admin entries.
+* When saving an entry, reset author_id and checkedby for non-existent users.
+* Add action for deleted_user to reset author_id (and maybe checkedby).
+* Add parameter author_id to gwolle_gb_get_entries function.
+* Add parameter no_moderators to gwolle_gb_get_entries function.
+* Add function gwolle_gb_get_moderators.
+* Update pot, nl_NL, ru_RU.
+
 = 1.4.9 =
-* 2015-
+* 2015-09-09
+* Add HTML5 Markup.
 * Use content_url() for the Captcha (thanks harald.reingruber).
 * Rename class and function files to WP standards.
 * Move mail functions to own file.
 * Add permalink of guestbook to mails.
-* Add mail to author on Admin Reply.
-* Update de_DE.
+* Add mail to author on Admin Reply with option on editor page.
+* Translate BBcode icontext with wp_localize_script.
+* Add Emoji to Admin Editor.
+* Add number of unchecked entries to admin bar, if > 0.
+* Change text-domain to slug.
+* Update pot, de_DE, nl_NL.
 
 = 1.4.8 =
 * 2015-08-27
