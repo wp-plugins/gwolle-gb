@@ -79,7 +79,9 @@ Import is supported from:
 * Traditional Chinese, zh_TW, Chun-I Lee
 
 Other languages can be added very easily through [GlotPress](https://translate.wordpress.org/projects/wp-plugins/gwolle-gb).
-
+You can start translating strings there for your locale. They need to be validated though, so if there's no validator yet,
+and you want to apply for being validator, please post it on the support forum. I will make a request on make/polyglots to
+have you added as validator for this plugin/locale.
 
 = Demo =
 
@@ -393,6 +395,13 @@ For managing options you need the capability 'manage_options'.
 
 You can look at 'frontend/gwolle_gb-entry.php', and copy it to your theme folder. Then it will be loaded by the plugin.
 Make sure you keep track of changes in the default templatefile though.
+
+= What hooks are available? =
+
+On the Installation page for this plugin you can see a list of the available filters and actions. There are examples available.
+
+If you need additional hooks, please leave some feedback on the support forum. This plugin has some hooks available, but it is in need of more
+feedback on providing better hooks for real world usecases.
 
 = Should I really not use WordPress comments for a guestbook? =
 
